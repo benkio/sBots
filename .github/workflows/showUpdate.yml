@@ -35,20 +35,21 @@ jobs:
       run: sed -i 's!run-show-caption-fetching = false!run-show-caption-fetching = true!' /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/application.conf
     - name: Set Youtube API
       run: printf '${{ secrets.YOUTUBE_API_KEY }}' > /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/youTubeApiKey.token
-    - name: Run Fetch
-      run: sbt botDB/run
+    - name: Run dbSetup
+      run: sbt dbSetup
     - name: Revert Config Changes
       run: |
         git restore /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/application.conf
         git restore /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/youTubeApiKey.token
+        git rm /home/runner/work/sBots/sBots/modules/botDB/botDB.sqlite3
     - name: Check for changes
       id: check_changes
       run: |
-        if [[ -z $(git diff --name-only | grep -v '^botDB\.sqlite3$') ]]; then
-          echo "No changes detected (excluding botDB.sqlite3)"
+        if [[ -z "$(git status --porcelain)" ]]; then
+          echo "No changes detected"
           echo "has_changes=false" >> $GITHUB_OUTPUT
         else
-          echo "Changes detected (excluding botDB.sqlite3)"
+          echo "Changes detected"
           echo "has_changes=true" >> $GITHUB_OUTPUT
         fi
     - name: Create PR
