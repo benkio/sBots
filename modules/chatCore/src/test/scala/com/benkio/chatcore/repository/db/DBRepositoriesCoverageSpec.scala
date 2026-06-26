@@ -129,7 +129,8 @@ class DBRepositoriesCoverageSpec extends CatsEffectSuite {
           show_duration = 123,
           show_description = Some("a description"),
           show_is_live = false,
-          show_origin_automatic_caption = Some("caption hello")
+          show_origin_automatic_caption = Some("caption hello"),
+          show_origin_automatic_caption_srt = Some("""{"00:00:00,000":"caption hello"}""")
         )
 
       for {

@@ -4,7 +4,7 @@ import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits.*
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.conversions.Json.decodeStringToJson
+import com.benkio.chatcore.conversions.JsonConversions.decodeStringToJson
 import com.benkio.chatcore.model.media.MediaFileSource
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyBundleCommand

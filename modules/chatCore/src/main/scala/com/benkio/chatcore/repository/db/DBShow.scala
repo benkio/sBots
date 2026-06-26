@@ -2,6 +2,7 @@ package com.benkio.chatcore.repository.db
 
 import cats.effect.Async
 import cats.implicits.*
+import com.benkio.chatcore.conversions.JsonConversions.SrtDecoder.given
 import com.benkio.chatcore.model.show.RandomQuery
 import com.benkio.chatcore.model.show.Show
 import com.benkio.chatcore.model.show.ShowQuery
@@ -12,6 +13,7 @@ import doobie.*
 import doobie.implicits.*
 import io.circe.*
 import io.circe.generic.semiauto.*
+import io.circe.syntax.*
 import log.effect.LogWriter
 
 import java.time.format.DateTimeFormatter
@@ -24,7 +26,8 @@ final case class DBShowData(
     show_duration: Int,
     show_description: Option[String],
     show_is_live: Boolean,
-    show_origin_automatic_caption: Option[String]
+    show_origin_automatic_caption: Option[String],
+    show_origin_automatic_caption_srt: Option[String]
 )
 
 object DBShowData {
@@ -41,7 +44,8 @@ object DBShowData {
     show_duration = show.duration,
     show_description = show.description,
     show_is_live = show.isLive,
-    show_origin_automatic_caption = show.originAutomaticCaption
+    show_origin_automatic_caption = show.originAutomaticCaption,
+    show_origin_automatic_caption_srt = show.originAutomaticCaptionSrt.asJson.noSpaces.some
   )
 }
 

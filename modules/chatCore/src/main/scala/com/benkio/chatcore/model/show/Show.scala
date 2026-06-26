@@ -7,6 +7,7 @@ import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBShowData
 
 import java.time.LocalDate
+import scala.concurrent.duration.FiniteDuration
 import scala.util.Try
 
 final case class Show(
@@ -17,7 +18,8 @@ final case class Show(
     duration: Int,
     description: Option[String],
     isLive: Boolean,
-    originAutomaticCaption: Option[String]
+    originAutomaticCaption: Option[String],
+    originAutomaticCaptionSrt: Map[FiniteDuration, String]
 )
 
 object Show {
@@ -35,7 +37,8 @@ object Show {
     duration = dbShow.show_duration,
     description = dbShow.show_description,
     isLive = dbShow.show_is_live,
-    originAutomaticCaption = dbShow.show_origin_automatic_caption
+    originAutomaticCaption = dbShow.show_origin_automatic_caption,
+    originAutomaticCaptionSrt = ??? // dbShow.show_origin_automatic_caption_srt
   )
 
   given showInstance: CatsShow[Show] =
