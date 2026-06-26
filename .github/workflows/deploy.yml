@@ -60,6 +60,6 @@ jobs:
       - name: Update DB
         run: |
           rsync -av -e 'ssh -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/botDB.sqlite3 ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/botDBBase.sqlite3
-          ssh -o StrictHostKeyChecking=no -n -f ubuntu@${{ secrets.DEPLOY_SERVER_IP }} "sh -c 'cd /home/ubuntu/bots; sqlite3 botDB.sqlite3 < DBMigration.sql; rm botDBBase.sqlite3'"
+          ssh -o StrictHostKeyChecking=no -n -f ubuntu@${{ secrets.DEPLOY_SERVER_IP }} "sh -c 'cd /home/ubuntu/bots; mv botDB.sqlite3 botDBProdOld.sqlite3; sqlite3 botDBBase.sqlite3 < DBMigration.sql; mv botDBBase.sqlite3 botDB.sqlite3; rm botDBProdOld.sqlite3'"
       - name: Restart Bots
         run: ssh -o StrictHostKeyChecking=no -n -f ubuntu@${{ secrets.DEPLOY_SERVER_IP }} "sh -c 'cd /home/ubuntu/bots; nohup java -cp main.jar com.benkio.main.MainWebhook > /dev/null 2>&1 &'"

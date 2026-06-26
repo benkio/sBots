@@ -1,21 +1,34 @@
-ATTACH DATABASE 'botDB.sqlite3' AS prodDB;
-ATTACH DATABASE 'botDBBase.sqlite3' AS baseDB;
+ATTACH DATABASE 'botDBProdOld.sqlite3' AS prodDB;
 
-UPDATE baseDB.media
+-- Main database is botDBBase.sqlite3 (latest generated schema).
+-- Keep generated media/show datasets, but preserve media_count from old prod when key matches.
+UPDATE media
 SET media_count = (
-    SELECT media_count
-    FROM prodDB.media
-    WHERE prodDB.media.media_name = baseDB.media.media_name
+    SELECT p.media_count
+    FROM prodDB.media p
+    WHERE p.media_name = media.media_name
 )
 WHERE EXISTS (
-    SELECT 1 FROM prodDB.media WHERE prodDB.media.media_name = baseDB.media.media_name
+    SELECT 1
+    FROM prodDB.media p
+    WHERE p.media_name = media.media_name
 );
 
-DELETE FROM prodDB.media;
-DELETE FROM prodDB.show;
+-- Preserve runtime/operational tables from old prod.
+INSERT OR REPLACE INTO timeout(chat_id, bot_id, timeout_value, last_interaction)
+SELECT chat_id, bot_id, timeout_value, last_interaction
+FROM prodDB.timeout;
 
-INSERT INTO prodDB.media SELECT * FROM baseDB.media;
-INSERT INTO prodDB.show SELECT * FROM baseDB.show;
+INSERT OR REPLACE INTO chat(chat_id, chat_name, chat_url)
+SELECT chat_id, chat_name, chat_url
+FROM prodDB.chat;
+
+INSERT OR REPLACE INTO subscription(subscription_id, chat_id, bot_id, cron, subscribed_at)
+SELECT subscription_id, chat_id, bot_id, cron, subscribed_at
+FROM prodDB.subscription;
+
+INSERT OR REPLACE INTO log(log_time, message)
+SELECT log_time, message
+FROM prodDB.log;
 
 DETACH DATABASE prodDB;
-DETACH DATABASE baseDB;
