@@ -29,7 +29,8 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
       |    "show_duration": 10,
       |    "show_description": "Test Show Description",
       |    "show_is_live": false,
-      |    "show_origin_automatic_caption": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam tristique diam non turpis.  Cras placerat accumsan nulla.  Nullam rutrum.  Nam vestibulum accumsan nisl."
+      |    "show_origin_automatic_caption": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam tristique diam non turpis.  Cras placerat accumsan nulla.  Nullam rutrum.  Nam vestibulum accumsan nisl.",
+      |    "show_origin_automatic_caption_srt": "{\"00:00:01,000\":\"Lorem ipsum dolor sit amet\",\"00:00:03,500\":\"Donec hendrerit tempor tellus\",\"00:00:07,250\":\"Donec pretium posuere tellus\"}"
       |  }""".stripMargin
 
   override def transactor: doobie.Transactor[cats.effect.IO] = {

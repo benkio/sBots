@@ -145,16 +145,16 @@ object DBShow {
   }
 
   def getShowsQuery(botId: SBotId): Query0[DBShowData] =
-    sql"SELECT show_id, bot_id, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show WHERE bot_id = ${botId.value}"
+    sql"SELECT show_id, bot_id, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption, show_origin_automatic_caption_srt FROM show WHERE bot_id = ${botId.value}"
       .query[DBShowData]
 
   def getRandomShowQuery(botId: SBotId): Query0[DBShowData] =
-    sql"SELECT show_id, bot_id, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show WHERE bot_id = ${botId.value} ORDER BY RANDOM() LIMIT 1"
+    sql"SELECT show_id, bot_id, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption, show_origin_automatic_caption_srt FROM show WHERE bot_id = ${botId.value} ORDER BY RANDOM() LIMIT 1"
       .query[DBShowData]
 
   def getShowByShowQueryQuery(query: ShowQuery, botId: SBotId): Query0[DBShowData] = {
     val q =
-      fr"SELECT show_id, bot_id, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show" ++
+      fr"SELECT show_id, bot_id, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption, show_origin_automatic_caption_srt FROM show" ++
         Fragments.whereAnd(
           fr"bot_id = ${botId.value}",
           showQueryToFragments(query)*
@@ -164,7 +164,7 @@ object DBShow {
   }
   def getShowBySimpleShowQueryQuery(query: SimpleShowQuery, botId: SBotId): Query0[DBShowData] = {
     val q =
-      fr"SELECT show_id, bot_id, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption FROM show" ++
+      fr"SELECT show_id, bot_id, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption, show_origin_automatic_caption_srt FROM show" ++
         Fragments.whereAnd(
           fr"bot_id = ${botId.value}",
           Fragments.orOpt(showQueryToFragments(query)).getOrElse(fr"TRUE")
@@ -173,11 +173,11 @@ object DBShow {
     q.query[DBShowData]
   }
   def insertShowQuery(dbShowData: DBShowData): Update0 =
-    sql"INSERT INTO show (show_id, bot_id, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption) VALUES (${dbShowData.show_id}, ${dbShowData.bot_id}, ${dbShowData.show_title}, ${dbShowData.show_upload_date}, ${dbShowData.show_duration}, ${dbShowData.show_description}, ${dbShowData.show_is_live}, ${dbShowData.show_origin_automatic_caption})".update
+    sql"INSERT INTO show (show_id, bot_id, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption, show_origin_automatic_caption_srt) VALUES (${dbShowData.show_id}, ${dbShowData.bot_id}, ${dbShowData.show_title}, ${dbShowData.show_upload_date}, ${dbShowData.show_duration}, ${dbShowData.show_description}, ${dbShowData.show_is_live}, ${dbShowData.show_origin_automatic_caption}, ${dbShowData.show_origin_automatic_caption_srt})".update
 
   def deleteShowQuery(dbShowData: DBShowData): Update0 =
     sql"DELETE FROM show WHERE show_id = ${dbShowData.show_id}".update
 
   def updateOnConflictSql(dbShowData: DBShowData): Update0 =
-    sql"UPDATE show SET bot_id = ${dbShowData.bot_id}, show_title = ${dbShowData.show_title}, show_upload_date = ${dbShowData.show_upload_date}, show_duration = ${dbShowData.show_duration}, show_description = ${dbShowData.show_description}, show_is_live = ${dbShowData.show_is_live}, show_origin_automatic_caption = ${dbShowData.show_origin_automatic_caption} WHERE show_id = ${dbShowData.show_id};".update
+    sql"UPDATE show SET bot_id = ${dbShowData.bot_id}, show_title = ${dbShowData.show_title}, show_upload_date = ${dbShowData.show_upload_date}, show_duration = ${dbShowData.show_duration}, show_description = ${dbShowData.show_description}, show_is_live = ${dbShowData.show_is_live}, show_origin_automatic_caption = ${dbShowData.show_origin_automatic_caption}, show_origin_automatic_caption_srt = ${dbShowData.show_origin_automatic_caption_srt} WHERE show_id = ${dbShowData.show_id};".update
 }

@@ -5,6 +5,7 @@ import io.circe.parser.decode
 import io.circe.Decoder
 import io.circe.Encoder
 import io.circe.Json
+import io.circe.KeyDecoder
 import io.circe.KeyEncoder
 
 import scala.concurrent.duration.*
@@ -56,5 +57,8 @@ object JsonConversions {
 
     implicit val finiteDurationKeyEncoder: KeyEncoder[FiniteDuration] =
       KeyEncoder[String].contramap(finiteDuration => finiteDurationEncoder(finiteDuration).noSpaces)
+
+    implicit val finiteDurationKeyDecoder: KeyDecoder[FiniteDuration] =
+      KeyDecoder.instance(str => finiteDurationDecoder.decodeJson(Json.fromString(str)).toOption)
   }
 }
