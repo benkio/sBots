@@ -6,12 +6,13 @@ import log.effect.LogWriter
 
 import java.nio.file.Files
 import java.nio.file.Path
+import scala.collection.immutable.SortedMap
 import scala.concurrent.duration.*
 import scala.jdk.CollectionConverters.*
 
 trait CaptionParser[F[_]] {
   def parsePlainCaptionSrt(captionPath: Path): F[Option[String]]
-  def parseCaptionSrt(captionPath: Path): F[Map[FiniteDuration, String]]
+  def parseCaptionSrt(captionPath: Path): F[SortedMap[FiniteDuration, String]]
 }
 
 object CaptionParser {
@@ -85,23 +86,23 @@ object CaptionParser {
       )
     }
 
-    override def parseCaptionSrt(captionPath: Path): F[Map[FiniteDuration, String]] = {
-      val extractSrtCaptions: F[Map[FiniteDuration, String]] = for {
+    override def parseCaptionSrt(captionPath: Path): F[SortedMap[FiniteDuration, String]] = {
+      val extractSrtCaptions: F[SortedMap[FiniteDuration, String]] = for {
         lines <- Async[F].delay(Files.readAllLines(captionPath).asScala.toList)
         _     <- LogWriter.info(s"[CaptionParser] Read ${lines.length} lines from $captionPath")
         parsedEntries = parseSrtEntries(lines)
         _ <- LogWriter.info(s"[CaptionParser] Parsed ${parsedEntries.length} SRT entries from $captionPath")
-      } yield parsedEntries.toMap
+      } yield SortedMap.from(parsedEntries)
 
       val program = for {
         _      <- LogWriter.info(s"[CaptionParser] Parse SRT caption file $captionPath")
         exists <- Async[F].delay(Files.exists(captionPath))
-        result <- if !exists then Async[F].pure(Map.empty[FiniteDuration, String]) else extractSrtCaptions
+        result <- if !exists then Async[F].pure(SortedMap.empty[FiniteDuration, String]) else extractSrtCaptions
       } yield result
 
       program.handleErrorWith(e =>
         LogWriter.error(s"[CaptionParser] ❌ Error parsing SRT caption file $captionPath: $e") >>
-          Async[F].pure(Map.empty[FiniteDuration, String])
+          Async[F].pure(SortedMap.empty[FiniteDuration, String])
       )
     }
   }
