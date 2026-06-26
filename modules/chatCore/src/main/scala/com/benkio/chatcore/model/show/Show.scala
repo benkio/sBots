@@ -9,6 +9,7 @@ import com.benkio.chatcore.repository.db.DBShowData
 import io.circe.parser.decode
 
 import java.time.LocalDate
+import scala.collection.immutable.SortedMap
 import scala.concurrent.duration.FiniteDuration
 import scala.util.Try
 
@@ -21,23 +22,26 @@ final case class Show(
     description: Option[String],
     isLive: Boolean,
     originAutomaticCaption: Option[String],
-    originAutomaticCaptionSrt: Map[FiniteDuration, String]
+    originAutomaticCaptionSrt: SortedMap[FiniteDuration, String]
 )
 
 object Show {
+  private given Ordering[FiniteDuration] = Ordering.by(_.toMillis)
+
   def apply[F[_]: MonadThrow](dbShow: DBShowData): F[Show] = for {
     uploadDate <- MonadThrow[F].fromEither(
       Try(
         LocalDate.parse(dbShow.show_upload_date, DBShowData.dateTimeFormatter)
       ).toEither
     )
-    originAutomaticCaptionSrt <- MonadThrow[F].fromEither(
-      dbShow.show_origin_automatic_caption_srt.fold[Either[Throwable, Map[FiniteDuration, String]]](
-        Right(Map.empty[FiniteDuration, String])
-      )(
-        decode[Map[FiniteDuration, String]](_)
-      )
-    )
+    originAutomaticCaptionSrt <- MonadThrow[F].fromEither {
+      if dbShow.show_origin_automatic_caption_srt.trim.isEmpty
+      then Right(SortedMap.empty[FiniteDuration, String])
+      else
+        decode[Map[FiniteDuration, String]](dbShow.show_origin_automatic_caption_srt).map(decodedCaptionMap =>
+          SortedMap.from(decodedCaptionMap)
+        )
+    }
   } yield Show(
     id = dbShow.show_id,
     botId = SBotId(dbShow.bot_id),

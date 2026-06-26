@@ -37,19 +37,15 @@ object CaptionParser {
         case _ => None
       }
 
-    private def splitSrtBlocks(lines: List[String]): List[List[String]] =
-      lines
-        .map(_.trim)
-        .foldLeft(List.empty[List[String]]) { (acc, line) =>
-          if line.isEmpty then List.empty[String] :: acc
-          else
-            acc match {
-              case current :: tail => (current :+ line) :: tail
-              case Nil             => List(List(line))
-            }
+    private def splitSrtBlocks(lines: List[String]): List[List[String]] = {
+      val (acc, last) =
+        lines.foldLeft((List.empty[List[String]], List.empty[String])) { case ((currentAcc, current), line) =>
+          if line.trim.isEmpty then (currentAcc :+ current, List.empty[String])
+          else (currentAcc, current :+ line.trim)
         }
-        .reverse
+      (acc :+ last)
         .filter(_.nonEmpty)
+    }
 
     private def parseSrtBlock(block: List[String]): Option[(FiniteDuration, String)] = {
       val timestampLineIndex = block.indexWhere(timestampPattern.matches)

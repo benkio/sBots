@@ -63,7 +63,7 @@ class CaptionParserSpec extends CatsEffectSuite {
         } yield assertEquals(
           result,
           Map(
-            0.millis -> "Hello everyone",
+            0.millis    -> "Hello everyone",
             1500.millis -> "How are you today?"
           )
         )

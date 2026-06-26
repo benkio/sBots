@@ -129,7 +129,7 @@ object ShowUpdater {
               maybeSrtCaption   <- captionParser.parseCaptionSrt(captionFilePath)
               showWithCaption = show.copy(
                 show_origin_automatic_caption = maybePlainCaption,
-                show_origin_automatic_caption_srt = maybeSrtCaption.asJson.noSpaces.some
+                show_origin_automatic_caption_srt = maybeSrtCaption.asJson.noSpaces
               )
               _ <- LogWriter.info(s"[ShowUpdater] ✓💾 ${showWithCaption.show_title}")
               _ <- dbLayer.dbShow.insertShow(showWithCaption)
@@ -266,7 +266,7 @@ object ShowUpdater {
         show_description = Option(video.getSnippet().getDescription().replace("\n", " ")),
         show_is_live = Option(video.getLiveStreamingDetails()).isDefined,
         show_origin_automatic_caption = None,    // Added in a followup step. need yt-dlp
-        show_origin_automatic_caption_srt = None // Added in a followup step. need yt-dlp
+        show_origin_automatic_caption_srt = "{}" // Added in a followup step. need yt-dlp
       )
       maybeDBShowData.fold(
         LogWriter.error(s"[PlaygroundMain] ERROR: $botId Video conversion problem for $video") *> None.pure[F]
