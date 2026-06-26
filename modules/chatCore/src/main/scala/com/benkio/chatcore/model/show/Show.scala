@@ -3,10 +3,13 @@ package com.benkio.chatcore.model.show
 import cats.implicits.*
 import cats.MonadThrow
 import cats.Show as CatsShow
+import com.benkio.chatcore.conversions.JsonConversions.SrtDecoder.given
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBShowData
+import io.circe.parser.decode
 
 import java.time.LocalDate
+import scala.concurrent.duration.FiniteDuration
 import scala.util.Try
 
 final case class Show(
@@ -17,7 +20,8 @@ final case class Show(
     duration: Int,
     description: Option[String],
     isLive: Boolean,
-    originAutomaticCaption: Option[String]
+    originAutomaticCaption: Option[String],
+    originAutomaticCaptionSrt: Map[FiniteDuration, String]
 )
 
 object Show {
@@ -27,6 +31,13 @@ object Show {
         LocalDate.parse(dbShow.show_upload_date, DBShowData.dateTimeFormatter)
       ).toEither
     )
+    originAutomaticCaptionSrt <- MonadThrow[F].fromEither(
+      dbShow.show_origin_automatic_caption_srt.fold[Either[Throwable, Map[FiniteDuration, String]]](
+        Right(Map.empty[FiniteDuration, String])
+      )(
+        decode[Map[FiniteDuration, String]](_)
+      )
+    )
   } yield Show(
     id = dbShow.show_id,
     botId = SBotId(dbShow.bot_id),
@@ -35,7 +46,8 @@ object Show {
     duration = dbShow.show_duration,
     description = dbShow.show_description,
     isLive = dbShow.show_is_live,
-    originAutomaticCaption = dbShow.show_origin_automatic_caption
+    originAutomaticCaption = dbShow.show_origin_automatic_caption,
+    originAutomaticCaptionSrt = originAutomaticCaptionSrt
   )
 
   given showInstance: CatsShow[Show] =

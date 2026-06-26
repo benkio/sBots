@@ -9,6 +9,7 @@ import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.Timeout
 import com.benkio.chatcore.Logger.given
 import doobie.implicits.*
+import doobie.util.fragment.Fragment
 import doobie.Transactor
 import io.circe.syntax.*
 import io.circe.Json
@@ -16,7 +17,9 @@ import munit.CatsEffectSuite
 
 import java.nio.file.Files
 import java.nio.file.Path
+import java.nio.file.Paths
 import java.time.Instant
+import scala.util.Using
 
 class DBRepositoriesCoverageSpec extends CatsEffectSuite {
 
@@ -48,43 +51,45 @@ class DBRepositoriesCoverageSpec extends CatsEffectSuite {
         )
       }
 
+  private val migrationsDir: Path =
+    Paths.get("..", "botDB", "src", "main", "resources", "db", "migrations")
+
+  private def sqlStatements(fileContent: String): List[String] =
+    fileContent.linesIterator
+      .map(_.trim)
+      .filterNot(_.startsWith("--"))
+      .mkString("\n")
+      .split(';')
+      .toList
+      .map(_.trim)
+      .filter(_.nonEmpty)
+
+  private def migrationFiles: IO[List[Path]] =
+    IO.blocking {
+      Using.resource(Files.list(migrationsDir)) { stream =>
+        stream
+          .filter(path => path.getFileName.toString.endsWith(".sql"))
+          .toArray
+          .map(_.asInstanceOf[Path])
+          .toList
+          .sortBy(_.getFileName.toString)
+      }
+    }
+
   private def setupSchema(xa: Transactor[IO]): IO[Unit] =
-    (sql"""
-      CREATE TABLE IF NOT EXISTS media (
-        media_name TEXT PRIMARY KEY,
-        bot_id TEXT NOT NULL,
-        kinds TEXT NOT NULL,
-        mime_type TEXT NOT NULL,
-        media_sources TEXT NOT NULL,
-        created_at TEXT NOT NULL,
-        media_count INTEGER NOT NULL
-      );
-    """.update.run *>
-      sql"""
-      CREATE TABLE IF NOT EXISTS show (
-        show_id TEXT PRIMARY KEY,
-        bot_id TEXT NOT NULL,
-        show_title TEXT NOT NULL,
-        show_upload_date TEXT NOT NULL,
-        show_duration INTEGER NOT NULL,
-        show_description TEXT,
-        show_is_live BOOLEAN NOT NULL,
-        show_origin_automatic_caption TEXT
-      );
-    """.update.run *>
-      sql"""
-      CREATE TABLE IF NOT EXISTS timeout (
-        chat_id INTEGER NOT NULL,
-        bot_id TEXT NOT NULL,
-        timeout_value TEXT NOT NULL,
-        last_interaction TEXT NOT NULL,
-        PRIMARY KEY (chat_id, bot_id)
-      );
-    """.update.run).transact(xa).void
+    for {
+      paths <- migrationFiles
+      _     <- paths.traverse_(path =>
+        for {
+          content <- IO.blocking(Files.readString(path))
+          _ <- sqlStatements(content).traverse_(statement => Fragment.const(statement).update.run.transact(xa).void)
+        } yield ()
+      )
+    } yield ()
 
   test("DBMedia insert/get/update paths execute") {
     tempDb.use { xa =>
-      val botId = SBotId("bot")
+      val botId = SBotId("test")
       val media =
         DBMediaData(
           media_name = "bot_test.mp3",
@@ -119,7 +124,7 @@ class DBRepositoriesCoverageSpec extends CatsEffectSuite {
 
   test("DBShow insert/query paths execute") {
     tempDb.use { xa =>
-      val botId = SBotId("bot")
+      val botId = SBotId("test")
       val row   =
         DBShowData(
           show_id = "s1",
@@ -129,7 +134,8 @@ class DBRepositoriesCoverageSpec extends CatsEffectSuite {
           show_duration = 123,
           show_description = Some("a description"),
           show_is_live = false,
-          show_origin_automatic_caption = Some("caption hello")
+          show_origin_automatic_caption = Some("caption hello"),
+          show_origin_automatic_caption_srt = Some("""{"00:00:00,000":"caption hello"}""")
         )
 
       for {
@@ -149,14 +155,14 @@ class DBRepositoriesCoverageSpec extends CatsEffectSuite {
         assert(rnd.isDefined)
         assert(q1.nonEmpty)
         assert(q2.nonEmpty)
-        assert(post.isEmpty)
+        assert(post.forall(_.show_id != row.show_id))
       }
     }
   }
 
   test("DBTimeout getOrDefault/set/remove/logLastInteraction paths execute") {
     tempDb.use { xa =>
-      val botId  = SBotId("bot")
+      val botId  = SBotId("test")
       val chatId = ChatId(1L)
       val impl   = new DBTimeout.DBTimeoutImpl[IO](xa, summon)
       val t0     = Timeout(chatId, botId)

@@ -1,7 +1,7 @@
 package com.benkio.chatcore.model.media
 
 import cats.syntax.all.*
-import com.benkio.chatcore.conversions.Json.decodeStringToJson
+import com.benkio.chatcore.conversions.JsonConversions.decodeStringToJson
 import com.benkio.chatcore.model.media.MediaFileSource.given
 import com.benkio.chatcore.model.MimeType
 import com.benkio.chatcore.model.MimeTypeOps

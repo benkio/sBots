@@ -61,7 +61,8 @@ class ShowUpdaterSpec extends CatsEffectSuite {
       value = "videoDescription"
     ),
     show_is_live = false,
-    show_origin_automatic_caption = None
+    show_origin_automatic_caption = None,
+    show_origin_automatic_caption_srt = None
   )
   val expectedYouTubeBotDBShowDatas = List(
     YouTubeBotDBShowDatas(
@@ -94,7 +95,8 @@ class ShowUpdaterSpec extends CatsEffectSuite {
                 |Intesa Sanpaolo Group: https://group.intesasanpaolo.com/it/sezione-editoriale/intesa-sanpaolo-on-air""".stripMargin
           ),
           show_is_live = false,
-          show_origin_automatic_caption = None
+          show_origin_automatic_caption = None,
+          show_origin_automatic_caption_srt = None
         )
       )
     )
@@ -235,7 +237,8 @@ class ShowUpdaterSpec extends CatsEffectSuite {
       show_duration = 69,
       show_description = Some(value = """mergeShowDatas description""".stripMargin),
       show_is_live = false,
-      show_origin_automatic_caption = None
+      show_origin_automatic_caption = None,
+      show_origin_automatic_caption_srt = None
     )
     val secondDBShowDatas = List(
       YouTubeBotDBShowDatas(
