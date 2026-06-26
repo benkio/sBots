@@ -6,6 +6,7 @@ import cats.effect.Resource
 import cats.implicits.*
 import cats.Semigroup
 import com.benkio.botDB.config.Config
+import com.benkio.chatcore.conversions.JsonConversions.SrtDecoder.given
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBLayer
@@ -122,9 +123,14 @@ object ShowUpdater {
         .traverse_ { youTubeBotDbShowData =>
           youTubeBotDbShowData.dbShowDatas.traverse_(show => {
             for {
-              _            <- LogWriter.info(s"[ShowUpdater] Fetch Caption for ${show.show_title}")
-              maybeCaption <- captionParser.parsePlainCaptionSrt(youTubeBotDbShowData.captionFilePath(show))
-              showWithCaption = show.copy(show_origin_automatic_caption = maybeCaption)
+              _ <- LogWriter.info(s"[ShowUpdater] Fetch Caption for ${show.show_title}")
+              captionFilePath = youTubeBotDbShowData.captionFilePath(show)
+              maybePlainCaption <- captionParser.parsePlainCaptionSrt(captionFilePath)
+              maybeSrtCaption   <- captionParser.parseCaptionSrt(captionFilePath)
+              showWithCaption = show.copy(
+                show_origin_automatic_caption = maybePlainCaption,
+                show_origin_automatic_caption_srt = maybeSrtCaption.asJson.noSpaces.some
+              )
               _ <- LogWriter.info(s"[ShowUpdater] ✓💾 ${showWithCaption.show_title}")
               _ <- dbLayer.dbShow.insertShow(showWithCaption)
             } yield ()
