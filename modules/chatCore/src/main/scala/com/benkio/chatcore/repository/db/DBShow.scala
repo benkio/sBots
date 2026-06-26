@@ -27,7 +27,7 @@ final case class DBShowData(
     show_description: Option[String],
     show_is_live: Boolean,
     show_origin_automatic_caption: Option[String],
-    show_origin_automatic_caption_srt: Option[String]
+    show_origin_automatic_caption_srt: String
 )
 
 object DBShowData {
@@ -45,7 +45,7 @@ object DBShowData {
     show_description = show.description,
     show_is_live = show.isLive,
     show_origin_automatic_caption = show.originAutomaticCaption,
-    show_origin_automatic_caption_srt = show.originAutomaticCaptionSrt.asJson.noSpaces.some
+    show_origin_automatic_caption_srt = show.originAutomaticCaptionSrt.asJson.noSpaces
   )
 }
 

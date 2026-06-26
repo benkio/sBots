@@ -34,7 +34,7 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val result = for {
       dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
-      check  <- List("abar", "ytai", "rphjb", "xah")
+      check  <- List("abar", "ytai", "rphjb", "xah", "pino")
         .traverse(botId => testBot(botId = SBotId(botId), dbShow = dbShow, input = ""))
     } yield check.foldLeft(true)(_ && _)
 

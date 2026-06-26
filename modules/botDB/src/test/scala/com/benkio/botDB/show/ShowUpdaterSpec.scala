@@ -62,7 +62,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
     ),
     show_is_live = false,
     show_origin_automatic_caption = None,
-    show_origin_automatic_caption_srt = None
+    show_origin_automatic_caption_srt = "{}"
   )
   val expectedYouTubeBotDBShowDatas = List(
     YouTubeBotDBShowDatas(
@@ -96,7 +96,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
           ),
           show_is_live = false,
           show_origin_automatic_caption = None,
-          show_origin_automatic_caption_srt = None
+          show_origin_automatic_caption_srt = "{}"
         )
       )
     )
@@ -238,7 +238,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
       show_description = Some(value = """mergeShowDatas description""".stripMargin),
       show_is_live = false,
       show_origin_automatic_caption = None,
-      show_origin_automatic_caption_srt = None
+      show_origin_automatic_caption_srt = "{}"
     )
     val secondDBShowDatas = List(
       YouTubeBotDBShowDatas(

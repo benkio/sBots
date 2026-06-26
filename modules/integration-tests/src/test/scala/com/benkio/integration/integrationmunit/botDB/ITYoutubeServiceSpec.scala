@@ -101,7 +101,7 @@ class ITYouTubeServiceSpec extends CatsEffectSuite with Constants {
       ),
       show_is_live = false,
       show_origin_automatic_caption = None,
-      show_origin_automatic_caption_srt = None
+      show_origin_automatic_caption_srt = "{}"
     )
     val dbShowData2 = DBShowData(
       show_id = "3kKiB",
@@ -114,7 +114,7 @@ class ITYouTubeServiceSpec extends CatsEffectSuite with Constants {
       ),
       show_is_live = false,
       show_origin_automatic_caption = None,
-      show_origin_automatic_caption_srt = None
+      show_origin_automatic_caption_srt = "{}"
     )
 
     val youTubeBotDBShowDatas1 =

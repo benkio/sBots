@@ -7,6 +7,6 @@ CREATE TABLE IF NOT EXISTS show(
   show_description TEXT NULL,
   show_is_live BOOLEAN NOT NULL,
   show_origin_automatic_caption TEXT NULL,
-  show_origin_automatic_caption_srt TEXT NULL,
+  show_origin_automatic_caption_srt TEXT NOT NULL,
   FOREIGN KEY (bot_id) REFERENCES bot(id)
 );
