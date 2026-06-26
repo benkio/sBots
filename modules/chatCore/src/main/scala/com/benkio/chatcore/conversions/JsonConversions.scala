@@ -23,6 +23,15 @@ object JsonConversions {
     private val SrtTimePattern: Regex =
       """(\d{2}):(\d{2}):(\d{2}),(\d{3})""".r
 
+    private def finiteDurationToSrtTimestamp(finiteDuration: FiniteDuration): String = {
+      val hours   = finiteDuration.toHours
+      val minutes = finiteDuration.toMinutes % 60
+      val seconds = finiteDuration.toSeconds % 60
+      val millis  = finiteDuration.toMillis  % 1000
+
+      f"$hours%02d:$minutes%02d:$seconds%02d,$millis%03d"
+    }
+
     // Custom Circe Decoder for FiniteDuration
     implicit val finiteDurationDecoder: Decoder[FiniteDuration] =
       Decoder.decodeString.emap { str =>
@@ -43,22 +52,16 @@ object JsonConversions {
 
     // Custom Circe Decoder for FiniteDuration
     implicit val finiteDurationEncoder: Encoder[FiniteDuration] =
-      Encoder.instance[FiniteDuration] { (finiteDuration: FiniteDuration) =>
-        {
-
-          val hours   = finiteDuration.toHours
-          val minutes = finiteDuration.toMinutes % 60
-          val seconds = finiteDuration.toSeconds % 60
-          val millis  = finiteDuration.toMillis  % 1000
-
-          Json.fromString(f"$hours%02d:$minutes%02d:$seconds%02d,$millis%03d")
-        }
-      }
+      Encoder.instance[FiniteDuration](finiteDuration => Json.fromString(finiteDurationToSrtTimestamp(finiteDuration)))
 
     implicit val finiteDurationKeyEncoder: KeyEncoder[FiniteDuration] =
-      KeyEncoder[String].contramap(finiteDuration => finiteDurationEncoder(finiteDuration).noSpaces)
+      KeyEncoder[String].contramap(finiteDurationToSrtTimestamp)
 
     implicit val finiteDurationKeyDecoder: KeyDecoder[FiniteDuration] =
-      KeyDecoder.instance(str => finiteDurationDecoder.decodeJson(Json.fromString(str)).toOption)
+      KeyDecoder.instance(str =>
+        finiteDurationDecoder
+          .decodeJson(Json.fromString(str.stripPrefix("\"").stripSuffix("\"")))
+          .toOption
+      )
   }
 }
