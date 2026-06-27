@@ -1,10 +1,12 @@
 package com.benkio.chatcore.model.show
 
 import munit.*
+import org.scalacheck.Prop.forAll
 
 import java.time.LocalDate
+import scala.concurrent.duration.*
 
-class ShowQuerySpec extends FunSuite {
+class ShowQuerySpec extends FunSuite with ScalaCheckSuite {
 
   test("ShowQuery.apply should return RandomQuery if the input is empty") {
     assertEquals(ShowQuery(""), RandomQuery)
@@ -157,5 +159,69 @@ class ShowQuerySpec extends FunSuite {
         maxDate = None
       )
     )
+  }
+
+  test("searchTimestamp should return none when caption keywords are not specified") {
+    forAll { (caption: String, title: String, description: String) =>
+      val captionMap = Map(1.seconds -> caption)
+      val query      = ShowQueryKeyword(
+        titleKeywords = Some(List(title)),
+        descriptionKeywords = Some(List(description)),
+        captionKeywords = None
+      )
+      assertEquals(ShowQuery.searchTimestamp(captionMap, query), None)
+    }
+  }
+
+  test("searchTimestamp should return phrase timestamp for captionKeywords") {
+    forAll { (keywordSeed: Long, timestampSeed: Long) =>
+      val keyword    = s"needle${math.abs(keywordSeed % 100000L)}"
+      val timestamp  = (math.abs(timestampSeed % 10000L) + 1L).seconds
+      val captionMap = Map(
+        1.seconds -> "some unrelated phrase",
+        timestamp -> s"this contains $keyword in the middle"
+      )
+      val query = ShowQueryKeyword(
+        titleKeywords = None,
+        captionKeywords = Some(List(keyword))
+      )
+
+      assertEquals(ShowQuery.searchTimestamp(captionMap, query), Some(timestamp))
+    }
+  }
+
+  test("searchTimestamp should remove last word recursively until matching") {
+    forAll { (keywordSeed: Long, suffixSeed: Long, timestampSeed: Long) =>
+      val baseWord1  = s"alpha${math.abs(keywordSeed % 100000L)}"
+      val baseWord2  = s"beta${math.abs((keywordSeed + 1L) % 100000L)}"
+      val suffix     = s"suffix${math.abs(suffixSeed % 100000L)}"
+      val timestamp  = (math.abs(timestampSeed % 10000L) + 1L).seconds
+      val baseTerm   = s"$baseWord1 $baseWord2"
+      val captionMap = Map(
+        timestamp -> s"caption text with $baseTerm included"
+      )
+      val query = ShowQueryKeyword(
+        titleKeywords = None,
+        captionKeywords = Some(List(s"$baseTerm $suffix"))
+      )
+
+      assertEquals(ShowQuery.searchTimestamp(captionMap, query), Some(timestamp))
+    }
+  }
+
+  test("searchTimestamp should return none when fallback exhausts all terms") {
+    forAll { (keywordSeed: Long) =>
+      val missingKeyword = s"missing${math.abs(keywordSeed % 100000L)}"
+      val captionMap     = Map(
+        5.seconds  -> "foo bar baz",
+        10.seconds -> "another caption row"
+      )
+      val query = ShowQueryKeyword(
+        titleKeywords = None,
+        captionKeywords = Some(List(s"$missingKeyword tail"))
+      )
+
+      assertEquals(ShowQuery.searchTimestamp(captionMap, query), None)
+    }
   }
 }

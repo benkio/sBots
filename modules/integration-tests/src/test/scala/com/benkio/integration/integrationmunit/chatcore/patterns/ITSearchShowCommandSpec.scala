@@ -173,6 +173,22 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
 
     result.assert
   }
+
+  databaseFixture.test(
+    "SearchShow Command should include timestamp in youtube link when caption search matches"
+  ) { fixture =>
+    val result = for {
+      dbShow <- fixture.resourceDBLayer.map(_.dbShow).use(IO.pure(_))
+      check  <- testBot(
+        botId = SBotId("test"),
+        dbShow = dbShow,
+        input = "caption=posuere+tellus",
+        optExpected = ITSearchShowCommandSpec.expectedCaptionTimestampOutput.some
+      )
+    } yield check
+
+    result.assert
+  }
 }
 
 object ITSearchShowCommandSpec {
@@ -183,6 +199,11 @@ object ITSearchShowCommandSpec {
                                          | Test Show Title
                                          |----------
                                          | Test Show Description""".stripMargin
+
+  val expectedCaptionTimestampOutput: String = """2025-04-24 - https://www.youtube.com/watch?v=test&t=7s
+                                                 | Test Show Title
+                                                 |----------
+                                                 | Test Show Description""".stripMargin
 
   val showByTitle: List[TestInput] = List(
     TestInput(
@@ -204,7 +225,7 @@ object ITSearchShowCommandSpec {
     TestInput(
       botId = SBotId("test"),
       randomLinkInput = "caption=posuere+tellus",
-      expectedOutput = expectedTestShowOutput
+      expectedOutput = expectedCaptionTimestampOutput
     )
   )
 

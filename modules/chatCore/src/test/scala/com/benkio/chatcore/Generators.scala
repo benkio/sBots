@@ -10,6 +10,7 @@ import com.benkio.chatcore.model.reply.ReplyValueCore
 import com.benkio.chatcore.model.reply.Sticker
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.VideoFile
+import com.benkio.chatcore.model.show.Show
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.CommandTrigger
@@ -17,12 +18,17 @@ import com.benkio.chatcore.model.LeftMemberTrigger
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageLengthTrigger
 import com.benkio.chatcore.model.NewMemberTrigger
+import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.StringTextTriggerValue
 import com.benkio.chatcore.model.TextTrigger
 import com.benkio.chatcore.model.TextTriggerValue
 import com.benkio.chatcore.model.Trigger
 import com.benkio.chatcore.model.User
 import org.scalacheck.Gen
+
+import java.time.LocalDate
+import scala.collection.immutable.SortedMap
+import scala.concurrent.duration.*
 
 object Generators {
 
@@ -87,5 +93,39 @@ object Generators {
     newChatMembers = newChatMembers,
     leftChatMember = leftChatMember,
     isForward = isForward
+  )
+
+  val youtubeTimestampFiniteDurationGen: Gen[FiniteDuration] =
+    Gen.chooseNum(0L, 48L * 3600L).map(_.seconds)
+
+  val showGen: Gen[Show] = for {
+    id             <- Gen.alphaNumStr.suchThat(_.nonEmpty)
+    botId          <- Gen.alphaNumStr.suchThat(_.nonEmpty).map(SBotId(_))
+    title          <- Gen.alphaStr
+    year           <- Gen.chooseNum(2005, 2030)
+    month          <- Gen.chooseNum(1, 12)
+    day            <- Gen.chooseNum(1, 28)
+    duration       <- Gen.chooseNum(1, 200000)
+    description    <- Gen.option(Gen.alphaStr)
+    isLive         <- Gen.oneOf(true, false)
+    caption        <- Gen.option(Gen.alphaStr)
+    timestamp      <- Gen.option(youtubeTimestampFiniteDurationGen)
+    captionEntries <- Gen.listOf(
+      for {
+        ts   <- youtubeTimestampFiniteDurationGen
+        text <- Gen.alphaStr
+      } yield ts -> text
+    )
+  } yield Show(
+    id = id,
+    botId = botId,
+    title = title,
+    uploadDate = LocalDate.of(year, month, day),
+    duration = duration,
+    description = description,
+    isLive = isLive,
+    originAutomaticCaption = caption,
+    originAutomaticCaptionSrt = SortedMap.from(captionEntries),
+    timestamp = timestamp
   )
 }

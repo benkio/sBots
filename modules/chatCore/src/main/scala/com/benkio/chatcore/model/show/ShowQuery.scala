@@ -7,6 +7,7 @@ import org.http4s.QueryParamDecoder.*
 
 import java.time.format.DateTimeFormatter
 import java.time.LocalDate
+import scala.concurrent.duration.FiniteDuration
 
 sealed trait ShowQuery
 final case class ShowQueryKeyword(
@@ -72,4 +73,35 @@ object ShowQuery {
     }
   }
 
+  def searchTimestamp(captionMap: Map[FiniteDuration, String], query: ShowQuery): Option[FiniteDuration] = {
+    def searchWithFallback(term: String): Option[FiniteDuration] = {
+      val normalizedTerm = term.trim.toLowerCase
+      if normalizedTerm.isEmpty then None
+      else {
+        val maybeTimestamp = captionMap.toList
+          .sortBy(_._1)
+          .collectFirst {
+            case (timestamp, caption) if caption.toLowerCase.contains(normalizedTerm) =>
+              timestamp
+          }
+
+        maybeTimestamp.orElse {
+          val words = normalizedTerm.split("\\s+").toList
+          if words.length <= 1 then None
+          else searchWithFallback(words.dropRight(1).mkString(" "))
+        }
+      }
+    }
+
+    query match {
+      case ShowQueryKeyword(_, _, Some(captionKeywords), _, _, _, _) =>
+        captionKeywords.iterator
+          .map(searchWithFallback)
+          .collectFirst { case Some(timestamp) => timestamp }
+      case SimpleShowQuery(_, _, captionKeyword) =>
+        searchWithFallback(captionKeyword)
+      case _ =>
+        None
+    }
+  }
 }

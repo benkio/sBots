@@ -3,6 +3,7 @@ package com.benkio.chatcore
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.ReplyValueCore
+import com.benkio.chatcore.model.show.Show
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Trigger
@@ -12,9 +13,13 @@ import com.benkio.chatcore.Generators.coreReplyValueCoreGen
 import com.benkio.chatcore.Generators.coreReplyValueGen
 import com.benkio.chatcore.Generators.mediaFileGen
 import com.benkio.chatcore.Generators.messageGen
+import com.benkio.chatcore.Generators.showGen
 import com.benkio.chatcore.Generators.triggerGen
 import com.benkio.chatcore.Generators.userGen
+import com.benkio.chatcore.Generators.youtubeTimestampFiniteDurationGen
 import org.scalacheck.Arbitrary
+
+import scala.concurrent.duration.FiniteDuration
 
 object Arbitraries {
   given Arbitrary[CommandKey]     = Arbitrary(commandKeyGen)
@@ -24,4 +29,6 @@ object Arbitraries {
   given Arbitrary[Message]        = Arbitrary(messageGen)
   given Arbitrary[User]           = Arbitrary(userGen)
   given Arbitrary[Trigger]        = Arbitrary(triggerGen)
+  given Arbitrary[FiniteDuration] = Arbitrary(youtubeTimestampFiniteDurationGen)
+  given Arbitrary[Show]           = Arbitrary(showGen)
 }
