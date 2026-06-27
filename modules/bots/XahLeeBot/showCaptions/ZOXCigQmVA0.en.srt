@@ -1,0 +1,5592 @@
+1
+00:00:00,000 --> 00:00:05,720
+Good morning, good evening. Welcome to
+
+2
+00:00:02,000 --> 00:00:09,960
+another episode of Sound Talk Show.
+
+3
+00:00:05,720 --> 00:00:11,800
+We are going to code Emacs Lisp.
+
+4
+00:00:09,960 --> 00:00:14,960
+Okay, so
+
+5
+00:00:11,800 --> 00:00:17,120
+there I am drinking coffee.
+
+6
+00:00:14,960 --> 00:00:21,280
+And how are you guys doing?
+
+7
+00:00:17,120 --> 00:00:23,440
+So, this is technical nerd uh
+
+8
+00:00:21,280 --> 00:00:26,600
+old coder
+
+9
+00:00:23,440 --> 00:00:28,840
+that we're going to do technical stuff.
+
+10
+00:00:26,600 --> 00:00:31,280
+So, if you are a
+
+11
+00:00:28,840 --> 00:00:32,080
+non-coder, this is not interesting to
+
+12
+00:00:31,280 --> 00:00:34,720
+you.
+
+13
+00:00:32,080 --> 00:00:37,760
+And even if you are a coder, this is
+
+14
+00:00:34,720 --> 00:00:39,080
+very esoteric. So, this is about Emacs
+
+15
+00:00:37,760 --> 00:00:41,000
+Lisp.
+
+16
+00:00:39,080 --> 00:00:42,640
+Uh so, I'm going to
+
+17
+00:00:41,000 --> 00:00:45,440
+So, here's what we're going to do, okay?
+
+18
+00:00:42,640 --> 00:00:48,520
+So, show my screen. Can you see it? Yes.
+
+19
+00:00:45,440 --> 00:00:51,720
+Is it beautiful? Yes. Okay.
+
+20
+00:00:48,520 --> 00:00:54,360
+So, you can see so we are going to
+
+21
+00:00:51,720 --> 00:00:55,640
+we're going to demonstrate Emacs command
+
+22
+00:00:54,360 --> 00:00:56,240
+convert
+
+23
+00:00:55,640 --> 00:00:58,120
+uh
+
+24
+00:00:56,240 --> 00:01:01,760
+convert
+
+25
+00:00:58,120 --> 00:01:04,120
+image to WebP Emacs command convert
+
+26
+00:01:01,760 --> 00:01:06,880
+image to WebP. Support lossy and
+
+27
+00:01:04,120 --> 00:01:07,960
+lossless both versions.
+
+28
+00:01:06,880 --> 00:01:10,200
+Okay, so we're going to show you the
+
+29
+00:01:07,960 --> 00:01:13,000
+command. Then, I'm going to show you
+
+30
+00:01:10,200 --> 00:01:15,040
+convert all images. So,
+
+31
+00:01:13,000 --> 00:01:17,560
+yeah, let's you know, so okay, so let me
+
+32
+00:01:15,040 --> 00:01:20,040
+start to do it. So, go to the directory.
+
+33
+00:01:17,560 --> 00:01:22,520
+So, here is all image files. So, you can
+
+34
+00:01:20,040 --> 00:01:24,320
+see this is my like my past talk show.
+
+35
+00:01:22,520 --> 00:01:27,520
+So,
+
+36
+00:01:24,320 --> 00:01:30,440
+uh you know, images. So, many of them
+
+37
+00:01:27,520 --> 00:01:34,400
+are PNG files. So, let me highlight all
+
+38
+00:01:30,440 --> 00:01:36,800
+PNG. Press press press PNG dollar sign.
+
+39
+00:01:34,400 --> 00:01:39,560
+So, you can see all those are PNG files,
+
+40
+00:01:36,800 --> 00:01:41,800
+okay? So, [snorts] and I can convert
+
+41
+00:01:39,560 --> 00:01:45,120
+them. So, PNG let's go to the first one.
+
+42
+00:01:41,800 --> 00:01:48,000
+So, let's see this one. Open it. So,
+
+43
+00:01:45,120 --> 00:01:51,000
+that's a Wolfram language long time ago,
+
+44
+00:01:48,000 --> 00:01:51,920
+4 years ago, I think. 2022 Advent of
+
+45
+00:01:51,000 --> 00:01:53,400
+Code.
+
+46
+00:01:51,920 --> 00:01:55,800
+So, [snorts] I can press the command
+
+47
+00:01:53,400 --> 00:01:56,920
+press the key, so you can see this is a
+
+48
+00:01:55,800 --> 00:01:58,360
+uh yeah.
+
+49
+00:01:56,920 --> 00:02:02,200
+Press press
+
+50
+00:01:58,360 --> 00:02:05,240
+press, so you see now it became a WebP
+
+51
+00:02:02,200 --> 00:02:10,119
+format. You see? Same image. So, this is
+
+52
+00:02:05,240 --> 00:02:13,640
+WebP. This is PNG. WebP, PNG. Now, this
+
+53
+00:02:10,119 --> 00:02:15,959
+is WebP lossless. WebP format supports
+
+54
+00:02:13,640 --> 00:02:18,720
+two versions, both lossy and lossless,
+
+55
+00:02:15,959 --> 00:02:20,440
+okay? So, you can see I just called the
+
+56
+00:02:18,720 --> 00:02:22,320
+command and that command you can see
+
+57
+00:02:20,440 --> 00:02:24,080
+it's called cwebp
+
+58
+00:02:22,320 --> 00:02:25,920
+uh in the pink window you can see it.
+
+59
+00:02:24,080 --> 00:02:30,920
+Can you see it? If you are here, say hi,
+
+60
+00:02:25,920 --> 00:02:33,640
+okay? Let's pop out this chat box.
+
+61
+00:02:30,920 --> 00:02:37,320
+I would enjoy your comments in real
+
+62
+00:02:33,640 --> 00:02:40,440
+time. Okay? So, and this is all Emacs
+
+63
+00:02:37,320 --> 00:02:41,760
+and technical, so okay.
+
+64
+00:02:40,440 --> 00:02:43,400
+So,
+
+65
+00:02:41,760 --> 00:02:46,200
+today we're going to talk about this
+
+66
+00:02:43,400 --> 00:02:47,880
+image conversion mostly. So, the By the
+
+67
+00:02:46,200 --> 00:02:50,040
+way, so where is the command? Like the
+
+68
+00:02:47,880 --> 00:02:53,480
+command I just called, let's see,
+
+69
+00:02:50,040 --> 00:02:55,000
+magnify this uh window. There it is.
+
+70
+00:02:53,480 --> 00:02:59,160
+cwebp
+
+71
+00:02:55,000 --> 00:03:01,160
+dwebp to lossless WebP, okay? And
+
+72
+00:02:59,160 --> 00:03:04,640
+there's a lossy version, too. So, let's
+
+73
+00:03:01,160 --> 00:03:07,320
+open this image again. So, you can
+
+74
+00:03:04,640 --> 00:03:10,560
+press, press, press, so it creates a new
+
+75
+00:03:07,320 --> 00:03:14,640
+file. LS, you see the word LS there,
+
+76
+00:03:10,560 --> 00:03:17,080
+that means this is lossy and this is uh
+
+77
+00:03:14,640 --> 00:03:19,680
+LL means lossless, that's my convention,
+
+78
+00:03:17,080 --> 00:03:21,360
+okay? So, you can open the lossless and
+
+79
+00:03:19,680 --> 00:03:24,040
+open the lossy.
+
+80
+00:03:21,360 --> 00:03:26,519
+Same image, okay? So, let's see, open
+
+81
+00:03:24,040 --> 00:03:30,120
+the lossless, delete it.
+
+82
+00:03:26,519 --> 00:03:32,640
+Open the lossy WebP, delete it. And we
+
+83
+00:03:30,120 --> 00:03:35,360
+just have return to the just the PNG,
+
+84
+00:03:32,640 --> 00:03:38,160
+okay? Cuz I'm going to do a we going to
+
+85
+00:03:35,360 --> 00:03:40,760
+I'm going to convert the entire
+
+86
+00:03:38,160 --> 00:03:42,840
+uh PNG files here. Actually, let's do it
+
+87
+00:03:40,760 --> 00:03:44,600
+now, okay? So,
+
+88
+00:03:42,840 --> 00:03:46,160
+yeah, so first of all, delete the
+
+89
+00:03:44,600 --> 00:03:48,920
+backup.
+
+90
+00:03:46,160 --> 00:03:51,239
+Uh press, press, press, delete the all
+
+91
+00:03:48,920 --> 00:03:54,120
+those backup, refresh, okay? Now,
+
+92
+00:03:51,239 --> 00:03:56,960
+highlight all PNG files, PNG dollar
+
+93
+00:03:54,120 --> 00:03:59,520
+signs, so you can see all these are PNG
+
+94
+00:03:56,960 --> 00:04:02,320
+dollar signs
+
+95
+00:03:59,520 --> 00:04:07,200
+files, many of them, okay? And we just
+
+96
+00:04:02,320 --> 00:04:10,080
+going to convert to WebP lossless.
+
+97
+00:04:07,200 --> 00:04:14,400
+Okay, but before we do that, I need to
+
+98
+00:04:10,080 --> 00:04:16,720
+commit my website Git Git commit, so
+
+99
+00:04:14,400 --> 00:04:19,359
+that in case something went wrong, I can
+
+100
+00:04:16,720 --> 00:04:21,720
+return. Hello guys, we got good morning.
+
+101
+00:04:19,359 --> 00:04:24,040
+We got people here. Bantu, hey Saga,
+
+102
+00:04:21,720 --> 00:04:26,600
+good to see you. Glad to see you. Don't
+
+103
+00:04:24,040 --> 00:04:29,120
+know who you are, but
+
+104
+00:04:26,600 --> 00:04:32,120
+but hi Bantu. Hi Dosima.
+
+105
+00:04:29,120 --> 00:04:32,120
+Dosibelean.
+
+106
+00:04:35,640 --> 00:04:40,800
+So, Dosibelean, I remember your the
+
+107
+00:04:38,360 --> 00:04:43,120
+name, but how are you? So, I don't know
+
+108
+00:04:40,800 --> 00:04:44,080
+who you are, but
+
+109
+00:04:43,120 --> 00:04:47,640
+So,
+
+110
+00:04:44,080 --> 00:04:50,840
+yeah, convert PNG to lossy and and loss
+
+111
+00:04:47,640 --> 00:04:53,680
+PNG to lossless WebP. Okay.
+
+112
+00:04:50,840 --> 00:04:55,760
+And we need to commit
+
+113
+00:04:53,680 --> 00:04:57,520
+Okay, let's commit. Let's see what we
+
+114
+00:04:55,760 --> 00:05:00,360
+got. So,
+
+115
+00:04:57,520 --> 00:05:01,960
+drop into my Xah Talk Show
+
+116
+00:05:00,360 --> 00:05:04,760
+xahlee.info.
+
+117
+00:05:01,960 --> 00:05:06,680
+So, start a Emacs shell e-shell
+
+118
+00:05:04,760 --> 00:05:09,320
+instantaneous. So,
+
+119
+00:05:06,680 --> 00:05:12,320
+Git status.
+
+120
+00:05:09,320 --> 00:05:14,760
+Okay, so Git status, you got talk show
+
+121
+00:05:12,320 --> 00:05:19,440
+new files 7
+
+122
+00:05:14,760 --> 00:05:20,960
+797, that's a future. 798, 799. And the
+
+123
+00:05:19,440 --> 00:05:24,160
+talk show
+
+124
+00:05:20,960 --> 00:05:26,880
+to do JavaScript talk show to do and
+
+125
+00:05:24,160 --> 00:05:30,640
+Okay, let's commit them.
+
+126
+00:05:26,880 --> 00:05:33,320
+Press press press Git add add them all.
+
+127
+00:05:30,640 --> 00:05:35,080
+Press press press Git commit commit T. T
+
+128
+00:05:33,320 --> 00:05:38,480
+means nothing, because it's, you know,
+
+129
+00:05:35,080 --> 00:05:40,440
+the commit messages is very annoying.
+
+130
+00:05:38,480 --> 00:05:42,640
+When you commit a lot, you know, you
+
+131
+00:05:40,440 --> 00:05:43,880
+like I, you know, I commit several times
+
+132
+00:05:42,640 --> 00:05:45,760
+a day
+
+133
+00:05:43,880 --> 00:05:49,880
+like
+
+134
+00:05:45,760 --> 00:05:51,440
+13,000 HTML files for the past 15-20
+
+135
+00:05:49,880 --> 00:05:53,600
+years. So,
+
+136
+00:05:51,440 --> 00:05:56,280
+uh so anyway, so it's done. Okay, so
+
+137
+00:05:53,600 --> 00:05:59,440
+it's done. It's all committed.
+
+138
+00:05:56,280 --> 00:06:03,400
+Uh if anything went wrong, I can
+
+139
+00:05:59,440 --> 00:06:06,560
+I can uh revert. It's like uh
+
+140
+00:06:03,400 --> 00:06:10,280
+auto- automatic fixing any damages like
+
+141
+00:06:06,560 --> 00:06:13,440
+the Borgish technology.
+
+142
+00:06:10,280 --> 00:06:16,080
+Okay, so yeah, so okay, we committed.
+
+143
+00:06:13,440 --> 00:06:19,960
+So, and okay, so we going to do that
+
+144
+00:06:16,080 --> 00:06:23,000
+committed. We showed the image files and
+
+145
+00:06:19,960 --> 00:06:25,680
+oh yeah, we wanted to uh do the keyboard
+
+146
+00:06:23,000 --> 00:06:28,080
+blog. Okay, anyway, it doesn't matter.
+
+147
+00:06:25,680 --> 00:06:30,560
+View and compare files file size. We
+
+148
+00:06:28,080 --> 00:06:33,440
+kind of did and fix all links in HTML.
+
+149
+00:06:30,560 --> 00:06:33,440
+Okay, let's begin.
+
+150
+00:06:33,520 --> 00:06:37,560
+Okay, so open that. So, yeah, we already
+
+151
+00:06:36,680 --> 00:06:40,320
+um
+
+152
+00:06:37,560 --> 00:06:43,760
+selected all PNG files. So,
+
+153
+00:06:40,320 --> 00:06:46,880
+press press press.
+
+154
+00:06:43,760 --> 00:06:48,680
+So, right now it's doing, you know, this
+
+155
+00:06:46,880 --> 00:06:49,440
+few hundred
+
+156
+00:06:48,680 --> 00:06:51,280
+uh
+
+157
+00:06:49,440 --> 00:06:54,720
+PNG to
+
+158
+00:06:51,280 --> 00:06:54,720
+lossless WebP.
+
+159
+00:07:00,080 --> 00:07:04,640
+Meanwhile, let's start another Emacs.
+
+160
+00:07:11,880 --> 00:07:19,040
+Wait, why isn't it starting? Do it
+
+161
+00:07:14,760 --> 00:07:19,040
+again. Now, it is slow.
+
+162
+00:07:25,000 --> 00:07:30,480
+Yeah, This this window disk.
+
+163
+00:07:31,040 --> 00:07:35,960
+Okay, there is a new Emacs. Close the
+
+164
+00:07:34,080 --> 00:07:38,960
+to-do.
+
+165
+00:07:35,960 --> 00:07:42,560
+Magnify and
+
+166
+00:07:38,960 --> 00:07:43,680
+turn it pink orangeish
+
+167
+00:07:42,560 --> 00:07:47,000
+and
+
+168
+00:07:43,680 --> 00:07:47,000
+uh control
+
+169
+00:07:47,360 --> 00:07:56,520
+to magnify, huge, okay?
+
+170
+00:07:51,280 --> 00:07:56,520
+Now, what we want to do is go to this
+
+171
+00:07:56,720 --> 00:08:02,600
+local, check local links. So, this is a
+
+172
+00:08:00,280 --> 00:08:04,920
+Go language
+
+173
+00:08:02,600 --> 00:08:08,120
+that will check all
+
+174
+00:08:04,920 --> 00:08:10,320
+links on my website.
+
+175
+00:08:08,120 --> 00:08:12,720
+Okay, is it done yet? No, it's not done
+
+176
+00:08:10,320 --> 00:08:12,720
+yet.
+
+177
+00:08:12,760 --> 00:08:16,640
+Uh
+
+178
+00:08:14,280 --> 00:08:20,080
+You see, it's funny that you cannot see
+
+179
+00:08:16,640 --> 00:08:23,640
+the process going in. So, you can see
+
+180
+00:08:20,080 --> 00:08:25,680
+this is Emacs. This is Emacs. It's, you
+
+181
+00:08:23,640 --> 00:08:30,000
+know, it's calling the
+
+182
+00:08:25,680 --> 00:08:31,280
+cwebp here. It's calling this command.
+
+183
+00:08:30,000 --> 00:08:32,320
+So,
+
+184
+00:08:31,280 --> 00:08:34,680
+you know, it's it's doing the
+
+185
+00:08:32,320 --> 00:08:37,719
+conversion, but it but the command
+
+186
+00:08:34,680 --> 00:08:39,440
+actually doesn't show any CPU usage.
+
+187
+00:08:37,719 --> 00:08:41,719
+It's like
+
+188
+00:08:39,440 --> 00:08:43,800
+I sup- You know, okay, it's fine finally
+
+189
+00:08:41,719 --> 00:08:45,560
+done, you see?
+
+190
+00:08:43,800 --> 00:08:48,640
+Finally done.
+
+191
+00:08:45,560 --> 00:08:53,360
+You see, you got all the WebP uh
+
+192
+00:08:48,640 --> 00:08:54,760
+images. So, let's let's do that. So,
+
+193
+00:08:53,360 --> 00:08:59,160
+uh
+
+194
+00:08:54,760 --> 00:09:01,960
+Press press press, highlight WebP.
+
+195
+00:08:59,160 --> 00:09:04,040
+Uh wait. I want highlight lines. Press
+
+196
+00:09:01,960 --> 00:09:05,680
+press press.
+
+197
+00:09:04,040 --> 00:09:08,839
+WebP
+
+198
+00:09:05,680 --> 00:09:12,960
+yellow. Okay. So, all the WebP is now
+
+199
+00:09:08,839 --> 00:09:14,800
+yellow. Uh let's magnify.
+
+200
+00:09:12,960 --> 00:09:16,640
+Okay.
+
+201
+00:09:14,800 --> 00:09:19,640
+Okay, so you can see
+
+202
+00:09:16,640 --> 00:09:22,440
+each WebP, they are are they smaller?
+
+203
+00:09:19,640 --> 00:09:26,520
+Yes, usually by uh you see, WebP PNG
+
+204
+00:09:22,440 --> 00:09:31,360
+WebP is 17K, PNG is 27K.
+
+205
+00:09:26,520 --> 00:09:34,880
+This one, WebP is 6K, PNG is 9K. So,
+
+206
+00:09:31,360 --> 00:09:38,360
+usually they save like 20%, okay?
+
+207
+00:09:34,880 --> 00:09:43,440
+And all these PNG are already extremely
+
+208
+00:09:38,360 --> 00:09:48,600
+optimized. Okay. So, you can see so
+
+209
+00:09:43,440 --> 00:09:50,880
+So, okay. So, what we going to do? Um
+
+210
+00:09:48,600 --> 00:09:53,600
+So, you can see there's WebP and PNG
+
+211
+00:09:50,880 --> 00:09:55,880
+twice as large. And the PNG is twice as
+
+212
+00:09:53,600 --> 00:09:58,440
+large. Let's open that one.
+
+213
+00:09:55,880 --> 00:10:01,120
+Okay, that one You know, why Why is this
+
+214
+00:09:58,440 --> 00:10:02,200
+twice as large? It's because we didn't
+
+215
+00:10:01,120 --> 00:10:05,520
+um
+
+216
+00:10:02,200 --> 00:10:08,960
+uh optimize it. Let's Let's try. Okay,
+
+217
+00:10:05,520 --> 00:10:11,080
+so this PNG is twice as Let's try
+
+218
+00:10:08,960 --> 00:10:12,760
+optimize it.
+
+219
+00:10:11,080 --> 00:10:16,800
+Press.
+
+220
+00:10:12,760 --> 00:10:20,120
+Uh wait. So, press press press. That
+
+221
+00:10:16,800 --> 00:10:21,760
+will optimize it. You see 0% decrease.
+
+222
+00:10:20,120 --> 00:10:24,880
+That means this
+
+223
+00:10:21,760 --> 00:10:26,200
+this PNG file is already optimized and
+
+224
+00:10:24,880 --> 00:10:28,152
+it's
+
+225
+00:10:26,200 --> 00:10:28,720
+125
+
+226
+00:10:28,152 --> 00:10:32,040
+>> [snorts]
+
+227
+00:10:28,720 --> 00:10:33,520
+>> uh 125 K
+
+228
+00:10:32,040 --> 00:10:36,400
+kilobytes.
+
+229
+00:10:33,520 --> 00:10:37,240
+While the WebP
+
+230
+00:10:36,400 --> 00:10:39,200
+uh
+
+231
+00:10:37,240 --> 00:10:41,640
+version is
+
+232
+00:10:39,200 --> 00:10:44,800
+67.
+
+233
+00:10:41,640 --> 00:10:46,480
+Yeah, so twice as small. Amazing save,
+
+234
+00:10:44,800 --> 00:10:50,960
+you know.
+
+235
+00:10:46,480 --> 00:10:53,240
+So, anyway, so you see it's done. Okay.
+
+236
+00:10:50,960 --> 00:10:56,240
+Now, since this is done, the next thing
+
+237
+00:10:53,240 --> 00:10:58,360
+to do is all these directory.
+
+238
+00:10:56,240 --> 00:11:00,920
+So, how many how many are there? So,
+
+239
+00:10:58,360 --> 00:11:02,960
+let's see. Uh
+
+240
+00:11:00,920 --> 00:11:05,440
+count
+
+241
+00:11:02,960 --> 00:11:05,440
+uh
+
+242
+00:11:05,560 --> 00:11:10,680
+count matches
+
+243
+00:11:07,560 --> 00:11:13,640
+uh WebP. Okay, they are 497
+
+244
+00:11:10,680 --> 00:11:15,960
+occurrences. Can you see?
+
+245
+00:11:13,640 --> 00:11:18,800
+See, 497.
+
+246
+00:11:15,960 --> 00:11:18,800
+So, now
+
+247
+00:11:18,920 --> 00:11:25,080
+Now, we go to Xantus Show. Close that.
+
+248
+00:11:21,640 --> 00:11:29,600
+Go to um Xantus Show. Let's go to
+
+249
+00:11:25,080 --> 00:11:29,600
+today's talk show. We want to find
+
+250
+00:11:30,040 --> 00:11:33,800
+um
+
+251
+00:11:31,280 --> 00:11:36,440
+links to those PNG files because we need
+
+252
+00:11:33,800 --> 00:11:38,680
+to change it. So, let's go
+
+253
+00:11:36,440 --> 00:11:40,160
+X out find text. That That's my personal
+
+254
+00:11:38,680 --> 00:11:41,840
+command.
+
+255
+00:11:40,160 --> 00:11:44,680
+Find.
+
+256
+00:11:41,840 --> 00:11:48,400
+Wait. Let's see.
+
+257
+00:11:44,680 --> 00:11:49,920
+Okay, close that. Okay, let's go to talk
+
+258
+00:11:48,400 --> 00:11:51,000
+show.
+
+259
+00:11:49,920 --> 00:11:53,760
+Let's
+
+260
+00:11:51,000 --> 00:11:57,240
+make this larger so you can see talk
+
+261
+00:11:53,760 --> 00:12:00,520
+shows. So, let's go to yesterday's
+
+262
+00:11:57,240 --> 00:12:03,120
+yesterday 2 days ago talk show. Okay?
+
+263
+00:12:00,520 --> 00:12:05,600
+So, you got some images there.
+
+264
+00:12:03,120 --> 00:12:09,040
+Search for image tag. So, there is a
+
+265
+00:12:05,600 --> 00:12:14,320
+image. That's That's already WebP, okay?
+
+266
+00:12:09,040 --> 00:12:14,320
+So, okay, so we want to search for
+
+267
+00:12:17,360 --> 00:12:23,320
+You see So, let's go to the earlier talk
+
+268
+00:12:20,160 --> 00:12:27,200
+show so that we can see some PNG there.
+
+269
+00:12:23,320 --> 00:12:30,120
+Search for PNG. Uh, not found.
+
+270
+00:12:27,200 --> 00:12:34,240
+Open this one. Search for PNG. There.
+
+271
+00:12:30,120 --> 00:12:36,440
+Okay, so what is this? This is breathing
+
+272
+00:12:34,240 --> 00:12:40,440
+Elon Musk. That's a
+
+273
+00:12:36,440 --> 00:12:42,120
+amazing AI-generated video. So, that is
+
+274
+00:12:40,440 --> 00:12:47,640
+episode
+
+275
+00:12:42,120 --> 00:12:47,640
+So, this is X Talk Show episode 762.
+
+276
+00:12:47,720 --> 00:12:51,800
+4 month ago in February. That's amazing.
+
+277
+00:12:50,400 --> 00:12:54,400
+Amazing
+
+278
+00:12:51,800 --> 00:12:56,040
+breathing Elon Musk. Okay, so do we have
+
+279
+00:12:54,400 --> 00:12:58,720
+some pictures here?
+
+280
+00:12:56,040 --> 00:13:00,560
+It's a YouTube, okay? So,
+
+281
+00:12:58,720 --> 00:13:03,839
+fantastic video.
+
+282
+00:13:00,560 --> 00:13:05,600
+And it it Anyway, it's not Let's Let's
+
+283
+00:13:03,839 --> 00:13:08,120
+get back here. So, so you see So,
+
+284
+00:13:05,600 --> 00:13:10,920
+there's a PNG file. What we want to
+
+285
+00:13:08,120 --> 00:13:14,160
+search is we want to search all things
+
+286
+00:13:10,920 --> 00:13:17,440
+like that, okay? Search X Talk custom
+
+287
+00:13:14,160 --> 00:13:20,160
+command. So, in this directory, find all
+
+288
+00:13:17,440 --> 00:13:23,320
+search patterns. So, there we go. 1 2 3
+
+289
+00:13:20,160 --> 00:13:25,920
+4. So, you can see You can see the the
+
+290
+00:13:23,320 --> 00:13:28,200
+scroll bar. So, there's like
+
+291
+00:13:25,920 --> 00:13:30,120
+thousands of them occurrences. So, you
+
+292
+00:13:28,200 --> 00:13:33,080
+can open each one.
+
+293
+00:13:30,120 --> 00:13:36,200
+For example, this is p Oh, this keyboard
+
+294
+00:13:33,080 --> 00:13:39,240
+photo in PNG. This is Okay, this this
+
+295
+00:13:36,200 --> 00:13:39,920
+This is like 5 years ago.
+
+296
+00:13:39,240 --> 00:13:42,680
+Uh
+
+297
+00:13:39,920 --> 00:13:45,560
+but Oh my god, I didn't you know, like
+
+298
+00:13:42,680 --> 00:13:47,640
+photos usually they should be in uh
+
+299
+00:13:45,560 --> 00:13:48,720
+they should be in uh
+
+300
+00:13:47,640 --> 00:13:51,920
+um
+
+301
+00:13:48,720 --> 00:13:54,000
+JPEG format, but you know, so I didn't
+
+302
+00:13:51,920 --> 00:13:56,200
+convert. So, anyway, so
+
+303
+00:13:54,000 --> 00:13:57,360
+So, close that. Close that. So, so you
+
+304
+00:13:56,200 --> 00:14:00,520
+can see
+
+305
+00:13:57,360 --> 00:14:03,680
+go all the way down. So, you have
+
+306
+00:14:00,520 --> 00:14:06,840
+you have about, you know, so many
+
+307
+00:14:03,680 --> 00:14:09,040
+How How many files? Press press
+
+308
+00:14:06,840 --> 00:14:10,680
+Wait.
+
+309
+00:14:09,040 --> 00:14:14,040
+Press press.
+
+310
+00:14:10,680 --> 00:14:16,120
+So, you can see
+
+311
+00:14:14,040 --> 00:14:16,120
+uh
+
+312
+00:14:16,320 --> 00:14:22,600
+217 files, okay?
+
+313
+00:14:20,000 --> 00:14:25,400
+These files contain
+
+314
+00:14:22,600 --> 00:14:27,360
+embedded PNG tags, okay?
+
+315
+00:14:25,400 --> 00:14:29,920
+200 uh
+
+316
+00:14:27,360 --> 00:14:34,360
+217, okay? Close.
+
+317
+00:14:29,920 --> 00:14:36,400
+And close that. And we want to um
+
+318
+00:14:34,360 --> 00:14:37,839
+So, you can look at each one.
+
+319
+00:14:36,400 --> 00:14:40,120
+So, basically
+
+320
+00:14:37,839 --> 00:14:42,400
+So, let's say this one. What is this
+
+321
+00:14:40,120 --> 00:14:44,800
+one? This is uh
+
+322
+00:14:42,400 --> 00:14:48,320
+This is AI generated
+
+323
+00:14:44,800 --> 00:14:50,920
+geo This is few days ago, okay? So,
+
+324
+00:14:48,320 --> 00:14:52,520
+So, we want to change all these
+
+325
+00:14:50,920 --> 00:14:55,560
+um
+
+326
+00:14:52,520 --> 00:14:56,480
+.png into .webp. So, let Let me do it,
+
+327
+00:14:55,560 --> 00:14:59,920
+okay?
+
+328
+00:14:56,480 --> 00:15:02,240
+So, call the command sub find replace
+
+329
+00:14:59,920 --> 00:15:05,120
+text. You can see on the pink window on
+
+330
+00:15:02,240 --> 00:15:06,680
+top there, okay? So, call it. And what
+
+331
+00:15:05,120 --> 00:15:08,720
+do you want to find? You want to find
+
+332
+00:15:06,680 --> 00:15:12,480
+text like that, okay?
+
+333
+00:15:08,720 --> 00:15:17,440
+And you want to change it to
+
+334
+00:15:12,480 --> 00:15:18,520
+low line LL LL means lossless.
+
+335
+00:15:17,440 --> 00:15:21,960
+.
+
+336
+00:15:18,520 --> 00:15:23,760
+webp, okay? Change all .png to webp,
+
+337
+00:15:21,960 --> 00:15:26,800
+okay? Do it.
+
+338
+00:15:23,760 --> 00:15:30,440
+In this directory only? Yes.
+
+339
+00:15:26,800 --> 00:15:32,920
+All HTML files? Yes. Okay.
+
+340
+00:15:30,440 --> 00:15:33,960
+Done. Okay, so you can go through all of
+
+341
+00:15:32,920 --> 00:15:35,120
+them.
+
+342
+00:15:33,960 --> 00:15:37,480
+Open it.
+
+343
+00:15:35,120 --> 00:15:39,200
+Now you can see this is uh
+
+344
+00:15:37,480 --> 00:15:41,560
+WebP. Open it.
+
+345
+00:15:39,200 --> 00:15:44,080
+Eyes of the Pepe.
+
+346
+00:15:41,560 --> 00:15:45,960
+I love this
+
+347
+00:15:44,080 --> 00:15:48,040
+this uh cartoon.
+
+348
+00:15:45,960 --> 00:15:51,200
+So, that's done.
+
+349
+00:15:48,040 --> 00:15:54,400
+So now, okay, open it. Now drop into the
+
+350
+00:15:51,200 --> 00:15:57,120
+directory so you can see all the old PNG
+
+351
+00:15:54,400 --> 00:15:58,880
+files still there, you see? And there it
+
+352
+00:15:57,120 --> 00:16:00,400
+is, Pepe. You
+
+353
+00:15:58,880 --> 00:16:03,640
+you see? So, let's
+
+354
+00:16:00,400 --> 00:16:06,760
+split the window.
+
+355
+00:16:03,640 --> 00:16:09,200
+Open this Pepe and open the other Pepe.
+
+356
+00:16:06,760 --> 00:16:11,440
+One is PNG, one is
+
+357
+00:16:09,200 --> 00:16:15,760
+uh WebP, okay?
+
+358
+00:16:11,440 --> 00:16:15,760
+So, so now we want to let's uh
+
+359
+00:16:15,880 --> 00:16:21,800
+You see?
+
+360
+00:16:18,320 --> 00:16:24,200
+Um so, this is a drawing by Alan, 5
+
+361
+00:16:21,800 --> 00:16:28,480
+years ago, 2020.
+
+362
+00:16:24,200 --> 00:16:30,680
+Uh Alan of of a a friend.
+
+363
+00:16:28,480 --> 00:16:32,760
+Uh so,
+
+364
+00:16:30,680 --> 00:16:35,839
+so what we doing? Yeah, so
+
+365
+00:16:32,760 --> 00:16:36,760
+so we need now to delete all those PNGs,
+
+366
+00:16:35,839 --> 00:16:38,360
+okay?
+
+367
+00:16:36,760 --> 00:16:41,800
+So, let's
+
+368
+00:16:38,360 --> 00:16:44,560
+press press press PNG dollar sign to
+
+369
+00:16:41,800 --> 00:16:47,000
+select them all. And let me show you
+
+370
+00:16:44,560 --> 00:16:51,080
+this fantastic command. So, we selected
+
+371
+00:16:47,000 --> 00:16:52,120
+about 400 image files, right?
+
+372
+00:16:51,080 --> 00:16:53,960
+Now,
+
+373
+00:16:52,120 --> 00:16:56,960
+uh
+
+374
+00:16:53,960 --> 00:17:00,520
+press press press. That calls the
+
+375
+00:16:56,960 --> 00:17:03,280
+command that moves all those selected
+
+376
+00:17:00,520 --> 00:17:04,520
+files into this new directory it just
+
+377
+00:17:03,280 --> 00:17:06,319
+created.
+
+378
+00:17:04,520 --> 00:17:09,160
+So, you open that so you can see it's
+
+379
+00:17:06,319 --> 00:17:11,120
+all PNG files, okay?
+
+380
+00:17:09,160 --> 00:17:12,959
+So, you can, for example, go to the top,
+
+381
+00:17:11,120 --> 00:17:17,160
+open it.
+
+382
+00:17:12,959 --> 00:17:20,920
+Next next next next next to all PNG
+
+383
+00:17:17,160 --> 00:17:22,520
+files. Next, next, this is all my Excel
+
+384
+00:17:20,920 --> 00:17:25,520
+talk show stuff.
+
+385
+00:17:22,520 --> 00:17:29,520
+Uh Pascal theorem, fantastic, generated
+
+386
+00:17:25,520 --> 00:17:32,640
+by AI. Next, next, next, next.
+
+387
+00:17:29,520 --> 00:17:35,960
+Going to LaTeX, this is also by Alan,
+
+388
+00:17:32,640 --> 00:17:38,560
+fantastic guy. It's uh referencing to a
+
+389
+00:17:35,960 --> 00:17:41,320
+mathematician, a friend.
+
+390
+00:17:38,560 --> 00:17:43,320
+So, you know, so anyway, so all these
+
+391
+00:17:41,320 --> 00:17:46,040
+PNG and now let's
+
+392
+00:17:43,320 --> 00:17:49,640
+uh drop into PowerShell.
+
+393
+00:17:46,040 --> 00:17:52,360
+And magnify control L, so we can see.
+
+394
+00:17:49,640 --> 00:17:54,160
+So, let's uh what So, [snorts]
+
+395
+00:17:52,360 --> 00:17:56,280
+so you can call
+
+396
+00:17:54,160 --> 00:17:58,200
+the size.
+
+397
+00:17:56,280 --> 00:18:03,560
+the size.
+
+398
+00:17:58,200 --> 00:18:05,280
+Okay, so all these PNG is 84 megabytes.
+
+399
+00:18:03,560 --> 00:18:07,480
+Sizeable, okay?
+
+400
+00:18:05,280 --> 00:18:10,680
+Close it. Now,
+
+401
+00:18:07,480 --> 00:18:10,680
+select all.
+
+402
+00:18:10,840 --> 00:18:17,480
+WebP this time, okay? Select it. Now,
+
+403
+00:18:14,880 --> 00:18:19,600
+press press press
+
+404
+00:18:17,480 --> 00:18:22,560
+They are all moved into this new
+
+405
+00:18:19,600 --> 00:18:24,200
+directory. Open it. So, you can see all
+
+406
+00:18:22,560 --> 00:18:28,800
+our WebP.
+
+407
+00:18:24,200 --> 00:18:32,440
+Now, open. Next, next, next, next, next,
+
+408
+00:18:28,800 --> 00:18:32,440
+next. You see similar
+
+409
+00:18:33,520 --> 00:18:38,000
+same images.
+
+410
+00:18:35,280 --> 00:18:42,320
+Right, so close it. Now,
+
+411
+00:18:38,000 --> 00:18:45,360
+now drop into a PowerShell again.
+
+412
+00:18:42,320 --> 00:18:48,800
+And uh magnify.
+
+413
+00:18:45,360 --> 00:18:53,200
+And then now let's the size, that's my
+
+414
+00:18:48,800 --> 00:18:55,120
+custom PowerShell command. The size 61.
+
+415
+00:18:53,200 --> 00:18:58,680
+So,
+
+416
+00:18:55,120 --> 00:19:00,440
+Okay, so the PNG files together is 84
+
+417
+00:18:58,680 --> 00:19:04,280
+megabytes.
+
+418
+00:19:00,440 --> 00:19:08,240
+Now, in lossless WebP, they are 61
+
+419
+00:19:04,280 --> 00:19:11,000
+megabytes. Saved 20 megabytes, okay?
+
+420
+00:19:08,240 --> 00:19:13,240
+Okay, so now
+
+421
+00:19:11,000 --> 00:19:17,640
+Now, we need to move the WebP back.
+
+422
+00:19:13,240 --> 00:19:19,040
+Okay, so let's let's do that.
+
+423
+00:19:17,640 --> 00:19:23,680
+Go to the
+
+424
+00:19:19,040 --> 00:19:25,720
+uh parent directory. Okay. Now,
+
+425
+00:19:23,680 --> 00:19:28,560
+yeah, actually again, just call this
+
+426
+00:19:25,720 --> 00:19:30,040
+command. Okay, watch.
+
+427
+00:19:28,560 --> 00:19:33,920
+Press
+
+428
+00:19:30,040 --> 00:19:36,840
+press press. That's unravel. That's uh
+
+429
+00:19:33,920 --> 00:19:39,120
+direct unraveler. Okay. So, that will
+
+430
+00:19:36,840 --> 00:19:40,480
+move all files in this directory.
+
+431
+00:19:39,120 --> 00:19:43,840
+Refresh.
+
+432
+00:19:40,480 --> 00:19:46,200
+You see, we'll move them out
+
+433
+00:19:43,840 --> 00:19:48,760
+to to the to to the parent directory.
+
+434
+00:19:46,200 --> 00:19:49,680
+So, you see, so all the WebPs are now
+
+435
+00:19:48,760 --> 00:19:50,600
+here.
+
+436
+00:19:49,680 --> 00:19:53,400
+Okay.
+
+437
+00:19:50,600 --> 00:19:55,680
+So, now close. Now, we need to Oh, we
+
+438
+00:19:53,400 --> 00:19:57,960
+already changed it. Fantastic. So, so
+
+439
+00:19:55,680 --> 00:20:01,600
+fantastic. We are done.
+
+440
+00:19:57,960 --> 00:20:04,920
+We changed about 400 PNG files
+
+441
+00:20:01,600 --> 00:20:07,320
+to WebP, and we also made changes to the
+
+442
+00:20:04,920 --> 00:20:09,440
+HTML. Now,
+
+443
+00:20:07,320 --> 00:20:11,360
+one more thing to check. You see,
+
+444
+00:20:09,440 --> 00:20:12,800
+because some of the links, for example,
+
+445
+00:20:11,360 --> 00:20:15,080
+this image,
+
+446
+00:20:12,800 --> 00:20:17,400
+it may link to For example, if you
+
+447
+00:20:15,080 --> 00:20:19,640
+observe where is the directory, so it's
+
+448
+00:20:17,400 --> 00:20:20,960
+in a directory named I
+
+449
+00:20:19,640 --> 00:20:22,680
+for image,
+
+450
+00:20:20,960 --> 00:20:24,120
+then, you know, in the current
+
+451
+00:20:22,680 --> 00:20:26,240
+directory. So, go to the current
+
+452
+00:20:24,120 --> 00:20:28,120
+directory, go to the top, you see the
+
+453
+00:20:26,240 --> 00:20:30,040
+image I
+
+454
+00:20:28,120 --> 00:20:32,040
+I directory, then go into it. That's all
+
+455
+00:20:30,040 --> 00:20:35,320
+those images.
+
+456
+00:20:32,040 --> 00:20:38,320
+So, but you you could link to For
+
+457
+00:20:35,320 --> 00:20:40,680
+example, any image link, you you could
+
+458
+00:20:38,320 --> 00:20:42,960
+link into a directory outside the
+
+459
+00:20:40,680 --> 00:20:45,440
+current directory. Like go Like go top
+
+460
+00:20:42,960 --> 00:20:47,680
+to the parent and parent then to another
+
+461
+00:20:45,440 --> 00:20:50,000
+directory. So, you are linking to
+
+462
+00:20:47,680 --> 00:20:52,920
+another directory outside of the current
+
+463
+00:20:50,000 --> 00:20:55,160
+directory and its subdirectories.
+
+464
+00:20:52,920 --> 00:20:57,400
+So, that is possible. So, when this
+
+465
+00:20:55,160 --> 00:21:01,600
+happens, you know, let's say you if you
+
+466
+00:20:57,400 --> 00:21:01,600
+have some random PNG,
+
+467
+00:21:02,560 --> 00:21:09,080
+you see, when this happens, but you
+
+468
+00:21:04,400 --> 00:21:11,320
+change them to WebP, but but we didn't
+
+469
+00:21:09,080 --> 00:21:13,600
+you know, we we only changed PNG in the
+
+470
+00:21:11,320 --> 00:21:15,960
+current directory, so that's a problem.
+
+471
+00:21:13,600 --> 00:21:17,680
+So, some of these change, if they link
+
+472
+00:21:15,960 --> 00:21:19,480
+to a directory outside of this
+
+473
+00:21:17,680 --> 00:21:22,160
+directory,
+
+474
+00:21:19,480 --> 00:21:24,960
+that that will now be broken because we
+
+475
+00:21:22,160 --> 00:21:27,880
+just changed it to web P, but it doesn't
+
+476
+00:21:24,960 --> 00:21:29,160
+exist, okay? So, what we can do is how
+
+477
+00:21:27,880 --> 00:21:30,840
+do you know
+
+478
+00:21:29,160 --> 00:21:33,640
+there this
+
+479
+00:21:30,840 --> 00:21:36,040
+script, okay? So, this script, of
+
+480
+00:21:33,640 --> 00:21:38,600
+course, it's on my website. You can This
+
+481
+00:21:36,040 --> 00:21:40,960
+is Golang script. Open the
+
+482
+00:21:38,600 --> 00:21:43,600
+homepage, showing browser.
+
+483
+00:21:40,960 --> 00:21:45,080
+Golang validate website local links. So,
+
+484
+00:21:43,600 --> 00:21:47,440
+this
+
+485
+00:21:45,080 --> 00:21:50,880
+Golang script, you can you can grab, you
+
+486
+00:21:47,440 --> 00:21:54,160
+can get. Just search for xardi.info
+
+487
+00:21:50,880 --> 00:21:57,560
+Golang validate website local links.
+
+488
+00:21:54,160 --> 00:22:01,200
+And it will So, for given directory, it
+
+489
+00:21:57,560 --> 00:22:03,880
+will check all HTML files.
+
+490
+00:22:01,200 --> 00:22:06,760
+Any link that's invalid, it will report,
+
+491
+00:22:03,880 --> 00:22:07,840
+okay? So, let's run it. So,
+
+492
+00:22:06,760 --> 00:22:10,520
+run.
+
+493
+00:22:07,840 --> 00:22:12,920
+Okay, it'll you know, take 20 seconds or
+
+494
+00:22:10,520 --> 00:22:12,920
+so.
+
+495
+00:22:20,120 --> 00:22:25,640
+Hello ACP.
+
+496
+00:22:22,200 --> 00:22:27,800
+Do you shell out to program to do the
+
+497
+00:22:25,640 --> 00:22:29,960
+conversion or is it there a building
+
+498
+00:22:27,800 --> 00:22:32,590
+function that converts images? Of
+
+499
+00:22:29,960 --> 00:22:33,680
+course, I wrote it myself.
+
+500
+00:22:32,590 --> 00:22:35,880
+>> [laughter]
+
+501
+00:22:33,680 --> 00:22:38,520
+>> I'll show you how that's done.
+
+502
+00:22:35,880 --> 00:22:41,040
+Actually, did we explain in last
+
+503
+00:22:38,520 --> 00:22:42,240
+episode? I I guess not.
+
+504
+00:22:41,040 --> 00:22:45,000
+No, I
+
+505
+00:22:42,240 --> 00:22:46,520
+So, I wrote it offline. So, for those of
+
+506
+00:22:45,000 --> 00:22:49,000
+you don't know,
+
+507
+00:22:46,520 --> 00:22:51,800
+let's go to xah talk show.
+
+508
+00:22:49,000 --> 00:22:54,000
+Okay, what is this? Episode, so this is
+
+509
+00:22:51,800 --> 00:22:56,440
+February, so let's go to today's talk
+
+510
+00:22:54,000 --> 00:22:56,440
+show.
+
+511
+00:22:57,960 --> 00:23:02,760
+Okay, go to today's talk show.
+
+512
+00:23:01,400 --> 00:23:05,120
+Um
+
+513
+00:23:02,760 --> 00:23:07,520
+that's today and but
+
+514
+00:23:05,120 --> 00:23:08,720
+last week
+
+515
+00:23:07,520 --> 00:23:11,040
+so
+
+516
+00:23:08,720 --> 00:23:15,360
+episode 794,
+
+517
+00:23:11,040 --> 00:23:19,080
+we talked about new image formats.
+
+518
+00:23:15,360 --> 00:23:22,880
+The wide color gamut and HEIC from Apple
+
+519
+00:23:19,080 --> 00:23:24,080
+and AVIF is upcoming new format and JPEG
+
+520
+00:23:22,880 --> 00:23:26,040
+XL
+
+521
+00:23:24,080 --> 00:23:29,000
+is new format supposed to be the best
+
+522
+00:23:26,040 --> 00:23:32,880
+and we also discussed WebP
+
+523
+00:23:29,000 --> 00:23:35,200
+and the CSS okay LCH color. So we did
+
+524
+00:23:32,880 --> 00:23:37,920
+you know we talked
+
+525
+00:23:35,200 --> 00:23:37,920
+and so
+
+526
+00:23:38,000 --> 00:23:42,160
+but yeah but I don't think we talked
+
+527
+00:23:39,960 --> 00:23:44,640
+about how to convert but let me show
+
+528
+00:23:42,160 --> 00:23:47,360
+you. Okay, so you have to do is
+
+529
+00:23:44,640 --> 00:23:49,840
+xnview.info. Okay, let's see search
+
+530
+00:23:47,360 --> 00:23:52,520
+xnview um
+
+531
+00:23:49,840 --> 00:23:54,680
+image tutorial.
+
+532
+00:23:52,520 --> 00:23:57,400
+Just search for that
+
+533
+00:23:54,680 --> 00:23:59,160
+and you'll find xnview image magic
+
+534
+00:23:57,400 --> 00:24:00,920
+tutorial there.
+
+535
+00:23:59,160 --> 00:24:04,000
+By the way, it looks funky because I
+
+536
+00:24:00,920 --> 00:24:05,560
+made the font to be 32
+
+537
+00:24:04,000 --> 00:24:06,480
+minimum.
+
+538
+00:24:05,560 --> 00:24:08,400
+So
+
+539
+00:24:06,480 --> 00:24:10,960
+so that's why the Brave
+
+540
+00:24:08,400 --> 00:24:13,440
+search and other website they don't look
+
+541
+00:24:10,960 --> 00:24:16,240
+so good but my website still looks
+
+542
+00:24:13,440 --> 00:24:18,040
+perfect.
+
+543
+00:24:16,240 --> 00:24:21,360
+Uh by the way, this is the old xnview
+
+544
+00:24:18,040 --> 00:24:24,240
+talk show that was you know me.
+
+545
+00:24:21,360 --> 00:24:26,200
+Uh that's what you know one of my very
+
+546
+00:24:24,240 --> 00:24:29,520
+early Oh, this is actually people
+
+547
+00:24:26,200 --> 00:24:34,040
+drawing artworks of me. So this is
+
+548
+00:24:29,520 --> 00:24:35,920
+year 2020 5 years ago. 5 years ago I was
+
+549
+00:24:34,040 --> 00:24:37,680
+looking like that.
+
+550
+00:24:35,920 --> 00:24:41,120
+And uh
+
+551
+00:24:37,680 --> 00:24:44,240
+people drawn some artwork of me.
+
+552
+00:24:41,120 --> 00:24:46,760
+Thanks to those people and uh
+
+553
+00:24:44,240 --> 00:24:48,480
+uh many of them
+
+554
+00:24:46,760 --> 00:24:51,040
+you know some of them
+
+555
+00:24:48,480 --> 00:24:53,280
+I don't have the name but that's because
+
+556
+00:24:51,040 --> 00:24:56,320
+I think they didn't want to
+
+557
+00:24:53,280 --> 00:24:58,720
+have their name included.
+
+558
+00:24:56,320 --> 00:25:00,880
+But usually I add the name whoever
+
+559
+00:24:58,720 --> 00:25:02,520
+created them. I have the name, the
+
+560
+00:25:00,880 --> 00:25:06,000
+artist.
+
+561
+00:25:02,520 --> 00:25:09,360
+So, anyway, so that was the Yeah, 5 5
+
+562
+00:25:06,000 --> 00:25:13,000
+years ago. Zumwelt.
+
+563
+00:25:09,360 --> 00:25:16,000
+This guy is a keyboard
+
+564
+00:25:13,000 --> 00:25:18,000
+you know, the keyboard fan.
+
+565
+00:25:16,000 --> 00:25:20,272
+Anyway, this this is 5 years ago and
+
+566
+00:25:18,000 --> 00:25:20,800
+that is sync. Okay, so
+
+567
+00:25:20,272 --> 00:25:22,920
+>> [laughter]
+
+568
+00:25:20,800 --> 00:25:26,440
+>> So, we will Yeah, so we are talking
+
+569
+00:25:22,920 --> 00:25:28,440
+about image format. Okay, so let's go to
+
+570
+00:25:26,440 --> 00:25:30,480
+Saudi image
+
+571
+00:25:28,440 --> 00:25:32,600
+image tutorial.
+
+572
+00:25:30,480 --> 00:25:35,640
+So, this is
+
+573
+00:25:32,600 --> 00:25:38,680
+my early one of my early tutorial on
+
+574
+00:25:35,640 --> 00:25:41,920
+ImageMagick since 2007. You know, lots
+
+575
+00:25:38,680 --> 00:25:43,600
+of stuff. But, you go here
+
+576
+00:25:41,920 --> 00:25:46,560
+to the parent
+
+577
+00:25:43,600 --> 00:25:51,320
+index. So, now here you can see how to
+
+578
+00:25:46,560 --> 00:25:54,920
+convert image PNG JPEG to WebP. Okay? I
+
+579
+00:25:51,320 --> 00:25:58,120
+wrote this in 2016 when Google began the
+
+580
+00:25:54,920 --> 00:26:00,440
+WebP. Actually, they began in 2011,
+
+581
+00:25:58,120 --> 00:26:03,160
+I think.
+
+582
+00:26:00,440 --> 00:26:06,880
+So, anyway, and and I updated so So,
+
+583
+00:26:03,160 --> 00:26:09,560
+this is how you convert JPEG or PNG to
+
+584
+00:26:06,880 --> 00:26:11,640
+WebP. Okay, so it's all explained here.
+
+585
+00:26:09,560 --> 00:26:13,920
+You just go to the Google website to
+
+586
+00:26:11,640 --> 00:26:16,880
+download the cwebp and dwebp, you know,
+
+587
+00:26:13,920 --> 00:26:20,840
+they have different tools to convert to
+
+588
+00:26:16,880 --> 00:26:22,960
+PNG to WebP or from WebP to other.
+
+589
+00:26:20,840 --> 00:26:25,480
+And also
+
+590
+00:26:22,960 --> 00:26:28,120
+for animations, converting GIF animation
+
+591
+00:26:25,480 --> 00:26:30,160
+and stuff. Okay? So, how do you convert?
+
+592
+00:26:28,120 --> 00:26:32,800
+So, here is a command. You can see or
+
+593
+00:26:30,160 --> 00:26:34,280
+convert the entire directory.
+
+594
+00:26:32,800 --> 00:26:37,520
+You can do that.
+
+595
+00:26:34,280 --> 00:26:39,480
+Uh and but Okay, so that's how you do it
+
+596
+00:26:37,520 --> 00:26:40,560
+in shell. For example, if you are in
+
+597
+00:26:39,480 --> 00:26:42,600
+shell.
+
+598
+00:26:40,560 --> 00:26:44,320
+But, how do I do it in Emacs? Of course,
+
+599
+00:26:42,600 --> 00:26:45,800
+I wrote a command. So, let me show you,
+
+600
+00:26:44,320 --> 00:26:48,240
+okay?
+
+601
+00:26:45,800 --> 00:26:50,400
+Uh so, let's do one thing at a time. So,
+
+602
+00:26:48,240 --> 00:26:52,628
+okay, so what is is
+
+603
+00:26:50,400 --> 00:26:53,840
+ posting Pepe.
+
+604
+00:26:52,628 --> 00:26:56,440
+>> [laughter]
+
+605
+00:26:53,840 --> 00:26:58,360
+>> This is drawing by Alan. Fantastic. I
+
+606
+00:26:56,440 --> 00:27:01,440
+love this one. Because [snorts] of my
+
+607
+00:26:58,360 --> 00:27:02,760
+head I type in so much my hand pain.
+
+608
+00:27:01,440 --> 00:27:05,040
+Um
+
+609
+00:27:02,760 --> 00:27:07,440
+Yeah, so okay. So, let's go to okay. So,
+
+610
+00:27:05,040 --> 00:27:09,640
+go go to a directory. Go to the
+
+611
+00:27:07,440 --> 00:27:12,160
+directory. Go to the
+
+612
+00:27:09,640 --> 00:27:14,400
+a PNG file. Go to the top and we looked
+
+613
+00:27:12,160 --> 00:27:17,120
+at Let's Let's show something
+
+614
+00:27:14,400 --> 00:27:19,080
+interesting, okay? It's mathematics,
+
+615
+00:27:17,120 --> 00:27:22,160
+okay? That's one of the This is one of
+
+616
+00:27:19,080 --> 00:27:25,080
+the Advent of Code we were doing in
+
+617
+00:27:22,160 --> 00:27:27,400
+Wolfram language. So, but let's see if
+
+618
+00:27:25,080 --> 00:27:32,000
+there is something Okay, let's see this
+
+619
+00:27:27,400 --> 00:27:32,000
+Pascal's in Barbie style.
+
+620
+00:27:32,040 --> 00:27:37,520
+Okay. So, you see? So, this image
+
+621
+00:27:35,280 --> 00:27:40,480
+So, what I do is you see? Press press
+
+622
+00:27:37,520 --> 00:27:42,920
+press. You see? Now you got a WebP
+
+623
+00:27:40,480 --> 00:27:46,440
+format, okay? So, what is the command?
+
+624
+00:27:42,920 --> 00:27:47,400
+So, that command is
+
+625
+00:27:46,440 --> 00:27:50,320
+Uh
+
+626
+00:27:47,400 --> 00:27:51,800
+that command is Xara Dia to lossless in
+
+627
+00:27:50,320 --> 00:27:54,600
+WebP, okay?
+
+628
+00:27:51,800 --> 00:27:56,680
+And let's show the source code. So,
+
+629
+00:27:54,600 --> 00:27:59,760
+describe key.
+
+630
+00:27:56,680 --> 00:28:02,440
+Press press press. There.
+
+631
+00:27:59,760 --> 00:28:05,800
+Tab IO runs the command Xara Dia to
+
+632
+00:28:02,440 --> 00:28:07,720
+lossless WebP, okay? So, you can open it
+
+633
+00:28:05,800 --> 00:28:09,920
+in Xara Dia.
+
+634
+00:28:07,720 --> 00:28:12,040
+Okay, so here is the source code. Not
+
+635
+00:28:09,920 --> 00:28:14,200
+too many, okay?
+
+636
+00:28:12,040 --> 00:28:15,640
+I don't have it on my website. I just
+
+637
+00:28:14,200 --> 00:28:18,440
+wrote this
+
+638
+00:28:15,640 --> 00:28:20,040
+last week, you know, like actually a few
+
+639
+00:28:18,440 --> 00:28:21,320
+days ago.
+
+640
+00:28:20,040 --> 00:28:23,080
+Uh
+
+641
+00:28:21,320 --> 00:28:24,560
+Yeah, and so
+
+642
+00:28:23,080 --> 00:28:27,560
+uh
+
+643
+00:28:24,560 --> 00:28:30,040
+So, what if you wanted you see?
+
+644
+00:28:27,560 --> 00:28:33,440
+So, I had it's in Xara
+
+645
+00:28:30,040 --> 00:28:35,040
+Dia package. It's not available. Because
+
+646
+00:28:33,440 --> 00:28:37,360
+they all these packages they were
+
+647
+00:28:35,040 --> 00:28:39,720
+available on the web for 10 years, but
+
+648
+00:28:37,360 --> 00:28:43,360
+nobody give a And I died of
+
+649
+00:28:39,720 --> 00:28:45,320
+hunger. So, about 5 years ago I removed
+
+650
+00:28:43,360 --> 00:28:47,480
+all of them from GitHub.
+
+651
+00:28:45,320 --> 00:28:49,440
+So, it's now just
+
+652
+00:28:47,480 --> 00:28:52,480
+private to me, Okay, if you want it, you
+
+653
+00:28:49,440 --> 00:28:54,200
+can pay me, you know, like pay me $100.
+
+654
+00:28:52,480 --> 00:28:56,600
+Search on the web, okay, you will find
+
+655
+00:28:54,200 --> 00:28:59,160
+my page for them.
+
+656
+00:28:56,600 --> 00:29:02,880
+And okay, so but
+
+657
+00:28:59,160 --> 00:29:05,040
+okay, but how do you so suppose I
+
+658
+00:29:02,880 --> 00:29:06,600
+have the tutorial somewhere. It's not
+
+659
+00:29:05,040 --> 00:29:10,440
+it's easy, okay.
+
+660
+00:29:06,600 --> 00:29:10,440
+Like like um
+
+661
+00:29:12,800 --> 00:29:17,960
+I can put it I can put it for example.
+
+662
+00:29:15,200 --> 00:29:18,880
+So, copy that. Okay, copy that. Close
+
+663
+00:29:17,960 --> 00:29:22,320
+it.
+
+664
+00:29:18,880 --> 00:29:25,160
+Go to the talk show. And go to TeX talk
+
+665
+00:29:22,320 --> 00:29:27,480
+show showing browser. I can put the code
+
+666
+00:29:25,160 --> 00:29:29,800
+here. So, you know
+
+667
+00:29:27,480 --> 00:29:33,960
+So, let me just put the code here. So,
+
+668
+00:29:29,800 --> 00:29:37,000
+let's see where where section
+
+669
+00:29:33,960 --> 00:29:38,600
+That's something like this.
+
+670
+00:29:37,000 --> 00:29:42,960
+So,
+
+671
+00:29:38,600 --> 00:29:45,920
+Emacs Lisp paste it. Syntax correct. And
+
+672
+00:29:42,960 --> 00:29:47,640
+go to the top. Remove the to do. Showing
+
+673
+00:29:45,920 --> 00:29:50,200
+browser.
+
+674
+00:29:47,640 --> 00:29:52,400
+So, for those of you Emacs users, you
+
+675
+00:29:50,200 --> 00:29:55,520
+want the code, you can just grab this,
+
+676
+00:29:52,400 --> 00:29:57,960
+okay. Of course, you need the C web
+
+677
+00:29:55,520 --> 00:30:00,600
+command line from Google.
+
+678
+00:29:57,960 --> 00:30:04,000
+So, just press a key or convert, okay.
+
+679
+00:30:00,600 --> 00:30:06,120
+It will convert all selected files.
+
+680
+00:30:04,000 --> 00:30:07,400
+If none selected, it will convert the
+
+681
+00:30:06,120 --> 00:30:09,000
+current
+
+682
+00:30:07,400 --> 00:30:11,120
+file
+
+683
+00:30:09,000 --> 00:30:13,600
+on the cursor.
+
+684
+00:30:11,120 --> 00:30:15,880
+So, for the loss
+
+685
+00:30:13,600 --> 00:30:18,480
+for the lossy version, you can simply
+
+686
+00:30:15,880 --> 00:30:20,920
+modify this, you know, this to lossless.
+
+687
+00:30:18,480 --> 00:30:24,440
+Lossless is just a command option. You
+
+688
+00:30:20,920 --> 00:30:26,240
+can see dash lossless.
+
+689
+00:30:24,440 --> 00:30:29,920
+So, if you want a lossy, you can just
+
+690
+00:30:26,240 --> 00:30:31,440
+remove that or replace it with dash Q
+
+691
+00:30:29,920 --> 00:30:34,040
+then a number.
+
+692
+00:30:31,440 --> 00:30:37,600
+By default, it's 75, but you can make it
+
+693
+00:30:34,040 --> 00:30:40,600
+85 to increase the quality.
+
+694
+00:30:37,600 --> 00:30:43,400
+Okay, that's about the
+
+695
+00:30:40,600 --> 00:30:45,600
+how I do it. This is a Emacs code. Now,
+
+696
+00:30:43,400 --> 00:30:47,840
+let's go back here. I'll get to the
+
+697
+00:30:45,600 --> 00:30:51,680
+comments, okay? So, go back here. So,
+
+698
+00:30:47,840 --> 00:30:54,920
+this checks all my links in
+
+699
+00:30:51,680 --> 00:30:58,400
+you know, in 13,000 HTML files. So, are
+
+700
+00:30:54,920 --> 00:31:01,880
+there any bad links? Yes, there are.
+
+701
+00:30:58,400 --> 00:31:05,360
+So, let's make them self-find mode. So,
+
+702
+00:31:01,880 --> 00:31:07,920
+now you can easily navigate to jump to
+
+703
+00:31:05,360 --> 00:31:09,600
+You see, watch the
+
+704
+00:31:07,920 --> 00:31:11,720
+scroll bar. So, because they can
+
+705
+00:31:09,600 --> 00:31:14,520
+indicate where I am.
+
+706
+00:31:11,720 --> 00:31:16,720
+So, you see, go up, go down.
+
+707
+00:31:14,520 --> 00:31:19,440
+Okay, so go up. So, actually go all the
+
+708
+00:31:16,720 --> 00:31:20,560
+way down, so you can see there is a bad
+
+709
+00:31:19,440 --> 00:31:22,160
+link.
+
+710
+00:31:20,560 --> 00:31:24,200
+Go to it.
+
+711
+00:31:22,160 --> 00:31:26,320
+Like we said, because why is it a bad
+
+712
+00:31:24,200 --> 00:31:28,600
+link? Because this link
+
+713
+00:31:26,320 --> 00:31:32,000
+in South Talk Show directory, in South
+
+714
+00:31:28,600 --> 00:31:34,280
+Talk Show, but it links to a directory
+
+715
+00:31:32,000 --> 00:31:36,480
+outside of South Talk Show.
+
+716
+00:31:34,280 --> 00:31:39,280
+So, it was PNG, but now you changed
+
+717
+00:31:36,480 --> 00:31:41,440
+that. It doesn't work anymore. So,
+
+718
+00:31:39,280 --> 00:31:42,800
+we can fix that. So, let's see how many
+
+719
+00:31:41,440 --> 00:31:44,640
+others.
+
+720
+00:31:42,800 --> 00:31:48,320
+So, you see, all these are the same.
+
+721
+00:31:44,640 --> 00:31:51,600
+Same situation in math directory.
+
+722
+00:31:48,320 --> 00:31:52,920
+Now, this in Talk Show. So, wait. Why is
+
+723
+00:31:51,600 --> 00:31:55,600
+that?
+
+724
+00:31:52,920 --> 00:31:58,280
+That one, let's see.
+
+725
+00:31:55,600 --> 00:32:01,880
+Oh, that's just the That's in the in the
+
+726
+00:31:58,280 --> 00:32:03,880
+current directory, but not not in the
+
+727
+00:32:01,880 --> 00:32:06,560
+Okay.
+
+728
+00:32:03,880 --> 00:32:06,560
+So,
+
+729
+00:32:06,640 --> 00:32:11,480
+So, let's see. Yeah, so in some in other
+
+730
+00:32:09,240 --> 00:32:14,880
+directories,
+
+731
+00:32:11,480 --> 00:32:17,440
+Okay, so we can fix that.
+
+732
+00:32:14,880 --> 00:32:19,480
+Uh you know, so how do I fix this? There
+
+733
+00:32:17,440 --> 00:32:21,520
+are about 10 of them. You know, for 10
+
+734
+00:32:19,480 --> 00:32:23,280
+10 of them, I can fix manually. For
+
+735
+00:32:21,520 --> 00:32:25,880
+example, open that.
+
+736
+00:32:23,280 --> 00:32:28,600
+Then just change
+
+737
+00:32:25,880 --> 00:32:30,160
+find replace that
+
+738
+00:32:28,600 --> 00:32:32,080
+ll.webp
+
+739
+00:32:30,160 --> 00:32:36,560
+by
+
+740
+00:32:32,080 --> 00:32:39,160
+just PNG. Do it. Now, open the file.
+
+741
+00:32:36,560 --> 00:32:41,760
+So, now you see the file. Fantastic and
+
+742
+00:32:39,160 --> 00:32:44,520
+beautiful. This is Wolfram Language
+
+743
+00:32:41,760 --> 00:32:45,840
+wallpaper plot tiling, okay?
+
+744
+00:32:44,520 --> 00:32:48,000
+So,
+
+745
+00:32:45,840 --> 00:32:49,680
+close that. Then,
+
+746
+00:32:48,000 --> 00:32:51,520
+uh
+
+747
+00:32:49,680 --> 00:32:56,640
+Oh, god. So,
+
+748
+00:32:51,520 --> 00:32:59,400
+where is the uh there? So, next
+
+749
+00:32:56,640 --> 00:33:01,800
+So, you can do the same. Open that.
+
+750
+00:32:59,400 --> 00:33:04,880
+Replace. Do it.
+
+751
+00:33:01,800 --> 00:33:06,960
+Do it. And open the file. So, you can
+
+752
+00:33:04,880 --> 00:33:08,600
+see this is another
+
+753
+00:33:06,960 --> 00:33:10,920
+mathematics.
+
+754
+00:33:08,600 --> 00:33:12,600
+Beautiful.
+
+755
+00:33:10,920 --> 00:33:15,720
+Uh we did
+
+756
+00:33:12,600 --> 00:33:18,360
+live Wolfram Language
+
+757
+00:33:15,720 --> 00:33:21,040
+uh geometry inversion, my favorite
+
+758
+00:33:18,360 --> 00:33:23,440
+topic.
+
+759
+00:33:21,040 --> 00:33:25,840
+Okay, so close that. So, that also
+
+760
+00:33:23,440 --> 00:33:27,920
+fixed. So, we can just like go through
+
+761
+00:33:25,840 --> 00:33:30,840
+them. Fixed 10 of them.
+
+762
+00:33:27,920 --> 00:33:33,480
+An- Another approach is that you see
+
+763
+00:33:30,840 --> 00:33:35,800
+eventually, I think I'm not sure. I
+
+764
+00:33:33,480 --> 00:33:39,680
+think I'm going to convert
+
+765
+00:33:35,800 --> 00:33:43,320
+you know, the 30,000 or PNG and JPEG all
+
+766
+00:33:39,680 --> 00:33:45,600
+to WebP because WebP saves file size
+
+767
+00:33:43,320 --> 00:33:47,760
+significantly.
+
+768
+00:33:45,600 --> 00:33:50,480
+So, another So, instead of, you know,
+
+769
+00:33:47,760 --> 00:33:53,480
+fix them fixing them back to PNG, I can
+
+770
+00:33:50,480 --> 00:33:54,880
+just go drop into the math directory.
+
+771
+00:33:53,480 --> 00:33:56,360
+For example,
+
+772
+00:33:54,880 --> 00:33:58,760
+this directory for example, let's change
+
+773
+00:33:56,360 --> 00:33:59,038
+it, okay? Fix it.
+
+774
+00:33:58,760 --> 00:33:59,360
+Uh
+
+775
+00:33:59,038 --> 00:34:01,280
+>> [clears throat]
+
+776
+00:33:59,360 --> 00:34:02,320
+>> wait. Open.
+
+777
+00:34:01,280 --> 00:34:05,280
+Oh.
+
+778
+00:34:02,320 --> 00:34:08,159
+Okay, so wait. Undo.
+
+779
+00:34:05,280 --> 00:34:10,960
+Open. Okay, that's another tiling, okay?
+
+780
+00:34:08,159 --> 00:34:14,760
+So, for example, in this math directory,
+
+781
+00:34:10,960 --> 00:34:17,000
+there's tons of image files. So, one
+
+782
+00:34:14,760 --> 00:34:18,000
+approach is just go through through all
+
+783
+00:34:17,000 --> 00:34:20,840
+my
+
+784
+00:34:18,000 --> 00:34:24,000
+image files, convert them all to WebP,
+
+785
+00:34:20,840 --> 00:34:25,800
+then convert all links of images of JPEG
+
+786
+00:34:24,000 --> 00:34:27,600
+and PNG to WebP.
+
+787
+00:34:25,800 --> 00:34:29,159
+So, I don't have these issues anymore,
+
+788
+00:34:27,600 --> 00:34:30,200
+okay?
+
+789
+00:34:29,159 --> 00:34:32,720
+Yeah.
+
+790
+00:34:30,200 --> 00:34:34,360
+Anyway, so yeah, so that you get the
+
+791
+00:34:32,720 --> 00:34:37,600
+idea.
+
+792
+00:34:34,360 --> 00:34:39,600
+I think that's it for today, okay?
+
+793
+00:34:37,600 --> 00:34:42,360
+So, I'm just going to deal with them
+
+794
+00:34:39,600 --> 00:34:42,360
+offline.
+
+795
+00:34:44,200 --> 00:34:50,159
+So, what else? That's it for today, I
+
+796
+00:34:47,360 --> 00:34:50,159
+think.
+
+797
+00:34:52,879 --> 00:34:56,760
+Uh
+
+798
+00:34:53,760 --> 00:34:56,760
+so,
+
+799
+00:34:56,919 --> 00:35:04,040
+Empty grocery bag says, "Uncle Oxa, I've
+
+800
+00:35:01,280 --> 00:35:07,080
+been really enjoying your archived
+
+801
+00:35:04,040 --> 00:35:09,400
+streams. I'd like to try Mathematica.
+
+802
+00:35:07,080 --> 00:35:10,880
+I'm too cheap to buy it. What do you
+
+803
+00:35:09,400 --> 00:35:13,880
+think about
+
+804
+00:35:10,880 --> 00:35:13,880
+WLJS?"
+
+805
+00:35:21,120 --> 00:35:28,880
+So, Empty Grocery Bag, uh Wolfram
+
+806
+00:35:24,880 --> 00:35:30,720
+Language is free to use, of course.
+
+807
+00:35:28,880 --> 00:35:32,720
+Let's go to uh search for Wolfram
+
+808
+00:35:30,720 --> 00:35:36,080
+Language, you'll find my Wolfram
+
+809
+00:35:32,720 --> 00:35:37,560
+Language tutorial, and you just go to
+
+810
+00:35:36,080 --> 00:35:41,000
+download
+
+811
+00:35:37,560 --> 00:35:42,800
+Wolfram Engine, free to download. Then,
+
+812
+00:35:41,000 --> 00:35:45,760
+you can install, you know, that gives
+
+813
+00:35:42,800 --> 00:35:49,040
+you the like the kernel, the engine that
+
+814
+00:35:45,760 --> 00:35:51,040
+essentially the compiler or interpreter.
+
+815
+00:35:49,040 --> 00:35:52,360
+But, if you want all these beautiful
+
+816
+00:35:51,040 --> 00:35:54,800
+image, you know, Wolfram Language
+
+817
+00:35:52,360 --> 00:35:56,760
+graphics, rotation, then you need to
+
+818
+00:35:54,800 --> 00:35:58,240
+download um
+
+819
+00:35:56,760 --> 00:36:00,440
+you know, you can download the open
+
+820
+00:35:58,240 --> 00:36:02,400
+source like the uh
+
+821
+00:36:00,440 --> 00:36:04,720
+go here. What's the difference between
+
+822
+00:36:02,400 --> 00:36:06,880
+Wolfram Language, Mathematica, Wolfram
+
+823
+00:36:04,720 --> 00:36:07,720
+Engine, Wolfram Script, you know, you
+
+824
+00:36:06,880 --> 00:36:09,880
+know,
+
+825
+00:36:07,720 --> 00:36:12,800
+I'll explain. You need the notebook, so
+
+826
+00:36:09,880 --> 00:36:14,680
+there is a Jupyter notebook for Wolfram.
+
+827
+00:36:12,800 --> 00:36:16,400
+Wolfram Lang uh
+
+828
+00:36:14,680 --> 00:36:17,640
+Corporation made it, okay? So, it's
+
+829
+00:36:16,400 --> 00:36:20,960
+free.
+
+830
+00:36:17,640 --> 00:36:23,320
+So, anyway, so you you can use Wolfram
+
+831
+00:36:20,960 --> 00:36:26,040
+Language free
+
+832
+00:36:23,320 --> 00:36:28,320
+for personal, you know, hobby.
+
+833
+00:36:26,040 --> 00:36:30,440
+But, if you are really into it, of
+
+834
+00:36:28,320 --> 00:36:32,360
+course, then you can buy the Wolfram
+
+835
+00:36:30,440 --> 00:36:35,920
+notebook, you know, the Wolfram
+
+836
+00:36:32,360 --> 00:36:37,680
+for student or hobbyist, it's like $200
+
+837
+00:36:35,920 --> 00:36:40,440
+or $300.
+
+838
+00:36:37,680 --> 00:36:41,120
+Uh was it a year or something? Or you
+
+839
+00:36:40,440 --> 00:36:42,600
+know,
+
+840
+00:36:41,120 --> 00:36:44,760
+you know, check their website. I don't
+
+841
+00:36:42,600 --> 00:36:47,080
+remember.
+
+842
+00:36:44,760 --> 00:36:49,720
+So, these days software they sell by
+
+843
+00:36:47,080 --> 00:36:53,160
+subscription. There's no longer
+
+844
+00:36:49,720 --> 00:36:55,080
+like software you buy and you own it for
+
+845
+00:36:53,160 --> 00:36:57,200
+life. There's like
+
+846
+00:36:55,080 --> 00:37:00,520
+those those days are gone
+
+847
+00:36:57,200 --> 00:37:02,720
+since like 15 years ago.
+
+848
+00:37:00,520 --> 00:37:05,040
+So, you like you subscribe instead, then
+
+849
+00:37:02,720 --> 00:37:08,400
+you can use on your phone or whatever
+
+850
+00:37:05,040 --> 00:37:10,360
+and they have cloud services.
+
+851
+00:37:08,400 --> 00:37:13,800
+So, anyway, use for free or if you
+
+852
+00:37:10,360 --> 00:37:15,800
+actually, you know, really seriously
+
+853
+00:37:13,800 --> 00:37:17,640
+use it, then, you know, for math or
+
+854
+00:37:15,800 --> 00:37:18,760
+whatever, engineering,
+
+855
+00:37:17,640 --> 00:37:20,280
+you can buy it, you know, just
+
+856
+00:37:18,760 --> 00:37:22,600
+subscribe.
+
+857
+00:37:20,280 --> 00:37:24,560
+And, you know, what about like
+
+858
+00:37:22,600 --> 00:37:27,440
+alternative? Like
+
+859
+00:37:24,560 --> 00:37:28,960
+So, alternative, well, there's some like
+
+860
+00:37:27,440 --> 00:37:31,360
+open source
+
+861
+00:37:28,960 --> 00:37:34,520
+alternative, Python,
+
+862
+00:37:31,360 --> 00:37:37,720
+uh MATLAB Well, there's a Octave, which
+
+863
+00:37:34,520 --> 00:37:39,520
+is a MATLAB MATLAB clone.
+
+864
+00:37:37,720 --> 00:37:41,480
+MATLAB is commercial, but this is no
+
+865
+00:37:39,520 --> 00:37:42,800
+comparison to Wolfram Language. There's
+
+866
+00:37:41,480 --> 00:37:46,240
+a
+
+867
+00:37:42,800 --> 00:37:48,600
+uh there's like the the the the math,
+
+868
+00:37:46,240 --> 00:37:50,600
+you know, the like they are okay?
+
+869
+00:37:48,600 --> 00:37:53,400
+There's Maxima from the Lisp the
+
+870
+00:37:50,600 --> 00:37:55,080
+phonetics. There is there's, you know,
+
+871
+00:37:53,400 --> 00:37:58,960
+there's one from Python. I talked about
+
+872
+00:37:55,080 --> 00:38:01,360
+that so many. There's like
+
+873
+00:37:58,960 --> 00:38:04,960
+I think a few. Just search for Wolfram
+
+874
+00:38:01,360 --> 00:38:05,321
+Language versus on my site, you know.
+
+875
+00:38:04,960 --> 00:38:06,320
+Uh
+
+876
+00:38:05,321 --> 00:38:07,920
+>> [clears throat]
+
+877
+00:38:06,320 --> 00:38:09,400
+>> Yeah, let me show you, okay? So, there's
+
+878
+00:38:07,920 --> 00:38:10,720
+a lot, you know, and I talked about
+
+879
+00:38:09,400 --> 00:38:14,520
+this.
+
+880
+00:38:10,720 --> 00:38:14,520
+Uh jeez Jesus.
+
+881
+00:38:16,000 --> 00:38:20,760
+Anyway, the summary is that any of these
+
+882
+00:38:18,480 --> 00:38:22,320
+open source, there's no comparison. This
+
+883
+00:38:20,760 --> 00:38:24,440
+this is a Wolfram Language is a
+
+884
+00:38:22,320 --> 00:38:25,880
+magnitude
+
+885
+00:38:24,440 --> 00:38:28,000
+uh
+
+886
+00:38:25,880 --> 00:38:30,080
+better. Like a mag-
+
+887
+00:38:28,000 --> 00:38:31,760
+you know, not not just 100 times, more
+
+888
+00:38:30,080 --> 00:38:34,280
+than 100 times. You know, there's no
+
+889
+00:38:31,760 --> 00:38:36,960
+comparison to the open source. Like if
+
+890
+00:38:34,280 --> 00:38:38,960
+if you can do it free, nobody is buying
+
+891
+00:38:36,960 --> 00:38:41,440
+Wolfram Language, you know. The the for
+
+892
+00:38:38,960 --> 00:38:43,560
+for corporations, they pay thousands of
+
+893
+00:38:41,440 --> 00:38:45,400
+tens of thousand dollars.
+
+894
+00:38:43,560 --> 00:38:48,640
+You know, like the research, NASA
+
+895
+00:38:45,400 --> 00:38:49,960
+research in rockets and whatever
+
+896
+00:38:48,640 --> 00:38:52,040
+for it.
+
+897
+00:38:49,960 --> 00:38:54,080
+So, uh but anyway, so you would you
+
+898
+00:38:52,040 --> 00:38:55,440
+know, for you open source so poor
+
+899
+00:38:54,080 --> 00:38:58,880
+students,
+
+900
+00:38:55,440 --> 00:39:01,600
+you want to see my opinion about that,
+
+901
+00:38:58,880 --> 00:39:04,720
+well, you can see here, okay?
+
+902
+00:39:01,600 --> 00:39:06,960
+So, let's see. Where is it? Uh so, wait.
+
+903
+00:39:04,720 --> 00:39:09,120
+Wolfram Language history, okay. What is
+
+904
+00:39:06,960 --> 00:39:10,920
+this? Uh so, Wolfram Language coding
+
+905
+00:39:09,120 --> 00:39:14,760
+miscellaneous, okay.
+
+906
+00:39:10,920 --> 00:39:16,600
+So, um history then unsorted, okay.
+
+907
+00:39:14,760 --> 00:39:20,320
+Wolfram Language great Wolfram Language
+
+908
+00:39:16,600 --> 00:39:22,520
+coders, bugs, lambda calculus
+
+909
+00:39:20,320 --> 00:39:24,480
+lambda calculus
+
+910
+00:39:22,520 --> 00:39:26,840
+Yeah, SageMath, that's another one. Like
+
+911
+00:39:24,480 --> 00:39:28,280
+idiots, like the open source phonetics.
+
+912
+00:39:26,840 --> 00:39:30,120
+What do you think So, what do you think
+
+913
+00:39:28,280 --> 00:39:31,782
+of SageMath? What do you think of
+
+914
+00:39:30,120 --> 00:39:32,400
+Python? Can you
+
+915
+00:39:31,782 --> 00:39:34,040
+>> [laughter]
+
+916
+00:39:32,400 --> 00:39:36,680
+>> What What do you think of Maxima?
+
+917
+00:39:34,040 --> 00:39:39,200
+Maxima, Maxima, you know. Open source
+
+918
+00:39:36,680 --> 00:39:40,880
+phonetics, they always ask these these
+
+919
+00:39:39,200 --> 00:39:42,480
+you know.
+
+920
+00:39:40,880 --> 00:39:45,520
+Uh
+
+921
+00:39:42,480 --> 00:39:47,440
+there's no comparison, okay? Like
+
+922
+00:39:45,520 --> 00:39:48,840
+Okay, so but the open source but you
+
+923
+00:39:47,440 --> 00:39:51,680
+know, if you really want, there are
+
+924
+00:39:48,840 --> 00:39:54,520
+three clones and tools, okay?
+
+925
+00:39:51,680 --> 00:39:56,560
+So, there are
+
+926
+00:39:54,520 --> 00:39:59,360
+So, this is Wolfram Language kernel for
+
+927
+00:39:56,560 --> 00:40:01,520
+Jupyter, okay? That's by Wolfram. There
+
+928
+00:39:59,360 --> 00:40:04,080
+there is also Wolfram Language
+
+929
+00:40:01,520 --> 00:40:07,200
+JavaScript notebook, that's pretty good.
+
+930
+00:40:04,080 --> 00:40:08,880
+I heard from Juan, a friend.
+
+931
+00:40:07,200 --> 00:40:11,040
+So, you need to download the Wolfram
+
+932
+00:40:08,880 --> 00:40:14,120
+Language engine from Wolfram, you know,
+
+933
+00:40:11,040 --> 00:40:15,560
+free. Then you can use this
+
+934
+00:40:14,120 --> 00:40:17,160
+Java- Wolfram Language JavaScript
+
+935
+00:40:15,560 --> 00:40:18,287
+notebook. I think that's what you're
+
+936
+00:40:17,160 --> 00:40:18,440
+saying.
+
+937
+00:40:18,287 --> 00:40:21,280
+>> [snorts]
+
+938
+00:40:18,440 --> 00:40:23,200
+>> Which is uh which is like a front end,
+
+939
+00:40:21,280 --> 00:40:25,960
+okay? Which is like
+
+940
+00:40:23,200 --> 00:40:28,000
+alternative to the Wolfram language
+
+941
+00:40:25,960 --> 00:40:29,080
+kernel for Jupyter notebook. Okay, they
+
+942
+00:40:28,000 --> 00:40:31,040
+are just
+
+943
+00:40:29,080 --> 00:40:32,840
+So, they allows you to have these
+
+944
+00:40:31,040 --> 00:40:34,920
+graphics.
+
+945
+00:40:32,840 --> 00:40:37,520
+But the computation is still, you know,
+
+946
+00:40:34,920 --> 00:40:40,160
+you need the Wolfram engine, okay? Then
+
+947
+00:40:37,520 --> 00:40:42,640
+there's also like the cell Wolfram mode,
+
+948
+00:40:40,160 --> 00:40:45,080
+okay? Then there's a closure integration
+
+949
+00:40:42,640 --> 00:40:48,720
+with with Wolfram language.
+
+950
+00:40:45,080 --> 00:40:51,240
+Okay, there is X spread use. This is
+
+951
+00:40:48,720 --> 00:40:54,560
+very The X spread use is Wolfram
+
+952
+00:40:51,240 --> 00:40:54,560
+language written in
+
+953
+00:40:54,680 --> 00:40:58,600
+Uh
+
+954
+00:40:55,480 --> 00:41:01,200
+you know, anyways, in Go language
+
+955
+00:40:58,600 --> 00:41:03,720
+in Go language there's Math effects is
+
+956
+00:41:01,200 --> 00:41:05,760
+also Wolfram language written in
+
+957
+00:41:03,720 --> 00:41:07,840
+whatever Rust or whatever.
+
+958
+00:41:05,760 --> 00:41:07,840
+Uh
+
+959
+00:41:08,320 --> 00:41:12,320
+I forgot.
+
+960
+00:41:09,560 --> 00:41:14,880
+And there's Oldest. This one Simja is
+
+961
+00:41:12,320 --> 00:41:16,920
+like this one is like 20 years ago. They
+
+962
+00:41:14,880 --> 00:41:18,840
+kept changing names.
+
+963
+00:41:16,920 --> 00:41:21,400
+They they they changed name for like
+
+964
+00:41:18,840 --> 00:41:22,760
+three times. Now it's called Simja. It's
+
+965
+00:41:21,400 --> 00:41:24,680
+like
+
+966
+00:41:22,760 --> 00:41:26,600
+written in Java.
+
+967
+00:41:24,680 --> 00:41:28,600
+More than 20 years old. You know, they
+
+968
+00:41:26,600 --> 00:41:31,360
+they try to be a clone of Wolfram
+
+969
+00:41:28,600 --> 00:41:35,240
+language. You know, basically copy
+
+970
+00:41:31,360 --> 00:41:37,480
+whatever Wolfram language do and but
+
+971
+00:41:35,240 --> 00:41:38,920
+But [laughter]
+
+972
+00:41:37,480 --> 00:41:40,960
+But you know, you can't you can't
+
+973
+00:41:38,920 --> 00:41:43,320
+exactly copy everything because it's
+
+974
+00:41:40,960 --> 00:41:45,560
+copyrighted, you know, or you know. So,
+
+975
+00:41:43,320 --> 00:41:47,480
+then I don't know what's their deal.
+
+976
+00:41:45,560 --> 00:41:49,400
+They they they they they change names
+
+977
+00:41:47,480 --> 00:41:50,520
+like every few years. They change names
+
+978
+00:41:49,400 --> 00:41:53,400
+something.
+
+979
+00:41:50,520 --> 00:41:55,200
+I never used it though.
+
+980
+00:41:53,400 --> 00:41:57,240
+Uh but you can try them. But you know,
+
+981
+00:41:55,200 --> 00:41:59,560
+you run into you know, you spend hours
+
+982
+00:41:57,240 --> 00:42:02,520
+hours to check oh is you know, does it
+
+983
+00:41:59,560 --> 00:42:02,520
+work? You know.
+
+984
+00:42:03,160 --> 00:42:08,120
+Okay, I think that's it for today. Uh
+
+985
+00:42:17,520 --> 00:42:23,280
+>> Do I use Claude?
+
+986
+00:42:19,520 --> 00:42:25,800
+No, I have not. I use AI heavily.
+
+987
+00:42:23,280 --> 00:42:28,240
+Mostly Quoc.
+
+988
+00:42:25,800 --> 00:42:29,680
+And I have demonstrated many quite a few
+
+989
+00:42:28,240 --> 00:42:32,680
+times.
+
+990
+00:42:29,680 --> 00:42:35,600
+Uh I use AI heavily.
+
+991
+00:42:32,680 --> 00:42:38,080
+To you know, just Quoc. Okay. N-
+
+992
+00:42:35,600 --> 00:42:41,200
+Uh however, and
+
+993
+00:42:38,080 --> 00:42:44,680
+And I'm very impressed. Like I have a
+
+994
+00:42:41,200 --> 00:42:46,640
+lot very esoteric technical questions
+
+995
+00:42:44,680 --> 00:42:48,400
+about programming languages.
+
+996
+00:42:46,640 --> 00:42:51,840
+In Wolfram language, in computer
+
+997
+00:42:48,400 --> 00:42:54,520
+science, in programming language theory,
+
+998
+00:42:51,840 --> 00:42:57,400
+in parsing, in or in JavaScript
+
+999
+00:42:54,520 --> 00:43:00,480
+practical web dev, you know, JavaScript
+
+1000
+00:42:57,400 --> 00:43:03,840
+framework or CSS questions.
+
+1001
+00:43:00,480 --> 00:43:03,840
+I have a lot questions.
+
+1002
+00:43:03,880 --> 00:43:09,200
+Okay, so and I can show you many of the
+
+1003
+00:43:06,360 --> 00:43:12,040
+question I recently asked AI. I'm very
+
+1004
+00:43:09,200 --> 00:43:14,400
+impressed. Okay, AI generate, you know,
+
+1005
+00:43:12,040 --> 00:43:17,640
+like write a tutorial for grid layout
+
+1006
+00:43:14,400 --> 00:43:19,280
+and AI did it. Okay.
+
+1007
+00:43:17,640 --> 00:43:22,240
+Most of the time it's pretty good. I
+
+1008
+00:43:19,280 --> 00:43:25,120
+mean, it's very good as an introduction.
+
+1009
+00:43:22,240 --> 00:43:27,480
+You can ask it to generate a tutorial,
+
+1010
+00:43:25,120 --> 00:43:29,600
+write a tutorial for anything. For for
+
+1011
+00:43:27,480 --> 00:43:31,120
+Rust, for example, the Rust Rust
+
+1012
+00:43:29,600 --> 00:43:33,480
+programming language.
+
+1013
+00:43:31,120 --> 00:43:34,600
+Let's see uh you know, just
+
+1014
+00:43:33,480 --> 00:43:36,880
+>> [laughter]
+
+1015
+00:43:34,600 --> 00:43:39,000
+>> in 5 seconds you'll you'll type a Rust
+
+1016
+00:43:36,880 --> 00:43:41,440
+programming language um
+
+1017
+00:43:39,000 --> 00:43:42,480
+tutorial. So, where is it? So, let's
+
+1018
+00:43:41,440 --> 00:43:44,720
+see.
+
+1019
+00:43:42,480 --> 00:43:47,760
+So, this is uh grid test. So, this is
+
+1020
+00:43:44,720 --> 00:43:50,320
+generated by AI. Okay, in few seconds.
+
+1021
+00:43:47,760 --> 00:43:52,360
+Grid CSS grid. I'm right I'm trying to
+
+1022
+00:43:50,320 --> 00:43:54,560
+write a tutorial for C you know, I'm
+
+1023
+00:43:52,360 --> 00:43:57,560
+learning CSS grid.
+
+1024
+00:43:54,560 --> 00:44:00,080
+Which is out for by now 10 years, but I
+
+1025
+00:43:57,560 --> 00:44:02,640
+never actually got into.
+
+1026
+00:44:00,080 --> 00:44:05,800
+So, CSS grid, you know, so uh and this
+
+1027
+00:44:02,640 --> 00:44:07,000
+is uh this is a tutorial. Okay, and what
+
+1028
+00:44:05,800 --> 00:44:08,560
+is this?
+
+1029
+00:44:07,000 --> 00:44:10,720
+uh, grid
+
+1030
+00:44:08,560 --> 00:44:12,840
+test. Okay, so this is uh, yeah, I'm
+
+1031
+00:44:10,720 --> 00:44:17,080
+testing something about grid.
+
+1032
+00:44:12,840 --> 00:44:21,160
+And so anyway, so AI let's see AI
+
+1033
+00:44:17,080 --> 00:44:24,040
+What is this? To do. Okay, so
+
+1034
+00:44:21,160 --> 00:44:26,640
+So let's see.
+
+1035
+00:44:24,040 --> 00:44:29,360
+I got thousands of to-do. They tends to
+
+1036
+00:44:26,640 --> 00:44:32,920
+be piled, you know, I just pile them up.
+
+1037
+00:44:29,360 --> 00:44:34,840
+So here is AI generated Rust tutorial.
+
+1038
+00:44:32,920 --> 00:44:37,280
+You know, it it's good for like for
+
+1039
+00:44:34,840 --> 00:44:39,560
+beginners, like you never touch touched
+
+1040
+00:44:37,280 --> 00:44:42,120
+Rust before. So it give you very good,
+
+1041
+00:44:39,560 --> 00:44:44,520
+you know, well written overview. You
+
+1042
+00:44:42,120 --> 00:44:46,360
+know, there's some mistakes, but
+
+1043
+00:44:44,520 --> 00:44:47,840
+still better than nothing.
+
+1044
+00:44:46,360 --> 00:44:50,200
+And
+
+1045
+00:44:47,840 --> 00:44:53,160
+to be sure it's better than like more
+
+1046
+00:44:50,200 --> 00:44:55,200
+than majority 50% of whatever Rust
+
+1047
+00:44:53,160 --> 00:44:58,280
+tutorials on the web.
+
+1048
+00:44:55,200 --> 00:45:00,640
+They are written by Indian Pajit. You
+
+1049
+00:44:58,280 --> 00:45:03,960
+know, they are like paid 5 cents per
+
+1050
+00:45:00,640 --> 00:45:06,760
+hour to write to copy and paste the Rust
+
+1051
+00:45:03,960 --> 00:45:09,480
+tutorial. Lots of that tutorial websites
+
+1052
+00:45:06,760 --> 00:45:13,400
+are like that. Okay, Rust Rust, Python,
+
+1053
+00:45:09,480 --> 00:45:15,240
+or whatever. You know, it's
+
+1054
+00:45:13,400 --> 00:45:18,440
+And AI generated, you know, a Rust
+
+1055
+00:45:15,240 --> 00:45:20,400
+tutorial in few seconds. So there is the
+
+1056
+00:45:18,440 --> 00:45:22,480
+the and and look at this one. AI
+
+1057
+00:45:20,400 --> 00:45:24,840
+generated, you know, I I
+
+1058
+00:45:22,480 --> 00:45:25,680
+didn't know how to do this in CSS, you
+
+1059
+00:45:24,840 --> 00:45:29,240
+know,
+
+1060
+00:45:25,680 --> 00:45:30,320
+generated code and it works perfect. CSS
+
+1061
+00:45:29,240 --> 00:45:33,000
+flip.
+
+1062
+00:45:30,320 --> 00:45:36,280
+Which involves um,
+
+1063
+00:45:33,000 --> 00:45:38,520
+like 3D stuff in CSS perspective, you
+
+1064
+00:45:36,280 --> 00:45:41,600
+know, I you
+
+1065
+00:45:38,520 --> 00:45:43,880
+So and AI generated, you know, uh, type
+
+1066
+00:45:41,600 --> 00:45:45,640
+hint, you know, recently I
+
+1067
+00:45:43,880 --> 00:45:49,160
+I learned that, you know, Python they
+
+1068
+00:45:45,640 --> 00:45:51,360
+started to have type hint. So AI write
+
+1069
+00:45:49,160 --> 00:45:53,200
+me a tutorial of Python type hint. There
+
+1070
+00:45:51,360 --> 00:45:55,280
+it is, okay. Then you just read it,
+
+1071
+00:45:53,200 --> 00:45:58,000
+okay, I learned.
+
+1072
+00:45:55,280 --> 00:46:01,320
+You know, pretty good. Then AI Okay,
+
+1073
+00:45:58,000 --> 00:46:04,640
+that's another take and and uh Python
+
+1074
+00:46:01,320 --> 00:46:07,440
+path. Oh, yeah, so recently I learned
+
+1075
+00:46:04,640 --> 00:46:09,800
+you know, Python added a new library
+
+1076
+00:46:07,440 --> 00:46:11,960
+path library about 10 years ago because
+
+1077
+00:46:09,800 --> 00:46:15,680
+I asked, you know,
+
+1078
+00:46:11,960 --> 00:46:20,160
+so you know, Python's got the lousy uh
+
+1079
+00:46:15,680 --> 00:46:20,160
+path operations. So, let's
+
+1080
+00:46:20,200 --> 00:46:25,760
+So, for example, my Python tutorial,
+
+1081
+00:46:22,600 --> 00:46:27,000
+very old, from 2005, I still update it
+
+1082
+00:46:25,760 --> 00:46:28,360
+though.
+
+1083
+00:46:27,000 --> 00:46:31,640
+But, it's
+
+1084
+00:46:28,360 --> 00:46:33,880
+it's not as frequent as my uh let's say
+
+1085
+00:46:31,640 --> 00:46:36,080
+Emacs list. Anyway,
+
+1086
+00:46:33,880 --> 00:46:37,840
+so it's still my Python tutorial still
+
+1087
+00:46:36,080 --> 00:46:39,480
+still pretty good, okay,
+
+1088
+00:46:37,840 --> 00:46:41,080
+for beginners.
+
+1089
+00:46:39,480 --> 00:46:43,880
+But, for example, if you want to do
+
+1090
+00:46:41,080 --> 00:46:46,360
+manipulate path, like what we are doing
+
+1091
+00:46:43,880 --> 00:46:48,560
+today, you know, when you have path
+
+1092
+00:46:46,360 --> 00:46:50,680
+names, you want to get a directory name,
+
+1093
+00:46:48,560 --> 00:46:52,320
+you want to get the file extension name
+
+1094
+00:46:50,680 --> 00:46:54,920
+or without the extension, things like
+
+1095
+00:46:52,320 --> 00:46:56,800
+that. So, every programming language you
+
+1096
+00:46:54,920 --> 00:46:59,040
+have
+
+1097
+00:46:56,800 --> 00:47:00,680
+kind of like a library or how to do it,
+
+1098
+00:46:59,040 --> 00:47:04,040
+okay? So, in Python,
+
+1099
+00:47:00,680 --> 00:47:05,720
+you can go to that uh your need. There
+
+1100
+00:47:04,040 --> 00:47:07,880
+are structure
+
+1101
+00:47:05,720 --> 00:47:10,720
+functions and class, modules,
+
+1102
+00:47:07,880 --> 00:47:13,160
+miscellaneous, regular expression, read
+
+1103
+00:47:10,720 --> 00:47:16,120
+write file, they are work directory.
+
+1104
+00:47:13,160 --> 00:47:21,280
+Okay, here is how you walk a directory.
+
+1105
+00:47:16,120 --> 00:47:24,120
+And uh and here is how you uh like path
+
+1106
+00:47:21,280 --> 00:47:26,680
+related functions whenever you need to
+
+1107
+00:47:24,120 --> 00:47:28,400
+deal with directories, you see?
+
+1108
+00:47:26,680 --> 00:47:30,600
+os.path.dirname
+
+1109
+00:47:28,400 --> 00:47:33,920
+and stuff. And it's not very good, okay?
+
+1110
+00:47:30,600 --> 00:47:36,600
+So, but Python created a library that
+
+1111
+00:47:33,920 --> 00:47:36,600
+fixed that.
+
+1112
+00:47:37,000 --> 00:47:43,240
+And so, I I learned, you know, so this
+
+1113
+00:47:40,040 --> 00:47:45,760
+from pathlib import Path, you know.
+
+1114
+00:47:43,240 --> 00:47:48,400
+So, and and then I asked, where does
+
+1115
+00:47:45,760 --> 00:47:50,800
+this come from? Look, you know, when did
+
+1116
+00:47:48,400 --> 00:47:54,000
+Python created this? Then then it tells
+
+1117
+00:47:50,800 --> 00:47:56,200
+me, oh, from Python versions, you know,
+
+1118
+00:47:54,000 --> 00:47:58,600
+10 years ago, so they fixed that. And
+
+1119
+00:47:56,200 --> 00:48:00,320
+so, this problem is now
+
+1120
+00:47:58,600 --> 00:48:02,840
+you know, you can you know, it's fixed.
+
+1121
+00:48:00,320 --> 00:48:05,320
+So, anyway. So, that's a usefulness, you
+
+1122
+00:48:02,840 --> 00:48:08,640
+know, example of AI.
+
+1123
+00:48:05,320 --> 00:48:10,320
+And oh, make file. So, on Unix, C and
+
+1124
+00:48:08,640 --> 00:48:11,880
+C++
+
+1125
+00:48:10,320 --> 00:48:13,760
+idiots,
+
+1126
+00:48:11,880 --> 00:48:15,800
+they created they have this make file
+
+1127
+00:48:13,760 --> 00:48:19,200
+thing, you know, it's like universal for
+
+1128
+00:48:15,800 --> 00:48:20,920
+them. If you don't call code C or C++,
+
+1129
+00:48:19,200 --> 00:48:23,520
+then you don't know this, you know, I've
+
+1130
+00:48:20,920 --> 00:48:25,840
+been coding for 30 years, I never
+
+1131
+00:48:23,520 --> 00:48:28,840
+actually learned make file.
+
+1132
+00:48:25,840 --> 00:48:30,480
+It's basically only for C and C++
+
+1133
+00:48:28,840 --> 00:48:31,720
+people,
+
+1134
+00:48:30,480 --> 00:48:34,480
+typically.
+
+1135
+00:48:31,720 --> 00:48:37,160
+Even Java, even Java, you don't you
+
+1136
+00:48:34,480 --> 00:48:40,320
+know, you don't do make file
+
+1137
+00:48:37,160 --> 00:48:42,440
+Anyway, so I was you know, so so I just
+
+1138
+00:48:40,320 --> 00:48:45,120
+asked AI, you know, write me a tutorial
+
+1139
+00:48:42,440 --> 00:48:47,240
+make file and just it just did, okay?
+
+1140
+00:48:45,120 --> 00:48:49,440
+Make file.
+
+1141
+00:48:47,240 --> 00:48:52,240
+Then this
+
+1142
+00:48:49,440 --> 00:48:54,720
+asked AI to generate a keyboard for me,
+
+1143
+00:48:52,240 --> 00:48:57,200
+okay? So, anyway, I asked a lot
+
+1144
+00:48:54,720 --> 00:48:59,520
+questions um
+
+1145
+00:48:57,200 --> 00:49:01,720
+about it. Not I mean, this this
+
+1146
+00:48:59,520 --> 00:49:04,120
+questions so far are
+
+1147
+00:49:01,720 --> 00:49:05,600
+easy questions, common. Like everyone
+
+1148
+00:49:04,120 --> 00:49:09,080
+want to know how do you, you know, write
+
+1149
+00:49:05,600 --> 00:49:11,160
+a beginner's tutorial, but I've I've
+
+1150
+00:49:09,080 --> 00:49:13,640
+I've asked questions
+
+1151
+00:49:11,160 --> 00:49:15,400
+that are esoteric programming language
+
+1152
+00:49:13,640 --> 00:49:16,840
+theory or mathematics, you know, I've
+
+1153
+00:49:15,400 --> 00:49:18,400
+asked those questions or Wolfram
+
+1154
+00:49:16,840 --> 00:49:20,440
+language.
+
+1155
+00:49:18,400 --> 00:49:22,000
+And it answers, so I'm very impressed,
+
+1156
+00:49:20,440 --> 00:49:24,840
+okay?
+
+1157
+00:49:22,000 --> 00:49:27,480
+And and if you want to see that, you can
+
+1158
+00:49:24,840 --> 00:49:30,720
+of course, of course.
+
+1159
+00:49:27,480 --> 00:49:33,400
+My 1,000, you know, 13,000 articles,
+
+1160
+00:49:30,720 --> 00:49:35,080
+swami.info, okay? So, you go [snorts] to
+
+1161
+00:49:33,400 --> 00:49:37,240
+there's a section on artificial
+
+1162
+00:49:35,080 --> 00:49:39,320
+intelligence somewhere.
+
+1163
+00:49:37,240 --> 00:49:41,800
+Uh
+
+1164
+00:49:39,320 --> 00:49:45,200
+where is it? I don't have a dedicated
+
+1165
+00:49:41,800 --> 00:49:47,640
+link, okay? So, wait.
+
+1166
+00:49:45,200 --> 00:49:49,640
+And search for
+
+1167
+00:49:47,640 --> 00:49:52,840
+artificial
+
+1168
+00:49:49,640 --> 00:49:57,000
+No. Uh let's just go through the
+
+1169
+00:49:52,840 --> 00:49:58,624
+Chat GPT. Chat GPT, who is this guy X
+
+1170
+00:49:57,000 --> 00:49:59,000
+Ali?
+
+1171
+00:49:58,624 --> 00:50:02,000
+>> [laughter]
+
+1172
+00:49:59,000 --> 00:50:05,920
+>> Chat GPT says 2023.
+
+1173
+00:50:02,000 --> 00:50:08,440
+Okay, then the parent page
+
+1174
+00:50:05,920 --> 00:50:11,480
+uh my collection of AI articles. Then we
+
+1175
+00:50:08,440 --> 00:50:13,920
+want to Yeah, so here I have documented
+
+1176
+00:50:11,480 --> 00:50:16,680
+some of the questions, early ones,
+
+1177
+00:50:13,920 --> 00:50:18,880
+about the questions I asked AI. Anyway,
+
+1178
+00:50:16,680 --> 00:50:20,560
+so it's becoming so common, okay?
+
+1179
+00:50:18,880 --> 00:50:22,880
+Everyone knows.
+
+1180
+00:50:20,560 --> 00:50:26,360
+However, I never used
+
+1181
+00:50:22,880 --> 00:50:28,160
+those tools like Claude or Anthropic,
+
+1182
+00:50:26,360 --> 00:50:29,840
+you know, that's dedicated to
+
+1183
+00:50:28,160 --> 00:50:32,480
+programming.
+
+1184
+00:50:29,840 --> 00:50:34,800
+Uh which I think I should, you know, but
+
+1185
+00:50:32,480 --> 00:50:36,720
+you know, it's it's it's like becoming a
+
+1186
+00:50:34,800 --> 00:50:39,280
+necessity.
+
+1187
+00:50:36,720 --> 00:50:41,680
+But I never used them.
+
+1188
+00:50:39,280 --> 00:50:41,680
+Okay.
+
+1189
+00:50:42,720 --> 00:50:49,080
+Wilhelm Wilhelm, I'm doing fine. Wilhelm
+
+1190
+00:50:45,560 --> 00:50:52,520
+says, "AI will make people lazy and
+
+1191
+00:50:49,080 --> 00:50:55,240
+content mediocre. Agree or disagree?"
+
+1192
+00:50:52,520 --> 00:50:57,360
+That's hard to say, you know, like you
+
+1193
+00:50:55,240 --> 00:50:59,440
+don't you know, that that's what we
+
+1194
+00:50:57,360 --> 00:51:03,360
+think now, but you don't have to look at
+
+1195
+00:50:59,440 --> 00:51:06,640
+AI for that, okay? Let me magnify this.
+
+1196
+00:51:03,360 --> 00:51:09,640
+So that you can see.
+
+1197
+00:51:06,640 --> 00:51:13,280
+So right now a lot of people will think
+
+1198
+00:51:09,640 --> 00:51:16,240
+that AI, you know, the next generation,
+
+1199
+00:51:13,280 --> 00:51:18,280
+they're going to be brainless.
+
+1200
+00:51:16,240 --> 00:51:20,360
+Because AI just answer everything. They
+
+1201
+00:51:18,280 --> 00:51:23,560
+they never start to learn anymore. And
+
+1202
+00:51:20,360 --> 00:51:25,640
+this also of course there are reports
+
+1203
+00:51:23,560 --> 00:51:27,920
+how university students, you know, they
+
+1204
+00:51:25,640 --> 00:51:29,640
+just ask AI to do their homework. So
+
+1205
+00:51:27,920 --> 00:51:30,560
+they don't actually know things. They
+
+1206
+00:51:29,640 --> 00:51:33,360
+don't
+
+1207
+00:51:30,560 --> 00:51:35,200
+they don't learn, and you know, when
+
+1208
+00:51:33,360 --> 00:51:37,200
+faced with a real problem, they are
+
+1209
+00:51:35,200 --> 00:51:40,160
+unable to
+
+1210
+00:51:37,200 --> 00:51:42,240
+to to solve it. Or write an essay, you
+
+1211
+00:51:40,160 --> 00:51:43,880
+know.
+
+1212
+00:51:42,240 --> 00:51:46,480
+But however, you don't have to look at
+
+1213
+00:51:43,880 --> 00:51:48,840
+AI. Just look at the Zoomers, okay? Like
+
+1214
+00:51:46,480 --> 00:51:50,920
+a lot of you guys, like you guys don't
+
+1215
+00:51:48,840 --> 00:51:52,760
+know, but look at the for example, a
+
+1216
+00:51:50,920 --> 00:51:55,080
+Stack Overflow. A lot of people have
+
+1217
+00:51:52,760 --> 00:51:57,360
+made fun of it. You know, like people
+
+1218
+00:51:55,080 --> 00:52:00,120
+the programmers, you know, they don't
+
+1219
+00:51:57,360 --> 00:52:02,120
+know how to code anymore before AI. You
+
+1220
+00:52:00,120 --> 00:52:04,080
+know, they just go to Stack Overflow.
+
+1221
+00:52:02,120 --> 00:52:06,080
+Whenever they have some questions, they
+
+1222
+00:52:04,080 --> 00:52:07,760
+you know, Stack Overflow. Stack
+
+1223
+00:52:06,080 --> 00:52:11,280
+Overflow, copy and paste. They don't
+
+1224
+00:52:07,760 --> 00:52:13,800
+actually know exactly. For example,
+
+1225
+00:52:11,280 --> 00:52:15,960
+my tutorial, right? I usually go into
+
+1226
+00:52:13,800 --> 00:52:17,720
+depth, like what what is this type,
+
+1227
+00:52:15,960 --> 00:52:18,600
+exactly how they work.
+
+1228
+00:52:17,720 --> 00:52:21,120
+But
+
+1229
+00:52:18,600 --> 00:52:23,160
+since even 10 years ago, since like the
+
+1230
+00:52:21,120 --> 00:52:25,440
+Zoomers, they don't care.
+
+1231
+00:52:23,160 --> 00:52:27,520
+Who cares how it works? All they care is
+
+1232
+00:52:25,440 --> 00:52:29,560
+like, oh, you just go you type this and
+
+1233
+00:52:27,520 --> 00:52:31,520
+you know, you get this and that is like
+
+1234
+00:52:29,560 --> 00:52:34,040
+the structure, then you just copy this
+
+1235
+00:52:31,520 --> 00:52:37,680
+and and that works. That's how Zoomers
+
+1236
+00:52:34,040 --> 00:52:40,560
+work. A lot of them, half of them.
+
+1237
+00:52:37,680 --> 00:52:43,000
+So, these idiots, they became
+
+1238
+00:52:40,560 --> 00:52:45,960
+incapacitated. You know, they they can't
+
+1239
+00:52:43,000 --> 00:52:48,840
+really actually work or write a library,
+
+1240
+00:52:45,960 --> 00:52:53,120
+like you know,
+
+1241
+00:52:48,840 --> 00:52:55,360
+So so that those are the Zoomers, okay?
+
+1242
+00:52:53,120 --> 00:52:57,600
+So now, but to but
+
+1243
+00:52:55,360 --> 00:53:00,680
+but the the world is kind of still
+
+1244
+00:52:57,600 --> 00:53:02,760
+moving, you know,
+
+1245
+00:53:00,680 --> 00:53:04,880
+So, we can ask, you know, before we ask
+
+1246
+00:53:02,760 --> 00:53:07,920
+the question about AI is it going to
+
+1247
+00:53:04,880 --> 00:53:11,480
+make us stupid? We can I think yes. I
+
+1248
+00:53:07,920 --> 00:53:13,000
+think actually yes, it's a real issue.
+
+1249
+00:53:11,480 --> 00:53:15,120
+But you don't have to look at AI. Just
+
+1250
+00:53:13,000 --> 00:53:17,960
+look at like 10 years ago. Look at the
+
+1251
+00:53:15,120 --> 00:53:21,600
+Zoomer generation. Do they
+
+1252
+00:53:17,960 --> 00:53:23,640
+do they not know things older generation
+
+1253
+00:53:21,600 --> 00:53:25,880
+know, like how to write the essay? Like
+
+1254
+00:53:23,640 --> 00:53:27,160
+today's Zoomers, they can't write a full
+
+1255
+00:53:25,880 --> 00:53:29,200
+sentence.
+
+1256
+00:53:27,160 --> 00:53:31,680
+They they you know, they are used to the
+
+1257
+00:53:29,200 --> 00:53:34,600
+Twitter, Instagram. They can't think,
+
+1258
+00:53:31,680 --> 00:53:37,120
+they can't read a book. They just like
+
+1259
+00:53:34,600 --> 00:53:41,440
+blub blub, you know, little memes and
+
+1260
+00:53:37,120 --> 00:53:43,040
+ posting this Zoomer
+
+1261
+00:53:41,440 --> 00:53:45,960
+It's not just a few of them. It's
+
+1262
+00:53:43,040 --> 00:53:47,880
+actually quite rampant, okay? All over
+
+1263
+00:53:45,960 --> 00:53:49,320
+USA, especially the white, uh, you know,
+
+1264
+00:53:47,880 --> 00:53:51,360
+Americans.
+
+1265
+00:53:49,320 --> 00:53:55,320
+So, these people do So, so the question
+
+1266
+00:53:51,360 --> 00:53:55,320
+is, do they Do you think they actually
+
+1267
+00:53:55,720 --> 00:53:59,240
+has been,
+
+1268
+00:53:57,360 --> 00:54:01,840
+you know, their capabilities has
+
+1269
+00:53:59,240 --> 00:54:04,800
+decreased since previous generation. Is
+
+1270
+00:54:01,840 --> 00:54:07,160
+that true? Is it truly I mean I mean, if
+
+1271
+00:54:04,800 --> 00:54:09,000
+you really want to know, is it you know,
+
+1272
+00:54:07,160 --> 00:54:11,800
+is there a brain truly like they their
+
+1273
+00:54:09,000 --> 00:54:14,120
+IQ decrease? Actually, that's true.
+
+1274
+00:54:11,800 --> 00:54:16,360
+Okay, their capabilities in writing, in
+
+1275
+00:54:14,120 --> 00:54:19,440
+understanding about the world, about,
+
+1276
+00:54:16,360 --> 00:54:21,280
+you know, or about coding, the Zoomer
+
+1277
+00:54:19,440 --> 00:54:23,040
+generation, they
+
+1278
+00:54:21,280 --> 00:54:25,680
+their capabilities, you know, their
+
+1279
+00:54:23,040 --> 00:54:28,320
+abilities decreased. That is actually
+
+1280
+00:54:25,680 --> 00:54:30,440
+true, okay?
+
+1281
+00:54:28,320 --> 00:54:32,920
+I mean, you you want to ask this very
+
+1282
+00:54:30,440 --> 00:54:35,040
+seriously. So, look at all the data or
+
+1283
+00:54:32,920 --> 00:54:37,360
+ask all kind of all different type of
+
+1284
+00:54:35,040 --> 00:54:38,520
+people. You can ask professors,
+
+1285
+00:54:37,360 --> 00:54:41,040
+you know, there's all kind of
+
+1286
+00:54:38,520 --> 00:54:43,560
+statistics. You can ask people outside
+
+1287
+00:54:41,040 --> 00:54:45,600
+of USA, you know, and you can look at
+
+1288
+00:54:43,560 --> 00:54:47,120
+all kind of things.
+
+1289
+00:54:45,600 --> 00:54:49,520
+Right? You want to know if this is true.
+
+1290
+00:54:47,120 --> 00:54:52,320
+Is it really true? Or Or maybe maybe
+
+1291
+00:54:49,520 --> 00:54:54,360
+it's just a meme. It's what you think.
+
+1292
+00:54:52,320 --> 00:54:56,880
+Maybe it's just because you are old. You
+
+1293
+00:54:54,360 --> 00:54:59,880
+are a, you know, you are a boomer.
+
+1294
+00:54:56,880 --> 00:55:01,640
+That's why you think, you know,
+
+1295
+00:54:59,880 --> 00:55:03,520
+you know, older people always say, "Oh,
+
+1296
+00:55:01,640 --> 00:55:04,840
+they don't make things they used to be."
+
+1297
+00:55:03,520 --> 00:55:06,720
+But actually, that's just that's
+
+1298
+00:55:04,840 --> 00:55:08,600
+actually just a meme. You know, maybe
+
+1299
+00:55:06,720 --> 00:55:10,200
+the like
+
+1300
+00:55:08,600 --> 00:55:12,000
+usually,
+
+1301
+00:55:10,200 --> 00:55:13,880
+the newer generation are always doing
+
+1302
+00:55:12,000 --> 00:55:16,760
+better, okay? Like because of the
+
+1303
+00:55:13,880 --> 00:55:19,480
+scientific progress. Like today, for
+
+1304
+00:55:16,760 --> 00:55:20,720
+example, the Wikipedia and today AI,
+
+1305
+00:55:19,480 --> 00:55:22,320
+like you can know things
+
+1306
+00:55:20,720 --> 00:55:23,480
+instantaneously.
+
+1307
+00:55:22,320 --> 00:55:26,680
+Today,
+
+1308
+00:55:23,480 --> 00:55:28,680
+like let's say 20 years ago, it's rare
+
+1309
+00:55:26,680 --> 00:55:30,680
+for a person to know more than one
+
+1310
+00:55:28,680 --> 00:55:32,400
+programming language. If you know more
+
+1311
+00:55:30,680 --> 00:55:35,000
+than one, like
+
+1312
+00:55:32,400 --> 00:55:37,120
+you know, C and Java and and Pearl or
+
+1313
+00:55:35,000 --> 00:55:39,520
+whatever, you are you are considered
+
+1314
+00:55:37,120 --> 00:55:42,560
+like fairly advanced.
+
+1315
+00:55:39,520 --> 00:55:44,160
+That's this is true in 1990s.
+
+1316
+00:55:42,560 --> 00:55:46,120
+You know, not like today. Today every
+
+1317
+00:55:44,160 --> 00:55:49,440
+company use, you know, you
+
+1318
+00:55:46,120 --> 00:55:51,040
+you need to know at least two or three
+
+1319
+00:55:49,440 --> 00:55:53,640
+programming languages.
+
+1320
+00:55:51,040 --> 00:55:55,800
+But not in the '90s.
+
+1321
+00:55:53,640 --> 00:55:57,320
+But you see, but today it's so common.
+
+1322
+00:55:55,800 --> 00:55:59,840
+It's like
+
+1323
+00:55:57,320 --> 00:56:02,880
+everyone knows more than two languages
+
+1324
+00:55:59,840 --> 00:56:05,360
+at least some somewhat. Why? Because
+
+1325
+00:56:02,880 --> 00:56:07,560
+you got Wikipedia, you got tons of
+
+1326
+00:56:05,360 --> 00:56:10,280
+tutorials, you got 10,000 video
+
+1327
+00:56:07,560 --> 00:56:12,160
+tutorials, you know, they
+
+1328
+00:56:10,280 --> 00:56:14,160
+So, that's progress.
+
+1329
+00:56:12,160 --> 00:56:16,680
+And also people become healthier, you
+
+1330
+00:56:14,160 --> 00:56:19,440
+know. Every generation they live longer
+
+1331
+00:56:16,680 --> 00:56:22,760
+because the science is, you know, we eat
+
+1332
+00:56:19,440 --> 00:56:25,240
+healthy healthier. So,
+
+1333
+00:56:22,760 --> 00:56:27,720
+even IQ improved.
+
+1334
+00:56:25,240 --> 00:56:30,080
+Okay, so generally it is true the later
+
+1335
+00:56:27,720 --> 00:56:32,040
+generation they do better, okay.
+
+1336
+00:56:30,080 --> 00:56:35,120
+But however, but
+
+1337
+00:56:32,040 --> 00:56:36,320
+but when it comes to Zoomers, it seems
+
+1338
+00:56:35,120 --> 00:56:38,640
+to me
+
+1339
+00:56:36,320 --> 00:56:41,160
+there's a like retrograde, you know,
+
+1340
+00:56:38,640 --> 00:56:42,720
+they're going backwards, okay.
+
+1341
+00:56:41,160 --> 00:56:44,320
+Anyway.
+
+1342
+00:56:42,720 --> 00:56:46,160
+So, about the AI question, we don't
+
+1343
+00:56:44,320 --> 00:56:49,880
+know. That's a big question mark, okay.
+
+1344
+00:56:46,160 --> 00:56:50,640
+That's a like big question mark.
+
+1345
+00:56:49,880 --> 00:56:52,800
+Uh
+
+1346
+00:56:50,640 --> 00:56:56,080
+can you make some Mathematica term
+
+1347
+00:56:52,800 --> 00:56:58,800
+rewriting tutorial? Huang, I you know,
+
+1348
+00:56:56,080 --> 00:57:01,080
+did did you not read my website? Like my
+
+1349
+00:56:58,800 --> 00:57:04,000
+website is all about
+
+1350
+00:57:01,080 --> 00:57:08,080
+Wolfram language term rewriting. Did you
+
+1351
+00:57:04,000 --> 00:57:10,160
+master Did you read every bit of it?
+
+1352
+00:57:08,080 --> 00:57:12,080
+Term rewriting especially. You're
+
+1353
+00:57:10,160 --> 00:57:13,040
+talking about, you know, then you need
+
+1354
+00:57:12,080 --> 00:57:15,520
+to
+
+1355
+00:57:13,040 --> 00:57:18,920
+uh read pattern matching function, you
+
+1356
+00:57:15,520 --> 00:57:18,920
+know, this section, okay.
+
+1357
+00:57:19,444 --> 00:57:23,760
+>> [sighs]
+
+1358
+00:57:20,640 --> 00:57:26,160
+>> I'm a C and C hat and I even make
+
+1359
+00:57:23,760 --> 00:57:28,400
+make files, okay.
+
+1360
+00:57:26,160 --> 00:57:30,560
+Empty grocery bag. Are you the guy on
+
+1361
+00:57:28,400 --> 00:57:34,400
+Twitter
+
+1362
+00:57:30,560 --> 00:57:34,400
+like calling me uncle?
+
+1363
+00:57:34,960 --> 00:57:37,120
+Uh
+
+1364
+00:57:39,360 --> 00:57:42,040
+I donated it. Okay, what what
+
+1365
+00:57:41,714 --> 00:57:44,960
+>> [laughter]
+
+1366
+00:57:42,040 --> 00:57:48,760
+>> You donated to U fun JavaScript. Why did
+
+1367
+00:57:44,960 --> 00:57:48,760
+Why didn't Did you donate to me?
+
+1368
+00:57:51,280 --> 00:57:56,760
+Let's see what Google thinks
+
+1369
+00:57:54,280 --> 00:58:00,040
+about what? I forgot what's the topic
+
+1370
+00:57:56,760 --> 00:58:02,920
+about AI about whether AI is making
+
+1371
+00:58:00,040 --> 00:58:04,920
+people stupid.
+
+1372
+00:58:02,920 --> 00:58:07,600
+Okay, I think that's it for today. Bye,
+
+1373
+00:58:04,920 --> 00:58:07,600
+guys.
+
+1374
+00:58:11,120 --> 00:58:15,560
+Oh, you don't participate. Okay, I also
+
+1375
+00:58:13,440 --> 00:58:18,360
+donate. You did one.
+
+1376
+00:58:15,560 --> 00:58:20,400
+Thank you. I don't know what I don't
+
+1377
+00:58:18,360 --> 00:58:22,800
+recall, but
+
+1378
+00:58:20,400 --> 00:58:22,800
+great.
+
+1379
+00:58:23,040 --> 00:58:28,200
+Um
+
+1380
+00:58:24,320 --> 00:58:28,200
+so, what we uh what
+
+1381
+00:58:28,360 --> 00:58:32,400
+So, let Let me see.
+
+1382
+00:58:30,120 --> 00:58:35,000
+Uh I think that's it. Okay, so close
+
+1383
+00:58:32,400 --> 00:58:36,040
+that. Show today's talk show. So, we did
+
+1384
+00:58:35,000 --> 00:58:38,880
+this
+
+1385
+00:58:36,040 --> 00:58:40,720
+WebP thing.
+
+1386
+00:58:38,880 --> 00:58:42,680
+Yeah, we demonstrated all that. Oh,
+
+1387
+00:58:40,720 --> 00:58:46,040
+yeah. So, there's another
+
+1388
+00:58:42,680 --> 00:58:49,160
+So, write a F# script to go through a
+
+1389
+00:58:46,040 --> 00:58:52,600
+directory recursively. For each PNG
+
+1390
+00:58:49,160 --> 00:58:54,720
+file, call WebP to convert it to So, we
+
+1391
+00:58:52,600 --> 00:58:56,800
+So, another thing what I want to do is
+
+1392
+00:58:54,720 --> 00:58:59,920
+to you um
+
+1393
+00:58:56,800 --> 00:59:02,760
+to learn how to use F# today.
+
+1394
+00:58:59,920 --> 00:59:05,000
+Yeah, but it's too late today. Okay.
+
+1395
+00:59:02,760 --> 00:59:08,000
+Uh so, we do that another day. Okay,
+
+1396
+00:59:05,000 --> 00:59:08,000
+bye, guys.
+
+1397
+00:59:09,800 --> 00:59:13,800
+Bye, guys.
+
+1398
+00:59:11,160 --> 00:59:13,800
+Bye, Juan.
+

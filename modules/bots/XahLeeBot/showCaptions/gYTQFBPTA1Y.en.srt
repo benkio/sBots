@@ -1,0 +1,6472 @@
+1
+00:00:00,240 --> 00:00:03,480
+Good morning.
+
+2
+00:00:04,880 --> 00:00:12,200
+Welcome to another episode of
+
+3
+00:00:08,559 --> 00:00:12,200
+Kan Talk Show.
+
+4
+00:00:12,800 --> 00:00:20,240
+We are going to code JavaScript.
+
+5
+00:00:15,360 --> 00:00:22,800
+Fantastic and amazing and mainstream.
+
+6
+00:00:20,240 --> 00:00:24,960
+Okay. So, let me show my screen. If you
+
+7
+00:00:22,800 --> 00:00:30,320
+are here, say hi. Love to see your
+
+8
+00:00:24,960 --> 00:00:34,480
+comments. Pop this out. chat chat box
+
+9
+00:00:30,320 --> 00:00:36,000
+for people's for the mouth of human
+
+10
+00:00:34,480 --> 00:00:40,640
+animals
+
+11
+00:00:36,000 --> 00:00:43,040
+and here is my discord hello Andy and uh
+
+12
+00:00:40,640 --> 00:00:48,000
+so we're going to talk about webdev yeah
+
+13
+00:00:43,040 --> 00:00:54,000
+so basically webdev so programming blog
+
+14
+00:00:48,000 --> 00:00:58,000
+origin of unix bin spin slash user/bin
+
+15
+00:00:54,000 --> 00:00:58,000
+slash user local bing
+
+16
+00:00:58,640 --> 00:01:06,720
+history of why Unix the sucks. The
+
+17
+00:01:03,359 --> 00:01:10,159
+history of the Unix idiocy. Okay, that's
+
+18
+00:01:06,720 --> 00:01:14,159
+a new article. Anyway, so today we're
+
+19
+00:01:10,159 --> 00:01:17,439
+going to talk about JavaScript. Okay, so
+
+20
+00:01:14,159 --> 00:01:21,280
+that gives you a glimpse of what this
+
+21
+00:01:17,439 --> 00:01:24,400
+video style is about. So you if you find
+
+22
+00:01:21,280 --> 00:01:27,759
+that crazy, maybe this is not for you.
+
+23
+00:01:24,400 --> 00:01:30,240
+If you find that appetizing, this is for
+
+24
+00:01:27,759 --> 00:01:34,159
+you. Okay, so we're going to do
+
+25
+00:01:30,240 --> 00:01:36,960
+JavaScript advanced coding. No
+
+26
+00:01:34,159 --> 00:01:39,759
+frameworks, no JavaScript frameworks, no
+
+27
+00:01:36,960 --> 00:01:41,280
+nothing, no libraries, pure raw
+
+28
+00:01:39,759 --> 00:01:43,840
+JavaScript.
+
+29
+00:01:41,280 --> 00:01:46,000
+Okay. And let me introduce you to
+
+30
+00:01:43,840 --> 00:01:49,040
+kasali.info
+
+31
+00:01:46,000 --> 00:01:53,200
+where you can find the best JavaScript
+
+32
+00:01:49,040 --> 00:01:57,680
+tutorial on earth. That would be.info.
+
+33
+00:01:53,200 --> 00:01:59,680
+info and here JavaScript in depth. Okay,
+
+34
+00:01:57,680 --> 00:02:03,520
+there's about
+
+35
+00:01:59,680 --> 00:02:07,040
+800 pages. Okay. Uh let's go to it.
+
+36
+00:02:03,520 --> 00:02:11,840
+Let's see how many pages I forgot. So
+
+37
+00:02:07,040 --> 00:02:17,040
+webdev blog and you got HTML, you got
+
+38
+00:02:11,840 --> 00:02:20,959
+CSS. Fantastic. You got then you got uh
+
+39
+00:02:17,040 --> 00:02:23,840
+JavaScript here and you got JavaScript
+
+40
+00:02:20,959 --> 00:02:27,200
+object reference.
+
+41
+00:02:23,840 --> 00:02:30,640
+Am I talking? Am I alive? Alive. I think
+
+42
+00:02:27,200 --> 00:02:33,680
+I am. And uh I can hear myself. That's
+
+43
+00:02:30,640 --> 00:02:37,120
+good. So there it is. JavaScript in
+
+44
+00:02:33,680 --> 00:02:39,519
+depth. I recommend it. Okay.
+
+45
+00:02:37,120 --> 00:02:41,840
+Now if you are newbie, you might find
+
+46
+00:02:39,519 --> 00:02:45,040
+this interesting. Now if you are an
+
+47
+00:02:41,840 --> 00:02:47,680
+expert at Google, you might find this
+
+48
+00:02:45,040 --> 00:02:50,000
+interesting too.
+
+49
+00:02:47,680 --> 00:02:52,160
+Okay. So we're going to write some
+
+50
+00:02:50,000 --> 00:02:54,560
+JavaScript. So let's see. show in
+
+51
+00:02:52,160 --> 00:02:57,040
+browser. Uh, close that. Remember
+
+52
+00:02:54,560 --> 00:02:59,599
+JavaScript in depth. Okay. So, close
+
+53
+00:02:57,040 --> 00:03:02,640
+that. Actually, uh, to do close that,
+
+54
+00:02:59,599 --> 00:03:06,319
+you want to go to some talk show today
+
+55
+00:03:02,640 --> 00:03:09,680
+episode 798. Copy the file path back to
+
+56
+00:03:06,319 --> 00:03:13,599
+Emacs. Press press a command to open
+
+57
+00:03:09,680 --> 00:03:15,440
+whatever URL in the paste board showing
+
+58
+00:03:13,599 --> 00:03:18,239
+browser. That is the current page.
+
+59
+00:03:15,440 --> 00:03:21,599
+Fantastic. So the task is write a
+
+60
+00:03:18,239 --> 00:03:25,360
+JavaScript to add a table of colors of
+
+61
+00:03:21,599 --> 00:03:28,800
+increasing parameter value for OKLCH
+
+62
+00:03:25,360 --> 00:03:32,560
+color and others.
+
+63
+00:03:28,800 --> 00:03:37,120
+Okay. So OKLCH we talked about last week
+
+64
+00:03:32,560 --> 00:03:41,280
+also on YouTube a live stream the very
+
+65
+00:03:37,120 --> 00:03:45,280
+advanced and intu intuitive color space.
+
+66
+00:03:41,280 --> 00:03:48,879
+However, the technical aspect is not
+
+67
+00:03:45,280 --> 00:03:51,680
+quite intuitive because for example uh
+
+68
+00:03:48,879 --> 00:03:53,280
+okay so so does that make sense? No, I
+
+69
+00:03:51,680 --> 00:03:55,599
+don't think so. So let me explain. Okay,
+
+70
+00:03:53,280 --> 00:03:58,480
+so you go to color index you got the
+
+71
+00:03:55,599 --> 00:04:01,280
+color picker familiar to everyone. You
+
+72
+00:03:58,480 --> 00:04:04,159
+can you know drag your mouse and you
+
+73
+00:04:01,280 --> 00:04:07,680
+have hue and you have darkness. So this
+
+74
+00:04:04,159 --> 00:04:09,200
+this model is actually called hue
+
+75
+00:04:07,680 --> 00:04:12,400
+saturation
+
+76
+00:04:09,200 --> 00:04:15,599
+brightness. Okay. So hue is the rainbow
+
+77
+00:04:12,400 --> 00:04:19,359
+colors. You can see red, orange, yellow,
+
+78
+00:04:15,599 --> 00:04:22,000
+green, blue, violet, then red, back to
+
+79
+00:04:19,359 --> 00:04:24,160
+red. Okay, that's hue. Then you got
+
+80
+00:04:22,000 --> 00:04:27,840
+saturation. How, for example, you want
+
+81
+00:04:24,160 --> 00:04:31,520
+red, you can be uh let's say brightness
+
+82
+00:04:27,840 --> 00:04:35,120
+here. Okay, so very red or light red,
+
+83
+00:04:31,520 --> 00:04:36,880
+then almost no red, then gray. Okay, so
+
+84
+00:04:35,120 --> 00:04:40,400
+that's a saturation. And same thing for
+
+85
+00:04:36,880 --> 00:04:43,199
+other color you know green very green to
+
+86
+00:04:40,400 --> 00:04:45,360
+little green tiny green then gray okay
+
+87
+00:04:43,199 --> 00:04:48,960
+saturation then you got lightness
+
+88
+00:04:45,360 --> 00:04:53,440
+lightness you see let's say uh uh red so
+
+89
+00:04:48,960 --> 00:04:56,320
+very bright bright uh wait red okay okay
+
+90
+00:04:53,440 --> 00:04:59,440
+this model is a hue saturation value
+
+91
+00:04:56,320 --> 00:05:01,600
+okay so anyway so
+
+92
+00:04:59,440 --> 00:05:05,759
+anyway they're similar so the last value
+
+93
+00:05:01,600 --> 00:05:09,199
+is brightness so become white middle is
+
+94
+00:05:05,759 --> 00:05:12,320
+red then you become black. Okay. For
+
+95
+00:05:09,199 --> 00:05:15,600
+other colors well for example blue you
+
+96
+00:05:12,320 --> 00:05:18,479
+middle is pure blue then above is more
+
+97
+00:05:15,600 --> 00:05:21,600
+white and become pure white and below is
+
+98
+00:05:18,479 --> 00:05:24,800
+pure black. Okay so this is like a hue
+
+99
+00:05:21,600 --> 00:05:28,160
+saturation value model of color. There
+
+100
+00:05:24,800 --> 00:05:31,440
+are quite a few other models. The worst
+
+101
+00:05:28,160 --> 00:05:35,280
+[ __ ] possible is the Unix and C
+
+102
+00:05:31,440 --> 00:05:38,720
+[ __ ] They created this RGB
+
+103
+00:05:35,280 --> 00:05:41,680
+hexadismoal thing color. Okay. So, uh,
+
+104
+00:05:38,720 --> 00:05:43,600
+so here's a bunch of color names. If you
+
+105
+00:05:41,680 --> 00:05:45,680
+are here, say hi. Okay. So, here's a
+
+106
+00:05:43,600 --> 00:05:47,840
+bunch of color names. If you find it
+
+107
+00:05:45,680 --> 00:05:50,880
+this interesting, just tell me your
+
+108
+00:05:47,840 --> 00:05:54,320
+stories. Okay. So, am I still alive?
+
+109
+00:05:50,880 --> 00:05:57,199
+Check again. I'm good. Good. So, you got
+
+110
+00:05:54,320 --> 00:05:58,800
+these color names, named colors. Okay.
+
+111
+00:05:57,199 --> 00:06:01,520
+Now, there's Let me tell you an
+
+112
+00:05:58,800 --> 00:06:04,639
+interesting story. About 10 years ago,
+
+113
+00:06:01,520 --> 00:06:08,080
+they added a new color named color in
+
+114
+00:06:04,639 --> 00:06:11,520
+CSS. And that that color has a
+
+115
+00:06:08,080 --> 00:06:17,000
+surprising name
+
+116
+00:06:11,520 --> 00:06:17,000
+and cute name. It's called Rebecca.
+
+117
+00:06:18,400 --> 00:06:25,199
+So, where is it? Uh there it is. Rebecca
+
+118
+00:06:22,319 --> 00:06:26,720
+Purple. Okay. because one of the
+
+119
+00:06:25,199 --> 00:06:29,360
+developers
+
+120
+00:06:26,720 --> 00:06:32,800
+his daughter
+
+121
+00:06:29,360 --> 00:06:38,160
+uh died of cancer uh and this developer
+
+122
+00:06:32,800 --> 00:06:41,440
+is a very uh you know a heavy CS uh CSS
+
+123
+00:06:38,160 --> 00:06:45,120
+developer. So they the community voted
+
+124
+00:06:41,440 --> 00:06:47,520
+to create a named color after her
+
+125
+00:06:45,120 --> 00:06:50,560
+daughter's favorite color. So that's why
+
+126
+00:06:47,520 --> 00:06:52,800
+we got Rebecca purple. Okay, that's new
+
+127
+00:06:50,560 --> 00:06:55,520
+about 10 years ago. I just learned it
+
+128
+00:06:52,800 --> 00:06:57,840
+actually. uh last month.
+
+129
+00:06:55,520 --> 00:07:01,680
+So anyway, you got named colors. Okay.
+
+130
+00:06:57,840 --> 00:07:05,919
+So then then you got the RGB hexadisimal
+
+131
+00:07:01,680 --> 00:07:08,800
+idiocy from the C and Unix
+
+132
+00:07:05,919 --> 00:07:11,360
+[ __ ] Okay. They they you know
+
+133
+00:07:08,800 --> 00:07:14,560
+blame them. Everything wrong in
+
+134
+00:07:11,360 --> 00:07:18,000
+computing industry has have something to
+
+135
+00:07:14,560 --> 00:07:19,759
+do with them. C and Unix brainless
+
+136
+00:07:18,000 --> 00:07:22,720
+creatures.
+
+137
+00:07:19,759 --> 00:07:25,039
+they you know they qu on this earth they
+
+138
+00:07:22,720 --> 00:07:28,319
+created huge damage to computing
+
+139
+00:07:25,039 --> 00:07:30,240
+industry okay anyway so you see you
+
+140
+00:07:28,319 --> 00:07:33,599
+don't blame them because well the
+
+141
+00:07:30,240 --> 00:07:35,919
+technology back then it was not like so
+
+142
+00:07:33,599 --> 00:07:38,639
+powerful today so you you have to you
+
+143
+00:07:35,919 --> 00:07:40,800
+know be practical that you don't blame
+
+144
+00:07:38,639 --> 00:07:42,800
+them because you got coobo you got
+
+145
+00:07:40,800 --> 00:07:46,080
+forran you got list you got lots of
+
+146
+00:07:42,800 --> 00:07:48,880
+things that was designed at that time
+
+147
+00:07:46,080 --> 00:07:50,240
+may not be the best but you know Pascal
+
+148
+00:07:48,880 --> 00:07:54,240
+and so
+
+149
+00:07:50,240 --> 00:07:58,560
+But the C and Unix [ __ ] they brew a
+
+150
+00:07:54,240 --> 00:08:02,000
+coat and they insist they are the brand
+
+151
+00:07:58,560 --> 00:08:05,120
+way is the best way. This lie by the C
+
+152
+00:08:02,000 --> 00:08:07,520
+and Unix [ __ ] Okay. Now if you
+
+153
+00:08:05,120 --> 00:08:09,759
+find this video not interesting, maybe
+
+154
+00:08:07,520 --> 00:08:13,360
+this is not for you. Okay. You you get
+
+155
+00:08:09,759 --> 00:08:16,319
+you get a taste of what you know my my
+
+156
+00:08:13,360 --> 00:08:20,800
+uh live stream is about. Okay. Uh hello
+
+157
+00:08:16,319 --> 00:08:23,599
+AC ACP Rebecca Purple. Yeah. So anyway,
+
+158
+00:08:20,800 --> 00:08:25,759
+the So we got the RGB color, you know,
+
+159
+00:08:23,599 --> 00:08:27,759
+the the the incomprehensible
+
+160
+00:08:25,759 --> 00:08:29,599
+hexadisimal. By the way, you guys know
+
+161
+00:08:27,759 --> 00:08:32,880
+what he what's hexodimal, right?
+
+162
+00:08:29,599 --> 00:08:35,200
+Sometimes I have to explain to beginners
+
+163
+00:08:32,880 --> 00:08:37,440
+um you know, and uh young people, they
+
+164
+00:08:35,200 --> 00:08:40,479
+don't know. So every generation, it's
+
+165
+00:08:37,440 --> 00:08:43,599
+like it's surprising, you know, there
+
+166
+00:08:40,479 --> 00:08:45,920
+will always be people who don't know
+
+167
+00:08:43,599 --> 00:08:48,800
+what is calculus. Like every year a
+
+168
+00:08:45,920 --> 00:08:51,760
+professor has to teach the same thing
+
+169
+00:08:48,800 --> 00:08:54,080
+until the professor is dead.
+
+170
+00:08:51,760 --> 00:08:56,399
+Then next professor the professor son
+
+171
+00:08:54,080 --> 00:08:59,519
+and since their son son they have to
+
+172
+00:08:56,399 --> 00:09:02,959
+teach the same thing forever.
+
+173
+00:08:59,519 --> 00:09:06,880
+That is the nature of humanity. I didn't
+
+174
+00:09:02,959 --> 00:09:10,160
+know I didn't know that until you see
+
+175
+00:09:06,880 --> 00:09:12,160
+nobody knows that until you get old you
+
+176
+00:09:10,160 --> 00:09:14,240
+know like me. When you get old, you
+
+177
+00:09:12,160 --> 00:09:16,399
+realize why why are these people don't
+
+178
+00:09:14,240 --> 00:09:18,399
+know this? Oh, because they were young.
+
+179
+00:09:16,399 --> 00:09:23,279
+They, you know,
+
+180
+00:09:18,399 --> 00:09:26,160
+this cycle has to repeat forever. So, do
+
+181
+00:09:23,279 --> 00:09:28,880
+you guys know what is hexadisimal?
+
+182
+00:09:26,160 --> 00:09:31,040
+That's a very fundamental basics. Okay?
+
+183
+00:09:28,880 --> 00:09:32,720
+If you don't know computers, you know,
+
+184
+00:09:31,040 --> 00:09:36,160
+it takes takes some time to learn
+
+185
+00:09:32,720 --> 00:09:38,240
+hexadisimal. Okay? Um, and of course,
+
+186
+00:09:36,160 --> 00:09:43,399
+then you have to know binary. Uh, where
+
+187
+00:09:38,240 --> 00:09:43,399
+is it? Uh god upd
+
+188
+00:09:44,080 --> 00:09:48,320
+um
+
+189
+00:09:45,839 --> 00:09:51,200
+okay let's go back to colors uh color
+
+190
+00:09:48,320 --> 00:09:55,040
+picker okay so we were talking about RGB
+
+191
+00:09:51,200 --> 00:09:59,040
+color hexadimals uh then uh okay I
+
+192
+00:09:55,040 --> 00:10:01,760
+digress so much so anyway so
+
+193
+00:09:59,040 --> 00:10:04,640
+RGB is one of the color space that's
+
+194
+00:10:01,760 --> 00:10:07,040
+what they call it okay then you got RGB
+
+195
+00:10:04,640 --> 00:10:10,080
+function now this is a a minor
+
+196
+00:10:07,040 --> 00:10:12,480
+improvement you See instead of using the
+
+197
+00:10:10,080 --> 00:10:16,000
+incomprehensible hexadisimal they
+
+198
+00:10:12,480 --> 00:10:17,680
+improve it improved it. So it uses
+
+199
+00:10:16,000 --> 00:10:20,320
+integers
+
+200
+00:10:17,680 --> 00:10:22,959
+still it's like CD you know. So in you
+
+201
+00:10:20,320 --> 00:10:26,880
+know RGB color you have three integers
+
+202
+00:10:22,959 --> 00:10:29,519
+each one is from 0 to 256
+
+203
+00:10:26,880 --> 00:10:33,200
+actually 255
+
+204
+00:10:29,519 --> 00:10:35,279
+you know why the magic number 255.
+
+205
+00:10:33,200 --> 00:10:38,959
+Well that's just you know that's because
+
+206
+00:10:35,279 --> 00:10:42,959
+the hexadimal two hexodimal that's 256
+
+207
+00:10:38,959 --> 00:10:45,279
+total possible values. So anyway,
+
+208
+00:10:42,959 --> 00:10:48,320
+improved, more readable, but still kind
+
+209
+00:10:45,279 --> 00:10:50,720
+of silly two, you know, uh you got magic
+
+210
+00:10:48,320 --> 00:10:54,079
+number 256
+
+211
+00:10:50,720 --> 00:10:56,000
+just because it so happens that the
+
+212
+00:10:54,079 --> 00:11:00,399
+binary number, you know, you know, you
+
+213
+00:10:56,000 --> 00:11:04,160
+got this 25 256 magic number that's
+
+214
+00:11:00,399 --> 00:11:06,480
+eight bits, okay? Uh yeah, eight bits,
+
+215
+00:11:04,160 --> 00:11:10,079
+eight binary digits. Okay? So if you
+
+216
+00:11:06,480 --> 00:11:12,240
+don't know I recommend you guys to
+
+217
+00:11:10,079 --> 00:11:15,600
+revisit young people okay so you guys
+
+218
+00:11:12,240 --> 00:11:18,079
+young people you know maybe you are teen
+
+219
+00:11:15,600 --> 00:11:20,880
+something go to you know go read
+
+220
+00:11:18,079 --> 00:11:23,519
+Wikipedia or something what is hexadimal
+
+221
+00:11:20,880 --> 00:11:25,600
+and go read about binary numbers okay
+
+222
+00:11:23,519 --> 00:11:29,680
+this is so fundamental you need to know
+
+223
+00:11:25,600 --> 00:11:32,240
+okay so I I wrote a converter here
+
+224
+00:11:29,680 --> 00:11:35,920
+binary to hexadimal
+
+225
+00:11:32,240 --> 00:11:38,880
+uh why binary because computers Because
+
+226
+00:11:35,920 --> 00:11:41,600
+we happen to use electronic computers
+
+227
+00:11:38,880 --> 00:11:45,920
+which is electricity they are either on
+
+228
+00:11:41,600 --> 00:11:48,880
+or off. So it's not the most easy easily
+
+229
+00:11:45,920 --> 00:11:52,480
+represented by using binary numbers zero
+
+230
+00:11:48,880 --> 00:11:55,279
+or one. One means on zero means off the
+
+231
+00:11:52,480 --> 00:11:57,200
+electricity flow. Okay, that's so
+
+232
+00:11:55,279 --> 00:12:00,640
+happens but not but this is not
+
+233
+00:11:57,200 --> 00:12:03,839
+necessarily so when you got quantum
+
+234
+00:12:00,640 --> 00:12:07,440
+computers or when you got biological DNA
+
+235
+00:12:03,839 --> 00:12:10,480
+computers like your your your the atoms
+
+236
+00:12:07,440 --> 00:12:12,959
+you know that's amazing molecules they
+
+237
+00:12:10,480 --> 00:12:17,519
+you know DNA comput computation they do
+
+238
+00:12:12,959 --> 00:12:20,480
+computation like in mass like
+
+239
+00:12:17,519 --> 00:12:22,320
+by billions in parallel like like for
+
+240
+00:12:20,480 --> 00:12:24,800
+example you you you have a bag of
+
+241
+00:12:22,320 --> 00:12:27,600
+marbles let's Okay, you have a bag of
+
+242
+00:12:24,800 --> 00:12:29,839
+marbles, right? Then you you pull them,
+
+243
+00:12:27,600 --> 00:12:31,680
+you know, you you put them down, you
+
+244
+00:12:29,839 --> 00:12:35,040
+know, you you let them fall into a
+
+245
+00:12:31,680 --> 00:12:36,959
+bucket or whatever or to the ground.
+
+246
+00:12:35,040 --> 00:12:39,920
+Then the billions of micros they
+
+247
+00:12:36,959 --> 00:12:43,120
+automatically in parallel find their
+
+248
+00:12:39,920 --> 00:12:46,079
+place. You know, each each marble they
+
+249
+00:12:43,120 --> 00:12:49,839
+will find their place. Okay. So that is
+
+250
+00:12:46,079 --> 00:12:51,920
+like DNA computation by the molecules.
+
+251
+00:12:49,839 --> 00:12:55,040
+the molecules they you know certain
+
+252
+00:12:51,920 --> 00:12:57,760
+molecules they bind certain they don't
+
+253
+00:12:55,040 --> 00:12:59,839
+you know so billions and billions and
+
+254
+00:12:57,760 --> 00:13:03,040
+billions and gazillions and Google
+
+255
+00:12:59,839 --> 00:13:05,040
+zillions of them work in parallel that's
+
+256
+00:13:03,040 --> 00:13:07,279
+the DNA computation okay I don't know
+
+257
+00:13:05,040 --> 00:13:09,920
+much about it but that's the idea that's
+
+258
+00:13:07,279 --> 00:13:12,720
+how it works okay quantum quantum
+
+259
+00:13:09,920 --> 00:13:14,959
+computation is something else but there
+
+260
+00:13:12,720 --> 00:13:18,480
+you don't get the you you don't have the
+
+261
+00:13:14,959 --> 00:13:21,120
+binary [ __ ] okay like the C and Unix
+
+262
+00:13:18,480 --> 00:13:23,839
+[ __ ] their brain is just binary.
+
+263
+00:13:21,120 --> 00:13:27,600
+they don't know anything about actual
+
+264
+00:13:23,839 --> 00:13:30,320
+you know computation meaning of
+
+265
+00:13:27,600 --> 00:13:33,839
+okay so anyway so you know like when you
+
+266
+00:13:30,320 --> 00:13:38,079
+say uh a number based on let's say uh
+
+267
+00:13:33,839 --> 00:13:39,360
+nine decimal you know uh nine symbols
+
+268
+00:13:38,079 --> 00:13:43,519
+like they don't know what you're talking
+
+269
+00:13:39,360 --> 00:13:47,440
+about or based on 13 or 15 or any number
+
+270
+00:13:43,519 --> 00:13:49,279
+these people the C C++ and Unix
+
+271
+00:13:47,440 --> 00:13:51,519
+[ __ ]
+
+272
+00:13:49,279 --> 00:13:55,519
+their brand got washed
+
+273
+00:13:51,519 --> 00:13:58,079
+So because of the C you know print f
+
+274
+00:13:55,519 --> 00:14:00,079
+that's why they don't know about this
+
+275
+00:13:58,079 --> 00:14:04,160
+they they have no idea about the the
+
+276
+00:14:00,079 --> 00:14:07,360
+nature of this number basis okay anyway
+
+277
+00:14:04,160 --> 00:14:09,440
+getting into a rant so let's stop so you
+
+278
+00:14:07,360 --> 00:14:11,440
+have to learn okay so if you are young
+
+279
+00:14:09,440 --> 00:14:14,160
+uh you you know learn about binary
+
+280
+00:14:11,440 --> 00:14:16,240
+hexadimal okay fundamental that's
+
+281
+00:14:14,160 --> 00:14:19,040
+fundamental in computer meaning when you
+
+282
+00:14:16,240 --> 00:14:21,920
+uh do programming okay then you got
+
+283
+00:14:19,040 --> 00:14:25,440
+other models those color models. Okay.
+
+284
+00:14:21,920 --> 00:14:29,760
+So, RGB now, so they improved. So, you
+
+285
+00:14:25,440 --> 00:14:34,880
+can use decimals, I mean integers 255, 0
+
+286
+00:14:29,760 --> 00:14:36,480
+to 255 inclusive, but you can also use
+
+287
+00:14:34,880 --> 00:14:40,240
+percentage
+
+288
+00:14:36,480 --> 00:14:43,519
+that is a improvement. Okay. So, you see
+
+289
+00:14:40,240 --> 00:14:46,160
+this is superb improvement. This is the
+
+290
+00:14:43,519 --> 00:14:49,040
+this is the meaning of design. This is
+
+291
+00:14:46,160 --> 00:14:51,519
+why the Unix and C are the [ __ ]
+
+292
+00:14:49,040 --> 00:14:54,639
+Okay, now let me explain this one. You
+
+293
+00:14:51,519 --> 00:14:58,639
+see, so here you got a percentage for
+
+294
+00:14:54,639 --> 00:15:01,519
+each RGB value. Why is it good? Because
+
+295
+00:14:58,639 --> 00:15:04,160
+you don't you get rid of the magic
+
+296
+00:15:01,519 --> 00:15:07,839
+limited human limitation, the magic
+
+297
+00:15:04,160 --> 00:15:11,519
+numbers of 256 and limited. You can't go
+
+298
+00:15:07,839 --> 00:15:14,320
+more, you know, you can't go beyond 256,
+
+299
+00:15:11,519 --> 00:15:17,279
+right? So what happens when you when
+
+300
+00:15:14,320 --> 00:15:20,240
+your uh for example our monitor today
+
+301
+00:15:17,279 --> 00:15:23,279
+can display far more colors than 256
+
+302
+00:15:20,240 --> 00:15:26,880
+levels? Well, you got [ __ ] Okay,
+
+303
+00:15:23,279 --> 00:15:30,480
+that's because of the C and C++ and Unix
+
+304
+00:15:26,880 --> 00:15:33,199
+[ __ ] these people.
+
+305
+00:15:30,480 --> 00:15:36,480
+So you want remove that design limit.
+
+306
+00:15:33,199 --> 00:15:40,000
+This is a human, you know, this is a
+
+307
+00:15:36,480 --> 00:15:45,199
+human forced limit. Okay, you have to
+
+308
+00:15:40,000 --> 00:15:48,720
+remember oh 256 is 256 is special but so
+
+309
+00:15:45,199 --> 00:15:50,639
+remove that you so you have 1 to 100%
+
+310
+00:15:48,720 --> 00:15:54,079
+percent meaning you know percent means 0
+
+311
+00:15:50,639 --> 00:15:57,600
+to one okay any value from 0 to one
+
+312
+00:15:54,079 --> 00:15:59,279
+infinite num infinite number of values
+
+313
+00:15:57,600 --> 00:16:01,279
+okay that's that's a real number
+
+314
+00:15:59,279 --> 00:16:04,079
+including numbers that cannot be
+
+315
+00:16:01,279 --> 00:16:06,160
+represented in a computer you can even
+
+316
+00:16:04,079 --> 00:16:08,240
+have that because that's a mathemat
+
+317
+00:16:06,160 --> 00:16:11,839
+mathematical ideal real numbers okay
+
+318
+00:16:08,240 --> 00:16:14,800
+between zero and one. So by this design
+
+319
+00:16:11,839 --> 00:16:18,720
+a percentage you see you removed this
+
+320
+00:16:14,800 --> 00:16:21,759
+magic number and limit limitation of
+
+321
+00:16:18,720 --> 00:16:25,279
+quotation. Okay, fantastic. And this is,
+
+322
+00:16:21,759 --> 00:16:28,160
+you know, so in CSS about 10 years ago
+
+323
+00:16:25,279 --> 00:16:31,680
+or 15, we started to have this. Uh, this
+
+324
+00:16:28,160 --> 00:16:34,720
+is great. Okay. And
+
+325
+00:16:31,680 --> 00:16:37,279
+Wuam language I have showed you guys
+
+326
+00:16:34,720 --> 00:16:39,279
+many times before. I've done, you know,
+
+327
+00:16:37,279 --> 00:16:42,160
+I'm going to do a Wuam language again
+
+328
+00:16:39,279 --> 00:16:47,360
+soon. So, Wuam language, they have also
+
+329
+00:16:42,160 --> 00:16:49,759
+these color models. They got HSL, RGB,
+
+330
+00:16:47,360 --> 00:16:53,120
+and and and so on. Okay. But they don't
+
+331
+00:16:49,759 --> 00:16:56,320
+but they don't have um let's see if I
+
+332
+00:16:53,120 --> 00:16:59,519
+can open some of the fail to open. Okay,
+
+333
+00:16:56,320 --> 00:17:01,440
+I delete that file. Anyway, so I did I
+
+334
+00:16:59,519 --> 00:17:03,360
+done hundreds of videos on woof
+
+335
+00:17:01,440 --> 00:17:06,079
+language. So anyway, woof language also
+
+336
+00:17:03,360 --> 00:17:09,919
+have RGB. Can I show it? Yeah, actually
+
+337
+00:17:06,079 --> 00:17:14,799
+why not? Because it's always um good to
+
+338
+00:17:09,919 --> 00:17:17,439
+show uh Hugh for example.
+
+339
+00:17:14,799 --> 00:17:19,520
+Uh okay, we are digressing but that's
+
+340
+00:17:17,439 --> 00:17:22,640
+okay. That's what talk show is about.
+
+341
+00:17:19,520 --> 00:17:25,839
+You see hue, this is uh one of their wam
+
+342
+00:17:22,640 --> 00:17:28,079
+language functions. So you can see hue.
+
+343
+00:17:25,839 --> 00:17:30,799
+The first value is hue. The second value
+
+344
+00:17:28,079 --> 00:17:33,600
+is saturation. You see that s. So let's
+
+345
+00:17:30,799 --> 00:17:37,360
+say 0.5.
+
+346
+00:17:33,600 --> 00:17:38,960
+Well, let's say 0.9 high saturation. And
+
+347
+00:17:37,360 --> 00:17:42,080
+brightness. The last value is
+
+348
+00:17:38,960 --> 00:17:44,880
+brightness. Let's say uh 0.5. Okay.
+
+349
+00:17:42,080 --> 00:17:47,520
+Enter. You see you got you got kind of
+
+350
+00:17:44,880 --> 00:17:50,880
+dark hue. So let we can do a table.
+
+351
+00:17:47,520 --> 00:17:53,760
+Okay. So, so you can let me Okay. So,
+
+352
+00:17:50,880 --> 00:17:55,600
+let me I digressed. Okay. Uh, hold on a
+
+353
+00:17:53,760 --> 00:17:58,320
+second. So, I digressed. Where are we
+
+354
+00:17:55,600 --> 00:18:00,160
+going? So, let me talk about the Wuam
+
+355
+00:17:58,320 --> 00:18:02,640
+language a little bit and let's return
+
+356
+00:18:00,160 --> 00:18:04,960
+to this. Okay. So, let's do a like
+
+357
+00:18:02,640 --> 00:18:06,480
+little digression. Okay. So, search
+
+358
+00:18:04,960 --> 00:18:09,280
+section.
+
+359
+00:18:06,480 --> 00:18:11,760
+Um,
+
+360
+00:18:09,280 --> 00:18:14,960
+wra language. Oh my god, I haven't done
+
+361
+00:18:11,760 --> 00:18:18,400
+a wam language episode for a month.
+
+362
+00:18:14,960 --> 00:18:22,440
+Table. Fantastic. Put the hue there. Can
+
+363
+00:18:18,400 --> 00:18:22,440
+Can you guys see my screen?
+
+364
+00:18:22,960 --> 00:18:27,919
+Yes. Okay.
+
+365
+00:18:25,919 --> 00:18:30,160
+Are we good? Are we good, guys? Do you
+
+366
+00:18:27,919 --> 00:18:33,120
+guys enjoy what I'm saying? Say hi.
+
+367
+00:18:30,160 --> 00:18:38,400
+Okay. So, we got a hue. We want a hue
+
+368
+00:18:33,120 --> 00:18:43,039
+from let's say xx from Z uh 0 to one in
+
+369
+00:18:38,400 --> 00:18:47,520
+increment of 0.1. Okay. that that we'll
+
+370
+00:18:43,039 --> 00:18:52,160
+generate a a gradient of colors. Okay.
+
+371
+00:18:47,520 --> 00:18:54,000
+Shift enter to run it. So you can see
+
+372
+00:18:52,160 --> 00:18:56,400
+that's a rainbow color, but now it's
+
+373
+00:18:54,000 --> 00:19:00,080
+kind of dark. So let's uh make the
+
+374
+00:18:56,400 --> 00:19:03,840
+brightness one. Okay. So now it's it's a
+
+375
+00:19:00,080 --> 00:19:06,919
+very shiny. Okay. Uh shift enter. So you
+
+376
+00:19:03,840 --> 00:19:06,919
+can see
+
+377
+00:19:07,280 --> 00:19:12,960
+fantastic and beautiful. And wuam
+
+378
+00:19:10,160 --> 00:19:16,880
+language also have RGB models you know.
+
+379
+00:19:12,960 --> 00:19:19,520
+So you can you got RGB color uh and in
+
+380
+00:19:16,880 --> 00:19:21,440
+fact you got uh you got what is what is
+
+381
+00:19:19,520 --> 00:19:23,440
+this interactive
+
+382
+00:19:21,440 --> 00:19:26,880
+picker color picker. I haven't used this
+
+383
+00:19:23,440 --> 00:19:29,840
+before. So actually you got GUI to do
+
+384
+00:19:26,880 --> 00:19:33,600
+the color. Okay. So so anyway so W
+
+385
+00:19:29,840 --> 00:19:41,440
+language you go. So I got uh C Y MB
+
+386
+00:19:33,600 --> 00:19:44,160
+color. C Y uh C M Y K C M YK that's a
+
+387
+00:19:41,440 --> 00:19:46,880
+that's another color model. Okay. So
+
+388
+00:19:44,160 --> 00:19:49,440
+anyway, so we talking about color models
+
+389
+00:19:46,880 --> 00:19:53,440
+that's on topic today.
+
+390
+00:19:49,440 --> 00:19:56,880
+Okay. So um
+
+391
+00:19:53,440 --> 00:19:59,679
+yeah, so so what we doing? So so that's
+
+392
+00:19:56,880 --> 00:20:03,679
+it about wolf language for for today.
+
+393
+00:19:59,679 --> 00:20:05,760
+And let me just uh
+
+394
+00:20:03,679 --> 00:20:08,760
+let's just do a screenshot of this.
+
+395
+00:20:05,760 --> 00:20:08,760
+Okay,
+
+396
+00:20:10,640 --> 00:20:13,880
+why not?
+
+397
+00:20:16,640 --> 00:20:24,080
+Fantastic and beautiful.
+
+398
+00:20:20,240 --> 00:20:27,760
+Okay, so so back to CSS. Okay, so we
+
+399
+00:20:24,080 --> 00:20:31,120
+were talking about so uh yeah so uh
+
+400
+00:20:27,760 --> 00:20:35,760
+let's put this code back syntax color it
+
+401
+00:20:31,120 --> 00:20:38,640
+showing browser fantastic okay so let's
+
+402
+00:20:35,760 --> 00:20:42,559
+go back to the color so okay so we got
+
+403
+00:20:38,640 --> 00:20:44,880
+colors you got RGP so you see so what I
+
+404
+00:20:42,559 --> 00:20:48,320
+wanted to tell you guys is that you see
+
+405
+00:20:44,880 --> 00:20:51,919
+the value each value in this hue param
+
+406
+00:20:48,320 --> 00:20:54,559
+parameters they go from zero to one
+
+407
+00:20:51,919 --> 00:20:58,559
+there's no arbitrary very limitation
+
+408
+00:20:54,559 --> 00:21:02,000
+humanmade limitation like the 256
+
+409
+00:20:58,559 --> 00:21:04,400
+C and Unix [ __ ] thing okay no
+
+410
+00:21:02,000 --> 00:21:07,039
+arbitrary limitation that's design this
+
+411
+00:21:04,400 --> 00:21:09,840
+is a issue of design okay this is not
+
+412
+00:21:07,039 --> 00:21:12,840
+about issue of practicality
+
+413
+00:21:09,840 --> 00:21:12,840
+okay
+
+414
+00:21:13,760 --> 00:21:18,880
+anyway okay so let's move on so RGB so
+
+415
+00:21:16,400 --> 00:21:22,960
+you got RGB function they added that to
+
+416
+00:21:18,880 --> 00:21:24,799
+CSS you see uh they use percentage
+
+417
+00:21:22,960 --> 00:21:26,799
+you know, I I think it would be better.
+
+418
+00:21:24,799 --> 00:21:29,280
+Well,
+
+419
+00:21:26,799 --> 00:21:31,919
+in the in the So why why didn't they
+
+420
+00:21:29,280 --> 00:21:34,799
+just use 0ero to one? Well, because in
+
+421
+00:21:31,919 --> 00:21:36,960
+CSS, if you use 0ero to one, then you
+
+422
+00:21:34,799 --> 00:21:39,840
+got confusion with the, you know, the
+
+423
+00:21:36,960 --> 00:21:42,960
+RGB 256, you know, you can't tell
+
+424
+00:21:39,840 --> 00:21:46,080
+whether which which is which. So they
+
+425
+00:21:42,960 --> 00:21:48,480
+they use percentage, which is um kind of
+
+426
+00:21:46,080 --> 00:21:50,400
+the CSS style. You got lots of things in
+
+427
+00:21:48,480 --> 00:21:53,360
+percentage. Okay. But percentage
+
+428
+00:21:50,400 --> 00:21:56,080
+basically is another notation for a
+
+429
+00:21:53,360 --> 00:21:58,960
+value, a real number between zero and
+
+430
+00:21:56,080 --> 00:22:03,679
+one. Okay, you got that? So this is a
+
+431
+00:21:58,960 --> 00:22:06,880
+little math mathematics tip. Percentage
+
+432
+00:22:03,679 --> 00:22:09,520
+is a notation for the real number zero
+
+433
+00:22:06,880 --> 00:22:13,760
+and one between zero and one. Okay. So
+
+434
+00:22:09,520 --> 00:22:17,120
+anyway, so so that's RGB function. Then
+
+435
+00:22:13,760 --> 00:22:20,000
+you got then you got uh Okay. So wait.
+
+436
+00:22:17,120 --> 00:22:24,640
+So then you got HSL.
+
+437
+00:22:20,000 --> 00:22:27,840
+Fantastic random color. So HS uh HSL is
+
+438
+00:22:24,640 --> 00:22:32,039
+very intuitive because you know hue
+
+439
+00:22:27,840 --> 00:22:32,039
+let's go uh what
+
+440
+00:22:33,440 --> 00:22:41,600
+let's say saturation red saturation not
+
+441
+00:22:37,280 --> 00:22:45,360
+so much hue. Okay. So saturation high is
+
+442
+00:22:41,600 --> 00:22:48,559
+the color rainbow. You see red, yellow,
+
+443
+00:22:45,360 --> 00:22:52,559
+green. Uh let's bring the lightness to
+
+444
+00:22:48,559 --> 00:22:55,679
+uh middle. Okay. So red, yellow, green,
+
+445
+00:22:52,559 --> 00:23:01,520
+orange, uh green,
+
+446
+00:22:55,679 --> 00:23:06,320
+canon, blue, violet, purple, red. Okay.
+
+447
+00:23:01,520 --> 00:23:08,880
+HSL very um intuitive.
+
+448
+00:23:06,320 --> 00:23:11,440
+Now let's next. What is the next
+
+449
+00:23:08,880 --> 00:23:14,559
+actually? Uh so then you got these new
+
+450
+00:23:11,440 --> 00:23:18,480
+colors I talked about we talked about uh
+
+451
+00:23:14,559 --> 00:23:20,880
+a week ago. But what I want to do today
+
+452
+00:23:18,480 --> 00:23:24,080
+is actually so oh yeah so I was going to
+
+453
+00:23:20,880 --> 00:23:28,480
+explain so why is this okay LCH very
+
+454
+00:23:24,080 --> 00:23:31,120
+complex because you see so far we kind
+
+455
+00:23:28,480 --> 00:23:35,039
+of understand you know for RGB you know
+
+456
+00:23:31,120 --> 00:23:40,159
+you just got red green blue they make up
+
+457
+00:23:35,039 --> 00:23:44,880
+a color each one can be 0 to 256
+
+458
+00:23:40,159 --> 00:23:48,000
+if you you know cut them into 256 parts
+
+459
+00:23:44,880 --> 00:23:51,120
+or they can be from zero to one infinite
+
+460
+00:23:48,000 --> 00:23:55,679
+infinite levels of detail. Okay. So
+
+461
+00:23:51,120 --> 00:23:58,400
+that's RGB red, green, blue. Okay. So
+
+462
+00:23:55,679 --> 00:24:00,240
+then so you got HSL. It's also
+
+463
+00:23:58,400 --> 00:24:03,360
+intuitive. You got hue. You got
+
+464
+00:24:00,240 --> 00:24:06,720
+saturation lightness. Okay.
+
+465
+00:24:03,360 --> 00:24:09,440
+Then you got uh then you got okay. So go
+
+466
+00:24:06,720 --> 00:24:13,200
+down. Then you got HWB. This is new.
+
+467
+00:24:09,440 --> 00:24:16,080
+This stand for hue, white, black. So the
+
+468
+00:24:13,200 --> 00:24:20,159
+idea is that you start with a hue then
+
+469
+00:24:16,080 --> 00:24:23,200
+you can you can increase um
+
+470
+00:24:20,159 --> 00:24:25,840
+the what uh so here's a change of hue
+
+471
+00:24:23,200 --> 00:24:29,760
+you see they go by 360 that's another
+
+472
+00:24:25,840 --> 00:24:32,240
+design idiocy you see but you see here
+
+473
+00:24:29,760 --> 00:24:35,520
+they decided the hue goes from around
+
+474
+00:24:32,240 --> 00:24:38,480
+the circle 360 degrees
+
+475
+00:24:35,520 --> 00:24:42,000
+very inconsistent you know
+
+476
+00:24:38,480 --> 00:24:45,679
+like because we have you know the RGB
+
+477
+00:24:42,000 --> 00:24:51,039
+you You got a percentage, you got the um
+
+478
+00:24:45,679 --> 00:24:53,919
+0 to 255 magic number. Um but here they
+
+479
+00:24:51,039 --> 00:24:58,080
+they they they went with the degree like
+
+480
+00:24:53,919 --> 00:25:01,039
+0 to 360 idiotic. But however, you can
+
+481
+00:24:58,080 --> 00:25:03,919
+also use percentage. Okay. So let's see
+
+482
+00:25:01,039 --> 00:25:09,360
+is can you actually
+
+483
+00:25:03,919 --> 00:25:12,320
+uh hue? No. [ __ ] idiot. Jesus. So hu
+
+484
+00:25:09,360 --> 00:25:14,799
+goes from 0 to 360. You cannot use
+
+485
+00:25:12,320 --> 00:25:18,400
+percentage
+
+486
+00:25:14,799 --> 00:25:21,840
+[ __ ] idiot CSS.
+
+487
+00:25:18,400 --> 00:25:26,000
+You know the the reason. So again we are
+
+488
+00:25:21,840 --> 00:25:28,400
+talking about design. Des design is one
+
+489
+00:25:26,000 --> 00:25:30,720
+of my big focus. Okay. So I pay
+
+490
+00:25:28,400 --> 00:25:33,760
+attention. So this you know this design
+
+491
+00:25:30,720 --> 00:25:35,840
+issues they stand out to me. Okay. When
+
+492
+00:25:33,760 --> 00:25:37,679
+I see you know programming languages
+
+493
+00:25:35,840 --> 00:25:41,919
+whatever any design issues they they
+
+494
+00:25:37,679 --> 00:25:45,279
+they stand out jump they jump out at me.
+
+495
+00:25:41,919 --> 00:25:47,760
+was opposed to the C and C++ type of
+
+496
+00:25:45,279 --> 00:25:50,000
+people. Okay? Like those type of people,
+
+497
+00:25:47,760 --> 00:25:54,080
+they don't they don't see it. They like
+
+498
+00:25:50,000 --> 00:25:57,039
+they blind. They just care about coding
+
+499
+00:25:54,080 --> 00:25:59,600
+compile. My code is faster fat. You
+
+500
+00:25:57,039 --> 00:26:02,559
+know, that's what they care.
+
+501
+00:25:59,600 --> 00:26:06,640
+Uh okay. So,
+
+502
+00:26:02,559 --> 00:26:09,520
+hello dam. Okay. So, fantastic.
+
+503
+00:26:06,640 --> 00:26:12,559
+So anyway, so HBW
+
+504
+00:26:09,520 --> 00:26:15,120
+hue, whiteness, blackness, what the
+
+505
+00:26:12,559 --> 00:26:18,559
+name? So the idea is that you start with
+
+506
+00:26:15,120 --> 00:26:20,799
+a hue, a color, then you can like make
+
+507
+00:26:18,559 --> 00:26:22,960
+it more white, you know. So hue is like
+
+508
+00:26:20,799 --> 00:26:25,520
+that, then you can make it more white
+
+509
+00:26:22,960 --> 00:26:29,440
+like that or you can make it more black
+
+510
+00:26:25,520 --> 00:26:32,720
+like that. So that way, you know, that's
+
+511
+00:26:29,440 --> 00:26:35,039
+the idea. kind of simple but but this
+
+512
+00:26:32,720 --> 00:26:36,880
+model is not so great because when you
+
+513
+00:26:35,039 --> 00:26:39,440
+increase the white so what happens when
+
+514
+00:26:36,880 --> 00:26:42,400
+you increase both the white and the
+
+515
+00:26:39,440 --> 00:26:45,039
+black then you got this above when when
+
+516
+00:26:42,400 --> 00:26:49,679
+the blackness and the whiteness when
+
+517
+00:26:45,039 --> 00:26:52,240
+they are when they are sun is 100 or
+
+518
+00:26:49,679 --> 00:26:54,880
+more they all become gray you see like
+
+519
+00:26:52,240 --> 00:26:57,520
+in this case you increase the whiteness
+
+520
+00:26:54,880 --> 00:26:59,200
+and you increase the blackness they all
+
+521
+00:26:57,520 --> 00:27:01,760
+become gray even the numbers are
+
+522
+00:26:59,200 --> 00:27:05,279
+different but they are or just gray. So
+
+523
+00:27:01,760 --> 00:27:08,559
+anyway, this is a hue, whiteness,
+
+524
+00:27:05,279 --> 00:27:12,080
+blackness model. Okay.
+
+525
+00:27:08,559 --> 00:27:14,320
+Uh so you know, but it's still kind of
+
+526
+00:27:12,080 --> 00:27:17,840
+intuitive, you know, hue, whiteness,
+
+527
+00:27:14,320 --> 00:27:21,679
+blackness. But then you started to have
+
+528
+00:27:17,840 --> 00:27:23,919
+the wide color gamut. Okay, I you watch
+
+529
+00:27:21,679 --> 00:27:26,880
+my previous video, I explained some of
+
+530
+00:27:23,919 --> 00:27:29,360
+that basically.
+
+531
+00:27:26,880 --> 00:27:30,880
+Okay, so let me cover this for a minute.
+
+532
+00:27:29,360 --> 00:27:34,799
+So
+
+533
+00:27:30,880 --> 00:27:38,159
+you got what's called wide color gamut.
+
+534
+00:27:34,799 --> 00:27:40,320
+Why? Because in the traditional RGB
+
+535
+00:27:38,159 --> 00:27:43,840
+model
+
+536
+00:27:40,320 --> 00:27:46,400
+you got red, green, blue, right? RGB
+
+537
+00:27:43,840 --> 00:27:51,039
+red, green, blue. And in this model,
+
+538
+00:27:46,400 --> 00:27:56,880
+each color can have 256 levels. Okay?
+
+539
+00:27:51,039 --> 00:28:01,279
+From 0 to 255. Total of 256. So 256
+
+540
+00:27:56,880 --> 00:28:05,039
+levels for red and same for 256 levels
+
+541
+00:28:01,279 --> 00:28:08,000
+for green, 256 levels for blue. Now this
+
+542
+00:28:05,039 --> 00:28:11,120
+is called standard RGB. You know they
+
+543
+00:28:08,000 --> 00:28:14,000
+have to create a standard because for TV
+
+544
+00:28:11,120 --> 00:28:17,039
+for broadcasting you know a lots of work
+
+545
+00:28:14,000 --> 00:28:18,960
+uh with the computers, monitors
+
+546
+00:28:17,039 --> 00:28:21,039
+you have to follow this standard. Okay
+
+547
+00:28:18,960 --> 00:28:24,720
+256
+
+548
+00:28:21,039 --> 00:28:28,240
+levels for each color channel. This is
+
+549
+00:28:24,720 --> 00:28:31,279
+called standard RGB. Okay,
+
+550
+00:28:28,240 --> 00:28:33,200
+this is called standard RGB sRGB.
+
+551
+00:28:31,279 --> 00:28:37,679
+Remember that's a term that's a standard
+
+552
+00:28:33,200 --> 00:28:40,320
+name. Okay, but it turns out
+
+553
+00:28:37,679 --> 00:28:43,600
+the human eye can see much more colors
+
+554
+00:28:40,320 --> 00:28:47,760
+than that. Okay, the computer monitors
+
+555
+00:28:43,600 --> 00:28:50,720
+or TV up to about 215,
+
+556
+00:28:47,760 --> 00:28:54,480
+they cannot produce colors outside of
+
+557
+00:28:50,720 --> 00:28:57,200
+the standard RGB. However, our eyes can
+
+558
+00:28:54,480 --> 00:29:00,760
+see much more colors than the, you know,
+
+559
+00:28:57,200 --> 00:29:00,760
+than just 256,
+
+560
+00:29:00,799 --> 00:29:08,559
+you know, levels of a a mix of red,
+
+561
+00:29:04,080 --> 00:29:15,120
+green, blue. Okay? So, even though
+
+562
+00:29:08,559 --> 00:29:18,320
+this standard RGB 256 * 256 * 256 gives
+
+563
+00:29:15,120 --> 00:29:21,200
+you millions of colors, but but our eyes
+
+564
+00:29:18,320 --> 00:29:24,559
+can see much more. Okay? So that's why
+
+565
+00:29:21,200 --> 00:29:27,520
+so so beyond sRGB is called white color
+
+566
+00:29:24,559 --> 00:29:30,640
+gamut. Okay. And there's a standard
+
+567
+00:29:27,520 --> 00:29:32,559
+called display P3. Okay. So that's
+
+568
+00:29:30,640 --> 00:29:35,679
+beyond RGB,
+
+569
+00:29:32,559 --> 00:29:38,799
+beyond the sRGB. Okay. So for example,
+
+570
+00:29:35,679 --> 00:29:42,080
+my monitor cannot display colors beyond
+
+571
+00:29:38,799 --> 00:29:44,960
+sRGB. So you can you can go to check
+
+572
+00:29:42,080 --> 00:29:47,120
+your monitor. Okay. So like you can go
+
+573
+00:29:44,960 --> 00:29:49,279
+for example on Windows you can go to
+
+574
+00:29:47,120 --> 00:29:52,640
+display
+
+575
+00:29:49,279 --> 00:29:56,159
+and uh then you can go to advanced
+
+576
+00:29:52,640 --> 00:29:59,440
+display uh
+
+577
+00:29:56,159 --> 00:30:02,880
+then it'll tell you you see color format
+
+578
+00:29:59,440 --> 00:30:07,520
+RGB color space standard dynamic range
+
+579
+00:30:02,880 --> 00:30:09,600
+SDR okay so that's that's your monitor's
+
+580
+00:30:07,520 --> 00:30:12,799
+spec
+
+581
+00:30:09,600 --> 00:30:15,679
+color format RGB color space standard
+
+582
+00:30:12,799 --> 00:30:18,640
+the dynamic range SDR. What does that
+
+583
+00:30:15,679 --> 00:30:21,679
+mean? That means that basically means
+
+584
+00:30:18,640 --> 00:30:25,279
+sRGB, standard RGB. Okay, so it my
+
+585
+00:30:21,679 --> 00:30:29,840
+monitor cannot display colors beyond
+
+586
+00:30:25,279 --> 00:30:32,000
+the 256 levels for each color channel.
+
+587
+00:30:29,840 --> 00:30:36,000
+Okay.
+
+588
+00:30:32,000 --> 00:30:39,840
+So, but a lot color for example iPhone
+
+589
+00:30:36,000 --> 00:30:42,720
+since about 2015 or something they all
+
+590
+00:30:39,840 --> 00:30:46,240
+can display
+
+591
+00:30:42,720 --> 00:30:49,279
+white color gamut or called display P3
+
+592
+00:30:46,240 --> 00:30:51,360
+and a lot of huge TVs today you know you
+
+593
+00:30:49,279 --> 00:30:55,440
+go to Walmart you can see lots of huge
+
+594
+00:30:51,360 --> 00:30:59,440
+TVs they have you know very vivid vivid
+
+595
+00:30:55,440 --> 00:31:02,480
+colors okay so that's actually
+
+596
+00:30:59,440 --> 00:31:05,600
+technological progress you you got this,
+
+597
+00:31:02,480 --> 00:31:09,360
+you know, white color thing, but most
+
+598
+00:31:05,600 --> 00:31:13,200
+monitors still cannot display it.
+
+599
+00:31:09,360 --> 00:31:16,720
+So that's when this this this funky new
+
+600
+00:31:13,200 --> 00:31:19,360
+colors in CSS came from lab. I don't
+
+601
+00:31:16,720 --> 00:31:23,520
+quite understand. Very complex. Okay.
+
+602
+00:31:19,360 --> 00:31:27,360
+So, so and and then you got this um OK
+
+603
+00:31:23,520 --> 00:31:30,480
+LCH. Okay. They they are quite complex.
+
+604
+00:31:27,360 --> 00:31:35,240
+You see, you see for example,
+
+605
+00:31:30,480 --> 00:31:35,240
+you see this. Okay. RCH color
+
+606
+00:31:36,799 --> 00:31:41,159
+processes. God,
+
+607
+00:31:42,720 --> 00:31:47,120
+what the [ __ ]
+
+608
+00:31:45,039 --> 00:31:50,000
+Pressed the wrong key. So anyway, the
+
+609
+00:31:47,120 --> 00:31:52,799
+CSS the okay LCH you got three
+
+610
+00:31:50,000 --> 00:31:56,080
+parameters. Lightness, quama, hue. But
+
+611
+00:31:52,799 --> 00:32:01,120
+you see the qu you see lightness is a
+
+612
+00:31:56,080 --> 00:32:03,840
+percentage. Okay, zero to 100 100%. Qua
+
+613
+00:32:01,120 --> 00:32:07,039
+is a value that can
+
+614
+00:32:03,840 --> 00:32:11,120
+in theory goes goes to infinity. Okay,
+
+615
+00:32:07,039 --> 00:32:14,240
+but but anything beyond 3.75
+
+616
+00:32:11,120 --> 00:32:16,320
+is kind of beyond sRGB.
+
+617
+00:32:14,240 --> 00:32:18,960
+Okay. So you don't have like a definite
+
+618
+00:32:16,320 --> 00:32:22,880
+number like it's zero zero to one or
+
+619
+00:32:18,960 --> 00:32:25,600
+what you know you have this kind of
+
+620
+00:32:22,880 --> 00:32:28,559
+infinite number you can use but however
+
+621
+00:32:25,600 --> 00:32:30,399
+beyond 3.75
+
+622
+00:32:28,559 --> 00:32:33,120
+that's like
+
+623
+00:32:30,399 --> 00:32:35,440
+then it's beyond sRGB but but not
+
+624
+00:32:33,120 --> 00:32:39,039
+exactly it depends on other values you
+
+625
+00:32:35,440 --> 00:32:43,440
+see it's not exactly beyond 3.575
+
+626
+00:32:39,039 --> 00:32:45,679
+for quama then then then other monitor
+
+627
+00:32:43,440 --> 00:32:48,000
+cannot display it depends on what's your
+
+628
+00:32:45,679 --> 00:32:51,279
+hue and lightness you see. So this so
+
+629
+00:32:48,000 --> 00:32:54,240
+this gets a bit complex complex you know
+
+630
+00:32:51,279 --> 00:32:58,159
+it's not easy to understand okay so then
+
+631
+00:32:54,240 --> 00:33:02,159
+you got hu is the same three uh 0 to 360
+
+632
+00:32:58,159 --> 00:33:05,919
+again they use the circle degree okay so
+
+633
+00:33:02,159 --> 00:33:08,320
+you see the quama thing
+
+634
+00:33:05,919 --> 00:33:10,720
+you know it's like the exactly what you
+
+635
+00:33:08,320 --> 00:33:12,799
+know you don't have a specific range of
+
+636
+00:33:10,720 --> 00:33:16,000
+numbers
+
+637
+00:33:12,799 --> 00:33:18,480
+that's why I say this is you know this
+
+638
+00:33:16,000 --> 00:33:21,039
+is not intuitive That's why I want what
+
+639
+00:33:18,480 --> 00:33:23,600
+I want to do is today to write a
+
+640
+00:33:21,039 --> 00:33:26,000
+JavaScript so that I can increase these
+
+641
+00:33:23,600 --> 00:33:28,640
+parameters to see how they look. But
+
+642
+00:33:26,000 --> 00:33:31,279
+there's difficulties because
+
+643
+00:33:28,640 --> 00:33:34,640
+because first of all my monitor cannot
+
+644
+00:33:31,279 --> 00:33:37,600
+display colors outside of sRGB so I
+
+645
+00:33:34,640 --> 00:33:40,640
+can't see it. I have to go to uh use my
+
+646
+00:33:37,600 --> 00:33:42,720
+iPhone and stuff. Anyway, so that's
+
+647
+00:33:40,640 --> 00:33:44,640
+enough talk.
+
+648
+00:33:42,720 --> 00:33:48,320
+What I wanted to do is actually code
+
+649
+00:33:44,640 --> 00:33:52,840
+JavaScript. So,
+
+650
+00:33:48,320 --> 00:33:52,840
+uh, hello Fox Di.
+
+651
+00:33:53,039 --> 00:33:59,360
+Okay. Uh, that's enough talk. I think
+
+652
+00:33:55,679 --> 00:34:02,320
+let's start to, uh, do JavaScript. Okay.
+
+653
+00:33:59,360 --> 00:34:06,159
+You see CSS added more color functions.
+
+654
+00:34:02,320 --> 00:34:08,159
+I'm I'm still working on them. Uh, very
+
+655
+00:34:06,159 --> 00:34:13,320
+powerful color functions. Okay. Color
+
+656
+00:34:08,159 --> 00:34:13,320
+functions. And you got also color mix.
+
+657
+00:34:21,599 --> 00:34:28,520
+Okay. So now let's write some
+
+658
+00:34:23,839 --> 00:34:28,520
+JavaScript. I I want to do
+
+659
+00:34:28,560 --> 00:34:33,639
+let's see how many people five
+
+660
+00:34:34,960 --> 00:34:42,760
+single.
+
+661
+00:34:37,119 --> 00:34:42,760
+Okay. So let's see JavaScript. Okay. So
+
+662
+00:34:42,879 --> 00:34:50,240
+How long have I been talking? 35
+
+663
+00:34:45,280 --> 00:34:55,919
+minutes. Okay, that's 35 minute minutes.
+
+664
+00:34:50,240 --> 00:35:02,280
+Uh, how shall I say now? This is uh
+
+665
+00:34:55,919 --> 00:35:02,280
+English vocabulary literature part.
+
+666
+00:35:04,240 --> 00:35:10,440
+Okay, that's called Haran. 35 minutes of
+
+667
+00:35:07,440 --> 00:35:10,440
+Haran.
+
+668
+00:35:13,599 --> 00:35:21,760
+H A R A N G U. A new word for you
+
+669
+00:35:17,200 --> 00:35:24,720
+Zoomers. Haran, a long compass speech,
+
+670
+00:35:21,760 --> 00:35:28,160
+especially one delivered before a
+
+671
+00:35:24,720 --> 00:35:31,119
+gathering. Okay. A speech or piece of
+
+672
+00:35:28,160 --> 00:35:36,280
+writing characterized by strong feeling
+
+673
+00:35:31,119 --> 00:35:36,280
+or expression, a tirade.
+
+674
+00:35:36,720 --> 00:35:40,880
+[ __ ] Unix and Foxy.
+
+675
+00:35:41,839 --> 00:35:45,960
+Okay. So now JavaScript
+
+676
+00:35:47,680 --> 00:35:53,200
+is that right? JavaScript. Yeah. Okay.
+
+677
+00:35:50,320 --> 00:35:55,359
+So uh what we going to do? Okay. So
+
+678
+00:35:53,200 --> 00:35:58,359
+let's go here.
+
+679
+00:35:55,359 --> 00:35:58,359
+Um,
+
+680
+00:36:03,280 --> 00:36:08,280
+so we want to uh
+
+681
+00:36:18,400 --> 00:36:24,240
+we want to, you know, I want to use
+
+682
+00:36:20,480 --> 00:36:26,480
+JavaScript to create this uh kind of I
+
+683
+00:36:24,240 --> 00:36:28,480
+want to create the two-dimensional
+
+684
+00:36:26,480 --> 00:36:31,480
+gradient actually not just
+
+685
+00:36:28,480 --> 00:36:31,480
+onedimensional.
+
+686
+00:36:31,680 --> 00:36:37,320
+So do a bell says off topic.
+
+687
+00:36:38,560 --> 00:36:46,000
+Did you Okay. So the question is do you
+
+688
+00:36:41,680 --> 00:36:48,800
+consume much Chinese new media movie
+
+689
+00:36:46,000 --> 00:36:52,160
+shows? No, not really. when I was
+
+690
+00:36:48,800 --> 00:36:56,320
+younger. Yes. When I was younger,
+
+691
+00:36:52,160 --> 00:36:59,680
+uh when I was before 14, when you know,
+
+692
+00:36:56,320 --> 00:37:03,280
+when I was in Taiwan, I I was born in
+
+693
+00:36:59,680 --> 00:37:05,760
+Taiwan and grew up in Taiwan up to age
+
+694
+00:37:03,280 --> 00:37:08,640
+14. So,
+
+695
+00:37:05,760 --> 00:37:12,160
+I watch a lot movies. uh you know my
+
+696
+00:37:08,640 --> 00:37:15,440
+grand my grandma
+
+697
+00:37:12,160 --> 00:37:20,200
+from my uh mom's side would take me to
+
+698
+00:37:15,440 --> 00:37:20,200
+movies kung fu movies or whatever.
+
+699
+00:37:20,320 --> 00:37:26,320
+uh since I left Taiwan
+
+700
+00:37:23,040 --> 00:37:32,480
+I haven't actually so kind of long story
+
+701
+00:37:26,320 --> 00:37:36,240
+but in short since I since um after 14 I
+
+702
+00:37:32,480 --> 00:37:39,359
+have not watched any Chinese media no
+
+703
+00:37:36,240 --> 00:37:40,960
+movies you know little no movies no news
+
+704
+00:37:39,359 --> 00:37:45,520
+nothing
+
+705
+00:37:40,960 --> 00:37:49,359
+then so that went on for 20 years or
+
+706
+00:37:45,520 --> 00:37:51,599
+more then the YouTube began so you know
+
+707
+00:37:49,359 --> 00:37:54,960
+YouTube, you started to have video clips
+
+708
+00:37:51,599 --> 00:37:57,680
+and you have kung fu movies u and
+
+709
+00:37:54,960 --> 00:38:01,680
+sometimes TV shows shows old kung fu
+
+710
+00:37:57,680 --> 00:38:05,040
+movies. But anyway, the point is for
+
+711
+00:38:01,680 --> 00:38:07,200
+for 20 years after I'm 14, I have not
+
+712
+00:38:05,040 --> 00:38:09,839
+watched much
+
+713
+00:38:07,200 --> 00:38:12,560
+Chinese news, TV programs or movies or
+
+714
+00:38:09,839 --> 00:38:16,079
+anything. Okay. Then until YouTube
+
+715
+00:38:12,560 --> 00:38:19,280
+started to have them. Then you know like
+
+716
+00:38:16,079 --> 00:38:22,240
+20 years ago 2006
+
+717
+00:38:19,280 --> 00:38:24,720
+then then in the last in the past 10
+
+718
+00:38:22,240 --> 00:38:26,240
+years you because of the phone the
+
+719
+00:38:24,720 --> 00:38:29,440
+internationalization
+
+720
+00:38:26,240 --> 00:38:32,560
+the progress of technology communication
+
+721
+00:38:29,440 --> 00:38:34,800
+we have Twitter we have lots of things
+
+722
+00:38:32,560 --> 00:38:37,920
+you know so then you can talk to Chinese
+
+723
+00:38:34,800 --> 00:38:40,320
+you can see and on Twitter you have lots
+
+724
+00:38:37,920 --> 00:38:43,839
+of tons of I mean especially today you
+
+725
+00:38:40,320 --> 00:38:46,960
+have tons of Chinese clips like your
+
+726
+00:38:43,839 --> 00:38:49,520
+shorts or whatever or in or or even
+
+727
+00:38:46,960 --> 00:38:53,200
+YouTube you have Chinese official
+
+728
+00:38:49,520 --> 00:38:56,480
+Chinese news channel. Okay.
+
+729
+00:38:53,200 --> 00:39:00,000
+So I would say in the past five years I
+
+730
+00:38:56,480 --> 00:39:03,280
+have watched some
+
+731
+00:39:00,000 --> 00:39:05,680
+Chinese news you know chi Chinese news
+
+732
+00:39:03,280 --> 00:39:08,880
+is interesting because it gives you a
+
+733
+00:39:05,680 --> 00:39:11,920
+different perspective you know covering
+
+734
+00:39:08,880 --> 00:39:14,960
+wars for example. So I I have watched
+
+735
+00:39:11,920 --> 00:39:18,880
+some Chinese news or and there's also a
+
+736
+00:39:14,960 --> 00:39:21,119
+lot like like the influencer facts just
+
+737
+00:39:18,880 --> 00:39:25,119
+like in English you know like in English
+
+738
+00:39:21,119 --> 00:39:28,640
+you have lots of these random [ __ ] scums
+
+739
+00:39:25,119 --> 00:39:30,960
+in so-called influencers they either
+
+740
+00:39:28,640 --> 00:39:33,520
+many types okay they do makeups or they
+
+741
+00:39:30,960 --> 00:39:36,480
+fry drama they you know they talk about
+
+742
+00:39:33,520 --> 00:39:38,800
+oh trans or or mud or they some some of
+
+743
+00:39:36,480 --> 00:39:42,320
+them tell murder stories some of them
+
+744
+00:39:38,800 --> 00:39:44,480
+tell political stuff Oh, oh, Trump. Oh,
+
+745
+00:39:42,320 --> 00:39:47,200
+the the Democrats this or that or the
+
+746
+00:39:44,480 --> 00:39:51,119
+the Republican this, you know, like the
+
+747
+00:39:47,200 --> 00:39:54,400
+Tim Pool scum. Okay. And uh and many
+
+748
+00:39:51,119 --> 00:39:56,160
+others Tim became a scumbag
+
+749
+00:39:54,400 --> 00:39:59,359
+and he become very rich, you know,
+
+750
+00:39:56,160 --> 00:40:01,200
+frying drama, you know. So these
+
+751
+00:39:59,359 --> 00:40:04,560
+[ __ ] you know, like you you go to
+
+752
+00:40:01,200 --> 00:40:07,359
+YouTube, all these political, you know,
+
+753
+00:40:04,560 --> 00:40:10,320
+trash and today and today it's lots of
+
+754
+00:40:07,359 --> 00:40:12,960
+AI, you know, these programmers or and
+
+755
+00:40:10,320 --> 00:40:16,000
+Bitcoin, the crypto fuckets, the crypto
+
+756
+00:40:12,960 --> 00:40:18,480
+like they talk about, you know, oh, AI
+
+757
+00:40:16,000 --> 00:40:22,800
+is going to listen, you know, lots of
+
+758
+00:40:18,480 --> 00:40:27,040
+trash like 90% of YouTube or Twitter,
+
+759
+00:40:22,800 --> 00:40:29,920
+more than 90% is pure trash, fake news
+
+760
+00:40:27,040 --> 00:40:32,560
+and And of course then you got the
+
+761
+00:40:29,920 --> 00:40:34,720
+official government sponsored big, you
+
+762
+00:40:32,560 --> 00:40:38,240
+know, they got billions of dollars. They
+
+763
+00:40:34,720 --> 00:40:41,280
+have an army of fake news agents, okay?
+
+764
+00:40:38,240 --> 00:40:44,960
+They push things, you know, and you may
+
+765
+00:40:41,280 --> 00:40:48,560
+count CNN, Fox News, you know. So
+
+766
+00:40:44,960 --> 00:40:52,400
+anyway, so so so all these media uh lots
+
+767
+00:40:48,560 --> 00:40:55,200
+of fake news. So, but I and you know the
+
+768
+00:40:52,400 --> 00:40:59,280
+the influencers, YouTubers,
+
+769
+00:40:55,200 --> 00:41:01,599
+lots of them are just pure [ __ ]
+
+770
+00:40:59,280 --> 00:41:04,000
+So, what I want I was I was going to say
+
+771
+00:41:01,599 --> 00:41:06,880
+is that same thing for Chinese. Okay,
+
+772
+00:41:04,000 --> 00:41:10,560
+you go to YouTube, you'll see lots of
+
+773
+00:41:06,880 --> 00:41:13,920
+political commentators. Okay? Uh if you
+
+774
+00:41:10,560 --> 00:41:16,079
+like go to YouTube, YouTube.com,
+
+775
+00:41:13,920 --> 00:41:19,599
+you got lots of political commentators
+
+776
+00:41:16,079 --> 00:41:22,560
+in Chinese language. Okay.
+
+777
+00:41:19,599 --> 00:41:26,560
+Okay. So this so uh so so that's my talk
+
+778
+00:41:22,560 --> 00:41:29,040
+show live. Okay. So um so let's see what
+
+779
+00:41:26,560 --> 00:41:32,480
+some you know I don't go to YouTube on
+
+780
+00:41:29,040 --> 00:41:34,640
+this browser. So it's a Bach. Okay. I
+
+781
+00:41:32,480 --> 00:41:38,160
+listen to Bach music. That's that's a
+
+782
+00:41:34,640 --> 00:41:41,680
+fantastic one. Well tempered clavia
+
+783
+00:41:38,160 --> 00:41:44,400
+that my favorite fugue number four of
+
+784
+00:41:41,680 --> 00:41:47,280
+all songs in the universe. That song.
+
+785
+00:41:44,400 --> 00:41:50,480
+Okay. If you can only have one song in
+
+786
+00:41:47,280 --> 00:41:54,800
+the universe, that would be B
+
+787
+00:41:50,480 --> 00:41:58,400
+welltempered clavier fugue number four.
+
+788
+00:41:54,800 --> 00:42:02,560
+Uh book one. Okay. Then what is this? Uh
+
+789
+00:41:58,400 --> 00:42:05,359
+Tokyo. This is uh what is this?
+
+790
+00:42:02,560 --> 00:42:08,400
+Anime. Anime. That's a great movie. I
+
+791
+00:42:05,359 --> 00:42:11,359
+suppose is the greatest recording ever.
+
+792
+00:42:08,400 --> 00:42:14,000
+Mercury living presence music. I don't
+
+793
+00:42:11,359 --> 00:42:16,480
+know what that is. Then football. Of
+
+794
+00:42:14,000 --> 00:42:18,720
+course. A lot of people is oh it's
+
+795
+00:42:16,480 --> 00:42:22,640
+that's live
+
+796
+00:42:18,720 --> 00:42:25,839
+lot people are into football. Uh
+
+797
+00:42:22,640 --> 00:42:28,720
+then thoughts you there you go thoughts
+
+798
+00:42:25,839 --> 00:42:32,400
+you know girls with their tits they
+
+799
+00:42:28,720 --> 00:42:36,319
+compete to show
+
+800
+00:42:32,400 --> 00:42:39,440
+tits and ass and legs. Okay. Thoughts.
+
+801
+00:42:36,319 --> 00:42:43,040
+Then what is is this this Zuma fox
+
+802
+00:42:39,440 --> 00:42:47,200
+whatever startup hires an adult Zuma fox
+
+803
+00:42:43,040 --> 00:42:51,680
+doing their things and thoughts women
+
+804
+00:42:47,200 --> 00:42:54,000
+then oh wait is this repeated life live
+
+805
+00:42:51,680 --> 00:42:57,040
+okay so whatever
+
+806
+00:42:54,000 --> 00:42:58,960
+then [ __ ] this zoomers or whatever
+
+807
+00:42:57,040 --> 00:43:02,240
+[ __ ]
+
+808
+00:42:58,960 --> 00:43:04,640
+okay then piano okay so that's also like
+
+809
+00:43:02,240 --> 00:43:08,720
+interesting then music okay then what
+
+810
+00:43:04,640 --> 00:43:10,720
+what is this drama what whatever.
+
+811
+00:43:08,720 --> 00:43:13,040
+Okay. So, you see I I don't use this
+
+812
+00:43:10,720 --> 00:43:16,560
+browser. I never
+
+813
+00:43:13,040 --> 00:43:19,920
+uh I rarely I uh use this browser to go
+
+814
+00:43:16,560 --> 00:43:22,800
+to YouTube. But but after a while,
+
+815
+00:43:19,920 --> 00:43:28,240
+you'll see lots of [ __ ] you know, lots
+
+816
+00:43:22,800 --> 00:43:30,079
+of [ __ ] and political [ __ ] Okay.
+
+817
+00:43:28,240 --> 00:43:32,400
+So anyway, so what I'm telling you is
+
+818
+00:43:30,079 --> 00:43:35,280
+that there's massive number in Chinese
+
+819
+00:43:32,400 --> 00:43:36,880
+language too because if you do not speak
+
+820
+00:43:35,280 --> 00:43:38,640
+Chinese, you will not you you'll never
+
+821
+00:43:36,880 --> 00:43:41,680
+see it. Like you don't know, you have no
+
+822
+00:43:38,640 --> 00:43:43,760
+idea. But I I can tell you, okay, like
+
+823
+00:43:41,680 --> 00:43:47,520
+like once you speak, let's say, French
+
+824
+00:43:43,760 --> 00:43:50,000
+or Japanese, if you speak it, you you
+
+825
+00:43:47,520 --> 00:43:52,160
+open a new world, okay? You'll see
+
+826
+00:43:50,000 --> 00:43:55,640
+millions and millions of videos that you
+
+827
+00:43:52,160 --> 00:43:55,640
+never know existed.
+
+828
+00:43:55,760 --> 00:44:00,119
+Okay, that's a long digression.
+
+829
+00:44:00,240 --> 00:44:05,680
+So, why do you like this keyboard? Isn't
+
+830
+00:44:02,480 --> 00:44:08,000
+RO stagger bad? Yeah, ro stagger is not
+
+831
+00:44:05,680 --> 00:44:10,560
+ideal, but it's not too bad. Okay, it's
+
+832
+00:44:08,000 --> 00:44:12,000
+not too important. So, I learned, you
+
+833
+00:44:10,560 --> 00:44:14,800
+know, I don't want to talk about
+
+834
+00:44:12,000 --> 00:44:18,240
+keyboard right now, but but I can tell
+
+835
+00:44:14,800 --> 00:44:20,640
+you just one tip. The keyboard, you
+
+836
+00:44:18,240 --> 00:44:22,640
+know, all this after 10 years, the the
+
+837
+00:44:20,640 --> 00:44:24,319
+most important is actually just the key
+
+838
+00:44:22,640 --> 00:44:28,079
+switch.
+
+839
+00:44:24,319 --> 00:44:30,240
+Okay. The key switch and split and
+
+840
+00:44:28,079 --> 00:44:32,720
+tented. Okay. If you type a lot, you
+
+841
+00:44:30,240 --> 00:44:35,280
+need them tinted like this. Okay. So,
+
+842
+00:44:32,720 --> 00:44:38,880
+key switch, you want mechanical and
+
+843
+00:44:35,280 --> 00:44:41,680
+light. It's the most important. Then you
+
+844
+00:44:38,880 --> 00:44:44,960
+want them to be split so that you your
+
+845
+00:44:41,680 --> 00:44:47,040
+hands, you know, don't go um,
+
+846
+00:44:44,960 --> 00:44:49,200
+you know, like not like typical, you
+
+847
+00:44:47,040 --> 00:44:50,880
+know, traditional. So, you want them
+
+848
+00:44:49,200 --> 00:44:53,520
+split. Okay.
+
+849
+00:44:50,880 --> 00:44:56,960
+The third thing you want them tinted,
+
+850
+00:44:53,520 --> 00:45:00,560
+you know, not flat. Okay. So these three
+
+851
+00:44:56,960 --> 00:45:04,880
+the most important the other so you know
+
+852
+00:45:00,560 --> 00:45:07,040
+the curve or the stagger that's
+
+853
+00:45:04,880 --> 00:45:09,040
+less important. I would say it's still
+
+854
+00:45:07,040 --> 00:45:11,920
+good but it's less important. That's my
+
+855
+00:45:09,040 --> 00:45:15,400
+opinion. Okay. That's like the tip I'm
+
+856
+00:45:11,920 --> 00:45:15,400
+going to give you.
+
+857
+00:45:15,760 --> 00:45:22,160
+Okay. So that's okay. So we talked about
+
+858
+00:45:18,800 --> 00:45:25,680
+too so long about that.
+
+859
+00:45:22,160 --> 00:45:28,079
+I think we done. So but let's yeah let's
+
+860
+00:45:25,680 --> 00:45:31,599
+let's finish that. I mean let's let's
+
+861
+00:45:28,079 --> 00:45:36,079
+code the color. Okay.
+
+862
+00:45:31,599 --> 00:45:39,079
+God. So we already talked for 46
+
+863
+00:45:36,079 --> 00:45:39,079
+minutes.
+
+864
+00:45:44,720 --> 00:45:51,280
+So we haven't So let's code color. So
+
+865
+00:45:47,200 --> 00:45:54,240
+what we want to code? So um
+
+866
+00:45:51,280 --> 00:45:57,520
+let's just start here. Okay.
+
+867
+00:45:54,240 --> 00:45:59,440
+So go to the page. Yeah. Yeah. So go to
+
+868
+00:45:57,520 --> 00:46:02,079
+the page.
+
+869
+00:45:59,440 --> 00:46:04,880
+Go to the page. Where do you want to add
+
+870
+00:46:02,079 --> 00:46:08,720
+it? So you already have So this is
+
+871
+00:46:04,880 --> 00:46:10,880
+manually generated. Color samples. Okay.
+
+872
+00:46:08,720 --> 00:46:13,200
+Search for sample. Yeah. So this is
+
+873
+00:46:10,880 --> 00:46:16,079
+manually generated.
+
+874
+00:46:13,200 --> 00:46:21,520
+Okay. Let's just add somewhere here.
+
+875
+00:46:16,079 --> 00:46:25,839
+Okay. So, new section,
+
+876
+00:46:21,520 --> 00:46:29,280
+new dive, add a class, and add a random
+
+877
+00:46:25,839 --> 00:46:31,119
+class. Let's say root. Okay, root
+
+878
+00:46:29,280 --> 00:46:33,440
+something. You that's where we're going
+
+879
+00:46:31,119 --> 00:46:35,200
+to add our JavaScript.
+
+880
+00:46:33,440 --> 00:46:38,240
+Copy the file path of the current
+
+881
+00:46:35,200 --> 00:46:41,040
+buffer. Paste it. Change this to
+
+882
+00:46:38,240 --> 00:46:43,680
+JavaScript and make link that
+
+883
+00:46:41,040 --> 00:46:46,720
+automatically became this script tag.
+
+884
+00:46:43,680 --> 00:46:48,720
+Okay. Then uh then you want to copy
+
+885
+00:46:46,720 --> 00:46:51,839
+that. So that's a class. You don't want
+
+886
+00:46:48,720 --> 00:46:55,760
+a class. You want ID. Okay. So copy
+
+887
+00:46:51,839 --> 00:46:59,359
+that. So open that empty. That's good.
+
+888
+00:46:55,760 --> 00:47:02,160
+Com comment. Put a date. And you want to
+
+889
+00:46:59,359 --> 00:47:06,079
+select that. Okay. So you want to select
+
+890
+00:47:02,160 --> 00:47:10,800
+by ID. So get element by ID. Something
+
+891
+00:47:06,079 --> 00:47:14,880
+like that. And that's right.
+
+892
+00:47:10,800 --> 00:47:17,280
+And this uh doc
+
+893
+00:47:14,880 --> 00:47:20,680
+document. Okay. Oh, you need a constant.
+
+894
+00:47:17,280 --> 00:47:20,680
+Okay. So,
+
+895
+00:47:21,119 --> 00:47:27,200
+so I don't I don't want that. Uh I don't
+
+896
+00:47:23,359 --> 00:47:30,079
+want hyphen. Okay. I don't like you know
+
+897
+00:47:27,200 --> 00:47:32,480
+because if you use hyphen you cannot use
+
+898
+00:47:30,079 --> 00:47:35,280
+it in JavaScript incompatible because in
+
+899
+00:47:32,480 --> 00:47:38,000
+JavaScript
+
+900
+00:47:35,280 --> 00:47:40,400
+names function names and variables names
+
+901
+00:47:38,000 --> 00:47:42,800
+you cannot have a hyphen. Okay. So I
+
+902
+00:47:40,400 --> 00:47:45,920
+like to use low line instead. this
+
+903
+00:47:42,800 --> 00:47:49,880
+character in uni code is called low
+
+904
+00:47:45,920 --> 00:47:49,880
+line. Okay.
+
+905
+00:47:50,160 --> 00:47:57,359
+See, in traditionally it's called
+
+906
+00:47:55,119 --> 00:48:00,319
+underscore, but I don't like that name,
+
+907
+00:47:57,359 --> 00:48:01,920
+the ethmology of underscore. Anyway,
+
+908
+00:48:00,319 --> 00:48:05,839
+just call it low line that because
+
+909
+00:48:01,920 --> 00:48:09,680
+that's what it is. Low line. Okay. Now
+
+910
+00:48:05,839 --> 00:48:12,079
+go to go to JavaScript, paste that here.
+
+911
+00:48:09,680 --> 00:48:15,520
+Then you can paste that and that that
+
+912
+00:48:12,079 --> 00:48:18,800
+that that predify the code. Fantastic.
+
+913
+00:48:15,520 --> 00:48:21,920
+We we selected that element. What I want
+
+914
+00:48:18,800 --> 00:48:25,040
+to do so you want
+
+915
+00:48:21,920 --> 00:48:28,240
+what we what are we doing? So okay. So
+
+916
+00:48:25,040 --> 00:48:30,640
+we got a JavaScript going. Remove that
+
+917
+00:48:28,240 --> 00:48:35,839
+to do. Well, it's your to-do. Okay. So
+
+918
+00:48:30,640 --> 00:48:39,440
+let's keep it. So let's like um
+
+919
+00:48:35,839 --> 00:48:43,440
+Okay, let's copy that.
+
+920
+00:48:39,440 --> 00:48:46,079
+What we going to do here? Okay. So we we
+
+921
+00:48:43,440 --> 00:48:50,400
+want the JavaScript to insert something
+
+922
+00:48:46,079 --> 00:48:52,480
+like that. Okay, trivial. Uh but I
+
+923
+00:48:50,400 --> 00:48:55,520
+haven't called JavaScript for a long
+
+924
+00:48:52,480 --> 00:48:59,280
+time. So we want JavaScript to insert
+
+925
+00:48:55,520 --> 00:49:02,680
+something like this. So
+
+926
+00:48:59,280 --> 00:49:02,680
+create element.
+
+927
+00:49:06,960 --> 00:49:13,680
+So Gabriel, did I answer your question
+
+928
+00:49:10,240 --> 00:49:17,000
+about keyboard? If I did
+
+929
+00:49:13,680 --> 00:49:17,000
+say yes.
+
+930
+00:49:17,839 --> 00:49:23,680
+Okay. So, let's get back to the code.
+
+931
+00:49:20,240 --> 00:49:28,599
+So, I want to insert.
+
+932
+00:49:23,680 --> 00:49:28,599
+How do you want to do this? You can
+
+933
+00:49:29,920 --> 00:49:33,400
+in the HTML.
+
+934
+00:49:36,480 --> 00:49:41,040
+First of all, you need to create
+
+935
+00:49:38,000 --> 00:49:43,680
+element. Okay. I don't remember. Do you
+
+936
+00:49:41,040 --> 00:49:46,480
+remember? No, I don't remember a thing.
+
+937
+00:49:43,680 --> 00:49:49,359
+So, let's go to
+
+938
+00:49:46,480 --> 00:49:51,520
+JavaScript
+
+939
+00:49:49,359 --> 00:49:55,440
+scripting. So, what what do you want to
+
+940
+00:49:51,520 --> 00:49:58,720
+do? You want nodes and elements
+
+941
+00:49:55,440 --> 00:50:04,000
+note type get elements get parent child
+
+942
+00:49:58,720 --> 00:50:06,960
+sibling? No. Iterate nodes. No
+
+943
+00:50:04,000 --> 00:50:10,319
+element attribute. We don't care. List
+
+944
+00:50:06,960 --> 00:50:13,520
+remove class. No. Create element. That's
+
+945
+00:50:10,319 --> 00:50:16,160
+what we want there. So, document create
+
+946
+00:50:13,520 --> 00:50:19,839
+element.
+
+947
+00:50:16,160 --> 00:50:22,559
+Okay. Let's see uh examples. Let's see.
+
+948
+00:50:19,839 --> 00:50:25,040
+Create and insert example. Click me.
+
+949
+00:50:22,559 --> 00:50:28,040
+Hello. Hello. Hello.
+
+950
+00:50:25,040 --> 00:50:28,040
+Okay.
+
+951
+00:50:29,440 --> 00:50:35,680
+Okay. Let's just copy copy and paste
+
+952
+00:50:32,559 --> 00:50:39,640
+code. Paste here. Okay. So, that's a
+
+953
+00:50:35,680 --> 00:50:39,640
+button. So
+
+954
+00:50:40,240 --> 00:50:43,280
+you don't want you don't want the
+
+955
+00:50:41,520 --> 00:50:46,319
+button. Okay. So we don't care about
+
+956
+00:50:43,280 --> 00:50:50,440
+button. So here's a function. So the
+
+957
+00:50:46,319 --> 00:50:50,440
+function get elements.
+
+958
+00:50:50,800 --> 00:50:56,240
+Okay. That's a that's a new node. Append
+
+959
+00:50:54,319 --> 00:51:00,559
+child
+
+960
+00:50:56,240 --> 00:51:03,040
+create text node. No.
+
+961
+00:51:00,559 --> 00:51:07,280
+Okay. Here's what we do. Okay. So let's
+
+962
+00:51:03,040 --> 00:51:10,760
+just state type. Okay. Let's rename this
+
+963
+00:51:07,280 --> 00:51:10,760
+to function.
+
+964
+00:51:14,960 --> 00:51:18,359
+Oh god.
+
+965
+00:51:20,559 --> 00:51:25,599
+Just say insert. Okay. So we create a
+
+966
+00:51:23,119 --> 00:51:29,280
+new elements. Then what you then okay
+
+967
+00:51:25,599 --> 00:51:32,240
+don't append yet. No don't do that.
+
+968
+00:51:29,280 --> 00:51:36,000
+Okay. So
+
+969
+00:51:32,240 --> 00:51:39,760
+append child. Then you got this uh root
+
+970
+00:51:36,000 --> 00:51:43,359
+thing. That's right.
+
+971
+00:51:39,760 --> 00:51:47,599
+Uh yeah, you need to do that eventually.
+
+972
+00:51:43,359 --> 00:51:50,720
+And uh no event listener. No.
+
+973
+00:51:47,599 --> 00:51:54,839
+Yes, you want that.
+
+974
+00:51:50,720 --> 00:51:54,839
+So what you want is
+
+975
+00:51:58,000 --> 00:52:03,480
+so so
+
+976
+00:52:00,480 --> 00:52:03,480
+well,
+
+977
+00:52:03,839 --> 00:52:11,520
+so so you need to do a loop. Okay. So
+
+978
+00:52:07,920 --> 00:52:13,839
+what what you going to do?
+
+979
+00:52:11,520 --> 00:52:17,240
+So this
+
+980
+00:52:13,839 --> 00:52:17,240
+three parameters.
+
+981
+00:52:19,200 --> 00:52:23,960
+Gabriel, are you still here?
+
+982
+00:52:24,960 --> 00:52:32,880
+Uh, God.
+
+983
+00:52:27,920 --> 00:52:35,920
+Now I need to exercise my hands
+
+984
+00:52:32,880 --> 00:52:38,000
+by rolling this
+
+985
+00:52:35,920 --> 00:52:41,559
+stone balls.
+
+986
+00:52:38,000 --> 00:52:41,559
+Can you see?
+
+987
+00:52:45,839 --> 00:52:52,559
+Okay. So, I need to code. So,
+
+988
+00:52:49,280 --> 00:52:56,400
+you want to insert by first create a
+
+989
+00:52:52,559 --> 00:53:00,880
+dive element and add this into that dive
+
+990
+00:52:56,400 --> 00:53:03,359
+element. Okay. As a inner child. Okay.
+
+991
+00:53:00,880 --> 00:53:07,680
+Okay. But before then you need this
+
+992
+00:53:03,359 --> 00:53:11,319
+color style because that um
+
+993
+00:53:07,680 --> 00:53:11,319
+do you want that?
+
+994
+00:53:15,200 --> 00:53:20,200
+Don't know. Okay. So
+
+995
+00:53:21,119 --> 00:53:25,480
+let's say no.
+
+996
+00:53:30,480 --> 00:53:36,640
+So you need
+
+997
+00:53:32,720 --> 00:53:40,119
+you need a loop. Okay, you need a map or
+
+998
+00:53:36,640 --> 00:53:40,119
+loop or
+
+999
+00:53:41,119 --> 00:53:46,280
+let's see if I remember my JavaScript
+
+1000
+00:53:43,280 --> 00:53:46,280
+array
+
+1001
+00:53:46,319 --> 00:53:55,079
+uh array. Okay, array constructor.
+
+1002
+00:53:50,880 --> 00:53:55,079
+Let's say uh
+
+1003
+00:53:55,920 --> 00:54:01,280
+[ __ ] JavaScript is so annoying. array
+
+1004
+00:53:58,800 --> 00:54:06,520
+constructor 10.
+
+1005
+00:54:01,280 --> 00:54:06,520
+How many elements do I want?
+
+1006
+00:54:32,559 --> 00:54:35,559
+something.
+
+1007
+00:54:38,240 --> 00:54:41,800
+So you
+
+1008
+00:55:09,760 --> 00:55:20,640
+So let's say one to 10 divided by five.
+
+1009
+00:55:16,400 --> 00:55:25,200
+It's very annoying. There's no shortcut.
+
+1010
+00:55:20,640 --> 00:55:29,599
+You have to go. So you go to JavaScript,
+
+1011
+00:55:25,200 --> 00:55:32,800
+then you go to the array section.
+
+1012
+00:55:29,599 --> 00:55:37,520
+Array. Okay. Then you go to the bottom
+
+1013
+00:55:32,800 --> 00:55:41,520
+to to reach the navigation bar.
+
+1014
+00:55:37,520 --> 00:55:45,359
+Then you got uh create array you know.
+
+1015
+00:55:41,520 --> 00:55:49,839
+So you can click create array
+
+1016
+00:55:45,359 --> 00:55:51,839
+and then you uh
+
+1017
+00:55:49,839 --> 00:55:55,200
+that's not what we want. You want a
+
+1018
+00:55:51,839 --> 00:55:57,920
+range function for array. Okay. Because
+
+1019
+00:55:55,200 --> 00:56:00,720
+JavaScript do not have it building kind
+
+1020
+00:55:57,920 --> 00:56:04,799
+of annoying. you go through these hacks
+
+1021
+00:56:00,720 --> 00:56:07,839
+to to create a array. Okay. So So for
+
+1022
+00:56:04,799 --> 00:56:11,040
+example, you can do this but the problem
+
+1023
+00:56:07,839 --> 00:56:14,960
+with this is that it just give you a
+
+1024
+00:56:11,040 --> 00:56:18,000
+range of integers and start from zero.
+
+1025
+00:56:14,960 --> 00:56:21,359
+If you want say a range let's say from
+
+1026
+00:56:18,000 --> 00:56:24,799
+10 to 20, you cannot do this. You have
+
+1027
+00:56:21,359 --> 00:56:27,119
+to map. Okay? You can't you know why why
+
+1028
+00:56:24,799 --> 00:56:30,319
+can't you just have a function 10 to 20?
+
+1029
+00:56:27,119 --> 00:56:35,160
+Well, you can't. You cannot. That's why.
+
+1030
+00:56:30,319 --> 00:56:35,160
+So very annoying. So what?
+
+1031
+00:56:35,359 --> 00:56:40,079
+My browser is stuck.
+
+1032
+00:56:37,839 --> 00:56:45,040
+What?
+
+1033
+00:56:40,079 --> 00:56:47,760
+God. Okay. So, so I wrote this uh you
+
+1034
+00:56:45,040 --> 00:56:51,839
+know range function that allows you to
+
+1035
+00:56:47,760 --> 00:56:55,119
+have min, minimum, max and step. So step
+
+1036
+00:56:51,839 --> 00:56:58,079
+can be 0.1 for example.
+
+1037
+00:56:55,119 --> 00:57:01,440
+So, but I was thinking you know maybe we
+
+1038
+00:56:58,079 --> 00:57:04,960
+can avoid using this because in this
+
+1039
+00:57:01,440 --> 00:57:07,200
+case for example what we want here is
+
+1040
+00:57:04,960 --> 00:57:10,920
+the parameters they they need to be
+
+1041
+00:57:07,200 --> 00:57:10,920
+decimal. Okay.
+
+1042
+00:57:13,359 --> 00:57:19,119
+Yeah. In in you know so in many cases
+
+1043
+00:57:16,720 --> 00:57:23,119
+they need to be decimal or the degree
+
+1044
+00:57:19,119 --> 00:57:27,119
+from 0 to 360.
+
+1045
+00:57:23,119 --> 00:57:29,520
+So you ultimately need this uh function
+
+1046
+00:57:27,119 --> 00:57:34,720
+kind of. Okay. So let's just put it
+
+1047
+00:57:29,520 --> 00:57:38,480
+there. Okay. [ __ ] idiotic.
+
+1048
+00:57:34,720 --> 00:57:41,440
+And uh so
+
+1049
+00:57:38,480 --> 00:57:47,079
+so this is min max return array from min
+
+1050
+00:57:41,440 --> 00:57:47,079
+to max inclusive increment of step.
+
+1051
+00:57:58,240 --> 00:58:02,599
+Okay, for example,
+
+1052
+00:58:03,760 --> 00:58:10,960
+and also lock
+
+1053
+00:58:07,440 --> 00:58:14,799
+cas range. Can you do that please? And
+
+1054
+00:58:10,960 --> 00:58:18,079
+uh let's say 0 to one instead step step
+
+1055
+00:58:14,799 --> 00:58:22,240
+of 0.1.
+
+1056
+00:58:18,079 --> 00:58:26,480
+Can you do that? Yes, you got that funky
+
+1057
+00:58:22,240 --> 00:58:29,760
+because of the numerical analysis. the
+
+1058
+00:58:26,480 --> 00:58:33,359
+binary cannot represent certain real
+
+1059
+00:58:29,760 --> 00:58:36,000
+numbers in an exact way.
+
+1060
+00:58:33,359 --> 00:58:38,720
+So you got that situation. So um but
+
+1061
+00:58:36,000 --> 00:58:40,880
+anyway, so this um
+
+1062
+00:58:38,720 --> 00:58:43,839
+that's how this function works. I mean I
+
+1063
+00:58:40,880 --> 00:58:47,920
+mean there's a showcase of this range
+
+1064
+00:58:43,839 --> 00:58:51,599
+function but uh but is that what is that
+
+1065
+00:58:47,920 --> 00:58:55,040
+what we want? Yes, that's what we want.
+
+1066
+00:58:51,599 --> 00:59:01,720
+Okay, so you need that.
+
+1067
+00:58:55,040 --> 00:59:01,720
+Okay. So, so my array so
+
+1068
+00:59:02,240 --> 00:59:05,559
+X range.
+
+1069
+00:59:05,839 --> 00:59:09,319
+Okay. So,
+
+1070
+00:59:14,880 --> 00:59:21,040
+constant
+
+1071
+00:59:16,559 --> 00:59:24,520
+that X range. Okay. So, that gives you
+
+1072
+00:59:21,040 --> 00:59:24,520
+that. Okay.
+
+1073
+00:59:24,640 --> 00:59:29,760
+Then uh then what?
+
+1074
+00:59:27,680 --> 00:59:33,000
+Pify
+
+1075
+00:59:29,760 --> 00:59:33,000
+can predify.
+
+1076
+00:59:36,880 --> 00:59:42,640
+Purify the code. Now you can pify. Okay.
+
+1077
+00:59:40,640 --> 00:59:45,680
+So now
+
+1078
+00:59:42,640 --> 00:59:48,079
+you got a range. Okay. Put this inside.
+
+1079
+00:59:45,680 --> 00:59:50,400
+So you got a range. Then you want to go
+
+1080
+00:59:48,079 --> 00:59:54,720
+through it. So
+
+1081
+00:59:50,400 --> 00:59:57,440
+uh you can build it as a string
+
+1082
+00:59:54,720 --> 00:59:59,599
+you know do a map or a loop then build a
+
+1083
+00:59:57,440 --> 01:00:03,119
+string then
+
+1084
+00:59:59,599 --> 01:00:06,319
+um then
+
+1085
+01:00:03,119 --> 01:00:09,280
+use the you know set it def uh assign it
+
+1086
+01:00:06,319 --> 01:00:14,319
+to inner HTML.
+
+1087
+01:00:09,280 --> 01:00:19,119
+Okay. Or you can build each array
+
+1088
+01:00:14,319 --> 01:00:22,920
+each element create each element.
+
+1089
+01:00:19,119 --> 01:00:22,920
+Okay. So what
+
+1090
+01:00:27,920 --> 01:00:33,160
+let's create each other element. Okay.
+
+1091
+01:00:30,160 --> 01:00:33,160
+So,
+
+1092
+01:00:35,839 --> 01:00:41,880
+so that means you need to have a um
+
+1093
+01:00:47,040 --> 01:00:51,079
+we map or for each
+
+1094
+01:00:56,079 --> 01:01:02,040
+for each. Okay. Then um
+
+1095
+01:01:03,520 --> 01:01:07,760
+what are your top five programming
+
+1096
+01:01:05,440 --> 01:01:12,359
+languages? That's like a repeated
+
+1097
+01:01:07,760 --> 01:01:12,359
+question thousand times
+
+1098
+01:01:13,040 --> 01:01:20,440
+annoying. Well, maybe because you are
+
+1099
+01:01:16,079 --> 01:01:20,440
+new, but you know that's like
+
+1100
+01:01:21,599 --> 01:01:28,160
+top five programming language. Okay. So,
+
+1101
+01:01:23,839 --> 01:01:35,640
+top five Wam language Golan
+
+1102
+01:01:28,160 --> 01:01:35,640
+uh Wolfam language Goland and uh um
+
+1103
+01:01:39,440 --> 01:01:46,319
+and let's say F
+
+1104
+01:01:43,359 --> 01:01:49,319
+and maybe Julia.
+
+1105
+01:01:46,319 --> 01:01:49,319
+Uh
+
+1106
+01:01:49,920 --> 01:01:56,079
+okay. you know that that's like the
+
+1107
+01:01:52,720 --> 01:01:59,920
+short answer without any
+
+1108
+01:01:56,079 --> 01:02:04,079
+qualification. Okay.
+
+1109
+01:01:59,920 --> 01:02:06,240
+Okay. So let's uh so so so now
+
+1110
+01:02:04,079 --> 01:02:08,160
+you you you know you you watch my older
+
+1111
+01:02:06,240 --> 01:02:11,920
+videos there are thousands of them. I
+
+1112
+01:02:08,160 --> 01:02:14,559
+talked about it in fact in fact two days
+
+1113
+01:02:11,920 --> 01:02:17,359
+ago or three days ago.
+
+1114
+01:02:14,559 --> 01:02:19,839
+uh but the thing is you are not going to
+
+1115
+01:02:17,359 --> 01:02:23,599
+because they are buried
+
+1116
+01:02:19,839 --> 01:02:26,480
+you know in my in my 1 hour uh talk so
+
+1117
+01:02:23,599 --> 01:02:28,799
+for shallow I you know I'm not saying
+
+1118
+01:02:26,480 --> 01:02:32,480
+you but a lot you know most people they
+
+1119
+01:02:28,799 --> 01:02:34,799
+don't they don't really care like what
+
+1120
+01:02:32,480 --> 01:02:37,200
+what do you mean like your favorite top
+
+1121
+01:02:34,799 --> 01:02:40,200
+five you know it's like dram drama
+
+1122
+01:02:37,200 --> 01:02:40,200
+questions
+
+1123
+01:02:43,200 --> 01:02:50,640
+okay So uh as opposed to you know like
+
+1124
+01:02:47,680 --> 01:02:52,480
+very technical detail why are they best
+
+1125
+01:02:50,640 --> 01:02:55,440
+why do you like them that way be do you
+
+1126
+01:02:52,480 --> 01:02:57,760
+actually know know them what's the
+
+1127
+01:02:55,440 --> 01:03:00,000
+significance what's the practicality of
+
+1128
+01:02:57,760 --> 01:03:03,440
+the question how do you judge you know
+
+1129
+01:03:00,000 --> 01:03:06,480
+like in more indepth questions I'm new
+
+1130
+01:03:03,440 --> 01:03:08,960
+what about this
+
+1131
+01:03:06,480 --> 01:03:11,960
+uh well Lisp.
+
+1132
+01:03:08,960 --> 01:03:11,960
+Lisp.
+
+1133
+01:03:13,040 --> 01:03:20,720
+Lisp is so uh
+
+1134
+01:03:17,599 --> 01:03:23,359
+common lisp is very bad. Skim list or
+
+1135
+01:03:20,720 --> 01:03:26,319
+racket is also not so good. Common lisp
+
+1136
+01:03:23,359 --> 01:03:31,039
+is bloated complicated. [ __ ] Okay.
+
+1137
+01:03:26,319 --> 01:03:34,319
+Common lisp. Skim list is and or schem
+
+1138
+01:03:31,039 --> 01:03:38,480
+or you know skim list or racket.
+
+1139
+01:03:34,319 --> 01:03:41,440
+They are narrow niche forever loop in
+
+1140
+01:03:38,480 --> 01:03:45,680
+you know tail recursion no going nowhere
+
+1141
+01:03:41,440 --> 01:03:48,000
+after 40 years the idiots because this
+
+1142
+01:03:45,680 --> 01:03:50,559
+you know we we need to be elegant this
+
+1143
+01:03:48,000 --> 01:03:53,440
+this so they they have this very niche
+
+1144
+01:03:50,559 --> 01:03:57,760
+going nowhere anytime
+
+1145
+01:03:53,440 --> 01:04:00,400
+after 30 years 40 years in fact is it 40
+
+1146
+01:03:57,760 --> 01:04:03,839
+or 50 they are like tail recursion going
+
+1147
+01:04:00,400 --> 01:04:05,920
+nowhere any time so nobody nobody cares
+
+1148
+01:04:03,839 --> 01:04:08,960
+about them
+
+1149
+01:04:05,920 --> 01:04:11,440
+imp, you know, impractical scheme. They
+
+1150
+01:04:08,960 --> 01:04:14,160
+they they they think they are the most
+
+1151
+01:04:11,440 --> 01:04:16,480
+minimal and beautiful. That's [ __ ]
+
+1152
+01:04:14,160 --> 01:04:19,520
+too. Anyway, it's better. It's far
+
+1153
+01:04:16,480 --> 01:04:22,400
+better than commonly commonly the the
+
+1154
+01:04:19,520 --> 01:04:26,079
+common list fanatics are [ __ ] just
+
+1155
+01:04:22,400 --> 01:04:28,400
+like the C [ __ ] Okay. Now, so
+
+1156
+01:04:26,079 --> 01:04:30,559
+that's about the most two most popular.
+
+1157
+01:04:28,400 --> 01:04:33,599
+Then then there's EMAC bisp which is
+
+1158
+01:04:30,559 --> 01:04:38,240
+what I do every day or you know Emac
+
+1159
+01:04:33,599 --> 01:04:40,640
+bisp and so what eac bisp is not a
+
+1160
+01:04:38,240 --> 01:04:44,000
+general purpose language it's only good
+
+1161
+01:04:40,640 --> 01:04:47,039
+for in emacs okay when you do lots of
+
+1162
+01:04:44,000 --> 01:04:49,119
+text processing
+
+1163
+01:04:47,039 --> 01:04:52,240
+uh you are looking at emac this code
+
+1164
+01:04:49,119 --> 01:04:56,160
+okay so lots of text processing it's
+
+1165
+01:04:52,240 --> 01:04:59,039
+good like dling inside emacs it's good
+
+1166
+01:04:56,160 --> 01:05:01,760
+it's useless useless as you know you you
+
+1167
+01:04:59,039 --> 01:05:03,839
+can't rent you you can't you can't
+
+1168
+01:05:01,760 --> 01:05:06,880
+really you know you can't rent you you
+
+1169
+01:05:03,839 --> 01:05:09,839
+can't build Amazon you cannot build a
+
+1170
+01:05:06,880 --> 01:05:13,280
+Google empire okay it's good for dealing
+
+1171
+01:05:09,839 --> 01:05:16,160
+within a text editor okay and the Emacs
+
+1172
+01:05:13,280 --> 01:05:19,599
+these idiots they refuse to change
+
+1173
+01:05:16,160 --> 01:05:22,400
+there's no like for example any
+
+1174
+01:05:19,599 --> 01:05:27,359
+respectable programming language Python
+
+1175
+01:05:22,400 --> 01:05:31,440
+JavaScript or or any pearl ruby gol
+
+1176
+01:05:27,359 --> 01:05:33,680
+Oland Java they have systematic library
+
+1177
+01:05:31,440 --> 01:05:35,760
+names name space for the library you
+
+1178
+01:05:33,680 --> 01:05:38,240
+know bundle in Emacs you don't you don't
+
+1179
+01:05:35,760 --> 01:05:40,240
+have such a thing you you go by feelings
+
+1180
+01:05:38,240 --> 01:05:42,400
+oh but oh I think you know there's a
+
+1181
+01:05:40,240 --> 01:05:46,880
+network library should be here you know
+
+1182
+01:05:42,400 --> 01:05:49,280
+like you know emac you know it's so the
+
+1183
+01:05:46,880 --> 01:05:52,240
+end result of emac this is just it's
+
+1184
+01:05:49,280 --> 01:05:54,400
+just good within Emacs you can do some
+
+1185
+01:05:52,240 --> 01:05:57,119
+text processing but actually if you do
+
+1186
+01:05:54,400 --> 01:05:58,960
+text processing it's better than any
+
+1187
+01:05:57,119 --> 01:06:02,079
+It's better than pearl, better than
+
+1188
+01:05:58,960 --> 01:06:04,480
+python, better than ruby.
+
+1189
+01:06:02,079 --> 01:06:07,119
+Okay, because it has, you know, buffer
+
+1190
+01:06:04,480 --> 01:06:10,160
+data structure, it has, you know, point
+
+1191
+01:06:07,119 --> 01:06:13,599
+point data structure. It has, you know,
+
+1192
+01:06:10,160 --> 01:06:15,839
+you can save places, you know. So for
+
+1193
+01:06:13,599 --> 01:06:18,799
+text processing,
+
+1194
+01:06:15,839 --> 01:06:21,599
+that's emac that's that's that's good
+
+1195
+01:06:18,799 --> 01:06:23,839
+only for small scale. If your text file
+
+1196
+01:06:21,599 --> 01:06:26,160
+is like one gigabyte, then you cannot do
+
+1197
+01:06:23,839 --> 01:06:31,680
+it. Okay? Like
+
+1198
+01:06:26,160 --> 01:06:35,119
+so Emac Bisp I have been coding for like
+
+1199
+01:06:31,680 --> 01:06:39,520
+15 years almost every day. I I still
+
+1200
+01:06:35,119 --> 01:06:41,839
+code it every day. Um but uh and I you
+
+1201
+01:06:39,520 --> 01:06:44,400
+know but it's not it's it's it's a you
+
+1202
+01:06:41,839 --> 01:06:46,640
+know it's just it's little language.
+
+1203
+01:06:44,400 --> 01:06:50,400
+It's not
+
+1204
+01:06:46,640 --> 01:06:53,760
+a respectable respectable language and
+
+1205
+01:06:50,400 --> 01:06:56,000
+it's it's in terms of feature it's not
+
+1206
+01:06:53,760 --> 01:06:58,240
+that great. Okay,
+
+1207
+01:06:56,000 --> 01:07:01,039
+you know for example compared to common
+
+1208
+01:06:58,240 --> 01:07:03,839
+lisp common list is a real industrial
+
+1209
+01:07:01,039 --> 01:07:07,119
+programming language full of watts just
+
+1210
+01:07:03,839 --> 01:07:11,039
+like C++
+
+1211
+01:07:07,119 --> 01:07:12,720
+but it's used in the industry you can
+
+1212
+01:07:11,039 --> 01:07:14,240
+create
+
+1213
+01:07:12,720 --> 01:07:18,160
+Google empire you know they they they
+
+1214
+01:07:14,240 --> 01:07:20,799
+they build uh Yahoo store with common
+
+1215
+01:07:18,160 --> 01:07:23,119
+list program and you know they you know
+
+1216
+01:07:20,799 --> 01:07:26,720
+you can build an empire but it's ugly
+
+1217
+01:07:23,119 --> 01:07:30,720
+[ __ ] just like C++ common list scheme
+
+1218
+01:07:26,720 --> 01:07:33,599
+list is very uh small but
+
+1219
+01:07:30,720 --> 01:07:37,280
+uh but it's it's good you know I mean
+
+1220
+01:07:33,599 --> 01:07:40,400
+it's niche okay
+
+1221
+01:07:37,280 --> 01:07:44,880
+but Emac this it's just in EMAC okay no
+
+1222
+01:07:40,400 --> 01:07:48,000
+that's it uh so
+
+1223
+01:07:44,880 --> 01:07:50,799
+and feature wise it's you know not so
+
+1224
+01:07:48,000 --> 01:07:54,720
+good compared to commonly sport scheme
+
+1225
+01:07:50,799 --> 01:07:57,920
+so it's not really good Okay. Well, I've
+
+1226
+01:07:54,720 --> 01:08:01,200
+been coding it for 15 years. That's kind
+
+1227
+01:07:57,920 --> 01:08:02,960
+of too bad. See, it's like a waste kind
+
+1228
+01:08:01,200 --> 01:08:05,920
+of, you know, you might say it's a time
+
+1229
+01:08:02,960 --> 01:08:09,359
+wast waste wasted. Okay. I wasted my
+
+1230
+01:08:05,920 --> 01:08:11,760
+life in Emacs.
+
+1231
+01:08:09,359 --> 01:08:14,640
+Well, I you know, I I I became the
+
+1232
+01:08:11,760 --> 01:08:17,359
+greatest like I created the softly keys,
+
+1233
+01:08:14,640 --> 01:08:20,719
+the most efficient key binding system in
+
+1234
+01:08:17,359 --> 01:08:23,920
+the universe in human history. Okay,
+
+1235
+01:08:20,719 --> 01:08:27,199
+this is more efficient than vim neo vim
+
+1236
+01:08:23,920 --> 01:08:29,440
+if you choose to use emacs. Okay, softly
+
+1237
+01:08:27,199 --> 01:08:31,839
+keys. Okay, I talked about it many
+
+1238
+01:08:29,440 --> 01:08:33,759
+times.
+
+1239
+01:08:31,839 --> 01:08:37,759
+Well, that's that's about it, you know,
+
+1240
+01:08:33,759 --> 01:08:42,319
+but so so so eacisp is a small scale.
+
+1241
+01:08:37,759 --> 01:08:44,640
+It's it's it's not so very great.
+
+1242
+01:08:42,319 --> 01:08:48,400
+So what about so that's my opinion about
+
+1243
+01:08:44,640 --> 01:08:51,759
+lisp. So that's the three major lisp.
+
+1244
+01:08:48,400 --> 01:08:56,880
+Okay, I talked about common disp
+
+1245
+01:08:51,759 --> 01:08:59,279
+or racket and emac disp. Now the now the
+
+1246
+01:08:56,880 --> 01:09:02,799
+other would be closure. Closure is the
+
+1247
+01:08:59,279 --> 01:09:05,520
+one that's used in industry in computer
+
+1248
+01:09:02,799 --> 01:09:08,319
+industry. Some company use it. That's
+
+1249
+01:09:05,520 --> 01:09:11,920
+the best that's that's that's that's the
+
+1250
+01:09:08,319 --> 01:09:13,600
+you know probably the best modern lisp.
+
+1251
+01:09:11,920 --> 01:09:16,799
+Um
+
+1252
+01:09:13,600 --> 01:09:20,159
+but I didn't like it so much because
+
+1253
+01:09:16,799 --> 01:09:22,799
+it's intertwined with Java. It runs on
+
+1254
+01:09:20,159 --> 01:09:25,199
+Java and it's like intertwined with
+
+1255
+01:09:22,799 --> 01:09:27,520
+Java. You you know it's not a
+
+1256
+01:09:25,199 --> 01:09:31,759
+independent language what they call it's
+
+1257
+01:09:27,520 --> 01:09:34,159
+a hosted language. So it hosts on Java.
+
+1258
+01:09:31,759 --> 01:09:36,880
+Java is the body. You know Java is the
+
+1259
+01:09:34,159 --> 01:09:39,600
+mummy. It sucks the mummy. It lives
+
+1260
+01:09:36,880 --> 01:09:42,480
+inside Java. Every documentation of
+
+1261
+01:09:39,600 --> 01:09:45,600
+closure talks about Java. Talk about
+
+1262
+01:09:42,480 --> 01:09:48,319
+Java object, Java sequence, Java data
+
+1263
+01:09:45,600 --> 01:09:51,040
+structure. Oh, oh, closure in closure.
+
+1264
+01:09:48,319 --> 01:09:53,759
+This is Java that this that is Java.
+
+1265
+01:09:51,040 --> 01:09:57,600
+This [ __ ] Java. So, I don't like
+
+1266
+01:09:53,759 --> 01:10:00,000
+closure. Okay. But otherwise, Closure is
+
+1267
+01:09:57,600 --> 01:10:04,080
+like the the modern list, you know,
+
+1268
+01:10:00,000 --> 01:10:06,800
+that's clo and and practical.
+
+1269
+01:10:04,080 --> 01:10:09,679
+So that's about the all the major list
+
+1270
+01:10:06,800 --> 01:10:14,400
+or another one you might consider wufam
+
+1271
+01:10:09,679 --> 01:10:16,640
+language is a a list. Okay. Uh search my
+
+1272
+01:10:14,400 --> 01:10:19,360
+old uh videos because I talked about
+
+1273
+01:10:16,640 --> 01:10:21,840
+that why wuam language is a list. I
+
+1274
+01:10:19,360 --> 01:10:24,320
+talked that about that for many hours
+
+1275
+01:10:21,840 --> 01:10:27,840
+several videos.
+
+1276
+01:10:24,320 --> 01:10:29,360
+Okay that's a large digression. Um
+
+1277
+01:10:27,840 --> 01:10:33,120
+you know we going to not going to finish
+
+1278
+01:10:29,360 --> 01:10:34,640
+this. Is my uh answer to you
+
+1279
+01:10:33,120 --> 01:10:37,640
+satisfactory
+
+1280
+01:10:34,640 --> 01:10:37,640
+newbie?
+
+1281
+01:10:43,040 --> 01:10:48,640
+What does a language need to be
+
+1282
+01:10:45,120 --> 01:10:51,760
+respectable? Okay. Well I'm going to go
+
+1283
+01:10:48,640 --> 01:10:55,280
+back to code the JavaScript. Okay. So
+
+1284
+01:10:51,760 --> 01:10:57,840
+you guys watch my old videos. There are
+
+1285
+01:10:55,280 --> 01:10:59,520
+700 of them. Many of them talk about
+
+1286
+01:10:57,840 --> 01:11:02,000
+these language programming language
+
+1287
+01:10:59,520 --> 01:11:05,000
+issues.
+
+1288
+01:11:02,000 --> 01:11:05,000
+So,
+
+1289
+01:11:06,560 --> 01:11:11,640
+okay. So, actually let's do this
+
+1290
+01:11:08,640 --> 01:11:11,640
+quickly.
+
+1291
+01:11:24,960 --> 01:11:29,080
+It's getting hot summer.
+
+1292
+01:11:37,600 --> 01:11:43,600
+God, I need a break now. Sitting here
+
+1293
+01:11:39,840 --> 01:11:45,360
+too long for an hour and 12 minutes.
+
+1294
+01:11:43,600 --> 01:11:49,080
+Okay.
+
+1295
+01:11:45,360 --> 01:11:49,080
+For each what?
+
+1296
+01:11:50,719 --> 01:11:55,960
+Okay, let's do this quickly. Okay, so
+
+1297
+01:11:56,480 --> 01:11:59,480
+let's
+
+1298
+01:12:04,400 --> 01:12:11,199
+so create a new n
+
+1299
+01:12:08,320 --> 01:12:14,199
+style.
+
+1300
+01:12:11,199 --> 01:12:14,199
+Uh
+
+1301
+01:12:19,920 --> 01:12:25,120
+set attribute. Can we do actually do
+
+1302
+01:12:22,480 --> 01:12:29,920
+that? [ __ ]
+
+1303
+01:12:25,120 --> 01:12:33,199
+Sit attribute background think. So
+
+1304
+01:12:29,920 --> 01:12:36,000
+can we do this my friend? Yeah, you can
+
+1305
+01:12:33,199 --> 01:12:37,600
+do that. Not that
+
+1306
+01:12:36,000 --> 01:12:41,840
+JavaScript
+
+1307
+01:12:37,600 --> 01:12:46,560
+uh string the JavaScript template string
+
+1308
+01:12:41,840 --> 01:12:49,040
+that's that's that okay and uh so
+
+1309
+01:12:46,560 --> 01:12:53,440
+template string this uh you need to give
+
+1310
+01:12:49,040 --> 01:12:56,400
+a value so which value here so this x
+
+1311
+01:12:53,440 --> 01:13:00,640
+um so template string you need a dollar
+
+1312
+01:12:56,400 --> 01:13:04,400
+sign like uh the mechanism
+
+1313
+01:13:00,640 --> 01:13:08,239
+I don't remember the details so go to s
+
+1314
+01:13:04,400 --> 01:13:11,360
+JavaScript in depth
+
+1315
+01:13:08,239 --> 01:13:15,840
+range function to array. So open a new
+
+1316
+01:13:11,360 --> 01:13:19,760
+tab, go to it. Uh that's all my custom
+
+1317
+01:13:15,840 --> 01:13:22,800
+functions. But you want to go to
+
+1318
+01:13:19,760 --> 01:13:26,080
+JavaScript in depth. You want to go to
+
+1319
+01:13:22,800 --> 01:13:29,120
+string quote string. Then you want to go
+
+1320
+01:13:26,080 --> 01:13:32,320
+to template string template string. And
+
+1321
+01:13:29,120 --> 01:13:36,320
+what is the syntax? dollar sign curly
+
+1322
+01:13:32,320 --> 01:13:39,360
+braces. That's correct.
+
+1323
+01:13:36,320 --> 01:13:42,719
+Do I have it correct? Yes.
+
+1324
+01:13:39,360 --> 01:13:46,640
+Okay. So, but um so that's a string. You
+
+1325
+01:13:42,719 --> 01:13:49,920
+add the style then to the node then you
+
+1326
+01:13:46,640 --> 01:13:52,880
+append child
+
+1327
+01:13:49,920 --> 01:13:57,880
+something like that. Okay. You append
+
+1328
+01:13:52,880 --> 01:13:57,880
+child to the um
+
+1329
+01:14:00,080 --> 01:14:03,400
+which one?
+
+1330
+01:14:07,280 --> 01:14:10,920
+Yeah. So this
+
+1331
+01:14:11,280 --> 01:14:18,679
+So that's not the new Wait, you don't
+
+1332
+01:14:15,280 --> 01:14:18,679
+Okay. Uh
+
+1333
+01:14:19,360 --> 01:14:27,560
+let's call it box
+
+1334
+01:14:23,199 --> 01:14:27,560
+Xbox. Okay.
+
+1335
+01:14:27,679 --> 01:14:34,480
+So you got the Xbox then you create a
+
+1336
+01:14:30,960 --> 01:14:38,880
+range then for each let's purify the
+
+1337
+01:14:34,480 --> 01:14:42,080
+code do it. Okay. So you create a range
+
+1338
+01:14:38,880 --> 01:14:45,440
+then for each then you create a new node
+
+1339
+01:14:42,080 --> 01:14:48,400
+X node then you create a dive and for
+
+1340
+01:14:45,440 --> 01:14:50,400
+the dive you add the style attribute
+
+1341
+01:14:48,400 --> 01:14:53,440
+then you
+
+1342
+01:14:50,400 --> 01:14:56,400
+then this attribute contains that that's
+
+1343
+01:14:53,440 --> 01:15:01,600
+a string right the x is this value
+
+1344
+01:14:56,400 --> 01:15:05,520
+that's right then uh for each
+
+1345
+01:15:01,600 --> 01:15:10,440
+then you append it to the x node is that
+
+1346
+01:15:05,520 --> 01:15:10,440
+right yeah append do that. No,
+
+1347
+01:15:10,719 --> 01:15:13,719
+wait.
+
+1348
+01:15:17,760 --> 01:15:22,640
+No, you append to the Xbox. That's
+
+1349
+01:15:20,320 --> 01:15:25,520
+right. Then what is this? Then you
+
+1350
+01:15:22,640 --> 01:15:28,480
+That's not there. Okay. So, that should
+
+1351
+01:15:25,520 --> 01:15:31,520
+be
+
+1352
+01:15:28,480 --> 01:15:34,920
+Okay, let's remove that for now.
+
+1353
+01:15:31,520 --> 01:15:34,920
+Remove that.
+
+1354
+01:15:36,239 --> 01:15:42,960
+Insert adjacent after end. No, not
+
+1355
+01:15:39,679 --> 01:15:48,000
+after. That's just a pen child. Okay,
+
+1356
+01:15:42,960 --> 01:15:50,239
+it's not insert a JSON. Okay, so
+
+1357
+01:15:48,000 --> 01:15:54,800
+root
+
+1358
+01:15:50,239 --> 01:16:00,760
+append child append the Xbox.
+
+1359
+01:15:54,800 --> 01:16:00,760
+Okay. And this DD
+
+1360
+01:16:01,440 --> 01:16:09,120
+wait delete. Okay. Prefy delete 35.
+
+1361
+01:16:07,199 --> 01:16:12,120
+Good.
+
+1362
+01:16:09,120 --> 01:16:12,120
+Good.
+
+1363
+01:16:18,640 --> 01:16:21,640
+Wings
+
+1364
+01:16:22,239 --> 01:16:28,640
+says, "Are you into electronics?" No.
+
+1365
+01:16:26,000 --> 01:16:31,679
+I'm too old for that. I am interested,
+
+1366
+01:16:28,640 --> 01:16:34,080
+but uh too many things to learn. You
+
+1367
+01:16:31,679 --> 01:16:38,400
+like a guy who like tinkering with
+
+1368
+01:16:34,080 --> 01:16:42,239
+electronics? Yes. When I was a teen,
+
+1369
+01:16:38,400 --> 01:16:48,640
+like 12 years old, I did some soldiering
+
+1370
+01:16:42,239 --> 01:16:51,440
+and uh and uh those um
+
+1371
+01:16:48,640 --> 01:16:55,320
+capacitors and resistors, you know, I
+
+1372
+01:16:51,440 --> 01:16:55,320
+played as some but
+
+1373
+01:16:55,440 --> 01:17:00,880
+anyway,
+
+1374
+01:16:58,400 --> 01:17:03,199
+turns out I just know computers and ma
+
+1375
+01:17:00,880 --> 01:17:04,800
+in some mathematics, programming and
+
+1376
+01:17:03,199 --> 01:17:08,560
+mathematics,
+
+1377
+01:17:04,800 --> 01:17:12,400
+but otherwise I would I am interested in
+
+1378
+01:17:08,560 --> 01:17:15,360
+physics, chemistry, electronics and all
+
+1379
+01:17:12,400 --> 01:17:19,360
+these mechanics, uh robotics and lots of
+
+1380
+01:17:15,360 --> 01:17:21,679
+these basically science sciences and
+
+1381
+01:17:19,360 --> 01:17:24,640
+actually philosophy and linguistics
+
+1382
+01:17:21,679 --> 01:17:27,040
+actually I know a bit about them and
+
+1383
+01:17:24,640 --> 01:17:30,800
+psychology
+
+1384
+01:17:27,040 --> 01:17:35,840
+and uh then yeah that those okay anyway
+
+1385
+01:17:30,800 --> 01:17:39,840
+so so am I uh is this good this takes an
+
+1386
+01:17:35,840 --> 01:17:44,400
+hour to write. So create uh so Xbox then
+
+1387
+01:17:39,840 --> 01:17:47,920
+range then for each range uh for each
+
+1388
+01:17:44,400 --> 01:17:53,840
+range you create a new dive you call it
+
+1389
+01:17:47,920 --> 01:17:58,000
+node you set the style append try out
+
+1390
+01:17:53,840 --> 01:18:04,560
+then you append that to the X node. So
+
+1391
+01:17:58,000 --> 01:18:06,880
+let's so let's just then append um
+
+1392
+01:18:04,560 --> 01:18:08,719
+then what
+
+1393
+01:18:06,880 --> 01:18:11,280
+what's this function you need to call
+
+1394
+01:18:08,719 --> 01:18:16,920
+this function okay
+
+1395
+01:18:11,280 --> 01:18:16,920
+so you need to call this function Wait.
+
+1396
+01:18:27,199 --> 01:18:33,320
+Yeah, I think I think so. So, let's um
+
+1397
+01:18:36,880 --> 01:18:42,320
+Okay, I think that's it. So, can you
+
+1398
+01:18:38,960 --> 01:18:46,640
+compile? Actually, make a copy. And uh
+
+1399
+01:18:42,320 --> 01:18:48,719
+let's make this typescript. Okay.
+
+1400
+01:18:46,640 --> 01:18:53,920
+TS.
+
+1401
+01:18:48,719 --> 01:18:57,280
+Okay. Make a backup. Compile it.
+
+1402
+01:18:53,920 --> 01:19:01,199
+Press this to compile.
+
+1403
+01:18:57,280 --> 01:19:05,280
+Fantastic. It looks like it's working.
+
+1404
+01:19:01,199 --> 01:19:08,560
+Close. Close. Okay. Uh yeah, this
+
+1405
+01:19:05,280 --> 01:19:10,560
+created the JavaScript. Let's see. Open
+
+1406
+01:19:08,560 --> 01:19:13,760
+that.
+
+1407
+01:19:10,560 --> 01:19:17,360
+Okay. So now if we run this, it should
+
+1408
+01:19:13,760 --> 01:19:22,440
+insert color here. Let's see. Showing
+
+1409
+01:19:17,360 --> 01:19:22,440
+browser. Go to the bottom.
+
+1410
+01:19:22,800 --> 01:19:28,320
+Uh
+
+1411
+01:19:24,320 --> 01:19:31,920
+no, you see it should insert there. Uh
+
+1412
+01:19:28,320 --> 01:19:35,840
+why is that? Because uh because select
+
+1413
+01:19:31,920 --> 01:19:39,520
+uh by ID. Did we select by ID?
+
+1414
+01:19:35,840 --> 01:19:41,040
+Get element by ID. So what is the do we
+
+1415
+01:19:39,520 --> 01:19:44,320
+get
+
+1416
+01:19:41,040 --> 01:19:46,000
+control shift I to see the developers
+
+1417
+01:19:44,320 --> 01:19:48,800
+console?
+
+1418
+01:19:46,000 --> 01:19:53,120
+Do we have a bug? Do we have error
+
+1419
+01:19:48,800 --> 01:19:56,320
+messages? Refresh. No error. Okay. So
+
+1420
+01:19:53,120 --> 01:19:59,600
+you got the root then you got that then
+
+1421
+01:19:56,320 --> 01:20:02,600
+you uh oh because you didn't call the
+
+1422
+01:19:59,600 --> 01:20:02,600
+function.
+
+1423
+01:20:03,199 --> 01:20:08,040
+You need to call the function.
+
+1424
+01:20:08,480 --> 01:20:15,040
+Compile it now. Refresh.
+
+1425
+01:20:13,520 --> 01:20:18,640
+Refresh.
+
+1426
+01:20:15,040 --> 01:20:23,080
+No, it didn't. Um,
+
+1427
+01:20:18,640 --> 01:20:23,080
+what? Uh, let's see.
+
+1428
+01:20:23,199 --> 01:20:27,719
+So the function is called
+
+1429
+01:20:29,520 --> 01:20:33,239
+see for each
+
+1430
+01:21:27,199 --> 01:21:32,199
+Is it not working? I don't understand.
+
+1431
+01:21:39,760 --> 01:21:46,000
+Run it. There we have it. But it's not
+
+1432
+01:21:43,920 --> 01:21:49,719
+in inserting.
+
+1433
+01:21:46,000 --> 01:21:49,719
+Now wait.
+
+1434
+01:21:55,280 --> 01:22:02,000
+If you say inner child
+
+1435
+01:21:58,960 --> 01:22:05,679
+next node
+
+1436
+01:22:02,000 --> 01:22:08,239
+in the html
+
+1437
+01:22:05,679 --> 01:22:12,440
+equals to
+
+1438
+01:22:08,239 --> 01:22:12,440
+let's say that
+
+1439
+01:22:19,600 --> 01:22:24,639
+compile it.
+
+1440
+01:22:22,480 --> 01:22:28,639
+Run it.
+
+1441
+01:22:24,639 --> 01:22:31,760
+Fantastic. Now it adds there it is
+
+1442
+01:22:28,639 --> 01:22:36,000
+actually successful. It didn't work
+
+1443
+01:22:31,760 --> 01:22:39,840
+because the dive is empty. There's no
+
+1444
+01:22:36,000 --> 01:22:41,679
+inner child. So when there's no content
+
+1445
+01:22:39,840 --> 01:22:44,800
+by default the browser doesn't show
+
+1446
+01:22:41,679 --> 01:22:46,480
+unless you add a width and height to the
+
+1447
+01:22:44,800 --> 01:22:49,760
+type.
+
+1448
+01:22:46,480 --> 01:22:53,440
+So anyway, so here we successful. This
+
+1449
+01:22:49,760 --> 01:22:56,320
+is what I wanted to do. Okay. But um you
+
+1450
+01:22:53,440 --> 01:22:58,800
+know we we need to refine it. Uh this is
+
+1451
+01:22:56,320 --> 01:23:03,280
+not
+
+1452
+01:22:58,800 --> 01:23:06,159
+you know because I want a uh nested loop
+
+1453
+01:23:03,280 --> 01:23:08,880
+so that
+
+1454
+01:23:06,159 --> 01:23:13,440
+uh but I think maybe we should close
+
+1455
+01:23:08,880 --> 01:23:16,920
+down today because it's been an hour and
+
+1456
+01:23:13,440 --> 01:23:16,920
+24 minutes.
+
+1457
+01:23:23,679 --> 01:23:28,480
+So question
+
+1458
+01:23:26,080 --> 01:23:30,880
+any reason you write TypeScript instead
+
+1459
+01:23:28,480 --> 01:23:33,840
+of JavaScript since I'm not using any
+
+1460
+01:23:30,880 --> 01:23:37,280
+types at all?
+
+1461
+01:23:33,840 --> 01:23:40,159
+Well, yeah. So I mean so not much reason
+
+1462
+01:23:37,280 --> 01:23:43,280
+basically TypeScript so it allows me to
+
+1463
+01:23:40,159 --> 01:23:46,000
+catch more errors. So when the script
+
+1464
+01:23:43,280 --> 01:23:50,159
+gets more complicated I can start to add
+
+1465
+01:23:46,000 --> 01:23:54,080
+types. Uh for example, meme
+
+1466
+01:23:50,159 --> 01:23:57,440
+this mean would be numb.
+
+1467
+01:23:54,080 --> 01:24:02,000
+Uh can yeah so for example I can start
+
+1468
+01:23:57,440 --> 01:24:05,520
+to annotate it uh something you know
+
+1469
+01:24:02,000 --> 01:24:09,280
+compile it. Yeah just for the future you
+
+1470
+01:24:05,520 --> 01:24:12,159
+know and also it it even if you don't
+
+1471
+01:24:09,280 --> 01:24:14,400
+add types sometimes it catches some
+
+1472
+01:24:12,159 --> 01:24:16,960
+errors when you compile. That's it.
+
+1473
+01:24:14,400 --> 01:24:21,360
+That's it. That's all.
+
+1474
+01:24:16,960 --> 01:24:25,920
+And hello today Claw Gold agent teach me
+
+1475
+01:24:21,360 --> 01:24:28,960
+about item potent programming.
+
+1476
+01:24:25,920 --> 01:24:32,520
+What what is that item potent? That's
+
+1477
+01:24:28,960 --> 01:24:32,520
+what um
+
+1478
+01:24:32,560 --> 01:24:38,239
+that that means the function returns you
+
+1479
+01:24:35,360 --> 01:24:40,880
+know if you call the function twice it
+
+1480
+01:24:38,239 --> 01:24:43,120
+doesn't hurt basically it returns the
+
+1481
+01:24:40,880 --> 01:24:45,040
+same thing.
+
+1482
+01:24:43,120 --> 01:24:46,400
+So what but what is item potent
+
+1483
+01:24:45,040 --> 01:24:49,840
+programming? I think that's it for
+
+1484
+01:24:46,400 --> 01:24:52,239
+today. Okay.
+
+1485
+01:24:49,840 --> 01:24:54,880
+But this is silly. Okay. So, you did
+
+1486
+01:24:52,239 --> 01:24:57,199
+this today,
+
+1487
+01:24:54,880 --> 01:25:01,760
+but you didn't do much. You know, it
+
+1488
+01:24:57,199 --> 01:25:03,679
+just it just, you know, prints that. Uh,
+
+1489
+01:25:01,760 --> 01:25:06,000
+but
+
+1490
+01:25:03,679 --> 01:25:09,600
+okay. Well, actually, you can get
+
+1491
+01:25:06,000 --> 01:25:11,679
+better. So, for example, delete that.
+
+1492
+01:25:09,600 --> 01:25:16,239
+Compile it.
+
+1493
+01:25:11,679 --> 01:25:19,760
+Refresh. Wait, why is it uh Whoa. Oh,
+
+1494
+01:25:16,239 --> 01:25:25,000
+here. Okay.
+
+1495
+01:25:19,760 --> 01:25:25,000
+Compile it. Wait, not a key.
+
+1496
+01:25:25,040 --> 01:25:31,679
+Okay, refresh. Now it's better. There's
+
+1497
+01:25:27,920 --> 01:25:37,440
+no background. And then you need to
+
+1498
+01:25:31,679 --> 01:25:40,560
+truncate those. Jesus. Okay. JavaScript.
+
+1499
+01:25:37,440 --> 01:25:44,320
+Stupid JavaScript. How do you do that? I
+
+1500
+01:25:40,560 --> 01:25:49,600
+don't remember. So you go to JavaScript,
+
+1501
+01:25:44,320 --> 01:25:56,320
+you go to number section number then you
+
+1502
+01:25:49,600 --> 01:26:00,639
+need to know about truncation or uh
+
+1503
+01:25:56,320 --> 01:26:03,760
+wait what is it nan and infinity okay
+
+1504
+01:26:00,639 --> 01:26:06,960
+input binary hexadimal or octto okay
+
+1505
+01:26:03,760 --> 01:26:09,199
+number separator we don't care big int
+
+1506
+01:26:06,960 --> 01:26:12,560
+that's a new feature decimal number
+
+1507
+01:26:09,199 --> 01:26:16,000
+syntax we don't care we need the
+
+1508
+01:26:12,560 --> 01:26:22,920
+truncation and uh
+
+1509
+01:26:16,000 --> 01:26:22,920
+round. So arithmetic operators uh
+
+1510
+01:26:24,000 --> 01:26:32,000
+arithmetic operators okay plus negation
+
+1511
+01:26:29,280 --> 01:26:36,159
+mod ceiling flow around that's what we
+
+1512
+01:26:32,000 --> 01:26:41,000
+want. So in this case um about the
+
+1513
+01:26:36,159 --> 01:26:41,000
+colors what we want you want
+
+1514
+01:26:41,360 --> 01:26:48,440
+those are this so you want you don't
+
+1515
+01:26:43,679 --> 01:26:48,440
+want round so you want
+
+1516
+01:26:49,199 --> 01:26:55,360
+uh actually you want round so let's see
+
+1517
+01:26:53,280 --> 01:27:00,960
+mod
+
+1518
+01:26:55,360 --> 01:27:04,320
+ceiling floor round okay
+
+1519
+01:27:00,960 --> 01:27:08,679
+round towards Positive infinity runs
+
+1520
+01:27:04,320 --> 01:27:08,679
+towards negative infinity.
+
+1521
+01:27:17,280 --> 01:27:23,199
+So they run to a decimal number that I
+
+1522
+01:27:20,639 --> 01:27:24,960
+mean to a integer. That's not what I
+
+1523
+01:27:23,199 --> 01:27:26,960
+want.
+
+1524
+01:27:24,960 --> 01:27:30,560
+I want
+
+1525
+01:27:26,960 --> 01:27:33,199
+round to two decimal places. stupid
+
+1526
+01:27:30,560 --> 01:27:35,679
+[ __ ] JavaScript.
+
+1527
+01:27:33,199 --> 01:27:38,880
+Uh JavaScript you don't have a format
+
+1528
+01:27:35,679 --> 01:27:41,880
+operator. JavaScript is very comp
+
+1529
+01:27:38,880 --> 01:27:41,880
+complex,
+
+1530
+01:27:42,400 --> 01:27:48,639
+right? So wait, what am I what I want to
+
+1531
+01:27:45,199 --> 01:27:53,280
+do? I want to have two decimal places.
+
+1532
+01:27:48,639 --> 01:27:56,639
+Okay. So, so normally in Python or Java
+
+1533
+01:27:53,280 --> 01:27:58,800
+or other languages you use format
+
+1534
+01:27:56,639 --> 01:28:03,040
+that you know you can format a number
+
+1535
+01:27:58,800 --> 01:28:05,920
+turn a number to a string by the format
+
+1536
+01:28:03,040 --> 01:28:08,239
+function. Okay. But JavaScript
+
+1537
+01:28:05,920 --> 01:28:13,920
+does not have that.
+
+1538
+01:28:08,239 --> 01:28:17,520
+So instead uh so I have written one.
+
+1539
+01:28:13,920 --> 01:28:20,400
+So wait so let me think make sure you
+
+1540
+01:28:17,520 --> 01:28:23,400
+know what we I can do is I can multiply
+
+1541
+01:28:20,400 --> 01:28:23,400
+by
+
+1542
+01:28:24,560 --> 01:28:27,560
+uh
+
+1543
+01:28:31,280 --> 01:28:39,440
+you know by 100 then um
+
+1544
+01:28:35,679 --> 01:28:41,040
+then just round. So what is this floor
+
+1545
+01:28:39,440 --> 01:28:44,000
+ceiling
+
+1546
+01:28:41,040 --> 01:28:46,480
+round?
+
+1547
+01:28:44,000 --> 01:28:48,560
+Wait, does this round takes a second
+
+1548
+01:28:46,480 --> 01:28:52,960
+argument because I want two decimal
+
+1549
+01:28:48,560 --> 01:28:57,679
+numbers. This CD. So can you go to the
+
+1550
+01:28:52,960 --> 01:28:59,840
+math operators to see the full
+
+1551
+01:28:57,679 --> 01:29:02,080
+um
+
+1552
+01:28:59,840 --> 01:29:04,560
+format number? So I got the format
+
+1553
+01:29:02,080 --> 01:29:09,400
+number there.
+
+1554
+01:29:04,560 --> 01:29:09,400
+Okay. So yeah. So you got
+
+1555
+01:29:10,400 --> 01:29:17,360
+Yeah. So the new I mean the new function
+
+1556
+01:29:13,280 --> 01:29:19,679
+is this international number format that
+
+1557
+01:29:17,360 --> 01:29:22,320
+is new.
+
+1558
+01:29:19,679 --> 01:29:25,040
+Uh
+
+1559
+01:29:22,320 --> 01:29:28,040
+but I okay I need to write this. I
+
+1560
+01:29:25,040 --> 01:29:28,040
+haven't
+
+1561
+01:29:28,639 --> 01:29:33,920
+I don't have a tutorial of this
+
+1562
+01:29:30,480 --> 01:29:36,639
+international number format method.
+
+1563
+01:29:33,920 --> 01:29:39,840
+That's what I want. Okay.
+
+1564
+01:29:36,639 --> 01:29:43,440
+But meanwhile I Yeah. Meanwhile, you
+
+1565
+01:29:39,840 --> 01:29:47,120
+have two fixed.
+
+1566
+01:29:43,440 --> 01:29:51,199
+Yeah. Two fixed. So you can use this uh
+
+1567
+01:29:47,120 --> 01:29:55,199
+say two fixed tool. Okay.
+
+1568
+01:29:51,199 --> 01:29:58,199
+This is like you can use that.
+
+1569
+01:29:55,199 --> 01:29:58,199
+So
+
+1570
+01:29:58,320 --> 01:30:10,040
+there there two fixed two and prettyify
+
+1571
+01:30:04,000 --> 01:30:10,040
+compile the code back to the color
+
+1572
+01:30:16,080 --> 01:30:21,480
+show
+
+1573
+01:30:18,239 --> 01:30:21,480
+go down
+
+1574
+01:30:22,480 --> 01:30:29,600
+there fantastic and Beautiful. You see
+
+1575
+01:30:26,560 --> 01:30:33,360
+we got what we wanted.
+
+1576
+01:30:29,600 --> 01:30:35,679
+Uh but not yet. I want you see. So now
+
+1577
+01:30:33,360 --> 01:30:37,760
+this is changing the first parameter.
+
+1578
+01:30:35,679 --> 01:30:41,120
+What what what is the first parameter?
+
+1579
+01:30:37,760 --> 01:30:45,840
+The first parameter is lightness. Okay.
+
+1580
+01:30:41,120 --> 01:30:51,679
+I want a nested loop so that
+
+1581
+01:30:45,840 --> 01:30:53,840
+so that it can show a little squares of
+
+1582
+01:30:51,679 --> 01:30:58,760
+when you change the second parameter
+
+1583
+01:30:53,840 --> 01:30:58,760
+which is the chroma something.
+
+1584
+01:30:58,800 --> 01:31:04,239
+Oh, anyway, I think that's it for bye
+
+1585
+01:31:02,719 --> 01:31:06,400
+Samar
+
+1586
+01:31:04,239 --> 01:31:10,199
+by
+
+1587
+01:31:06,400 --> 01:31:10,199
+coin by
+
+1588
+01:31:12,480 --> 01:31:21,040
+uh nobody clock. Okay. Yeah, I think
+
+1589
+01:31:16,639 --> 01:31:25,120
+that's it for today. Yeah. So,
+
+1590
+01:31:21,040 --> 01:31:28,320
+yeah, I'm going to work this offline.
+
+1591
+01:31:25,120 --> 01:31:31,040
+you know JavaScript you see JavaScript
+
+1592
+01:31:28,320 --> 01:31:34,040
+the code turns out you know it's like
+
+1593
+01:31:31,040 --> 01:31:34,040
+nasty
+
+1594
+01:31:34,800 --> 01:31:39,199
+all we wanted to do this is a single you
+
+1595
+01:31:37,440 --> 01:31:42,239
+know simple
+
+1596
+01:31:39,199 --> 01:31:45,040
+flat loop
+
+1597
+01:31:42,239 --> 01:31:47,120
+uh but the code this is kind of
+
+1598
+01:31:45,040 --> 01:31:50,800
+incomprehensible you know because you
+
+1599
+01:31:47,120 --> 01:31:54,080
+have to create the dive
+
+1600
+01:31:50,800 --> 01:31:57,600
+uh god then but but now if you want the
+
+1601
+01:31:54,080 --> 01:32:01,120
+nested loop loop.
+
+1602
+01:31:57,600 --> 01:32:03,920
+Oh god. So you need to like
+
+1603
+01:32:01,120 --> 01:32:06,880
+So here is one loop. I'm using the for
+
+1604
+01:32:03,920 --> 01:32:13,400
+each functional form. So if you want
+
+1605
+01:32:06,880 --> 01:32:13,400
+nested loop, you kind of like um
+
+1606
+01:32:15,120 --> 01:32:19,280
+you know somewhere you know do this
+
+1607
+01:32:16,960 --> 01:32:21,840
+again
+
+1608
+01:32:19,280 --> 01:32:24,400
+and JavaScript but I think that's it.
+
+1609
+01:32:21,840 --> 01:32:27,920
+Okay. it, you know, for those of you
+
+1610
+01:32:24,400 --> 01:32:30,320
+beginners, this is useful because you
+
+1611
+01:32:27,920 --> 01:32:32,880
+don't, you know, you don't you don't use
+
+1612
+01:32:30,320 --> 01:32:36,560
+the React, you know, the complicated
+
+1613
+01:32:32,880 --> 01:32:40,199
+thing. This shows you the fundamentals.
+
+1614
+01:32:36,560 --> 01:32:40,199
+Okay. Bye, guys.
+
+1615
+01:32:42,719 --> 01:32:46,679
+Yeah. Okay. Bye.
+
+1616
+01:32:48,000 --> 01:32:52,719
+See?
+
+1617
+01:32:50,320 --> 01:32:56,239
+Yeah. I'm going to work out this
+
+1618
+01:32:52,719 --> 01:32:56,239
+offline. Yeah.
+
