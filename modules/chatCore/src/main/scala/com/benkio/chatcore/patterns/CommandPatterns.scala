@@ -15,6 +15,7 @@ import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.TextReply
+import com.benkio.chatcore.model.show.addTimestamp
 import com.benkio.chatcore.model.show.RandomQuery
 import com.benkio.chatcore.model.show.Show
 import com.benkio.chatcore.model.show.ShowQuery
@@ -195,19 +196,19 @@ Input as query string:
       }
 
       for {
-        _       <- log.info(s"Select random Show: ${sBotInfo.botId} - $keywords - $query")
-        results <- dbCall
-        result  <-
-          results.headOption
-            .traverse(Show.apply[F](_).map(_.show))
-            .map(
-              _.fold(
-                Text(
-                  value = s"Nessuna puntata/show contenente '$keywords' è stata trovata",
-                  timeToLive = ttl
-                )
-              )(Text(_))
+        _ <- log.info(s"Select random Show: ${sBotInfo.botId} - $keywords - $query")
+        // TODO 814: eventually show all and allow the user to choose
+        results     <- dbCall
+        maybeResult <- results.headOption.traverse(Show.apply[F](_))
+        maybeResultWithTimestamp = maybeResult.map(_.addTimestamp(query))
+        result                   = maybeResultWithTimestamp
+          .map(_.show)
+          .fold(
+            Text(
+              value = s"Nessuna puntata/show contenente '$keywords' è stata trovata",
+              timeToLive = ttl
             )
+          )(Text(_))
       } yield result
     }
   }

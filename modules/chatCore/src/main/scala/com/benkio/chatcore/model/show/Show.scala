@@ -4,6 +4,8 @@ import cats.implicits.*
 import cats.MonadThrow
 import cats.Show as CatsShow
 import com.benkio.chatcore.conversions.JsonConversions.SrtDecoder.given
+import com.benkio.chatcore.conversions.YouTubeTimestamp.finiteDurationToYoutubeTimestamp
+import com.benkio.chatcore.model.show.ShowQuery.searchTimestamp
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBShowData
 import io.circe.parser.decode
@@ -22,8 +24,14 @@ final case class Show(
     description: Option[String],
     isLive: Boolean,
     originAutomaticCaption: Option[String],
-    originAutomaticCaptionSrt: SortedMap[FiniteDuration, String]
+    originAutomaticCaptionSrt: SortedMap[FiniteDuration, String],
+    timestamp: Option[FiniteDuration]
 )
+
+extension (show: Show) {
+  def addTimestamp(query: ShowQuery): Show =
+    show.copy(timestamp = searchTimestamp(show.originAutomaticCaptionSrt, query))
+}
 
 object Show {
   private given Ordering[FiniteDuration] = Ordering.by(_.toMillis)
@@ -51,13 +59,19 @@ object Show {
     description = dbShow.show_description,
     isLive = dbShow.show_is_live,
     originAutomaticCaption = dbShow.show_origin_automatic_caption,
-    originAutomaticCaptionSrt = originAutomaticCaptionSrt
+    originAutomaticCaptionSrt = originAutomaticCaptionSrt,
+    timestamp = None
   )
 
   given showInstance: CatsShow[Show] =
-    CatsShow.show(show =>
-      s"""${show.uploadDate} - https://www.youtube.com/watch?v=${show.id}
- ${show.title}""" +
-        show.description.fold("")(d => s"""\n----------\n $d""")
-    )
+    CatsShow.show(show => {
+      val description    = show.description.getOrElse("")
+      val timestampQuery = show.timestamp
+        .map(timestamp => s"&t=${finiteDurationToYoutubeTimestamp(timestamp)}")
+        .getOrElse("")
+      s"""${show.uploadDate} - https://www.youtube.com/watch?v=${show.id}$timestampQuery
+         | ${show.title}
+         |----------
+         | $description""".stripMargin
+    })
 }
