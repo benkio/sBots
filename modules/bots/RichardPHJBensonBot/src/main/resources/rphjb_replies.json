@@ -20499,7 +20499,7 @@
           },
           {
             "RegexTextTriggerValue" : {
-              "trigger" : "ancora di pi[uù]+",
+              "trigger" : "ancora di pi[uúù]+",
               "regexLength" : 13
             }
           }
@@ -38767,10 +38767,13 @@
             "StringTextTriggerValue" : "posso cambiare"
           },
           {
-            "StringTextTriggerValue" : "sono camaleontico"
+            "StringTextTriggerValue" : "camaleontico"
           },
           {
-            "StringTextTriggerValue" : "sputarti in faccia"
+            "RegexTextTriggerValue" : {
+              "trigger" : "sputar(ti|e) in faccia",
+              "regexLength" : 17
+            }
           }
         ]
       }
