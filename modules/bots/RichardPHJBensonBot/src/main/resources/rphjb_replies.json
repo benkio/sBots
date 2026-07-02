@@ -4,6 +4,31 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "ve la devo dire"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_CiHoMesso9Mesi.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "new data"
           }
         ]
@@ -16861,7 +16886,10 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "james la lagna"
+            "RegexTextTriggerValue" : {
+              "trigger" : "james la[ ]?lagna",
+              "regexLength" : 13
+            }
           },
           {
             "StringTextTriggerValue" : "gallinaceo"
@@ -17146,6 +17174,9 @@
         "triggers" : [
           {
             "StringTextTriggerValue" : "amplessi macisti"
+          },
+          {
+            "StringTextTriggerValue" : "devo dire"
           }
         ]
       }
@@ -17156,6 +17187,18 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_CorteiFemministiAmplessiMacisti.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_CorteiFemministiAmplessiMacisti.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_CorteiFemministiAmplessiMacistiGif.mp4",
               "replyToMessage" : false
             }
           }
