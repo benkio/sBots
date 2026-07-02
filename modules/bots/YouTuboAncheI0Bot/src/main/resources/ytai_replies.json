@@ -4,6 +4,49 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "piace fredda"
+          },
+          {
+            "StringTextTriggerValue" : "portata a casa"
+          },
+          {
+            "StringTextTriggerValue" : "riscaldata"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_AMePiaceFredda.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_AMePiaceFredda.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "ytai_AMePiaceFreddaGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "sibari"
           }
         ]
