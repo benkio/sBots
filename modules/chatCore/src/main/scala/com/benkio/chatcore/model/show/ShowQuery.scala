@@ -73,13 +73,12 @@ object ShowQuery {
     }
   }
 
-  def searchTimestamp(captionMap: Map[FiniteDuration, String], query: ShowQuery): Option[FiniteDuration] = {
+  def searchTimestamp(captions: Vector[(FiniteDuration, String)], query: ShowQuery): Option[FiniteDuration] = {
     def searchWithFallback(term: String): Option[FiniteDuration] = {
       val normalizedTerm = term.trim.toLowerCase
       if normalizedTerm.isEmpty then None
       else {
-        val maybeTimestamp = captionMap.toList
-          .sortBy(_._1)
+        val maybeTimestamp = captions
           .collectFirst {
             case (timestamp, caption) if caption.toLowerCase.contains(normalizedTerm) =>
               timestamp

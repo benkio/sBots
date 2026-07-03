@@ -11,7 +11,7 @@ import com.benkio.chatcore.repository.db.DBShowData
 import io.circe.parser.decode
 
 import java.time.LocalDate
-import scala.collection.immutable.SortedMap
+import scala.collection.immutable.Vector
 import scala.concurrent.duration.FiniteDuration
 import scala.util.Try
 
@@ -24,7 +24,7 @@ final case class Show(
     description: Option[String],
     isLive: Boolean,
     originAutomaticCaption: Option[String],
-    originAutomaticCaptionSrt: SortedMap[FiniteDuration, String],
+    originAutomaticCaptionSrt: Vector[(FiniteDuration, String)],
     timestamp: Option[FiniteDuration]
 )
 
@@ -34,7 +34,6 @@ extension (show: Show) {
 }
 
 object Show {
-  private given Ordering[FiniteDuration] = Ordering.by(_.toMillis)
 
   def apply[F[_]: MonadThrow](dbShow: DBShowData): F[Show] = for {
     uploadDate <- MonadThrow[F].fromEither(
@@ -44,11 +43,9 @@ object Show {
     )
     originAutomaticCaptionSrt <- MonadThrow[F].fromEither {
       if dbShow.show_origin_automatic_caption_srt.trim.isEmpty
-      then Right(SortedMap.empty[FiniteDuration, String])
+      then Right(Vector.empty[(FiniteDuration, String)])
       else
-        decode[Map[FiniteDuration, String]](dbShow.show_origin_automatic_caption_srt).map(decodedCaptionMap =>
-          SortedMap.from(decodedCaptionMap)
-        )
+        decode[Vector[(FiniteDuration, String)]](dbShow.show_origin_automatic_caption_srt)
     }
   } yield Show(
     id = dbShow.show_id,
