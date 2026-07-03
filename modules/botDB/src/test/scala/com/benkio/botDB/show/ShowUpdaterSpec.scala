@@ -62,7 +62,7 @@ class ShowUpdaterSpec extends CatsEffectSuite {
     ),
     show_is_live = false,
     show_origin_automatic_caption = None,
-    show_origin_automatic_caption_srt = "{}"
+    show_origin_automatic_caption_srt = "[]"
   )
   val expectedYouTubeBotDBShowDatas = List(
     YouTubeBotDBShowDatas(

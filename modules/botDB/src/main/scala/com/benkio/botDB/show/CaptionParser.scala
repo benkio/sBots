@@ -6,13 +6,13 @@ import log.effect.LogWriter
 
 import java.nio.file.Files
 import java.nio.file.Path
-import scala.collection.immutable.SortedMap
+import scala.collection.immutable.Vector
 import scala.concurrent.duration.*
 import scala.jdk.CollectionConverters.*
 
 trait CaptionParser[F[_]] {
   def parsePlainCaptionSrt(captionPath: Path): F[Option[String]]
-  def parseCaptionSrt(captionPath: Path): F[SortedMap[FiniteDuration, String]]
+  def parseCaptionSrt(captionPath: Path): F[Vector[(FiniteDuration, String)]]
 }
 
 object CaptionParser {
@@ -59,7 +59,7 @@ object CaptionParser {
     }
 
     private def parseSrtEntries(lines: List[String]): List[(FiniteDuration, String)] =
-      splitSrtBlocks(lines).flatMap(parseSrtBlock)
+      splitSrtBlocks(lines).flatMap(parseSrtBlock).sortBy((t, _) => t)
 
     override def parsePlainCaptionSrt(captionPath: Path): F[Option[String]] = {
       val extractPlainCaption: F[Option[String]] = for {
@@ -86,23 +86,23 @@ object CaptionParser {
       )
     }
 
-    override def parseCaptionSrt(captionPath: Path): F[SortedMap[FiniteDuration, String]] = {
-      val extractSrtCaptions: F[SortedMap[FiniteDuration, String]] = for {
+    override def parseCaptionSrt(captionPath: Path): F[Vector[(FiniteDuration, String)]] = {
+      val extractSrtCaptions: F[Vector[(FiniteDuration, String)]] = for {
         lines <- Async[F].delay(Files.readAllLines(captionPath).asScala.toList)
         _     <- LogWriter.info(s"[CaptionParser] Read ${lines.length} lines from $captionPath")
         parsedEntries = parseSrtEntries(lines)
         _ <- LogWriter.info(s"[CaptionParser] Parsed ${parsedEntries.length} SRT entries from $captionPath")
-      } yield SortedMap.from(parsedEntries)
+      } yield Vector.from(parsedEntries)
 
       val program = for {
         _      <- LogWriter.info(s"[CaptionParser] Parse SRT caption file $captionPath")
         exists <- Async[F].delay(Files.exists(captionPath))
-        result <- if !exists then Async[F].pure(SortedMap.empty[FiniteDuration, String]) else extractSrtCaptions
+        result <- if !exists then Async[F].pure(Vector.empty[(FiniteDuration, String)]) else extractSrtCaptions
       } yield result
 
       program.handleErrorWith(e =>
         LogWriter.error(s"[CaptionParser] ❌ Error parsing SRT caption file $captionPath: $e") >>
-          Async[F].pure(SortedMap.empty[FiniteDuration, String])
+          Async[F].pure(Vector.empty[(FiniteDuration, String)])
       )
     }
   }

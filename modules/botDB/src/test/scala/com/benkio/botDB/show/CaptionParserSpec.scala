@@ -62,7 +62,7 @@ class CaptionParserSpec extends CatsEffectSuite {
           result <- captionParser.parseCaptionSrt(tempFile)
         } yield assertEquals(
           result,
-          Map(
+          Vector(
             0.millis    -> "Hello everyone",
             1500.millis -> "How are you today?"
           )
@@ -75,6 +75,6 @@ class CaptionParserSpec extends CatsEffectSuite {
 
     for {
       result <- captionParser.parseCaptionSrt(missingCaptionPath)
-    } yield assertEquals(result, Map.empty)
+    } yield assertEquals(result, Vector.empty)
   }
 }

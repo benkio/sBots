@@ -27,7 +27,6 @@ import com.benkio.chatcore.model.User
 import org.scalacheck.Gen
 
 import java.time.LocalDate
-import scala.collection.immutable.SortedMap
 import scala.concurrent.duration.*
 
 object Generators {
@@ -110,12 +109,14 @@ object Generators {
     isLive         <- Gen.oneOf(true, false)
     caption        <- Gen.option(Gen.alphaStr)
     timestamp      <- Gen.option(youtubeTimestampFiniteDurationGen)
-    captionEntries <- Gen.listOf(
-      for {
-        ts   <- youtubeTimestampFiniteDurationGen
-        text <- Gen.alphaStr
-      } yield ts -> text
-    )
+    captionEntries <- Gen
+      .containerOf[Vector, (FiniteDuration, String)](
+        for {
+          ts   <- youtubeTimestampFiniteDurationGen
+          text <- Gen.alphaStr
+        } yield ts -> text
+      )
+      .map(_.sortBy(_._1))
   } yield Show(
     id = id,
     botId = botId,
@@ -125,7 +126,7 @@ object Generators {
     description = description,
     isLive = isLive,
     originAutomaticCaption = caption,
-    originAutomaticCaptionSrt = SortedMap.from(captionEntries),
+    originAutomaticCaptionSrt = captionEntries,
     timestamp = timestamp
   )
 }
