@@ -29,19 +29,19 @@ jobs:
         sudo apt install yt-dlp                      # Install yt-dlp
     - name: Enable BotDB Show Fetch Configuration
       run: |
-        sed -i 's!run-show-fetching = false!run-show-fetching = true!' /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/application.conf
+        sed -i 's!run-show-fetching = false!run-show-fetching = true!' modules/botDB/src/main/resources/application.conf
     - name: Enable Caption Fetching
       if: github.event.inputs.fetchShowCaptions == 'true'
-      run: sed -i 's!run-show-caption-fetching = false!run-show-caption-fetching = true!' /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/application.conf
+      run: sed -i 's!run-show-caption-fetching = false!run-show-caption-fetching = true!' modules/botDB/src/main/resources/application.conf
     - name: Set Youtube API
-      run: printf '${{ secrets.YOUTUBE_API_KEY }}' > /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/youTubeApiKey.token
+      run: printf '${{ secrets.YOUTUBE_API_KEY }}' > modules/botDB/src/main/resources/youTubeApiKey.token
     - name: Run dbSetup
       run: sbt dbSetup
     - name: Revert Config Changes
       run: |
-        git restore /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/application.conf
-        git restore /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/youTubeApiKey.token
-        git rm /home/runner/work/sBots/sBots/botDB.sqlite3
+        git restore modules/botDB/src/main/resources/application.conf
+        git restore modules/botDB/src/main/resources/youTubeApiKey.token
+        rm -f botDB.sqlite3
     - name: Check for changes
       id: check_changes
       run: |
