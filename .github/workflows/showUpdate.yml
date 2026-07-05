@@ -41,7 +41,7 @@ jobs:
       run: |
         git restore /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/application.conf
         git restore /home/runner/work/sBots/sBots/modules/botDB/src/main/resources/youTubeApiKey.token
-        git rm /home/runner/work/sBots/sBots/modules/botDB/botDB.sqlite3
+        git rm /home/runner/work/sBots/sBots/modules/botDB.sqlite3
     - name: Check for changes
       id: check_changes
       run: |
