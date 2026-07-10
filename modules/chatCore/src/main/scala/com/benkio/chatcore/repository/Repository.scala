@@ -88,10 +88,12 @@ object Repository {
               )}"""
         )
       )
-      fis <- Resource.make(Async[F].fromTry {
-        val stream = getClass().getResourceAsStream("/" + resourceName)
-        Try(if stream == null then new FileInputStream(resourceName) else stream)
-      })(fis => Async[F].delay(fis.close()))
+      fis <- Resource.make(
+        Async[F].fromTry {
+          val stream = getClass().getResourceAsStream("/" + resourceName)
+          Try(if stream == null then new FileInputStream(resourceName) else stream)
+        }
+      )(fis => Async[F].delay(fis.close()))
       bais <- Resource.make(Async[F].delay(new ByteArrayOutputStream()))(bais => Async[F].delay(bais.close()))
     } yield (fis, bais))
       .evalMap { case (fis, bais) =>

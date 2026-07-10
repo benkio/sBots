@@ -62,10 +62,14 @@ object MediaUpdater {
     }
 
     private[media] def parseMediaJsonFiles(jsons: List[Path]): Resource[F, List[MediaFileSource]] = {
-      Resource.eval(Async[F].fromEither(jsons.flatTraverse(json => {
-        val fileContent = Source.fromFile(json.toFile()).getLines().mkString("\n")
-        decode[List[MediaFileSource]](fileContent).leftMap(e => Throwable(e.show))
-      })))
+      Resource.eval(
+        Async[F].fromEither(
+          jsons.flatTraverse(json => {
+            val fileContent = Source.fromFile(json.toFile()).getLines().mkString("\n")
+            decode[List[MediaFileSource]](fileContent).leftMap(e => Throwable(e.show))
+          })
+        )
+      )
     }
 
     private[media] def insertMedia(i: MediaFileSource) = {
