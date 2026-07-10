@@ -7690,6 +7690,49 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "vorrei vedere chi"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger": "coglione(,|\\.\\.\\.)? tra noi (due|2)",
+              "regexLength": 17
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_PiuCoglione.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_PiuCoglione.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_PiuCoglioneGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "RegexTextTriggerValue" : {
               "trigger" : "più co(gl|j)ione",
               "regexLength" : 11
@@ -53589,6 +53632,9 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue": "solo a sentire"
+          },
+          {
             "StringTextTriggerValue" : "menzion"
           },
           {
@@ -64607,7 +64653,7 @@
   {
     "trigger" : {
       "NewMemberTrigger" : {
-        
+
       }
     },
     "reply" : {
@@ -64658,7 +64704,7 @@
   {
     "trigger" : {
       "LeftMemberTrigger" : {
-        
+
       }
     },
     "reply" : {
