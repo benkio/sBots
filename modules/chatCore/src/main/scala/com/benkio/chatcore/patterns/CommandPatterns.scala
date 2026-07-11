@@ -594,7 +594,7 @@ ${ignoreMessagePrefix
       }
       handleCommandWithInput[F](
         msg = msg,
-        command = CommandKey.setTimeout.asString,
+        command = CommandKey.SetTimeout.asString,
         sBotInfo = sBotInfo,
         computation = computation,
         allowEmptyString = true,
@@ -603,18 +603,69 @@ ${ignoreMessagePrefix
       )
     }
 
-    private[patterns] def timeoutReplyBundleCommand(
+    private[patterns] def setTimeoutReplyBundleCommand(
         sBotInfo: SBotInfo
     ): ReplyBundleCommand =
       ReplyBundleCommand(
-        trigger = CommandKey.setTimeout.trigger,
+        trigger = CommandKey.SetTimeout.trigger,
         reply = EffectfulReply(
-          key = EffectfulKey.setTimeout(sBotInfo),
+          key = EffectfulKey.SetTimeout(sBotInfo),
           replyToMessage = true
         ),
         instruction = CommandInstructionData.Instructions(
           ita = setTimeoutCommandDescriptionIta,
           eng = setTimeoutCommandDescriptionEng
+        )
+      )
+  }
+
+  object GetTimeoutCommand {
+
+    private val getTimeoutCommandDescriptionIta: String =
+      "'/gettimeout': Restituisce il timeout della chat corrente"
+    private val getTimeoutCommandDescriptionEng: String =
+      "'/gettimeout': Returns the current chat timeout"
+
+    def getTimeoutLogic[F[_]: MonadThrow](
+        msg: Message,
+        dbTimeout: DBTimeout[F],
+        sBotInfo: SBotInfo,
+        ttl: Option[FiniteDuration]
+    ): F[ReplyValue] = {
+      dbTimeout
+        .getOrDefault(
+          chatId = msg.chatId.value,
+          botId = sBotInfo.botId
+        )
+        .flatMap((dbTimeoutData: DBTimeoutData) => MonadThrow[F].fromEither(Timeout(dbTimeoutData)))
+        .map((timeout: Timeout) =>
+          Text(
+            value = s"The Timeout is ${Timeout.formatTimeout(timeout)}",
+            timeToLive = ttl
+          )
+        )
+        .handleError(e =>
+          Text(
+            value =
+              s"""An error occurred when fetching the timeout. Reset the timeout with `setTimeout` and contact the bot maintainer: ${e
+                  .getMessage()}""",
+            timeToLive = ttl
+          )
+        )
+    }
+
+    private[patterns] def getTimeoutReplyBundleCommand(
+        sBotInfo: SBotInfo
+    ): ReplyBundleCommand =
+      ReplyBundleCommand(
+        trigger = CommandKey.GetTimeout.trigger,
+        reply = EffectfulReply(
+          key = EffectfulKey.GetTimeout(sBotInfo),
+          replyToMessage = true
+        ),
+        instruction = CommandInstructionData.Instructions(
+          ita = getTimeoutCommandDescriptionIta,
+          eng = getTimeoutCommandDescriptionEng
         )
       )
   }

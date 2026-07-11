@@ -37,10 +37,7 @@ object GeneralErrorHandling {
   ): F[Unit] =
     for {
       _ <- log.error(s"[Main] Exit Log: $error")
-      _ <- dbLogError[F](dbLog, error)
+      _ <- dbLog.writeLog(error)
       _ <- Async[F].delay(Files.writeString(Paths.get("log.txt"), error))
     } yield ()
-
-  private def dbLogError[F[_]](dbLog: DBLog[F], error: String): F[Unit] =
-    dbLog.writeLog(error)
 }

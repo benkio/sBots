@@ -251,12 +251,31 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
   }
 
   test("EffectfulKeyReply.sendEffectfulKey should work for settimeout") {
-    val effectfulKey = EffectfulKey.setTimeout(sBotInfo)
+    val effectfulKey = EffectfulKey.SetTimeout(sBotInfo)
 
     val result = EffectfulKeyReply
       .sendEffectfulKey[IO](
         reply = effectfulKey,
         msg = message.copy(text = Some("/settimeout")),
+        repository = repositoryMock,
+        dbLayer = dbLayer,
+        backgroundJobManager = backgroundJobManager,
+        effectfulCallbacks = Map.empty,
+        replyToMessage = false,
+        ttl = None
+      )
+      .map(messages => messages.map(_.text))
+
+    assertIO(result, List(Some("[apiMock] sendMessage reply")))
+  }
+
+  test("EffectfulKeyReply.sendEffectfulKey should work for gettimeout") {
+    val effectfulKey = EffectfulKey.GetTimeout(sBotInfo)
+
+    val result = EffectfulKeyReply
+      .sendEffectfulKey[IO](
+        reply = effectfulKey,
+        msg = message.copy(text = Some("/gettimeout")),
         repository = repositoryMock,
         dbLayer = dbLayer,
         backgroundJobManager = backgroundJobManager,

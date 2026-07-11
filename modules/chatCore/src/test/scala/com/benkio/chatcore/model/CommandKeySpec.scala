@@ -19,7 +19,8 @@ class CommandKeySpec extends CatsEffectSuite {
     assertEquals(CommandKey.fromString("unsubscribe"), Some(CommandKey.Unsubscribe))
     assertEquals(CommandKey.fromString("subscriptions"), Some(CommandKey.Subscriptions))
     assertEquals(CommandKey.fromString("toptwenty"), Some(CommandKey.TopTwenty))
-    assertEquals(CommandKey.fromString("settimeout"), Some(CommandKey.setTimeout))
+    assertEquals(CommandKey.fromString("settimeout"), Some(CommandKey.SetTimeout))
+    assertEquals(CommandKey.fromString("gettimeout"), Some(CommandKey.GetTimeout))
   }
 
   test("CommandKey.fromString should normalize leading '/', @botname, casing and whitespace") {

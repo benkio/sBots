@@ -24,7 +24,7 @@ class ITSetTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
   val msg: Message = Message(messageId = 0, date = 0, chatId = chatId, chatType = "private")
 
   databaseFixture.test(
-    "TimeoutLogic Command should return an error string if the input is not properly formatted"
+    "SetTimeoutLogic Command should return an error string if the input is not properly formatted"
   ) { fixture =>
     val wrongInput = "00:00:0F"
     val result     = for {
@@ -54,16 +54,16 @@ class ITSetTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test(
-    "TimeoutLogic Command should return a successful string and create a timeout in the db if the input is properly formatted"
+    "SetTimeoutLogic Command should return a successful string and create a timeout in the db if the input is properly formatted"
   ) { fixture =>
-    val wrongInput = "00:00:10"
-    val result     = for {
+    val input  = "00:00:10"
+    val result = for {
       dbLayer       <- fixture.resourceDBLayer
       beforeTimeout <- Resource.eval(dbLayer.dbTimeout.getOrDefault(chatId = chatIdValue, botId = botId))
       reply         <- Resource.eval(
         SetTimeoutCommand
           .setTimeoutLogic[IO](
-            msg = msg.copy(text = Some(s"/settimeout $wrongInput")),
+            msg = msg.copy(text = Some(s"/settimeout $input")),
             dbTimeout = dbLayer.dbTimeout,
             sBotInfo = sBotConfig.sBotInfo,
             ttl = sBotConfig.messageTimeToLive
@@ -99,7 +99,7 @@ class ITSetTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test(
-    "TimeoutLogic Command should remove the timeout in the db if the input is empty"
+    "SetTimeoutLogic Command should remove the timeout in the db if the input is empty"
   ) { fixture =>
     val result = for {
       dbLayer       <- fixture.resourceDBLayer
