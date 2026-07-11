@@ -8,6 +8,7 @@ import com.benkio.chatcore.model.reply.Reply.replyValues
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.patterns.CommandPatterns.GetTimeoutCommand
 import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.chatcore.patterns.CommandPatterns.MediaByKindCommand
 import com.benkio.chatcore.patterns.CommandPatterns.RandomDataCommand
@@ -134,9 +135,18 @@ object EffectfulKeyRunner {
             )
           )
       )
-    case EffectfulKey.setTimeout(sBotInfo) =>
+    case EffectfulKey.SetTimeout(sBotInfo) =>
       toReplyValue(
         SetTimeoutCommand.setTimeoutLogic(
+          msg = msg,
+          dbTimeout = dbLayer.dbTimeout,
+          sBotInfo = sBotInfo,
+          ttl = ttl
+        )
+      )
+    case EffectfulKey.GetTimeout(sBotInfo) =>
+      toReplyValue(
+        GetTimeoutCommand.getTimeoutLogic(
           msg = msg,
           dbTimeout = dbLayer.dbTimeout,
           sBotInfo = sBotInfo,

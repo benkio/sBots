@@ -88,7 +88,7 @@ class M0sconiBotSpec extends BaseBotSpec {
   )
 
   test("M0sconiBot should contain the expected number of commands") {
-    assertIO(commandRepliesData.map(_.length), 6)
+    assertIO(commandRepliesData.map(_.length), 7)
   }
 
   botJsonsAreValid(mosSBotConfig)
@@ -117,6 +117,7 @@ class M0sconiBotSpec extends BaseBotSpec {
       |- '/triggersearch 《testo》': Consente di cercare se una parola o frase fa parte di un trigger
       |- '/toptwenty': Restituisce una lista di file e il loro numero totale in invii
       |- '/settimeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00. Senza input il timeout verrà rimosso
+      |- '/gettimeout': Restituisce il timeout della chat corrente
       |
       |Se si vuole disabilitare il bot per un particolare messaggio impedendo
       |che interagisca, è possibile farlo iniziando il messaggio con il
@@ -136,6 +137,7 @@ class M0sconiBotSpec extends BaseBotSpec {
       |- '/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger
       |- '/toptwenty': Return a list of files and theirs send frequency
       |- '/settimeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00. Without input the timeout will be removed
+      |- '/gettimeout': Returns the current chat timeout
       |
       |if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix
       |character: `!`

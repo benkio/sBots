@@ -94,8 +94,8 @@ class CalandroBotSpec extends BaseBotSpec {
   test("CalandroBot should contain the expected number of commands") {
     assertIO(
       commandRepliesData.map(_.length),
-      34,
-      "CalandroBot should have 34 commands"
+      35,
+      "CalandroBot should have 35 commands"
     )
   }
 
