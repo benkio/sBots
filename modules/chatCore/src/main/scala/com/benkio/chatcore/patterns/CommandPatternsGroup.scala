@@ -39,7 +39,7 @@ object CommandPatternsGroup {
             ignoreMessagePrefix = ignoreMessagePrefix
           ),
         StatisticsCommands.topTwentyReplyBundleCommand(sBotInfo = sBotInfo),
-        TimeoutCommand.timeoutReplyBundleCommand(sBotInfo = sBotInfo)
+        SetTimeoutCommand.timeoutReplyBundleCommand(sBotInfo = sBotInfo)
       )
   }
 }

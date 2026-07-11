@@ -12,9 +12,9 @@ import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.chatcore.patterns.CommandPatterns.MediaByKindCommand
 import com.benkio.chatcore.patterns.CommandPatterns.RandomDataCommand
 import com.benkio.chatcore.patterns.CommandPatterns.SearchShowCommand
+import com.benkio.chatcore.patterns.CommandPatterns.SetTimeoutCommand
 import com.benkio.chatcore.patterns.CommandPatterns.StatisticsCommands
 import com.benkio.chatcore.patterns.CommandPatterns.SubscribeUnsubscribeCommand
-import com.benkio.chatcore.patterns.CommandPatterns.TimeoutCommand
 import com.benkio.chatcore.patterns.CommandPatterns.TriggerSearchCommand
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.BackgroundJobManager
@@ -134,9 +134,9 @@ object EffectfulKeyRunner {
             )
           )
       )
-    case EffectfulKey.Timeout(sBotInfo) =>
+    case EffectfulKey.setTimeout(sBotInfo) =>
       toReplyValue(
-        TimeoutCommand.timeoutLogic(
+        SetTimeoutCommand.setTimeoutLogic(
           msg = msg,
           dbTimeout = dbLayer.dbTimeout,
           sBotInfo = sBotInfo,

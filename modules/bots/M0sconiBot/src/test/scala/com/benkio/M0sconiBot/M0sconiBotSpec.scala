@@ -116,7 +116,7 @@ class M0sconiBotSpec extends BaseBotSpec {
       |- '/triggerlist': Restituisce un link ad un file contenente tutti i trigger a cui il bot risponderà automaticamente. Alcuni di questi sono in formato Regex
       |- '/triggersearch 《testo》': Consente di cercare se una parola o frase fa parte di un trigger
       |- '/toptwenty': Restituisce una lista di file e il loro numero totale in invii
-      |- '/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00. Senza input il timeout verrà rimosso
+      |- '/settimeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00. Senza input il timeout verrà rimosso
       |
       |Se si vuole disabilitare il bot per un particolare messaggio impedendo
       |che interagisca, è possibile farlo iniziando il messaggio con il
@@ -135,7 +135,7 @@ class M0sconiBotSpec extends BaseBotSpec {
       |- '/triggerlist': Return a link to a file containing all the triggers used by the bot. Bot will reply automatically to these ones. Some of them are Regex
       |- '/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger
       |- '/toptwenty': Return a list of files and theirs send frequency
-      |- '/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00. Without input the timeout will be removed
+      |- '/settimeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00. Without input the timeout will be removed
       |
       |if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix
       |character: `!`

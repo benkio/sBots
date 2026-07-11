@@ -14,7 +14,7 @@ enum CommandKey(val asString: String) {
   case Unsubscribe   extends CommandKey("unsubscribe")
   case Subscriptions extends CommandKey("subscriptions")
   case TopTwenty     extends CommandKey("toptwenty")
-  case Timeout       extends CommandKey("timeout")
+  case setTimeout    extends CommandKey("settimeout")
 
   def trigger: CommandTrigger = CommandTrigger(asString)
 }
