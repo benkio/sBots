@@ -94,7 +94,7 @@ enum EffectfulKey(val sBotInfo: SBotInfo) {
   case Unsubscribe(override val sBotInfo: SBotInfo)              extends EffectfulKey(sBotInfo)
   case Subscriptions(override val sBotInfo: SBotInfo)            extends EffectfulKey(sBotInfo)
   case TopTwenty(override val sBotInfo: SBotInfo, page: Int = 0) extends EffectfulKey(sBotInfo)
-  case Timeout(override val sBotInfo: SBotInfo)                  extends EffectfulKey(sBotInfo)
+  case setTimeout(override val sBotInfo: SBotInfo)               extends EffectfulKey(sBotInfo)
   case MediaByKind(key: String, override val sBotInfo: SBotInfo) extends EffectfulKey(sBotInfo)
   case Callback(key: String, override val sBotInfo: SBotInfo)    extends EffectfulKey(sBotInfo)
 }

@@ -5,7 +5,7 @@ import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
-import com.benkio.chatcore.patterns.CommandPatterns.TimeoutCommand
+import com.benkio.chatcore.patterns.CommandPatterns.SetTimeoutCommand
 import com.benkio.chatcore.repository.db.DBTimeoutData
 import com.benkio.chattelegramadapter.SBot
 import com.benkio.integration.DBFixture
@@ -13,7 +13,7 @@ import com.benkio.integrationtest.Logger.given
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import munit.CatsEffectSuite
 
-class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
+class ITSetTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
 
   val sBotConfig  = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
   val botName     = sBotConfig.sBotInfo.botName
@@ -31,9 +31,9 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
       dbLayer       <- fixture.resourceDBLayer
       beforeTimeout <- Resource.eval(dbLayer.dbTimeout.getOrDefault(chatId = chatIdValue, botId = botId))
       reply         <- Resource.eval(
-        TimeoutCommand
-          .timeoutLogic[IO](
-            msg = msg.copy(text = Some(s"/timeout $wrongInput")),
+        SetTimeoutCommand
+          .setTimeoutLogic[IO](
+            msg = msg.copy(text = Some(s"/settimeout $wrongInput")),
             dbTimeout = dbLayer.dbTimeout,
             sBotInfo = sBotConfig.sBotInfo,
             ttl = sBotConfig.messageTimeToLive
@@ -45,7 +45,9 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
       assertEquals(beforeTimeout, afterTimeout)
       assertEquals(
         reply.map(_.show),
-        Right("Timeout set failed: wrong input format for 00:00:0F, the input must be in the form '/timeout 00:00:00'")
+        Right(
+          "Timeout set failed: wrong input format for 00:00:0F, the input must be in the form '/settimeout 00:00:00'"
+        )
       )
     }
     result.use_
@@ -59,9 +61,9 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
       dbLayer       <- fixture.resourceDBLayer
       beforeTimeout <- Resource.eval(dbLayer.dbTimeout.getOrDefault(chatId = chatIdValue, botId = botId))
       reply         <- Resource.eval(
-        TimeoutCommand
-          .timeoutLogic[IO](
-            msg = msg.copy(text = Some(s"/timeout $wrongInput")),
+        SetTimeoutCommand
+          .setTimeoutLogic[IO](
+            msg = msg.copy(text = Some(s"/settimeout $wrongInput")),
             dbTimeout = dbLayer.dbTimeout,
             sBotInfo = sBotConfig.sBotInfo,
             ttl = sBotConfig.messageTimeToLive
@@ -103,9 +105,9 @@ class ITTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
       dbLayer       <- fixture.resourceDBLayer
       beforeTimeout <- Resource.eval(dbLayer.dbTimeout.getOrDefault(chatId = chatIdValue, botId = botId))
       reply         <- Resource.eval(
-        TimeoutCommand
-          .timeoutLogic[IO](
-            msg = msg.copy(text = Some("/timeout ")),
+        SetTimeoutCommand
+          .setTimeoutLogic[IO](
+            msg = msg.copy(text = Some("/settimeout ")),
             dbTimeout = dbLayer.dbTimeout,
             sBotInfo = sBotConfig.sBotInfo,
             ttl = sBotConfig.messageTimeToLive

@@ -552,14 +552,14 @@ ${ignoreMessagePrefix
 
   }
 
-  object TimeoutCommand {
+  object SetTimeoutCommand {
 
-    private val timeoutCommandDescriptionIta: String =
-      "'/timeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00. Senza input il timeout verrà rimosso"
-    private val timeoutCommandDescriptionEng: String =
-      "'/timeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00. Without input the timeout will be removed"
+    private val setTimeoutCommandDescriptionIta: String =
+      "'/settimeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00. Senza input il timeout verrà rimosso"
+    private val setTimeoutCommandDescriptionEng: String =
+      "'/settimeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00. Without input the timeout will be removed"
 
-    def timeoutLogic[F[_]: MonadThrow: LogWriter](
+    def setTimeoutLogic[F[_]: MonadThrow: LogWriter](
         msg: Message,
         dbTimeout: DBTimeout[F],
         sBotInfo: SBotInfo,
@@ -578,7 +578,7 @@ ${ignoreMessagePrefix
                 ) *>
                   Text(
                     value =
-                      s"Timeout set failed: wrong input format for $input, the input must be in the form '/timeout 00:00:00'",
+                      s"Timeout set failed: wrong input format for $input, the input must be in the form '/settimeout 00:00:00'",
                     timeToLive = ttl
                   )
                     .pure[F],
@@ -594,12 +594,12 @@ ${ignoreMessagePrefix
       }
       handleCommandWithInput[F](
         msg = msg,
-        command = CommandKey.Timeout.asString,
+        command = CommandKey.setTimeout.asString,
         sBotInfo = sBotInfo,
         computation = computation,
         allowEmptyString = true,
         ttl = ttl,
-        defaultReply = """Input Required: the input must be in the form '/timeout 00:00:00' or empty"""
+        defaultReply = """Input Required: the input must be in the form '/settimeout 00:00:00' or empty"""
       )
     }
 
@@ -607,14 +607,14 @@ ${ignoreMessagePrefix
         sBotInfo: SBotInfo
     ): ReplyBundleCommand =
       ReplyBundleCommand(
-        trigger = CommandKey.Timeout.trigger,
+        trigger = CommandKey.setTimeout.trigger,
         reply = EffectfulReply(
-          key = EffectfulKey.Timeout(sBotInfo),
+          key = EffectfulKey.setTimeout(sBotInfo),
           replyToMessage = true
         ),
         instruction = CommandInstructionData.Instructions(
-          ita = timeoutCommandDescriptionIta,
-          eng = timeoutCommandDescriptionEng
+          ita = setTimeoutCommandDescriptionIta,
+          eng = setTimeoutCommandDescriptionEng
         )
       )
   }
