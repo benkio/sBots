@@ -20,7 +20,7 @@ object Dependencies {
     val googleApiClient       = "2.9.0"
     val googleHttpClient      = "2.1.1"
     val googleOauthClient     = "1.39.0"
-    val googleYouTubeApi      = "v3-rev20260707-2.0.0"
+    val googleYouTubeApi      = "v3-rev20260709-2.0.0"
     val http4s                = "0.23.36"
     val ip4s                  = "3.8.0"
     val logEffects            = "0.19.9"
