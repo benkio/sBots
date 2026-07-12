@@ -48,8 +48,7 @@ object Pagination {
         m.copy(text = {
           val input = TelegramKeyboardTitle.toTelegramKeyboardTitle(m, commandKey).extractInput
           s"/${commandKey.asString} $input".some
-        }
-        )
+        })
       )
       _ = println(s"[Pagination] optModelMessage text: ${optModelMessage.flatMap(_.text).getOrElse("")}")
       modelMessage <- MonadThrow[F].fromOption(
