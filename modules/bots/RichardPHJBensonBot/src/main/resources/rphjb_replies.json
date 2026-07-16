@@ -4,6 +4,49 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "RegexTextTriggerValue" : {
+              "trigger" : "pi[uùú] squallida",
+              "regexLength" : 13
+            }
+          },
+          {
+            "StringTextTriggerValue" : "non ho mai sentito"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_Squallida.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_Squallida.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_SquallidaGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "simpatico"
           }
         ]
@@ -7694,8 +7737,8 @@
           },
           {
             "RegexTextTriggerValue" : {
-              "trigger": "coglione(,|\\.\\.\\.)? tra noi (due|2)",
-              "regexLength": 17
+              "trigger" : "coglione(,|\\.\\.\\.)? tra noi (due|2)",
+              "regexLength" : 17
             }
           }
         ]
@@ -46169,7 +46212,10 @@
             "StringTextTriggerValue" : "frate cionfoli"
           },
           {
-            "StringTextTriggerValue" : "papa roach"
+            "RegexTextTriggerValue" : {
+              "trigger" : "papa[ ]?roach",
+              "regexLength" : 9
+            }
           },
           {
             "RegexTextTriggerValue" : {
@@ -53632,7 +53678,7 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue": "solo a sentire"
+            "StringTextTriggerValue" : "solo a sentire"
           },
           {
             "StringTextTriggerValue" : "menzion"
@@ -64653,7 +64699,7 @@
   {
     "trigger" : {
       "NewMemberTrigger" : {
-
+        
       }
     },
     "reply" : {
@@ -64704,7 +64750,7 @@
   {
     "trigger" : {
       "LeftMemberTrigger" : {
-
+        
       }
     },
     "reply" : {
