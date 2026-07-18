@@ -44,14 +44,12 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
         )(
           mp3"rphjb_Vergogna.mp3",
           vid"rphjb_Vergogna.mp4",
-          gif"rphjb_VergognaGif.mp4",
           gif"rphjb_Vergogna2Gif.mp4"
         )
       ),
       "una vergogna!"
     ) -> """#| rphjb_Vergogna.mp3                                               | una vergogna                                                                                                                                                                               |
             #| rphjb_Vergogna.mp4                                               |                                                                                                                                                                                            |
-            #| rphjb_VergognaGif.mp4                                            |                                                                                                                                                                                            |
             #| rphjb_Vergogna2Gif.mp4                                           |                                                                                                                                                                                            |
             #|                                                                  |                                                                                                                                                                                            |
             #""".stripMargin('#'),
