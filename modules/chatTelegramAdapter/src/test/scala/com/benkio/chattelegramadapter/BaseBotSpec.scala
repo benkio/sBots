@@ -195,7 +195,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
           splitValue(0).toLowerCase -> splitValue(1).split(",").map(_.trim).toList
         })
         .toList
-      val matchingFilenames: List[List[MediaFile]] = inputTextTxtContent.map { case (input, expectedMatch) =>
+      val matchingFilenames: List[Set[MediaFile]] = inputTextTxtContent.map { case (input, expectedMatch) =>
         val exactStringMessage = ModelMessage(
           messageId = 0,
           date = 0L,
@@ -215,9 +215,9 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
       }
       matchingFilenames.zip(inputTextTxtContent).foreach { case (mediaFiles, (input, expectedFilenames)) =>
         assertEquals(
-          mediaFiles.length,
+          mediaFiles.size,
           expectedFilenames.length,
-          s"Expected same length for `$input` of expectedFilenames(${expectedFilenames.length}) and retrieved mediafiles(${mediaFiles.length})"
+          s"Expected same length for `$input` of expectedFilenames(${expectedFilenames.length}) and retrieved mediafiles(${mediaFiles.size})"
         )
         expectedFilenames.foreach { expectedFilename =>
           assert(

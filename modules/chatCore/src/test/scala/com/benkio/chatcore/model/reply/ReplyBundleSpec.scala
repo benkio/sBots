@@ -42,7 +42,7 @@ class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
         StringTextTriggerValue("stringTextTriggerValue"),
         RegexTextTriggerValue("regexTextTriggerValue".r, 19)
       ),
-      reply = MediaReply(mediaFiles = inputMediafile),
+      reply = MediaReply(mediaFiles = inputMediafile.toSet),
       matcher = MessageMatches.ContainsAll
     )
     val result: String = replyBundleInput.prettyPrint()

@@ -206,7 +206,7 @@ extension (sc: StringContext) {
   def sticker(args: Any*): Sticker = Sticker(sc.s(args*))
 }
 
-extension (values: List[String]) def toText: List[Text] = values.map(Text(_))
+extension (values: Iterable[String]) def toText: Set[Text] = values.map(Text(_)).toSet
 
 object ReplyValue {
   def from[A <: ReplyValue: ClassTag](value: ReplyValue): Option[A] =

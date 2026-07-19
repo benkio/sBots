@@ -50,9 +50,9 @@ object Reply {
       case MediaReply(mediaFiles, _) => mediaFiles.map(_.show).toList
     }
     def replyValues: Set[ReplyValue] = r match {
-      case TextReply(txt, _)         => txt
+      case TextReply(txt, _)         => txt.map(t => t: ReplyValue)
       case EffectfulReply(_, _)      => Set.empty
-      case MediaReply(mediaFiles, _) => mediaFiles
+      case MediaReply(mediaFiles, _) => mediaFiles.map(m => m: ReplyValue)
     }
   }
 }

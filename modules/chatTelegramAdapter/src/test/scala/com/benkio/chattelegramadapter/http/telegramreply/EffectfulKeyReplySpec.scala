@@ -101,7 +101,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
     val replyBundleMessages = List(
       ReplyBundleMessage(
         trigger = TextTrigger(StringTextTriggerValue("test")),
-        reply = MediaReply(List(Mp3File("test.mp3"))),
+        reply = MediaReply(Set(Mp3File("test.mp3"))),
         matcher = com.benkio.chatcore.messagefiltering.MessageMatches.ContainsOnce
       )
     )
