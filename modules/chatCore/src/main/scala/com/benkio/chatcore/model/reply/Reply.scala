@@ -45,9 +45,9 @@ object Reply {
 
   extension (r: Reply) {
     def prettyPrint: List[String] = r match {
-      case TextReply(txt, _)         => txt.map(_.show).toList
+      case TextReply(txt, _)         => txt.map(_.show).toList.sorted
       case EffectfulReply(key, _)    => List(s"Reply for `$key`")
-      case MediaReply(mediaFiles, _) => mediaFiles.map(_.show).toList
+      case MediaReply(mediaFiles, _) => mediaFiles.map(_.show).toList.sorted
     }
     def replyValues: Set[ReplyValue] = r match {
       case TextReply(txt, _)         => txt.map(t => t: ReplyValue)
