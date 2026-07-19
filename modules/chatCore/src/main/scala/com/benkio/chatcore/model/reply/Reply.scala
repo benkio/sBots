@@ -10,7 +10,7 @@ sealed trait Reply {
 }
 
 final case class TextReply(
-    text: List[Text],
+    text: Set[Text],
     replyToMessage: Boolean = false
 ) extends Reply
 
@@ -19,19 +19,19 @@ object TextReply {
       replyToMessage: Boolean
   ): TextReply =
     TextReply(
-      text = values.toList.toText,
+      text = values.toSet.toText,
       replyToMessage = replyToMessage
     )
 }
 
 final case class MediaReply(
-    mediaFiles: List[MediaFile],
+    mediaFiles: Set[MediaFile],
     replyToMessage: Boolean = false
 ) extends Reply
 
 object MediaReply {
   def fromList(mediaFiles: List[MediaFile]): MediaReply = MediaReply(
-    mediaFiles = mediaFiles
+    mediaFiles = mediaFiles.toSet
   )
 }
 
@@ -45,14 +45,14 @@ object Reply {
 
   extension (r: Reply) {
     def prettyPrint: List[String] = r match {
-      case TextReply(txt, _)         => txt.map(_.show)
+      case TextReply(txt, _)         => txt.map(_.show).toList.sorted
       case EffectfulReply(key, _)    => List(s"Reply for `$key`")
-      case MediaReply(mediaFiles, _) => mediaFiles.map(_.show)
+      case MediaReply(mediaFiles, _) => mediaFiles.map(_.show).toList.sorted
     }
-    def replyValues: List[ReplyValue] = r match {
-      case TextReply(txt, _)         => txt
-      case EffectfulReply(_, _)      => List.empty
-      case MediaReply(mediaFiles, _) => mediaFiles
+    def replyValues: Set[ReplyValue] = r match {
+      case TextReply(txt, _)         => txt.map(t => t: ReplyValue)
+      case EffectfulReply(_, _)      => Set.empty
+      case MediaReply(mediaFiles, _) => mediaFiles.map(m => m: ReplyValue)
     }
   }
 }

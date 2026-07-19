@@ -73,7 +73,7 @@ object EffectfulKeyRunner {
                 )
                 .value,
               inlineKeyboard = buildInlineKeyboard(
-                data = replyBundleMessage.reply.replyValues,
+                data = replyBundleMessage.reply.replyValues.toList,
                 page = page,
                 commandKey = CommandKey.TriggerSearch
               )

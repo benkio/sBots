@@ -228,7 +228,7 @@ Input as query string:
     ): ReplyBundleCommand =
       ReplyBundleCommand(
         trigger = CommandKey.TriggerList.trigger,
-        reply = TextReply(List(triggerListLogic(triggerFileUri)), replyToMessage = true),
+        reply = TextReply(Set(triggerListLogic(triggerFileUri)), replyToMessage = true),
         instruction = CommandInstructionData.Instructions(
           ita = triggerListCommandDescriptionIta,
           eng = triggerListCommandDescriptionEng

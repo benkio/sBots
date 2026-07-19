@@ -42,18 +42,18 @@ class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
         StringTextTriggerValue("stringTextTriggerValue"),
         RegexTextTriggerValue("regexTextTriggerValue".r, 19)
       ),
-      reply = MediaReply(mediaFiles = inputMediafile),
+      reply = MediaReply(mediaFiles = inputMediafile.toSet),
       matcher = MessageMatches.ContainsAll
     )
     val result: String = replyBundleInput.prettyPrint()
 
     val expected =
-      "| audio.mp3                                                        | stringTextTriggerValue                                                                                                                                                                     |\n" +
-        "| picture.jpg                                                      | regexTextTriggerValue                                                                                                                                                                      |\n" +
-        "| picture.png                                                      |                                                                                                                                                                                            |\n" +
-        "| aGif.mp4                                                         |                                                                                                                                                                                            |\n" +
-        "| video.mp4                                                        |                                                                                                                                                                                            |\n" +
+      "| aGif.mp4                                                         | stringTextTriggerValue                                                                                                                                                                     |\n" +
+        "| audio.mp3                                                        | regexTextTriggerValue                                                                                                                                                                      |\n" +
         "| document.pdf                                                     |                                                                                                                                                                                            |\n" +
+        "| picture.jpg                                                      |                                                                                                                                                                                            |\n" +
+        "| picture.png                                                      |                                                                                                                                                                                            |\n" +
+        "| video.mp4                                                        |                                                                                                                                                                                            |\n" +
         "|                                                                  |                                                                                                                                                                                            |\n"
     assertEquals(result, expected)
   }

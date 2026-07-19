@@ -7,9 +7,13 @@ import com.benkio.chatcore.model.reply.ReplyValue
 import scala.util.Random
 
 object RandomSelection {
-  def select[F[_]: Sync](replies: List[ReplyValue]): F[ReplyValue] =
+  def select[F[_]: Sync](replies: Iterable[ReplyValue]): F[ReplyValue] = {
     for {
       randomNumGen <- Sync[F].delay(new Random())
       randomVal    <- Sync[F].delay(randomNumGen.between(0, replies.size))
-    } yield replies(randomVal)
+    } yield replies.iterator
+      .drop(randomVal)
+      .next(
+      )
+  }
 }
