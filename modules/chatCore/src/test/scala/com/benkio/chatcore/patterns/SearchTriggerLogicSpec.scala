@@ -33,8 +33,8 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
         )
       ),
       "frocio frocio"
-    ) -> """#| rphjb_NudoFrocio.mp3                                             | fro(ci\|sh)o([ -]fro(ci\|sh)o)+                                                                                                                                                            |
-            #| rphjb_FrocioFrocio.mp4                                           |                                                                                                                                                                                            |
+    ) -> """#| rphjb_FrocioFrocio.mp4                                           | fro(ci\|sh)o([ -]fro(ci\|sh)o)+                                                                                                                                                            |
+            #| rphjb_NudoFrocio.mp3                                             |                                                                                                                                                                                            |
             #|                                                                  |                                                                                                                                                                                            |
             #""".stripMargin('#'),
     (
@@ -63,8 +63,8 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
         )
       ),
       "ostia!!!"
-    ) -> """#| mos_OrcoDioMadonnaDeDioCaneTuttoDaCapoNonVeniteDentroDistrattoDioBonoDeDio.mp3 | ostia                                                                                                                                                                        |
-            #| mos_AntonioFossoCarteColla.mp3                                   |                                                                                                                                                                                            |
+    ) -> """#| mos_AntonioFossoCarteColla.mp3                                   | ostia                                                                                                                                                                                      |
+            #| mos_OrcoDioMadonnaDeDioCaneTuttoDaCapoNonVeniteDentroDistrattoDioBonoDeDio.mp3 |                                                                                                                                                                              |
             #|                                                                  |                                                                                                                                                                                            |
             #""".stripMargin('#'),
     (
@@ -103,8 +103,8 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
         )
       ),
       "splendido miele"
-    ) -> """#| ytai_ForteProfumoMieleGif.mp4                                    | miele                                                                                                                                                                                      |
-            #| ytai_AppiccicaticcioMieleGif.mp4                                 |                                                                                                                                                                                            |
+    ) -> """#| ytai_AppiccicaticcioMieleGif.mp4                                 | miele                                                                                                                                                                                      |
+            #| ytai_ForteProfumoMieleGif.mp4                                    |                                                                                                                                                                                            |
             #|                                                                  |                                                                                                                                                                                            |
             #""".stripMargin('#'),
     (
@@ -131,8 +131,8 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
         )
       ),
       "ti tiro una sprangata"
-    ) -> """#| abar_SprangaGif.mp4                                              | spranga                                                                                                                                                                                    |
-            #| abar_ParoleLongobarde.mp4                                        |                                                                                                                                                                                            |
+    ) -> """#| abar_ParoleLongobarde.mp4                                        | spranga                                                                                                                                                                                    |
+            #| abar_SprangaGif.mp4                                              |                                                                                                                                                                                            |
             #|                                                                  |                                                                                                                                                                                            |
             #""".stripMargin('#')
   )
