@@ -7041,7 +7041,7 @@
           },
           {
             "RegexTextTriggerValue" : {
-              "trigger" : "\\bcatena\\b",
+              "trigger" : "\\b(in)?catena\\b",
               "regexLength" : 6
             }
           },
@@ -19353,10 +19353,7 @@
             "StringTextTriggerValue" : "cani piangono"
           },
           {
-            "RegexTextTriggerValue" : {
-              "trigger" : "aspett(a|ando|are)",
-              "regexLength" : 7
-            }
+            "StringTextTriggerValue" : "che si siede"
           },
           {
             "StringTextTriggerValue" : "ore e ore"
@@ -25325,7 +25322,10 @@
             }
           },
           {
-            "StringTextTriggerValue" : "(settanta |settant'|70 )anni"
+            "RegexTextTriggerValue" : {
+              "trigger": "(settanta |settant'|70 )anni",
+              "regexLength": 7
+            }
           },
           {
             "StringTextTriggerValue" : "actor studio"
@@ -62004,6 +62004,9 @@
         "triggers" : [
           {
             "StringTextTriggerValue" : "incremento del sesso"
+          },
+          {
+            "StringTextTriggerValue" : "all'incremento"
           }
         ]
       }
@@ -64152,7 +64155,7 @@
   {
     "trigger" : {
       "NewMemberTrigger" : {
-        
+
       }
     },
     "reply" : {
@@ -64203,7 +64206,7 @@
   {
     "trigger" : {
       "LeftMemberTrigger" : {
-        
+
       }
     },
     "reply" : {
