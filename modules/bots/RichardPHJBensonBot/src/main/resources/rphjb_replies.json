@@ -17199,6 +17199,12 @@
         "triggers" : [
           {
             "StringTextTriggerValue" : "brescia"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger": "brescia m[ei] piace",
+              "regexLength": 16
+            }
           }
         ]
       }
@@ -64245,7 +64251,7 @@
   {
     "trigger" : {
       "NewMemberTrigger" : {
-        
+
       }
     },
     "reply" : {
@@ -64296,7 +64302,7 @@
   {
     "trigger" : {
       "LeftMemberTrigger" : {
-        
+
       }
     },
     "reply" : {
