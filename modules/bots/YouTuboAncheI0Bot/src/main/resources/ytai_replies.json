@@ -4,6 +4,37 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "coda così lunga"
+          },
+          {
+            "StringTextTriggerValue" : "credete che io abbia"
+          },
+          {
+            "StringTextTriggerValue" : "un po' di meno"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "ytai_CodaLungaGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "ginevra"
           }
         ]
@@ -921,6 +952,9 @@
           },
           {
             "StringTextTriggerValue" : "🥕"
+          },
+          {
+            "StringTextTriggerValue" : "🫢"
           }
         ]
       }
@@ -11620,6 +11654,12 @@
           {
             "GifFile" : {
               "filepath" : "ytai_CremosoGuardateSquisitezzaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "ytai_CodaLungaGif.mp4",
               "replyToMessage" : false
             }
           },
