@@ -11,6 +11,7 @@ import io.circe.syntax.*
 import munit.FunSuite
 import munit.ScalaCheckEffectSuite
 import org.http4s.syntax.all.uri
+import org.scalacheck.Gen
 import org.scalacheck.Prop.forAll
 
 import java.time.Instant
@@ -178,6 +179,19 @@ class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
         case document: Document   => assertEquals(ReplyValue.from[Document](replyValue), Some(document))
         case sticker: Sticker     => assertEquals(ReplyValue.from[Sticker](replyValue), Some(sticker))
       }
+    }
+  }
+
+  test("MediaFile.fromString maps known extensions to the expected ADT") {
+    forAll(Gen.alphaNumStr) { (prefix: String) =>
+      assert(MediaFile.fromString(s"$prefix.mp3").isInstanceOf[Mp3File])
+      assert(MediaFile.fromString(s"$prefix.jpg").isInstanceOf[PhotoFile])
+      assert(MediaFile.fromString(s"$prefix.png").isInstanceOf[PhotoFile])
+      assert(MediaFile.fromString(s"${prefix}Gif.mp4").isInstanceOf[GifFile])
+      assert(MediaFile.fromString(s"$prefix.sticker").isInstanceOf[Sticker])
+      val videoName = if prefix.toLowerCase.endsWith("gif") then s"x$prefix.mp4" else s"$prefix.mp4"
+      assert(MediaFile.fromString(videoName).isInstanceOf[VideoFile])
+      assert(MediaFile.fromString(s"$prefix.bin").isInstanceOf[Document])
     }
   }
 }

@@ -1,19 +1,17 @@
 package com.benkio.chattelegramadapter
 
+import com.benkio.chatcore.model.reply.ReplyValue
+import com.benkio.chattelegramadapter.model.CallbackData
+import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
+import org.scalacheck.Gen
+import telegramium.bots.Chat
+import telegramium.bots.InaccessibleMessage
+import telegramium.bots.InlineKeyboardButton
+import telegramium.bots.InlineKeyboardMarkup
 import telegramium.bots.MaybeInaccessibleMessage
+import telegramium.bots.Message as TelegramMessage
 
-object Generators {
-  import com.benkio.chatcore.model.reply.ReplyValue
-  import com.benkio.chatcore.model.CommandKey
-  import com.benkio.chatcore.Generators.mediaFileGen
-  import com.benkio.chatcore.Generators.textGen
-  import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
-  import org.scalacheck.Gen
-  import telegramium.bots.Chat
-  import telegramium.bots.InaccessibleMessage
-  import telegramium.bots.InlineKeyboardButton
-  import telegramium.bots.InlineKeyboardMarkup
-  import telegramium.bots.Message as TelegramMessage
+trait Generators extends com.benkio.chatcore.Generators {
 
   val telegramChatGen: Gen[Chat] = for {
     id       <- Gen.long
@@ -65,5 +63,25 @@ object Generators {
 
   val telegramReplyValueGen: Gen[ReplyValue] = Gen.oneOf(textGen, mediaFileGen, telegramInlineKeyboardGen)
 
-  val commandKeyGen: Gen[CommandKey] = Gen.oneOf(CommandKey.values.toSeq)
+  /** Media payloads that do not parse as pagination keys (`previousPage|nextPage-CommandKey-Int`). */
+  val mediaCallbackPayloadGen: Gen[String] =
+    Gen.alphaNumStr.suchThat(s =>
+      s.nonEmpty &&
+        !s.startsWith("previousPage-") &&
+        !s.startsWith("nextPage-")
+    )
+
+  val callbackDataGen: Gen[CallbackData] = Gen.oneOf(
+    for {
+      page <- Gen.choose(0, 100)
+      key  <- commandKeyGen
+    } yield CallbackData.PreviousPage(page, key),
+    for {
+      page <- Gen.choose(0, 100)
+      key  <- commandKeyGen
+    } yield CallbackData.NextPage(page, key),
+    mediaCallbackPayloadGen.map(CallbackData.Media.apply)
+  )
 }
+
+object Generators extends Generators

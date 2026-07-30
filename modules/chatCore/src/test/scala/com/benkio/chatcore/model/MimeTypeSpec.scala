@@ -1,43 +1,30 @@
 package com.benkio.chatcore.model
 
-import munit.FunSuite
+import com.benkio.chatcore.Arbitraries.given
+import com.benkio.chatcore.Generators.mediaNameForMimeGen
+import munit.ScalaCheckSuite
+import org.scalacheck.Arbitrary.arbitrary
+import org.scalacheck.Gen
+import org.scalacheck.Prop.*
 
-class MimeTypeSpec extends FunSuite {
+class MimeTypeSpec extends ScalaCheckSuite {
 
-  test("mimeTypeOrDefault should parse explicit known mime type") {
-    assertEquals(
-      MimeTypeOps.mimeTypeOrDefault("file.txt", Some("audio/mpeg")),
-      MimeType.MPEG
-    )
+  property("explicit known mime type wins over filename") {
+    forAll(arbitrary[MimeType], Gen.alphaNumStr) { (mime: MimeType, name: String) =>
+      assertEquals(MimeTypeOps.mimeTypeOrDefault(name, Some(mime.value)), mime)
+    }
   }
 
-  test("mimeTypeOrDefault should infer mime type from media extension") {
-    assertEquals(
-      MimeTypeOps.mimeTypeOrDefault("photo.jpg", None),
-      MimeType.JPEG
-    )
-    assertEquals(
-      MimeTypeOps.mimeTypeOrDefault("animation.gif.mp4", None),
-      MimeType.GIF
-    )
-    assertEquals(
-      MimeTypeOps.mimeTypeOrDefault("video.mp4", None),
-      MimeType.MP4
-    )
-    assertEquals(
-      MimeTypeOps.mimeTypeOrDefault("audio.mp3", None),
-      MimeType.MPEG
-    )
+  property("filename extension infers mime type when mime is absent") {
+    forAll(mediaNameForMimeGen) { case (name, expected) =>
+      assertEquals(MimeTypeOps.mimeTypeOrDefault(name, None), expected)
+    }
   }
 
-  test("mimeTypeOrDefault should fallback to DOC when unrecognized") {
-    assertEquals(
-      MimeTypeOps.mimeTypeOrDefault("unknown.abc", Some("invalid/type")),
-      MimeType.DOC
-    )
-    assertEquals(
-      MimeTypeOps.mimeTypeOrDefault("unknown", None),
-      MimeType.DOC
-    )
+  property("unrecognized mime and extension fall back to DOC") {
+    forAll(Gen.alphaNumStr.map(_ + ".abc")) { (name: String) =>
+      assertEquals(MimeTypeOps.mimeTypeOrDefault(name, Some("invalid/type")), MimeType.DOC)
+      assertEquals(MimeTypeOps.mimeTypeOrDefault(name, None), MimeType.DOC)
+    }
   }
 }

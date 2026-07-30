@@ -5,9 +5,7 @@ import com.benkio.chatcore.messagefiltering.getContent
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Trigger
-import com.benkio.chatcore.Arbitraries.given
-import com.benkio.chatcore.Generators.messageGen
-import com.benkio.chattelegramadapter.Generators.commandKeyGen
+import com.benkio.chattelegramadapter.Arbitraries.given
 import munit.ScalaCheckSuite
 import org.scalacheck.Prop.*
 
@@ -26,7 +24,7 @@ class TelegramKeyboardTitleSpec extends ScalaCheckSuite {
   }
 
   property("toTelegramKeyboardTitle should return a Search title only for TriggerSearch commands") {
-    forAll(commandKeyGen, messageGen) { (commandKey, message) =>
+    forAll { (commandKey: CommandKey, message: Message) =>
       val content = message.getContent.getOrElse("")
       val result  = TelegramKeyboardTitle.toTelegramKeyboardTitle(message, commandKey)
 

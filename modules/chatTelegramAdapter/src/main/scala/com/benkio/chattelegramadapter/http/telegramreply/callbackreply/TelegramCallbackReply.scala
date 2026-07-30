@@ -16,6 +16,10 @@ import scala.concurrent.duration.FiniteDuration
 
 object TelegramCallbackReply {
 
+  private[callbackreply] def nextPage(currentPage: Int): Int = currentPage + 1
+
+  private[callbackreply] def previousPage(currentPage: Int): Int = (currentPage - 1).max(0)
+
   def reply[F[_]: Async: LogWriter: Api](
       msg: MaybeInaccessibleMessage,
       callbackData: CallbackData,
@@ -29,7 +33,7 @@ object TelegramCallbackReply {
     case CallbackData.NextPage(currentPage, commandKey) =>
       Pagination.reply(
         msg = msg,
-        newPage = currentPage + 1,
+        newPage = nextPage(currentPage),
         commandKey = commandKey,
         allCommandRepliesData = allCommandRepliesData,
         backgroundJobManager = backgroundJobManager,
@@ -40,7 +44,7 @@ object TelegramCallbackReply {
     case CallbackData.PreviousPage(currentPage, commandKey) =>
       Pagination.reply(
         msg = msg,
-        newPage = (currentPage - 1).max(0),
+        newPage = previousPage(currentPage),
         commandKey = commandKey,
         allCommandRepliesData = allCommandRepliesData,
         backgroundJobManager = backgroundJobManager,

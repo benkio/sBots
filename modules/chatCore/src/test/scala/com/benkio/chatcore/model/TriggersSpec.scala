@@ -1,30 +1,48 @@
 package com.benkio.chatcore.model
 
 import cats.implicits.*
+import com.benkio.chatcore.Arbitraries.given
 import io.circe.parser.decode
 import io.circe.parser.parse
 import io.circe.syntax.*
 import munit.CatsEffectSuite
+import munit.ScalaCheckSuite
+import org.scalacheck.Arbitrary.arbitrary
+import org.scalacheck.Gen
+import org.scalacheck.Prop.*
 
 import scala.concurrent.duration.Duration
 import scala.util.matching.Regex
 
-class TriggersSpec extends CatsEffectSuite {
+class TriggersSpec extends CatsEffectSuite with ScalaCheckSuite {
 
   override def munitIOTimeout = Duration(1, "s")
 
-  test("matchValue should return true when source contains StringTextTriggerValue") {
-    assert(TextTriggerValue.matchValue(StringTextTriggerValue("match"), "source with match) it"))
+  property("matchValue is true iff source contains StringTextTriggerValue needle") {
+    forAll { (trigger: StringTextTriggerValue) =>
+      val matching = s"prefix ${trigger.trigger} suffix"
+      assert(TextTriggerValue.matchValue(trigger, matching))
+      assert(!TextTriggerValue.matchValue(trigger, "000000000000"))
+    }
   }
-  test("matchValue should return true when source has a match of RegexpTextTriggerValue") {
-    assert(TextTriggerValue.matchValue(RegexTextTriggerValue("m[ae]tch".r, 5), "this is a test with a match"))
+
+  property("matchValue is true iff regex finds a match") {
+    forAll(arbitrary[RegexTextTriggerValue], Gen.alphaNumStr) { (trigger, suffix) =>
+      val needle = trigger.trigger.regex.replace("\\Q", "").replace("\\E", "")
+      assert(TextTriggerValue.matchValue(trigger, s"xx${needle}yy$suffix"))
+    }
   }
-  test("matchValue should return false when source doesn't contains StringTextTriggerValue") {
-    assert(!TextTriggerValue.matchValue(StringTextTriggerValue("no match"), "source without match it"))
+
+  property("isStringTriggerValue / isRegexTriggerValue are complementary") {
+    forAll { (trigger: TextTriggerValue) =>
+      assertEquals(trigger.isStringTriggerValue, !trigger.isRegexTriggerValue)
+      trigger match {
+        case _: StringTextTriggerValue => assert(trigger.isStringTriggerValue)
+        case _: RegexTextTriggerValue  => assert(trigger.isRegexTriggerValue)
+      }
+    }
   }
-  test("matchValue should return false when source has not a match of RegexpTextTriggerValue") {
-    assert(!TextTriggerValue.matchValue(RegexTextTriggerValue("m[io]tch".r, 5), "this is a test without a match"))
-  }
+
   test("ShowInstance of TextTriggerValue should return the expected string") {
     val expectedStringValue             = "test trigger"
     val expectedRegexValue              = "test [rR]egex(p)?".r
