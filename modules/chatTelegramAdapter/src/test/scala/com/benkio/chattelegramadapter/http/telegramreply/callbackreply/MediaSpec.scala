@@ -1,7 +1,7 @@
 package com.benkio.chattelegramadapter.http.telegramreply.callbackreply
 
-import com.benkio.chattelegramadapter.Arbitraries.given
 import com.benkio.chattelegramadapter.model.TelegramMessageIds
+import com.benkio.chattelegramadapter.Arbitraries.given
 import munit.ScalaCheckSuite
 import org.scalacheck.Prop.*
 import telegramium.bots.MaybeInaccessibleMessage

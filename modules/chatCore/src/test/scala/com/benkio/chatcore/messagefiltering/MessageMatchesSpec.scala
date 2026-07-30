@@ -70,7 +70,7 @@ class MessageMatchesSpec extends ScalaCheckSuite {
 
   property("ContainsOnce matches when at least one string trigger is contained") {
     forAll { (trigger: StringTextTriggerValue) =>
-      val b = bundle(TextTrigger(trigger), MessageMatches.ContainsOnce)
+      val b        = bundle(TextTrigger(trigger), MessageMatches.ContainsOnce)
       val matching =
         Message(0, 0L, ChatId(0L), "private", text = Some(s"xx${trigger.trigger}yy"))
       val missing = Message(0, 0L, ChatId(0L), "private", text = Some("000000000000"))

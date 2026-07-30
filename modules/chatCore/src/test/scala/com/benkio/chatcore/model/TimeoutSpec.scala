@@ -1,8 +1,8 @@
 package com.benkio.chatcore.model
 
+import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.Arbitraries.given
 import com.benkio.chatcore.Generators.timeoutHhMmSsGen
-import com.benkio.chatcore.model.SBotInfo.SBotId
 import munit.ScalaCheckSuite
 import org.scalacheck.Arbitrary.arbitrary
 import org.scalacheck.Gen

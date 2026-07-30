@@ -68,10 +68,10 @@ object Pagination {
       ttl: Option[FiniteDuration]
   ): F[Unit] =
     for {
-      _ <- LogWriter.info(s"[Pagination.reply] Reply to callback for page $newPage")
-      _ <- LogWriter.info(s"[Pagination.reply] Get Command Reply Data from CommandKey: $commandKey")
+      _                 <- LogWriter.info(s"[Pagination.reply] Reply to callback for page $newPage")
+      _                 <- LogWriter.info(s"[Pagination.reply] Get Command Reply Data from CommandKey: $commandKey")
       paginationContext <- MonadThrow[F].fromEither(
-        prepare(msg, commandKey, allCommandRepliesData)
+        prepare(msg = msg, commandKey = commandKey, allCommandRepliesData = allCommandRepliesData)
       )
       _          <- LogWriter.info(s"[Pagination.reply] Run Reply: ${paginationContext.commandReply.reply}")
       replyValue <- ComputeReply.runReply(

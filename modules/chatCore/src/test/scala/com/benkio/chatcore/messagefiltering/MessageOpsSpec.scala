@@ -1,10 +1,10 @@
 package com.benkio.chatcore.messagefiltering
 
-import com.benkio.chatcore.Arbitraries.given
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageType
 import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.Arbitraries.given
 import munit.ScalaCheckSuite
 import org.scalacheck.Arbitrary.arbitrary
 import org.scalacheck.Gen

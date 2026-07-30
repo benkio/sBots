@@ -42,7 +42,7 @@ object LogTelegramChat {
       Methods
         .sendMessage(
           chatId = chatSupportGroupId,
-          text = formatErrorText(msg, mediaFile, e)
+          text = formatErrorText(msg = msg, mediaFile = mediaFile, error = e)
         )
         .exec
         .void

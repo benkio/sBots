@@ -1,7 +1,7 @@
 package com.benkio.chatcore.messagefiltering
 
-import com.benkio.chatcore.Arbitraries.given
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.Arbitraries.given
 import munit.ScalaCheckSuite
 import org.scalacheck.Prop.*
 
