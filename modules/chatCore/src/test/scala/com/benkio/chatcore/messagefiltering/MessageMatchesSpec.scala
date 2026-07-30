@@ -1,347 +1,134 @@
 package com.benkio.chatcore.messagefiltering
 
-import com.benkio.chatcore.messagefiltering.MessageMatches
-import com.benkio.chatcore.model.reply.GifFile
-import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.MediaReply
 import com.benkio.chatcore.model.reply.Mp3File
-import com.benkio.chatcore.model.reply.PhotoFile
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
-import com.benkio.chatcore.model.reply.VideoFile
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.LeftMemberTrigger
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageLengthTrigger
 import com.benkio.chatcore.model.NewMemberTrigger
-import com.benkio.chatcore.model.RegexTextTriggerValue
 import com.benkio.chatcore.model.StringTextTriggerValue
 import com.benkio.chatcore.model.TextTrigger
-import com.benkio.chatcore.model.Trigger
+import com.benkio.chatcore.Arbitraries.given
 import io.circe.parser.decode
 import io.circe.syntax.*
-import munit.FunSuite
+import munit.ScalaCheckSuite
+import org.scalacheck.Arbitrary.arbitrary
+import org.scalacheck.Gen
+import org.scalacheck.Prop.*
 
-class MessageMatchesSpec extends FunSuite {
+class MessageMatchesSpec extends ScalaCheckSuite {
 
-  val inputMediafile: List[MediaFile] = List(
-    Mp3File("audio.mp3"),
-    PhotoFile("picture.jpg"),
-    PhotoFile("picture.png"),
-    VideoFile("video.mp4"),
-    GifFile("aGif.mp4")
-  )
+  private val ignorePrefix = "!"
 
-  val replyBundleInput: ReplyBundleMessage = ReplyBundleMessage(
-    trigger = TextTrigger(
-      StringTextTriggerValue("test"),
-      StringTextTriggerValue("some other long trigger"),
-      RegexTextTriggerValue("test regex with (optional|maybe)? values".r, 23)
-    ),
-    reply = MediaReply(mediaFiles = inputMediafile.toSet),
-    matcher = MessageMatches.ContainsOnce
-  )
-
-  val ignoreMessagePrefix: Some[String] = Some("!")
-
-  test("doesMatch should return None when the message text starts with the ignoreMessagePrefix") {
-    val matchingMessageText = "!messageIgnored test"
-    val testMessage         =
-      Message(0, date = 0, chatId = ChatId(0), chatType = "private", text = Some(matchingMessageText))
-
-    val result = MessageMatches.doesMatch(replyBundleInput, testMessage, ignoreMessagePrefix)
-
-    assert(result.isEmpty)
-  }
-  test("doesMatch should return None when the message caption starts with the ignoreMessagePrefix") {
-    val matchingMessageText = "!messageIgnored test"
-    val testMessage         =
-      Message(0, date = 0, chatId = ChatId(0), chatType = "private", caption = Some(matchingMessageText))
-
-    val result = MessageMatches.doesMatch(replyBundleInput, testMessage, ignoreMessagePrefix)
-
-    assert(result.isEmpty)
-  }
-  test("doasMatch should return None when the input text is shorter then what specified in MessageLengthTrigger") {
-    val replyBundleInputLength = replyBundleInput.copy(
-      trigger = MessageLengthTrigger(10)
+  private def bundle(
+      trigger: com.benkio.chatcore.model.MessageTrigger,
+      matcher: MessageMatches = MessageMatches.ContainsOnce
+  ): ReplyBundleMessage =
+    ReplyBundleMessage(
+      trigger = trigger,
+      reply = MediaReply(Set(Mp3File("audio.mp3"))),
+      matcher = matcher
     )
-    val matchingMessageText = "shortText"
-    val testMessage         =
-      Message(0, date = 0, chatId = ChatId(0), chatType = "private", text = Some(matchingMessageText))
-    val result = MessageMatches.doesMatch(replyBundleInputLength, testMessage, ignoreMessagePrefix)
 
-    assert(result.isEmpty)
+  property("doesMatch returns None when text or caption starts with ignore prefix") {
+    forAll(arbitrary[Message], Gen.alphaStr) { (base: Message, body: String) =>
+      val ignoredText = base.copy(text = Some(ignorePrefix + body), caption = None)
+      val ignoredCap  = base.copy(text = None, caption = Some(ignorePrefix + body))
+      val b           = bundle(TextTrigger(StringTextTriggerValue("x")))
+      assert(MessageMatches.doesMatch(b, ignoredText, Some(ignorePrefix)).isEmpty)
+      assert(MessageMatches.doesMatch(b, ignoredCap, Some(ignorePrefix)).isEmpty)
+    }
   }
-  test("doesMatch should return None when the input text does not contain(ContainsOnce) the trigger") {
-    val matchingMessageText = "text"
-    val testMessage         =
-      Message(0, date = 0, chatId = ChatId(0), chatType = "private", text = Some(matchingMessageText))
-    val result = MessageMatches.doesMatch(replyBundleInput, testMessage, ignoreMessagePrefix)
 
-    assert(result.isEmpty)
+  property("MessageLengthTrigger matches iff content length >= threshold") {
+    forAll(Gen.choose(0, 50), Gen.alphaStr) { (threshold: Int, content: String) =>
+      val b   = bundle(MessageLengthTrigger(threshold))
+      val msg = Message(0, 0L, ChatId(0L), "private", text = Some(content))
+      val got = MessageMatches.doesMatch(b, msg, None)
+      if content.size >= threshold then assert(got.isDefined)
+      else assert(got.isEmpty)
+    }
   }
-  test("doesMatch should return None when the input text does not contain(MessageMatches.ContainsAll) the triggers") {
-    val replyBundleInputLength = replyBundleInput.copy(
-      trigger = TextTrigger(
+
+  property("NewMemberTrigger matches iff newChatMembers is nonEmpty") {
+    forAll { (msg: Message) =>
+      val b   = bundle(NewMemberTrigger)
+      val got = MessageMatches.doesMatch(b, msg, None)
+      assertEquals(got.isDefined, msg.newChatMembers.nonEmpty)
+    }
+  }
+
+  property("LeftMemberTrigger matches iff leftChatMember is defined") {
+    forAll { (msg: Message) =>
+      val b   = bundle(LeftMemberTrigger)
+      val got = MessageMatches.doesMatch(b, msg, None)
+      assertEquals(got.isDefined, msg.leftChatMember.nonEmpty)
+    }
+  }
+
+  property("ContainsOnce matches when at least one string trigger is contained") {
+    forAll { (trigger: StringTextTriggerValue) =>
+      val b = bundle(TextTrigger(trigger), MessageMatches.ContainsOnce)
+      val matching =
+        Message(0, 0L, ChatId(0L), "private", text = Some(s"xx${trigger.trigger}yy"))
+      val missing = Message(0, 0L, ChatId(0L), "private", text = Some("000000000000"))
+      assert(MessageMatches.doesMatch(b, matching, None).isDefined)
+      assert(MessageMatches.doesMatch(b, missing, None).isEmpty)
+    }
+  }
+
+  property("ContainsAll matches iff every string trigger is contained") {
+    forAll(
+      Gen
+        .choose(1, 4)
+        .flatMap(n =>
+          Gen
+            .listOfN(n, Gen.listOfN(5, Gen.alphaLowerChar).map(_.mkString))
+            .map(_.distinct)
+            .suchThat(_.size == n)
+        )
+    ) { (needles: List[String]) =>
+      val triggers = needles.map(StringTextTriggerValue.apply)
+      val b        = bundle(TextTrigger(triggers*), MessageMatches.ContainsAll)
+      val matching =
+        Message(0, 0L, ChatId(0L), "private", text = Some(needles.mkString(" ")))
+      assert(MessageMatches.doesMatch(b, matching, None).isDefined)
+      if needles.size > 1 then {
+        val missingOne =
+          Message(0, 0L, ChatId(0L), "private", text = Some(needles.dropRight(1).mkString(" ")))
+        assert(MessageMatches.doesMatch(b, missingOne, None).isEmpty)
+      }
+    }
+  }
+
+  // Golden case: longest ContainsOnce trigger wins
+  test("ContainsOnce prefers the longest matching string trigger") {
+    val b = bundle(
+      TextTrigger(
         StringTextTriggerValue("test"),
-        StringTextTriggerValue("missing")
-      ),
-      matcher = MessageMatches.ContainsAll
-    )
-    val matchingMessageText = "test shortText"
-    val testMessage         =
-      Message(0, date = 0, chatId = ChatId(0), chatType = "private", text = Some(matchingMessageText))
-    val result = MessageMatches.doesMatch(replyBundleInputLength, testMessage, ignoreMessagePrefix)
-
-    assert(result.isEmpty)
-  }
-  test("doesMatch should return None when the input caption does not contain(ContainsOnce) the trigger") {
-    val matchingMessageText = "text"
-    val testMessage         =
-      Message(0, date = 0, chatId = ChatId(0), chatType = "private", caption = Some(matchingMessageText))
-    val result = MessageMatches.doesMatch(replyBundleInput, testMessage, ignoreMessagePrefix)
-
-    assert(result.isEmpty)
-  }
-  test(
-    "doesMatch should return None when the input caption does not contain(MessageMatches.ContainsAll) the triggers"
-  ) {
-    val replyBundleInputLength = replyBundleInput.copy(
-      trigger = TextTrigger(
-        StringTextTriggerValue("test"),
-        StringTextTriggerValue("missing")
-      ),
-      matcher = MessageMatches.ContainsAll
-    )
-    val matchingMessageText = "test shortText"
-    val testMessage         =
-      Message(0, date = 0, chatId = ChatId(0), chatType = "private", caption = Some(matchingMessageText))
-    val result = MessageMatches.doesMatch(replyBundleInputLength, testMessage, ignoreMessagePrefix)
-
-    assert(result.isEmpty)
-  }
-  test("doesMatch should return None when the input message contains empty list of new members in NewMemberTrigger") {
-    val replyBundleInputNewMembers = replyBundleInput.copy(
-      trigger = NewMemberTrigger
-    )
-    val testMessage =
-      Message(0, date = 0, chatId = ChatId(0), chatType = "private", text = None, newChatMembers = List.empty)
-
-    val result = MessageMatches.doesMatch(replyBundleInputNewMembers, testMessage, ignoreMessagePrefix)
-    assert(result.isEmpty)
-  }
-  test("doesMatch should return None when the input message contains No left member in LeftMemberTrigger") {
-    val replyBundleInputLeaveMembers = replyBundleInput.copy(
-      trigger = LeftMemberTrigger
-    )
-    val testMessage =
-      Message(0, date = 0, chatId = ChatId(0), chatType = "private", text = None, leftChatMember = None)
-
-    val result = MessageMatches.doesMatch(replyBundleInputLeaveMembers, testMessage, ignoreMessagePrefix)
-    assert(result.isEmpty)
-  }
-
-  test(
-    "doesMatch should return Some(trigger, replyMessageBundle) when the input text is longer then what specified in MessageLengthTrigger"
-  ) {
-    val replyBundleInputLength = replyBundleInput.copy(
-      trigger = MessageLengthTrigger(10)
-    )
-    val matchingMessageText = "longerMessage"
-    val testMessage         =
-      Message(0, date = 0, chatId = ChatId(0), chatType = "private", text = Some(matchingMessageText))
-    val result = MessageMatches.doesMatch(replyBundleInputLength, testMessage, ignoreMessagePrefix)
-    val expected: Option[(Trigger, ReplyBundleMessage)] = Some(MessageLengthTrigger(10), replyBundleInputLength)
-
-    assertEquals(result, expected)
-  }
-  test(
-    "doesMatch should return Some(trigger, replyMessageBundle) when the input text does contain(ContainsOnce) the trigger"
-  ) {
-    val matchingMessageText = "test text"
-    val testMessage         =
-      Message(0, date = 0, chatId = ChatId(0), chatType = "private", text = Some(matchingMessageText))
-    val result = MessageMatches.doesMatch(replyBundleInput, testMessage, ignoreMessagePrefix)
-    val expected: Option[(Trigger, ReplyBundleMessage)] =
-      Some(TextTrigger(StringTextTriggerValue("test")), replyBundleInput)
-
-    assertEquals(result, expected)
-  }
-  test(
-    "doesMatch should return Some(longestTrigger, replyMessageBundle) when the input text does contain(ContainsOnce) the trigger"
-  ) {
-    val matchingMessageText = "message matching twice, the short trigger and some other long trigger in test text"
-    val testMessage         =
-      Message(0, date = 0, chatId = ChatId(0), chatType = "private", text = Some(matchingMessageText))
-    val result = MessageMatches.doesMatch(replyBundleInput, testMessage, ignoreMessagePrefix)
-    val expected: Option[(Trigger, ReplyBundleMessage)] =
-      Some(TextTrigger(StringTextTriggerValue("some other long trigger")), replyBundleInput)
-
-    assertEquals(result, expected)
-  }
-  test(
-    "doesMatch should return Some(longestTrigger, replyMessageBundle) when the input text does contain(MessageMatches.ContainsAll) the triggers"
-  ) {
-    val replyBundleInputLength = replyBundleInput.copy(
-      trigger = TextTrigger(
-        StringTextTriggerValue("test"),
-        StringTextTriggerValue("missing")
-      ),
-      matcher = MessageMatches.ContainsAll
-    )
-    val matchingMessageText = "test shortText is not missing"
-    val testMessage         =
-      Message(0, date = 0, chatId = ChatId(0), chatType = "private", text = Some(matchingMessageText))
-    val result = MessageMatches.doesMatch(replyBundleInputLength, testMessage, ignoreMessagePrefix)
-    val expected: Option[(Trigger, ReplyBundleMessage)] =
-      Some(
-        TextTrigger(
-          StringTextTriggerValue("missing"),
-          StringTextTriggerValue("test")
-        ),
-        replyBundleInputLength
+        StringTextTriggerValue("some other long trigger")
       )
-
-    assertEquals(result, expected)
-  }
-  test(
-    "doesMatch should return Some(trigger, replyMessageBundle) when the input caption does contain(ContainsOnce) the trigger"
-  ) {
-    val matchingMessageText = "test text"
-    val testMessage         =
-      Message(0, date = 0, chatId = ChatId(0), chatType = "private", caption = Some(matchingMessageText))
-    val result = MessageMatches.doesMatch(replyBundleInput, testMessage, ignoreMessagePrefix)
-    val expected: Option[(Trigger, ReplyBundleMessage)] =
-      Some(TextTrigger(StringTextTriggerValue("test")), replyBundleInput)
-
-    assertEquals(result, expected)
-  }
-  test(
-    "doesMatch should return Some(longestTrigger, replyMessageBundle) when the input caption does contain(ContainsOnce) the trigger"
-  ) {
-    val matchingMessageText = "message matching twice, the short trigger and some other long trigger in test text"
-    val testMessage         =
-      Message(0, date = 0, chatId = ChatId(0), chatType = "private", caption = Some(matchingMessageText))
-    val result = MessageMatches.doesMatch(replyBundleInput, testMessage, ignoreMessagePrefix)
-    val expected: Option[(Trigger, ReplyBundleMessage)] =
-      Some(TextTrigger(StringTextTriggerValue("some other long trigger")), replyBundleInput)
-
-    assertEquals(result, expected)
-  }
-  test(
-    "doesMatch should return Some(longestTrigger, replyMessageBundle) when the input caption does contain(MessageMatches.ContainsAll) the triggers"
-  ) {
-    val replyBundleInputLength = replyBundleInput.copy(
-      trigger = TextTrigger(
-        StringTextTriggerValue("test"),
-        StringTextTriggerValue("missing")
-      ),
-      matcher = MessageMatches.ContainsAll
     )
-    val matchingMessageText = "test shortText is not missing"
-    val testMessage         =
-      Message(0, date = 0, chatId = ChatId(0), chatType = "private", caption = Some(matchingMessageText))
-    val result = MessageMatches.doesMatch(replyBundleInputLength, testMessage, ignoreMessagePrefix)
-    val expected: Option[(Trigger, ReplyBundleMessage)] =
-      Some(
-        TextTrigger(
-          StringTextTriggerValue("missing"),
-          StringTextTriggerValue("test")
-        ),
-        replyBundleInputLength
-      )
-
-    assertEquals(result, expected)
-  }
-  test(
-    "doesMatch should return Some(NewMemberTrigger, replyMessageBundle) when the input message contains non empty list of new members in NewMemberTrigger"
-  ) {
-    val replyBundleInputNewMembers = replyBundleInput.copy(
-      trigger = NewMemberTrigger
-    )
-
-    val testMessage = Message(
-      messageId = 67715,
-      date = 1653503377,
-      chatId = ChatId(-444726279),
-      chatType = "group",
-      newChatMembers = List(com.benkio.chatcore.model.User(id = 87680068, isBot = false, firstName = "Silvio"))
-    )
-    val expected: Option[(Trigger, ReplyBundleMessage)] = Some(NewMemberTrigger, replyBundleInputNewMembers)
-
-    val result = MessageMatches.doesMatch(replyBundleInputNewMembers, testMessage, ignoreMessagePrefix)
-    assertEquals(result, expected)
-  }
-  test(
-    "doesMatch should return Some(LeftMemberTrigger, replyMessageBundle) when the input message contains non empty list of left members in LeftMemberTrigger"
-  ) {
-    val replyBundleInputLeaveMembers = replyBundleInput.copy(
-      trigger = LeftMemberTrigger
-    )
-
-    val testMessage = Message(
-      messageId = 67715,
-      date = 1653503377,
-      chatId = ChatId(-444726279),
-      chatType = "group",
-      leftChatMember = Some(com.benkio.chatcore.model.User(id = 87680068, isBot = false, firstName = "Silvio"))
-    )
-    val expected: Option[(Trigger, ReplyBundleMessage)] = Some(LeftMemberTrigger, replyBundleInputLeaveMembers)
-
-    val result = MessageMatches.doesMatch(replyBundleInputLeaveMembers, testMessage, ignoreMessagePrefix)
-    assertEquals(result, expected)
-  }
-
-  test(
-    "doesMatch should return Some(trigger, replyMessageBundle) when the input text does contain(ContainsOnce) the trigger and caption doensn't match"
-  ) {
-    val matchingMessageText    = "test text"
-    val nonMatchingMessageText = "text"
-    val testMessage            = Message(
+    val msg = Message(
       0,
-      date = 0,
-      chatId = ChatId(0),
-      chatType = "private",
-      text = Some(matchingMessageText),
-      caption = Some(nonMatchingMessageText)
+      0L,
+      ChatId(0L),
+      "private",
+      text = Some("message matching twice, the short trigger and some other long trigger in test text")
     )
-    val result = MessageMatches.doesMatch(replyBundleInput, testMessage, ignoreMessagePrefix)
-    val expected: Option[(Trigger, ReplyBundleMessage)] =
-      Some(TextTrigger(StringTextTriggerValue("test")), replyBundleInput)
-
-    assertEquals(result, expected)
+    val result = MessageMatches.doesMatch(b, msg, Some(ignorePrefix))
+    assertEquals(result.map(_._1), Some(TextTrigger(StringTextTriggerValue("some other long trigger"))))
   }
 
-  test(
-    "doesMatch should return Some(trigger, replyMessageBundle) when the input text does contain(ContainsOnce) the trigger and caption as well"
-  ) {
-    val matchingMessageText = "test text"
-    val testMessage         = Message(
-      0,
-      date = 0,
-      chatId = ChatId(0),
-      chatType = "private",
-      text = Some(matchingMessageText),
-      caption = Some(matchingMessageText)
-    )
-    val result = MessageMatches.doesMatch(replyBundleInput, testMessage, ignoreMessagePrefix)
-    val expected: Option[(Trigger, ReplyBundleMessage)] =
-      Some(TextTrigger(StringTextTriggerValue("test")), replyBundleInput)
-
-    assertEquals(result, expected)
-  }
-  test("MessageMatches JSON Decoder/Encoder should works as expected") {
-    val jsonInputs = List(
-      """"ContainsOnce"""",
-      """"ContainsAll""""
-    )
-
-    for inputString <- jsonInputs
-    yield {
-      val eitherMessageTrigger = decode[MessageMatches](inputString)
-      eitherMessageTrigger.fold(
-        e => fail("failed in parsing the input string as message matches", e),
-        ms => assertEquals(ms.asJson.toString, inputString)
+  test("MessageMatches JSON decode/encode should work as expected") {
+    val jsonInputs = List(""""ContainsOnce"""", """"ContainsAll"""")
+    for inputString <- jsonInputs yield {
+      val eitherMessageMatches = decode[MessageMatches](inputString)
+      eitherMessageMatches.fold(
+        e => fail("failed in parsing the input string as MessageMatches", e),
+        mm => assertEquals(mm.asJson.toString, inputString)
       )
     }
   }

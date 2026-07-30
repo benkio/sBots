@@ -1,10 +1,13 @@
 package com.benkio.chatcore
 
+import com.benkio.chatcore.messagefiltering.MessageMatches
 import com.benkio.chatcore.model.reply.Document
 import com.benkio.chatcore.model.reply.GifFile
 import com.benkio.chatcore.model.reply.MediaFile
+import com.benkio.chatcore.model.reply.MediaReply
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.PhotoFile
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.ReplyValueCore
 import com.benkio.chatcore.model.reply.Sticker
@@ -17,7 +20,10 @@ import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.LeftMemberTrigger
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageLengthTrigger
+import com.benkio.chatcore.model.MessageTrigger
+import com.benkio.chatcore.model.MimeType
 import com.benkio.chatcore.model.NewMemberTrigger
+import com.benkio.chatcore.model.RegexTextTriggerValue
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.StringTextTriggerValue
 import com.benkio.chatcore.model.TextTrigger
@@ -29,9 +35,20 @@ import org.scalacheck.Gen
 import java.time.LocalDate
 import scala.concurrent.duration.*
 
-object Generators {
+trait Generators {
 
   val commandKeyGen: Gen[CommandKey] = Gen.oneOf(CommandKey.values.toSeq)
+
+  val commandInputGen: Gen[(CommandKey, String)] = for {
+    key        <- commandKeyGen
+    withSlash  <- Gen.oneOf(true, false)
+    withAtBot  <- Gen.oneOf(true, false)
+    botSuffix  <- Gen.alphaNumStr.suchThat(_.nonEmpty)
+    leadingWs  <- Gen.oneOf("", " ", "  ")
+    trailingWs <- Gen.oneOf("", " ", "  ")
+    cased      <- Gen.oneOf(key.asString, key.asString.toUpperCase, key.asString.capitalize)
+    base = (if withSlash then "/" else "") + cased + (if withAtBot then s"@$botSuffix" else "")
+  } yield key -> (leadingWs + base + trailingWs)
 
   val textTypeGen: Gen[Text.TextType] = Gen.oneOf(Text.TextType.values.toSeq)
   val textGen: Gen[Text]              = for {
@@ -63,8 +80,33 @@ object Generators {
     firstName <- Gen.alphaStr
   } yield User(id, isBot, firstName)
 
-  val triggerValueGen: Gen[TextTriggerValue] = Gen.alphaStr.map(StringTextTriggerValue.apply)
-  val triggerGen: Gen[Trigger]               = Gen.oneOf(
+  val stringTextTriggerValueGen: Gen[StringTextTriggerValue] =
+    Gen
+      .choose(3, 12)
+      .flatMap(n => Gen.listOfN(n, Gen.alphaLowerChar).map(_.mkString))
+      .map(StringTextTriggerValue.apply)
+
+  val regexTextTriggerValueGen: Gen[RegexTextTriggerValue] = for {
+    needle <- Gen
+      .choose(3, 12)
+      .flatMap(n => Gen.listOfN(n, Gen.alphaLowerChar).map(_.mkString))
+    regex = ("\\Q" + needle + "\\E").r
+  } yield RegexTextTriggerValue(regex, needle.length)
+
+  val triggerValueGen: Gen[TextTriggerValue] =
+    Gen.oneOf(stringTextTriggerValueGen, regexTextTriggerValueGen)
+
+  val textTriggerGen: Gen[TextTrigger] =
+    Gen.nonEmptyListOf(triggerValueGen).map(vs => TextTrigger(vs*))
+
+  val messageTriggerGen: Gen[MessageTrigger] = Gen.oneOf(
+    textTriggerGen,
+    Gen.choose(0, 200).map(MessageLengthTrigger.apply),
+    Gen.const(NewMemberTrigger),
+    Gen.const(LeftMemberTrigger)
+  )
+
+  val triggerGen: Gen[Trigger] = Gen.oneOf(
     triggerValueGen.map(tv => TextTrigger(tv)),
     Gen.choose(0, 200).map(MessageLengthTrigger.apply),
     Gen.asciiPrintableStr.map(CommandTrigger.apply),
@@ -129,4 +171,43 @@ object Generators {
     originAutomaticCaptionSrt = captionEntries,
     timestamp = timestamp
   )
+
+  val messageMatchesGen: Gen[MessageMatches] =
+    Gen.oneOf(MessageMatches.ContainsOnce, MessageMatches.ContainsAll)
+
+  val replyBundleMessageGen: Gen[ReplyBundleMessage] = for {
+    trigger <- messageTriggerGen
+    media   <- Gen.nonEmptyListOf(mediaFileGen)
+    matcher <- messageMatchesGen
+  } yield ReplyBundleMessage(
+    trigger = trigger,
+    reply = MediaReply(mediaFiles = media.toSet),
+    matcher = matcher
+  )
+
+  val timeoutHhMmSsGen: Gen[(String, FiniteDuration)] = for {
+    hours   <- Gen.choose(0, 23)
+    minutes <- Gen.choose(0, 59)
+    seconds <- Gen.choose(0, 59)
+    formatted =
+      f"$hours%02d:$minutes%02d:$seconds%02d"
+    duration = hours.hours + minutes.minutes + seconds.seconds
+  } yield formatted -> duration
+
+  val mimeTypeGen: Gen[MimeType] = Gen.oneOf(MimeType.values.toSeq)
+
+  val mediaNameForMimeGen: Gen[(String, MimeType)] = Gen.oneOf(
+    Gen.alphaNumStr.map(s => (s"$s.gif", MimeType.GIF)),
+    Gen.alphaNumStr.map(s => (s"$s.jpg", MimeType.JPEG)),
+    Gen.alphaNumStr.map(s => (s"$s.png", MimeType.PNG)),
+    Gen.alphaNumStr.map(s => (s"$s.mp3", MimeType.MPEG)),
+    Gen.alphaNumStr.map(s => (s"${s}gif.mp4", MimeType.GIF)),
+    Gen.alphaNumStr.suchThat(s => !s.toLowerCase.endsWith("gif")).map(s => (s"$s.mp4", MimeType.MP4))
+  )
+
+  val sBotIdGen: Gen[SBotId] =
+    Gen.alphaNumStr.suchThat(_.nonEmpty).map(SBotId(_))
+
 }
+
+object Generators extends Generators

@@ -1,42 +1,31 @@
 package com.benkio.chatcore.model
 
-import munit.CatsEffectSuite
+import com.benkio.chatcore.Arbitraries.given
+import com.benkio.chatcore.Generators.commandInputGen
+import munit.ScalaCheckSuite
+import org.scalacheck.Prop.*
 
-class CommandKeySpec extends CatsEffectSuite {
+class CommandKeySpec extends ScalaCheckSuite {
 
-  test("CommandKey.asString should be unique") {
+  property("asString values are unique") {
     val values = CommandKey.values.toList.map(_.asString)
     assertEquals(values.distinct.size, values.size)
   }
 
-  test("CommandKey.fromString should parse canonical command strings") {
-    assertEquals(CommandKey.fromString("random"), Some(CommandKey.Random))
-    assertEquals(CommandKey.fromString("searchshow"), Some(CommandKey.SearchShow))
-    assertEquals(CommandKey.fromString("triggerlist"), Some(CommandKey.TriggerList))
-    assertEquals(CommandKey.fromString("triggersearch"), Some(CommandKey.TriggerSearch))
-    assertEquals(CommandKey.fromString("instructions"), Some(CommandKey.Instructions))
-    assertEquals(CommandKey.fromString("subscribe"), Some(CommandKey.Subscribe))
-    assertEquals(CommandKey.fromString("unsubscribe"), Some(CommandKey.Unsubscribe))
-    assertEquals(CommandKey.fromString("subscriptions"), Some(CommandKey.Subscriptions))
-    assertEquals(CommandKey.fromString("toptwenty"), Some(CommandKey.TopTwenty))
-    assertEquals(CommandKey.fromString("settimeout"), Some(CommandKey.SetTimeout))
-    assertEquals(CommandKey.fromString("gettimeout"), Some(CommandKey.GetTimeout))
+  property("fromString round-trips canonical asString") {
+    forAll { (key: CommandKey) =>
+      assertEquals(CommandKey.fromString(key.asString), Some(key))
+      assertEquals(CommandKey.toStringValue(key), key.asString)
+    }
   }
 
-  test("CommandKey.fromString should normalize leading '/', @botname, casing and whitespace") {
-    assertEquals(CommandKey.fromString("/random"), Some(CommandKey.Random))
-    assertEquals(CommandKey.fromString("/random@SomeBot"), Some(CommandKey.Random))
-    assertEquals(CommandKey.fromString("random@SomeBot"), Some(CommandKey.Random))
-    assertEquals(CommandKey.fromString("   /RaNdOm@SomeBot   "), Some(CommandKey.Random))
+  property("fromString accepts slash, @bot, casing and whitespace wrappers") {
+    forAll(commandInputGen) { case (key, input) =>
+      assertEquals(CommandKey.fromString(input), Some(key))
+    }
   }
 
-  test("CommandKey.toStringValue should return the canonical string") {
-    assertEquals(CommandKey.toStringValue(CommandKey.Random), "random")
-    assertEquals(CommandKey.toStringValue(CommandKey.TriggerSearch), "triggersearch")
-  }
-
-  test("CommandKey.commandTriggers should contain the triggers for all known command keys") {
-    val expected = CommandKey.values.toList.map(_.trigger)
-    assertEquals(CommandKey.commandTriggers, expected)
+  property("commandTriggers lists a trigger for every command key") {
+    assertEquals(CommandKey.commandTriggers, CommandKey.values.toList.map(_.trigger))
   }
 }

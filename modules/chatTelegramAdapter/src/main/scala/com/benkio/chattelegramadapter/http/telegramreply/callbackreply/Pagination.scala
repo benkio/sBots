@@ -24,7 +24,38 @@ import telegramium.bots.MaybeInaccessibleMessage
 
 import scala.concurrent.duration.FiniteDuration
 
+private[callbackreply] final case class PaginationContext(
+    telegramMessageIds: TelegramMessageIds,
+    commandReply: ReplyBundleCommand,
+    modelMessage: ModelMessage
+)
+
 object Pagination {
+
+  private[callbackreply] def commandMessageText(commandKey: CommandKey, input: String): String =
+    s"/${commandKey.asString} $input"
+
+  private[callbackreply] def prepare(
+      msg: MaybeInaccessibleMessage,
+      commandKey: CommandKey,
+      allCommandRepliesData: List[ReplyBundleCommand]
+  ): Either[Throwable, PaginationContext] = for {
+    commandReply <- ReplyBundleCommand
+      .from(commandKey, allCommandRepliesData)
+      .toRight(new Throwable(s"[Pagination.reply] Command reply not found for commandKey: $commandKey"))
+    modelMessage <- msg.toModelMessage
+      .map(m =>
+        m.copy(text = {
+          val input = TelegramKeyboardTitle.toTelegramKeyboardTitle(m, commandKey).extractInput
+          commandMessageText(commandKey, input).some
+        })
+      )
+      .toRight(new Throwable("[Pagination.reply] Unknown message type for pagination callback"))
+  } yield PaginationContext(
+    telegramMessageIds = TelegramMessageIds.getIds(msg),
+    commandReply = commandReply,
+    modelMessage = modelMessage
+  )
 
   def reply[F[_]: Async: LogWriter: Api](
       msg: MaybeInaccessibleMessage,
@@ -35,30 +66,17 @@ object Pagination {
       effectfulCallbacks: Map[String, ModelMessage => F[ReplyValue]],
       dbLayer: DBLayer[F],
       ttl: Option[FiniteDuration]
-  ): F[Unit] = {
-    val telegramMessageIds = TelegramMessageIds.getIds(msg)
+  ): F[Unit] =
     for {
-      _                <- LogWriter.info(s"[Pagination.reply] Reply to callback for page $newPage")
-      _                <- LogWriter.info(s"[Pagination.reply] Get Command Reply Data from CommandKey: $commandKey")
-      commandReplyData <- MonadThrow[F].fromOption(
-        ReplyBundleCommand.from(commandKey, allCommandRepliesData),
-        new Throwable(s"[Pagination.reply] Command reply not found for commandKey: $commandKey")
+      _ <- LogWriter.info(s"[Pagination.reply] Reply to callback for page $newPage")
+      _ <- LogWriter.info(s"[Pagination.reply] Get Command Reply Data from CommandKey: $commandKey")
+      paginationContext <- MonadThrow[F].fromEither(
+        prepare(msg, commandKey, allCommandRepliesData)
       )
-      optModelMessage = msg.toModelMessage.map(m =>
-        m.copy(text = {
-          val input = TelegramKeyboardTitle.toTelegramKeyboardTitle(m, commandKey).extractInput
-          s"/${commandKey.asString} $input".some
-        })
-      )
-      _ = println(s"[Pagination] optModelMessage text: ${optModelMessage.flatMap(_.text).getOrElse("")}")
-      modelMessage <- MonadThrow[F].fromOption(
-        optModelMessage,
-        new Throwable("[Pagination.reply] Unknown message type for pagination callback")
-      )
-      _          <- LogWriter.info(s"[Pagination.reply] Run Reply: ${commandReplyData.reply}")
+      _          <- LogWriter.info(s"[Pagination.reply] Run Reply: ${paginationContext.commandReply.reply}")
       replyValue <- ComputeReply.runReply(
-        reply = commandReplyData.reply,
-        msg = modelMessage,
+        reply = paginationContext.commandReply.reply,
+        msg = paginationContext.modelMessage,
         backgroundJobManager = backgroundJobManager,
         dbLayer = dbLayer,
         effectfulCallbacks = effectfulCallbacks,
@@ -72,14 +90,13 @@ object Pagination {
       _ <- LogWriter.info("[Pagination.reply] Edit Markup Message")
       _ <- Methods
         .editMessageReplyMarkup(
-          chatId = Some(ChatIntId(telegramMessageIds.chatId)),
-          messageId = Some(telegramMessageIds.messageId),
+          chatId = Some(ChatIntId(paginationContext.telegramMessageIds.chatId)),
+          messageId = Some(paginationContext.telegramMessageIds.messageId),
           replyMarkup = Some(
             telegramReplyValue.inlineKeyboard
           )
         )
         .exec
     } yield ()
-  }
 
 }

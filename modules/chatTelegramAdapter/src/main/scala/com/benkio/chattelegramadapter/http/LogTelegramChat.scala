@@ -20,6 +20,17 @@ object LogTelegramChat {
 
   val chatSupportGroupId: ChatIntId = ChatIntId(id = -4145546019L)
 
+  private[http] def formatErrorText(msg: Message, mediaFile: MediaFile, error: Throwable): String =
+    s"""An Error Occurred for
+       | - message Text: ${msg.text}
+       | - message Caption: ${msg.caption}
+       | - mediaFile: $mediaFile
+       | - error: ${error.getMessage()}
+       |""".stripMargin
+
+  private[http] def formatInfoText(msg: String, sBotInfo: SBotInfo): String =
+    s"[${sBotInfo.botName}] $msg"
+
   def sendError[F[_]: Async](
       msg: Message,
       mediaFile: MediaFile,
@@ -31,12 +42,7 @@ object LogTelegramChat {
       Methods
         .sendMessage(
           chatId = chatSupportGroupId,
-          text = s"""An Error Occurred for
-                    | - message Text: ${msg.text}
-                    | - message Caption: ${msg.caption}
-                    | - mediaFile: $mediaFile
-                    | - error: ${e.getMessage()}
-                    |""".stripMargin
+          text = formatErrorText(msg, mediaFile, e)
         )
         .exec
         .void
@@ -49,7 +55,7 @@ object LogTelegramChat {
     Methods
       .sendMessage(
         chatId = chatSupportGroupId,
-        text = s"[${sBotInfo.botName}] $msg"
+        text = formatInfoText(msg, sBotInfo)
       )
       .exec
       .void

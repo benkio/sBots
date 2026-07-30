@@ -1,41 +1,64 @@
 package com.benkio.chatcore.model
 
+import com.benkio.chatcore.Arbitraries.given
+import com.benkio.chatcore.Generators.timeoutHhMmSsGen
 import com.benkio.chatcore.model.SBotInfo.SBotId
-import munit.*
+import munit.ScalaCheckSuite
+import org.scalacheck.Arbitrary.arbitrary
+import org.scalacheck.Gen
+import org.scalacheck.Prop.*
 
 import java.time.Instant
 import scala.concurrent.duration.*
 
-class TimeoutSpec extends FunSuite {
-  test("Timeout.isExpired should return true when the timeout is expired") {
-    val timeout = Timeout(ChatId(1L), SBotId("botId"), 10.millis, Instant.now())
-    Thread.sleep(20)
-    assert(Timeout.isExpired(timeout))
+class TimeoutSpec extends ScalaCheckSuite {
+
+  property("timeStringToDuration parses HH:MM:SS") {
+    forAll(timeoutHhMmSsGen) { case (formatted, expected) =>
+      assertEquals(Timeout.timeStringToDuration(formatted), expected)
+    }
   }
-  test("Timeout.isExpired should return false when the timeout is not expired") {
-    val timeout = Timeout(ChatId(1L), SBotId("botId"), 1000.millis, Instant.now())
-    assert(!Timeout.isExpired(timeout))
+
+  property("Timeout.apply(chatId, botId, string) succeeds for valid HH:MM:SS") {
+    forAll(timeoutHhMmSsGen, arbitrary[SBotId]) { case ((formatted, expected), botId) =>
+      val actual = Timeout(ChatId(1L), botId, formatted)
+      assert(actual.isRight)
+      assertEquals(actual.toOption.get.timeoutValue, expected)
+      assertEquals(actual.toOption.get.chatId.value, 1L)
+      assertEquals(actual.toOption.get.botId, botId)
+    }
   }
-  test("Timeout.defaultTimeout should return the expected defaultTimeout") {
-    val botId  = SBotId("botId")
-    val actual = Timeout(ChatId(1L), botId)
-    assertEquals(actual.chatId.value, 1L)
-    assertEquals(actual.botId, botId)
-    assertEquals(actual.timeoutValue, 0.millis)
+
+  property("Timeout.apply(chatId, botId, string) fails for invalid input") {
+    forAll(Gen.alphaStr.suchThat(s => s.isEmpty || !s.matches("\\d{2}:\\d{2}:\\d{2}"))) { (invalid: String) =>
+      assert(Timeout(ChatId(1L), SBotId("botId"), invalid).isLeft)
+    }
   }
-  test("Timeout.apply should return the expected timeout when the input is correct") {
-    val timeout = "00:00:04"
-    val actual  = Timeout(ChatId(1L), SBotId("botId"), timeout)
-    assert(actual.isRight)
-    assertEquals(actual.toOption.get.chatId.value, 1L)
-    assertEquals(actual.toOption.get.timeoutValue, 4000.millis)
+
+  property("default Timeout has zero duration") {
+    forAll { (botId: SBotId) =>
+      val actual = Timeout(ChatId(1L), botId)
+      assertEquals(actual.timeoutValue, 0.millis)
+      assertEquals(actual.botId, botId)
+    }
   }
-  test("Timeout.apply should return None when the input is incorrect") {
-    val timeout = "00:00:0a"
-    val actual  = Timeout(ChatId(1L), SBotId("botId"), timeout)
-    assert(actual.isLeft)
+
+  property("isExpired is true when lastInteraction is older than timeoutValue") {
+    forAll(Gen.choose(1L, 10_000L)) { (timeoutMs: Long) =>
+      val timeout = Timeout(
+        ChatId(1L),
+        SBotId("botId"),
+        timeoutMs.millis,
+        Instant.now().minusMillis(timeoutMs + 50)
+      )
+      assert(Timeout.isExpired(timeout))
+    }
   }
-  test("Timeout.timeStringToDuration return the expected duration if the input is in format hh:mm:ss") {
-    assertEquals(Timeout.timeStringToDuration("20:32:45"), 73965.seconds)
+
+  property("isExpired is false when lastInteraction is recent relative to timeoutValue") {
+    forAll(Gen.choose(1_000L, 60_000L)) { (timeoutMs: Long) =>
+      val timeout = Timeout(ChatId(1L), SBotId("botId"), timeoutMs.millis, Instant.now())
+      assert(!Timeout.isExpired(timeout))
+    }
   }
 }
