@@ -9,7 +9,6 @@ import com.benkio.chatcore.Logger.given
 import munit.CatsEffectSuite
 import org.http4s.ember.client.*
 import org.http4s.Uri
-import org.http4s.syntax.literals.*
 
 import java.nio.file.Files
 
@@ -29,7 +28,7 @@ class MegaClientSpec extends CatsEffectSuite {
     val result = for {
       server     <- MegaServerMock.build(expected)
       megaClient <- buildMegaClient(server.baseUri / "cs")
-      file       <- megaClient.fetchFile(filename, uri"https://mega.nz/file/LDxATYLQ#dummyKey")
+      file       <- megaClient.fetchFile(filename, Uri.unsafeFromString(MegaServerMock.testMegaLink))
     } yield file
 
     result.use(f =>
@@ -46,7 +45,7 @@ class MegaClientSpec extends CatsEffectSuite {
     val result = for {
       server     <- MegaServerMock.buildInvalidApiResponse("{}")
       megaClient <- buildMegaClient(server.baseUri / "cs")
-      file       <- megaClient.fetchFile(filename, uri"https://mega.nz/file/LDxATYLQ#dummyKey")
+      file       <- megaClient.fetchFile(filename, Uri.unsafeFromString(MegaServerMock.testMegaLink))
     } yield file
 
     interceptIO[InvalidMegaApiResponse](result.use_)

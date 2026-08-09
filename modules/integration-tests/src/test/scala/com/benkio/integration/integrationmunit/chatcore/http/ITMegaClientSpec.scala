@@ -19,15 +19,13 @@ class ITMegaClientSpec extends CatsEffectSuite with DBFixture {
     val result = for {
       megaClient <- fixture.megaClientResource
       files      <- input.parTraverse { case (url, filename) => megaClient.fetchFile(filename, url) }
-      fileBytes = files.map((path: Path) => Files.readAllBytes(path))
-      isNotHtml = fileBytes.forall(bytes => !String(bytes.take(64)).toLowerCase.contains("<!doctype html"))
-      hasData   = fileBytes.forall(bytes => bytes.length > 1000)
-      _ = {
-        val outputPath = Path.of("/Users/benkio/temp/testFile.mp3")
-        Files.createDirectories(outputPath.getParent)
-        fileBytes.headOption.foreach(bytes => Files.write(outputPath, bytes))
-      }
-    } yield isNotHtml && hasData
+      fileBytes       = files.map((path: Path) => Files.readAllBytes(path))
+      isNotHtml       = fileBytes.forall(bytes => !String(bytes.take(64)).toLowerCase.contains("<!doctype html"))
+      hasData         = fileBytes.forall(bytes => bytes.length > 1000)
+      hasMp3Id3Header = fileBytes.forall(bytes =>
+        bytes.length >= 3 && bytes(0) == 'I'.toByte && bytes(1) == 'D'.toByte && bytes(2) == '3'.toByte
+      )
+    } yield isNotHtml && hasData && hasMp3Id3Header
 
     result.use(IO.pure).assert
   }

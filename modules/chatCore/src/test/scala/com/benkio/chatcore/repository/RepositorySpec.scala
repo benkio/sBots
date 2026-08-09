@@ -168,8 +168,8 @@ class DBRepositorySpec extends CatsEffectSuite {
       fullDBLayer.dbMedia,
       clients
     )
-    val botId: SBotId                        = SBotId("bot")
-    val check: IO[Boolean]                   = dbRepository
+    val botId: SBotId      = SBotId("bot")
+    val check: IO[Boolean] = dbRepository
       .getResourcesByKind(criteria = "testkind", botId = botId)
       .flatMap(result =>
         result match {

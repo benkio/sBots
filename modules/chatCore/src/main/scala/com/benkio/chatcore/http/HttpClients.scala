@@ -18,9 +18,9 @@ object HttpClients {
 
   def expectedClient(uri: Uri): ExpectedClient =
     uri.host match {
-      case Some(host) if host.value.contains("mega.nz") => ExpectedClient.Mega
+      case Some(host) if host.value.contains("mega.nz")     => ExpectedClient.Mega
       case Some(host) if host.value.contains("dropbox.com") => ExpectedClient.Dropbox
-      case _ =>
+      case _                                                =>
         throw new IllegalArgumentException(s"Not supported client for uri: $uri")
     }
 

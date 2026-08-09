@@ -120,7 +120,7 @@ object BotSetup {
         dropboxClient = dropboxClient,
         megaClient = megaClient
       )
-      dbLayer       <- loadDB[F](config.db)
+      dbLayer <- loadDB[F](config.db)
       repository = DBRepository.dbResources[F](dbLayer.dbMedia, clients)
       _                     <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Delete webook..."))
       deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
