@@ -68,7 +68,10 @@ addCommandAlias(
   "RichardPHJBensonBot/runMain com.benkio.RichardPHJBensonBot.RichardPHJBensonBotMainDataEntry"
 )
 addCommandAlias("pinoAddData", "PinoScottoBot/runMain com.benkio.PinoScottoBot.PinoScottoBotMainDataEntry")
-addCommandAlias("orlAddData", "Alessandro0rlandoBot/runMain com.benkio.Alessandro0rlandoBot.Alessandro0rlandoBotMainDataEntry")
+addCommandAlias(
+  "orlAddData",
+  "Alessandro0rlandoBot/runMain com.benkio.Alessandro0rlandoBot.Alessandro0rlandoBotMainDataEntry"
+)
 
 // PROJECTS
 
@@ -146,10 +149,10 @@ lazy val PinoScottoBot =
     .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
 
 lazy val Alessandro0rlandoBot =
-Project("Alessandro0rlandoBot", file("modules/bots/Alessandro0rlandoBot"))
-  .settings(Settings.settings *)
-  .settings(Settings.botProjectSettings("Alessandro0rlandoBot") *)
-  .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
+  Project("Alessandro0rlandoBot", file("modules/bots/Alessandro0rlandoBot"))
+    .settings(Settings.settings *)
+    .settings(Settings.botProjectSettings("Alessandro0rlandoBot") *)
+    .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
 
 lazy val main = project
   .in(file("modules/main"))
