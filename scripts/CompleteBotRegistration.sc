@@ -11,8 +11,9 @@
   *   - modules/main/.../BotsRegistry.scala: adds import and BotRegistryEntry (no commandEffectfulCallback)
   *   - modules/main/src/main/resources/application.conf: adds the new bot db block (main.<id>.db)
   *   - .github/workflows/healthcheck.yml: adds the new bot token to BOT_TOKENS
+  *   - .github/workflows/deploy.yml: adds the new bot token file injection during assembly
   *   - scripts/copyTokensFromDropbox.sh: adds the new bot to the list
-  * (newBot does not edit main application.conf or healthcheck; only this script does.)
+  * (newBot does not edit main application.conf or healthcheck; this script does.)
   */
 
 import java.nio.file.Path
@@ -71,7 +72,7 @@ lazy val $botName =
 Project("$botName", file("modules/bots/$botName"))
   .settings(Settings.settings *)
   .settings(Settings.botProjectSettings("$botName") *)
-  .dependsOn(chatCore % "compile->compile;test->test")
+  .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
 """
   val mainAnchor = "\nlazy val main = project"
   val idx        = newBuild.indexOf(mainAnchor)
@@ -104,15 +105,17 @@ if registryContent.contains(s"$pkg.$botName") then {
   // Add BotRegistryEntry at end of list (simple entry, no commandEffectfulCallback)
   val entryLine = s"BotRegistryEntry[IO](sBotInfo = $botName.sBotInfo)"
   if !newRegistry.contains(s"sBotInfo = $botName.sBotInfo") then {
-    // Insert before List closing: "      )\n    )\n  )" (last entry + List + BotRegistry)
-    val listClosing = "      )\n    )\n  )"
-    newRegistry = newRegistry.replace(
-      listClosing,
-      s"      ),\n      $entryLine\n    )\n  )"
-    )
-    if newRegistry == registryContent then {
+    // Insert before List closing in a robust way regardless of the last entry shape.
+    val listClosing = "\n    )\n  )"
+    val closeIdx    = newRegistry.lastIndexOf(listClosing)
+    if closeIdx == -1 then {
       println("Could not find insertion point in BotsRegistry.scala")
       sys.exit(1)
+    } else {
+      val before      = newRegistry.substring(0, closeIdx).stripSuffix("\n")
+      val after       = newRegistry.substring(closeIdx)
+      val trailingSep = if before.trim.endsWith(",") then "" else ","
+      newRegistry = s"$before$trailingSep\n      $entryLine$after"
     }
   }
   write(botsRegistry, newRegistry)
@@ -125,10 +128,9 @@ if java.nio.file.Files.isRegularFile(mainAppConf) then {
   var mainConfContent = read(mainAppConf)
   if mainConfContent.contains(s"main.$id.") then println(s"main application.conf already contains $id, skipping.")
   else {
-    val idUpper    = id.toUpperCase
-    val dbNameLine = "      db-name = " + "$" + "{?" + idUpper + "_DB_NAME}"
-    val urlLine    = s"""      url = "jdbc:sqlite:"$${main.$id.db.db-name}"""
-    val urlEnvLine = "      url = " + "$" + "{?" + idUpper + "_DB_CONNECTION_URL}"
+    val idUpper       = id.toUpperCase
+    val dbNameEnvLine = s"$${?${idUpper}_DB_NAME}"
+    val urlEnvLine    = s"$${?${idUpper}_DB_CONNECTION_URL}"
     val newBlock   =
       s"""  $id {
          |    db = {
@@ -136,36 +138,23 @@ if java.nio.file.Files.isRegularFile(mainAppConf) then {
          |      driver = "org.sqlite.JDBC"
 
          |      db-name = "../botDB.sqlite3"
-         |      $dbNameLine
+         |      db-name = $dbNameEnvLine
 
-         |      $urlLine
-         |      $urlEnvLine
+         |      url = "jdbc:sqlite:"$${main.$id.db.db-name}
+         |      url = $urlEnvLine
          |    }
          |  }
+         |""".stripMargin.trim
 
-         |""".stripMargin
-    val mosBlock =
-      """  mos {
-        |    db = {
-
-        |      driver = "org.sqlite.JDBC"
-
-        |      db-name = "../botDB.sqlite3"
-        |      db-name = ${?MOS_DB_NAME}
-
-        |      url = "jdbc:sqlite:"${main.mos.db.db-name}
-        |      url = ${?MOS_DB_CONNECTION_URL}
-        |    }
-        |  }
-
-        |}""".stripMargin
-    val mosStripped = mosBlock.stripMargin
-    val replacement = mosStripped.dropRight(1) + newBlock + "}"
-    mainConfContent = mainConfContent.replace(mosStripped, replacement)
-    if mainConfContent != read(mainAppConf) then {
+    val blockEndIdx = mainConfContent.lastIndexOf("\n}")
+    if blockEndIdx == -1 then println("Could not find insertion point in main application.conf")
+    else {
+      val before = mainConfContent.substring(0, blockEndIdx).stripSuffix("\n")
+      val after  = mainConfContent.substring(blockEndIdx)
+      mainConfContent = s"$before\n\n$newBlock$after"
       write(mainAppConf, mainConfContent)
       println(s"Updated $mainAppConf with $botName ($id)")
-    } else println("Could not find insertion point in main application.conf")
+    }
   }
 } else println(s"main application.conf not found at $mainAppConf, skipping.")
 
@@ -186,7 +175,28 @@ if java.nio.file.Files.isRegularFile(healthcheckYml) then {
   }
 } else println(s"Healthcheck workflow not found at $healthcheckYml, skipping.")
 
-// 5. copyTokensFromDropbox.sh: add new bot to the list
+// 5. Deploy workflow: add new bot token file during assembly
+val deployYml = rootAbs.resolve(".github/workflows/deploy.yml")
+if java.nio.file.Files.isRegularFile(deployYml) then {
+  val secretName = s"${id.toUpperCase}_TOKEN"
+  if secretName != "TOKEN" then {
+    var deployContent = read(deployYml)
+    if !deployContent.contains(secretName) then {
+      val tokenLine =
+        s"""          printf '$${{ secrets.$secretName }}' > /home/runner/work/sBots/sBots/modules/bots/$botName/src/main/resources/${id}_$botName.token"""
+      val assemblyAnchor = "\n          sbt \"dbSetup; assembly\""
+      val anchorIdx      = deployContent.indexOf(assemblyAnchor)
+      if anchorIdx == -1 then println("Could not find insertion point in .github/workflows/deploy.yml")
+      else {
+        deployContent = deployContent.patch(anchorIdx, s"\n$tokenLine$assemblyAnchor", assemblyAnchor.length)
+        write(deployYml, deployContent)
+        println(s"Updated .github/workflows/deploy.yml with $secretName")
+      }
+    } else println(s"Deploy already contains $secretName, skipping.")
+  }
+} else println(s"Deploy workflow not found at $deployYml, skipping.")
+
+// 6. copyTokensFromDropbox.sh: add new bot to the list
 val copyTokensScript = rootAbs.resolve("scripts/copyTokensFromDropbox.sh")
 if java.nio.file.Files.isRegularFile(copyTokensScript) then {
   var ctContent = read(copyTokensScript)
@@ -199,7 +209,7 @@ if java.nio.file.Files.isRegularFile(copyTokensScript) then {
   } else println(s"copyTokensFromDropbox.sh already contains $botName, skipping.")
 } else println(s"copyTokensFromDropbox.sh not found at $copyTokensScript, skipping.")
 
-// 6. build.sbt: add data-entry alias
+// 7. build.sbt: add data-entry alias
 val buildContentNow = read(buildSbt)
 val aliasName       = s"${id}AddData"
 val aliasLine       = s"""addCommandAlias("$aliasName", "$botName/runMain $pkg.${botName}MainDataEntry")"""
@@ -217,6 +227,7 @@ if !buildContentNow.contains(aliasName) then {
 println(
   """Done. Remember to:
     | - Update the README.md file
+    | - git add modules/bots/<BotName>/src/main/resources/<id>_replies.json and <id>_commands.json
     | - Delete the DB at the root of the project
     | - insert the Youtube Secret key in BotDB resources
     | - Run the `botSetup` with `run-show-caption-fetching` and `run-show-caption-fetching` to true to align the db""".stripMargin

@@ -24,7 +24,7 @@ object NewBotTask {
     addBotToDeployWorkflow(base, botName, id)
     println(s"Created bot module at $targetDir")
     println(
-      s"Next: define the project in build.sbt, add to BotsRegistry (or run: ./scripts/CompleteBotRegistration.sc $botName $id). See docs/adding-a-bot.md"
+      s"Next: git add modules/bots/$botName/src/main/resources/${id}_replies.json and modules/bots/$botName/src/main/resources/${id}_commands.json; then define the project in build.sbt, add to BotsRegistry (or run: ./scripts/CompleteBotRegistration.sc $botName $id). See docs/adding-a-bot.md"
     )
   }
 
