@@ -227,6 +227,7 @@ if !buildContentNow.contains(aliasName) then {
 println(
   """Done. Remember to:
     | - Update the README.md file
+    | - git add modules/bots/<BotName>/src/main/resources/<id>_replies.json and <id>_commands.json
     | - Delete the DB at the root of the project
     | - insert the Youtube Secret key in BotDB resources
     | - Run the `botSetup` with `run-show-caption-fetching` and `run-show-caption-fetching` to true to align the db""".stripMargin
