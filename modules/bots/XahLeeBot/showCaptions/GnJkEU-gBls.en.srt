@@ -1,0 +1,7280 @@
+1
+00:00:00,880 --> 00:00:08,000
+Hello guys, good morning and good
+
+2
+00:00:04,319 --> 00:00:12,400
+evening and good afternoon. Welcome to
+
+3
+00:00:08,000 --> 00:00:16,240
+another episode of talk show. We are
+
+4
+00:00:12,400 --> 00:00:19,119
+going to code emacisp and javascript. So
+
+5
+00:00:16,240 --> 00:00:23,199
+we're going to do small gasboard
+
+6
+00:00:19,119 --> 00:00:27,119
+of variety of things. So this is a
+
+7
+00:00:23,199 --> 00:00:30,800
+variety show. Can you see my empty cup?
+
+8
+00:00:27,119 --> 00:00:34,239
+We we going to have a drink. Okay.
+
+9
+00:00:30,800 --> 00:00:37,280
+So, let's have a drink.
+
+10
+00:00:34,239 --> 00:00:40,480
+Uh, and today's drink is brought to you
+
+11
+00:00:37,280 --> 00:00:43,760
+by Margarita. Margarita.
+
+12
+00:00:40,480 --> 00:00:47,440
+Fantastic. I love this one. Okay.
+
+13
+00:00:43,760 --> 00:00:49,680
+And so, it's going to be about an hour.
+
+14
+00:00:47,440 --> 00:00:52,640
+No more than an hour, I think. Yeah. You
+
+15
+00:00:49,680 --> 00:00:57,680
+know, let's make sure it's less than an
+
+16
+00:00:52,640 --> 00:00:59,680
+hour. No more than an hour. But, um,
+
+17
+00:00:57,680 --> 00:01:01,760
+okay. So, we're going to have this much
+
+18
+00:00:59,680 --> 00:01:05,280
+drink. How much? Not too much.
+
+19
+00:01:01,760 --> 00:01:08,280
+Margarita. Okay, let's let's uh write
+
+20
+00:01:05,280 --> 00:01:08,280
+amount.
+
+21
+00:01:10,240 --> 00:01:15,680
+And we're going to code emacisp.
+
+22
+00:01:12,880 --> 00:01:18,080
+For me, it's trivial. I can finish it in
+
+23
+00:01:15,680 --> 00:01:20,159
+10 minutes
+
+24
+00:01:18,080 --> 00:01:22,080
+or 5 minutes, but I'm going to do
+
+25
+00:01:20,159 --> 00:01:23,920
+explanation, so that's going to take a
+
+26
+00:01:22,080 --> 00:01:26,880
+long time. My keyboards, this is
+
+27
+00:01:23,920 --> 00:01:28,799
+ultimate hacking keyboard, too. [snorts]
+
+28
+00:01:26,880 --> 00:01:31,200
+on YouTube you can find my review.
+
+29
+00:01:28,799 --> 00:01:33,680
+Fantastic. Very expensive. Okay.
+
+30
+00:01:31,200 --> 00:01:35,840
+Logitech mouse, you know, and track
+
+31
+00:01:33,680 --> 00:01:38,960
+ball. So, I'm not [snorts]
+
+32
+00:01:35,840 --> 00:01:41,119
+not gonna explain them, but um so now
+
+33
+00:01:38,960 --> 00:01:43,360
+you can see my screen. Can you see my
+
+34
+00:01:41,119 --> 00:01:45,360
+screen?
+
+35
+00:01:43,360 --> 00:01:47,520
+Yes. So, if you are here, say hi. Love
+
+36
+00:01:45,360 --> 00:01:52,159
+to see your
+
+37
+00:01:47,520 --> 00:01:55,040
+presence. Okay. Interactive commentary.
+
+38
+00:01:52,159 --> 00:01:59,759
+And uh Okay. Let's double check. Am I
+
+39
+00:01:55,040 --> 00:02:03,520
+alive? Yes. And am I talking? Yes.
+
+40
+00:01:59,759 --> 00:02:06,880
+Okay. And you can join my Exar Discord.
+
+41
+00:02:03,520 --> 00:02:11,200
+We have a couple regular friends there.
+
+42
+00:02:06,880 --> 00:02:16,239
+You [snorts] can join my Exar Twitter,
+
+43
+00:02:11,200 --> 00:02:18,000
+the trash of the social network
+
+44
+00:02:16,239 --> 00:02:21,920
+Twitter.
+
+45
+00:02:18,000 --> 00:02:24,000
+So by the way this guy Anders
+
+46
+00:02:21,920 --> 00:02:26,319
+Hajberg
+
+47
+00:02:24,000 --> 00:02:29,040
+one of the greatest programmer you know
+
+48
+00:02:26,319 --> 00:02:34,560
+this guy who wrote uh he created
+
+49
+00:02:29,040 --> 00:02:36,720
+Typescript and he um you know this this
+
+50
+00:02:34,560 --> 00:02:38,239
+Anders
+
+51
+00:02:36,720 --> 00:02:42,080
+Hedgersburg
+
+52
+00:02:38,239 --> 00:02:44,959
+he created TypeScript and the Pascal
+
+53
+00:02:42,080 --> 00:02:47,680
+compiler and a bunch of the other
+
+54
+00:02:44,959 --> 00:02:50,319
+things. Okay. He's uh I I I you know I
+
+55
+00:02:47,680 --> 00:02:57,519
+think he's one of the greatest among the
+
+56
+00:02:50,319 --> 00:03:00,239
+top 10 programmer in you know alive. Uh
+
+57
+00:02:57,519 --> 00:03:02,800
+you know you can like there's Donald G.
+
+58
+00:03:00,239 --> 00:03:06,400
+Donald Guth is not a practical
+
+59
+00:03:02,800 --> 00:03:09,440
+programmer. He's more of a theorist.
+
+60
+00:03:06,400 --> 00:03:14,120
+But but anyway that you know so this guy
+
+61
+00:03:09,440 --> 00:03:14,120
+I highly respect. Okay. And
+
+62
+00:03:14,560 --> 00:03:18,239
+he hedgeber
+
+63
+00:03:16,640 --> 00:03:20,959
+how do you pronounce it? I don't know.
+
+64
+00:03:18,239 --> 00:03:23,840
+Let's ask AI but
+
+65
+00:03:20,959 --> 00:03:26,800
+but uh but I have a you know so guac
+
+66
+00:03:23,840 --> 00:03:29,360
+answered. So he's a creator of the turbo
+
+67
+00:03:26,800 --> 00:03:33,680
+pascal in 1980s
+
+68
+00:03:29,360 --> 00:03:35,760
+and chief architect of deli. Deli is
+
+69
+00:03:33,680 --> 00:03:40,000
+some kind of a compiler. I don't I'm not
+
+70
+00:03:35,760 --> 00:03:42,720
+too familiar for C or C++ for C++. Okay.
+
+71
+00:03:40,000 --> 00:03:45,519
+and [snorts] the 1996 architect of C.
+
+72
+00:03:42,720 --> 00:03:48,159
+That's right. He he basically created a
+
+73
+00:03:45,519 --> 00:03:50,319
+C and TypeScript. TypeScript is not
+
+74
+00:03:48,159 --> 00:03:52,959
+trivial. Okay. I mean you can create a
+
+75
+00:03:50,319 --> 00:03:54,959
+language from scratch like Python that's
+
+76
+00:03:52,959 --> 00:03:56,879
+like trivial. But if you create a
+
+77
+00:03:54,959 --> 00:04:00,000
+language based on especially on
+
+78
+00:03:56,879 --> 00:04:04,239
+JavaScript, the very lousy, messy,
+
+79
+00:04:00,000 --> 00:04:06,879
+complex JavaScript and widely used. So
+
+80
+00:04:04,239 --> 00:04:08,879
+you have to create a type system for for
+
+81
+00:04:06,879 --> 00:04:11,599
+that language that gets extremely
+
+82
+00:04:08,879 --> 00:04:17,280
+complex. Okay. So, uh and does
+
+83
+00:04:11,599 --> 00:04:21,959
+hedgeback. So, let's ask Guac uh Guac
+
+84
+00:04:17,280 --> 00:04:21,959
+help me. Uh
+
+85
+00:04:22,960 --> 00:04:29,120
+so, let me ask Gu how how to pronounce
+
+86
+00:04:26,000 --> 00:04:32,919
+his name. So, we're going to do casual.
+
+87
+00:04:29,120 --> 00:04:32,919
+Let's have a drink again.
+
+88
+00:04:33,759 --> 00:04:38,360
+And if you are here, say hi. Okay.
+
+89
+00:04:47,600 --> 00:04:55,560
+The guy who created Typescript and C.
+
+90
+00:04:52,160 --> 00:04:55,560
+Who is he?
+
+91
+00:04:57,199 --> 00:05:01,759
+Anders Hailsburg. He's the Danish
+
+92
+00:04:59,360 --> 00:05:04,160
+engineer who led the design of both Cash
+
+93
+00:05:01,759 --> 00:05:06,479
+and Typescript at Microsoft. He's also
+
+94
+00:05:04,160 --> 00:05:08,560
+behind Tobo Pascal and Delflie from his
+
+95
+00:05:06,479 --> 00:05:13,880
+Bland days.
+
+96
+00:05:08,560 --> 00:05:13,880
+>> Fantastic guy. And Hberg.
+
+97
+00:05:14,320 --> 00:05:18,160
+>> Yeah, he's brilliant. The way he keeps
+
+98
+00:05:16,479 --> 00:05:20,000
+coming up with these clean, practical
+
+99
+00:05:18,160 --> 00:05:22,479
+languages that millions of devs use
+
+100
+00:05:20,000 --> 00:05:24,160
+every day is pretty impressive. What do
+
+101
+00:05:22,479 --> 00:05:27,639
+you like most about his work?
+
+102
+00:05:24,160 --> 00:05:27,639
+>> What is Deli?
+
+103
+00:05:27,680 --> 00:05:32,639
+>> Deli is a rapid application development
+
+104
+00:05:29,840 --> 00:05:35,120
+environment built on object Pascal. It
+
+105
+00:05:32,639 --> 00:05:37,120
+was huge in the 90s and early 2000s for
+
+106
+00:05:35,120 --> 00:05:39,039
+building Windows desktop apps really
+
+107
+00:05:37,120 --> 00:05:41,600
+fast with a visual drag and drop
+
+108
+00:05:39,039 --> 00:05:44,479
+designer. Anders Hailsburg designed its
+
+109
+00:05:41,600 --> 00:05:47,600
+core language and compiler at Borland.
+
+110
+00:05:44,479 --> 00:05:50,560
+>> Okay, let me ask you this. In designing
+
+111
+00:05:47,600 --> 00:05:53,680
+a TypeScript language, in my opinion,
+
+112
+00:05:50,560 --> 00:05:57,360
+it's much more difficult than creating a
+
+113
+00:05:53,680 --> 00:06:00,520
+language from scratch such as Python. Do
+
+114
+00:05:57,360 --> 00:06:00,520
+you agree?
+
+115
+00:06:01,600 --> 00:06:06,160
+Yes, I agree. Adding a type system to an
+
+116
+00:06:04,240 --> 00:06:07,600
+existing language like JavaScript is
+
+117
+00:06:06,160 --> 00:06:09,440
+much harder than building one from
+
+118
+00:06:07,600 --> 00:06:11,360
+scratch. You have to stay fully
+
+119
+00:06:09,440 --> 00:06:13,199
+compatible with JavaScript's flexible,
+
+120
+00:06:11,360 --> 00:06:15,759
+dynamic nature while trying to make
+
+121
+00:06:13,199 --> 00:06:17,759
+types useful and not too annoying. It's
+
+122
+00:06:15,759 --> 00:06:20,000
+like putting training wheels on a snake.
+
+123
+00:06:17,759 --> 00:06:21,919
+Tricky balancing act. Python had the
+
+124
+00:06:20,000 --> 00:06:25,080
+luxury of growing types gradually on its
+
+125
+00:06:21,919 --> 00:06:25,080
+own terms.
+
+126
+00:06:26,720 --> 00:06:32,080
+>> Exactly. You see, so this is, you know,
+
+127
+00:06:29,199 --> 00:06:34,319
+TypeScript, you know, for for for us
+
+128
+00:06:32,080 --> 00:06:36,800
+programmers and language lovers, you
+
+129
+00:06:34,319 --> 00:06:39,199
+know, we we may not think of Typescript
+
+130
+00:06:36,800 --> 00:06:41,840
+as much because it's, you know, based on
+
+131
+00:06:39,199 --> 00:06:44,720
+JavaScript. JavaScript is pretty lousy.
+
+132
+00:06:41,840 --> 00:06:46,479
+No, nobody likes it. And then you add,
+
+133
+00:06:44,720 --> 00:06:49,759
+you know, but the thing is it's
+
+134
+00:06:46,479 --> 00:06:52,960
+practicality. You see the Anders
+
+135
+00:06:49,759 --> 00:06:56,479
+Hatchburg is not like the scheme type of
+
+136
+00:06:52,960 --> 00:07:01,120
+people or Lisp or Hascal you know in
+
+137
+00:06:56,479 --> 00:07:03,759
+academia he's like in industry we need
+
+138
+00:07:01,120 --> 00:07:06,240
+you know a typed language for JavaScript
+
+139
+00:07:03,759 --> 00:07:08,720
+so he created TypeScript not like the
+
+140
+00:07:06,240 --> 00:07:11,919
+coffee script which is another like kind
+
+141
+00:07:08,720 --> 00:07:14,560
+of based on JavaScript but from scratch
+
+142
+00:07:11,919 --> 00:07:18,479
+you can basically go anywhere any way
+
+143
+00:07:14,560 --> 00:07:20,800
+you want but for to create a typescript
+
+144
+00:07:18,479 --> 00:07:24,080
+you can't do that you know you have to
+
+145
+00:07:20,800 --> 00:07:26,319
+follow whatever JavaScript is doing and
+
+146
+00:07:24,080 --> 00:07:28,880
+you have to follow the existing
+
+147
+00:07:26,319 --> 00:07:31,919
+industrial practice and code and make it
+
+148
+00:07:28,880 --> 00:07:38,000
+work so not trivial at all this
+
+149
+00:07:31,919 --> 00:07:41,039
+TypeScript thing okay so so this guy and
+
+150
+00:07:38,000 --> 00:07:43,440
+houseberg I don't know much about him or
+
+151
+00:07:41,039 --> 00:07:46,240
+his work actually because he you know
+
+152
+00:07:43,440 --> 00:07:49,520
+because I'm mostly in Emacs in in the
+
+153
+00:07:46,240 --> 00:07:51,360
+Unix environment but he's mostly working
+
+154
+00:07:49,520 --> 00:07:54,080
+like he's known in you know in the
+
+155
+00:07:51,360 --> 00:07:57,120
+Windows mostly environment then you know
+
+156
+00:07:54,080 --> 00:07:59,840
+like C you know he he designed C from
+
+157
+00:07:57,120 --> 00:08:02,720
+scratch well I guess it's kind of like
+
+158
+00:07:59,840 --> 00:08:05,759
+similar to JavaScript uh I mean Java
+
+159
+00:08:02,720 --> 00:08:08,879
+anyway so that guy okay so anyway so we
+
+160
+00:08:05,759 --> 00:08:11,280
+started to digress uh and we haven't
+
+161
+00:08:08,879 --> 00:08:13,440
+started to do what we wanted to do today
+
+162
+00:08:11,280 --> 00:08:16,560
+so let's get back to what we want to do
+
+163
+00:08:13,440 --> 00:08:16,560
+okay eacis coding
+
+164
+00:08:16,879 --> 00:08:23,840
+Okay. So, let's see. Are we doing it?
+
+165
+00:08:19,680 --> 00:08:26,160
+Yes. I think uh I think I think Are we
+
+166
+00:08:23,840 --> 00:08:29,120
+doing Yes. Yeah. Okay. So, we're going
+
+167
+00:08:26,160 --> 00:08:32,560
+to code emac this. Write a change, you
+
+168
+00:08:29,120 --> 00:08:35,760
+know, write a command that changes all
+
+169
+00:08:32,560 --> 00:08:37,839
+H2 headings to have sentence case in
+
+170
+00:08:35,760 --> 00:08:40,640
+current buffer. So, let me show you what
+
+171
+00:08:37,839 --> 00:08:42,080
+that means. Okay.
+
+172
+00:08:40,640 --> 00:08:44,560
+And we're going to So, we're going to
+
+173
+00:08:42,080 --> 00:08:47,600
+code that EMAC this right? Emac bisp
+
+174
+00:08:44,560 --> 00:08:50,320
+command uh and we're going to do several
+
+175
+00:08:47,600 --> 00:08:54,040
+things interesting things okay so u you
+
+176
+00:08:50,320 --> 00:08:54,040
+can use like see
+
+177
+00:08:54,080 --> 00:08:59,680
+uh you know so so there are several
+
+178
+00:08:56,640 --> 00:09:05,279
+JavaScript things uh next next this is
+
+179
+00:08:59,680 --> 00:09:06,880
+my notes next uh JavaScript math library
+
+180
+00:09:05,279 --> 00:09:10,240
+uh
+
+181
+00:09:06,880 --> 00:09:12,959
+uh exponential functions logarithmic
+
+182
+00:09:10,240 --> 00:09:16,000
+functions need a graph I needed to add a
+
+183
+00:09:12,959 --> 00:09:19,000
+graphics for Mathematica Wam language.
+
+184
+00:09:16,000 --> 00:09:19,000
+Fantastic.
+
+185
+00:09:20,000 --> 00:09:24,320
+So, I'm just explaining to you some of
+
+186
+00:09:22,720 --> 00:09:28,680
+the random things we're going to do
+
+187
+00:09:24,320 --> 00:09:28,680
+today. Hopefully, we're going to finish.
+
+188
+00:09:30,240 --> 00:09:37,839
+Before I get drunk, you know, how is the
+
+189
+00:09:33,680 --> 00:09:39,681
+people say it? before I get um
+
+190
+00:09:37,839 --> 00:09:41,680
+wasted
+
+191
+00:09:39,681 --> 00:09:44,399
+[laughter] the drinking the white
+
+192
+00:09:41,680 --> 00:09:47,360
+people. [snorts]
+
+193
+00:09:44,399 --> 00:09:49,200
+So you got so you need to add a graph to
+
+194
+00:09:47,360 --> 00:09:52,640
+uh the
+
+195
+00:09:49,200 --> 00:09:55,040
+exponential functions and uh and the
+
+196
+00:09:52,640 --> 00:09:58,320
+hyperbolic functions. Okay. Then then
+
+197
+00:09:55,040 --> 00:10:01,519
+there's some editing for improved
+
+198
+00:09:58,320 --> 00:10:03,519
+readability that I want to do then.
+
+199
+00:10:01,519 --> 00:10:06,959
+Okay. Can you see it? I mean this is
+
+200
+00:10:03,519 --> 00:10:10,560
+kind of small font for you to see. Then
+
+201
+00:10:06,959 --> 00:10:14,160
+there's math ceilings, ceiling and floor
+
+202
+00:10:10,560 --> 00:10:18,320
+which I first learned from Groo's
+
+203
+00:10:14,160 --> 00:10:20,480
+book back in 1991 or two you know you
+
+204
+00:10:18,320 --> 00:10:22,399
+have ceiling function ceiling and floor
+
+205
+00:10:20,480 --> 00:10:24,560
+okay
+
+206
+00:10:22,399 --> 00:10:27,120
+uh then you got tangent or tangent
+
+207
+00:10:24,560 --> 00:10:30,160
+cosine hyper then you know these trick
+
+208
+00:10:27,120 --> 00:10:32,880
+functions then you I need a graph uh to
+
+209
+00:10:30,160 --> 00:10:35,519
+illustrate. So actually not for this one
+
+210
+00:10:32,880 --> 00:10:38,240
+but for example hyperbolic functions.
+
+211
+00:10:35,519 --> 00:10:40,959
+Okay this is advanced mathematics. This
+
+212
+00:10:38,240 --> 00:10:46,560
+is part of JavaScript math you you got
+
+213
+00:10:40,959 --> 00:10:50,560
+math dot cinch s i n h that's hyper
+
+214
+00:10:46,560 --> 00:10:51,680
+hyperbolic sign then you got math kosh
+
+215
+00:10:50,560 --> 00:10:53,120
+okay that's h h h h h h h h h h h h h h
+
+216
+00:10:51,680 --> 00:10:55,440
+h h h h h h hyperbolic cosine. What are
+
+217
+00:10:53,120 --> 00:10:58,560
+they? They are advanced mathematics.
+
+218
+00:10:55,440 --> 00:11:02,320
+Okay. So for this it's good to add a
+
+219
+00:10:58,560 --> 00:11:04,560
+graph so people can um easily see it.
+
+220
+00:11:02,320 --> 00:11:06,560
+But actually for those people who use it
+
+221
+00:11:04,560 --> 00:11:09,680
+they already know what it means. So you
+
+222
+00:11:06,560 --> 00:11:11,760
+know but it still it helps you know like
+
+223
+00:11:09,680 --> 00:11:14,000
+reminder.
+
+224
+00:11:11,760 --> 00:11:18,720
+So there some editing I want to do and
+
+225
+00:11:14,000 --> 00:11:22,880
+then there's that that that that that
+
+226
+00:11:18,720 --> 00:11:27,760
+this is from a pawn website. Okay. It's
+
+227
+00:11:22,880 --> 00:11:32,800
+amazing. This is um so this is based on
+
+228
+00:11:27,760 --> 00:11:35,920
+Arabian Knights the 1,01 knights of the
+
+229
+00:11:32,800 --> 00:11:39,120
+Arabian Knights the you know the Arabian
+
+230
+00:11:35,920 --> 00:11:41,839
+and the Alibaba and uh you know the
+
+231
+00:11:39,120 --> 00:11:44,079
+Aladdin the story of the Aladdin the
+
+232
+00:11:41,839 --> 00:11:46,800
+magic lamp
+
+233
+00:11:44,079 --> 00:11:49,760
+where and this is based on you know the
+
+234
+00:11:46,800 --> 00:11:53,303
+Disney's distorted version
+
+235
+00:11:49,760 --> 00:11:54,959
+okay that that girl that you know
+
+236
+00:11:53,303 --> 00:11:58,640
+>> [laughter]
+
+237
+00:11:54,959 --> 00:12:00,399
+>> Arabic princess, you know, her origin is
+
+238
+00:11:58,640 --> 00:12:04,000
+actually
+
+239
+00:12:00,399 --> 00:12:06,320
+uh like Persian. Okay. They they are I
+
+240
+00:12:04,000 --> 00:12:11,360
+you know because Arabian Knights they
+
+241
+00:12:06,320 --> 00:12:15,680
+are based about year 600. So about
+
+242
+00:12:11,360 --> 00:12:18,480
+1500 years ago I mean yeah 1500 years
+
+243
+00:12:15,680 --> 00:12:21,120
+ago they are you know around the region
+
+244
+00:12:18,480 --> 00:12:24,079
+of Persia.
+
+245
+00:12:21,120 --> 00:12:27,360
+Persia and you know today's Iran and
+
+246
+00:12:24,079 --> 00:12:30,720
+Iraq. Okay. That's the kind of the
+
+247
+00:12:27,360 --> 00:12:34,480
+origin of the Arabian Knights. Okay. So
+
+248
+00:12:30,720 --> 00:12:37,760
+then then Disney of course Americanized.
+
+249
+00:12:34,480 --> 00:12:41,040
+You got Americanized pretty version. So
+
+250
+00:12:37,760 --> 00:12:43,839
+you got this this castle, you know,
+
+251
+00:12:41,040 --> 00:12:47,360
+beautiful rich castle and this girl.
+
+252
+00:12:43,839 --> 00:12:49,920
+Okay. Uh that's from a porn website and
+
+253
+00:12:47,360 --> 00:12:54,160
+these are generated by the most
+
+254
+00:12:49,920 --> 00:12:57,200
+incredible impossibly believe AI that's
+
+255
+00:12:54,160 --> 00:13:01,680
+changing humanity today. Okay, this this
+
+256
+00:12:57,200 --> 00:13:05,959
+these things changing humanity.
+
+257
+00:13:01,680 --> 00:13:05,959
+Uh and if you don't know
+
+258
+00:13:06,720 --> 00:13:11,839
+about Arabian Knights, I talked about
+
+259
+00:13:09,040 --> 00:13:14,959
+many times one of the great, you know,
+
+260
+00:13:11,839 --> 00:13:19,040
+like my favorite book on earth. Okay.
+
+261
+00:13:14,959 --> 00:13:22,560
+What what is um if you can pick one book
+
+262
+00:13:19,040 --> 00:13:26,000
+or two of literature
+
+263
+00:13:22,560 --> 00:13:29,519
+of things that human animals has written
+
+264
+00:13:26,000 --> 00:13:32,959
+that I've personally read in my entire
+
+265
+00:13:29,519 --> 00:13:34,639
+life. What would it be? For me, I think
+
+266
+00:13:32,959 --> 00:13:38,160
+it's Arabian Knights. Okay. Either
+
+267
+00:13:34,639 --> 00:13:42,399
+Arabian Knights or um
+
+268
+00:13:38,160 --> 00:13:45,920
+Okay. These are these are the um
+
+269
+00:13:42,399 --> 00:13:49,200
+options. These are the um candidates,
+
+270
+00:13:45,920 --> 00:13:51,279
+Arabian Knights or the Flatland, the
+
+271
+00:13:49,200 --> 00:13:53,440
+Romans of many dimensions. Are you guys
+
+272
+00:13:51,279 --> 00:13:55,680
+here? If you are here, say hi. Okay, if
+
+273
+00:13:53,440 --> 00:13:59,199
+you enjoy this what I'm saying, say hi.
+
+274
+00:13:55,680 --> 00:14:01,120
+Just say hi. Arabian Knights Flatland.
+
+275
+00:13:59,199 --> 00:14:03,040
+Fantastic. You should read it. Okay,
+
+276
+00:14:01,120 --> 00:14:05,519
+it'll take you three, you know, half a
+
+277
+00:14:03,040 --> 00:14:10,079
+day to read this flatland. Okay,
+
+278
+00:14:05,519 --> 00:14:13,839
+flatland, a romance of many dimensions.
+
+279
+00:14:10,079 --> 00:14:15,600
+Uh this book is two parts. I haven't I
+
+280
+00:14:13,839 --> 00:14:18,399
+haven't talked about this much in my
+
+281
+00:14:15,600 --> 00:14:21,040
+live stream. So let me do so now. So
+
+282
+00:14:18,399 --> 00:14:23,040
+this flatland is a classic. Okay. It's
+
+283
+00:14:21,040 --> 00:14:26,079
+well known. It's well known especially
+
+284
+00:14:23,040 --> 00:14:28,320
+in math community. So if you are into
+
+285
+00:14:26,079 --> 00:14:31,360
+mathematics
+
+286
+00:14:28,320 --> 00:14:35,040
+for example we look at JavaScript math
+
+287
+00:14:31,360 --> 00:14:37,760
+uh you know then it is kind of well
+
+288
+00:14:35,040 --> 00:14:42,079
+known. Okay. among mathematicians
+
+289
+00:14:37,760 --> 00:14:48,845
+flatland. It's written in 198
+
+290
+00:14:42,079 --> 00:14:48,959
+uh 1800 in 18 um when is it written
+
+291
+00:14:48,845 --> 00:14:52,720
+>> [sighs]
+
+292
+00:14:48,959 --> 00:14:58,240
+>> uh what
+
+293
+00:14:52,720 --> 00:15:01,279
+uh I forgot Jesus notes so 18 uh for uh
+
+294
+00:14:58,240 --> 00:15:04,959
+it's written by in 1884
+
+295
+00:15:01,279 --> 00:15:07,199
+about 200 years ago okay quite you know
+
+296
+00:15:04,959 --> 00:15:08,880
+it's it's very interesting because you
+
+297
+00:15:07,199 --> 00:15:12,720
+you would be reading
+
+298
+00:15:08,880 --> 00:15:14,880
+English that's 200 years ago the style
+
+299
+00:15:12,720 --> 00:15:19,040
+and the thoughts everything okay it's
+
+300
+00:15:14,880 --> 00:15:24,160
+written written by this Edwin A abbbert
+
+301
+00:15:19,040 --> 00:15:28,480
+who is a um I believe he's a priest or
+
+302
+00:15:24,160 --> 00:15:31,040
+abbot okay he's you know like um
+
+303
+00:15:28,480 --> 00:15:35,360
+uh doing religious work but anyway this
+
+304
+00:15:31,040 --> 00:15:39,120
+story is amazing in two parts
+
+305
+00:15:35,360 --> 00:15:42,000
+one part half of it is about
+
+306
+00:15:39,120 --> 00:15:43,519
+making you understand
+
+307
+00:15:42,000 --> 00:15:46,880
+dimensionality
+
+308
+00:15:43,519 --> 00:15:49,279
+like what what is the fourth dimension?
+
+309
+00:15:46,880 --> 00:15:51,440
+What does what does fifth dimension
+
+310
+00:15:49,279 --> 00:15:54,240
+mean? What what is there a sixth
+
+311
+00:15:51,440 --> 00:15:56,480
+dimension? What does it mean? It makes
+
+312
+00:15:54,240 --> 00:15:59,440
+you understand it. Okay, you understand
+
+313
+00:15:56,480 --> 00:16:02,206
+it even if you are you know like oh I'm
+
+314
+00:15:59,440 --> 00:16:02,800
+not good at math you know those idiots
+
+315
+00:16:02,206 --> 00:16:04,720
+[laughter]
+
+316
+00:16:02,800 --> 00:16:09,040
+but you'll understand it after you read
+
+317
+00:16:04,720 --> 00:16:14,680
+this. Now the second part is a mock
+
+318
+00:16:09,040 --> 00:16:14,680
+history. Okay, it's it's fairly dark
+
+319
+00:16:14,959 --> 00:16:20,240
+uh you know actually that's the first
+
+320
+00:16:16,880 --> 00:16:22,240
+part of this world of the nature of
+
+321
+00:16:20,240 --> 00:16:25,360
+flatland.
+
+322
+00:16:22,240 --> 00:16:26,880
+Then concerning the inhabitants of
+
+323
+00:16:25,360 --> 00:16:29,199
+flatland.
+
+324
+00:16:26,880 --> 00:16:31,681
+Chapter section four concerning the
+
+325
+00:16:29,199 --> 00:16:32,399
+women.
+
+326
+00:16:31,681 --> 00:16:35,680
+[laughter]
+
+327
+00:16:32,399 --> 00:16:41,560
+Then chapter for example chapter section
+
+328
+00:16:35,680 --> 00:16:41,560
+nine of the universal color bill.
+
+329
+00:16:42,639 --> 00:16:48,880
+Then section 10 of the suppression of
+
+330
+00:16:45,600 --> 00:16:54,399
+the chromatic sedition.
+
+331
+00:16:48,880 --> 00:16:57,120
+Okay. section 11 concerning our priests.
+
+332
+00:16:54,399 --> 00:17:00,720
+Okay. So anyway, that's part one of the
+
+333
+00:16:57,120 --> 00:17:03,199
+of this book. The flatland that's uh
+
+334
+00:17:00,720 --> 00:17:05,760
+mark history
+
+335
+00:17:03,199 --> 00:17:07,919
+of the white people's history. The wet,
+
+336
+00:17:05,760 --> 00:17:10,160
+you know, like the eur European kind
+
+337
+00:17:07,919 --> 00:17:13,280
+like mock history, but not just the
+
+338
+00:17:10,160 --> 00:17:16,799
+white, you know, it's like
+
+339
+00:17:13,280 --> 00:17:19,439
+uh generic. Okay, generic human history.
+
+340
+00:17:16,799 --> 00:17:23,439
+That's part one of the book. Now the
+
+341
+00:17:19,439 --> 00:17:25,679
+part two is about dimensionality. It
+
+342
+00:17:23,439 --> 00:17:28,400
+makes you understand what you know
+
+343
+00:17:25,679 --> 00:17:31,760
+fourth dimension, fifth dimension mean.
+
+344
+00:17:28,400 --> 00:17:34,080
+You will understand it.
+
+345
+00:17:31,760 --> 00:17:35,919
+So but part one is very dark. Okay. So
+
+346
+00:17:34,080 --> 00:17:39,120
+that's one of my favorite book. I read
+
+347
+00:17:35,919 --> 00:17:41,679
+it many times every every few years.
+
+348
+00:17:39,120 --> 00:17:45,880
+It's pretty short. So you can finish it
+
+349
+00:17:41,679 --> 00:17:45,880
+in, you know, in a day.
+
+350
+00:17:46,080 --> 00:17:52,280
+Flatland, a Romans of many dimensions.
+
+351
+00:17:49,280 --> 00:17:52,280
+Okay.
+
+352
+00:17:52,559 --> 00:17:58,080
+A mock history of class struggle and
+
+353
+00:17:56,000 --> 00:18:00,160
+dark politics
+
+354
+00:17:58,080 --> 00:18:02,160
+and you start to understand the fourth
+
+355
+00:18:00,160 --> 00:18:04,000
+dimension. Okay, that's that. The
+
+356
+00:18:02,160 --> 00:18:06,000
+Arabian Knights I talked about many
+
+357
+00:18:04,000 --> 00:18:08,559
+times. You can watch my previous live
+
+358
+00:18:06,000 --> 00:18:11,280
+stream, you know, just search for my
+
+359
+00:18:08,559 --> 00:18:13,760
+YouTube containing the title Arabian
+
+360
+00:18:11,280 --> 00:18:17,039
+Knights. You know, that's also
+
+361
+00:18:13,760 --> 00:18:18,400
+uh so it's not it's not wholesome, you
+
+362
+00:18:17,039 --> 00:18:21,200
+know, it's not like [laughter]
+
+363
+00:18:18,400 --> 00:18:22,960
+the American white people's thing
+
+364
+00:18:21,200 --> 00:18:26,679
+wholesomeness,
+
+365
+00:18:22,960 --> 00:18:26,679
+anything but that.
+
+366
+00:18:27,520 --> 00:18:30,520
+Cheers.
+
+367
+00:18:32,480 --> 00:18:37,520
+So that and the Arabian Knights and the
+
+368
+00:18:34,960 --> 00:18:41,039
+Time Machine, I also love it very much.
+
+369
+00:18:37,520 --> 00:18:44,760
+And oh the tragedy of the
+
+370
+00:18:41,039 --> 00:18:44,760
+Titus Andronicus
+
+371
+00:18:50,480 --> 00:18:58,480
+amazing. Okay. So I I um
+
+372
+00:18:55,840 --> 00:19:01,360
+so anyway these are my favorite of all
+
+373
+00:18:58,480 --> 00:19:04,320
+favorites. Okay. The Gulivas Travels I
+
+374
+00:19:01,360 --> 00:19:07,039
+don't like it so much. I like Alice in
+
+375
+00:19:04,320 --> 00:19:10,320
+Wonderland very much. So I would say the
+
+376
+00:19:07,039 --> 00:19:15,200
+top three would be Arabianites, the
+
+377
+00:19:10,320 --> 00:19:19,600
+Flatland. Yes. And uh the tra tragedy
+
+378
+00:19:15,200 --> 00:19:23,039
+the tragedy of Titus Andronicus. Okay. I
+
+379
+00:19:19,600 --> 00:19:26,960
+would say these three
+
+380
+00:19:23,039 --> 00:19:29,760
+uh yeah th those three are the my uh
+
+381
+00:19:26,960 --> 00:19:32,720
+alltime favorite literature in human
+
+382
+00:19:29,760 --> 00:19:34,400
+history. Okay. I mean in the entire
+
+383
+00:19:32,720 --> 00:19:37,440
+literature.
+
+384
+00:19:34,400 --> 00:19:40,720
+Okay. So I digressed a bunch. So let's
+
+385
+00:19:37,440 --> 00:19:42,960
+go back to talk show.
+
+386
+00:19:40,720 --> 00:19:44,880
+Uh let's go back to talk show. We
+
+387
+00:19:42,960 --> 00:19:47,760
+haven't started coding but we talked
+
+388
+00:19:44,880 --> 00:19:51,120
+about a bunch of random things but so
+
+389
+00:19:47,760 --> 00:19:54,400
+let's make a record of it. We talked
+
+390
+00:19:51,120 --> 00:19:57,520
+about the flatland,
+
+391
+00:19:54,400 --> 00:19:59,280
+the Arabianites
+
+392
+00:19:57,520 --> 00:20:03,840
+and
+
+393
+00:19:59,280 --> 00:20:08,640
+the tragedy of Titus Andronicus. Okay.
+
+394
+00:20:03,840 --> 00:20:12,320
+So, copy that. Paste it back. Next page.
+
+395
+00:20:08,640 --> 00:20:14,880
+Copy it. Paste it. Uh, Arabian Nights.
+
+396
+00:20:12,320 --> 00:20:17,520
+Wait, it didn't copy the flatland. Copy
+
+397
+00:20:14,880 --> 00:20:21,120
+it. Uh,
+
+398
+00:20:17,520 --> 00:20:26,480
+paste. Okay. So, make a list. Make that
+
+399
+00:20:21,120 --> 00:20:30,720
+flatland Arabian Nights tragedy of Titus
+
+400
+00:20:26,480 --> 00:20:34,640
+Andronicus by Shakespeare.
+
+401
+00:20:30,720 --> 00:20:37,919
+It's extremely beautiful. uh this this
+
+402
+00:20:34,640 --> 00:20:41,360
+Shakespeare okay
+
+403
+00:20:37,919 --> 00:20:44,159
+the tragedy of Titus Andronicus but if
+
+404
+00:20:41,360 --> 00:20:46,559
+you you know if you are you know you
+
+405
+00:20:44,159 --> 00:20:49,120
+know you have to you can't just read it
+
+406
+00:20:46,559 --> 00:20:51,840
+because if you just start to read it you
+
+407
+00:20:49,120 --> 00:20:54,720
+don't understand it and uh because it's
+
+408
+00:20:51,840 --> 00:20:56,320
+you know Shakespeare I mean so even with
+
+409
+00:20:54,720 --> 00:20:58,240
+annotations
+
+410
+00:20:56,320 --> 00:21:00,880
+you you kind of like you don't really
+
+411
+00:20:58,240 --> 00:21:04,640
+get it you need some kind of help and
+
+412
+00:21:00,880 --> 00:21:09,280
+that help would be that this movie
+
+413
+00:21:04,640 --> 00:21:11,919
+interpretation by Julia Tamo. Okay, I
+
+414
+00:21:09,280 --> 00:21:15,600
+don't you know Julia Tamo. So this is
+
+415
+00:21:11,919 --> 00:21:18,720
+fantastic. Okay, so Julia Tamos's Titus.
+
+416
+00:21:15,600 --> 00:21:22,000
+That's a that's a movie. Okay, that's a
+
+417
+00:21:18,720 --> 00:21:23,520
+uh you know like based you know it's you
+
+418
+00:21:22,000 --> 00:21:28,600
+know you know it's a movie
+
+419
+00:21:23,520 --> 00:21:28,600
+interpretation of this Shakespeare play.
+
+420
+00:21:29,520 --> 00:21:35,200
+So you need to uh watch this. Okay. So
+
+421
+00:21:32,320 --> 00:21:37,760
+you you know you can get it for on CDs.
+
+422
+00:21:35,200 --> 00:21:40,080
+I don't know what what you guys how you
+
+423
+00:21:37,760 --> 00:21:42,080
+watch them today but on Amazon and so
+
+424
+00:21:40,080 --> 00:21:46,600
+on.
+
+425
+00:21:42,080 --> 00:21:46,600
+Uh it's pretty dark. Okay.
+
+426
+00:21:49,440 --> 00:21:56,159
+So that those are my favorite
+
+427
+00:21:53,200 --> 00:21:59,919
+literature.
+
+428
+00:21:56,159 --> 00:22:02,919
+I would say this this this Yeah.
+
+429
+00:21:59,919 --> 00:22:02,919
+Cheers.
+
+430
+00:22:11,630 --> 00:22:13,650
+>> [sighs and gasps]
+
+431
+00:22:14,080 --> 00:22:19,520
+>> Okay, we haven't start to code. So let's
+
+432
+00:22:17,280 --> 00:22:23,440
+let's do okay.
+
+433
+00:22:19,520 --> 00:22:27,360
+So you see any page you have H1 header
+
+434
+00:22:23,440 --> 00:22:30,240
+and you might have H2 header. Let's say
+
+435
+00:22:27,360 --> 00:22:34,080
+um let's say I create you know let's say
+
+436
+00:22:30,240 --> 00:22:36,080
+here press press you got a new section.
+
+437
+00:22:34,080 --> 00:22:38,240
+Can you see
+
+438
+00:22:36,080 --> 00:22:40,450
+it's a new section we just added and you
+
+439
+00:22:38,240 --> 00:22:42,000
+can see all my command calls and
+
+440
+00:22:40,450 --> 00:22:46,559
+[snorts] keystrokes on the pink window
+
+441
+00:22:42,000 --> 00:22:48,640
+on the left upper left. Okay. So we just
+
+442
+00:22:46,559 --> 00:22:50,799
+added this section. Delete it. Let me do
+
+443
+00:22:48,640 --> 00:22:54,799
+it again so you can see. Okay. Let's
+
+444
+00:22:50,799 --> 00:22:58,135
+empty the lines now. Now watch. Press
+
+445
+00:22:54,799 --> 00:22:58,790
+press press press.
+
+446
+00:22:58,135 --> 00:23:00,880
+[laughter]
+
+447
+00:22:58,790 --> 00:23:04,640
+[gasps] Wait, I pressed the wrong key.
+
+448
+00:23:00,880 --> 00:23:07,919
+Okay, so undo. Um, yeah. Okay. Press
+
+449
+00:23:04,640 --> 00:23:10,640
+press press press there. So, you see we
+
+450
+00:23:07,919 --> 00:23:16,400
+just added that delete. Do it again.
+
+451
+00:23:10,640 --> 00:23:20,000
+Okay. Now, press press. You see we added
+
+452
+00:23:16,400 --> 00:23:23,200
+this text. Okay. And the command you can
+
+453
+00:23:20,000 --> 00:23:28,679
+see is uh
+
+454
+00:23:23,200 --> 00:23:28,679
+uh the command is um
+
+455
+00:23:32,080 --> 00:23:40,280
+okay so you so let's magnify the see the
+
+456
+00:23:35,360 --> 00:23:40,280
+whole glory. So the command you can see
+
+457
+00:23:41,600 --> 00:23:50,240
+uh where did we add okay the command is
+
+458
+00:23:44,799 --> 00:23:53,679
+actually yeah there sml insert date
+
+459
+00:23:50,240 --> 00:23:57,200
+section okay
+
+460
+00:23:53,679 --> 00:23:59,520
+anyway okay so we created new section
+
+461
+00:23:57,200 --> 00:24:01,600
+now if you show in browser you can see
+
+462
+00:23:59,520 --> 00:24:04,720
+that section is this one is just like
+
+463
+00:24:01,600 --> 00:24:08,400
+todo empty okay now in this section
+
+464
+00:24:04,720 --> 00:24:11,279
+let's say video let's so let's type uh
+
+465
+00:24:08,400 --> 00:24:14,640
+video summary TVs
+
+466
+00:24:11,279 --> 00:24:20,400
+do it so it because I have a brief in
+
+467
+00:24:14,640 --> 00:24:23,440
+Emacs it became this H2 title heading uh
+
+468
+00:24:20,400 --> 00:24:26,960
+video summary so showing browser so you
+
+469
+00:24:23,440 --> 00:24:29,200
+can see that so that tomorrow the
+
+470
+00:24:26,960 --> 00:24:31,600
+YouTube will show a summary then I'll
+
+471
+00:24:29,200 --> 00:24:35,600
+you know paste it here
+
+472
+00:24:31,600 --> 00:24:39,039
+so but anyway we created a H2 header Uh
+
+473
+00:24:35,600 --> 00:24:41,919
+so now when you have a title such as in
+
+474
+00:24:39,039 --> 00:24:46,240
+sections or chapter title or section
+
+475
+00:24:41,919 --> 00:24:49,520
+title there are a few conventions
+
+476
+00:24:46,240 --> 00:24:52,240
+regarding capitalization.
+
+477
+00:24:49,520 --> 00:24:55,120
+One convention is American,
+
+478
+00:24:52,240 --> 00:24:59,440
+which basically means you capitalize the
+
+479
+00:24:55,120 --> 00:25:03,919
+first letter of every word, unless the
+
+480
+00:24:59,440 --> 00:25:07,840
+word is a um unless the word is a
+
+481
+00:25:03,919 --> 00:25:12,480
+article or a insignificant grammat
+
+482
+00:25:07,840 --> 00:25:18,159
+grammatical like word like a v uh like
+
+483
+00:25:12,480 --> 00:25:22,559
+for example uh a movie vie
+
+484
+00:25:18,159 --> 00:25:25,840
+you know. So this a v of something
+
+485
+00:25:22,559 --> 00:25:28,480
+the of and you know basically like a
+
+486
+00:25:25,840 --> 00:25:30,880
+word that's fewer than three letters
+
+487
+00:25:28,480 --> 00:25:33,360
+those you don't capitalize otherwise you
+
+488
+00:25:30,880 --> 00:25:37,080
+capitalize every word every word. So for
+
+489
+00:25:33,360 --> 00:25:37,080
+example, let's see.
+
+490
+00:25:37,919 --> 00:25:45,600
+I watched this fantastic
+
+491
+00:25:41,760 --> 00:25:47,919
+um [snorts] well
+
+492
+00:25:45,600 --> 00:25:50,640
+there is
+
+493
+00:25:47,919 --> 00:25:54,159
+uh a movie.
+
+494
+00:25:50,640 --> 00:26:00,840
+Okay. So and uh
+
+495
+00:25:54,159 --> 00:26:00,840
+what about the movie? And uh
+
+496
+00:26:01,120 --> 00:26:05,520
+that's of something. Okay, let's say
+
+497
+00:26:03,120 --> 00:26:07,520
+that. So you can if you want to put them
+
+498
+00:26:05,520 --> 00:26:10,400
+as a title, you can following the
+
+499
+00:26:07,520 --> 00:26:13,200
+American convention. Then you have for
+
+500
+00:26:10,400 --> 00:26:15,760
+example, I have a um shortcut for it.
+
+501
+00:26:13,200 --> 00:26:20,400
+Press press press press wait
+
+502
+00:26:15,760 --> 00:26:23,520
+press. You see that? Press press that.
+
+503
+00:26:20,400 --> 00:26:28,720
+Press press that. So you can see the
+
+504
+00:26:23,520 --> 00:26:33,120
+word is A is not capitalized. The word B
+
+505
+00:26:28,720 --> 00:26:35,840
+is not capitalized. And the word of is
+
+506
+00:26:33,120 --> 00:26:37,840
+not capitalized but otherwise every
+
+507
+00:26:35,840 --> 00:26:41,200
+other word you capitalize the first
+
+508
+00:26:37,840 --> 00:26:45,840
+letter of the word. Okay. Uh this this
+
+509
+00:26:41,200 --> 00:26:48,240
+this this is uh should be the
+
+510
+00:26:45,840 --> 00:26:50,799
+okay that is American convention. You
+
+511
+00:26:48,240 --> 00:26:56,000
+capitalize the first letter of every
+
+512
+00:26:50,799 --> 00:26:59,679
+word except the um except like the uh
+
+513
+00:26:56,000 --> 00:27:02,159
+articles and the
+
+514
+00:26:59,679 --> 00:27:04,240
+grammatical words. Okay. What's the
+
+515
+00:27:02,159 --> 00:27:06,559
+proper way to say it? I forgot. But you
+
+516
+00:27:04,240 --> 00:27:11,480
+can ask AI.
+
+517
+00:27:06,559 --> 00:27:11,480
+So let's let's ask AI for fun. Okay.
+
+518
+00:27:13,600 --> 00:27:21,120
+What is the American convention of cap
+
+519
+00:27:17,600 --> 00:27:23,440
+capital capitalization for titles and
+
+520
+00:27:21,120 --> 00:27:26,000
+heading?
+
+521
+00:27:23,440 --> 00:27:28,000
+In American style, title case is the
+
+522
+00:27:26,000 --> 00:27:30,240
+standard for titles and headings.
+
+523
+00:27:28,000 --> 00:27:33,440
+Capitalize the first and last word plus
+
+524
+00:27:30,240 --> 00:27:35,679
+all major words, nouns, pronouns, verbs,
+
+525
+00:27:33,440 --> 00:27:38,159
+adjectives, and adverbs. Don't
+
+526
+00:27:35,679 --> 00:27:40,320
+capitalize short prepositions, articles,
+
+527
+00:27:38,159 --> 00:27:42,240
+or coordinating conjunctions unless
+
+528
+00:27:40,320 --> 00:27:44,880
+they're the first or last word. For
+
+529
+00:27:42,240 --> 00:27:47,679
+example, the quick brown fox jumps over
+
+530
+00:27:44,880 --> 00:27:51,600
+the lazy dog.
+
+531
+00:27:47,679 --> 00:27:56,159
+>> Exactly. You know, AI is just amazing.
+
+532
+00:27:51,600 --> 00:27:59,279
+Hello. Who's here? Uh, Brawl Stars 67.
+
+533
+00:27:56,159 --> 00:28:01,679
+What is your goal? Vibe coding. No, I
+
+534
+00:27:59,279 --> 00:28:05,200
+despise vibe coding. Okay. Vibe coding
+
+535
+00:28:01,679 --> 00:28:07,760
+are idiots. You are watching
+
+536
+00:28:05,200 --> 00:28:11,840
+uh oldish programmer.
+
+537
+00:28:07,760 --> 00:28:14,320
+Superb. You are watching a man. Okay, I
+
+538
+00:28:11,840 --> 00:28:16,960
+I I presume you are a Zoomer because
+
+539
+00:28:14,320 --> 00:28:19,039
+only Zoomer they you know they use the
+
+540
+00:28:16,960 --> 00:28:21,679
+word vibe coding you know like they get
+
+541
+00:28:19,039 --> 00:28:24,000
+excited you know you know vibe coding
+
+542
+00:28:21,679 --> 00:28:28,559
+that's a idiocy vibe coding is one of
+
+543
+00:28:24,000 --> 00:28:31,600
+the most extreme idiocy that you know
+
+544
+00:28:28,559 --> 00:28:36,000
+it's like it's it's like you know it's
+
+545
+00:28:31,600 --> 00:28:39,679
+part of the [ __ ] posting me
+
+546
+00:28:36,000 --> 00:28:43,039
+it does not mean much okay anyway that's
+
+547
+00:28:39,679 --> 00:28:46,720
+another topic So anyway, so did I get
+
+548
+00:28:43,039 --> 00:28:50,720
+did I is my guess about you correct like
+
+549
+00:28:46,720 --> 00:28:53,279
+you are younish zoomer type of people
+
+550
+00:28:50,720 --> 00:28:55,760
+anyway so you are watching a weird guy
+
+551
+00:28:53,279 --> 00:28:58,240
+okay so anyway so so let's go back to
+
+552
+00:28:55,760 --> 00:29:00,799
+the capital capitalization American
+
+553
+00:28:58,240 --> 00:29:03,919
+style title case right okay so let's ask
+
+554
+00:29:00,799 --> 00:29:09,360
+it so this alternatively you have the
+
+555
+00:29:03,919 --> 00:29:10,480
+British style of of of capitalizing a
+
+556
+00:29:09,360 --> 00:29:12,799
+title
+
+557
+00:29:10,480 --> 00:29:15,760
+The British style you only you just
+
+558
+00:29:12,799 --> 00:29:19,120
+capitalize the first
+
+559
+00:29:15,760 --> 00:29:23,320
+letter of the sentence just like if it
+
+560
+00:29:19,120 --> 00:29:23,320
+is a sentence. Okay.
+
+561
+00:29:25,760 --> 00:29:33,440
+Tell me about the British convention of
+
+562
+00:29:29,039 --> 00:29:35,520
+capitalization for a title.
+
+563
+00:29:33,440 --> 00:29:37,600
+>> In British style, it's sentence case for
+
+564
+00:29:35,520 --> 00:29:39,440
+titles and headings. You capitalize only
+
+565
+00:29:37,600 --> 00:29:41,200
+the first word of the title and any
+
+566
+00:29:39,440 --> 00:29:43,600
+proper nouns just like a normal
+
+567
+00:29:41,200 --> 00:29:46,000
+sentence. For example, the quick brown
+
+568
+00:29:43,600 --> 00:29:49,600
+fox jumps over the lazy dog. Much
+
+569
+00:29:46,000 --> 00:29:51,120
+simpler than the American title case.
+
+570
+00:29:49,600 --> 00:29:53,840
+Exactly.
+
+571
+00:29:51,120 --> 00:29:55,600
+You see? So anyway, so because I I write
+
+572
+00:29:53,840 --> 00:30:00,080
+a lot, so I've been, you know, I have
+
+573
+00:29:55,600 --> 00:30:03,440
+13,000 articles by now after 30 years of
+
+574
+00:30:00,080 --> 00:30:05,600
+blogging. So the issue you know it's of
+
+575
+00:30:03,440 --> 00:30:07,760
+my concern because when I write you know
+
+576
+00:30:05,600 --> 00:30:11,279
+do you do I how do I capitalize this
+
+577
+00:30:07,760 --> 00:30:14,399
+should it be video summary or like for
+
+578
+00:30:11,279 --> 00:30:16,720
+example generate for example this
+
+579
+00:30:14,399 --> 00:30:19,600
+you know you do you just capitalize the
+
+580
+00:30:16,720 --> 00:30:21,600
+first word or for example there's some
+
+581
+00:30:19,600 --> 00:30:24,240
+variations so let me show you okay
+
+582
+00:30:21,600 --> 00:30:26,880
+capitalize the first word or do you
+
+583
+00:30:24,240 --> 00:30:30,399
+capitalize every word for example
+
+584
+00:30:26,880 --> 00:30:33,520
+generated by AI well I should be capital
+
+585
+00:30:30,399 --> 00:30:35,039
+in this case by human. Okay? Or
+
+586
+00:30:33,520 --> 00:30:36,799
+alternatively
+
+587
+00:30:35,039 --> 00:30:38,480
+then you have this American
+
+588
+00:30:36,799 --> 00:30:43,120
+idiosyncrasy.
+
+589
+00:30:38,480 --> 00:30:46,559
+You capitalize every word but except but
+
+590
+00:30:43,120 --> 00:30:49,086
+except little words like the by. Okay?
+
+591
+00:30:46,559 --> 00:30:53,600
+So you don't capitalize those like
+
+592
+00:30:49,086 --> 00:30:59,279
+[snorts] is v of you know. So, it's like
+
+593
+00:30:53,600 --> 00:31:02,320
+the AI uh told you it's like except uh
+
+594
+00:30:59,279 --> 00:31:04,640
+don't capitalize short
+
+595
+00:31:02,320 --> 00:31:07,426
+uh prepositions, articles or
+
+596
+00:31:04,640 --> 00:31:08,399
+coordinating conjunctions
+
+597
+00:31:07,426 --> 00:31:12,960
+[laughter]
+
+598
+00:31:08,399 --> 00:31:15,279
+that means like and or okay
+
+599
+00:31:12,960 --> 00:31:17,200
+little linguistics. So, there are
+
+600
+00:31:15,279 --> 00:31:19,200
+variations. So what you should what
+
+601
+00:31:17,200 --> 00:31:26,159
+should you do when you you know like
+
+602
+00:31:19,200 --> 00:31:28,880
+when if you write a blog. So so the so
+
+603
+00:31:26,159 --> 00:31:31,520
+by by chance I have I you know I
+
+604
+00:31:28,880 --> 00:31:34,240
+followed the American convention. So uh
+
+605
+00:31:31,520 --> 00:31:36,480
+like this okay like this you know
+
+606
+00:31:34,240 --> 00:31:41,039
+American convention is a bit weird
+
+607
+00:31:36,480 --> 00:31:43,919
+because it's not uh systematic because
+
+608
+00:31:41,039 --> 00:31:46,559
+systematically you would just capitalize
+
+609
+00:31:43,919 --> 00:31:50,480
+the first letter of every word you know
+
+610
+00:31:46,559 --> 00:31:53,279
+like very consistent and simple.
+
+611
+00:31:50,480 --> 00:31:56,240
+But that's not the case as the as as you
+
+612
+00:31:53,279 --> 00:31:58,000
+know as usual in in linguistics. Usually
+
+613
+00:31:56,240 --> 00:32:01,120
+that's not the case. you have
+
+614
+00:31:58,000 --> 00:32:03,039
+complicated grammatical rules. So
+
+615
+00:32:01,120 --> 00:32:05,519
+certain words you don't capitalize but
+
+616
+00:32:03,039 --> 00:32:08,080
+other otherwise you capitalize the first
+
+617
+00:32:05,519 --> 00:32:09,840
+letter of every word. Okay. So that's
+
+618
+00:32:08,080 --> 00:32:12,559
+American style. But then you got the
+
+619
+00:32:09,840 --> 00:32:15,039
+British style which is uh okay this part
+
+620
+00:32:12,559 --> 00:32:17,519
+needs to be capitalized which is just
+
+621
+00:32:15,039 --> 00:32:21,120
+simply capitalize the first letter of
+
+622
+00:32:17,519 --> 00:32:23,200
+the of the first word like a sentence
+
+623
+00:32:21,120 --> 00:32:26,559
+like the way you capitalize sentence. So
+
+624
+00:32:23,200 --> 00:32:30,000
+that's called sentence case. The
+
+625
+00:32:26,559 --> 00:32:32,080
+American way is called title case. Okay.
+
+626
+00:32:30,000 --> 00:32:35,039
+So,
+
+627
+00:32:32,080 --> 00:32:38,399
+so you have these two uh you know like
+
+628
+00:32:35,039 --> 00:32:41,679
+the rate way,
+
+629
+00:32:38,399 --> 00:32:46,320
+the American way,
+
+630
+00:32:41,679 --> 00:32:49,440
+the logical systematic way, capitalize
+
+631
+00:32:46,320 --> 00:32:54,159
+every um
+
+632
+00:32:49,440 --> 00:32:57,360
+every first letter of words. Okay? You
+
+633
+00:32:54,159 --> 00:33:01,360
+know, or you can have a systematic uh
+
+634
+00:32:57,360 --> 00:33:06,159
+like uh just lowerase everything
+
+635
+00:33:01,360 --> 00:33:09,159
+unless it's a pronoun as you know
+
+636
+00:33:06,159 --> 00:33:09,159
+another
+
+637
+00:33:13,519 --> 00:33:18,080
+lowerase everything. So you got this
+
+638
+00:33:15,360 --> 00:33:22,799
+variation. So which one should you do?
+
+639
+00:33:18,080 --> 00:33:25,360
+So I followed the American way but it's
+
+640
+00:33:22,799 --> 00:33:27,840
+like problematic because especially
+
+641
+00:33:25,360 --> 00:33:29,760
+because like it's kind of like
+
+642
+00:33:27,840 --> 00:33:33,519
+especially when you have in technical
+
+643
+00:33:29,760 --> 00:33:37,120
+documentation like JavaScript.
+
+644
+00:33:33,519 --> 00:33:39,279
+Uh then you see some some some words are
+
+645
+00:33:37,120 --> 00:33:41,200
+functions. Functions you can't you you
+
+646
+00:33:39,279 --> 00:33:44,640
+know like programming language functions
+
+647
+00:33:41,200 --> 00:33:47,840
+you can you can't change the capital
+
+648
+00:33:44,640 --> 00:33:49,840
+capitalization. you shouldn't you I mean
+
+649
+00:33:47,840 --> 00:33:52,799
+right otherwise it doesn't work unless
+
+650
+00:33:49,840 --> 00:33:54,880
+it's not case sensitive in powershell
+
+651
+00:33:52,799 --> 00:33:57,279
+it's not case sensitive but in most
+
+652
+00:33:54,880 --> 00:34:02,399
+programming languages
+
+653
+00:33:57,279 --> 00:34:06,320
+uh in python in eacisp in javascript in
+
+654
+00:34:02,399 --> 00:34:10,240
+goland in you know c++ java it's all
+
+655
+00:34:06,320 --> 00:34:12,720
+case sensitive in powershell in common
+
+656
+00:34:10,240 --> 00:34:15,359
+this it's not case sensitive very
+
+657
+00:34:12,720 --> 00:34:18,960
+interesting that's another topic Okay.
+
+658
+00:34:15,359 --> 00:34:21,280
+So anyway, so so you got this issue. So
+
+659
+00:34:18,960 --> 00:34:25,040
+anyway, the British style is actually
+
+660
+00:34:21,280 --> 00:34:26,800
+the simplest. Okay. So but for all my
+
+661
+00:34:25,040 --> 00:34:29,359
+past articles, I've been using the
+
+662
+00:34:26,800 --> 00:34:32,159
+American style, but I started to
+
+663
+00:34:29,359 --> 00:34:36,079
+experiment with the British style. In
+
+664
+00:34:32,159 --> 00:34:38,639
+fact, the best style is all lower case.
+
+665
+00:34:36,079 --> 00:34:41,599
+Okay, that turns out
+
+666
+00:34:38,639 --> 00:34:43,839
+it's the best style. uh but you know
+
+667
+00:34:41,599 --> 00:34:46,000
+it's not a standard yet but we'll have
+
+668
+00:34:43,839 --> 00:34:49,280
+to see because you know this is part of
+
+669
+00:34:46,000 --> 00:34:54,480
+the evolution of of language human
+
+670
+00:34:49,280 --> 00:34:57,599
+language so so this all lower case is
+
+671
+00:34:54,480 --> 00:35:00,240
+you know we we start to see it became
+
+672
+00:34:57,599 --> 00:35:03,200
+popular for example on Twitter like you
+
+673
+00:35:00,240 --> 00:35:05,119
+know or on phone people don't care right
+
+674
+00:35:03,200 --> 00:35:07,520
+especially in the past 10 years the
+
+675
+00:35:05,119 --> 00:35:10,480
+zoomers you know they don't really care
+
+676
+00:35:07,520 --> 00:35:12,000
+about all these grammatical rules also
+
+677
+00:35:10,480 --> 00:35:14,960
+linguisticality.
+
+678
+00:35:12,000 --> 00:35:17,119
+They just, you know,
+
+679
+00:35:14,960 --> 00:35:18,720
+their brain got washed anyway in the
+
+680
+00:35:17,119 --> 00:35:21,760
+first place. Like Twitter, they don't
+
+681
+00:35:18,720 --> 00:35:23,680
+allow you to type more than like 280
+
+682
+00:35:21,760 --> 00:35:25,839
+characters in the first place. So, who
+
+683
+00:35:23,680 --> 00:35:28,079
+the who the [ __ ] cares? You can't even
+
+684
+00:35:25,839 --> 00:35:30,000
+write a full sentence correctly
+
+685
+00:35:28,079 --> 00:35:32,000
+properly.
+
+686
+00:35:30,000 --> 00:35:35,280
+And plus the zoomers, you know, they
+
+687
+00:35:32,000 --> 00:35:37,920
+they they got into memes, pepe, [ __ ]
+
+688
+00:35:35,280 --> 00:35:41,280
+posting, you know, and they they love
+
+689
+00:35:37,920 --> 00:35:43,599
+the jargon. So the you know like they
+
+690
+00:35:41,280 --> 00:35:46,640
+have to use jarens for everything like
+
+691
+00:35:43,599 --> 00:35:49,680
+the in like cryptic idiotic jarens. So
+
+692
+00:35:46,640 --> 00:35:53,119
+who cares about the grammar rules or
+
+693
+00:35:49,680 --> 00:35:55,440
+whatever you know right? So anyway so so
+
+694
+00:35:53,119 --> 00:36:02,000
+anyway what I'm saying is that low all
+
+695
+00:35:55,440 --> 00:36:04,400
+lower case is actually um very um
+
+696
+00:36:02,000 --> 00:36:10,079
+very good. It's actually very efficient
+
+697
+00:36:04,400 --> 00:36:12,480
+and very uh systematic and very um
+
+698
+00:36:10,079 --> 00:36:16,160
+it's very good. Okay. But it's just not
+
+699
+00:36:12,480 --> 00:36:20,560
+like standard yet. It's like considered
+
+700
+00:36:16,160 --> 00:36:23,440
+informal. So anyway, so okay, God, I've
+
+701
+00:36:20,560 --> 00:36:25,040
+been talking so you know. Anyway, I
+
+702
+00:36:23,440 --> 00:36:27,119
+wanted to write the this program. So
+
+703
+00:36:25,040 --> 00:36:30,800
+let's do it. Okay, let's do it quickly.
+
+704
+00:36:27,119 --> 00:36:34,160
+Can we do it quickly? Yes, we can.
+
+705
+00:36:30,800 --> 00:36:39,320
+Uh so anyway, so let's uh let's clean
+
+706
+00:36:34,160 --> 00:36:39,320
+up. Okay, so let's uh
+
+707
+00:36:40,079 --> 00:36:48,240
+Okay. So let's let me do this. So so
+
+708
+00:36:44,160 --> 00:36:53,520
+that so that okay so you can see what we
+
+709
+00:36:48,240 --> 00:36:56,880
+talked about. So make a pre text. Okay.
+
+710
+00:36:53,520 --> 00:36:59,440
+Then move the text section there. So now
+
+711
+00:36:56,880 --> 00:37:04,640
+in showing browser so you can kind of
+
+712
+00:36:59,440 --> 00:37:10,480
+see explanation of the different ways
+
+713
+00:37:04,640 --> 00:37:13,839
+uh so but we can like add a little um no
+
+714
+00:37:10,480 --> 00:37:17,119
+okay the American way so the so let's
+
+715
+00:37:13,839 --> 00:37:20,880
+the American way yeah and the logical
+
+716
+00:37:17,119 --> 00:37:24,640
+systematic way and another logical way
+
+717
+00:37:20,880 --> 00:37:28,800
+because uh lowerase or so this is you
+
+718
+00:37:24,640 --> 00:37:33,920
+know example of the different styles of
+
+719
+00:37:28,800 --> 00:37:36,320
+title case. Okay, I talked too much.
+
+720
+00:37:33,920 --> 00:37:38,465
+Uh but uh but okay, so let's begin write
+
+721
+00:37:36,320 --> 00:37:40,485
+the code. So,
+
+722
+00:37:38,465 --> 00:37:40,485
+[sighs and gasps]
+
+723
+00:37:41,200 --> 00:37:46,960
+oh my god, I talked so much I can't
+
+724
+00:37:43,680 --> 00:37:50,560
+finish um email. So, let's quickly start
+
+725
+00:37:46,960 --> 00:37:53,880
+to write a code. Okay. So define define
+
+726
+00:37:50,560 --> 00:37:53,880
+a function
+
+727
+00:37:55,599 --> 00:38:03,560
+sentence case or H2. Okay. Uh
+
+728
+00:38:04,160 --> 00:38:10,760
+make first letter
+
+729
+00:38:07,760 --> 00:38:10,760
+um
+
+730
+00:38:11,839 --> 00:38:19,079
+uh let's just say sentence. Okay. So
+
+731
+00:38:14,880 --> 00:38:19,079
+documentation or important
+
+732
+00:38:23,920 --> 00:38:33,119
+or sent sentence case or HTML H2 headers
+
+733
+00:38:29,680 --> 00:38:37,440
+in current buffer okay that's what the
+
+734
+00:38:33,119 --> 00:38:40,079
+command shall do and create it today's
+
+735
+00:38:37,440 --> 00:38:44,320
+state version today's state so let's
+
+736
+00:38:40,079 --> 00:38:45,920
+begin it okay go to char uh pointing and
+
+737
+00:38:44,320 --> 00:38:49,359
+go to the beginning of buffer. That's
+
+738
+00:38:45,920 --> 00:38:53,839
+how you do it. Then search for word um
+
+739
+00:38:49,359 --> 00:38:56,160
+search for word. Let's say um okay let's
+
+740
+00:38:53,839 --> 00:39:01,359
+for now just say that let's be simple.
+
+741
+00:38:56,160 --> 00:39:05,800
+Okay. You search for that then uh
+
+742
+00:39:01,359 --> 00:39:05,800
+then actually uh
+
+743
+00:39:06,000 --> 00:39:13,839
+okay. So anyway, anything not that zero
+
+744
+00:39:10,480 --> 00:39:16,640
+or more then followed by the ending
+
+745
+00:39:13,839 --> 00:39:19,599
+bracket. Okay. So you you make sure you
+
+746
+00:39:16,640 --> 00:39:24,480
+find because the header tag the
+
+747
+00:39:19,599 --> 00:39:27,200
+beginning tag may contain class or ID or
+
+748
+00:39:24,480 --> 00:39:29,599
+style or other attributes. Okay. So but
+
+749
+00:39:27,200 --> 00:39:32,480
+if you do it that way that we'll find
+
+750
+00:39:29,599 --> 00:39:34,400
+it. So you need research for word for
+
+751
+00:39:32,480 --> 00:39:36,960
+regular expression not just search for
+
+752
+00:39:34,400 --> 00:39:39,680
+word. Okay. Replace
+
+753
+00:39:36,960 --> 00:39:42,800
+Research for what? Regular expression
+
+754
+00:39:39,680 --> 00:39:45,599
+option bound. Uh no, we don't care. No
+
+755
+00:39:42,800 --> 00:39:47,920
+arrow. Uh true because when it's not
+
+756
+00:39:45,599 --> 00:39:53,440
+found, that's okay because some page may
+
+757
+00:39:47,920 --> 00:39:55,680
+not have H2. So once you find it, so
+
+758
+00:39:53,440 --> 00:39:58,160
+while
+
+759
+00:39:55,680 --> 00:40:00,320
+you found it, when this function found
+
+760
+00:39:58,160 --> 00:40:04,160
+it, you'll return true otherwise false.
+
+761
+00:40:00,320 --> 00:40:06,640
+Okay. If you found it then uh then what
+
+762
+00:40:04,160 --> 00:40:10,720
+you want to do not replace match. Okay.
+
+763
+00:40:06,640 --> 00:40:12,960
+So what you want to do is um so you want
+
+764
+00:40:10,720 --> 00:40:16,320
+create the let
+
+765
+00:40:12,960 --> 00:40:19,359
+let's create local variable x begin x
+
+766
+00:40:16,320 --> 00:40:24,119
+end positions. Okay.
+
+767
+00:40:19,359 --> 00:40:24,119
+Uh then uh so now
+
+768
+00:40:25,040 --> 00:40:33,920
+okay set x begin to
+
+769
+00:40:30,000 --> 00:40:36,720
+match end. Okay that's the end of the
+
+770
+00:40:33,920 --> 00:40:38,960
+match which means the closing bracket.
+
+771
+00:40:36,720 --> 00:40:42,960
+So that would be that would mean the
+
+772
+00:40:38,960 --> 00:40:47,520
+beginning of the inner text. Okay.
+
+773
+00:40:42,960 --> 00:40:51,480
+Now set X end. Uh then okay then you
+
+774
+00:40:47,520 --> 00:40:51,480
+search for word again.
+
+775
+00:40:52,800 --> 00:40:59,160
+Search for word. So what this time?
+
+776
+00:41:01,040 --> 00:41:07,040
+Search for word. Okay. Search for word.
+
+777
+00:41:03,680 --> 00:41:11,920
+This time just search for what that.
+
+778
+00:41:07,040 --> 00:41:15,040
+Okay. Optional bound. Neil. No error. No
+
+779
+00:41:11,920 --> 00:41:19,280
+error. We need error. Okay, because
+
+780
+00:41:15,040 --> 00:41:22,640
+because if you cannot find the less
+
+781
+00:41:19,280 --> 00:41:25,280
+equal sign that means it's a error. It
+
+782
+00:41:22,640 --> 00:41:28,560
+must be there. Okay, so search for that.
+
+783
+00:41:25,280 --> 00:41:32,319
+If then if it's found then uh then you
+
+784
+00:41:28,560 --> 00:41:34,480
+set the end to point. Okay, because
+
+785
+00:41:32,319 --> 00:41:37,359
+every time you search it moves a point.
+
+786
+00:41:34,480 --> 00:41:42,240
+Okay, so now purify the code. Press
+
+787
+00:41:37,359 --> 00:41:46,079
+press. Okay. Okay. So now
+
+788
+00:41:42,240 --> 00:41:50,319
+press press. Okay. Now you what you do
+
+789
+00:41:46,079 --> 00:41:56,359
+is narrow to region.
+
+790
+00:41:50,319 --> 00:41:56,359
+Okay. BN. Then what you do is um
+
+791
+00:41:59,040 --> 00:42:06,240
+uh lower case. Okay.
+
+792
+00:42:02,720 --> 00:42:09,240
+Uh there is a function down case down
+
+793
+00:42:06,240 --> 00:42:09,240
+case.
+
+794
+00:42:11,839 --> 00:42:15,760
+Okay. So you need to see the
+
+795
+00:42:13,920 --> 00:42:18,160
+documentation for down case. Are you
+
+796
+00:42:15,760 --> 00:42:21,760
+guys with me?
+
+797
+00:42:18,160 --> 00:42:24,079
+Okay. Nobody's watching. Okay. So down
+
+798
+00:42:21,760 --> 00:42:27,599
+case object
+
+799
+00:42:24,079 --> 00:42:30,319
+that's uh this function. I think I want
+
+800
+00:42:27,599 --> 00:42:34,000
+you know I think I want some more drink.
+
+801
+00:42:30,319 --> 00:42:36,480
+So dase function. Um,
+
+802
+00:42:34,000 --> 00:42:39,760
+so we've been talking for 40 minutes.
+
+803
+00:42:36,480 --> 00:42:43,680
+Okay, we need to go faster. Okay, so but
+
+804
+00:42:39,760 --> 00:42:47,800
+I want I want some more drink. Okay, so
+
+805
+00:42:43,680 --> 00:42:47,800
+margarita there
+
+806
+00:42:48,160 --> 00:42:53,079
+from Costco. The American
+
+807
+00:42:54,800 --> 00:43:01,400
+American middle class rich middle class.
+
+808
+00:42:58,079 --> 00:43:01,400
+Oh [ __ ]
+
+809
+00:43:08,160 --> 00:43:14,599
+Okay, I spilled some on my arm and
+
+810
+00:43:11,599 --> 00:43:14,599
+stuff.
+
+811
+00:43:16,240 --> 00:43:20,720
+That's not enough.
+
+812
+00:43:18,560 --> 00:43:24,160
+Good.
+
+813
+00:43:20,720 --> 00:43:29,319
+These throw away. These are just papers.
+
+814
+00:43:24,160 --> 00:43:29,319
+Throw away any clink of my arm.
+
+815
+00:43:51,280 --> 00:43:56,040
+Oh god, I need to like
+
+816
+00:44:10,319 --> 00:44:16,079
+Got a lot of things to do. Lots of
+
+817
+00:44:12,960 --> 00:44:18,800
+things to do. And uh
+
+818
+00:44:16,079 --> 00:44:22,839
+uh lots of work.
+
+819
+00:44:18,800 --> 00:44:22,839
+Actually, I want more drink.
+
+820
+00:44:29,810 --> 00:44:34,520
+>> [sighs and gasps]
+
+821
+00:44:30,319 --> 00:44:34,520
+>> Tons of things to do.
+
+822
+00:44:37,680 --> 00:44:46,040
+Cheers. How many people are watching? I
+
+823
+00:44:40,800 --> 00:44:46,040
+I presume. Let me make a guess. Five.
+
+824
+00:44:49,280 --> 00:44:52,280
+Four.
+
+825
+00:44:56,319 --> 00:45:03,480
+Okay. So,
+
+826
+00:44:58,800 --> 00:45:03,480
+down case. Okay. Let's keep going.
+
+827
+00:45:05,680 --> 00:45:10,599
+That's not what we want. That's um
+
+828
+00:45:11,200 --> 00:45:17,160
+down region. Okay. So, let's try down
+
+829
+00:45:14,160 --> 00:45:17,160
+region.
+
+830
+00:45:22,640 --> 00:45:25,640
+What?
+
+831
+00:45:27,280 --> 00:45:33,920
+Downase region. Okay, let's try that
+
+832
+00:45:30,640 --> 00:45:36,480
+function. Downase region.
+
+833
+00:45:33,920 --> 00:45:40,760
+Convert region to lower case in programs
+
+834
+00:45:36,480 --> 00:45:40,760
+once argument. Okay.
+
+835
+00:45:43,200 --> 00:45:50,119
+Now the third optional argument region
+
+836
+00:45:45,839 --> 00:45:50,119
+non continuous P
+
+837
+00:46:03,920 --> 00:46:09,839
+very interesting. You see there are
+
+838
+00:46:07,839 --> 00:46:13,119
+three arguments.
+
+839
+00:46:09,839 --> 00:46:15,760
+The third argument is optional and the
+
+840
+00:46:13,119 --> 00:46:17,200
+name of that is region non continuous
+
+841
+00:46:15,760 --> 00:46:20,240
+p-p [snorts]
+
+842
+00:46:17,200 --> 00:46:23,599
+means it's a predicate meaning that that
+
+843
+00:46:20,240 --> 00:46:27,359
+argument should be either true or false.
+
+844
+00:46:23,599 --> 00:46:29,119
+Okay. However, the documentation did not
+
+845
+00:46:27,359 --> 00:46:33,319
+mention
+
+846
+00:46:29,119 --> 00:46:33,319
+anything about the third argument.
+
+847
+00:46:38,720 --> 00:46:48,440
+Can you see? Can you see guys? We found
+
+848
+00:46:41,839 --> 00:46:48,440
+actually a documentation bug of emac beh
+
+849
+00:46:57,920 --> 00:47:04,160
+I you know
+
+850
+00:47:00,319 --> 00:47:06,000
+I'm the guy finds all these issues.
+
+851
+00:47:04,160 --> 00:47:08,480
+Uh
+
+852
+00:47:06,000 --> 00:47:11,040
+so you want down case region. Okay, then
+
+853
+00:47:08,480 --> 00:47:13,839
+let's do that. And this is written in
+
+854
+00:47:11,040 --> 00:47:15,359
+town case region is written in C source
+
+855
+00:47:13,839 --> 00:47:17,680
+code.
+
+856
+00:47:15,359 --> 00:47:20,800
+Uh that's quite interesting. And down
+
+857
+00:47:17,680 --> 00:47:22,319
+case is written in also C source code.
+
+858
+00:47:20,800 --> 00:47:27,720
+Okay.
+
+859
+00:47:22,319 --> 00:47:27,720
+So okay. So down case region. Okay.
+
+860
+00:47:30,079 --> 00:47:37,839
+Very interesting. In fact, we can start
+
+861
+00:47:32,960 --> 00:47:41,359
+uh Windows Subsystem for Emacs WSL,
+
+862
+00:47:37,839 --> 00:47:43,747
+Windows Subsystem for Linux
+
+863
+00:47:41,359 --> 00:47:43,747
+and [sighs]
+
+864
+00:47:48,160 --> 00:47:55,680
+and the Emacs started.
+
+865
+00:47:51,359 --> 00:47:58,960
+We set it up about a week ago in live
+
+866
+00:47:55,680 --> 00:48:02,560
+stream. So, you can see perfect. you
+
+867
+00:47:58,960 --> 00:48:05,040
+know the exact Emacs of my setup. So now
+
+868
+00:48:02,560 --> 00:48:07,680
+let's look up documentation for down
+
+869
+00:48:05,040 --> 00:48:11,520
+case.
+
+870
+00:48:07,680 --> 00:48:15,520
+Okay. So this is Emacs running in Linux
+
+871
+00:48:11,520 --> 00:48:17,359
+on Windows. Okay. So you see uh we can
+
+872
+00:48:15,520 --> 00:48:22,040
+and we can jump to source code because
+
+873
+00:48:17,359 --> 00:48:22,040
+we compiled Emacs here.
+
+874
+00:48:22,480 --> 00:48:27,200
+Okay. So jump to the source code. So you
+
+875
+00:48:24,640 --> 00:48:28,640
+can look at the C source code. Here is
+
+876
+00:48:27,200 --> 00:48:32,240
+the C
+
+877
+00:48:28,640 --> 00:48:35,280
+programming language source code but
+
+878
+00:48:32,240 --> 00:48:37,760
+okay but anyway so let's you know I
+
+879
+00:48:35,280 --> 00:48:40,559
+don't know C okay so but I want to look
+
+880
+00:48:37,760 --> 00:48:42,319
+at the down case
+
+881
+00:48:40,559 --> 00:48:46,480
+region
+
+882
+00:48:42,319 --> 00:48:50,640
+okay now let's see uh so because on the
+
+883
+00:48:46,480 --> 00:48:53,200
+Linux version I'm running EMAC 32
+
+884
+00:48:50,640 --> 00:48:56,880
+while the Windows version I'm running
+
+885
+00:48:53,200 --> 00:49:00,960
+EMAC version uh 30 okay so you can see
+
+886
+00:48:56,880 --> 00:49:05,280
+30 on the Linux version. I'm running
+
+887
+00:49:00,960 --> 00:49:08,160
+version 32 actually from git. So two
+
+888
+00:49:05,280 --> 00:49:10,000
+versions in advance but they didn't fix
+
+889
+00:49:08,160 --> 00:49:13,920
+this problem. You see there's this
+
+890
+00:49:10,000 --> 00:49:17,960
+region non continuous parameter but it
+
+891
+00:49:13,920 --> 00:49:17,960
+is not explained anywhere.
+
+892
+00:49:21,520 --> 00:49:26,319
+Very interesting. So now I'm wondering
+
+893
+00:49:24,319 --> 00:49:28,960
+if you know so you can you can look at
+
+894
+00:49:26,319 --> 00:49:31,520
+the source code for example go jump to
+
+895
+00:49:28,960 --> 00:49:35,760
+the source code then you can like figure
+
+896
+00:49:31,520 --> 00:49:38,160
+out what is this uh region non
+
+897
+00:49:35,760 --> 00:49:41,119
+continuous actually it doesn't matter to
+
+898
+00:49:38,160 --> 00:49:44,119
+me okay but I'm I'm doing this for
+
+899
+00:49:41,119 --> 00:49:44,119
+curiosity
+
+900
+00:49:45,839 --> 00:49:51,119
+okay so here's a C source code okay
+
+901
+00:49:49,040 --> 00:49:53,040
+close we don't care now what I'm
+
+902
+00:49:51,119 --> 00:49:55,040
+wondering what about in the Emacs
+
+903
+00:49:53,040 --> 00:49:57,520
+documentation. Do they explain it? I
+
+904
+00:49:55,040 --> 00:50:00,079
+think so. Okay. So, search the Emacs
+
+905
+00:49:57,520 --> 00:50:03,839
+documentation for this function. Do it.
+
+906
+00:50:00,079 --> 00:50:08,160
+And there it is. And the down case
+
+907
+00:50:03,839 --> 00:50:12,079
+region. Oh, in the official Emacs Lisp
+
+908
+00:50:08,160 --> 00:50:14,880
+documentation, they do not even mention
+
+909
+00:50:12,079 --> 00:50:16,480
+the optional third argument. You see,
+
+910
+00:50:14,880 --> 00:50:18,559
+this function converts all of the
+
+911
+00:50:16,480 --> 00:50:20,960
+letters in the region defined by start
+
+912
+00:50:18,559 --> 00:50:23,520
+and end to lowerase. The function
+
+913
+00:50:20,960 --> 00:50:25,839
+returns Neo. Okay. When down case region
+
+914
+00:50:23,520 --> 00:50:29,280
+is called interactively start and end
+
+915
+00:50:25,839 --> 00:50:31,599
+are point and the mark with smallest
+
+916
+00:50:29,280 --> 00:50:34,319
+first. Okay. You see you see the
+
+917
+00:50:31,599 --> 00:50:39,040
+official new glue documentation did not
+
+918
+00:50:34,319 --> 00:50:42,319
+even mention the third optional do uh
+
+919
+00:50:39,040 --> 00:50:45,839
+optional argument
+
+920
+00:50:42,319 --> 00:50:49,359
+uh down case region here. You see very
+
+921
+00:50:45,839 --> 00:50:52,920
+it's quite interesting. Okay.
+
+922
+00:50:49,359 --> 00:50:52,920
+So we discovered
+
+923
+00:50:53,680 --> 00:51:00,319
+issues, you know. So, so this would be
+
+924
+00:50:56,160 --> 00:51:02,480
+considered a documentation bug.
+
+925
+00:51:00,319 --> 00:51:04,960
+Can you guys see what I'm doing? Can you
+
+926
+00:51:02,480 --> 00:51:09,319
+guys see?
+
+927
+00:51:04,960 --> 00:51:09,319
+H God, it's pretty sad.
+
+928
+00:51:10,640 --> 00:51:16,880
+We discovered the bug. Okay. But I don't
+
+929
+00:51:13,119 --> 00:51:19,440
+think nobody cares. Okay. So anyway, so
+
+930
+00:51:16,880 --> 00:51:22,559
+what you going to do? So let's make a
+
+931
+00:51:19,440 --> 00:51:24,720
+note of that.
+
+932
+00:51:22,559 --> 00:51:28,079
+Okay. So let's go to talk show. Let's
+
+933
+00:51:24,720 --> 00:51:31,079
+document this. We discover this thing.
+
+934
+00:51:28,079 --> 00:51:31,079
+Okay.
+
+935
+00:51:31,440 --> 00:51:37,920
+Put it back. Let's document.
+
+936
+00:51:34,800 --> 00:51:40,319
+So while we are coding, we will finish
+
+937
+00:51:37,920 --> 00:51:46,319
+soon. But
+
+938
+00:51:40,319 --> 00:51:49,839
+we discovered a documentation bug
+
+939
+00:51:46,319 --> 00:51:54,240
+in the documentation
+
+940
+00:51:49,839 --> 00:51:55,760
+in the inline documentation of the
+
+941
+00:51:54,240 --> 00:51:59,400
+command
+
+942
+00:51:55,760 --> 00:51:59,400
+down case region.
+
+943
+00:52:01,599 --> 00:52:08,040
+It has a third
+
+944
+00:52:05,040 --> 00:52:08,040
+argument.
+
+945
+00:52:09,680 --> 00:52:18,119
+It has a optional third argument
+
+946
+00:52:15,119 --> 00:52:18,119
+named
+
+947
+00:52:24,960 --> 00:52:29,559
+but is not documented.
+
+948
+00:52:32,000 --> 00:52:39,680
+Can you see that? Okay. Now, now syntax
+
+949
+00:52:36,400 --> 00:52:42,319
+color the page show in browser. So, we
+
+950
+00:52:39,680 --> 00:52:45,760
+found a book and now we are document
+
+951
+00:52:42,319 --> 00:52:48,760
+documenting the fact.
+
+952
+00:52:45,760 --> 00:52:48,760
+Okay.
+
+953
+00:52:52,000 --> 00:52:55,559
+And further
+
+954
+00:53:01,520 --> 00:53:14,480
+it is not documented in the GNU
+
+955
+00:53:07,280 --> 00:53:17,480
+uh GNU emac this manual neither. Okay.
+
+956
+00:53:14,480 --> 00:53:17,480
+Um
+
+957
+00:53:18,400 --> 00:53:25,200
+because we just you know we just did it.
+
+958
+00:53:21,200 --> 00:53:27,680
+So you know can we uh
+
+959
+00:53:25,200 --> 00:53:29,920
+you see it's not documented. In fact we
+
+960
+00:53:27,680 --> 00:53:33,040
+can make a screenshot of the this. Can
+
+961
+00:53:29,920 --> 00:53:38,160
+we shall we that's a question. Shall we
+
+962
+00:53:33,040 --> 00:53:41,040
+make a documentation of their wrong
+
+963
+00:53:38,160 --> 00:53:45,520
+this [ __ ]
+
+964
+00:53:41,040 --> 00:53:49,760
+[ __ ] down case region. Yeah. See they
+
+965
+00:53:45,520 --> 00:53:52,319
+they didn't document it. So make a copy
+
+966
+00:53:49,760 --> 00:53:55,839
+of the fact. Okay. So, you know, let's
+
+967
+00:53:52,319 --> 00:54:00,240
+go all the way. So, we did a screenshot.
+
+968
+00:53:55,839 --> 00:54:02,800
+Now, go back here. So, um, open that.
+
+969
+00:54:00,240 --> 00:54:06,559
+That's a previous screenshot. This Luxon
+
+970
+00:54:02,800 --> 00:54:08,559
+is about JavaScript. It's a new date
+
+971
+00:54:06,559 --> 00:54:11,040
+time
+
+972
+00:54:08,559 --> 00:54:13,359
+package. Okay. JavaScript is kind of
+
+973
+00:54:11,040 --> 00:54:15,200
+twisted or twisted.
+
+974
+00:54:13,359 --> 00:54:18,000
+So, anyway, I don't care about this
+
+975
+00:54:15,200 --> 00:54:21,440
+look. Uh, let's delete it. Okay. So here
+
+976
+00:54:18,000 --> 00:54:25,200
+is the documentation we care about. And
+
+977
+00:54:21,440 --> 00:54:30,000
+let's close that uh wait close that back
+
+978
+00:54:25,200 --> 00:54:32,800
+3AX and move it here. So you can see
+
+979
+00:54:30,000 --> 00:54:39,200
+here we have a screenshot of the fact.
+
+980
+00:54:32,800 --> 00:54:41,520
+So this would be rename it g this
+
+981
+00:54:39,200 --> 00:54:43,200
+manual.
+
+982
+00:54:41,520 --> 00:54:45,599
+Uh
+
+983
+00:54:43,200 --> 00:54:50,480
+then this manual is about down case
+
+984
+00:54:45,599 --> 00:54:52,720
+region. Okay. So let's rename it uh wait
+
+985
+00:54:50,480 --> 00:54:53,520
+rename it
+
+986
+00:54:52,720 --> 00:54:57,760
+uh [sighs]
+
+987
+00:54:53,520 --> 00:55:01,800
+dase region max manual. Okay then so the
+
+988
+00:54:57,760 --> 00:55:01,800
+remove the long name
+
+989
+00:55:01,839 --> 00:55:04,839
+31
+
+990
+00:55:05,760 --> 00:55:12,960
+EMAC EMAC version 30
+
+991
+00:55:10,559 --> 00:55:15,839
+this manual. Okay.
+
+992
+00:55:12,960 --> 00:55:18,880
+Uh it's not so good name but let's leave
+
+993
+00:55:15,839 --> 00:55:22,720
+it. Okay. So showing browser.
+
+994
+00:55:18,880 --> 00:55:24,720
+So we documented the fact that this
+
+995
+00:55:22,720 --> 00:55:27,599
+while we are writing this command we
+
+996
+00:55:24,720 --> 00:55:30,319
+documented we we discovered that this
+
+997
+00:55:27,599 --> 00:55:32,640
+this down region got a bug in
+
+998
+00:55:30,319 --> 00:55:35,440
+documentation both in the inline
+
+999
+00:55:32,640 --> 00:55:38,920
+documentation and in the emac this
+
+1000
+00:55:35,440 --> 00:55:38,920
+manual. Okay.
+
+1001
+00:55:39,359 --> 00:55:46,240
+Uh here. Okay. Uh, I was here. Hi, party
+
+1002
+00:55:44,079 --> 00:55:49,680
+post.
+
+1003
+00:55:46,240 --> 00:55:51,920
+Okay, now let's get back to uh party
+
+1004
+00:55:49,680 --> 00:55:55,040
+party. Do you have like a question or
+
+1005
+00:55:51,920 --> 00:55:58,400
+anything? So, let's get get back. Okay,
+
+1006
+00:55:55,040 --> 00:56:01,498
+I'm like half drunk. Uh, okay. So, let's
+
+1007
+00:55:58,400 --> 00:56:04,240
+get back to here.
+
+1008
+00:56:01,498 --> 00:56:06,960
+[sighs] So, let's continue coding our uh
+
+1009
+00:56:04,240 --> 00:56:08,720
+code. So, let's continue coding. Like
+
+1010
+00:56:06,960 --> 00:56:12,033
+normally I can finish this in five
+
+1011
+00:56:08,720 --> 00:56:12,033
+minutes, but [laughter]
+
+1012
+00:56:12,559 --> 00:56:22,119
+but uh let's have some more drink. I
+
+1013
+00:56:16,559 --> 00:56:22,119
+discover this margarita is not too bad.
+
+1014
+00:56:24,640 --> 00:56:27,960
+Now steady.
+
+1015
+00:56:37,839 --> 00:56:42,720
+Can you believe it? Like during my
+
+1016
+00:56:40,960 --> 00:56:46,799
+coding session, we discover
+
+1017
+00:56:42,720 --> 00:56:50,720
+documentation bugs that the GNU Emacs
+
+1018
+00:56:46,799 --> 00:56:52,480
+existed for 30 years. They didn't know
+
+1019
+00:56:50,720 --> 00:56:54,880
+about it.
+
+1020
+00:56:52,480 --> 00:56:57,520
+Can you imagine?
+
+1021
+00:56:54,880 --> 00:57:00,319
+only XR
+
+1022
+00:56:57,520 --> 00:57:04,160
+have this situation.
+
+1023
+00:57:00,319 --> 00:57:07,280
+Am I correct? You see, so so next the
+
+1024
+00:57:04,160 --> 00:57:10,160
+logical question is when did this down
+
+1025
+00:57:07,280 --> 00:57:13,920
+case region have this region
+
+1026
+00:57:10,160 --> 00:57:15,760
+nonontinuous third option?
+
+1027
+00:57:13,920 --> 00:57:18,640
+You know, so the question is did they
+
+1028
+00:57:15,760 --> 00:57:21,760
+have this like 30 years ago? They just
+
+1029
+00:57:18,640 --> 00:57:23,920
+never documented it and nobody ever
+
+1030
+00:57:21,760 --> 00:57:28,160
+reported.
+
+1031
+00:57:23,920 --> 00:57:31,200
+Is that true? Or they added this third
+
+1032
+00:57:28,160 --> 00:57:35,119
+option, you know, this third optional
+
+1033
+00:57:31,200 --> 00:57:37,839
+argument sometimes recently like five
+
+1034
+00:57:35,119 --> 00:57:42,200
+years ago or maybe three years ago, but
+
+1035
+00:57:37,839 --> 00:57:42,200
+we nobody noticed the documentation.
+
+1036
+00:57:43,520 --> 00:57:48,880
+So we can actually check. Okay. So you
+
+1037
+00:57:45,920 --> 00:57:53,200
+see this is uh you know this this this
+
+1038
+00:57:48,880 --> 00:57:58,744
+case region began life in EMAC version
+
+1039
+00:57:53,200 --> 00:57:59,760
+19 that's like 1990s okay
+
+1040
+00:57:58,744 --> 00:58:02,720
+[sighs and gasps]
+
+1041
+00:57:59,760 --> 00:58:05,720
+so you can check my website emac version
+
+1042
+00:58:02,720 --> 00:58:05,720
+19
+
+1043
+00:58:08,319 --> 00:58:16,720
+emac version 19.330
+
+1044
+00:58:11,599 --> 00:58:20,240
+it's 1995 okay so Emacs version 19.
+
+1045
+00:58:16,720 --> 00:58:23,760
+So let's try again down case region.
+
+1046
+00:58:20,240 --> 00:58:26,640
+It says 19.20.
+
+1047
+00:58:23,760 --> 00:58:32,760
+Okay. Emacs version 19.20.
+
+1048
+00:58:26,640 --> 00:58:32,760
+So when is 19.20? Right here. 1993.
+
+1049
+00:58:33,200 --> 00:58:38,960
+November 11th.
+
+1050
+00:58:35,440 --> 00:58:42,079
+So this down case region has been in
+
+1051
+00:58:38,960 --> 00:58:45,079
+EMAC since 1993.
+
+1052
+00:58:42,079 --> 00:58:45,079
+But
+
+1053
+00:58:45,920 --> 00:58:51,280
+but was you know did they add this third
+
+1054
+00:58:48,720 --> 00:58:54,000
+option? Did they you know that's a
+
+1055
+00:58:51,280 --> 00:58:57,520
+question. So how do you find out? Well,
+
+1056
+00:58:54,000 --> 00:59:00,799
+we can find we can try to find out by
+
+1057
+00:58:57,520 --> 00:59:04,079
+going into the uh
+
+1058
+00:59:00,799 --> 00:59:07,680
+uh by going into the GNU Emacs news.
+
+1059
+00:59:04,079 --> 00:59:10,319
+Okay. Like um but it's going to be quite
+
+1060
+00:59:07,680 --> 00:59:14,480
+tedious to find it. So for example,
+
+1061
+00:59:10,319 --> 00:59:17,760
+let's look up EMAC 29. Okay. Search for
+
+1062
+00:59:14,480 --> 00:59:20,640
+downase region. Not found. Go to Emac
+
+1063
+00:59:17,760 --> 00:59:25,839
+28. Search for downase region. Not
+
+1064
+00:59:20,640 --> 00:59:30,400
+found. Repeat this. Emac 27. Not found.
+
+1065
+00:59:25,839 --> 00:59:33,200
+Search for EMAC 26. Uh downase region.
+
+1066
+00:59:30,400 --> 00:59:38,559
+Not found.
+
+1067
+00:59:33,200 --> 00:59:43,119
+Not found. Do it again. Emac 24.
+
+1068
+00:59:38,559 --> 00:59:44,960
+Not found. Emac 23. What?
+
+1069
+00:59:43,119 --> 00:59:48,240
+Not found.
+
+1070
+00:59:44,960 --> 00:59:50,480
+Close. Emac 222. This is back. This is
+
+1071
+00:59:48,240 --> 00:59:56,480
+what year? 2001.
+
+1072
+00:59:50,480 --> 00:59:58,240
+Something like that. Not found. Emac 21.
+
+1073
+00:59:56,480 --> 01:00:00,160
+You know, it's a pity they don't have a
+
+1074
+00:59:58,240 --> 01:00:02,240
+date. Okay. Okay. They have a date.
+
+1075
+01:00:00,160 --> 01:00:05,839
+2006.
+
+1076
+01:00:02,240 --> 01:00:07,440
+Not found. So, Emacs 20, 2000. Wait,
+
+1077
+01:00:05,839 --> 01:00:12,079
+what?
+
+1078
+01:00:07,440 --> 01:00:15,599
+Search for it. Not uh wait.
+
+1079
+01:00:12,079 --> 01:00:18,720
+Search for down case region. Not found.
+
+1080
+01:00:15,599 --> 01:00:22,160
+Emacs 19. Search for down case region.
+
+1081
+01:00:18,720 --> 01:00:27,680
+You should find it there. Emac 19 is
+
+1082
+01:00:22,160 --> 01:00:31,359
+1992. So do it. There it is.
+
+1083
+01:00:27,680 --> 01:00:35,240
+So you can see dase region was added to
+
+1084
+01:00:31,359 --> 01:00:35,240
+Emacs in 1992.
+
+1085
+01:00:44,462 --> 01:00:46,482
+>> [sighs]
+
+1086
+01:00:52,240 --> 01:00:58,160
+>> Oh, it's actually well in 1992 they are
+
+1087
+01:00:55,200 --> 01:01:00,960
+disabled by default.
+
+1088
+01:00:58,160 --> 01:01:04,640
+This command seems to be often hit by
+
+1089
+01:01:00,960 --> 01:01:07,280
+accident and can be quite destructive if
+
+1090
+01:01:04,640 --> 01:01:10,000
+their effects are not noticed
+
+1091
+01:01:07,280 --> 01:01:13,440
+immediately.
+
+1092
+01:01:10,000 --> 01:01:15,760
+Very curious. So we discovered back in
+
+1093
+01:01:13,440 --> 01:01:20,319
+1992,
+
+1094
+01:01:15,760 --> 01:01:25,680
+Emacs disabled by default the commands
+
+1095
+01:01:20,319 --> 01:01:29,359
+up region and down region in 1992.
+
+1096
+01:01:25,680 --> 01:01:33,280
+So that means these two commands exist
+
+1097
+01:01:29,359 --> 01:01:36,400
+before 1992. It just so happens in 1992
+
+1098
+01:01:33,280 --> 01:01:38,880
+they disabled it by default.
+
+1099
+01:01:36,400 --> 01:01:42,559
+Very interesting. Okay. So let's try
+
+1100
+01:01:38,880 --> 01:01:44,160
+again you know like um
+
+1101
+01:01:42,559 --> 01:01:47,359
+you know something you know so the
+
+1102
+01:01:44,160 --> 01:01:49,760
+documentation is not very uh well done
+
+1103
+01:01:47,359 --> 01:01:53,680
+because something happened during all
+
+1104
+01:01:49,760 --> 01:02:00,200
+these years. You see in 1992
+
+1105
+01:01:53,680 --> 01:02:00,200
+they disabled these commands but um
+
+1106
+01:02:00,400 --> 01:02:06,319
+yeah they disabled by by default but
+
+1107
+01:02:03,520 --> 01:02:07,920
+sometimes after they reenable them
+
+1108
+01:02:06,319 --> 01:02:10,799
+again.
+
+1109
+01:02:07,920 --> 01:02:14,240
+Uh so so in this case I need to check
+
+1110
+01:02:10,799 --> 01:02:16,000
+softly keys you know
+
+1111
+01:02:14,240 --> 01:02:19,520
+because right now I don't see a key
+
+1112
+01:02:16,000 --> 01:02:22,400
+binding for them. So, but that's
+
+1113
+01:02:19,520 --> 01:02:25,920
+possibly because I disabled it myself.
+
+1114
+01:02:22,400 --> 01:02:28,799
+So, let's try. Let's see.
+
+1115
+01:02:25,920 --> 01:02:31,280
+So, let's go to Sfly Keys. Let's see.
+
+1116
+01:02:28,799 --> 01:02:35,119
+Uh, then then let's search for down case
+
+1117
+01:02:31,280 --> 01:02:39,920
+region. So, there is down case region.
+
+1118
+01:02:35,119 --> 01:02:43,480
+No, I was calling it. Yeah. Okay. So,
+
+1119
+01:02:39,920 --> 01:02:43,480
+down case region.
+
+1120
+01:02:43,839 --> 01:02:50,680
+I think I disabled uh control X. Let's
+
+1121
+01:02:47,680 --> 01:02:50,680
+see.
+
+1122
+01:02:50,720 --> 01:02:56,720
+Ctrl X
+
+1123
+01:02:53,520 --> 01:02:59,440
+h uh
+
+1124
+01:02:56,720 --> 01:03:01,040
+did I disable all the control X? Yes, I
+
+1125
+01:02:59,440 --> 01:03:03,839
+did.
+
+1126
+01:03:01,040 --> 01:03:06,400
+So, you know, you can tell by if you
+
+1127
+01:03:03,839 --> 01:03:09,920
+start a new Emacs. For example, let's go
+
+1128
+01:03:06,400 --> 01:03:15,440
+back to the Windows
+
+1129
+01:03:09,920 --> 01:03:18,880
+uh control L2 magnify.
+
+1130
+01:03:15,440 --> 01:03:22,240
+Now start emacs on on Linux you need to
+
+1131
+01:03:18,880 --> 01:03:24,480
+give a amperand so that it doesn't hog
+
+1132
+01:03:22,240 --> 01:03:27,039
+your terminal.
+
+1133
+01:03:24,480 --> 01:03:30,799
+Okay may we made a mistake actually we
+
+1134
+01:03:27,039 --> 01:03:35,599
+want to start Emacs without any
+
+1135
+01:03:30,799 --> 01:03:40,000
+uh in it. Okay do it. So there it is now
+
+1136
+01:03:35,599 --> 01:03:43,880
+Emacs without any in it. Okay now
+
+1137
+01:03:40,000 --> 01:03:43,880
+enlarge it please.
+
+1138
+01:03:44,079 --> 01:03:51,359
+Okay. Now, control alt scroll to enlarge
+
+1139
+01:03:47,920 --> 01:03:55,440
+the font across buffers. Okay. Good
+
+1140
+01:03:51,359 --> 01:03:57,520
+enough. Now, let's um
+
+1141
+01:03:55,440 --> 01:04:04,079
+describe function
+
+1142
+01:03:57,520 --> 01:04:08,799
+Ctrl H F. Then you want to say down case
+
+1143
+01:04:04,079 --> 01:04:13,599
+region complete. Okay. So, you can see
+
+1144
+01:04:08,799 --> 01:04:17,480
+now Ctrl XO to switch the pen. Oh, god.
+
+1145
+01:04:13,599 --> 01:04:17,480
+What the [ __ ] is this?
+
+1146
+01:04:18,240 --> 01:04:23,520
+Okay. Control XO
+
+1147
+01:04:21,520 --> 01:04:26,319
+controll X1.
+
+1148
+01:04:23,520 --> 01:04:33,039
+Okay, there it is. So you can see it's
+
+1149
+01:04:26,319 --> 01:04:36,640
+bound to CX CL down region by default.
+
+1150
+01:04:33,039 --> 01:04:39,359
+So in EMAC, so they enabled it. You see
+
+1151
+01:04:36,640 --> 01:04:42,160
+without you know we we started EMAC
+
+1152
+01:04:39,359 --> 01:04:46,240
+without any initialization
+
+1153
+01:04:42,160 --> 01:04:50,480
+and we can see that down case region has
+
+1154
+01:04:46,240 --> 01:04:53,359
+a key binding that means sometimes
+
+1155
+01:04:50,480 --> 01:04:59,319
+you know so let's go back to the history
+
+1156
+01:04:53,359 --> 01:04:59,319
+so sometimes after the god
+
+1157
+01:05:00,960 --> 01:05:07,280
+sometimes after emac uh
+
+1158
+01:05:05,760 --> 01:05:10,960
+19
+
+1159
+01:05:07,280 --> 01:05:15,480
+they you know sometimes after EMAC 19 in
+
+1160
+01:05:10,960 --> 01:05:15,480
+in year 1992
+
+1161
+01:05:16,240 --> 01:05:23,359
+they enable down case region again
+
+1162
+01:05:19,280 --> 01:05:25,839
+because in 1992 they disabled them
+
+1163
+01:05:23,359 --> 01:05:29,680
+by default you see because it's
+
+1164
+01:05:25,839 --> 01:05:31,839
+documented in this news file.
+
+1165
+01:05:29,680 --> 01:05:34,480
+So in summary,
+
+1166
+01:05:31,839 --> 01:05:39,119
+the down case region existed before
+
+1167
+01:05:34,480 --> 01:05:41,839
+1992, but in 1992 they disabled it by
+
+1168
+01:05:39,119 --> 01:05:44,480
+default.
+
+1169
+01:05:41,839 --> 01:05:48,079
+But however sometimes after they you
+
+1170
+01:05:44,480 --> 01:05:50,960
+know they must have reenabled it because
+
+1171
+01:05:48,079 --> 01:05:54,240
+we can see that you know by default EMAC
+
+1172
+01:05:50,960 --> 01:05:55,839
+without in it you do have the key
+
+1173
+01:05:54,240 --> 01:05:59,839
+binding
+
+1174
+01:05:55,839 --> 01:06:02,079
+you know CX CL for down case region
+
+1175
+01:05:59,839 --> 01:06:05,440
+right
+
+1176
+01:06:02,079 --> 01:06:09,319
+so do you guys see what I'm saying
+
+1177
+01:06:05,440 --> 01:06:09,319
+fantastic discoveries
+
+1178
+01:06:09,920 --> 01:06:15,960
+uh not really I just watching you trying
+
+1179
+01:06:12,079 --> 01:06:15,960
+to code. Okay.
+
+1180
+01:06:18,079 --> 01:06:26,559
+Uh, now I'm 50% drunk. Okay.
+
+1181
+01:06:22,480 --> 01:06:30,000
+My state is 50% drunk.
+
+1182
+01:06:26,559 --> 01:06:32,559
+So, but do I still make sense? We
+
+1183
+01:06:30,000 --> 01:06:35,839
+discover this. You see the documentation
+
+1184
+01:06:32,559 --> 01:06:37,520
+issue. You see, it's it's it's kind of
+
+1185
+01:06:35,839 --> 01:06:41,280
+funny
+
+1186
+01:06:37,520 --> 01:06:44,880
+because if you look at the internet, I'm
+
+1187
+01:06:41,280 --> 01:06:48,720
+almost not exactly but almost the only
+
+1188
+01:06:44,880 --> 01:06:52,000
+one complaints that people, you know,
+
+1189
+01:06:48,720 --> 01:06:54,559
+think I'm a troll or whatever.
+
+1190
+01:06:52,000 --> 01:06:56,640
+But am I incorrect? Is this not
+
+1191
+01:06:54,559 --> 01:06:58,960
+documented? You know, it's got problems.
+
+1192
+01:06:56,640 --> 01:07:01,119
+It's got quite a few problems we
+
+1193
+01:06:58,960 --> 01:07:03,200
+discovered. First of all, the
+
+1194
+01:07:01,119 --> 01:07:07,039
+documentation is incorrect. It didn't
+
+1195
+01:07:03,200 --> 01:07:08,960
+document the uh for example close close
+
+1196
+01:07:07,039 --> 01:07:11,440
+wait what is this? Yeah. So we were
+
+1197
+01:07:08,960 --> 01:07:14,000
+talking about that. So it didn't
+
+1198
+01:07:11,440 --> 01:07:16,000
+document the third argument. So after
+
+1199
+01:07:14,000 --> 01:07:19,000
+all this you know trouble we went
+
+1200
+01:07:16,000 --> 01:07:19,000
+through
+
+1201
+01:07:20,799 --> 01:07:29,119
+and not in the inline documentation nor
+
+1202
+01:07:24,559 --> 01:07:31,760
+in the in the full eac list manual.
+
+1203
+01:07:29,119 --> 01:07:33,680
+So we discovered that. Okay. So anyway
+
+1204
+01:07:31,760 --> 01:07:35,680
+let's let's move on. Okay. So but but
+
+1205
+01:07:33,680 --> 01:07:38,960
+what is this third argument? So this
+
+1206
+01:07:35,680 --> 01:07:44,920
+third argument I would assume what does
+
+1207
+01:07:38,960 --> 01:07:44,920
+it mean? Uh region nonontinuous P.
+
+1208
+01:07:44,976 --> 01:07:49,280
+[sighs]
+
+1209
+01:07:46,319 --> 01:07:51,760
+So we um I mean actually we don't care
+
+1210
+01:07:49,280 --> 01:07:54,880
+like we don't really it doesn't matter
+
+1211
+01:07:51,760 --> 01:07:57,520
+for us but we are doing this for
+
+1212
+01:07:54,880 --> 01:07:59,599
+curiosity sake you know that's what I
+
+1213
+01:07:57,520 --> 01:08:05,079
+do.
+
+1214
+01:07:59,599 --> 01:08:05,079
+So this region non continuous true
+
+1215
+01:08:06,480 --> 01:08:11,520
+what does actually it mean actually I'm
+
+1216
+01:08:08,720 --> 01:08:13,200
+not sure what does it mean exactly so in
+
+1217
+01:08:11,520 --> 01:08:15,920
+that case we actually have to look at
+
+1218
+01:08:13,200 --> 01:08:19,759
+the cesource code okay I don't have the
+
+1219
+01:08:15,920 --> 01:08:25,199
+cesource code here but um so close that
+
+1220
+01:08:19,759 --> 01:08:29,279
+so uh control ctrl xtrl c to quit emacs
+
+1221
+01:08:25,199 --> 01:08:33,600
+and start again this time with the init
+
+1222
+01:08:29,279 --> 01:08:39,759
+it and everything. Okay, so it's nice.
+
+1223
+01:08:33,600 --> 01:08:42,000
+But now we can um describe function
+
+1224
+01:08:39,759 --> 01:08:44,400
+down case region.
+
+1225
+01:08:42,000 --> 01:08:47,600
+Okay, now we can look at the C source
+
+1226
+01:08:44,400 --> 01:08:50,000
+code there. Open it. So here we can
+
+1227
+01:08:47,600 --> 01:08:53,279
+actually see
+
+1228
+01:08:50,000 --> 01:08:57,199
+what is this third argument uh region
+
+1229
+01:08:53,279 --> 01:09:00,199
+non continuous P means. Okay. Right
+
+1230
+01:08:57,199 --> 01:09:00,199
+here.
+
+1231
+01:09:00,957 --> 01:09:05,759
+[sighs and gasps]
+
+1232
+01:09:02,640 --> 01:09:10,000
+So it applies to upcase region too. So
+
+1233
+01:09:05,759 --> 01:09:16,520
+you got this uh so this is a C code. I
+
+1234
+01:09:10,000 --> 01:09:16,520
+don't know C code. Okay. But um
+
+1235
+01:09:17,920 --> 01:09:26,799
+so for those of you knows C code so you
+
+1236
+01:09:22,719 --> 01:09:29,600
+can see that's the thing that matters.
+
+1237
+01:09:26,799 --> 01:09:31,199
+So you see it call. So here's the
+
+1238
+01:09:29,600 --> 01:09:33,759
+documentation.
+
+1239
+01:09:31,199 --> 01:09:37,759
+So you got defund.
+
+1240
+01:09:33,759 --> 01:09:40,640
+So you see this EMAC
+
+1241
+01:09:37,759 --> 01:09:43,920
+C code is already
+
+1242
+01:09:40,640 --> 01:09:47,759
+like a dispro
+
+1243
+01:09:43,920 --> 01:09:51,440
+or something. So it's you know it's diff
+
+1244
+01:09:47,759 --> 01:09:53,120
+it's defining a this code in C.
+
+1245
+01:09:51,440 --> 01:09:56,560
+I don't I don't you know I don't know
+
+1246
+01:09:53,120 --> 01:09:58,480
+anything about C. So but I can guess you
+
+1247
+01:09:56,560 --> 01:10:04,360
+know. So it's it's like there must be
+
+1248
+01:09:58,480 --> 01:10:04,360
+some marker that defines def
+
+1249
+01:10:04,640 --> 01:10:11,120
+that defines you know defines a function
+
+1250
+01:10:06,800 --> 01:10:15,520
+in C programming language named defun
+
+1251
+01:10:11,120 --> 01:10:18,800
+and but okay so this object region non
+
+1252
+01:10:15,520 --> 01:10:22,320
+continuous P so you basically you are
+
+1253
+01:10:18,800 --> 01:10:24,880
+trying to call
+
+1254
+01:10:22,320 --> 01:10:27,840
+so you are trying to call this object
+
+1255
+01:10:24,880 --> 01:10:33,239
+begin this object object end and this
+
+1256
+01:10:27,840 --> 01:10:33,239
+object reach an uncontinuous P.
+
+1257
+01:10:43,120 --> 01:10:48,480
+Okay. I I have some vague idea. I I
+
+1258
+01:10:46,640 --> 01:10:50,880
+don't actually know what it means
+
+1259
+01:10:48,480 --> 01:10:54,239
+exactly. You know the region
+
+1260
+01:10:50,880 --> 01:10:56,320
+uncontinuous P must be some kind of text
+
+1261
+01:10:54,239 --> 01:10:58,800
+properties.
+
+1262
+01:10:56,320 --> 01:11:02,320
+You know like in EMAC any text you can
+
+1263
+01:10:58,800 --> 01:11:04,480
+add properties so that must be some text
+
+1264
+01:11:02,320 --> 01:11:06,480
+properties okay anyway I don't know
+
+1265
+01:11:04,480 --> 01:11:11,360
+exactly what it means and it return
+
+1266
+01:11:06,480 --> 01:11:14,239
+value is this uh classify caseify P and
+
+1267
+01:11:11,360 --> 01:11:19,360
+C region case down begin region
+
+1268
+01:11:14,239 --> 01:11:21,600
+uncontinuous P anyway that's C code okay
+
+1269
+01:11:19,360 --> 01:11:24,080
+anyway that's
+
+1270
+01:11:21,600 --> 01:11:26,400
+okay that's that so actually we don't
+
+1271
+01:11:24,080 --> 01:11:29,840
+care so what we here is to get our
+
+1272
+01:11:26,400 --> 01:11:35,360
+things to work. So let's just do that.
+
+1273
+01:11:29,840 --> 01:11:37,760
+Okay. Down case region uh point min
+
+1274
+01:11:35,360 --> 01:11:41,520
+point max. Okay.
+
+1275
+01:11:37,760 --> 01:11:45,640
+Then uh then sentence case. Okay. Then
+
+1276
+01:11:41,520 --> 01:11:45,640
+sentence uh
+
+1277
+01:11:45,920 --> 01:11:50,560
+oh god
+
+1278
+01:11:47,760 --> 01:11:53,560
+sentence uh wait do we have sentence
+
+1279
+01:11:50,560 --> 01:11:53,560
+case
+
+1280
+01:11:55,120 --> 01:12:02,719
+describe function sentence uh case
+
+1281
+01:12:00,080 --> 01:12:05,920
+what
+
+1282
+01:12:02,719 --> 01:12:11,120
+title case okay wait we don't want title
+
+1283
+01:12:05,920 --> 01:12:11,120
+case neither so we just want to go to
+
+1284
+01:12:12,239 --> 01:12:22,840
+Okay. Point mean then
+
+1285
+01:12:17,760 --> 01:12:22,840
+uh just upcase the first letter. Okay.
+
+1286
+01:12:26,320 --> 01:12:29,320
+Upase
+
+1287
+01:12:29,600 --> 01:12:33,239
+char. Okay.
+
+1288
+01:12:34,640 --> 01:12:40,320
+Yeah.
+
+1289
+01:12:37,120 --> 01:12:42,640
+So upcage chart does it take any arc?
+
+1290
+01:12:40,320 --> 01:12:45,199
+Yes, it does.
+
+1291
+01:12:42,640 --> 01:12:51,560
+Upper
+
+1292
+01:12:45,199 --> 01:12:51,560
+case arc char starting from point.
+
+1293
+01:12:57,280 --> 01:13:03,120
+So you need like one. Okay. So it must
+
+1294
+01:13:00,320 --> 01:13:05,360
+be one. Okay. So that's it. Pify the
+
+1295
+01:13:03,120 --> 01:13:09,360
+code. That's our code. Okay. I think
+
+1296
+01:13:05,360 --> 01:13:12,000
+that's it. So this code define sentence
+
+1297
+01:13:09,360 --> 01:13:15,199
+case or H2
+
+1298
+01:13:12,000 --> 01:13:18,239
+while it finds the H2
+
+1299
+01:13:15,199 --> 01:13:21,600
+uh header when it's found it sets the
+
+1300
+01:13:18,239 --> 01:13:23,840
+beginning and end then narrow to region.
+
+1301
+01:13:21,600 --> 01:13:25,440
+Uh
+
+1302
+01:13:23,840 --> 01:13:28,000
+actually we don't need to narrow to
+
+1303
+01:13:25,440 --> 01:13:31,000
+region uh because that's more efficient.
+
+1304
+01:13:28,000 --> 01:13:31,000
+Um
+
+1305
+01:13:36,159 --> 01:13:43,560
+but let's just do it for now. Okay. So
+
+1306
+01:13:39,199 --> 01:13:43,560
+evaluate the buffer.
+
+1307
+01:13:44,960 --> 01:13:51,360
+Okay. Close it. Then syntax collect
+
+1308
+01:13:48,880 --> 01:13:53,760
+showing browser. So you can see today's
+
+1309
+01:13:51,360 --> 01:13:57,520
+talk show.
+
+1310
+01:13:53,760 --> 01:14:00,719
+Uh so today's talk show we got uh that's
+
+1311
+01:13:57,520 --> 01:14:05,360
+a list of code
+
+1312
+01:14:00,719 --> 01:14:11,360
+and uh we documented the missing things.
+
+1313
+01:14:05,360 --> 01:14:14,000
+Okay, then for now let's go to top
+
+1314
+01:14:11,360 --> 01:14:17,760
+search for H2
+
+1315
+01:14:14,000 --> 01:14:22,440
+and see can we find some H2. Not really.
+
+1316
+01:14:17,760 --> 01:14:22,440
+Uh so let's add them
+
+1317
+01:14:25,760 --> 01:14:34,880
+same thing in the water. Okay. So let's
+
+1318
+01:14:30,320 --> 01:14:36,880
+add some variations. Now in this case
+
+1319
+01:14:34,880 --> 01:14:39,520
+uh
+
+1320
+01:14:36,880 --> 01:14:43,679
+capitalize every word in this case just
+
+1321
+01:14:39,520 --> 01:14:46,880
+you know let's do it. So
+
+1322
+01:14:43,679 --> 01:14:49,679
+okay now now pay attention to the
+
+1323
+01:14:46,880 --> 01:14:54,760
+capitalization okay something in the
+
+1324
+01:14:49,679 --> 01:14:54,760
+let's say fire because fire
+
+1325
+01:14:56,400 --> 01:15:01,320
+uh
+
+1326
+01:14:58,320 --> 01:15:01,320
+what
+
+1327
+01:15:02,320 --> 01:15:10,320
+all lower case uh all lower case except
+
+1328
+01:15:06,080 --> 01:15:14,239
+the first one in here then in here let's
+
+1329
+01:15:10,320 --> 01:15:17,920
+to capitalize.
+
+1330
+01:15:14,239 --> 01:15:20,320
+Okay. So with anyway we have four
+
+1331
+01:15:17,920 --> 01:15:24,199
+situations here. Okay. You have to pay
+
+1332
+01:15:20,320 --> 01:15:24,199
+attention to the capitalization.
+
+1333
+01:15:24,960 --> 01:15:29,360
+Do it. Do it. Do it. Do it. Do it. Do
+
+1334
+01:15:26,560 --> 01:15:33,679
+it. Do it. Big. Okay.
+
+1335
+01:15:29,360 --> 01:15:37,840
+Now uh copy new buffer. Go back. Now
+
+1336
+01:15:33,679 --> 01:15:41,880
+let's call our command. Um what what is
+
+1337
+01:15:37,840 --> 01:15:41,880
+our command? tree
+
+1338
+01:15:43,040 --> 01:15:49,440
+here. Okay. So, let's go back here. So,
+
+1339
+01:15:46,320 --> 01:15:53,920
+actually go here. So, let's call the
+
+1340
+01:15:49,440 --> 01:15:59,440
+command meta x sense case all. Let's see
+
+1341
+01:15:53,920 --> 01:16:02,320
+if it will make the change. Do it.
+
+1342
+01:15:59,440 --> 01:16:05,520
+Fantastic. And beautiful. It worked. You
+
+1343
+01:16:02,320 --> 01:16:09,040
+see, it made everything lowerase except
+
+1344
+01:16:05,520 --> 01:16:11,840
+the first letter of the first word.
+
+1345
+01:16:09,040 --> 01:16:14,880
+See? Undo.
+
+1346
+01:16:11,840 --> 01:16:17,840
+You see? Now you got a capital F here.
+
+1347
+01:16:14,880 --> 01:16:20,960
+Let's make this capital. Okay. The
+
+1348
+01:16:17,840 --> 01:16:23,600
+capital. Okay. And here you got the fire
+
+1349
+01:16:20,960 --> 01:16:28,239
+capital F. And let's make this whole
+
+1350
+01:16:23,600 --> 01:16:34,159
+fire word capital. Okay. Now meta X
+
+1351
+01:16:28,239 --> 01:16:37,120
+sentence case or H2. Okay. Now do it.
+
+1352
+01:16:34,159 --> 01:16:40,120
+Everything is fixed. Beautiful. Okay.
+
+1353
+01:16:37,120 --> 01:16:40,120
+Beautiful
+
+1354
+01:16:40,320 --> 01:16:47,800
+and fantastic. We are successful syntax.
+
+1355
+01:16:43,440 --> 01:16:47,800
+Go ahead. Show in browser.
+
+1356
+01:16:48,239 --> 01:16:56,560
+So this this code works fantastic. Okay.
+
+1357
+01:16:52,400 --> 01:16:59,679
+I I think that you know we done that.
+
+1358
+01:16:56,560 --> 01:17:03,360
+Anything else? Who else is watching now?
+
+1359
+01:16:59,679 --> 01:17:07,360
+So let's see. Three people.
+
+1360
+01:17:03,360 --> 01:17:13,000
+Okay, I've done that. Now let's um there
+
+1361
+01:17:07,360 --> 01:17:13,000
+are some things I want to do. Let's see.
+
+1362
+01:17:13,600 --> 01:17:22,239
+Magnify. 1 2 3 4 5 6 8. Okay, that's
+
+1363
+01:17:17,520 --> 01:17:26,080
+enough. So showing browser.
+
+1364
+01:17:22,239 --> 01:17:29,360
+Uh we we did that.
+
+1365
+01:17:26,080 --> 01:17:34,440
+Okay, go to the top. We don't need that.
+
+1366
+01:17:29,360 --> 01:17:34,440
+Something in the water. Showing browser.
+
+1367
+01:17:37,760 --> 01:17:47,199
+So we discussed that uh we discovered a
+
+1368
+01:17:42,480 --> 01:17:51,520
+documentation book. That's right. And we
+
+1369
+01:17:47,199 --> 01:17:54,960
+wrote a emac list change all H2 to have
+
+1370
+01:17:51,520 --> 01:17:57,920
+sentence case success.
+
+1371
+01:17:54,960 --> 01:17:59,360
+Demo keyboard macro first. Okay, we
+
+1372
+01:17:57,920 --> 01:18:01,360
+didn't do that. I was going to
+
+1373
+01:17:59,360 --> 01:18:04,719
+demonstrate a keyboard marker to do
+
+1374
+01:18:01,360 --> 01:18:09,040
+this, but it doesn't matter. We already
+
+1375
+01:18:04,719 --> 01:18:11,520
+finished the code. Do this in WSL. Okay.
+
+1376
+01:18:09,040 --> 01:18:16,640
+So, we were I was going to thinking
+
+1377
+01:18:11,520 --> 01:18:20,480
+about doing this in uh Emacs in Linux on
+
+1378
+01:18:16,640 --> 01:18:22,560
+Windows, but doesn't matter. Okay. So,
+
+1379
+01:18:20,480 --> 01:18:24,880
+we did that. So, Emac, let's write a
+
+1380
+01:18:22,560 --> 01:18:28,000
+command to change or talk show title
+
+1381
+01:18:24,880 --> 01:18:32,920
+move episode number before date. Okay.
+
+1382
+01:18:28,000 --> 01:18:32,920
+That's another thing to do.
+
+1383
+01:18:33,199 --> 01:18:39,280
+Uh but I think I decided not to do. So
+
+1384
+01:18:36,400 --> 01:18:43,280
+the task is about you see the Kasar talk
+
+1385
+01:18:39,280 --> 01:18:45,920
+show title. Every talk talk show you
+
+1386
+01:18:43,280 --> 01:18:49,600
+begin with the title begin with Kasar
+
+1387
+01:18:45,920 --> 01:18:53,520
+talk show then a date then episode
+
+1388
+01:18:49,600 --> 01:18:56,000
+number. Okay. So,
+
+1389
+01:18:53,520 --> 01:18:58,000
+you know, some of the very early ones
+
+1390
+01:18:56,000 --> 01:19:02,480
+you you don't have a episode number. For
+
+1391
+01:18:58,000 --> 01:19:05,920
+example, let's go to year 2021.
+
+1392
+01:19:02,480 --> 01:19:08,719
+There's no episode number,
+
+1393
+01:19:05,920 --> 01:19:12,239
+but it's been incorporated. So, I know
+
+1394
+01:19:08,719 --> 01:19:14,000
+you know. So, so this episode
+
+1395
+01:19:12,239 --> 01:19:17,320
+2021
+
+1396
+01:19:14,000 --> 01:19:17,360
+December 26, that's ID.
+
+1397
+01:19:17,320 --> 01:19:20,480
+>> [snorts]
+
+1398
+01:19:17,360 --> 01:19:23,600
+>> There's no episode number you see in the
+
+1399
+01:19:20,480 --> 01:19:27,679
+early ones because I added the episode
+
+1400
+01:19:23,600 --> 01:19:30,320
+number you know like last year also.
+
+1401
+01:19:27,679 --> 01:19:35,520
+So the first episode number is already
+
+1402
+01:19:30,320 --> 01:19:40,800
+800 something or 700. Let's say 2023
+
+1403
+01:19:35,520 --> 01:19:44,080
+there's no episode number. Okay. So 2024
+
+1404
+01:19:40,800 --> 01:19:47,600
+there is episode number 600. Okay. So
+
+1405
+01:19:44,080 --> 01:19:52,400
+you know in the beginning 2024
+
+1406
+01:19:47,600 --> 01:19:54,560
+episode 200 episode 525.
+
+1407
+01:19:52,400 --> 01:19:56,239
+So that's
+
+1408
+01:19:54,560 --> 01:19:58,880
+2024
+
+1409
+01:19:56,239 --> 01:20:01,120
+January 1st.
+
+1410
+01:19:58,880 --> 01:20:04,400
+So I started to add episode number
+
+1411
+01:20:01,120 --> 01:20:06,719
+there. But anyway the question here is
+
+1412
+01:20:04,400 --> 01:20:09,199
+that should you have the episode number
+
+1413
+01:20:06,719 --> 01:20:13,120
+before the date or the date comes before
+
+1414
+01:20:09,199 --> 01:20:16,560
+the episode number. Right now I have the
+
+1415
+01:20:13,120 --> 01:20:18,880
+date comes before the epsilon number.
+
+1416
+01:20:16,560 --> 01:20:21,600
+Why? Because
+
+1417
+01:20:18,880 --> 01:20:25,360
+I think that's more universal because a
+
+1418
+01:20:21,600 --> 01:20:29,920
+date is universal. Because a date you
+
+1419
+01:20:25,360 --> 01:20:32,960
+can know in human history on this date
+
+1420
+01:20:29,920 --> 01:20:35,760
+talk show did a video you know live live
+
+1421
+01:20:32,960 --> 01:20:37,760
+stream on this date okay with this
+
+1422
+01:20:35,760 --> 01:20:40,400
+topic.
+
+1423
+01:20:37,760 --> 01:20:43,520
+But if you go by episode number that's
+
+1424
+01:20:40,400 --> 01:20:47,360
+like dependent dependent on each person
+
+1425
+01:20:43,520 --> 01:20:50,560
+you know doesn't mean much to the entire
+
+1426
+01:20:47,360 --> 01:20:52,719
+humanity the date means a lot the date
+
+1427
+01:20:50,560 --> 01:20:56,080
+you know like what person did on what
+
+1428
+01:20:52,719 --> 01:20:58,719
+date that's universal
+
+1429
+01:20:56,080 --> 01:21:02,640
+but anyway so I was thinking of for
+
+1430
+01:20:58,719 --> 01:21:07,199
+example today I just had I thought that
+
+1431
+01:21:02,640 --> 01:21:10,000
+maybe I should move the episode number
+
+1432
+01:21:07,199 --> 01:21:12,480
+before the date because that's kind of
+
+1433
+01:21:10,000 --> 01:21:14,880
+intuitive because talk show, you know,
+
+1434
+01:21:12,480 --> 01:21:18,560
+you you can always identify it by
+
+1435
+01:21:14,880 --> 01:21:20,640
+episode number.
+
+1436
+01:21:18,560 --> 01:21:23,360
+Okay, but anyway, I don't I don't think
+
+1437
+01:21:20,640 --> 01:21:28,920
+it matters. I decided not to do this.
+
+1438
+01:21:23,360 --> 01:21:28,920
+Okay, so let's not do that.
+
+1439
+01:21:29,280 --> 01:21:35,600
+Okay, that's one of the things to do.
+
+1440
+01:21:31,679 --> 01:21:38,480
+Let's see. Uh, so we did that. Okay. So,
+
+1441
+01:21:35,600 --> 01:21:42,320
+let let's um Are you guys still
+
+1442
+01:21:38,480 --> 01:21:47,000
+following me? So,
+
+1443
+01:21:42,320 --> 01:21:47,000
+party post, are you still here?
+
+1444
+01:21:47,280 --> 01:21:53,960
+So, let's see. Uh, do I make sense?
+
+1445
+01:21:49,920 --> 01:21:53,960
+Okay. So, let's see.
+
+1446
+01:21:54,159 --> 01:22:00,199
+I am 50% drunk. Okay. So, like my
+
+1447
+01:22:00,960 --> 01:22:07,199
+perceptions and everything is slowed.
+
+1448
+01:22:05,040 --> 01:22:08,719
+Uh, stupidity
+
+1449
+01:22:07,199 --> 01:22:14,280
+podcast.
+
+1450
+01:22:08,719 --> 01:22:14,280
+Next talk show episode 800. Yep.
+
+1451
+01:22:15,199 --> 01:22:22,679
+Oh, that's right. I didn't realize. So,
+
+1452
+01:22:17,679 --> 01:22:22,679
+the next one is episode 800.
+
+1453
+01:22:22,719 --> 01:22:29,360
+Uh, interesting. So, yeah, 800. 800 of
+
+1454
+01:22:26,480 --> 01:22:31,840
+them. Okay. So, now what we going to do?
+
+1455
+01:22:29,360 --> 01:22:33,520
+I think you know, maybe that's it. So
+
+1456
+01:22:31,840 --> 01:22:35,600
+maybe
+
+1457
+01:22:33,520 --> 01:22:37,360
+you know either we can shut down right
+
+1458
+01:22:35,600 --> 01:22:39,040
+now. Let's see how long have I been
+
+1459
+01:22:37,360 --> 01:22:42,880
+going.
+
+1460
+01:22:39,040 --> 01:22:45,199
+I have been going for an hour and 23
+
+1461
+01:22:42,880 --> 01:22:51,280
+minutes.
+
+1462
+01:22:45,199 --> 01:22:55,520
+So I can shut down now or
+
+1463
+01:22:51,280 --> 01:22:58,880
+I can start to do some of the uh uh the
+
+1464
+01:22:55,520 --> 01:23:01,920
+JavaScript. We talked about that.
+
+1465
+01:22:58,880 --> 01:23:04,639
+Uh let me clean up a little bit. Okay.
+
+1466
+01:23:01,920 --> 01:23:09,960
+So, search for EMAC this. So, search for
+
+1467
+01:23:04,639 --> 01:23:09,960
+it. So, let's search for it.
+
+1468
+01:23:10,639 --> 01:23:16,452
+So, eaglist write write a [snorts]
+
+1469
+01:23:16,480 --> 01:23:23,280
+command to change all H2
+
+1470
+01:23:20,480 --> 01:23:26,639
+title to have sentence case in comb
+
+1471
+01:23:23,280 --> 01:23:30,800
+buffer. We did that. Complete.
+
+1472
+01:23:26,639 --> 01:23:33,920
+Fantastic. Delete. Okay. Emac is write a
+
+1473
+01:23:30,800 --> 01:23:38,159
+command to change or talk show title
+
+1474
+01:23:33,920 --> 01:23:40,960
+title um move episode number before
+
+1475
+01:23:38,159 --> 01:23:47,280
+date.
+
+1476
+01:23:40,960 --> 01:23:51,040
+We decided not to do this because
+
+1477
+01:23:47,280 --> 01:23:54,040
+date is more universal
+
+1478
+01:23:51,040 --> 01:23:54,040
+than
+
+1479
+01:23:54,239 --> 01:24:00,400
+episode number.
+
+1480
+01:23:56,880 --> 01:24:02,239
+Okay, that's some kind of philosophy.
+
+1481
+01:24:00,400 --> 01:24:05,199
+Okay,
+
+1482
+01:24:02,239 --> 01:24:09,280
+now process some JavaScript tutorial uh
+
+1483
+01:24:05,199 --> 01:24:11,679
+to do. So let's Yeah, I can do that.
+
+1484
+01:24:09,280 --> 01:24:14,560
+So I can show you. So you can you see we
+
+1485
+01:24:11,679 --> 01:24:18,080
+are going into a new era. I mean I mean
+
+1486
+01:24:14,560 --> 01:24:22,239
+new kind of task. So these are webp I
+
+1487
+01:24:18,080 --> 01:24:24,960
+talked about a lot in the past uh month.
+
+1488
+01:24:22,239 --> 01:24:29,600
+WEBP video format. Okay. So these are my
+
+1489
+01:24:24,960 --> 01:24:33,520
+todos. I captured them when every one
+
+1490
+01:24:29,600 --> 01:24:36,159
+hour, every hour I walk about and take
+
+1491
+01:24:33,520 --> 01:24:38,719
+screenshots and with notes on things I
+
+1492
+01:24:36,159 --> 01:24:43,568
+need to do while I walk around and read.
+
+1493
+01:24:38,719 --> 01:24:43,568
+Okay, so let me see. [sighs]
+
+1494
+01:24:46,639 --> 01:24:52,280
+Uh let me see what is my um
+
+1495
+01:24:54,000 --> 01:25:01,280
+to-do. Wait, not to do, but what are we
+
+1496
+01:24:57,040 --> 01:25:04,480
+doing? Uh, let's check my status. Okay.
+
+1497
+01:25:01,280 --> 01:25:08,360
+Uh, yeah. Well,
+
+1498
+01:25:04,480 --> 01:25:08,360
+so it's 7:26.
+
+1499
+01:25:11,199 --> 01:25:14,920
+Hold on a second.
+
+1500
+01:25:19,120 --> 01:25:22,840
+I need a break.
+
+1501
+01:25:29,280 --> 01:25:35,880
+Okay. So, okay. So, no problem. So, now
+
+1502
+01:25:36,560 --> 01:25:42,400
+you see we got this uh bunch of
+
+1503
+01:25:39,440 --> 01:25:45,920
+JavaScript to-do.
+
+1504
+01:25:42,400 --> 01:25:48,800
+Uh but uh let's let's do the fun one.
+
+1505
+01:25:45,920 --> 01:25:52,800
+So, first of all, there's this pawn.
+
+1506
+01:25:48,800 --> 01:25:56,320
+Let's add it to my
+
+1507
+01:25:52,800 --> 01:26:00,080
+arts section. Okay. The documentation of
+
+1508
+01:25:56,320 --> 01:26:03,480
+humanity. Okay. So,
+
+1509
+01:26:00,080 --> 01:26:03,480
+art blog.
+
+1510
+01:26:03,600 --> 01:26:09,880
+So, I got this art blog on sarali.org.
+
+1511
+01:26:10,080 --> 01:26:15,920
+So you can see the past you know there
+
+1512
+01:26:13,440 --> 01:26:19,280
+there are few hundred
+
+1513
+01:26:15,920 --> 01:26:23,520
+few hundreds of for example it covers
+
+1514
+01:26:19,280 --> 01:26:26,800
+classic western art. These are artworks
+
+1515
+01:26:23,520 --> 01:26:31,280
+of the white men. For example here we
+
+1516
+01:26:26,800 --> 01:26:35,679
+see Leonardo la Vinci on culation.
+
+1517
+01:26:31,280 --> 01:26:39,920
+Okay, here is one of my favorite artist.
+
+1518
+01:26:35,679 --> 01:26:44,400
+This um this Ara
+
+1519
+01:26:39,920 --> 01:26:47,760
+Duro it's kind of a mathematician my
+
+1520
+01:26:44,400 --> 01:26:51,360
+favorite artist. Okay. Then you got uh
+
+1521
+01:26:47,760 --> 01:26:56,000
+art of Michelangelo.
+
+1522
+01:26:51,360 --> 01:26:58,560
+Here we have fleing which which is part
+
+1523
+01:26:56,000 --> 01:27:03,760
+of the Bible. the last judgment that is
+
+1524
+01:26:58,560 --> 01:27:06,320
+the peeling of the skin of human animals
+
+1525
+01:27:03,760 --> 01:27:08,400
+in by in the Bible. Okay. The white man
+
+1526
+01:27:06,320 --> 01:27:13,040
+thing
+
+1527
+01:27:08,400 --> 01:27:16,719
+here we we have uh Jean August Dominic
+
+1528
+01:27:13,040 --> 01:27:21,120
+Ingress that's an artist. So this for
+
+1529
+01:27:16,719 --> 01:27:24,400
+example this artwork is the famous Greek
+
+1530
+01:27:21,120 --> 01:27:28,679
+uh tail of the
+
+1531
+01:27:24,400 --> 01:27:28,679
+oatus and the sphinx.
+
+1532
+01:27:29,440 --> 01:27:36,800
+So this monster is a sphin sphinx. Okay.
+
+1533
+01:27:32,639 --> 01:27:41,920
+It's this sphinx is a half women, half
+
+1534
+01:27:36,800 --> 01:27:43,520
+woman and half lion. And every
+
+1535
+01:27:41,920 --> 01:27:46,159
+pastor
+
+1536
+01:27:43,520 --> 01:27:48,880
+he will or person ask a question to the
+
+1537
+01:27:46,159 --> 01:27:53,199
+pastor. If you cannot answer you will
+
+1538
+01:27:48,880 --> 01:27:57,840
+die. Okay. So this oedapus and the
+
+1539
+01:27:53,199 --> 01:28:02,639
+sphinx artwork very famous story.
+
+1540
+01:27:57,840 --> 01:28:05,920
+And and in this case this Oopus Oopus is
+
+1541
+01:28:02,639 --> 01:28:09,600
+another famous story. He killed his dad.
+
+1542
+01:28:05,920 --> 01:28:11,840
+Okay, this is western foundation. This
+
+1543
+01:28:09,600 --> 01:28:14,000
+is Greek philosophy, the western
+
+1544
+01:28:11,840 --> 01:28:16,880
+foundation,
+
+1545
+01:28:14,000 --> 01:28:19,440
+the white man's foundation, which is
+
+1546
+01:28:16,880 --> 01:28:21,360
+slightly different from Christianity,
+
+1547
+01:28:19,440 --> 01:28:25,199
+but nevertheless,
+
+1548
+01:28:21,360 --> 01:28:29,440
+so this Oipus that's famous for killing
+
+1549
+01:28:25,199 --> 01:28:31,040
+his dad, he's the one who passed this
+
+1550
+01:28:29,440 --> 01:28:33,920
+puzzle.
+
+1551
+01:28:31,040 --> 01:28:39,280
+He broke the puzzle and the sphinx
+
+1552
+01:28:33,920 --> 01:28:42,880
+killed herself. Okay. The question was
+
+1553
+01:28:39,280 --> 01:28:47,520
+which creature has three legs like two
+
+1554
+01:28:42,880 --> 01:28:51,920
+legs when young then then three legs
+
+1555
+01:28:47,520 --> 01:28:54,960
+then old when old. And the oropus answer
+
+1556
+01:28:51,920 --> 01:28:57,760
+that's man because when he's old he use
+
+1557
+01:28:54,960 --> 01:29:00,880
+a can.
+
+1558
+01:28:57,760 --> 01:29:03,440
+So that's kind of that, you know, famous
+
+1559
+01:29:00,880 --> 01:29:06,480
+Greek story. So anyway, there's a bunch
+
+1560
+01:29:03,440 --> 01:29:10,239
+of this like a bunch of very famous
+
+1561
+01:29:06,480 --> 01:29:11,760
+white men stories. Okay.
+
+1562
+01:29:10,239 --> 01:29:15,120
+Uh
+
+1563
+01:29:11,760 --> 01:29:19,480
+so that's my arts blog. So what are we
+
+1564
+01:29:15,120 --> 01:29:19,480
+doing? So let's see the comments.
+
+1565
+01:29:19,927 --> 01:29:23,520
+[sighs]
+
+1566
+01:29:20,719 --> 01:29:25,520
+The date before number is good. The date
+
+1567
+01:29:23,520 --> 01:29:29,199
+before number is good. Okay, good to
+
+1568
+01:29:25,520 --> 01:29:33,840
+know. Uh, Penguin Science says, "I love
+
+1569
+01:29:29,199 --> 01:29:38,560
+seeing the um I love seeing the back end
+
+1570
+01:29:33,840 --> 01:29:42,320
+that front end dev never get to do."
+
+1571
+01:29:38,560 --> 01:29:45,120
+Okay. So, brother, yep. And the book of
+
+1572
+01:29:42,320 --> 01:29:47,840
+Revelation, humans don't exactly keep
+
+1573
+01:29:45,120 --> 01:29:51,760
+their first body.
+
+1574
+01:29:47,840 --> 01:29:55,199
+Okay. I don't quite understand.
+
+1575
+01:29:51,760 --> 01:29:57,600
+Uh Romeulus literally killed his brother
+
+1576
+01:29:55,199 --> 01:30:00,800
+and that's why Roman Rome is called
+
+1577
+01:29:57,600 --> 01:30:03,760
+Rome. Yeah, that's another story. Okay,
+
+1578
+01:30:00,800 --> 01:30:05,920
+it's a famous story.
+
+1579
+01:30:03,760 --> 01:30:10,440
+Romulus, do I have it? I have it
+
+1580
+01:30:05,920 --> 01:30:10,440
+somewhere. Okay. Uh
+
+1581
+01:30:14,719 --> 01:30:22,880
+movie uh Prometheus. Uh, Prometheus is
+
+1582
+01:30:19,199 --> 01:30:25,440
+another story from the white man.
+
+1583
+01:30:22,880 --> 01:30:28,560
+Classic story. Prometheia, you know,
+
+1584
+01:30:25,440 --> 01:30:31,440
+this guy stole fire and he got punished
+
+1585
+01:30:28,560 --> 01:30:34,480
+by God. Okay. Then they have a movie.
+
+1586
+01:30:31,440 --> 01:30:38,239
+Uh, this is excellent movie by the way.
+
+1587
+01:30:34,480 --> 01:30:40,560
+2012 Prometheus. Great movie. Nice
+
+1588
+01:30:38,239 --> 01:30:43,920
+science fiction.
+
+1589
+01:30:40,560 --> 01:30:46,960
+Uh, Forest Gump Syndrome. Pro uh
+
+1590
+01:30:43,920 --> 01:30:48,560
+prominate building. That's uh that's a
+
+1591
+01:30:46,960 --> 01:30:51,760
+building. But anyway, so you were
+
+1592
+01:30:48,560 --> 01:30:55,920
+talking about the
+
+1593
+01:30:51,760 --> 01:31:00,679
+the mythos of the foundation of Rome. So
+
+1594
+01:30:55,920 --> 01:31:00,679
+this you got these two brothers
+
+1595
+01:31:01,440 --> 01:31:04,440
+who's
+
+1596
+01:31:07,760 --> 01:31:11,960
+abandoned to die.
+
+1597
+01:31:13,280 --> 01:31:17,280
+you know, they they were thrown into the
+
+1598
+01:31:15,120 --> 01:31:19,520
+river. They you know, they were meant to
+
+1599
+01:31:17,280 --> 01:31:22,520
+be killed,
+
+1600
+01:31:19,520 --> 01:31:22,520
+but
+
+1601
+01:31:23,760 --> 01:31:32,000
+but as as the way it goes, usually they
+
+1602
+01:31:29,040 --> 01:31:35,600
+decided the killer decided not to kill
+
+1603
+01:31:32,000 --> 01:31:38,000
+them right off. So, the killer left them
+
+1604
+01:31:35,600 --> 01:31:40,320
+in a river or something, left them to
+
+1605
+01:31:38,000 --> 01:31:43,320
+die, to drown.
+
+1606
+01:31:40,320 --> 01:31:43,320
+Then
+
+1607
+01:31:45,760 --> 01:31:51,920
+then of course they got saved by a farm
+
+1608
+01:31:48,880 --> 01:31:55,280
+farmer or something. Uh well by a wolf.
+
+1609
+01:31:51,920 --> 01:31:56,880
+Okay. So the the wolf raised the
+
+1610
+01:31:55,280 --> 01:31:59,520
+brothers.
+
+1611
+01:31:56,880 --> 01:32:02,520
+Uh yeah they were left to die by their
+
+1612
+01:31:59,520 --> 01:32:02,520
+uncle.
+
+1613
+01:32:03,600 --> 01:32:09,199
+So [snorts] the wolf
+
+1614
+01:32:06,239 --> 01:32:12,320
+raised the babies.
+
+1615
+01:32:09,199 --> 01:32:14,880
+uh Roma and Romeulus. I have a you know
+
+1616
+01:32:12,320 --> 01:32:18,719
+I have
+
+1617
+01:32:14,880 --> 01:32:21,040
+uh I have a um I have a blog about it
+
+1618
+01:32:18,719 --> 01:32:25,360
+somewhere but I don't remember what's
+
+1619
+01:32:21,040 --> 01:32:28,000
+the title under let's say wolf
+
+1620
+01:32:25,360 --> 01:32:31,760
+Miranda and the shewolf that's a great
+
+1621
+01:32:28,000 --> 01:32:34,400
+story. Okay. Nami Wolf versus Karen Stro
+
+1622
+01:32:31,760 --> 01:32:37,760
+Stroham. That's another
+
+1623
+01:32:34,400 --> 01:32:42,639
+that's a great incident of the social
+
+1624
+01:32:37,760 --> 01:32:45,600
+justice era. Um,
+
+1625
+01:32:42,639 --> 01:32:49,280
+so where is the Greek mythology? So
+
+1626
+01:32:45,600 --> 01:32:53,960
+wait, so how do I search for let's see
+
+1627
+01:32:49,280 --> 01:32:53,960
+Roman. Can we um
+
+1628
+01:32:56,159 --> 01:33:04,594
+anyway I have an article about it
+
+1629
+01:32:58,239 --> 01:33:06,880
+somewhere. Uh what is the article? So
+
+1630
+01:33:04,594 --> 01:33:11,880
+[sighs] how do I you know I have to
+
+1631
+01:33:06,880 --> 01:33:11,880
+remember a word in the title.
+
+1632
+01:33:12,560 --> 01:33:18,440
+But I think I can find it by searching
+
+1633
+01:33:15,440 --> 01:33:18,440
+for
+
+1634
+01:33:30,719 --> 01:33:36,800
+Uh, let's see. Greek, a love of the
+
+1635
+01:33:33,199 --> 01:33:41,360
+mythology of the Greeks. Okay. Wait. So,
+
+1636
+01:33:36,800 --> 01:33:43,840
+so anyway, so I have a lot blogs about
+
+1637
+01:33:41,360 --> 01:33:45,360
+artworks. For example, this is Epic
+
+1638
+01:33:43,840 --> 01:33:48,320
+magazine
+
+1639
+01:33:45,360 --> 01:33:51,280
+kind of. It's a fantasy
+
+1640
+01:33:48,320 --> 01:33:53,679
+magazine of the 1980s
+
+1641
+01:33:51,280 --> 01:33:56,639
+when I was 18.
+
+1642
+01:33:53,679 --> 01:34:00,480
+So I love this magazine. So and one of
+
+1643
+01:33:56,639 --> 01:34:03,520
+the episode is this Miranda the Shewolf.
+
+1644
+01:34:00,480 --> 01:34:05,120
+I loved this story so much, you know. So
+
+1645
+01:34:03,520 --> 01:34:07,600
+So
+
+1646
+01:34:05,120 --> 01:34:11,280
+now I'm old, you know, I'm 50. I'm close
+
+1647
+01:34:07,600 --> 01:34:13,840
+to 60. So I dug up the things that I
+
+1648
+01:34:11,280 --> 01:34:15,040
+loved when I was a teen. You know, when
+
+1649
+01:34:13,840 --> 01:34:17,679
+you were a teen, you don't know what's
+
+1650
+01:34:15,040 --> 01:34:19,120
+going on. like you you know you you you
+
+1651
+01:34:17,679 --> 01:34:21,440
+don't really know what's going on but
+
+1652
+01:34:19,120 --> 01:34:24,080
+but now I know you know so anyway so
+
+1653
+01:34:21,440 --> 01:34:27,440
+this epic magazine so there's a Miranda
+
+1654
+01:34:24,080 --> 01:34:29,760
+and the wolf story drawn by the artist
+
+1655
+01:34:27,440 --> 01:34:34,719
+gra it's a graphics novel drawn by the
+
+1656
+01:34:29,760 --> 01:34:37,840
+artist um John something okay I I um you
+
+1657
+01:34:34,719 --> 01:34:41,600
+know you can find it
+
+1658
+01:34:37,840 --> 01:34:44,239
+uh drawn by the artist John Bolton
+
+1659
+01:34:41,600 --> 01:34:46,239
+by the way he's dead I think he's dead
+
+1660
+01:34:44,239 --> 01:34:48,560
+so a fantastic Fantic. Amazing. Okay,
+
+1661
+01:34:46,239 --> 01:34:53,040
+this is a great story too. It's a great
+
+1662
+01:34:48,560 --> 01:34:56,000
+story. Um, and great artwork, fantastic
+
+1663
+01:34:53,040 --> 01:35:00,400
+artwork. Okay, so anyway, Miranda and
+
+1664
+01:34:56,000 --> 01:35:03,760
+the and the and the she wolf. Okay,
+
+1665
+01:35:00,400 --> 01:35:06,400
+that's a western, you know, story.
+
+1666
+01:35:03,760 --> 01:35:08,639
+Fantastic. Beautiful. I love it so much.
+
+1667
+01:35:06,400 --> 01:35:13,280
+So, that's one of them. So, but I wanted
+
+1668
+01:35:08,639 --> 01:35:16,639
+to find the uh ro, you know, Romelus and
+
+1669
+01:35:13,280 --> 01:35:19,520
+Romas, the Greek uh I mean the Roman
+
+1670
+01:35:16,639 --> 01:35:23,040
+foundation. Um
+
+1671
+01:35:19,520 --> 01:35:27,040
+I have it somewhere.
+
+1672
+01:35:23,040 --> 01:35:30,080
+I don't remember where I put it under.
+
+1673
+01:35:27,040 --> 01:35:33,560
+Uh let's see. The love of the mythology
+
+1674
+01:35:30,080 --> 01:35:33,560
+of the Greeks.
+
+1675
+01:35:34,400 --> 01:35:40,560
+uh it's not exactly a Greek mythology
+
+1676
+01:35:37,360 --> 01:35:44,159
+but it's like the Rome you know Rome
+
+1677
+01:35:40,560 --> 01:35:46,639
+which which is which stole
+
+1678
+01:35:44,159 --> 01:35:48,239
+the Greeks religion and mythology
+
+1679
+01:35:46,639 --> 01:35:51,360
+basically
+
+1680
+01:35:48,239 --> 01:35:53,440
+so here we have fun and the nymph you
+
+1681
+01:35:51,360 --> 01:35:56,440
+know [laughter]
+
+1682
+01:35:53,440 --> 01:35:56,440
+uh
+
+1683
+01:35:56,639 --> 01:36:04,960
+so you know here we have Saturn and uh
+
+1684
+01:36:00,320 --> 01:36:11,239
+what uh and Otamus and Hector and Andro
+
+1685
+01:36:04,960 --> 01:36:11,239
+Machi. Okay, so Hector is a great hero.
+
+1686
+01:36:15,920 --> 01:36:21,520
+Okay, I I think I know what I what I
+
+1687
+01:36:18,560 --> 01:36:25,239
+named it under. Okay, so I named it like
+
+1688
+01:36:21,520 --> 01:36:25,239
+search for tits.
+
+1689
+01:36:26,080 --> 01:36:30,600
+You have to search for tits
+
+1690
+01:36:31,360 --> 01:36:37,520
+there.
+
+1691
+01:36:33,520 --> 01:36:40,320
+milk tits and carrot tits. Okay, go to
+
+1692
+01:36:37,520 --> 01:36:43,760
+that article 2003.
+
+1693
+01:36:40,320 --> 01:36:47,440
+So there is, you know, the sensational
+
+1694
+01:36:43,760 --> 01:36:51,360
+sens sensational like um Oakland New
+
+1695
+01:36:47,440 --> 01:36:54,960
+Zealand magazine published this a woman
+
+1696
+01:36:51,360 --> 01:36:59,360
+with four tits quadrupo tits.
+
+1697
+01:36:54,960 --> 01:37:04,000
+Then you got there Roma and Roma.
+
+1698
+01:36:59,360 --> 01:37:06,960
+Okay. So I read this story from
+
+1699
+01:37:04,000 --> 01:37:10,400
+uh Microsoft in Catarta which I eagerly
+
+1700
+01:37:06,960 --> 01:37:13,199
+bought it when it came out around 2003.
+
+1701
+01:37:10,400 --> 01:37:16,560
+Okay. So back then so this is 20 20
+
+1702
+01:37:13,199 --> 01:37:20,880
+years ago when encyclopedia there there
+
+1703
+01:37:16,560 --> 01:37:24,239
+is no Wikipedia yet. Well, in 2003,
+
+1704
+01:37:20,880 --> 01:37:26,320
+Wikipedia just began, you know, like
+
+1705
+01:37:24,239 --> 01:37:28,800
+somebody says, "Oh, we should have
+
+1706
+01:37:26,320 --> 01:37:31,760
+something like Wikipedia like for the
+
+1707
+01:37:28,800 --> 01:37:33,920
+internet so everyone can contribute, you
+
+1708
+01:37:31,760 --> 01:37:36,480
+know, maybe then we'll have a big
+
+1709
+01:37:33,920 --> 01:37:38,719
+encyclopedia. Maybe, you know, they
+
+1710
+01:37:36,480 --> 01:37:41,520
+believe it that like free, you know,
+
+1711
+01:37:38,719 --> 01:37:43,600
+like Richard Storman have said something
+
+1712
+01:37:41,520 --> 01:37:46,960
+about it, you know, that's Wikipedia
+
+1713
+01:37:43,600 --> 01:37:51,600
+2003. It just began. This is no like
+
+1714
+01:37:46,960 --> 01:37:54,960
+that there was 10 articles. Okay. But at
+
+1715
+01:37:51,600 --> 01:37:57,040
+the time Microsoft the Bill Gates, you
+
+1716
+01:37:54,960 --> 01:38:01,440
+know, they created they they created
+
+1717
+01:37:57,040 --> 01:38:03,199
+they sold a CD of they created Microsoft
+
+1718
+01:38:01,440 --> 01:38:05,600
+in Carta
+
+1719
+01:38:03,199 --> 01:38:08,320
+and I bought it. I went and bought it. I
+
+1720
+01:38:05,600 --> 01:38:11,840
+spent like $500, you know, because I
+
+1721
+01:38:08,320 --> 01:38:15,119
+read Wikipedia. I I read encyclopedia
+
+1722
+01:38:11,840 --> 01:38:17,920
+all day, you know, since 1990s. So I I
+
+1723
+01:38:15,119 --> 01:38:21,920
+so I learned. So this picture you are
+
+1724
+01:38:17,920 --> 01:38:25,119
+looking at is from Microsoft in Carta.
+
+1725
+01:38:21,920 --> 01:38:28,000
+By now it's dead. It it was dead like 10
+
+1726
+01:38:25,119 --> 01:38:30,320
+years ago. Okay. Microsoft ina it's
+
+1727
+01:38:28,000 --> 01:38:33,840
+killed by Wikipedia. Okay. [snorts] But
+
+1728
+01:38:30,320 --> 01:38:37,920
+this picture you are looking at is from
+
+1729
+01:38:33,840 --> 01:38:39,520
+Microsoft Ina. It's so it's like kind of
+
+1730
+01:38:37,920 --> 01:38:42,719
+history.
+
+1731
+01:38:39,520 --> 01:38:47,199
+So I learned about this story of
+
+1732
+01:38:42,719 --> 01:38:49,679
+Romelus and Roma. So these two brothers
+
+1733
+01:38:47,199 --> 01:38:51,520
+are they twins or not? I forgot. You
+
+1734
+01:38:49,679 --> 01:38:53,840
+know they they were left to die. They
+
+1735
+01:38:51,520 --> 01:38:56,719
+they were ordered to be killed by their
+
+1736
+01:38:53,840 --> 01:38:59,920
+uncle because the uncle wants to rule
+
+1737
+01:38:56,719 --> 01:39:01,840
+the country Rome.
+
+1738
+01:38:59,920 --> 01:39:03,920
+And there's oracle or something saying
+
+1739
+01:39:01,840 --> 01:39:06,159
+that you know these kids going to take
+
+1740
+01:39:03,920 --> 01:39:08,400
+over. So they, you know, they set them
+
+1741
+01:39:06,159 --> 01:39:11,760
+to die, but the killer did not kill
+
+1742
+01:39:08,400 --> 01:39:13,440
+them, but left them to drown. But of
+
+1743
+01:39:11,760 --> 01:39:16,639
+course, they didn't drown. They got
+
+1744
+01:39:13,440 --> 01:39:21,360
+raised. They got picked up by a wolf. So
+
+1745
+01:39:16,639 --> 01:39:24,960
+the wolf mommy raised them. [laughter]
+
+1746
+01:39:21,360 --> 01:39:27,960
+Quite funny. Okay. And this this this
+
+1747
+01:39:24,960 --> 01:39:27,960
+theme
+
+1748
+01:39:28,000 --> 01:39:34,480
+seems fairly common. Okay. This theme of
+
+1749
+01:39:31,119 --> 01:39:38,320
+of story of killing someone. but didn't
+
+1750
+01:39:34,480 --> 01:39:41,920
+die and raised by animals seems fairly
+
+1751
+01:39:38,320 --> 01:39:44,560
+common in human animal history. Okay. So
+
+1752
+01:39:41,920 --> 01:39:46,560
+anyway, so they grew up so they they
+
+1753
+01:39:44,560 --> 01:39:49,280
+became, you know, they didn't die. So
+
+1754
+01:39:46,560 --> 01:39:52,080
+they um
+
+1755
+01:39:49,280 --> 01:39:56,239
+so they came back to Rome and killed
+
+1756
+01:39:52,080 --> 01:39:59,280
+their uncle. So they became the founder
+
+1757
+01:39:56,239 --> 01:40:01,040
+of Rome. But then but then there's
+
+1758
+01:39:59,280 --> 01:40:03,040
+another story. They killed each other.
+
+1759
+01:40:01,040 --> 01:40:05,760
+So one of the brother kill the other
+
+1760
+01:40:03,040 --> 01:40:08,639
+because they can't you know they can't
+
+1761
+01:40:05,760 --> 01:40:11,440
+you can't have two [ __ ]
+
+1762
+01:40:08,639 --> 01:40:14,960
+running the country because [ __ ] they
+
+1763
+01:40:11,440 --> 01:40:18,000
+go just by one of them that's men as
+
+1764
+01:40:14,960 --> 01:40:21,199
+opposed to women. Okay women they they b
+
+1765
+01:40:18,000 --> 01:40:25,360
+together you have like pack of you know
+
+1766
+01:40:21,199 --> 01:40:29,440
+like uh wives but the men don't go
+
+1767
+01:40:25,360 --> 01:40:32,639
+together. Men are [ __ ] they go alone.
+
+1768
+01:40:29,440 --> 01:40:36,400
+So one of the brother killed the other.
+
+1769
+01:40:32,639 --> 01:40:39,840
+He ruled Rome. Okay. So that's the story
+
+1770
+01:40:36,400 --> 01:40:43,760
+of the foundation of Rome.
+
+1771
+01:40:39,840 --> 01:40:47,679
+Anyway, that's it for today. Uh
+
+1772
+01:40:43,760 --> 01:40:51,840
+tits. So this article is named milk tits
+
+1773
+01:40:47,679 --> 01:40:54,320
+and carrier tits. So what is so why is
+
+1774
+01:40:51,840 --> 01:40:55,920
+this you know tits? Because the wolf's
+
+1775
+01:40:54,320 --> 01:40:58,560
+tits.
+
+1776
+01:40:55,920 --> 01:41:02,560
+Why is this article you know Romanus and
+
+1777
+01:40:58,560 --> 01:41:05,199
+Ro Romans in this article because of the
+
+1778
+01:41:02,560 --> 01:41:08,320
+wolf's tits
+
+1779
+01:41:05,199 --> 01:41:13,280
+that's a no you know that's a foundation
+
+1780
+01:41:08,320 --> 01:41:15,520
+that's a source of the nourishment
+
+1781
+01:41:13,280 --> 01:41:20,719
+tits
+
+1782
+01:41:15,520 --> 01:41:23,679
+and of course it came from women females
+
+1783
+01:41:20,719 --> 01:41:26,480
+okay so this picture is from Stanford
+
+1784
+01:41:23,679 --> 01:41:28,800
+University like right right here. That's
+
+1785
+01:41:26,480 --> 01:41:33,520
+where I live, you know, like uh 20
+
+1786
+01:41:28,800 --> 01:41:36,400
+minutes drive. I took the photo in 2003.
+
+1787
+01:41:33,520 --> 01:41:40,840
+Okay, you can see the date there.
+
+1788
+01:41:36,400 --> 01:41:40,840
+Stanford University gates.
+
+1789
+01:41:40,880 --> 01:41:48,400
+And uh so that's tits. Okay. Then you
+
+1790
+01:41:45,440 --> 01:41:51,199
+know that's like a taboo to white
+
+1791
+01:41:48,400 --> 01:41:54,320
+Americans because of the Christianity
+
+1792
+01:41:51,199 --> 01:41:58,159
+American branch. Then you have the
+
+1793
+01:41:54,320 --> 01:42:01,840
+keratits. Okay, keratits are the like
+
+1794
+01:41:58,159 --> 01:42:05,920
+these statue statues of
+
+1795
+01:42:01,840 --> 01:42:09,119
+virgin maids on the Greek
+
+1796
+01:42:05,920 --> 01:42:14,560
+maidens poetry of maidens. Okay.
+
+1797
+01:42:09,119 --> 01:42:17,520
+Uh and then there is the um
+
+1798
+01:42:14,560 --> 01:42:20,400
+oh yeah so this is 2000 uh this is like
+
+1799
+01:42:17,520 --> 01:42:23,920
+two year 2000 early 2000. There's a
+
+1800
+01:42:20,400 --> 01:42:25,920
+Harasu. There's a trans from Korea.
+
+1801
+01:42:23,920 --> 01:42:29,960
+Okay.
+
+1802
+01:42:25,920 --> 01:42:29,960
+Anyway, that's it. Uh,
+
+1803
+01:42:31,760 --> 01:42:39,880
+the center of humanity. Humanity indeed.
+
+1804
+01:42:34,560 --> 01:42:39,880
+Okay. Bye guys. That's it for today.
+
+1805
+01:42:40,560 --> 01:42:48,719
+Rulus literally killed his brother and
+
+1806
+01:42:44,000 --> 01:42:50,960
+that's why Rome is called Rome. Yeah.
+
+1807
+01:42:48,719 --> 01:42:53,840
+Uh, human don't exactly keep their first
+
+1808
+01:42:50,960 --> 01:42:55,520
+body. Okay. Okay. Okay. Bye, guys. So,
+
+1809
+01:42:53,840 --> 01:42:57,679
+never been to Stanford. Where are you?
+
+1810
+01:42:55,520 --> 01:43:00,800
+Are you in California?
+
+1811
+01:42:57,679 --> 01:43:05,119
+Okay. Anyways, so that's it for today. I
+
+1812
+01:43:00,800 --> 01:43:10,400
+hope you enjoyed it. Uh, my rambling and
+
+1813
+01:43:05,119 --> 01:43:14,080
+my drunk episode. And, uh,
+
+1814
+01:43:10,400 --> 01:43:16,480
+uh, yeah. So and uh [laughter]
+
+1815
+01:43:14,080 --> 01:43:20,080
+and another funny thing you know like
+
+1816
+01:43:16,480 --> 01:43:24,800
+the gu AI it can draw it draws images if
+
+1817
+01:43:20,080 --> 01:43:26,560
+you ask it to draw leg raise exercise
+
+1818
+01:43:24,800 --> 01:43:29,840
+illustration
+
+1819
+01:43:26,560 --> 01:43:34,111
+and it gratuitously
+
+1820
+01:43:29,840 --> 01:43:34,111
+give you tits you know [laughter]
+
