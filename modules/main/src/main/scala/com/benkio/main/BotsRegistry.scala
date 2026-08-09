@@ -25,6 +25,7 @@ import com.benkio.PinoScottoBot.PinoScottoBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import com.benkio.XahLeeBot.XahLeeBot
 import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
+import com.benkio.Alessandro0rlandoBot.Alessandro0rlandoBot
 import log.effect.LogWriter
 
 final case class BotRegistryEntry[F[_]](
@@ -72,7 +73,8 @@ object BotRegistry {
         sBotInfo = RichardPHJBensonBot.sBotInfo,
         commandEffectfulCallback = RichardPHJBensonBot.commandEffectfulCallback[IO]
       ),
-      BotRegistryEntry[IO](sBotInfo = PinoScottoBot.sBotInfo)
+      BotRegistryEntry[IO](sBotInfo = PinoScottoBot.sBotInfo),
+      BotRegistryEntry[IO](sBotInfo = Alessandro0rlandoBot.sBotInfo)
     )
   )
 }

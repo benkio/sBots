@@ -68,6 +68,7 @@ addCommandAlias(
   "RichardPHJBensonBot/runMain com.benkio.RichardPHJBensonBot.RichardPHJBensonBotMainDataEntry"
 )
 addCommandAlias("pinoAddData", "PinoScottoBot/runMain com.benkio.PinoScottoBot.PinoScottoBotMainDataEntry")
+addCommandAlias("orlAddData", "Alessandro0rlandoBot/runMain com.benkio.Alessandro0rlandoBot.Alessandro0rlandoBotMainDataEntry")
 
 // PROJECTS
 
@@ -79,7 +80,8 @@ lazy val botProjects: Seq[sbt.ProjectReference] = Seq(
   XahLeeBot,
   YouTuboAncheI0Bot,
   M0sconiBot,
-  PinoScottoBot
+  PinoScottoBot,
+  Alessandro0rlandoBot
 )
 
 lazy val sBots =
@@ -142,6 +144,12 @@ lazy val PinoScottoBot =
     .settings(Settings.settings *)
     .settings(Settings.botProjectSettings("PinoScottoBot") *)
     .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
+
+lazy val Alessandro0rlandoBot =
+Project("Alessandro0rlandoBot", file("modules/bots/Alessandro0rlandoBot"))
+  .settings(Settings.settings *)
+  .settings(Settings.botProjectSettings("Alessandro0rlandoBot") *)
+  .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
 
 lazy val main = project
   .in(file("modules/main"))
