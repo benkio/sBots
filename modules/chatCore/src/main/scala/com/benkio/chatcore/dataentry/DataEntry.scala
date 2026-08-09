@@ -5,10 +5,12 @@ import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.model.media.MediaFileSource
+import com.benkio.chatcore.model.MimeTypeOps
 import com.benkio.chatcore.model.SBotInfo.SBotName
 import io.circe.parser.*
 import io.circe.syntax.*
 import io.circe.Json
+import org.http4s.Uri
 
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
@@ -17,8 +19,53 @@ import java.nio.file.Paths
 
 object DataEntry {
 
+  private val FilenameUrlDelimiter = "="
+
+  private def normalizeUrl(url: String): String = url.replace("dl=0", "dl=1")
+
+  private def parseInputLink(link: String): IO[MediaFileSource] = {
+    val trimmedInput = link.trim
+    val isPlainUrl   = trimmedInput.startsWith("http://") || trimmedInput.startsWith("https://")
+
+    if isPlainUrl then MediaFileSource.fromUriString(normalizeUrl(trimmedInput))
+    else if trimmedInput.contains(FilenameUrlDelimiter) then trimmedInput.split(FilenameUrlDelimiter, 2).toList match {
+      case filenameRaw :: urlRaw :: Nil =>
+        val filename = filenameRaw.trim
+        val url      = urlRaw.trim
+        for {
+          _ <- IO.raiseUnless(filename.nonEmpty)(
+            Throwable(s"[DataEntry] Missing filename before '$FilenameUrlDelimiter' in input: $link")
+          )
+          _ <- IO.raiseUnless(url.nonEmpty)(
+            Throwable(s"[DataEntry] Missing url after '$FilenameUrlDelimiter' in input: $link")
+          )
+          _ <- IO.raiseUnless(filename.contains('_'))(
+            Throwable(
+              s"[DataEntry] filename does not contain '_' separator between botId and actual name: $filename"
+            )
+          )
+          uri <- IO.fromEither(Uri.fromString(normalizeUrl(url)))
+        } yield MediaFileSource(
+          filename = filename,
+          kinds = List.empty,
+          mime = MimeTypeOps.mimeTypeOrDefault(filename, None),
+          sources = List(Right(uri))
+        )
+      case _ =>
+        IO.raiseError(
+          Throwable(s"[DataEntry] Invalid input format, expected 'filename${FilenameUrlDelimiter}url': $link")
+        )
+    }
+    else
+      IO.raiseError(
+        Throwable(
+          s"[DataEntry] Input must be either a plain URL or 'filename${FilenameUrlDelimiter}url': $link"
+        )
+      )
+  }
+
   private[dataentry] def parseInput(links: List[String]): IO[List[MediaFileSource]] =
-    links.traverse(link => MediaFileSource.fromUriString(link.replace("dl=0", "dl=1")))
+    links.traverse(parseInputLink)
 
   private def resolvePath(candidates: List[Path]): IO[Path] =
     candidates
