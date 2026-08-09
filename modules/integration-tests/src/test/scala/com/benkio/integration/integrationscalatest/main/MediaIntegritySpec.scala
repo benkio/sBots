@@ -20,6 +20,7 @@ import com.benkio.integration.DBFixtureResources
 import com.benkio.integration.SlowTest
 import com.benkio.integrationtest.Logger.given
 import com.benkio.ABarberoBot.ABarberoBot
+import com.benkio.Alessandro0rlandoBot.Alessandro0rlandoBot
 import com.benkio.CalandroBot.CalandroBot
 import com.benkio.M0sconiBot.M0sconiBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
@@ -108,6 +109,15 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
           }
         )
       )
+      alessandro0rlandoFiles <- Resource.eval(
+        mediaFilesFromBot(
+          SBot.buildSBotConfig(Alessandro0rlandoBot.sBotInfo),
+          (setup, msgData, cmdData) => {
+            given telegramium.bots.high.Api[IO] = setup.api
+            new SBotPolling[IO](setup, msgData, cmdData)
+          }
+        )
+      )
       xahLeeFiles <- Resource.eval(
         mediaFilesFromBot(
           SBot.buildSBotConfig(XahLeeBot.sBotInfo),
@@ -117,8 +127,9 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
           }
         )
       )
-      allFiles = (abarberoFiles ++ calandroFiles ++ m0sconiFiles ++ richardFiles ++ youTuboFiles ++ xahLeeFiles)
-        .distinctBy(_.filename)
+      allFiles =
+        (abarberoFiles ++ calandroFiles ++ m0sconiFiles ++ richardFiles ++ youTuboFiles ++ alessandro0rlandoFiles ++ xahLeeFiles)
+          .distinctBy(_.filename)
     } yield allFiles
 
   def withFixture(test: OneArgTest): Outcome = {

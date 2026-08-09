@@ -4,6 +4,8 @@ import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.http.DropboxClient
+import com.benkio.chatcore.http.HttpClients
+import com.benkio.chatcore.http.MegaClient
 import com.benkio.chatcore.repository.db.DBRepository
 import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chattelegramadapter.initialization.BotSetup
@@ -69,9 +71,14 @@ object BotSetupFixture {
       dbLayer       <- dbRes.resourceDBLayer
       httpClient    <- EmberClientBuilder.default[IO].withMaxResponseHeaderSize(8192).build
       dropboxClient <- Resource.eval(DropboxClient[IO](httpClient))
+      megaClient    <- Resource.eval(MegaClient[IO](httpClient))
+      clients = HttpClients(
+        dropboxClient = dropboxClient,
+        megaClient = megaClient
+      )
       repository = DBRepository.dbResources[IO](
         dbMedia = dbLayer.dbMedia,
-        dropboxClient = dropboxClient
+        clients = clients
       )
       token   = "test"
       baseUrl = s"https://api.telegram.org/bot$token"

@@ -4,7 +4,7 @@ import cats.*
 import cats.data.NonEmptyList
 import cats.effect.*
 import cats.implicits.*
-import com.benkio.chatcore.http.DropboxClient
+import com.benkio.chatcore.http.HttpClients
 import com.benkio.chatcore.model.media.Media
 import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceFile
@@ -19,7 +19,10 @@ import log.effect.LogWriter
 import org.http4s.Uri
 
 object DBRepository {
-  def dbResources[F[_]: Async: LogWriter](dbMedia: DBMedia[F], dropboxClient: DropboxClient[F]): Repository[F] =
+  def dbResources[F[_]: Async: LogWriter](
+      dbMedia: DBMedia[F],
+      clients: HttpClients[F]
+  ): Repository[F] =
     new Repository[F] {
 
       override def getResourcesByKind(
@@ -73,9 +76,9 @@ object DBRepository {
           Resource.pure(sources.map {
             case Left(iFile) => MediaResourceIFile(iFile)
             case Right(uri)  =>
+              val fetchFileResource = HttpClients.fetchFile(clients, mediaName, uri)
               MediaResourceFile(
-                dropboxClient
-                  .fetchFile(mediaName, uri)
+                fetchFileResource
                   .onError(e =>
                     Resource.eval(
                       LogWriter

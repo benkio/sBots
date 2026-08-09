@@ -32,6 +32,8 @@ val rootAbs      = root.toAbsolutePath.normalize
 val projectDir   = rootAbs.resolve("project")
 val buildSbt     = rootAbs.resolve("build.sbt")
 val botsRegistry = rootAbs.resolve("modules/main/src/main/scala/com/benkio/main/BotsRegistry.scala")
+val mediaIntegritySpec =
+  rootAbs.resolve("modules/integration-tests/src/test/scala/com/benkio/integration/integrationscalatest/main/MediaIntegritySpec.scala")
 
 if !java.nio.file.Files.isDirectory(projectDir) || !java.nio.file.Files.isRegularFile(buildSbt) || !java.nio.file.Files
   .isRegularFile(botsRegistry) then {
@@ -223,6 +225,45 @@ if !buildContentNow.contains(aliasName) then {
     println(s"Added data-entry alias: $aliasName")
   }
 }
+
+// 8. MediaIntegritySpec: add bot import and include bot media files in link checks
+if java.nio.file.Files.isRegularFile(mediaIntegritySpec) then {
+  var mediaIntegrityContent = read(mediaIntegritySpec)
+  val importLine            = s"import com.benkio.$botName.$botName"
+  if !mediaIntegrityContent.contains(importLine) then {
+    mediaIntegrityContent = mediaIntegrityContent.replace(
+      "import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot\nimport org.scalatest.*",
+      s"import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot\n$importLine\nimport org.scalatest.*"
+    )
+  }
+
+  val mediaVarName = s"${botName.take(1).toLowerCase}${botName.drop(1)}Files"
+  if !mediaIntegrityContent.contains(s"SBot.buildSBotConfig($botName.sBotInfo)") then {
+    val xahAnchor = "      xahLeeFiles <- Resource.eval("
+    val mediaBlock =
+      s"""      $mediaVarName <- Resource.eval(
+         |        mediaFilesFromBot(
+         |          SBot.buildSBotConfig($botName.sBotInfo),
+         |          (setup, msgData, cmdData) => {
+         |            given telegramium.bots.high.Api[IO] = setup.api
+         |            new SBotPolling[IO](setup, msgData, cmdData)
+         |          }
+         |        )
+         |      )
+         |""".stripMargin
+    mediaIntegrityContent = mediaIntegrityContent.replace(xahAnchor, mediaBlock + xahAnchor)
+  }
+
+  if !mediaIntegrityContent.contains(s"++ $mediaVarName ++") then {
+    mediaIntegrityContent = mediaIntegrityContent.replace(
+      "++ xahLeeFiles)",
+      s"++ $mediaVarName ++ xahLeeFiles)"
+    )
+  }
+
+  write(mediaIntegritySpec, mediaIntegrityContent)
+  println(s"Updated $mediaIntegritySpec with $botName")
+} else println(s"MediaIntegritySpec not found at $mediaIntegritySpec, skipping.")
 
 println(
   """Done. Remember to:

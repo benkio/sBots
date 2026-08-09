@@ -22,6 +22,7 @@ object NewBotTask {
     addBotToBotDBApplicationConf(base, botName, id)
     addBotToV1CreateBotTable(base, botName, id)
     addBotToDeployWorkflow(base, botName, id)
+    addBotToMediaIntegritySpec(base, botName)
     println(s"Created bot module at $targetDir")
     println(
       s"Next: git add modules/bots/$botName/src/main/resources/${id}_replies.json and modules/bots/$botName/src/main/resources/${id}_commands.json; then define the project in build.sbt, add to BotsRegistry (or run: ./scripts/CompleteBotRegistration.sc $botName $id). See docs/adding-a-bot.md"
@@ -94,6 +95,48 @@ object NewBotTask {
     )
     IO.write(deployYml, content)
     println(s"Updated .github/workflows/deploy.yml with $secretName (add the secret in the repo)")
+  }
+
+  private def addBotToMediaIntegritySpec(base: File, botName: String): Unit = {
+    val mediaIntegritySpec =
+      base / "modules" / "integration-tests" / "src" / "test" / "scala" / "com" / "benkio" / "integration" / "integrationscalatest" / "main" / "MediaIntegritySpec.scala"
+    if (!mediaIntegritySpec.isFile) return
+    var content = IO.read(mediaIntegritySpec)
+
+    val importLine = s"import com.benkio.$botName.$botName"
+    if (!content.contains(importLine)) {
+      content = content.replace(
+        "import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot\nimport org.scalatest.*",
+        s"import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot\n$importLine\nimport org.scalatest.*"
+      )
+    }
+
+    val mediaVarName = s"${botName.take(1).toLowerCase}${botName.drop(1)}Files"
+    if (!content.contains(s"SBot.buildSBotConfig($botName.sBotInfo)")) {
+      val xahAnchor  = "      xahLeeFiles <- Resource.eval("
+      val mediaBlock =
+        s"""      $mediaVarName <- Resource.eval(
+           |        mediaFilesFromBot(
+           |          SBot.buildSBotConfig($botName.sBotInfo),
+           |          (setup, msgData, cmdData) => {
+           |            given telegramium.bots.high.Api[IO] = setup.api
+           |            new SBotPolling[IO](setup, msgData, cmdData)
+           |          }
+           |        )
+           |      )
+           |""".stripMargin
+      content = content.replace(xahAnchor, mediaBlock + xahAnchor)
+    }
+
+    if (!content.contains(s"++ $mediaVarName ++")) {
+      content = content.replace(
+        "++ xahLeeFiles)",
+        s"++ $mediaVarName ++ xahLeeFiles)"
+      )
+    }
+
+    IO.write(mediaIntegritySpec, content)
+    println(s"Updated MediaIntegritySpec with $botName")
   }
 
   private def copyAndSubstitute(src: File, dest: File, templateRoot: File, botName: String, id: String): Unit = {

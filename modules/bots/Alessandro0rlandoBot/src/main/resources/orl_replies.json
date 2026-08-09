@@ -1,1 +1,54 @@
-[]
+[
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "[v]+[i]+[a]+!",
+              "regexLength" : 4
+            }
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "uno(,)? due(,)? tre",
+              "regexLength" : 11
+            }
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "1(,)? 2(,)? 3",
+              "regexLength" : 5
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "orl_UnoDueTreVia.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_UnoDueTreVia.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "orl_UnoDueTreViaGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  }
+]
