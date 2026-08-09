@@ -45,7 +45,13 @@ object MediaFileSource {
   given Decoder[Either[String, Uri]] with {
     def apply(c: HCursor): Decoder.Result[Either[String, Uri]] =
       c.as[String].map { str =>
-        Uri.requestTarget(str).leftMap(_ => str)
+        Uri
+          .fromString(str)
+          .leftMap(_ => str)
+          .flatMap { uri =>
+            val isHttpUri = uri.scheme.exists(s => s.value == "http" || s.value == "https") && uri.host.isDefined
+            if isHttpUri then Right(uri) else Left(str)
+          }
       }
   }
 

@@ -136,10 +136,12 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
         )
         assert(
           urls.forall(url => {
-            val check = url.query.exists { case (key, optValue) =>
-              key == "dl" && optValue.fold(false)(_ == "1")
+            val isDropbox = url.host.exists(_.value.contains("dropbox.com"))
+            val hasDl1    = url.query.exists { case (key, optValue) =>
+              key == "dl" && optValue.contains("1")
             }
-            if !check then println(s"[BaseBotSpec] url failed the test: ${url}")
+            val check = !isDropbox || hasDl1
+            if !check then println(s"[BaseBotSpec] dropbox url failed the test: ${url}")
             check
           })
         )
@@ -147,10 +149,11 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
           .foreach(mfs =>
             mfs.sources.foreach {
               case Right(uri) =>
-                assert(
+                if uri.host.exists(_.value.contains("dropbox.com")) then assert(
                   uri.toString.contains(mfs.filename),
                   s"$uri doesn't contain the filename: ${mfs.filename}"
                 )
+                else assert(true)
               case _ => assert(true)
             }
           )

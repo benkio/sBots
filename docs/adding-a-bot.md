@@ -31,6 +31,7 @@ This:
 - **Updates `modules/botDB/src/main/resources/application.conf`**: adds the new bot to `json-location` and to `show-config.show-sources` with **empty sources** (`youtube-sources = []`, `caption-language = "it"`, `output-file-path = "../bots/<BotName>/<id>_shows.json"`). You can edit the config later to add YouTube sources or change the caption language.
 - **Updates `modules/botDB/src/main/resources/db/migrations/V1__CreateBotTable.sql`**: adds an `INSERT` for the new bot (`id`, `bot_name`, `bot_full_name`). The full name is set to the bot name by default; you can edit the SQL to set a human-readable name later.
 - **Updates `.github/workflows/deploy.yml`** so the deploy workflow injects the bot token during assembly (see Step 3 for adding the secret).
+- **Updates `modules/integration-tests/.../MediaIntegritySpec.scala`** so link-integrity checks include the new bot.
 
 The registration script (Step 2) updates **main** `application.conf`, **healthcheck.yml**, and **deploy.yml**; `newBot` does not update `main` `application.conf` or `healthcheck.yml`.
 
@@ -52,6 +53,7 @@ This updates:
 - **.github/workflows/healthcheck.yml**: adds the new bot’s token to `BOT_TOKENS`.
 - **.github/workflows/deploy.yml**: adds a `printf` token line so CI writes `<id>_<BotName>.token` during assembly.
 - **scripts/copyTokensFromDropbox.sh**: adds the new bot to the list.
+- **modules/integration-tests/.../MediaIntegritySpec.scala**: adds import + media collection block so `checkAllLinksTest` checks the new bot too.
 
 If your bot needs `commandEffectfulCallback` (like RichardPHJBensonBot), add it manually in BotsRegistry after running the script.
 
@@ -143,8 +145,8 @@ addCommandAlias("mynewAddData", "MyNewBot/runMain com.benkio.MyNewBot.MyNewBotMa
 
 | Step | What to do |
 |------|------------|
-| 1. Create module | Copy `_template` to `modules/bots/YourBotName` (so you get `YourBotName/...`, not `YourBotName/_template/...`) and replace TemplateBot → YourBotName, tpl → yourid — or run `sbt newBot YourBotName yourid`. The task updates **botDB** `application.conf`, **V1__CreateBotTable.sql** (INSERT), and **deploy.yml** only. |
-| 2. Register in build & registry | Run `./scripts/CompleteBotRegistration.sc YourBotName yourid` **or** manually edit build.sbt and BotsRegistry.scala. The script updates **main** `application.conf`, **healthcheck.yml**, **deploy.yml**, **scripts/copyTokensFromDropbox.sh**, plus build.sbt and BotsRegistry. |
+| 1. Create module | Copy `_template` to `modules/bots/YourBotName` (so you get `YourBotName/...`, not `YourBotName/_template/...`) and replace TemplateBot → YourBotName, tpl → yourid — or run `sbt newBot YourBotName yourid`. The task updates **botDB** `application.conf`, **V1__CreateBotTable.sql** (INSERT), **deploy.yml**, and **MediaIntegritySpec.scala**. |
+| 2. Register in build & registry | Run `./scripts/CompleteBotRegistration.sc YourBotName yourid` **or** manually edit build.sbt and BotsRegistry.scala. The script updates **main** `application.conf`, **healthcheck.yml**, **deploy.yml**, **scripts/copyTokensFromDropbox.sh**, **MediaIntegritySpec.scala**, plus build.sbt and BotsRegistry. |
 | 2b. Manual steps after registration | As needed: add `commandEffectfulCallback` in BotsRegistry, set `bot_full_name` in V1__CreateBotTable.sql, add CI secret (Step 3), add YouTube sources in application.conf |
 | 3. CI secret | In the repo: **Settings** → **Secrets and variables** → **Actions** → New repository secret: name `YOURID_TOKEN` (uppercase), value = token from BotFather (used by deploy and healthcheck) |
 | 4. Verify | `sbt compile` and optionally run the bot |
