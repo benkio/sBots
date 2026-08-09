@@ -4,6 +4,8 @@ import annotation.unused
 import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.chatcore.http.DropboxClient
+import com.benkio.chatcore.http.HttpClients
+import com.benkio.chatcore.http.MegaClient
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBRepository
 import com.benkio.chatcore.repository.Repository
@@ -26,7 +28,8 @@ final case class DBFixtureResources(
     transactor: Transactor[IO],
     resourceDBLayer: Resource[IO, DBLayer[IO]],
     repositoryResource: Resource[IO, Repository[IO]],
-    dropboxClientResource: Resource[IO, DropboxClient[IO]]
+    dropboxClientResource: Resource[IO, DropboxClient[IO]],
+    megaClientResource: Resource[IO, MegaClient[IO]]
 )
 
 trait DBFixture { self: FunSuite =>
@@ -58,20 +61,28 @@ object DBFixture {
     )
     val transactor                                 = Transactor.fromConnection[IO](conn, None)
     val dbLayerResource: Resource[IO, DBLayer[IO]] = Resource.eval(DBLayer[IO](transactor))
-    val dropboxClientNRepositoryResource: Resource[IO, (DropboxClient[IO], Repository[IO])] =
+    val clientsResource: Resource[IO, HttpClients[IO]] = for {
+      _          <- Resource.eval(log.debug(s"DbUrl: $dbUrl ||| migrations path: $migrationPath"))
+      httpClient <- EmberClientBuilder
+        .default[IO]
+        .withMaxResponseHeaderSize(8192)
+        .build
+      dropboxClient <- Resource.eval(DropboxClient[IO](httpClient))
+      megaClient    <- Resource.eval(MegaClient[IO](httpClient))
+    } yield HttpClients(
+      dropboxClient = dropboxClient,
+      megaClient = megaClient
+    )
+
+    val clientsAndRepositoryResource: Resource[IO, (HttpClients[IO], Repository[IO])] =
       dbLayerResource.flatMap(dbLayer =>
-        for {
-          _          <- Resource.eval(log.debug(s"DbUrl: $dbUrl ||| migrations path: $migrationPath"))
-          httpClient <- EmberClientBuilder
-            .default[IO]
-            .withMaxResponseHeaderSize(8192)
-            .build
-          dropboxClient <- Resource.eval(DropboxClient[IO](httpClient))
-        } yield (
-          dropboxClient,
-          DBRepository.dbResources[IO](
-            dbMedia = dbLayer.dbMedia,
-            dropboxClient = dropboxClient
+        clientsResource.map(clients =>
+          (
+            clients,
+            DBRepository.dbResources[IO](
+              dbMedia = dbLayer.dbMedia,
+              clients = clients
+            )
           )
         )
       )
@@ -81,8 +92,9 @@ object DBFixture {
       connection = conn,
       transactor = transactor,
       resourceDBLayer = dbLayerResource,
-      repositoryResource = dropboxClientNRepositoryResource.map(_._2),
-      dropboxClientResource = dropboxClientNRepositoryResource.map(_._1)
+      repositoryResource = clientsAndRepositoryResource.map(_._2),
+      dropboxClientResource = clientsAndRepositoryResource.map(_._1.dropboxClient),
+      megaClientResource = clientsAndRepositoryResource.map(_._1.megaClient)
     )
   }
 

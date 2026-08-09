@@ -6,6 +6,8 @@ import cats.implicits.*
 import cats.MonadThrow
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.http.DropboxClient
+import com.benkio.chatcore.http.HttpClients
+import com.benkio.chatcore.http.MegaClient
 import com.benkio.chatcore.initialization.Config
 import com.benkio.chatcore.initialization.DBConfig
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceFile
@@ -113,8 +115,13 @@ object BotSetup {
       config        <- Resource.eval(Config.loadConfig[F](sBotConfig.sBotInfo.botId.value))
       _             <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Configuration: $config"))
       dropboxClient <- Resource.eval(DropboxClient[F](httpClient))
+      megaClient    <- Resource.eval(MegaClient[F](httpClient))
+      clients = HttpClients(
+        dropboxClient = dropboxClient,
+        megaClient = megaClient
+      )
       dbLayer       <- loadDB[F](config.db)
-      repository = DBRepository.dbResources[F](dbLayer.dbMedia, dropboxClient)
+      repository = DBRepository.dbResources[F](dbLayer.dbMedia, clients)
       _                     <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Delete webook..."))
       deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
       _                     <- Resource.eval(

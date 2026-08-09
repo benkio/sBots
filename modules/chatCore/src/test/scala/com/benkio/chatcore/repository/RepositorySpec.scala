@@ -4,8 +4,11 @@ import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits.*
 import com.benkio.chatcore.http.DropboxClient
+import com.benkio.chatcore.http.HttpClients
+import com.benkio.chatcore.http.MegaClient
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.DropboxClientMock
+import com.benkio.chatcore.mocks.MegaClientMock
 import com.benkio.chatcore.model.media.getMediaResourceFile
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceFile
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceIFile
@@ -68,7 +71,7 @@ class DBRepositorySpec extends CatsEffectSuite {
       bot_id = "bot",
       kinds = "[]",
       mime_type = "audio/mpeg",
-      media_sources = """[ "http://benkio.github.io" ]""",
+      media_sources = """[ "https://www.dropbox.com/s/test/bot_testMediaName.mp4?dl=1" ]""",
       media_count = 0,
       created_at = "1755687972"
     ),
@@ -77,7 +80,7 @@ class DBRepositorySpec extends CatsEffectSuite {
       bot_id = "bot",
       kinds = """["testkind"]""",
       mime_type = "audio/mpeg",
-      media_sources = """[ "http://benkio.github.io" ]""",
+      media_sources = """[ "https://www.dropbox.com/s/test/bot_testMediaName2.mp4?dl=1" ]""",
       media_count = 0,
       created_at = "1755687972"
     )
@@ -92,13 +95,22 @@ class DBRepositorySpec extends CatsEffectSuite {
       ).as(testPath)
     )
   )
+  def megaClientMockBuild(expectedFileName: String): MegaClient[IO] = MegaClientMock.mock((inputFileName, _) =>
+    Resource.eval(
+      IO.raiseUnless(inputFileName == expectedFileName)(
+        Throwable(s"[DBRepositorySpec] Error MegaClientMock. $inputFileName ≠ $expectedFileName")
+      ).as(testPath)
+    )
+  )
 
   test("DBRepository.getResourceFile should return an error if the mediaFile doesn't exists") {
     val expectedFileName                     = "bot_testMediaName.mp4"
     val dropboxClientMock: DropboxClient[IO] = dropboxClientMockBuild(expectedFileName)
+    val megaClientMock: MegaClient[IO]       = megaClientMockBuild(expectedFileName)
+    val clients: HttpClients[IO]             = HttpClients(dropboxClientMock, megaClientMock)
     val dbRepository                         = DBRepository.dbResources[IO](
       emptyDBLayer.dbMedia,
-      dropboxClientMock
+      clients
     )
     val expectedMediaFile: MediaFile = VideoFile(expectedFileName)
     val check: IO[Boolean]           = dbRepository
@@ -116,9 +128,11 @@ class DBRepositorySpec extends CatsEffectSuite {
   test("DBRepository.getResourceFile should return the expected list of MediaResource") {
     val expectedFileName                     = "bot_testMediaName.mp4"
     val dropboxClientMock: DropboxClient[IO] = dropboxClientMockBuild(expectedFileName)
+    val megaClientMock: MegaClient[IO]       = megaClientMockBuild(expectedFileName)
+    val clients: HttpClients[IO]             = HttpClients(dropboxClientMock, megaClientMock)
     val dbRepository                         = DBRepository.dbResources[IO](
       fullDBLayer.dbMedia,
-      dropboxClientMock
+      clients
     )
 
     val check: IO[Boolean] = RepositorySpec.testFilename(expectedFileName)(using dbRepository)
@@ -127,9 +141,11 @@ class DBRepositorySpec extends CatsEffectSuite {
   test("DBRepository.getResourceKind should return an error if the criteria doesn't exists") {
     val expectedFileName                     = "bot_testMediaName2.mp4"
     val dropboxClientMock: DropboxClient[IO] = dropboxClientMockBuild(expectedFileName)
+    val megaClientMock: MegaClient[IO]       = megaClientMockBuild(expectedFileName)
+    val clients: HttpClients[IO]             = HttpClients(dropboxClientMock, megaClientMock)
     val dbRepository                         = DBRepository.dbResources[IO](
       emptyDBLayer.dbMedia,
-      dropboxClientMock
+      clients
     )
     val botId: SBotId      = SBotId("bot")
     val check: IO[Boolean] = dbRepository
@@ -146,7 +162,12 @@ class DBRepositorySpec extends CatsEffectSuite {
   test("DBRepository.getResourceKind should return the expected list of MediaResource") {
     val expectedFileName                     = "bot_testMediaName2.mp4"
     val dropboxClientMock: DropboxClient[IO] = dropboxClientMockBuild(expectedFileName)
-    val dbRepository                         = DBRepository.dbResources[IO](fullDBLayer.dbMedia, dropboxClientMock)
+    val megaClientMock: MegaClient[IO]       = megaClientMockBuild(expectedFileName)
+    val clients: HttpClients[IO]             = HttpClients(dropboxClientMock, megaClientMock)
+    val dbRepository                         = DBRepository.dbResources[IO](
+      fullDBLayer.dbMedia,
+      clients
+    )
     val botId: SBotId                        = SBotId("bot")
     val check: IO[Boolean]                   = dbRepository
       .getResourcesByKind(criteria = "testkind", botId = botId)
