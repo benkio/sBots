@@ -246,7 +246,7 @@
           },
           {
             "RegexTextTriggerValue" : {
-              "trigger" : "Ma (questa )?è [u]?na cosa (schifosa|indecente)",
+              "trigger" : "ma (questa )?è [u]?na cosa (schifosa|indecente)",
               "regexLength" : 22
             }
           },
@@ -402,12 +402,6 @@
         "triggers" : [
           {
             "StringTextTriggerValue" : "il più frocio dei froci"
-          },
-          {
-            "RegexTextTriggerValue" : {
-              "trigger" : "mi fai (letteralmente )?schifo",
-              "regexLength" : 13
-            }
           },
           {
             "StringTextTriggerValue" : "inculare dietro i cespugli"
@@ -14696,7 +14690,7 @@
         "triggers" : [
           {
             "RegexTextTriggerValue" : {
-              "trigger" : "m[ie] fai( proprio)? schifo",
+              "trigger" : "m[ie] fai( proprio|letteralmente)? schifo",
               "regexLength" : 13
             }
           }
@@ -14709,6 +14703,24 @@
           {
             "Mp3File" : {
               "filepath" : "rphjb_Schifo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_ChiamataConInsulti.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_ChiamataConInsulti.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_ChiamataConInsultiGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -66642,7 +66654,7 @@
   {
     "trigger" : {
       "NewMemberTrigger" : {
-        
+
       }
     },
     "reply" : {
@@ -66693,7 +66705,7 @@
   {
     "trigger" : {
       "LeftMemberTrigger" : {
-        
+
       }
     },
     "reply" : {
