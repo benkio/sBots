@@ -7,6 +7,7 @@ import com.benkio.chatcore.repository.db.DBMediaData
 import com.benkio.chattelegramadapter.SBot
 import com.benkio.integration.DBFixture
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
+import com.benkio.XahLeeBot.XahLeeBot
 import doobie.munit.analysisspec.IOChecker
 import doobie.Transactor
 import munit.CatsEffectSuite
@@ -24,7 +25,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
     bot_id = testMediaId.value,
     kinds = """"[]"""",
     media_sources =
-      """"[\"https://www.dropbox.com/scl/fi/lt6oc071j1cwx262139jr/rphjb_MaSgus.mp3?rlkey=758ppdc2mej0s9k8amp7hk901&dl=1\"]"""",
+      """"[\"https://mega.nz/file/eawnkBBY#PhxBHN2vUOyPVBlrrdjJgZiEGGotu5xTmrV2SJKFZvA\"]"""",
     media_count = 0,
     created_at = "1669122662279",
     mime_type = "image/gif"
@@ -78,64 +79,26 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
   databaseFixture.test(
     "DBMedia.getMediaByKind should return the expected media list"
   ) { fixture =>
-    val expected: List[DBMediaData] = List(
-      DBMediaData(
-        media_name = "rphjb_ancheLaRabbiaHaUnCuore.txt",
-        bot_id = testMediaId.value,
-        kinds = """"[\"rphjb_LinkSources\"]"""",
-        media_sources =
-          """"[\"https://www.dropbox.com/sh/xqaatugvq8zcoyu/AABLDyXAOThfUrS3EoR3kL6ma/rphjb_LinkSources/ancheLaRabbiaHaUnCuore.txt?dl=1\"]"""",
-        media_count = 0,
-        created_at = "1669122665179",
-        mime_type = "application/octet-stream"
-      ),
-      DBMediaData(
-        media_name = "rphjb_live.txt",
-        bot_id = testMediaId.value,
-        kinds = """"[\"rphjb_LinkSources\"]"""",
-        media_sources =
-          """"[\"https://www.dropbox.com/sh/xqaatugvq8zcoyu/AACKI915JzajxuCSLy4spvbYa/rphjb_LinkSources/live.txt?dl=1\"]"""",
-        media_count = 0,
-        created_at = "1669122665277",
-        mime_type = "application/octet-stream"
-      ),
-      DBMediaData(
-        media_name = "rphjb_perCordeEGrida.txt",
-        bot_id = testMediaId.value,
-        kinds = """"[\"rphjb_LinkSources\"]"""",
-        media_sources =
-          """"[\"https://www.dropbox.com/sh/xqaatugvq8zcoyu/AAA6aMpu41wxHF3wFrYZTXGba/rphjb_LinkSources/perCordeEGrida.txt?dl=1\"]"""",
-        media_count = 0,
-        created_at = "1669122665311",
-        mime_type = "application/octet-stream"
-      ),
-      DBMediaData(
-        media_name = "rphjb_puntateCocktailMicidiale.txt",
-        bot_id = testMediaId.value,
-        kinds = """"[\"rphjb_LinkSources\"]"""",
-        media_sources =
-          """"[\"https://www.dropbox.com/sh/xqaatugvq8zcoyu/AAAfPoTfoPzhKys-DPI0YV8aa/rphjb_LinkSources/puntateCocktailMicidiale.txt?dl=1\"]"""",
-        media_count = 0,
-        created_at = "1669122665322",
-        mime_type = "application/octet-stream"
-      ),
-      DBMediaData(
-        media_name = "rphjb_puntateRockMachine.txt",
-        bot_id = testMediaId.value,
-        kinds = """"[\"rphjb_LinkSources\"]"""",
-        media_sources =
-          """"[\"https://www.dropbox.com/sh/xqaatugvq8zcoyu/AABSjYo7uJwDeQqKe3bA5cXea/rphjb_LinkSources/puntateRockMachine.txt?dl=1\"]"""",
-        media_count = 0,
-        created_at = "1669122665412",
-        mime_type = "application/octet-stream"
-      )
-    )
-
+    val xahBotId            = SBot.buildSBotConfig(XahLeeBot.sBotInfo).sBotInfo.botId
+    val testKind            = "alanmackenzie"
+    val expectedSampleFiles = Set("xah_AlanFak.mp3", "xah_AlanMackenzieFak.mp3", "xah_AlanMackenzieFak2.mp3")
     val resourceAssert = for {
       dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
-      medias  <- Resource.eval(dbMedia.getMediaByKind(kind = "rphjb_LinkSources", botId = testMediaId))
-      _ = println(s"[ITDBMediaSpec] TODO WTF $medias")
-    } yield medias.zip(expected).foldLeft(true) { case (acc, (actual, exp)) => acc && checkMedia(actual, exp) }
+      medias  <- Resource.eval(dbMedia.getMediaByKind(kind = testKind, botId = xahBotId))
+    } yield {
+      assert(
+        medias.nonEmpty,
+        s"Expected at least one media for kind '$testKind' and botId '${xahBotId.value}'"
+      )
+      assert(medias.forall(_.bot_id == xahBotId.value), "All medias should belong to XahLeeBot")
+      assert(medias.forall(_.kinds.contains(testKind)), s"All medias should contain kind '$testKind'")
+      val filenames = medias.map(_.media_name).toSet
+      assert(
+        expectedSampleFiles.subsetOf(filenames),
+        s"Expected sample files missing for kind '$testKind': ${expectedSampleFiles.diff(filenames)}"
+      )
+      true
+    }
     resourceAssert.use(IO.pure).assert
   }
 
@@ -148,7 +111,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
         bot_id = testMediaId.value,
         kinds = """"[]"""",
         media_sources =
-          """"[\"https://www.dropbox.com/scl/fi/zy8omnl7nj63l7ff350qf/rphjb_06Gif.mp4?rlkey=w88ow3t4ktru6txkgw2vuc7xk&dl=1\"]"""",
+          """"[\"https://mega.nz/file/mPYCWJwY#q0_7BNEG0Uj2qxDTzr3W8AxfvbGr_ZMwr8F-_yJQh-8\"]"""",
         media_count = 0,
         created_at = "1710379153288",
         mime_type = "image/gif"
@@ -158,7 +121,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
         bot_id = testMediaId.value,
         kinds = """"[]"""",
         media_sources =
-          """"[\"https://www.dropbox.com/scl/fi/kzq7lkgzyle3tsp0ix292/rphjb_3Minuti.mp4?rlkey=pkaxiy7ue3w86ddczoz34gtc8&dl=1\"]"""",
+          """"[\"https://mega.nz/file/PaY0lIIY#seJaOyoxTNqIi1oGVE2dWL0GSvLRZAtfUYQDk2KU0UM\"]"""",
         media_count = 0,
         created_at = "1674248160242",
         mime_type = "video/mp4"
@@ -168,7 +131,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
         bot_id = testMediaId.value,
         kinds = """"[]"""",
         media_sources =
-          """"[\"https://www.dropbox.com/scl/fi/u4wuuygbhgsqs1qq50q98/rphjb_9MesiUscireRientrare.mp3?rlkey=unm5uv3mvzihzrekih3umhmt6&dl=1\"]"""",
+          """"[\"https://mega.nz/file/6HpUxC5a#2_tLJMV6r4PiUVrr1TX_Au-lt17w0LTlaHNnwBF8vKg\"]"""",
         media_count = 0,
         created_at = "1681990713607",
         mime_type = "audio/mpeg"
