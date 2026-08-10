@@ -46,7 +46,7 @@ void test('buildFromHomeDirectory uses mocked path operations', async () => {
 
   const buildFromHomeDirectory = Effect.gen(function* () {
     const fileService = yield* FileService;
-    return yield* fileService.buildFromHomeDirectory('/base', 'bot');
+    return yield* fileService.buildFromHomeDirectory('/base/bot');
   }).pipe(Effect.provide(mockedFileServiceLayer));
 
   const directory = await Effect.runPromise(buildFromHomeDirectory);

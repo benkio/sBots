@@ -1,5 +1,5 @@
 import { Effect, Logger } from 'effect';
-import { bots, baseDir } from './Config';
+import { bots } from './Config';
 import { FileService, fileServiceLayer } from './FileService';
 import { Id3TagService, Id3TagServiceLayer } from './Id3NodeService';
 import { MediaInfoService, mediaInfoServiceLayer } from './MediaInfoService';
@@ -13,10 +13,7 @@ const program = Effect.gen(function* () {
 
   yield* Effect.forEach(bots, (bot) =>
     Effect.gen(function* () {
-      const botDir = yield* fileService.buildFromHomeDirectory(
-        baseDir,
-        bot.filePath
-      );
+      const botDir = yield* fileService.buildFromHomeDirectory(bot.filePath);
       const botListFilePath = yield* fileService.buildFromProjectDirectory(
         bot.jsonFilePath
       );

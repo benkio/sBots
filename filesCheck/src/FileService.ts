@@ -15,10 +15,7 @@ export class FileService extends Context.Tag('FileService')<
   {
     getFiles: (directoryPath: string) => Effect.Effect<string[], PlatformError>;
     getFile: (filePath: string) => Effect.Effect<string, PlatformError>;
-    buildFromHomeDirectory: (
-      baseDir: string,
-      botDir: string
-    ) => Effect.Effect<string, never>;
+    buildFromHomeDirectory: (botDir: string) => Effect.Effect<string, never>;
     buildFromProjectDirectory: (
       relPath: string
     ) => Effect.Effect<string, FileServiceError>;
@@ -48,8 +45,8 @@ export const fileService = Effect.gen(function* () {
           return Buffer.from(contents).toString('utf8');
         })
       ),
-    buildFromHomeDirectory: (baseDir: string, botDir: string) =>
-      Effect.succeed(path.join(os.homedir(), baseDir, botDir)),
+    buildFromHomeDirectory: (botDir: string) =>
+      Effect.succeed(path.join(os.homedir(), botDir)),
     buildFromProjectDirectory: (relPath: string) =>
       Effect.promise(() => readPackageUp()).pipe(
         Effect.flatMap((packageUpResult) => {

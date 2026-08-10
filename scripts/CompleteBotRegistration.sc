@@ -34,6 +34,7 @@ val buildSbt     = rootAbs.resolve("build.sbt")
 val botsRegistry = rootAbs.resolve("modules/main/src/main/scala/com/benkio/main/BotsRegistry.scala")
 val mediaIntegritySpec =
   rootAbs.resolve("modules/integration-tests/src/test/scala/com/benkio/integration/integrationscalatest/main/MediaIntegritySpec.scala")
+val filesCheckConfig = rootAbs.resolve("filesCheck/src/Config.ts")
 
 if !java.nio.file.Files.isDirectory(projectDir) || !java.nio.file.Files.isRegularFile(buildSbt) || !java.nio.file.Files
   .isRegularFile(botsRegistry) then {
@@ -264,6 +265,32 @@ if java.nio.file.Files.isRegularFile(mediaIntegritySpec) then {
   write(mediaIntegritySpec, mediaIntegrityContent)
   println(s"Updated $mediaIntegritySpec with $botName")
 } else println(s"MediaIntegritySpec not found at $mediaIntegritySpec, skipping.")
+
+// 9. filesCheck config: add bot entry with Dropbox default path
+if java.nio.file.Files.isRegularFile(filesCheckConfig) then {
+  var fcContent = read(filesCheckConfig)
+  val botJsonPath = s"'../modules/bots/$botName/${id}_list.json'"
+  val alreadyPresent = fcContent.contains(s"id: '$id'") || fcContent.contains(botJsonPath)
+  if !alreadyPresent then {
+    val botEntry =
+      s"""  {
+         |    id: '$id',
+         |    artist: '$botName',
+         |    filePath: '/Dropbox/sBots/$botName/src/main/resources',
+         |    jsonFilePath: '../modules/bots/$botName/${id}_list.json',
+         |  },""".stripMargin
+    val listEnd = "\n];"
+    val endIdx  = fcContent.lastIndexOf(listEnd)
+    if endIdx == -1 then println("Could not find insertion point in filesCheck/src/Config.ts")
+    else {
+      val before = fcContent.substring(0, endIdx).stripSuffix("\n")
+      val sep    = if before.trim.endsWith(",") then "" else ","
+      fcContent = s"$before$sep\n$botEntry\n];"
+      write(filesCheckConfig, fcContent)
+      println(s"Updated filesCheck/src/Config.ts with $botName ($id)")
+    }
+  } else println(s"filesCheck/src/Config.ts already contains $botName ($id), skipping.")
+} else println(s"filesCheck config not found at $filesCheckConfig, skipping.")
 
 println(
   """Done. Remember to:

@@ -23,6 +23,7 @@ object NewBotTask {
     addBotToV1CreateBotTable(base, botName, id)
     addBotToDeployWorkflow(base, botName, id)
     addBotToMediaIntegritySpec(base, botName)
+    addBotToFilesCheckConfig(base, botName, id)
     println(s"Created bot module at $targetDir")
     println(
       s"Next: git add modules/bots/$botName/src/main/resources/${id}_replies.json and modules/bots/$botName/src/main/resources/${id}_commands.json; then define the project in build.sbt, add to BotsRegistry (or run: ./scripts/CompleteBotRegistration.sc $botName $id). See docs/adding-a-bot.md"
@@ -137,6 +138,37 @@ object NewBotTask {
 
     IO.write(mediaIntegritySpec, content)
     println(s"Updated MediaIntegritySpec with $botName")
+  }
+
+  private def addBotToFilesCheckConfig(base: File, botName: String, id: String): Unit = {
+    val filesCheckConfig = base / "filesCheck" / "src" / "Config.ts"
+    if (!filesCheckConfig.isFile) return
+    var content = IO.read(filesCheckConfig)
+
+    val botJsonPath = s"'../modules/bots/$botName/${id}_list.json'"
+    if (content.contains(s"id: '$id'") || content.contains(botJsonPath)) return
+
+    val botEntry =
+      s"""  {
+         |    id: '$id',
+         |    artist: '$botName',
+         |    filePath: '/Dropbox/sBots/$botName/src/main/resources',
+         |    jsonFilePath: '../modules/bots/$botName/${id}_list.json',
+         |  },""".stripMargin
+
+    val listEnd = "\n];"
+    val endIdx  = content.lastIndexOf(listEnd)
+    if (endIdx == -1) {
+      println(s"Could not find insertion point in $filesCheckConfig")
+      return
+    }
+
+    val before = content.substring(0, endIdx).stripSuffix("\n")
+    val sep    = if (before.trim.endsWith(",")) "" else ","
+    content = s"$before$sep\n$botEntry\n];"
+
+    IO.write(filesCheckConfig, content)
+    println(s"Updated filesCheck config with $botName ($id)")
   }
 
   private def copyAndSubstitute(src: File, dest: File, templateRoot: File, botName: String, id: String): Unit = {
