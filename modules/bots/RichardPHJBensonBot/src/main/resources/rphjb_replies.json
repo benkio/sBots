@@ -4,6 +4,101 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "a quel punto"
+          },
+          {
+            "StringTextTriggerValue" : "affidandovi al male"
+          },
+          {
+            "StringTextTriggerValue" : "fare dei riti"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(le|una) fat[ae]\\b",
+              "regexLength" : 7
+            }
+          },
+          {
+            "StringTextTriggerValue" : "vi cibate di"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(vuoi|vo(lete|glio)) cambiare qualcosa",
+              "regexLength" : 24
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_FigureMitologiche3.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "il messico"
+          },
+          {
+            "StringTextTriggerValue" : "impervi"
+          },
+          {
+            "StringTextTriggerValue" : "queste erbe"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "erbe( |...)di radici",
+              "regexLength" : 14
+            }
+          },
+          {
+            "StringTextTriggerValue" : "sempre sono disponibile"
+          },
+          {
+            "StringTextTriggerValue" : "danno degli stati"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_FigureMitologiche.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_FigureMitologiche.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "RegexTextTriggerValue" : {
               "trigger" : "m[ei] rompi (er|il) cazzo",
               "regexLength" : 17
@@ -13227,6 +13322,18 @@
           {
             "Mp3File" : {
               "filepath" : "rphjb_Oppura.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_FigureMitologiche.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_FigureMitologiche.mp4",
               "replyToMessage" : false
             }
           }
