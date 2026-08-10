@@ -68,7 +68,7 @@ void test('buildFromHomeDirectory resolves using home directory', async () => {
 
   const buildFromHomeDirectory = Effect.gen(function* () {
     const service = yield* FileService;
-    return yield* service.buildFromHomeDirectory('Dropbox/sBots', 'Bot/src');
+    return yield* service.buildFromHomeDirectory('Dropbox/sBots/Bot/src');
   }).pipe(Effect.provide(mockedFileServiceLayer));
 
   const directory = await Effect.runPromise(buildFromHomeDirectory);

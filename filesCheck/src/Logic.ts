@@ -43,6 +43,7 @@ const mp3Logic =
       const guard = containinedInMediaListLogic(bot, mediaList);
       yield* guard(f);
       yield* id3TagService.fixMp3ArtistId3Tag(f, bot.artist);
+      yield* Effect.logInfo(`[filesCheck] ✓ ${path.basename(f)}`);
     });
 
 const gifLogic =
