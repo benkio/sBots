@@ -4,6 +4,52 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "150"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "cento[ ]?cinquanta",
+              "regexLength" : 14
+            }
+          },
+          {
+            "StringTextTriggerValue" : "gallina canta"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "ytai_Cocode150Gif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_Cocode150.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_Cocode150.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "coda così lunga"
           },
           {
@@ -1964,8 +2010,38 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
+            "VideoFile" : {
+              "filepath" : "ytai_Cocode150.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "Mp3File" : {
               "filepath" : "ytai_Cocode.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "ytai_Cocode150Gif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_Cocode.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_Cocode150.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "ytai_CocodeGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -6497,6 +6573,18 @@
               "filepath" : "ytai_NonViPreoccupateCiRiusciremoGif.mp4",
               "replyToMessage" : false
             }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_NonViPreoccupateCiRiusciremo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_NonViPreoccupateCiRiusciremo.mp3",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -6526,6 +6614,18 @@
           {
             "GifFile" : {
               "filepath" : "ytai_BeviamociSopraNoAlcoholGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_NonViPreoccupateCiRiusciremo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_NonViPreoccupateCiRiusciremo.mp4",
               "replyToMessage" : false
             }
           }
@@ -6806,6 +6906,18 @@
           {
             "GifFile" : {
               "filepath" : "ytai_PassioneAllevareGallineGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_NonViPreoccupateCiRiusciremo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_NonViPreoccupateCiRiusciremo.mp3",
               "replyToMessage" : false
             }
           }

@@ -24,8 +24,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
     media_name = testMediaName,
     bot_id = testMediaId.value,
     kinds = """"[]"""",
-    media_sources =
-      """"[\"https://mega.nz/file/eawnkBBY#PhxBHN2vUOyPVBlrrdjJgZiEGGotu5xTmrV2SJKFZvA\"]"""",
+    media_sources = """"[\"https://mega.nz/file/eawnkBBY#PhxBHN2vUOyPVBlrrdjJgZiEGGotu5xTmrV2SJKFZvA\"]"""",
     media_count = 0,
     created_at = "1669122662279",
     mime_type = "image/gif"
@@ -82,7 +81,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
     val xahBotId            = SBot.buildSBotConfig(XahLeeBot.sBotInfo).sBotInfo.botId
     val testKind            = "alanmackenzie"
     val expectedSampleFiles = Set("xah_AlanFak.mp3", "xah_AlanMackenzieFak.mp3", "xah_AlanMackenzieFak2.mp3")
-    val resourceAssert = for {
+    val resourceAssert      = for {
       dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
       medias  <- Resource.eval(dbMedia.getMediaByKind(kind = testKind, botId = xahBotId))
     } yield {
@@ -110,8 +109,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
         media_name = "rphjb_06Gif.mp4",
         bot_id = testMediaId.value,
         kinds = """"[]"""",
-        media_sources =
-          """"[\"https://mega.nz/file/mPYCWJwY#q0_7BNEG0Uj2qxDTzr3W8AxfvbGr_ZMwr8F-_yJQh-8\"]"""",
+        media_sources = """"[\"https://mega.nz/file/mPYCWJwY#q0_7BNEG0Uj2qxDTzr3W8AxfvbGr_ZMwr8F-_yJQh-8\"]"""",
         media_count = 0,
         created_at = "1710379153288",
         mime_type = "image/gif"
@@ -120,8 +118,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
         media_name = "rphjb_3Minuti.mp4",
         bot_id = testMediaId.value,
         kinds = """"[]"""",
-        media_sources =
-          """"[\"https://mega.nz/file/PaY0lIIY#seJaOyoxTNqIi1oGVE2dWL0GSvLRZAtfUYQDk2KU0UM\"]"""",
+        media_sources = """"[\"https://mega.nz/file/PaY0lIIY#seJaOyoxTNqIi1oGVE2dWL0GSvLRZAtfUYQDk2KU0UM\"]"""",
         media_count = 0,
         created_at = "1674248160242",
         mime_type = "video/mp4"
@@ -130,8 +127,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
         media_name = "rphjb_9MesiUscireRientrare.mp3",
         bot_id = testMediaId.value,
         kinds = """"[]"""",
-        media_sources =
-          """"[\"https://mega.nz/file/6HpUxC5a#2_tLJMV6r4PiUVrr1TX_Au-lt17w0LTlaHNnwBF8vKg\"]"""",
+        media_sources = """"[\"https://mega.nz/file/6HpUxC5a#2_tLJMV6r4PiUVrr1TX_Au-lt17w0LTlaHNnwBF8vKg\"]"""",
         media_count = 0,
         created_at = "1681990713607",
         mime_type = "audio/mpeg"
