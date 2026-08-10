@@ -3,7 +3,85 @@
     "trigger" : {
       "TextTrigger" : {
         "triggers" : [
-          { "StringTextTriggerValue": "pronti?" },
+          {
+            "StringTextTriggerValue" : "non lo sopporto"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "vorre(i|mmo|sti) morto",
+              "regexLength" : 12
+            }
+          },
+          {
+            "StringTextTriggerValue" : "lo sai da tempo"
+          },
+          {
+            "StringTextTriggerValue" : "ammazzarlo"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "se vuoi (t'|ti )aiuto",
+              "regexLength" : 15
+            }
+          },
+          {
+            "StringTextTriggerValue" : "lo tengo fermo"
+          },
+          {
+            "StringTextTriggerValue" : "si scherza"
+          },
+          {
+            "StringTextTriggerValue" : "centralinista"
+          },
+          {
+            "StringTextTriggerValue" : "scherzi a parte"
+          },
+          {
+            "StringTextTriggerValue" : "non si augura"
+          },
+          {
+            "StringTextTriggerValue" : "morte a nessuno"
+          },
+          {
+            "StringTextTriggerValue" : "ma a lui si"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_CentralinistaVorreiMortoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_CentralinistaVorreiMorto.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_CentralinistaVorreiMorto.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "pronti?"
+          },
           {
             "RegexTextTriggerValue" : {
               "trigger" : "[v]+[i]+[a]+!",
