@@ -706,13 +706,7 @@
         "triggers" : [
           {
             "RegexTextTriggerValue" : {
-              "trigger" : "chi tocca \\w+(,|...| )muore",
-              "regexLength" : 17
-            }
-          },
-          {
-            "RegexTextTriggerValue" : {
-              "trigger" : "chi tocca (richard )?benson(,|...)? muore",
+              "trigger" : "chi tocca (richard benson|\\w+)(, |...| |... )muore",
               "regexLength" : 17
             }
           }
@@ -66654,7 +66648,7 @@
   {
     "trigger" : {
       "NewMemberTrigger" : {
-
+        
       }
     },
     "reply" : {
@@ -66705,7 +66699,7 @@
   {
     "trigger" : {
       "LeftMemberTrigger" : {
-
+        
       }
     },
     "reply" : {
