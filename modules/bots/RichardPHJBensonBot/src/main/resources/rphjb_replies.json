@@ -10733,7 +10733,10 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "non lo so"
+            "RegexTextTriggerValue" : {
+              "trigger": "non lo so\\b",
+              "regexLength": 9
+            }
           }
         ]
       }
@@ -66648,7 +66651,7 @@
   {
     "trigger" : {
       "NewMemberTrigger" : {
-        
+
       }
     },
     "reply" : {
@@ -66699,7 +66702,7 @@
   {
     "trigger" : {
       "LeftMemberTrigger" : {
-        
+
       }
     },
     "reply" : {
