@@ -91,7 +91,7 @@ object CaptionParser {
         lines <- Async[F].delay(Files.readAllLines(captionPath).asScala.toList)
         _     <- LogWriter.debug(s"[CaptionParser] Read ${lines.length} lines from $captionPath")
         parsedEntries = parseSrtEntries(lines)
-        _ <- LogWriter.info(s"[CaptionParser] Parsed ${parsedEntries.length} SRT entries from $captionPath")
+        _ <- LogWriter.debug(s"[CaptionParser] Parsed ${parsedEntries.length} SRT entries from $captionPath")
       } yield Vector.from(parsedEntries)
 
       val program = for {
