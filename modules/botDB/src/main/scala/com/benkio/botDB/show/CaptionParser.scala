@@ -64,17 +64,17 @@ object CaptionParser {
     override def parsePlainCaptionSrt(captionPath: Path): F[Option[String]] = {
       val extractPlainCaption: F[Option[String]] = for {
         lines <- Async[F].delay(Files.readAllLines(captionPath).asScala.toList)
-        _     <- LogWriter.debug(s"[CaptionParser] Read ${lines.length} lines from $captionPath")
+        _     <- LogWriter.info(s"[CaptionParser] Read ${lines.length} lines from $captionPath")
         content = lines
           .map(_.trim)
           .filter(_.nonEmpty)
           .filterNot(line => line.forall(_.isDigit) || timestampPattern.matches(line))
           .mkString(" ")
-        _ <- LogWriter.debug(s"[CaptionParser] Parsed caption length ${content.length}")
+        _ <- LogWriter.info(s"[CaptionParser] Parsed caption length ${content.length}")
       } yield Some(content)
 
       val program = for {
-        _      <- LogWriter.debug(s"[CaptionParser] Parse caption file $captionPath")
+        _      <- LogWriter.info(s"[CaptionParser] Parse caption file $captionPath")
         exists <- Async[F].delay(Files.exists(captionPath))
         result <- if !exists then Async[F].pure(Option.empty[String]) else extractPlainCaption
 
@@ -89,13 +89,13 @@ object CaptionParser {
     override def parseCaptionSrt(captionPath: Path): F[Vector[(FiniteDuration, String)]] = {
       val extractSrtCaptions: F[Vector[(FiniteDuration, String)]] = for {
         lines <- Async[F].delay(Files.readAllLines(captionPath).asScala.toList)
-        _     <- LogWriter.debug(s"[CaptionParser] Read ${lines.length} lines from $captionPath")
+        _     <- LogWriter.info(s"[CaptionParser] Read ${lines.length} lines from $captionPath")
         parsedEntries = parseSrtEntries(lines)
-        _ <- LogWriter.debug(s"[CaptionParser] Parsed ${parsedEntries.length} SRT entries from $captionPath")
+        _ <- LogWriter.info(s"[CaptionParser] Parsed ${parsedEntries.length} SRT entries from $captionPath")
       } yield Vector.from(parsedEntries)
 
       val program = for {
-        _      <- LogWriter.debug(s"[CaptionParser] Parse SRT caption file $captionPath")
+        _      <- LogWriter.info(s"[CaptionParser] Parse SRT caption file $captionPath")
         exists <- Async[F].delay(Files.exists(captionPath))
         result <- if !exists then Async[F].pure(Vector.empty[(FiniteDuration, String)]) else extractSrtCaptions
       } yield result
