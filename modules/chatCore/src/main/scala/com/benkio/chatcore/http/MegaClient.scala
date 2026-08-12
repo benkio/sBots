@@ -18,7 +18,6 @@ import org.http4s.client.Client
 import org.http4s.syntax.literals.*
 import org.http4s.Method.GET
 import org.http4s.Method.POST
-import org.http4s.ParseFailure
 
 import java.nio.file.Path
 import java.nio.ByteBuffer
@@ -55,7 +54,6 @@ object MegaClient {
   )
 
   private class MegaClientImpl[F[_]: Async: LogWriter](httpClient: Client[F], megaApiUri: Uri) extends MegaClient[F] {
-    private val maxHeaderParseRetries = 1
 
     private def extractFileId(url: Uri): F[String] =
       Async[F].fromOption(
@@ -165,70 +163,28 @@ object MegaClient {
         downloadUri <- extractDownloadUri(responseBody)
       } yield downloadUri
 
-    private def isInvalidHeaderWhitespaceError(error: Throwable): Boolean =
-      Option(error).exists { currentError =>
-        currentError match {
-          case parseFailure: ParseFailure =>
-            parseFailure.sanitized.contains("Parse Headers") && parseFailure.details.contains("InvalidHeaderWhitespace")
-          case other =>
-            Option(other.getMessage()).exists(msg =>
-              msg.contains("Parse Headers") && msg.contains("InvalidHeaderWhitespace")
-            )
-        }
-      } || Option(error).flatMap(e => Option(e.getCause)).exists(isInvalidHeaderWhitespaceError)
-
-    private def downloadAndDecryptFile(
-        filename: String,
-        decryptConfig: MegaDecryptionConfig,
-        downloadUri: Uri
-    ): Resource[F, Path] = {
-      val request = Request[F](GET, downloadUri)
-      httpClient
-        .run(request)
-        .flatMap(response =>
-          for {
-            encryptedContent <- Resource.eval(response.body.compile.toList)
-            _                <- Resource
-              .eval(
-                LogWriter.info(
-                  s"[MegaClient] received ${encryptedContent.length} encrypted bytes for $filename from $downloadUri"
-                )
-              )
-            _ <- Resource.eval(Async[F].raiseWhen(response.status != Status.Ok)(UnexpectedMegaResponse[F](response)))
-            _ <- Resource.eval(Async[F].raiseWhen(encryptedContent.isEmpty)(UnexpectedMegaResponse[F](response)))
-            decryptedContent <- Resource.eval(decryptMegaContent(encryptedContent.toArray, decryptConfig))
-            result           <- Repository.toTempFile(filename, decryptedContent)
-          } yield result
-        )
-    }
-
-    private def fetchWithHeaderRetry(
-        filename: String,
-        sourceUrl: Uri,
-        decryptConfig: MegaDecryptionConfig,
-        attempt: Int = 0
-    ): Resource[F, Path] =
-      Resource
-        .eval(resolveMegaDownloadUri(sourceUrl))
-        .flatMap(downloadAndDecryptFile(filename, decryptConfig, _))
-        .handleErrorWith { error =>
-          if attempt < maxHeaderParseRetries && isInvalidHeaderWhitespaceError(error) then Resource.eval(
-            LogWriter.warn(
-              s"[MegaClient] Retrying $filename after malformed header response from Mega download endpoint: ${error.getMessage()}"
-            )
-          ) >> fetchWithHeaderRetry(
-            filename = filename,
-            sourceUrl = sourceUrl,
-            decryptConfig = decryptConfig,
-            attempt = attempt + 1
-          )
-          else Resource.raiseError(error)
-        }
-
     def fetchFile(filename: String, url: Uri): Resource[F, Path] = {
       for {
         decryptConfig <- Resource.eval(extractMegaDecryptionConfig(url))
-        path          <- fetchWithHeaderRetry(filename = filename, sourceUrl = url, decryptConfig = decryptConfig)
+        downloadUri   <- Resource.eval(resolveMegaDownloadUri(url))
+        request = Request[F](GET, downloadUri)
+        path <- httpClient
+          .run(request)
+          .flatMap(response =>
+            for {
+              encryptedContent <- Resource.eval(response.body.compile.toList)
+              _                <- Resource
+                .eval(
+                  LogWriter.info(
+                    s"[MegaClient] received ${encryptedContent.length} encrypted bytes for $filename from $downloadUri"
+                  )
+                )
+              _ <- Resource.eval(Async[F].raiseWhen(response.status != Status.Ok)(UnexpectedMegaResponse[F](response)))
+              _ <- Resource.eval(Async[F].raiseWhen(encryptedContent.isEmpty)(UnexpectedMegaResponse[F](response)))
+              decryptedContent <- Resource.eval(decryptMegaContent(encryptedContent.toArray, decryptConfig))
+              result           <- Repository.toTempFile(filename, decryptedContent)
+            } yield result
+          )
       } yield path
     }
   }
