@@ -123,7 +123,7 @@ object ShowUpdater {
         .traverse_ { youTubeBotDbShowData =>
           youTubeBotDbShowData.dbShowDatas.traverse_(show => {
             for {
-              _ <- LogWriter.info(s"[ShowUpdater] Fetch Caption for ${show.show_title}")
+              _ <- LogWriter.debug(s"[ShowUpdater] Fetch Caption for ${show.show_title}")
               captionFilePath = youTubeBotDbShowData.captionFilePath(show)
               maybePlainCaption <- captionParser.parsePlainCaptionSrt(captionFilePath)
               maybeSrtCaption   <- captionParser.parseCaptionSrt(captionFilePath)
