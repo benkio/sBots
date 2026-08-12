@@ -11,11 +11,11 @@ import com.benkio.integrationtest.Logger.given
 import munit.CatsEffectSuite
 import org.http4s.client.Client
 import org.http4s.ember.client.EmberClientBuilder
+import org.http4s.syntax.literals.*
 import org.http4s.ParseFailure
 import org.http4s.Request
 import org.http4s.Response
 import org.http4s.Uri
-import org.http4s.syntax.literals.*
 
 import java.nio.file.Files
 import java.nio.file.Path
@@ -49,25 +49,23 @@ class ITMegaClientSpec extends CatsEffectSuite with DBFixture {
       Resource.eval(Ref.of[IO, Int](0)).map { firstDownloadAttempt =>
         Client[IO] { (request: Request[IO]) =>
           val isDownloadRequest = request.uri.path.renderString.contains("/download/")
-          if isDownloadRequest then
-            Resource.eval(firstDownloadAttempt.getAndUpdate(_ + 1)).flatMap { attemptIndex =>
-              if attemptIndex == 0 then
-                Resource.raiseError[IO, Response[IO], Throwable](
-                  ParseFailure(
-                    sanitized = "Encountered Error Attempting to Parse Headers",
-                    details = "InvalidHeaderWhitespace"
-                  )
-                )
-              else baseClient.run(request)
-            }
+          if isDownloadRequest then Resource.eval(firstDownloadAttempt.getAndUpdate(_ + 1)).flatMap { attemptIndex =>
+            if attemptIndex == 0 then Resource.raiseError[IO, Response[IO], Throwable](
+              ParseFailure(
+                sanitized = "Encountered Error Attempting to Parse Headers",
+                details = "InvalidHeaderWhitespace"
+              )
+            )
+            else baseClient.run(request)
+          }
           else baseClient.run(request)
         }
       }
 
     val result = for {
-      server <- MegaServerMock.build(expected)
-      client <- EmberClientBuilder.default[IO].withMaxResponseHeaderSize(8192).build
-      flaky  <- flakyClient(client)
+      server     <- MegaServerMock.build(expected)
+      client     <- EmberClientBuilder.default[IO].withMaxResponseHeaderSize(8192).build
+      flaky      <- flakyClient(client)
       megaClient <- Resource.eval(
         MegaClient[IO](
           httpClient = flaky,

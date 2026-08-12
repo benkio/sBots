@@ -212,24 +212,23 @@ object MegaClient {
         .eval(resolveMegaDownloadUri(sourceUrl))
         .flatMap(downloadAndDecryptFile(filename, decryptConfig, _))
         .handleErrorWith { error =>
-          if attempt < maxHeaderParseRetries && isInvalidHeaderWhitespaceError(error) then
-            Resource.eval(
-              LogWriter.warn(
-                s"[MegaClient] Retrying $filename after malformed header response from Mega download endpoint: ${error.getMessage()}"
-              )
-            ) >> fetchWithHeaderRetry(
-              filename = filename,
-              sourceUrl = sourceUrl,
-              decryptConfig = decryptConfig,
-              attempt = attempt + 1
+          if attempt < maxHeaderParseRetries && isInvalidHeaderWhitespaceError(error) then Resource.eval(
+            LogWriter.warn(
+              s"[MegaClient] Retrying $filename after malformed header response from Mega download endpoint: ${error.getMessage()}"
             )
+          ) >> fetchWithHeaderRetry(
+            filename = filename,
+            sourceUrl = sourceUrl,
+            decryptConfig = decryptConfig,
+            attempt = attempt + 1
+          )
           else Resource.raiseError(error)
         }
 
     def fetchFile(filename: String, url: Uri): Resource[F, Path] = {
       for {
         decryptConfig <- Resource.eval(extractMegaDecryptionConfig(url))
-        path          <- fetchWithHeaderRetry(filename, url, decryptConfig)
+        path          <- fetchWithHeaderRetry(filename = filename, sourceUrl = url, decryptConfig = decryptConfig)
       } yield path
     }
   }
