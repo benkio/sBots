@@ -18,9 +18,15 @@ import org.http4s.client.Client
 import org.http4s.syntax.literals.*
 import org.http4s.Method.GET
 import org.http4s.Method.POST
+import org.http4s.ParseFailure
 
+import java.net.http.HttpClient as JdkHttpClient
+import java.net.http.HttpRequest as JdkHttpRequest
+import java.net.http.HttpResponse as JdkHttpResponse
+import java.net.URI
 import java.nio.file.Path
 import java.nio.ByteBuffer
+import java.time.Duration as JavaDuration
 import java.util.Base64
 import scala.concurrent.duration.*
 
@@ -47,6 +53,8 @@ object MegaClient {
   final case class InvalidMegaFileKey(url: Uri) extends Throwable(s"[MegaClient] Invalid Mega file key in URL: $url")
   final case class InvalidMegaApiResponse(reason: String, body: String)
       extends Throwable(s"[MegaClient] Invalid Mega API response: $reason. body=$body")
+  final case class UnexpectedMegaJdkResponse(statusCode: Int, url: Uri)
+      extends Throwable(s"[MegaClient] Unexpected JDK response status=$statusCode for url=$url")
 
   private final case class MegaDecryptionConfig(
       secretKey: Array[Byte],
@@ -54,6 +62,12 @@ object MegaClient {
   )
 
   private class MegaClientImpl[F[_]: Async: LogWriter](httpClient: Client[F], megaApiUri: Uri) extends MegaClient[F] {
+    private val jdkHttpClient: JdkHttpClient =
+      JdkHttpClient
+        .newBuilder()
+        .version(JdkHttpClient.Version.HTTP_1_1)
+        .followRedirects(JdkHttpClient.Redirect.NORMAL)
+        .build()
 
     private def extractFileId(url: Uri): F[String] =
       Async[F].fromOption(
@@ -163,29 +177,71 @@ object MegaClient {
         downloadUri <- extractDownloadUri(responseBody)
       } yield downloadUri
 
+    private def isInvalidHeaderWhitespaceError(error: Throwable): Boolean =
+      Option(error).exists {
+        case parseFailure: ParseFailure =>
+          parseFailure.sanitized.contains("Parse Headers") && parseFailure.details.contains("InvalidHeaderWhitespace")
+        case other =>
+          Option(other.getMessage()).exists(msg =>
+            msg.contains("Parse Headers") && msg.contains("InvalidHeaderWhitespace")
+          )
+      } || Option(error).flatMap(e => Option(e.getCause)).exists(isInvalidHeaderWhitespaceError)
+
+    private def fetchEncryptedContentWithJdk(downloadUri: Uri): F[Array[Byte]] =
+      for {
+        request <- Async[F].delay(
+          JdkHttpRequest
+            .newBuilder(URI.create(downloadUri.renderString))
+            .timeout(JavaDuration.ofSeconds(30))
+            .GET()
+            .build()
+        )
+        response <- Async[F].blocking(
+          jdkHttpClient.send(request, JdkHttpResponse.BodyHandlers.ofByteArray())
+        )
+        _ <- Async[F].raiseWhen(response.statusCode() != 200)(
+          UnexpectedMegaJdkResponse(response.statusCode(), downloadUri)
+        )
+        bytes = response.body()
+        _ <- Async[F].raiseWhen(bytes.isEmpty)(
+          UnexpectedMegaJdkResponse(response.statusCode(), downloadUri)
+        )
+      } yield bytes
+
+    private def fetchEncryptedContent(filename: String, downloadUri: Uri): Resource[F, Array[Byte]] = {
+      val request = Request[F](GET, downloadUri)
+      httpClient
+        .run(request)
+        .flatMap(response =>
+          for {
+            encryptedContent <- Resource.eval(response.body.compile.toList.map(_.toArray))
+            _                <- Resource.eval(
+              LogWriter.info(
+                s"[MegaClient] received ${encryptedContent.length} encrypted bytes for $filename from $downloadUri"
+              )
+            )
+            _ <- Resource.eval(Async[F].raiseWhen(response.status != Status.Ok)(UnexpectedMegaResponse[F](response)))
+            _ <- Resource.eval(Async[F].raiseWhen(encryptedContent.isEmpty)(UnexpectedMegaResponse[F](response)))
+          } yield encryptedContent
+        )
+        .handleErrorWith { error =>
+          if isInvalidHeaderWhitespaceError(error) then Resource.eval(
+            LogWriter.warn(
+              s"[MegaClient] Falling back to JDK HttpClient for malformed headers from $downloadUri: ${error.getMessage()}"
+            )
+          ) >> Resource.eval(fetchEncryptedContentWithJdk(downloadUri))
+          else Resource.raiseError(error)
+        }
+    }
+
     def fetchFile(filename: String, url: Uri): Resource[F, Path] = {
       for {
-        decryptConfig <- Resource.eval(extractMegaDecryptionConfig(url))
-        downloadUri   <- Resource.eval(resolveMegaDownloadUri(url))
-        request = Request[F](GET, downloadUri)
-        path <- httpClient
-          .run(request)
-          .flatMap(response =>
-            for {
-              encryptedContent <- Resource.eval(response.body.compile.toList)
-              _                <- Resource
-                .eval(
-                  LogWriter.info(
-                    s"[MegaClient] received ${encryptedContent.length} encrypted bytes for $filename from $downloadUri"
-                  )
-                )
-              _ <- Resource.eval(Async[F].raiseWhen(response.status != Status.Ok)(UnexpectedMegaResponse[F](response)))
-              _ <- Resource.eval(Async[F].raiseWhen(encryptedContent.isEmpty)(UnexpectedMegaResponse[F](response)))
-              decryptedContent <- Resource.eval(decryptMegaContent(encryptedContent.toArray, decryptConfig))
-              result           <- Repository.toTempFile(filename, decryptedContent)
-            } yield result
-          )
-      } yield path
+        decryptConfig    <- Resource.eval(extractMegaDecryptionConfig(url))
+        downloadUri      <- Resource.eval(resolveMegaDownloadUri(url))
+        encryptedContent <- fetchEncryptedContent(filename, downloadUri)
+        decryptedContent <- Resource.eval(decryptMegaContent(encryptedContent, decryptConfig))
+        result           <- Repository.toTempFile(filename, decryptedContent)
+      } yield result
     }
   }
 }
