@@ -4,8 +4,6 @@ import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits.*
 import com.benkio.chatcore.repository.Repository
-import io.chrisdavenport.mules.*
-import io.chrisdavenport.mules.http4s.*
 import io.circe.parser.parse
 import io.circe.Json
 import javax.crypto.spec.IvParameterSpec
@@ -38,21 +36,21 @@ object MegaClient {
   def apply[F[_]: Async: LogWriter](
       httpClient: Client[F],
       megaApiUri: Uri = uri"https://g.api.mega.co.nz/cs?id=1"
-  ): F[MegaClient[F]] = for {
-    httpCache <- MemoryCache.ofSingleImmutableMap[F, (Method, Uri), CacheItem](defaultExpiration =
-      TimeSpec.fromDuration(6.hours)
+  ): F[MegaClient[F]] =
+    Async[F].pure(
+      new MegaClientImpl[F](
+        httpClient = FollowRedirect(3)(httpClient),
+        megaApiUri = megaApiUri
+      )
     )
-    cachedMiddleware = CacheMiddleware.client(httpCache, CacheType.Public)
-  } yield new MegaClientImpl[F](
-    httpClient = cachedMiddleware(FollowRedirect(3)(httpClient)),
-    megaApiUri = megaApiUri
-  )
 
   final case class UnexpectedMegaResponse[F[_]](response: Response[F]) extends Throwable
   final case class InvalidMegaFileUrl(url: Uri) extends Throwable(s"[MegaClient] Invalid Mega file URL: $url")
   final case class InvalidMegaFileKey(url: Uri) extends Throwable(s"[MegaClient] Invalid Mega file key in URL: $url")
   final case class InvalidMegaApiResponse(reason: String, body: String)
       extends Throwable(s"[MegaClient] Invalid Mega API response: $reason. body=$body")
+  final case class MegaApiTemporaryRateLimit(code: Int)
+      extends Throwable(s"[MegaClient] Temporary Mega API rate-limit/code response: $code")
   final case class UnexpectedMegaJdkResponse(statusCode: Int, url: Uri)
       extends Throwable(s"[MegaClient] Unexpected JDK response status=$statusCode for url=$url")
 
@@ -62,6 +60,8 @@ object MegaClient {
   )
 
   private class MegaClientImpl[F[_]: Async: LogWriter](httpClient: Client[F], megaApiUri: Uri) extends MegaClient[F] {
+    private val maxMegaApiRetries = 3
+
     private val jdkHttpClient: JdkHttpClient =
       JdkHttpClient
         .newBuilder()
@@ -153,29 +153,51 @@ object MegaClient {
         } yield uri
       )
 
-    private def resolveMegaDownloadUri(url: Uri): F[Uri] =
-      for {
-        fileId <- extractFileId(url)
-        requestBody = Json
-          .arr(
-            Json.obj(
-              "a" -> Json.fromString("g"),
-              "g" -> Json.fromInt(1),
-              "p" -> Json.fromString(fileId)
-            )
+    private def megaApiErrorCode(responseBody: String): Option[Int] =
+      parse(responseBody).toOption.flatMap(_.asArray).flatMap(_.headOption).flatMap(_.asNumber).flatMap(_.toInt)
+
+    private def requestMegaDownloadUri(fileId: String): F[String] = {
+      val requestBody = Json
+        .arr(
+          Json.obj(
+            "a" -> Json.fromString("g"),
+            "g" -> Json.fromInt(1),
+            "p" -> Json.fromString(fileId)
           )
-          .noSpaces
-        request = Request[F](POST, megaApiUri)
-          .withEntity(requestBody)
-        responseBody <- httpClient.run(request).use { response =>
-          response
-            .as[String]
-            .flatMap(body =>
-              Async[F].raiseWhen(response.status != Status.Ok)(UnexpectedMegaResponse[F](response)).as(body)
-            )
-        }
-        downloadUri <- extractDownloadUri(responseBody)
-      } yield downloadUri
+        )
+        .noSpaces
+      val requestId  = (System.nanoTime() & Int.MaxValue).toString
+      val requestUri = megaApiUri.withQueryParam("id", requestId)
+      val request = Request[F](POST, requestUri)
+        .withEntity(requestBody)
+      httpClient.run(request).use { response =>
+        response
+          .as[String]
+          .flatMap(body =>
+            Async[F].raiseWhen(response.status != Status.Ok)(UnexpectedMegaResponse[F](response)).as(body)
+          )
+      }
+    }
+
+    private def resolveMegaDownloadUri(url: Uri): F[Uri] = {
+      def go(fileId: String, attempt: Int): F[Uri] =
+        for {
+          responseBody <- requestMegaDownloadUri(fileId)
+          result <- megaApiErrorCode(responseBody) match {
+            case Some(-9) if attempt < maxMegaApiRetries =>
+              val wait = (attempt + 1).seconds
+              LogWriter.warn(
+                s"[MegaClient] Mega API returned -9 for fileId=$fileId (attempt=${attempt + 1}/$maxMegaApiRetries). Retrying in $wait"
+              ) >> Async[F].sleep(wait) >> go(fileId, attempt + 1)
+            case Some(code) if code < 0 =>
+              Async[F].raiseError[Uri](MegaApiTemporaryRateLimit(code))
+            case _ =>
+              extractDownloadUri(responseBody)
+          }
+        } yield result
+
+      extractFileId(url).flatMap(fileId => go(fileId, 0))
+    }
 
     private def isInvalidHeaderWhitespaceError(error: Throwable): Boolean =
       Option(error).exists {

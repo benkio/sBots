@@ -15,8 +15,10 @@ import org.http4s.Response
 import org.http4s.Uri
 
 import java.nio.file.Files
+import scala.concurrent.duration.Duration
 
 class MegaClientSpec extends CatsEffectSuite {
+  override val munitIOTimeout = Duration(2, "m")
 
   def buildMegaClient(megaApiUri: Uri): Resource[IO, MegaClient[IO]] =
     EmberClientBuilder
@@ -83,6 +85,24 @@ class MegaClientSpec extends CatsEffectSuite {
           megaApiUri = server.baseUri / "cs"
         )
       )
+      file <- megaClient.fetchFile(filename, Uri.unsafeFromString(MegaServerMock.testMegaLink))
+    } yield file
+
+    result.use(f =>
+      assertEquals(
+        Files.readAllBytes(f.toAbsolutePath).toList,
+        expected.getBytes.toList
+      ).pure[IO]
+    )
+  }
+
+  test("fetch should retry when mega api responds with -9") {
+    val filename = "megaApiRetry"
+    val expected = "mega-api-retry-content"
+
+    val result = for {
+      server <- MegaServerMock.buildRateLimitedThenSuccess(expected, failures = 1)
+      megaClient <- buildMegaClient(server.baseUri / "cs")
       file <- megaClient.fetchFile(filename, Uri.unsafeFromString(MegaServerMock.testMegaLink))
     } yield file
 
