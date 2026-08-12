@@ -131,19 +131,18 @@ object MegaServerMock {
             val portSuffix  = hostHeader.flatMap(_.port).map(p => s":$p").getOrElse("")
             val downloadUrl = s"http://$host$portSuffix/download/testFile"
 
-            if body.contains(""""v":2""") then
-              Ok(
-                Json
-                  .arr(
-                    Json.obj(
-                      "g" -> Json.arr(
-                        Json.fromString(s"$downloadUrl/cloudraid-1"),
-                        Json.fromString(s"$downloadUrl/cloudraid-2")
-                      )
+            if body.contains(""""v":2""") then Ok(
+              Json
+                .arr(
+                  Json.obj(
+                    "g" -> Json.arr(
+                      Json.fromString(s"$downloadUrl/cloudraid-1"),
+                      Json.fromString(s"$downloadUrl/cloudraid-2")
                     )
                   )
-                  .noSpaces
-              )
+                )
+                .noSpaces
+            )
             else
               Ok(
                 Json

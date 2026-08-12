@@ -144,8 +144,7 @@ object MegaClient {
                 )
             )
             .toRight(
-              gField
-                .asArray
+              gField.asArray
                 .map(urls => CloudraidUnsupported(urls.length): Throwable)
                 .getOrElse(
                   InvalidMegaApiResponse("download url 'g' is neither a string nor a 1-item array", responseBody)
@@ -160,14 +159,16 @@ object MegaClient {
     private def requestDownloadUri(fileId: String, includeV2: Boolean): F[Uri] = {
       val requestBody = Json
         .arr(
-          Json.obj(
-            "a" -> Json.fromString("g"),
-            "g" -> Json.fromInt(1),
-            "p" -> Json.fromString(fileId)
-          ).deepMerge(
-            if includeV2 then Json.obj("v" -> Json.fromInt(2))
-            else Json.obj()
-          )
+          Json
+            .obj(
+              "a" -> Json.fromString("g"),
+              "g" -> Json.fromInt(1),
+              "p" -> Json.fromString(fileId)
+            )
+            .deepMerge(
+              if includeV2 then Json.obj("v" -> Json.fromInt(2))
+              else Json.obj()
+            )
         )
         .noSpaces
       val request = Request[F](POST, megaApiUri)
@@ -187,7 +188,7 @@ object MegaClient {
 
     private def resolveMegaDownloadUri(url: Uri): F[Uri] =
       for {
-        fileId <- extractFileId(url)
+        fileId      <- extractFileId(url)
         downloadUri <- requestDownloadUri(fileId, includeV2 = true).handleErrorWith {
           case CloudraidUnsupported(urlCount) =>
             LogWriter.info(
