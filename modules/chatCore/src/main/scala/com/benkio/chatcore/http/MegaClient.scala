@@ -128,15 +128,14 @@ object MegaClient {
           json <- parse(responseBody).leftMap(e =>
             InvalidMegaApiResponse(s"cannot parse json: ${e.getMessage}", responseBody)
           )
-          arr         <- json.asArray.toRight(InvalidMegaApiResponse("expected top-level JSON array", responseBody))
-          first       <- arr.headOption.toRight(InvalidMegaApiResponse("empty response array", responseBody))
+          arr    <- json.asArray.toRight(InvalidMegaApiResponse("expected top-level JSON array", responseBody))
+          first  <- arr.headOption.toRight(InvalidMegaApiResponse("empty response array", responseBody))
           gField <- first.hcursor
             .get[Json]("g")
             .leftMap(e => InvalidMegaApiResponse(s"missing download url 'g': ${e.getMessage}", responseBody))
           downloadUrl <- gField.asString
             .orElse(
-              gField
-                .asArray
+              gField.asArray
                 .flatMap(_.headOption)
                 .flatMap(_.asString)
             )
