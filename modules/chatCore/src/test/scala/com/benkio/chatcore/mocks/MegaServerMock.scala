@@ -77,7 +77,7 @@ object MegaServerMock {
           Json
             .arr(
               Json.obj(
-                "g" -> Json.fromString(downloadUrl)
+                "g" -> Json.arr(Json.fromString(downloadUrl))
               )
             )
             .noSpaces
