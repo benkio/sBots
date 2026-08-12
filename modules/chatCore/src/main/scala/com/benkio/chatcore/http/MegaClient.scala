@@ -47,6 +47,8 @@ object MegaClient {
   final case class InvalidMegaFileKey(url: Uri) extends Throwable(s"[MegaClient] Invalid Mega file key in URL: $url")
   final case class InvalidMegaApiResponse(reason: String, body: String)
       extends Throwable(s"[MegaClient] Invalid Mega API response: $reason. body=$body")
+  final case class CloudraidUnsupported(urlCount: Int)
+      extends Throwable(s"[MegaClient] Cloudraid response unsupported for direct download (urlCount=$urlCount)")
 
   private final case class MegaDecryptionConfig(
       secretKey: Array[Byte],
@@ -136,31 +138,42 @@ object MegaClient {
           downloadUrl <- gField.asString
             .orElse(
               gField.asArray
-                .flatMap(_.headOption)
-                .flatMap(_.asString)
+                .flatMap(urls =>
+                  if urls.length == 1 then urls.headOption.flatMap(_.asString)
+                  else None
+                )
             )
-            .toRight(InvalidMegaApiResponse("download url 'g' is neither a string nor a non-empty array", responseBody))
+            .toRight(
+              gField
+                .asArray
+                .map(urls => CloudraidUnsupported(urls.length): Throwable)
+                .getOrElse(
+                  InvalidMegaApiResponse("download url 'g' is neither a string nor a 1-item array", responseBody)
+                )
+            )
           uri <- Uri
             .fromString(downloadUrl)
             .leftMap(e => InvalidMegaApiResponse(s"invalid download url uri: ${e.message}", responseBody))
         } yield uri
       )
 
-    private def resolveMegaDownloadUri(url: Uri): F[Uri] =
-      for {
-        fileId <- extractFileId(url)
-        requestBody = Json
-          .arr(
-            Json.obj(
-              "a" -> Json.fromString("g"),
-              "g" -> Json.fromInt(1),
-              "v" -> Json.fromInt(2),
-              "p" -> Json.fromString(fileId)
-            )
+    private def requestDownloadUri(fileId: String, includeV2: Boolean): F[Uri] = {
+      val requestBody = Json
+        .arr(
+          Json.obj(
+            "a" -> Json.fromString("g"),
+            "g" -> Json.fromInt(1),
+            "p" -> Json.fromString(fileId)
+          ).deepMerge(
+            if includeV2 then Json.obj("v" -> Json.fromInt(2))
+            else Json.obj()
           )
-          .noSpaces
-        request = Request[F](POST, megaApiUri)
-          .withEntity(requestBody)
+        )
+        .noSpaces
+      val request = Request[F](POST, megaApiUri)
+        .withEntity(requestBody)
+
+      for {
         responseBody <- httpClient.run(request).use { response =>
           response
             .as[String]
@@ -169,6 +182,19 @@ object MegaClient {
             )
         }
         downloadUri <- extractDownloadUri(responseBody)
+      } yield downloadUri
+    }
+
+    private def resolveMegaDownloadUri(url: Uri): F[Uri] =
+      for {
+        fileId <- extractFileId(url)
+        downloadUri <- requestDownloadUri(fileId, includeV2 = true).handleErrorWith {
+          case CloudraidUnsupported(urlCount) =>
+            LogWriter.info(
+              s"[MegaClient] detected cloudraid response with $urlCount urls for fileId=$fileId, falling back to non-v2 request"
+            ) >> requestDownloadUri(fileId, includeV2 = false)
+          case error => Async[F].raiseError(error)
+        }
       } yield downloadUri
 
     def fetchFile(filename: String, url: Uri): Resource[F, Path] = {

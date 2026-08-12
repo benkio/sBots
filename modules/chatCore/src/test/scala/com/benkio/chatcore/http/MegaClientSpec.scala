@@ -50,4 +50,22 @@ class MegaClientSpec extends CatsEffectSuite {
 
     interceptIO[InvalidMegaApiResponse](result.use_)
   }
+
+  test("fetch should fallback to non-v2 request when v2 returns cloudraid urls") {
+    val filename = "cloudraidFallback"
+    val expected = "cloudraid fallback content"
+
+    val result = for {
+      server     <- MegaServerMock.buildCloudraidThenFallback(expected)
+      megaClient <- buildMegaClient(server.baseUri / "cs")
+      file       <- megaClient.fetchFile(filename, Uri.unsafeFromString(MegaServerMock.testMegaLink))
+    } yield file
+
+    result.use(f =>
+      assertEquals(
+        Files.readAllBytes(f.toAbsolutePath).toList,
+        expected.getBytes.toList
+      ).pure[IO]
+    )
+  }
 }

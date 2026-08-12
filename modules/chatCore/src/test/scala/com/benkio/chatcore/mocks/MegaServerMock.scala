@@ -113,4 +113,61 @@ object MegaServerMock {
       .withHttpApp(httpApp)
       .build
   }
+
+  def buildCloudraidThenFallback(response: String): Resource[IO, Server] = {
+    val encryptedResponse =
+      encryptWithMegaKey(
+        plain = response.getBytes(),
+        keyFragment = testMegaLink.split("#").last
+      )
+
+    val megaRoutes: HttpRoutes[IO] = HttpRoutes.of[IO] {
+      case req @ POST -> Root / "cs" =>
+        req
+          .as[String]
+          .flatMap { body =>
+            val hostHeader  = req.headers.get[Host]
+            val host        = hostHeader.map(_.host).getOrElse("127.0.0.1")
+            val portSuffix  = hostHeader.flatMap(_.port).map(p => s":$p").getOrElse("")
+            val downloadUrl = s"http://$host$portSuffix/download/testFile"
+
+            if body.contains(""""v":2""") then
+              Ok(
+                Json
+                  .arr(
+                    Json.obj(
+                      "g" -> Json.arr(
+                        Json.fromString(s"$downloadUrl/cloudraid-1"),
+                        Json.fromString(s"$downloadUrl/cloudraid-2")
+                      )
+                    )
+                  )
+                  .noSpaces
+              )
+            else
+              Ok(
+                Json
+                  .arr(
+                    Json.obj(
+                      "g" -> Json.fromString(downloadUrl)
+                    )
+                  )
+                  .noSpaces
+              )
+          }
+      case GET -> Root / "download" / "testFile" =>
+        Ok(encryptedResponse)
+    }
+
+    val httpApp = Logger.httpApp(true, true)(
+      CORS.policy.withAllowOriginAll(megaRoutes.orNotFound)
+    )
+
+    EmberServerBuilder
+      .default[IO]
+      .withHost(host"127.0.0.1")
+      .withPort(Port.fromInt(0).get)
+      .withHttpApp(httpApp)
+      .build
+  }
 }
