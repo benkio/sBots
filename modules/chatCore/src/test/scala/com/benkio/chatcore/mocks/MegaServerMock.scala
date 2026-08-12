@@ -124,7 +124,7 @@ object MegaServerMock {
 
     for {
       counter <- Resource.eval(Ref.of[IO, Int](0))
-      server <- {
+      server  <- {
         val megaRoutes: HttpRoutes[IO] = HttpRoutes.of[IO] {
           case req @ POST -> Root / "cs" =>
             counter.getAndUpdate(_ + 1).flatMap { current =>

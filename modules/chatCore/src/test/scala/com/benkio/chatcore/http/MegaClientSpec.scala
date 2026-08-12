@@ -101,9 +101,9 @@ class MegaClientSpec extends CatsEffectSuite {
     val expected = "mega-api-retry-content"
 
     val result = for {
-      server <- MegaServerMock.buildRateLimitedThenSuccess(expected, failures = 1)
+      server     <- MegaServerMock.buildRateLimitedThenSuccess(expected, failures = 1)
       megaClient <- buildMegaClient(server.baseUri / "cs")
-      file <- megaClient.fetchFile(filename, Uri.unsafeFromString(MegaServerMock.testMegaLink))
+      file       <- megaClient.fetchFile(filename, Uri.unsafeFromString(MegaServerMock.testMegaLink))
     } yield file
 
     result.use(f =>

@@ -168,7 +168,7 @@ object MegaClient {
         .noSpaces
       val requestId  = (System.nanoTime() & Int.MaxValue).toString
       val requestUri = megaApiUri.withQueryParam("id", requestId)
-      val request = Request[F](POST, requestUri)
+      val request    = Request[F](POST, requestUri)
         .withEntity(requestBody)
       httpClient.run(request).use { response =>
         response
@@ -183,7 +183,7 @@ object MegaClient {
       def go(fileId: String, attempt: Int): F[Uri] =
         for {
           responseBody <- requestMegaDownloadUri(fileId)
-          result <- megaApiErrorCode(responseBody) match {
+          result       <- megaApiErrorCode(responseBody) match {
             case Some(-9) if attempt < maxMegaApiRetries =>
               val wait = (attempt + 1).seconds
               LogWriter.warn(
