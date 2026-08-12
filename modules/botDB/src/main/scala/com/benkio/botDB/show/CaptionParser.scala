@@ -89,13 +89,13 @@ object CaptionParser {
     override def parseCaptionSrt(captionPath: Path): F[Vector[(FiniteDuration, String)]] = {
       val extractSrtCaptions: F[Vector[(FiniteDuration, String)]] = for {
         lines <- Async[F].delay(Files.readAllLines(captionPath).asScala.toList)
-        _     <- LogWriter.info(s"[CaptionParser] Read ${lines.length} lines from $captionPath")
+        _     <- LogWriter.debug(s"[CaptionParser] Read ${lines.length} lines from $captionPath")
         parsedEntries = parseSrtEntries(lines)
         _ <- LogWriter.info(s"[CaptionParser] Parsed ${parsedEntries.length} SRT entries from $captionPath")
       } yield Vector.from(parsedEntries)
 
       val program = for {
-        _      <- LogWriter.info(s"[CaptionParser] Parse SRT caption file $captionPath")
+        _      <- LogWriter.debug(s"[CaptionParser] Parse SRT caption file $captionPath")
         exists <- Async[F].delay(Files.exists(captionPath))
         result <- if !exists then Async[F].pure(Vector.empty[(FiniteDuration, String)]) else extractSrtCaptions
       } yield result
