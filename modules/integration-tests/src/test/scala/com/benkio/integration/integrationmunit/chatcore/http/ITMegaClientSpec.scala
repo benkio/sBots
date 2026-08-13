@@ -13,7 +13,7 @@ class ITMegaClientSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test("fetch should return the expected urls content in a file if the urls is valid") { fixture =>
     val input = List(
-      uri"https://mega.nz/file/LDxATYLQ#cAdB5jxfJov_BFr-bu548G7cXtLgEsdih4e69PmJ6OI" -> "mega_test_file"
+      uri"https://mega.nz/file/ebhDGaoY#GXRQWztlo_BpSrh3ly8Gc2O8NK1F7s1hEK3VeGFYkkY" -> "mega_test_file"
     )
 
     val result = for {
