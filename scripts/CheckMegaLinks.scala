@@ -2,7 +2,7 @@
 //> using scala "3"
 //> using toolkit typelevel:default
 //> using dep "com.lihaoyi::os-lib:0.11.8"
-//> using dep "com.lihaoyi::ujson:4.3.1"
+//> using dep "com.lihaoyi::ujson:4.3.2"
 
 import java.net.URI
 import java.net.http.HttpClient
