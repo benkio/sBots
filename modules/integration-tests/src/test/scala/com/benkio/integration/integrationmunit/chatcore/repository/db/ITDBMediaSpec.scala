@@ -24,7 +24,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
     media_name = testMediaName,
     bot_id = testMediaId.value,
     kinds = """"[]"""",
-    media_sources = """"[\"https://mega.nz/file/eawnkBBY#PhxBHN2vUOyPVBlrrdjJgZiEGGotu5xTmrV2SJKFZvA\"]"""",
+    media_sources = """"[\"https://mega.nz/file/zOAHWaAJ#PhxBHN2vUOyPVBlrrdjJgZiEGGotu5xTmrV2SJKFZvA\"]"""",
     media_count = 0,
     created_at = "1669122662279",
     mime_type = "image/gif"
