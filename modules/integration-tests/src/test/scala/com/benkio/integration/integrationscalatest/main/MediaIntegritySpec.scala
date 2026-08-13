@@ -18,7 +18,7 @@ import com.benkio.integration.BotSetupFixture
 import com.benkio.integration.DBFixture
 import com.benkio.integration.DBFixtureResources
 import com.benkio.integration.SlowTest
-import com.benkio.integrationtest.Logger.given
+import com.benkio.integration.WarnLogger.given
 import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.Alessandro0rlandoBot.Alessandro0rlandoBot
 import com.benkio.CalandroBot.CalandroBot
