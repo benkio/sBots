@@ -20,7 +20,7 @@ class DropboxClientSpec extends CatsEffectSuite {
       .build
       .flatMap(httpClient => Resource.eval(DropboxClient[IO](httpClient)))
 
-  test("fetch should follow the redirect and returno the file") {
+  test("fetch should follow the redirect and return the file") {
     val filename = "302TestFile"
     val expected = DropboxServerMock.servedFile.mkString
 
