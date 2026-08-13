@@ -11,7 +11,7 @@ import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chattelegramadapter.SBot
 import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
 import com.benkio.integration.DBFixture
-import com.benkio.integrationtest.Logger.given
+import com.benkio.integration.Logger.given
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import cron4s.*
 import eu.timepit.fs2cron.cron4s.Cron4sScheduler

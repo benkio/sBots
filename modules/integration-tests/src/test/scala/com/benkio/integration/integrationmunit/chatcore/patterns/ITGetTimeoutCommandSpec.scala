@@ -9,7 +9,7 @@ import com.benkio.chatcore.patterns.CommandPatterns.GetTimeoutCommand
 import com.benkio.chatcore.patterns.CommandPatterns.SetTimeoutCommand
 import com.benkio.chattelegramadapter.SBot
 import com.benkio.integration.DBFixture
-import com.benkio.integrationtest.Logger.given
+import com.benkio.integration.Logger.given
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import munit.CatsEffectSuite
 

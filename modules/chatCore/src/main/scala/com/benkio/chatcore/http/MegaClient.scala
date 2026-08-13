@@ -42,7 +42,7 @@ object MegaClient {
     megaApiUri = megaApiUri
   )
 
-  final case class UnexpectedMegaResponse[F[_]](response: Response[F]) extends Throwable
+  final case class UnexpectedMegaResponse[F[_]](message: String, response: Response[F]) extends Throwable(message)
   final case class InvalidMegaFileUrl(url: Uri) extends Throwable(s"[MegaClient] Invalid Mega file URL: $url")
   final case class InvalidMegaFileKey(url: Uri) extends Throwable(s"[MegaClient] Invalid Mega file key in URL: $url")
   final case class InvalidMegaApiResponse(reason: String, body: String)
@@ -179,7 +179,14 @@ object MegaClient {
           response
             .as[String]
             .flatMap(body =>
-              Async[F].raiseWhen(response.status != Status.Ok)(UnexpectedMegaResponse[F](response)).as(body)
+              Async[F]
+                .raiseWhen(response.status != Status.Ok)(
+                  UnexpectedMegaResponse[F](
+                    message = s"[MegaClient] 🚫 Error, unexpected status: ${response.status}",
+                    response = response
+                  )
+                )
+                .as(body)
             )
         }
         downloadUri <- extractDownloadUri(responseBody)
@@ -214,8 +221,22 @@ object MegaClient {
                     s"[MegaClient] received ${encryptedContent.length} encrypted bytes for $filename from $downloadUri"
                   )
                 )
-              _ <- Resource.eval(Async[F].raiseWhen(response.status != Status.Ok)(UnexpectedMegaResponse[F](response)))
-              _ <- Resource.eval(Async[F].raiseWhen(encryptedContent.isEmpty)(UnexpectedMegaResponse[F](response)))
+              _ <- Resource.eval(
+                Async[F].raiseWhen(response.status != Status.Ok)(
+                  UnexpectedMegaResponse[F](
+                    message = s"[MegaClient] 🚫 Error, unexpected status: ${response.status}",
+                    response = response
+                  )
+                )
+              )
+              _ <- Resource.eval(
+                Async[F].raiseWhen(encryptedContent.isEmpty)(
+                  UnexpectedMegaResponse[F](
+                    message = "[MegaClient] 🚫 Error, encrypted content empty",
+                    response = response
+                  )
+                )
+              )
               decryptedContent <- Resource.eval(decryptMegaContent(encryptedContent.toArray, decryptConfig))
               result           <- Repository.toTempFile(filename, decryptedContent)
             } yield result

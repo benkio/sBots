@@ -6,7 +6,7 @@ import cats.syntax.all.*
 import com.benkio.chatcore.patterns.CommandPatterns.MediaByKindCommand
 import com.benkio.chatcore.repository.db.DBMediaData
 import com.benkio.integration.DBFixture
-import com.benkio.integrationtest.Logger.given
+import com.benkio.integration.Logger.given
 import com.benkio.XahLeeBot.XahLeeBot
 import munit.CatsEffectSuite
 

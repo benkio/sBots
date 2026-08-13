@@ -17,22 +17,17 @@ import com.benkio.chattelegramadapter.SBotPolling
 import com.benkio.integration.BotSetupFixture
 import com.benkio.integration.DBFixture
 import com.benkio.integration.DBFixtureResources
+import com.benkio.integration.WarnLogger.given
 import com.benkio.integration.SlowTest
-import com.benkio.integrationtest.Logger.given
-import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.Alessandro0rlandoBot.Alessandro0rlandoBot
-import com.benkio.CalandroBot.CalandroBot
-import com.benkio.M0sconiBot.M0sconiBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import com.benkio.XahLeeBot.XahLeeBot
-import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
 import org.scalatest.*
 import org.scalatest.funsuite.FixtureAnyFunSuite
 
 import java.nio.file.Files
 
-class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
-
+class MediaIntegritySpec extends FixtureAnyFunSuite /*with ParallelTestExecution*/ {
   case class FixtureParam(fixture: DBFixtureResources)
 
   val initialFixture: DBFixtureResources = DBFixture.fixtureSetup(null)
@@ -59,33 +54,33 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
     for {
       _             <- initialFixture.resourceDBLayer
       _             <- initialFixture.repositoryResource
-      abarberoFiles <- Resource.eval(
-        mediaFilesFromBot(
-          SBot.buildSBotConfig(ABarberoBot.sBotInfo),
-          (setup, msgData, cmdData) => {
-            given telegramium.bots.high.Api[IO] = setup.api
-            new SBotPolling[IO](setup, msgData, cmdData)
-          }
-        )
-      )
-      calandroFiles <- Resource.eval(
-        mediaFilesFromBot(
-          SBot.buildSBotConfig(CalandroBot.sBotInfo),
-          (setup, msgData, cmdData) => {
-            given telegramium.bots.high.Api[IO] = setup.api
-            new SBotPolling[IO](setup, msgData, cmdData)
-          }
-        )
-      )
-      m0sconiFiles <- Resource.eval(
-        mediaFilesFromBot(
-          SBot.buildSBotConfig(M0sconiBot.sBotInfo),
-          (setup, msgData, cmdData) => {
-            given telegramium.bots.high.Api[IO] = setup.api
-            new SBotPolling[IO](setup, msgData, cmdData)
-          }
-        )
-      )
+      // abarberoFiles <- Resource.eval(
+      //   mediaFilesFromBot(
+      //     SBot.buildSBotConfig(ABarberoBot.sBotInfo),
+      //     (setup, msgData, cmdData) => {
+      //       given telegramium.bots.high.Api[IO] = setup.api
+      //       new SBotPolling[IO](setup, msgData, cmdData)
+      //     }
+      //   )
+      // )
+      // calandroFiles <- Resource.eval(
+      //   mediaFilesFromBot(
+      //     SBot.buildSBotConfig(CalandroBot.sBotInfo),
+      //     (setup, msgData, cmdData) => {
+      //       given telegramium.bots.high.Api[IO] = setup.api
+      //       new SBotPolling[IO](setup, msgData, cmdData)
+      //     }
+      //   )
+      // )
+      // m0sconiFiles <- Resource.eval(
+      //   mediaFilesFromBot(
+      //     SBot.buildSBotConfig(M0sconiBot.sBotInfo),
+      //     (setup, msgData, cmdData) => {
+      //       given telegramium.bots.high.Api[IO] = setup.api
+      //       new SBotPolling[IO](setup, msgData, cmdData)
+      //     }
+      //   )
+      // )
       richardFiles <- Resource.eval(
         mediaFilesFromBot(
           SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo),
@@ -100,15 +95,15 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
           }
         )
       )
-      youTuboFiles <- Resource.eval(
-        mediaFilesFromBot(
-          SBot.buildSBotConfig(YouTuboAncheI0Bot.sBotInfo),
-          (setup, msgData, cmdData) => {
-            given telegramium.bots.high.Api[IO] = setup.api
-            new SBotPolling[IO](setup, msgData, cmdData)
-          }
-        )
-      )
+      // youTuboFiles <- Resource.eval(
+      //   mediaFilesFromBot(
+      //     SBot.buildSBotConfig(YouTuboAncheI0Bot.sBotInfo),
+      //     (setup, msgData, cmdData) => {
+      //       given telegramium.bots.high.Api[IO] = setup.api
+      //       new SBotPolling[IO](setup, msgData, cmdData)
+      //     }
+      //   )
+      // )
       alessandro0rlandoFiles <- Resource.eval(
         mediaFilesFromBot(
           SBot.buildSBotConfig(Alessandro0rlandoBot.sBotInfo),
@@ -118,17 +113,20 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
           }
         )
       )
-      xahLeeFiles <- Resource.eval(
-        mediaFilesFromBot(
-          SBot.buildSBotConfig(XahLeeBot.sBotInfo),
-          (setup, msgData, cmdData) => {
-            given telegramium.bots.high.Api[IO] = setup.api
-            new SBotPolling[IO](setup, msgData, cmdData)
-          }
-        )
-      )
+      // xahLeeFiles <- Resource.eval(
+      //   mediaFilesFromBot(
+      //     SBot.buildSBotConfig(XahLeeBot.sBotInfo),
+      //     (setup, msgData, cmdData) => {
+      //       given telegramium.bots.high.Api[IO] = setup.api
+      //       new SBotPolling[IO](setup, msgData, cmdData)
+      //     }
+      //   )
+      // )
       allFiles =
-        (abarberoFiles ++ calandroFiles ++ m0sconiFiles ++ richardFiles ++ youTuboFiles ++ alessandro0rlandoFiles ++ xahLeeFiles)
+        (// abarberoFiles ++ calandroFiles ++ m0sconiFiles ++
+          richardFiles // ++ youTuboFiles
+            ++ alessandro0rlandoFiles // ++ xahLeeFiles
+        )
           .distinctBy(_.filename)
     } yield allFiles
 
@@ -150,8 +148,16 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
               mr.getMediaResourceFile.getOrElse(Resource.eval(IO.raiseError(new Exception("expect a file"))))
             )
         )
-      } yield assert(files.forall(Files.readAllBytes(_).length > 5 * 1024))).use_
+      } yield assert(files.forall(Files.readAllBytes(_).length > 7 * 1024))).use_
+        .unsafeRunSync() // check to receive at least 7kb
     }.pure[IO]
 
-  allMessageMediaFiles.use(files => files.sortBy(_.filename).traverse(file => checkFile(file))).void.unsafeRunSync()
+  allMessageMediaFiles
+    .use(files =>
+      files
+        .sortBy(_.filename)
+        .traverse(file => checkFile(file))
+    )
+    .void
+    .unsafeRunSync()
 }

@@ -9,7 +9,7 @@ import com.benkio.chatcore.http.MegaClient
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBRepository
 import com.benkio.chatcore.repository.Repository
-import com.benkio.integrationtest.Logger.given
+import com.benkio.integration.Logger.given
 import doobie.Transactor
 import munit.*
 import org.flywaydb.core.api.configuration.FluentConfiguration

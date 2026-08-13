@@ -8,7 +8,7 @@ import com.benkio.chatcore.model.SBotInfo.SBotName
 import com.benkio.chatcore.patterns.CommandPatterns.SearchShowCommand
 import com.benkio.chatcore.repository.db.DBShow
 import com.benkio.integration.DBFixture
-import com.benkio.integrationtest.Logger.given
+import com.benkio.integration.Logger.given
 import munit.CatsEffectSuite
 
 class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
