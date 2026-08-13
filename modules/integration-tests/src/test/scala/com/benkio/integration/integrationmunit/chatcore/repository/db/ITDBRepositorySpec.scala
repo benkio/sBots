@@ -20,7 +20,7 @@ import java.nio.file.Files
 class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
 
   val sBotConfig             = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
-  val testMediaName          = "rphjb_MaSgus.mp3"
+  val testMediaName          = "rphjb_AneddotoStoriaRock.mp3"
   val testMediaId            = sBotConfig.sBotInfo.botId
   val testMedia: DBMediaData = DBMediaData(
     media_name = testMediaName,
