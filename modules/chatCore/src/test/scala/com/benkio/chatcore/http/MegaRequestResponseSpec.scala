@@ -67,6 +67,37 @@ class MegaRequestResponseSpec extends FunSuite {
        |    ],
        |    "fh" : "73LR47AT8Yo"
        |  }
+       |]""".stripMargin,
+    """|[
+       |  {
+       |    "s" : 1184980,
+       |    "at" : "Ws3zyyoH82ZyaRNg7pgUo_rBPXuMtamSyB6aY6C3JS55nZR7j8LHQKvQaYg6BzSkLbr0WeU_coJPvQWepmwecBoVl8m-ZGhMNJcGE1K4aYc",
+       |    "msd" : 1,
+       |    "fa" : "1017:8*HDzC6gryBZM",
+       |    "g" : [
+       |      "https://gfs262n366.userstorage.mega.co.nz/dl/oETxE7fh67seZwJN0bwYhr2yoNRE9rjpzNdQgh727Ea8Ih1dKnRuocmEsApDmtzwsPfhFDQiG0sA3eRE0e1kOLTsEAs99wJvNcGQy3npSGq8TXDV_p1WuRKIb5hb0Q",
+       |      "https://gfs214n177.userstorage.mega.co.nz/dl/Xb4HdjWUNXZWkQcKf7RbKp6sa9foPThfwBBhDod-RzqjlWVWzpXPDRqtxqVpRsRZ3xvjOCYAQCy11aHg57MG2O2DAtDttG6GGQ2Fe9DI5Zk_2CIFLlgzMM1GmIpwng",
+       |      "https://gfs270n117.userstorage.mega.co.nz/dl/gwRXTBf0E5Rn1ALjV5ojZekqQ1D7rG1-xCKy43HoJmiwwsKyCzHLmG2r6fcjKvO2LVjRig4tSbgpX6JQyAGc-O63QdkR_5Iy4_lQ088rLfNX6Byd6XI8ZOBdCr0N3A",
+       |      "https://gfs208n186.userstorage.mega.co.nz/dl/55fzFNgqDdvpoAfHQ_Pq4uhgpwOwnxvi_J7DOxjzEHtm84lN0laJvJe5yTM43CMJJm-OW0MsL0R54FPtXUJHHdGMONNWdEJVaLlyMk1n9K2XWRbZ8P9eibfqNyTuzA",
+       |      "https://gfs204n184.userstorage.mega.co.nz/dl/aIclVTR1UsoO8gLlYlD18JntWLsTvMzbfYbzqch77LLsAps480AWimEii1_ERytAuuoQuraX1wGzLcc1YE7sxM4xia_JZXsyl8MhPsaOFB77Vj3hA2SCU0Sgese-Vg",
+       |      "https://gfs206n179.userstorage.mega.co.nz/dl/bnwjLasUuX8zVQfunF0EZEg8jbS2oTCtT1QJ-xSSZNpQoD3V_mZs6Vh8k4lWUP8xovkeo0HjaWZxghOEh3w7gHvu8T4oqdg6n6Ig3ZpGxXMn7DQkquZH1cEzSey5Ow"
+       |    ],
+       |    "ip" : [
+       |      "94.24.36.76",
+       |      "2a0b:e44:1::76",
+       |      "185.206.27.87",
+       |      "2a0b:e43:1::87",
+       |      "89.44.168.177",
+       |      "2001:678:25c:2216::177",
+       |      "185.206.26.96",
+       |      "2a0b:e42:1::96",
+       |      "185.206.24.137",
+       |      "2a0b:e40:1::137",
+       |      "94.24.37.89",
+       |      "2a0b:e45:1::89"
+       |    ],
+       |    "fh" : "fzA9Hy51LJ0"
+       |  }
        |]""".stripMargin
   )
 
