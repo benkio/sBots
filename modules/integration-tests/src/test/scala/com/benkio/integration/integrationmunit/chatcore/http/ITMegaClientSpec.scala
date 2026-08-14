@@ -29,4 +29,17 @@ class ITMegaClientSpec extends CatsEffectSuite with DBFixture {
 
     result.use(IO.pure).assert
   }
+
+  databaseFixture.test("getEncryptedFileContent should return an array of bytes over a valid request") { fixture =>
+    val megaUrl  = uri"https://mega.nz/file/ebhDGaoY#GXRQWztlo_BpSrh3ly8Gc2O8NK1F7s1hEK3VeGFYkkY"
+    val fileName = "mega_test_file_get_encrypted"
+
+    val result = for {
+      megaClient <- fixture.megaClientResource
+      file       <- megaClient.fetchFile(fileName, megaUrl)
+      bytes = Files.readAllBytes(file)
+    } yield bytes.nonEmpty
+
+    result.use(IO.pure).assert
+  }
 }

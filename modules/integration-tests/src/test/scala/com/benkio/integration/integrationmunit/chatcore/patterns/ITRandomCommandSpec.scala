@@ -7,7 +7,7 @@ import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.SBotInfo.SBotName
 import com.benkio.chatcore.patterns.CommandPatterns.RandomDataCommand
 import com.benkio.integration.DBFixture
-import com.benkio.integrationtest.Logger.given
+import com.benkio.integration.Logger.given
 import munit.CatsEffectSuite
 
 class ITRandomCommandSpec extends CatsEffectSuite with DBFixture {

@@ -45,7 +45,7 @@ coverageExcludedPackages := "com.benkio.chatcore.mocks.*"
 // COMMAND ALIASES
 
 addCommandAlias("dbSetup", "runMigrate")
-addCommandAlias("fix", ";scalafixAll; scalafmtAll; integration/scalafixAll; integration/scalafmtAll; scalafmtSbt")
+addCommandAlias("fix", ";scalafixAll; scalafmtAll; integration/scalafixAll; integration/scalafmtAll; scalafmtSbt;")
 addCommandAlias(
   "check",
   "undeclaredCompileDependenciesTest; scalafmtSbtCheck; scalafmtCheck; Test/scalafmtCheck"

@@ -8,7 +8,7 @@ import com.benkio.botDB.show.YouTubeBotIds
 import com.benkio.botDB.show.YouTubeService
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBShowData
-import com.benkio.integrationtest.Logger.given
+import com.benkio.integration.Logger.given
 import munit.CatsEffectSuite
 
 import java.nio.file.Files

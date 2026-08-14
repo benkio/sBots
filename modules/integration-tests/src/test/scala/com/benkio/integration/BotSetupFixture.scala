@@ -10,7 +10,7 @@ import com.benkio.chatcore.repository.db.DBRepository
 import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chattelegramadapter.initialization.BotSetup
 import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
-import com.benkio.integrationtest.Logger.given
+import com.benkio.integration.Logger.given
 import munit.*
 import org.http4s.ember.client.*
 import org.http4s.implicits.*

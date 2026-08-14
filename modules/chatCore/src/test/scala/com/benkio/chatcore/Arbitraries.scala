@@ -1,5 +1,6 @@
 package com.benkio.chatcore
 
+import com.benkio.chatcore.http.MegaClient.MegaUriComponents
 import com.benkio.chatcore.messagefiltering.MessageMatches
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
@@ -36,6 +37,7 @@ trait Arbitraries extends Generators {
   given Arbitrary[StringTextTriggerValue] = Arbitrary(stringTextTriggerValueGen)
   given Arbitrary[RegexTextTriggerValue]  = Arbitrary(regexTextTriggerValueGen)
   given Arbitrary[TextTriggerValue]       = Arbitrary(triggerValueGen)
+  given Arbitrary[MegaUriComponents]      = Arbitrary(megaUriComponentsGen)
 }
 
 object Arbitraries extends Arbitraries

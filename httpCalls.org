@@ -13,3 +13,28 @@ POST https://api.telegram.org/bot<YOUR_BOT_TOKEN>/sendMessage
 Content-Type: application/json
 
 {"chat_id": "-4145546019", "text": "Bot's message"}
+
+* Manual Media Source Calls
+
+Collection of manual calls to validate external media providers (Dropbox and Mega).
+
+** Dropbox direct download (mp4)                                      :verb:
+GET https://www.dropbox.com/scl/fi/ichrc41za9ot6n05p4hpk/ytai_25MilioniVisualizzazioni25MilaEuro.mp4?rlkey=hp6rsgtvxm3i285cm0zo1zjwk&dl=1
+
+** Dropbox direct download (mp3)                                      :verb:
+GET https://www.dropbox.com/scl/fi/j70i0580ozge0nv5s98kt/ytai_25MilioniVisualizzazioni25MilaEuro.mp3?rlkey=v4bc6als0eqyf49n3jo0xeaga&dl=1
+
+** Mega get download URL (v2 richer response)                         :verb:
+POST https://g.api.mega.co.nz/cs?id=1
+Content-Type: text/plain
+
+[{"a":"g","g":1,"v":2,"p":"jKwiGJ4J"}]
+
+** Mega get download URL (fallback without v2)                        :verb:
+POST https://g.api.mega.co.nz/cs?id=1
+Content-Type: text/plain
+
+[{"a":"g","g":1,"p":"jKwiGJ4J"}]
+
+** Mega file link reference (manual copy/paste test URL)              :verb:
+GET https://mega.nz/file/zKxhnDaS#49bGDtOuU39MPD2fDnSZuYAMJy47GH4lRAuJoO0YpyY
