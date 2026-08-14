@@ -20,10 +20,8 @@ import com.benkio.integration.DBFixtureResources
 import com.benkio.integration.SlowTest
 import com.benkio.integration.WarnLogger.given
 import com.benkio.ABarberoBot.ABarberoBot
-import com.benkio.Alessandro0rlandoBot.Alessandro0rlandoBot
 import com.benkio.CalandroBot.CalandroBot
 import com.benkio.M0sconiBot.M0sconiBot
-import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import com.benkio.XahLeeBot.XahLeeBot
 import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
 import org.scalatest.*
@@ -31,7 +29,7 @@ import org.scalatest.funsuite.FixtureAnyFunSuite
 
 import java.nio.file.Files
 
-class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
+class MediaIntegrityParSpec extends FixtureAnyFunSuite with ParallelTestExecution {
 
   case class FixtureParam(fixture: DBFixtureResources)
 
@@ -86,32 +84,9 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
           }
         )
       )
-      richardFiles <- Resource.eval(
-        mediaFilesFromBot(
-          SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo),
-          (setup, msgData, cmdData) => {
-            given telegramium.bots.high.Api[IO] = setup.api
-            new SBotPolling[IO](
-              setup,
-              msgData,
-              cmdData,
-              RichardPHJBensonBot.commandEffectfulCallback[IO]
-            )
-          }
-        )
-      )
       youTuboFiles <- Resource.eval(
         mediaFilesFromBot(
           SBot.buildSBotConfig(YouTuboAncheI0Bot.sBotInfo),
-          (setup, msgData, cmdData) => {
-            given telegramium.bots.high.Api[IO] = setup.api
-            new SBotPolling[IO](setup, msgData, cmdData)
-          }
-        )
-      )
-      alessandro0rlandoFiles <- Resource.eval(
-        mediaFilesFromBot(
-          SBot.buildSBotConfig(Alessandro0rlandoBot.sBotInfo),
           (setup, msgData, cmdData) => {
             given telegramium.bots.high.Api[IO] = setup.api
             new SBotPolling[IO](setup, msgData, cmdData)
@@ -128,7 +103,7 @@ class MediaIntegritySpec extends FixtureAnyFunSuite with ParallelTestExecution {
         )
       )
       allFiles =
-        (abarberoFiles ++ calandroFiles ++ m0sconiFiles ++ richardFiles ++ youTuboFiles ++ alessandro0rlandoFiles ++ xahLeeFiles)
+        (abarberoFiles ++ calandroFiles ++ m0sconiFiles ++ youTuboFiles ++ xahLeeFiles)
           .distinctBy(_.filename)
     } yield allFiles
 

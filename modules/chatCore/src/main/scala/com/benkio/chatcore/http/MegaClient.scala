@@ -125,7 +125,7 @@ object MegaClient {
 
       // MEGA file key layout: [k0 k1 k2 k3 n0 n1 m0 m1]
       // AES-CTR key is [k0^n0, k1^n1, k2^m0, k3^m1], IV starts with nonce [n0, n1].
-      val aesKey = xorSlice(rawKey, 0, 16, 16)
+      val aesKey = xorSlice(bytes = rawKey, leftStart = 0, rightStart = 16, length = 16)
       val iv     = new Array[Byte](16)
       System.arraycopy(rawKey, 16, iv, 0, 8)
 
