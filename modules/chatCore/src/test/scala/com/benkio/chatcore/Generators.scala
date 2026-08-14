@@ -1,5 +1,6 @@
 package com.benkio.chatcore
 
+import com.benkio.chatcore.http.MegaClient.MegaUriComponents
 import com.benkio.chatcore.messagefiltering.MessageMatches
 import com.benkio.chatcore.model.reply.Document
 import com.benkio.chatcore.model.reply.GifFile
@@ -207,6 +208,14 @@ trait Generators {
 
   val sBotIdGen: Gen[SBotId] =
     Gen.alphaNumStr.suchThat(_.nonEmpty).map(SBotId(_))
+
+  val megaUriComponentsGen: Gen[MegaUriComponents] = for {
+    fileId     <- Gen.listOfN(8, Gen.alphaChar).map(_.mkString)
+    decryptKey <- Gen.listOfN(8, Gen.alphaChar).map(_.mkString)
+  } yield MegaUriComponents(
+    fileId = fileId,
+    decryptKey = decryptKey
+  )
 
 }
 
