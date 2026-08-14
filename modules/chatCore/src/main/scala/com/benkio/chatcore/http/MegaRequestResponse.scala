@@ -23,7 +23,9 @@ object MegaEncryptedFileRequest {
   def apply(megaUriComponents: MegaUriComponents): MegaEncryptedFileRequest =
     new MegaEncryptedFileRequest(
       a = "g",
-      v = 2,
+      // Use non-cloudraid response (single URL). Cloudraid returns shards that
+      // this client currently doesn't merge, causing truncated/corrupted files.
+      v = 1,
       p = megaUriComponents.fileId,
       ssl = 2,
       g = 1
