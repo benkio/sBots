@@ -14,6 +14,7 @@ import doobie.Transactor
 import munit.*
 import org.flywaydb.core.api.configuration.FluentConfiguration
 import org.flywaydb.core.Flyway
+import org.http4s.client.Client
 import org.http4s.ember.client.*
 
 import java.nio.file.Files
@@ -28,6 +29,7 @@ final case class DBFixtureResources(
     transactor: Transactor[IO],
     resourceDBLayer: Resource[IO, DBLayer[IO]],
     repositoryResource: Resource[IO, Repository[IO]],
+    httpClientResource: Resource[IO, Client[IO]],
     dropboxClientResource: Resource[IO, DropboxClient[IO]],
     megaClientResource: Resource[IO, MegaClient[IO]]
 )
@@ -59,14 +61,15 @@ object DBFixture {
       migrationsTable = DBFixture.migrationTable,
       migrationsLocations = DBFixture.migrationPath
     )
-    val transactor                                     = Transactor.fromConnection[IO](conn, None)
-    val dbLayerResource: Resource[IO, DBLayer[IO]]     = Resource.eval(DBLayer[IO](transactor))
+    val transactor                                 = Transactor.fromConnection[IO](conn, None)
+    val dbLayerResource: Resource[IO, DBLayer[IO]] = Resource.eval(DBLayer[IO](transactor))
+    val httpClientResource                         = EmberClientBuilder
+      .default[IO]
+      .withMaxResponseHeaderSize(8192)
+      .build
     val clientsResource: Resource[IO, HttpClients[IO]] = for {
-      _          <- Resource.eval(log.debug(s"DbUrl: $dbUrl ||| migrations path: $migrationPath"))
-      httpClient <- EmberClientBuilder
-        .default[IO]
-        .withMaxResponseHeaderSize(8192)
-        .build
+      _             <- Resource.eval(log.debug(s"DbUrl: $dbUrl ||| migrations path: $migrationPath"))
+      httpClient    <- httpClientResource
       dropboxClient <- Resource.eval(DropboxClient[IO](httpClient))
       megaClient    <- Resource.eval(MegaClient[IO](httpClient))
     } yield HttpClients(
@@ -93,6 +96,7 @@ object DBFixture {
       transactor = transactor,
       resourceDBLayer = dbLayerResource,
       repositoryResource = clientsAndRepositoryResource.map(_._2),
+      httpClientResource = httpClientResource,
       dropboxClientResource = clientsAndRepositoryResource.map(_._1.dropboxClient),
       megaClientResource = clientsAndRepositoryResource.map(_._1.megaClient)
     )

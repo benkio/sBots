@@ -18,7 +18,7 @@ class MegaClientSpec extends CatsEffectSuite with ScalaCheckEffectSuite with Arb
             Uri.unsafeFromString(s"https://mega.nz/file/${megaUriComponents.fileId}#${megaUriComponents.decryptKey}")
           ),
           returns = megaUriComponents,
-          clue = s"[MegaClientSpec] extractMegaUrlComponents didn't returned the expected value"
+          clue = "[MegaClientSpec] extractMegaUrlComponents didn't returned the expected value"
         )
       }
     }
