@@ -3,7 +3,6 @@ package com.benkio.chatcore.http
 import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits.*
-import cats.Monad
 import cats.MonadThrow
 import com.benkio.chatcore.http.MegaEncryptedFileRequest.given
 import com.benkio.chatcore.http.MegaEncryptedFileResponse.given
@@ -12,6 +11,9 @@ import io.chrisdavenport.mules.*
 import io.chrisdavenport.mules.http4s.*
 import io.circe.syntax.*
 import io.circe.Json
+import javax.crypto.spec.IvParameterSpec
+import javax.crypto.spec.SecretKeySpec
+import javax.crypto.Cipher
 import log.effect.LogWriter
 import org.http4s.*
 import org.http4s.circe.*
@@ -21,6 +23,7 @@ import org.http4s.client.Client
 import org.http4s.syntax.literals.*
 
 import java.nio.file.Path
+import java.util.Base64
 import scala.annotation.unused
 import scala.concurrent.duration.*
 
@@ -54,7 +57,6 @@ object MegaClient {
       )
 
   private class MegaClientImpl[F[_]: Async: LogWriter](@unused httpClient: Client[F]) extends MegaClient[F] {
-
     // https://gist.github.com/CypherpunkSamurai/7b476aef9d42fc29fe8a904a91039e85#file-basemax-megadownloader-md
     override def fetchFile(filename: String, url: Uri): Resource[F, Path] = {
       val fileContent: F[Array[Byte]] = for {
@@ -68,7 +70,7 @@ object MegaClient {
           httpClient = httpClient
         )
         _                    <- LogWriter.info(s"[MegaClient - $filename] Decrypt the Encrypted file")
-        decryptedFileContent <- decryptFileContent(encryptedFileContent, mediaUriComponents)
+        decryptedFileContent <- decryptFileContent[F](encryptedFileContent, mediaUriComponents)
         _                    <- LogWriter.info(s"[MegaClient - $filename] ✅ File successfully downloaded")
       } yield decryptedFileContent
 
@@ -113,8 +115,38 @@ object MegaClient {
       _                    <- LogWriter.info(s"[MegaClient - $filename] ✅ Encrypted File")
     } yield encryptedFileContent
   }
-  private def decryptFileContent[F[_]: Monad](
+  private def decryptFileContent[F[_]: Async](
       encryptedFileContent: Array[Byte],
       megaUriComponents: MegaUriComponents
-  ): F[Array[Byte]] = { ??? }
+  ): F[Array[Byte]] = {
+    Async[F].delay {
+      val rawKey = decodeMegaBase64Url(megaUriComponents.decryptKey)
+      require(rawKey.length == 32, s"Invalid MEGA key length: ${rawKey.length}, expected 32")
+
+      // MEGA file key layout: [k0 k1 k2 k3 n0 n1 m0 m1]
+      // AES-CTR key is [k0^n0, k1^n1, k2^m0, k3^m1], IV starts with nonce [n0, n1].
+      val aesKey = xorSlice(rawKey, 0, 16, 16)
+      val iv     = new Array[Byte](16)
+      System.arraycopy(rawKey, 16, iv, 0, 8)
+
+      val cipher = Cipher.getInstance("AES/CTR/NoPadding")
+      cipher.init(Cipher.DECRYPT_MODE, new SecretKeySpec(aesKey, "AES"), new IvParameterSpec(iv))
+      cipher.doFinal(encryptedFileContent)
+    }
+  }
+
+  private def xorSlice(bytes: Array[Byte], leftStart: Int, rightStart: Int, length: Int): Array[Byte] = {
+    val out = new Array[Byte](length)
+    var i   = 0
+    while i < length do {
+      out(i) = (bytes(leftStart + i) ^ bytes(rightStart + i)).toByte
+      i += 1
+    }
+    out
+  }
+
+  private def decodeMegaBase64Url(input: String): Array[Byte] = {
+    val padLen = (4 - (input.length % 4)) % 4
+    Base64.getUrlDecoder.decode(input + ("=" * padLen))
+  }
 }
