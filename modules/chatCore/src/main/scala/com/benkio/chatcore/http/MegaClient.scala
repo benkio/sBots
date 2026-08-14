@@ -51,9 +51,9 @@ object MegaClient {
       extends Throwable(s"[MegaClient] 🚫 Error in extracting the first segment from the Url: $url")
   final case class ErrorMegaUriDecryptionKeyNotFound(url: Uri)
       extends Throwable(s"[MegaClient] 🚫 Expected '#' in the first segment from the Url: $url")
-  final case class MegaEncryptedFileErrorEmptyResponse(filename: String, encryptedFileUris: List[Uri])
+  final case class MegaEncryptedFileErrorEmptyResponse(filename: String, encryptedFileUri: Uri)
       extends Throwable(
-        s"[MegaClient - $filename] 🚫 Expected non empty array response encripted uris: $encryptedFileUris"
+        s"[MegaClient - $filename] 🚫 Expected non empty array response encripted uri: $encryptedFileUri"
       )
 
   private class MegaClientImpl[F[_]: Async: LogWriter](@unused httpClient: Client[F]) extends MegaClient[F] {
@@ -104,26 +104,16 @@ object MegaClient {
       encryptedFileUri: Request[F],
       httpClient: Client[F]
   ): F[Array[Byte]] = {
-    def firstSuccessful[A](effects: List[F[A]], ifEmpty: Throwable): F[A] =
-      effects match {
-        case Nil              => Async[F].raiseError(ifEmpty)
-        case effect :: others => effect.handleErrorWith(_ => firstSuccessful(others, ifEmpty))
-      }
-
     for {
-      _                    <- LogWriter.info(s"[MegaClient - $filename] 🚀 Executing the Encrypted File Request")
-      response             <- httpClient.expect[Array[MegaEncryptedFileResponse]](encryptedFileUri)
-      encryptedUriResponse <- Async[F].fromOption(
+      _            <- LogWriter.info(s"[MegaClient - $filename] 🚀 Executing the Encrypted File Request")
+      response     <- httpClient.expect[Array[MegaEncryptedFileResponse]](encryptedFileUri)
+      encryptedUri <- Async[F].fromOption(
         response.headOption,
-        MegaEncryptedFileErrorEmptyResponse(filename, List(encryptedFileUri.uri))
+        MegaEncryptedFileErrorEmptyResponse(filename, encryptedFileUri.uri)
       )
-      encryptedUris = encryptedUriResponse.g.fold(List(_), _.toList)
-      resultEncryptedFileContent <- firstSuccessful(
-        encryptedUris.map(downloadUri => httpClient.get(downloadUri)(_.body.compile.to(Array))),
-        MegaEncryptedFileErrorEmptyResponse(filename, encryptedUris)
-      )
-      _ <- LogWriter.info(s"[MegaClient - $filename] ✅ Encrypted File")
-    } yield resultEncryptedFileContent
+      encryptedFileContent <- httpClient.get(encryptedUri.g)(_.body.compile.to(Array))
+      _                    <- LogWriter.info(s"[MegaClient - $filename] ✅ Encrypted File")
+    } yield encryptedFileContent
   }
   private def decryptFileContent[F[_]: Async](
       encryptedFileContent: Array[Byte],

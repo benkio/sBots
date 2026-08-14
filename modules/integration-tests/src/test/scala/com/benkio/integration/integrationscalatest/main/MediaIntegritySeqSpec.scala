@@ -53,8 +53,8 @@ class MediaIntegritySeqSpec extends FixtureAnyFunSuite {
 
   val allMessageMediaFiles: Resource[IO, List[MediaFile]] =
     for {
-      _            <- initialFixture.resourceDBLayer
-      _            <- initialFixture.repositoryResource
+      _             <- initialFixture.resourceDBLayer
+      _             <- initialFixture.repositoryResource
       richardFiles <- Resource.eval(
         mediaFilesFromBot(
           SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo),
