@@ -5,10 +5,12 @@ import cats.effect.Resource
 import cats.implicits.*
 import cats.Monad
 import cats.MonadThrow
+import com.benkio.chatcore.http.MegaEncryptedFileRequest.given
 import com.benkio.chatcore.http.MegaEncryptedFileResponse.given
 import com.benkio.chatcore.repository.Repository
 import io.chrisdavenport.mules.*
 import io.chrisdavenport.mules.http4s.*
+import io.circe.syntax.*
 import io.circe.Json
 import log.effect.LogWriter
 import org.http4s.*
@@ -56,8 +58,9 @@ object MegaClient {
     // https://gist.github.com/CypherpunkSamurai/7b476aef9d42fc29fe8a904a91039e85#file-basemax-megadownloader-md
     override def fetchFile(filename: String, url: Uri): Resource[F, Path] = {
       val fileContent: F[Array[Byte]] = for {
+        _                  <- LogWriter.info(s"[MegaClient - $filename] Extract Mega Components from input Uri")
         mediaUriComponents <- extractMegaUrlComponents(url)
-        _                  <- LogWriter.info(s"[MegaClient - $filename] Call Mega for the Encrypted file")
+        _                  <- LogWriter.info(s"[MegaClient - $filename] Call Mega to get the Encrypted file")
         encryptedFileHttpRequest = buildMegaEncryptedFileUrlRequest[F](mediaUriComponents)
         encryptedFileContent <- getEncryptedFileContent(
           filename = filename,
@@ -66,6 +69,7 @@ object MegaClient {
         )
         _                    <- LogWriter.info(s"[MegaClient - $filename] Decrypt the Encrypted file")
         decryptedFileContent <- decryptFileContent(encryptedFileContent, mediaUriComponents)
+        _                    <- LogWriter.info(s"[MegaClient - $filename] ✅ File successfully downloaded")
       } yield decryptedFileContent
 
       Resource.eval(fileContent).flatMap(content => Repository.toTempFile(filename, content))
@@ -85,15 +89,7 @@ object MegaClient {
   }
 
   private def buildMegaEncryptedFileUrlRequest[F[_]](megaUriComponents: MegaUriComponents): Request[F] = {
-    val payload = Json.arr(
-      Json.obj(
-        "a"   -> Json.fromString("g"),
-        "v"   -> Json.fromInt(2),
-        "p"   -> Json.fromString(megaUriComponents.fileId),
-        "ssl" -> Json.fromInt(2),
-        "g"   -> Json.fromInt(1)
-      )
-    )
+    val payload = Json.arr(MegaEncryptedFileRequest(megaUriComponents).asJson)
 
     Request[F](
       method = Method.POST,
@@ -107,14 +103,14 @@ object MegaClient {
       httpClient: Client[F]
   ): F[Array[Byte]] = {
     for {
-      _        <- LogWriter.info(s"[MegaClient - $filename] 🚀 Executing the Encrypted File Request")
-      response <- httpClient.expect[Array[MegaEncryptedFileResponse]](encryptedFileUri)
+      _            <- LogWriter.info(s"[MegaClient - $filename] 🚀 Executing the Encrypted File Request")
+      response     <- httpClient.expect[Array[MegaEncryptedFileResponse]](encryptedFileUri)
       encryptedUri <- Async[F].fromOption(
         response.headOption,
         MegaEncryptedFileErrorEmptyResponse(filename, encryptedFileUri.uri)
       )
       encryptedFileContent <- httpClient.get(encryptedUri.g)(_.body.compile.to(Array))
-      _        <- LogWriter.info(s"[MegaClient - $filename] ✅ Encrypted File")
+      _                    <- LogWriter.info(s"[MegaClient - $filename] ✅ Encrypted File")
     } yield encryptedFileContent
   }
   private def decryptFileContent[F[_]: Monad](

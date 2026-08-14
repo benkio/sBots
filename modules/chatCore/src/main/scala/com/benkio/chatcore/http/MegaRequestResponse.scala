@@ -2,7 +2,9 @@ package com.benkio.chatcore.http
 
 import com.benkio.chatcore.http.MegaClient.MegaUriComponents
 import io.circe.generic.semiauto.deriveDecoder
+import io.circe.generic.semiauto.deriveEncoder
 import io.circe.Decoder
+import io.circe.Encoder
 import org.http4s.Uri
 
 final case class MegaEncryptedFileRequest(
@@ -14,6 +16,8 @@ final case class MegaEncryptedFileRequest(
 )
 
 object MegaEncryptedFileRequest {
+  given Encoder[MegaEncryptedFileRequest] = deriveEncoder[MegaEncryptedFileRequest]
+
   def apply(megaUriComponents: MegaUriComponents): MegaEncryptedFileRequest =
     new MegaEncryptedFileRequest(
       a = "g",
