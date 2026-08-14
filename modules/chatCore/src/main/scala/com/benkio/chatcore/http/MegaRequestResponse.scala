@@ -4,6 +4,8 @@ import com.benkio.chatcore.http.MegaClient.MegaUriComponents
 import io.circe.generic.semiauto.deriveDecoder
 import io.circe.generic.semiauto.deriveEncoder
 import io.circe.Decoder
+import io.circe.Decoder.decodeArray
+import io.circe.Decoder.given
 import io.circe.Encoder
 import org.http4s.Uri
 
@@ -47,16 +49,18 @@ final case class MegaEncryptedFileResponse(
     at: String,
     msd: Int,
     fa: String,
-    g: Uri,
+    g: Either[Uri, Array[Uri]],
     ip: Array[String],
     fh: String
 )
 
 object MegaEncryptedFileResponse {
-  given Decoder[Uri] = Decoder.decodeString.emap(value =>
+  given uriDecoder: Decoder[Uri] = Decoder.decodeString.emap(value =>
     Uri
       .fromString(value)
       .fold(parseFailure => Left(parseFailure.message), uri => Right(uri))
   )
+  given uriOrUriArrayDecoder: Decoder[Either[Uri, Array[Uri]]] =
+    uriDecoder.either(decodeArray[Uri])
   given Decoder[MegaEncryptedFileResponse] = deriveDecoder[MegaEncryptedFileResponse]
 }
