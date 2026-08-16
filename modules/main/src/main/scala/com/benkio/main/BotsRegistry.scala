@@ -24,6 +24,7 @@ import com.benkio.CalandroBot.CalandroBot
 import com.benkio.M0sconiBot.M0sconiBot
 import com.benkio.PinoScottoBot.PinoScottoBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
+import com.benkio.VittorioSgarbiBot.VittorioSgarbiBot
 import com.benkio.XahLeeBot.XahLeeBot
 import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
 import log.effect.LogWriter
@@ -74,7 +75,8 @@ object BotRegistry {
         commandEffectfulCallback = RichardPHJBensonBot.commandEffectfulCallback[IO]
       ),
       BotRegistryEntry[IO](sBotInfo = PinoScottoBot.sBotInfo),
-      BotRegistryEntry[IO](sBotInfo = Alessandro0rlandoBot.sBotInfo)
+      BotRegistryEntry[IO](sBotInfo = Alessandro0rlandoBot.sBotInfo),
+      BotRegistryEntry[IO](sBotInfo = VittorioSgarbiBot.sBotInfo)
     )
   )
 }

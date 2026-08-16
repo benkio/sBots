@@ -8,11 +8,13 @@
   *
   * Edits:
   *   - build.sbt: defines the project, adds it to botProjects, adds data-entry alias (e.g. mynewAddData)
-  *   - modules/main/.../BotsRegistry.scala: adds import and BotRegistryEntry (no commandEffectfulCallback)
+ *   - modules/main/.../BotsRegistry.scala: adds import and BotRegistryEntry (no commandEffectfulCallback)
   *   - modules/main/src/main/resources/application.conf: adds the new bot db block (main.<id>.db)
   *   - .github/workflows/healthcheck.yml: adds the new bot token to BOT_TOKENS
   *   - .github/workflows/deploy.yml: adds the new bot token file injection during assembly
   *   - scripts/copyTokensFromDropbox.sh: adds the new bot to the list
+ *   - modules/integration-tests/.../MediaIntegrityParSpec.scala: adds import + media collection block
+ *   - filesCheck/src/Config.ts: adds bot metadata entry
   * (newBot does not edit main application.conf or healthcheck; this script does.)
   */
 
@@ -32,8 +34,8 @@ val rootAbs      = root.toAbsolutePath.normalize
 val projectDir   = rootAbs.resolve("project")
 val buildSbt     = rootAbs.resolve("build.sbt")
 val botsRegistry = rootAbs.resolve("modules/main/src/main/scala/com/benkio/main/BotsRegistry.scala")
-val mediaIntegritySpec =
-  rootAbs.resolve("modules/integration-tests/src/test/scala/com/benkio/integration/integrationscalatest/main/MediaIntegritySpec.scala")
+val mediaIntegrityParSpec =
+  rootAbs.resolve("modules/integration-tests/src/test/scala/com/benkio/integration/integrationscalatest/main/MediaIntegrityParSpec.scala")
 val filesCheckConfig = rootAbs.resolve("filesCheck/src/Config.ts")
 
 if !java.nio.file.Files.isDirectory(projectDir) || !java.nio.file.Files.isRegularFile(buildSbt) || !java.nio.file.Files
@@ -227,9 +229,9 @@ if !buildContentNow.contains(aliasName) then {
   }
 }
 
-// 8. MediaIntegritySpec: add bot import and include bot media files in link checks
-if java.nio.file.Files.isRegularFile(mediaIntegritySpec) then {
-  var mediaIntegrityContent = read(mediaIntegritySpec)
+// 8. MediaIntegrityParSpec: add bot import and include bot media files in link checks
+if java.nio.file.Files.isRegularFile(mediaIntegrityParSpec) then {
+  var mediaIntegrityContent = read(mediaIntegrityParSpec)
   val importLine            = s"import com.benkio.$botName.$botName"
   if !mediaIntegrityContent.contains(importLine) then {
     mediaIntegrityContent = mediaIntegrityContent.replace(
@@ -262,9 +264,9 @@ if java.nio.file.Files.isRegularFile(mediaIntegritySpec) then {
     )
   }
 
-  write(mediaIntegritySpec, mediaIntegrityContent)
-  println(s"Updated $mediaIntegritySpec with $botName")
-} else println(s"MediaIntegritySpec not found at $mediaIntegritySpec, skipping.")
+  write(mediaIntegrityParSpec, mediaIntegrityContent)
+  println(s"Updated $mediaIntegrityParSpec with $botName")
+} else println(s"MediaIntegrityParSpec not found at $mediaIntegrityParSpec, skipping.")
 
 // 9. filesCheck config: add bot entry with Dropbox default path
 if java.nio.file.Files.isRegularFile(filesCheckConfig) then {
@@ -294,9 +296,9 @@ if java.nio.file.Files.isRegularFile(filesCheckConfig) then {
 
 println(
   """Done. Remember to:
-    | - Update the README.md file
-    | - git add modules/bots/<BotName>/src/main/resources/<id>_replies.json and <id>_commands.json
-    | - Delete the DB at the root of the project
-    | - insert the Youtube Secret key in BotDB resources
-    | - Run the `botSetup` with `run-show-caption-fetching` and `run-show-caption-fetching` to true to align the db""".stripMargin
+    | - Update README.org with the new bot
+    | - Add the GitHub Actions secret <ID>_TOKEN (uppercase)
+    | - Review MediaIntegrity placement: this script adds to MediaIntegrityParSpec by default; move to MediaIntegritySeqSpec if needed (e.g. Mega-heavy bot)
+    | - Optionally set youtube-sources/caption-language in modules/botDB/src/main/resources/application.conf
+    | - Avoid committing local botDB.sqlite3 (delete/reset if modified locally)""".stripMargin
 )

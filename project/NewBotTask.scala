@@ -99,10 +99,10 @@ object NewBotTask {
   }
 
   private def addBotToMediaIntegritySpec(base: File, botName: String): Unit = {
-    val mediaIntegritySpec =
-      base / "modules" / "integration-tests" / "src" / "test" / "scala" / "com" / "benkio" / "integration" / "integrationscalatest" / "main" / "MediaIntegritySpec.scala"
-    if (!mediaIntegritySpec.isFile) return
-    var content = IO.read(mediaIntegritySpec)
+    val mediaIntegrityParSpec =
+      base / "modules" / "integration-tests" / "src" / "test" / "scala" / "com" / "benkio" / "integration" / "integrationscalatest" / "main" / "MediaIntegrityParSpec.scala"
+    if (!mediaIntegrityParSpec.isFile) return
+    var content = IO.read(mediaIntegrityParSpec)
 
     val importLine = s"import com.benkio.$botName.$botName"
     if (!content.contains(importLine)) {
@@ -136,8 +136,8 @@ object NewBotTask {
       )
     }
 
-    IO.write(mediaIntegritySpec, content)
-    println(s"Updated MediaIntegritySpec with $botName")
+    IO.write(mediaIntegrityParSpec, content)
+    println(s"Updated MediaIntegrityParSpec with $botName")
   }
 
   private def addBotToFilesCheckConfig(base: File, botName: String, id: String): Unit = {

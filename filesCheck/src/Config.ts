@@ -48,4 +48,10 @@ export const bots: Bot[] = [
     filePath: '/Dropbox/sBots/CalandroBot/src/main/resources',
     jsonFilePath: '../modules/bots/CalandroBot/cala_list.json',
   },
+  {
+    id: 'sgar',
+    artist: 'VittorioSgarbiBot',
+    filePath: '/Mega/sBots/VittorioSgarbiBot/src/main/resources',
+    jsonFilePath: '../modules/bots/VittorioSgarbiBot/sgar_list.json',
+  },
 ];

@@ -43,6 +43,7 @@ jobs:
           printf '${{ secrets.YTAI_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/YouTuboAncheI0Bot/src/main/resources/ytai_YouTuboAncheI0Bot.token
           printf '${{ secrets.PINO_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/PinoScottoBot/src/main/resources/pino_PinoScottoBot.token
           printf '${{ secrets.ORL_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/Alessandro0rlandoBot/src/main/resources/orl_Alessandro0rlandoBot.token
+          printf '${{ secrets.SGAR_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/VittorioSgarbiBot/src/main/resources/sgar_VittorioSgarbiBot.token
           sbt "dbSetup; assembly"
       - name: Create SSH key
         run: |
