@@ -4,6 +4,125 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "il demonio"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_SonoDemonio.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_IlDemonioVenutoATrovarmi.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_IlDemonioVenutoATrovarmiGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_TelefonataDiavolo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_IlDemonioVenutoATrovarmi.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_TelefonataDiavolo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_TelefonataDiavoloGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_Demonio2Gif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "diavolo"
+          },
+          {
+            "StringTextTriggerValue" : "come stai?"
+          },
+          {
+            "StringTextTriggerValue" : "sto molto bene"
+          },
+          {
+            "StringTextTriggerValue" : "mi fa piacere"
+          },
+          {
+            "StringTextTriggerValue" : "ci vediamo all'inferno"
+          },
+          {
+            "StringTextTriggerValue" : "fuochi fatui"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_TelefonataDiavoloGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_TelefonataDiavolo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_TelefonataDiavolo.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "brutti froci"
           }
         ]
@@ -19402,31 +19521,6 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "sono il demonio"
-          }
-        ]
-      }
-    },
-    "reply" : {
-      "MediaReply" : {
-        "mediaFiles" : [
-          {
-            "VideoFile" : {
-              "filepath" : "rphjb_SonoDemonio.mp4",
-              "replyToMessage" : false
-            }
-          }
-        ],
-        "replyToMessage" : false
-      }
-    },
-    "matcher" : "ContainsOnce"
-  },
-  {
-    "trigger" : {
-      "TextTrigger" : {
-        "triggers" : [
-          {
             "RegexTextTriggerValue" : {
               "trigger" : "mi assumo (tutte )?le responsabilità",
               "regexLength" : 27
@@ -22660,9 +22754,6 @@
     "trigger" : {
       "TextTrigger" : {
         "triggers" : [
-          {
-            "StringTextTriggerValue" : "il demonio"
-          },
           {
             "StringTextTriggerValue" : "venuto a trovarmi"
           }
