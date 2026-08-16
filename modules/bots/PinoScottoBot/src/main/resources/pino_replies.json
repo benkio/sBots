@@ -4,6 +4,196 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "vergognatevi"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "pino_TuttiInGalera.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_TuttiInGalera.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_TuttiInGaleraGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_CazzoGiudicate.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_CazzoGiudicate.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_CazzoGiudicateGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "che ti sei fatto?"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "pino_CheDrogaUniGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_CheDrogaUni.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_CheDrogaUni.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "chiaro e conciso"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bpiscio\\b",
+              "regexLength" : 6
+            }
+          },
+          {
+            "StringTextTriggerValue" : "stazione centrale"
+          },
+          {
+            "StringTextTriggerValue" : "sciacquati la bocca"
+          },
+          {
+            "StringTextTriggerValue" : "jovanotti"
+          },
+          {
+            "StringTextTriggerValue" : "rolling stone"
+          },
+          {
+            "StringTextTriggerValue" : "rollingstone.it"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "pino_MessaggioRollingStoresGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_MessaggioRollingStores.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_MessaggioRollingStores.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "pezzi di merda"
+          },
+          {
+            "StringTextTriggerValue" : "tutti in galera"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "pino_TuttiInGaleraGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_TuttiInGalera.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_TuttiInGalera.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "le palle"
           }
         ]
@@ -393,6 +583,12 @@
         "mediaFiles" : [
           {
             "Mp3File" : {
+              "filepath" : "pino_MessaggioRollingStores.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
               "filepath" : "pino_InsultiCamioFabbrica35Anni.mp3",
               "replyToMessage" : false
             }
@@ -400,6 +596,18 @@
           {
             "GifFile" : {
               "filepath" : "pino_InsultiCamioFabbrica35AnniGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_MessaggioRollingStores.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_MessaggioRollingStoresGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -1987,7 +2195,25 @@
           },
           {
             "VideoFile" : {
+              "filepath" : "pino_TuttiInGalera.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
               "filepath" : "pino_FateSchifo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_TuttiInGalera.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_TuttiInGaleraGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -4559,9 +4785,6 @@
           },
           {
             "StringTextTriggerValue" : "non faranno (un cazzo|niente|nulla)"
-          },
-          {
-            "StringTextTriggerValue" : "vergognatevi"
           }
         ]
       }
@@ -5851,32 +6074,14 @@
             }
           },
           {
-            "GifFile" : {
-              "filepath" : "pino_RitocchiniGif.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
             "Mp3File" : {
               "filepath" : "pino_AmoreMioVaffanculo.mp3",
               "replyToMessage" : false
             }
           },
           {
-            "GifFile" : {
-              "filepath" : "pino_VaiAFareInCuloGif.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
             "Mp3File" : {
               "filepath" : "pino_ColeotteroAdagiato.mp3",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "VideoFile" : {
-              "filepath" : "pino_Ritocchini.mp4",
               "replyToMessage" : false
             }
           },
@@ -5912,6 +6117,18 @@
           },
           {
             "Mp3File" : {
+              "filepath" : "pino_MessaggioRollingStores.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_RitocchiniGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
               "filepath" : "pino_DignitaPorcaPuttana.mp3",
               "replyToMessage" : false
             }
@@ -5919,6 +6136,30 @@
           {
             "Mp3File" : {
               "filepath" : "pino_VaiAFareInCulo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_VaiAFareInCuloGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_MessaggioRollingStores.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_MessaggioRollingStoresGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_Ritocchini.mp4",
               "replyToMessage" : false
             }
           },
@@ -6269,6 +6510,12 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
+            "Mp3File" : {
+              "filepath" : "pino_MessaggioRollingStores.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
             "VideoFile" : {
               "filepath" : "pino_NonValiNiente.mp4",
               "replyToMessage" : false
@@ -6281,6 +6528,12 @@
             }
           },
           {
+            "VideoFile" : {
+              "filepath" : "pino_MessaggioRollingStores.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "GifFile" : {
               "filepath" : "pino_CarloLoisosGif.mp4",
               "replyToMessage" : false
@@ -6289,6 +6542,12 @@
           {
             "Mp3File" : {
               "filepath" : "pino_MaChiSei.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_MessaggioRollingStoresGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -7482,12 +7741,6 @@
             }
           },
           {
-            "GifFile" : {
-              "filepath" : "pino_RitocchiniGif.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
             "VideoFile" : {
               "filepath" : "pino_NonTiPermettere.mp4",
               "replyToMessage" : false
@@ -7502,6 +7755,12 @@
           {
             "GifFile" : {
               "filepath" : "pino_InsultiCamioFabbrica35AnniGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_MessaggioRollingStores.mp4",
               "replyToMessage" : false
             }
           },
@@ -7561,6 +7820,18 @@
           },
           {
             "Mp3File" : {
+              "filepath" : "pino_MessaggioRollingStores.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_RitocchiniGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
               "filepath" : "pino_InsultiPorchetta.mp3",
               "replyToMessage" : false
             }
@@ -7604,6 +7875,12 @@
           {
             "Mp3File" : {
               "filepath" : "pino_AcidiPremioDemenza.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_MessaggioRollingStoresGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -8389,12 +8666,6 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
-            "VideoFile" : {
-              "filepath" : "pino_CiccioBenzinaDattiFuoco.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
             "Mp3File" : {
               "filepath" : "pino_InsignificanteTerroncello.mp3",
               "replyToMessage" : false
@@ -8407,8 +8678,8 @@
             }
           },
           {
-            "Mp3File" : {
-              "filepath" : "pino_ScoreggiaViaggianteDattiFuoco.mp3",
+            "VideoFile" : {
+              "filepath" : "pino_MessaggioRollingStores.mp4",
               "replyToMessage" : false
             }
           },
@@ -8444,6 +8715,18 @@
           },
           {
             "Mp3File" : {
+              "filepath" : "pino_MessaggioRollingStores.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_CiccioBenzinaDattiFuoco.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
               "filepath" : "pino_35anniPezzoDiMerdaSputatiFacciaDattiFuoco.mp3",
               "replyToMessage" : false
             }
@@ -8463,6 +8746,18 @@
           {
             "GifFile" : {
               "filepath" : "pino_InsignificanteTerroncelloGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_ScoreggiaViaggianteDattiFuoco.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_MessaggioRollingStoresGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -9206,6 +9501,12 @@
           },
           {
             "Mp3File" : {
+              "filepath" : "pino_MessaggioRollingStores.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
               "filepath" : "pino_35anniPezzoDiMerdaSputatiFacciaDattiFuoco.mp3",
               "replyToMessage" : false
             }
@@ -9223,6 +9524,12 @@
             }
           },
           {
+            "VideoFile" : {
+              "filepath" : "pino_MessaggioRollingStores.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "Mp3File" : {
               "filepath" : "pino_PartitoDemocratico2.mp3",
               "replyToMessage" : false
@@ -9231,12 +9538,6 @@
           {
             "Mp3File" : {
               "filepath" : "pino_MaChiSei.mp3",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "VideoFile" : {
-              "filepath" : "pino_CosaParloConTe.mp4",
               "replyToMessage" : false
             }
           },
@@ -9321,6 +9622,18 @@
           {
             "GifFile" : {
               "filepath" : "pino_NonValiNienteGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_CosaParloConTe.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_MessaggioRollingStoresGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -10375,14 +10688,8 @@
             }
           },
           {
-            "Mp3File" : {
-              "filepath" : "pino_CambiaSpacciatore.mp3",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "Mp3File" : {
-              "filepath" : "pino_ColeotteroOtorinoSpacciatore.mp3",
+            "GifFile" : {
+              "filepath" : "pino_CheDrogaUniGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -10411,6 +10718,18 @@
             }
           },
           {
+            "Mp3File" : {
+              "filepath" : "pino_CheDrogaUni.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_CambiaSpacciatore.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
             "VideoFile" : {
               "filepath" : "pino_AcidiPremioDemenza.mp4",
               "replyToMessage" : false
@@ -10419,6 +10738,18 @@
           {
             "Mp3File" : {
               "filepath" : "pino_AcidiPremioDemenza.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_ColeotteroOtorinoSpacciatore.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_CheDrogaUni.mp4",
               "replyToMessage" : false
             }
           }
@@ -10454,12 +10785,6 @@
             }
           },
           {
-            "Mp3File" : {
-              "filepath" : "pino_CambiaSpacciatore.mp3",
-              "replyToMessage" : false
-            }
-          },
-          {
             "GifFile" : {
               "filepath" : "pino_MedicoBravoSpacciatoreGif.mp4",
               "replyToMessage" : false
@@ -10468,12 +10793,6 @@
           {
             "Mp3File" : {
               "filepath" : "pino_MedicoBravoSpacciatore.mp3",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "Mp3File" : {
-              "filepath" : "pino_RisataGrandeMinchiataCambiaSpacciatore.mp3",
               "replyToMessage" : false
             }
           },
@@ -10504,6 +10823,36 @@
           {
             "VideoFile" : {
               "filepath" : "pino_ColeotteroOtorinoSpacciatore.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_CheDrogaUni.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_CambiaSpacciatore.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_CheDrogaUniGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_RisataGrandeMinchiataCambiaSpacciatore.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_CheDrogaUni.mp4",
               "replyToMessage" : false
             }
           },
