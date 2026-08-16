@@ -21,6 +21,7 @@ import com.benkio.integration.SlowTest
 import com.benkio.integration.WarnLogger.given
 import com.benkio.Alessandro0rlandoBot.Alessandro0rlandoBot
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
+import com.benkio.VittorioSgarbiBot.VittorioSgarbiBot
 import com.benkio.XahLeeBot.XahLeeBot
 import org.scalatest.*
 import org.scalatest.funsuite.FixtureAnyFunSuite
@@ -78,8 +79,17 @@ class MediaIntegritySeqSpec extends FixtureAnyFunSuite {
           }
         )
       )
+      vittorioSgarbiFiles <- Resource.eval(
+        mediaFilesFromBot(
+          SBot.buildSBotConfig(VittorioSgarbiBot.sBotInfo),
+          (setup, msgData, cmdData) => {
+            given telegramium.bots.high.Api[IO] = setup.api
+            new SBotPolling[IO](setup, msgData, cmdData)
+          }
+        )
+      )
       allFiles =
-        (richardFiles ++ alessandro0rlandoFiles)
+        (richardFiles ++ alessandro0rlandoFiles ++ vittorioSgarbiFiles)
           .distinctBy(_.filename)
     } yield allFiles
 

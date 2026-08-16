@@ -27,7 +27,7 @@ import munit.CatsEffectSuite
 
 class VittorioSgarbiBotSpec extends BaseBotSpec {
 
-  val sgarSBotConfig: SBotConfig             = SBot.buildSBotConfig(VittorioSgarbiBot.sBotInfo)
+  val sgarSBotConfig: SBotConfig            = SBot.buildSBotConfig(VittorioSgarbiBot.sBotInfo)
   val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(sgarSBotConfig.sBotInfo.botId)
   val mediaResource: MediaResourceIFile[IO] =
     MediaResourceIFile(

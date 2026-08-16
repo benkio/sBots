@@ -51,7 +51,7 @@ export const bots: Bot[] = [
   {
     id: 'sgar',
     artist: 'VittorioSgarbiBot',
-    filePath: '/Dropbox/sBots/VittorioSgarbiBot/src/main/resources',
+    filePath: '/Mega/sBots/VittorioSgarbiBot/src/main/resources',
     jsonFilePath: '../modules/bots/VittorioSgarbiBot/sgar_list.json',
   },
 ];
