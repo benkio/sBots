@@ -4,6 +4,484 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "per colpa vostra"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_LeggereTraLeRigheGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_LeggereTraLeRighe.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "orl_SospesoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_Sospeso.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_LeggereTraLeRighe.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_Sospeso.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "rinunciare"
+          },
+          {
+            "StringTextTriggerValue" : "caffè al bar"
+          },
+          {
+            "StringTextTriggerValue" : "museal"
+          },
+          {
+            "StringTextTriggerValue" : "commercial"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bbuio\\b",
+              "regexLength" : 4
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_CaffeMusealeGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_CaffeMuseale.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_CaffeMuseale.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "((2|due) milioni|2000000)",
+              "regexLength" : 7
+            }
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bcash\\b",
+              "regexLength" : 4
+            }
+          },
+          {
+            "StringTextTriggerValue" : "mi devi dare"
+          },
+          {
+            "StringTextTriggerValue" : "di euro"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_DueMilioniDiEuroGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_DueMilioniDiEuro.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_DueMilioniDiEuro.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "leggere tra le righe"
+          },
+          {
+            "StringTextTriggerValue" : "interpretare"
+          },
+          {
+            "StringTextTriggerValue" : "mio ragionamento"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "cose che (non )?posso dire",
+              "regexLength" : 19
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_LeggereTraLeRigheGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_LeggereTraLeRighe.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_LeggereTraLeRighe.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "stato sospeso"
+          },
+          {
+            "StringTextTriggerValue" : "non dovevo dire"
+          },
+          {
+            "StringTextTriggerValue" : "dire certe cose"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_SospesoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_Sospeso.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_Sospeso.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "protegger(e|vi|ti)",
+              "regexLength" : 10
+            }
+          },
+          {
+            "StringTextTriggerValue" : "il mio futuro"
+          },
+          {
+            "StringTextTriggerValue" : "per tutta la vita"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_ProteggereVoiGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_ProteggereVoi.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_ProteggereVoi.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "la peste\\b",
+              "regexLength" : 8
+            }
+          },
+          {
+            "StringTextTriggerValue" : "l'ignoranza"
+          },
+          {
+            "StringTextTriggerValue" : "(giorgio )?de chirico"
+          },
+          {
+            "StringTextTriggerValue" : "non esistono gli oli"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_DeChiricoIgnoranzaPesteGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_DeChiricoIgnoranzaPeste.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_DeChiricoIgnoranzaPeste.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "litografia"
+          },
+          {
+            "StringTextTriggerValue" : "oli su tela"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_LitografiaOliSuTelaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_LitografiaOliSuTela.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_LitografiaOliSuTela.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "toscana"
+          },
+          {
+            "StringTextTriggerValue" : "brescia"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "come ((ti )?va( la vita)|stai)\\?",
+              "regexLength" : 9
+            }
+          },
+          {
+            "StringTextTriggerValue" : "mi manca tanto"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_ComeStaiBresciaToscanaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_ComeStaiBresciaToscana.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_ComeStaiBresciaToscana.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(3|tre) mesi",
+              "regexLength" : 6
+            }
+          },
+          {
+            "StringTextTriggerValue" : "natale"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_TreMesiNataleGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_TreMesiNatale.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_TreMesiNatale.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "non lo sopporto"
           },
           {
