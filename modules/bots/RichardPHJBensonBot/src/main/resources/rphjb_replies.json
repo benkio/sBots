@@ -22646,13 +22646,19 @@
             "StringTextTriggerValue" : "i('m|am) the leader"
           },
           {
-            "StringTextTriggerValue" : "quello stronzo"
+            "RegexTextTriggerValue" : {
+              "trigger" : "quello s[dt]+ron[dt]*[zs]o",
+              "regexLength" : 14
+            }
           },
           {
             "StringTextTriggerValue" : "io sono dio"
           },
           {
             "StringTextTriggerValue" : "is god"
+          },
+          {
+            "StringTextTriggerValue" : "parli solo con"
           }
         ]
       }
@@ -26753,7 +26759,7 @@
         "triggers" : [
           {
             "RegexTextTriggerValue" : {
-              "trigger" : "la vostra mente( abbietta| calpestata)?",
+              "trigger" : "la vostra mente (abbietta|calpestata)?",
               "regexLength" : 24
             }
           },
@@ -26762,6 +26768,21 @@
           },
           {
             "StringTextTriggerValue" : "punto di partenza"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "pseudo[ -]?estremismo",
+              "regexLength" : 16
+            }
+          },
+          {
+            "StringTextTriggerValue" : "direttive"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "n[eèé] (politiche|sociali)",
+              "regexLength" : 10
+            }
           }
         ]
       }
