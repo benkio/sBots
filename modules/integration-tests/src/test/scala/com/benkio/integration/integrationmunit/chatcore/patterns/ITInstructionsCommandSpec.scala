@@ -103,7 +103,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with BotSetupFixture {
               text.show.contains(botSetup.sBotConfig.sBotInfo.botName.value),
               s"[ITInstructionsCommandSpec] description should contains the botname: ${text.show}"
             )
-            assertInstructionText(text.show, expectedEnglishSnippets, "english")
+            assertInstructionText(text = text.show, expectedSnippets = expectedEnglishSnippets, language = "english")
           })
       )
       _ <- Resource.eval(
@@ -128,7 +128,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with BotSetupFixture {
               text.show.contains(botSetup.sBotConfig.sBotInfo.botName.value),
               s"[ITInstructionsCommandSpec] description should contains the botname: ${text.show}"
             )
-            assertInstructionText(text.show, expectedItalianSnippets, "italian")
+            assertInstructionText(text = text.show, expectedSnippets = expectedItalianSnippets, language = "italian")
           })
       )
     } yield ()

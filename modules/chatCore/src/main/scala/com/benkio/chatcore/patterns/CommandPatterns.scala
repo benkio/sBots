@@ -47,7 +47,7 @@ import scala.concurrent.duration.*
 import scala.util.Try
 
 object CommandPatterns {
-  private val commandsDocsBaseUrl = "https://github.com/benkio/sBots/blob/main/"
+  private val commandsDocsBaseUrl                                = "https://github.com/benkio/sBots/blob/main/"
   private def commandDocLink(path: String, lang: String): String =
     s"$commandsDocsBaseUrl$path#$lang"
   private def chatCoreCommandDocLink(command: String, lang: String): String =
