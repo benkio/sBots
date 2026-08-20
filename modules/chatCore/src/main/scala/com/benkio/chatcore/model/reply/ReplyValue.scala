@@ -102,6 +102,7 @@ enum EffectfulKey(val sBotInfo: SBotInfo) {
 
 object EffectfulKey {
   given replyDecoder: Decoder[EffectfulKey] = deriveDecoder[EffectfulKey]
+
   given replyEncoder: Encoder[EffectfulKey] = deriveEncoder[EffectfulKey]
 
   extension (k: EffectfulKey) {

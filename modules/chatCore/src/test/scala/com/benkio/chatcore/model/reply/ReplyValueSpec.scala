@@ -103,6 +103,40 @@ class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
     assertEquals(random.overridePage(Some(10)), random)
   }
 
+  test("EffectfulKey decoder should decode JSON with page field") {
+    val searchShowJson =
+      """{
+        |  "SearchShow": {
+        |    "sBotInfo": {
+        |      "botId": "botid",
+        |      "botName": "bot"
+        |    },
+        |    "page": 0
+        |  }
+        |}""".stripMargin
+    val topTwentyJson =
+      """{
+        |  "TopTwenty": {
+        |    "sBotInfo": {
+        |      "botId": "botid",
+        |      "botName": "bot"
+        |    },
+        |    "page": 0
+        |  }
+        |}""".stripMargin
+
+    val expectedSBotInfo = SBotInfo(SBotId("botid"), SBotName("bot"))
+
+    assertEquals(
+      decode[EffectfulKey](searchShowJson),
+      Right(EffectfulKey.SearchShow(expectedSBotInfo, page = 0))
+    )
+    assertEquals(
+      decode[EffectfulKey](topTwentyJson),
+      Right(EffectfulKey.TopTwenty(expectedSBotInfo, page = 0))
+    )
+  }
+
   test("MediaFile.fromString should infer media type from filename") {
     assertEquals(MediaFile.fromString("song.mp3"), Mp3File("song.mp3"))
     assertEquals(MediaFile.fromString("photo.jpg"), PhotoFile("photo.jpg"))
