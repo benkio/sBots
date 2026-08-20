@@ -28,21 +28,25 @@ class ResourceRepository[F[_]: Async: LogWriter](stage: Option[String] = None) e
       botId: SBotId
   ): Resource[F, Either[Repository.RepositoryError, NonEmptyList[NonEmptyList[MediaResource[F]]]]] = {
     val jarEntries: Resource[F, List[String]] = for {
-      jarPath <- Resource.eval(Async[F].blocking(Paths.get(getClass().getProtectionDomain().getCodeSource().getLocation().toURI())))
-      entries <- if !Files.isRegularFile(jarPath) then Resource.pure[F, List[String]](List.empty)
-      else
-        Resource
-          .fromAutoCloseable(Async[F].blocking(new JarFile(jarPath.toFile())))
-          .evalMap(jar =>
-            Async[F].blocking {
-              jar.entries().asScala
-                .map(_.getName)
-                .filter(name => name.startsWith(criteria + "/") && name.length > criteria.length + 1)
-                .toList
-            }
-          )
-    }
-    yield entries
+      jarPath <- Resource.eval(
+        Async[F].blocking(Paths.get(getClass().getProtectionDomain().getCodeSource().getLocation().toURI()))
+      )
+      entries <-
+        if !Files.isRegularFile(jarPath) then Resource.pure[F, List[String]](List.empty)
+        else
+          Resource
+            .fromAutoCloseable(Async[F].blocking(new JarFile(jarPath.toFile())))
+            .evalMap(jar =>
+              Async[F].blocking {
+                jar
+                  .entries()
+                  .asScala
+                  .map(_.getName)
+                  .filter(name => name.startsWith(criteria + "/") && name.length > criteria.length + 1)
+                  .toList
+              }
+            )
+    } yield entries
 
     val fsEntries: Resource[F, List[Path]] = {
       val root = Repository.buildPath(criteria, stage)
@@ -50,7 +54,11 @@ class ResourceRepository[F[_]: Async: LogWriter](stage: Option[String] = None) e
         .fromAutoCloseable(Async[F].blocking(Files.walk(root)))
         .evalMap(walk =>
           Async[F].blocking {
-            walk.iterator().asScala.toList.tail
+            walk
+              .iterator()
+              .asScala
+              .toList
+              .tail
               .filter((fl: Path) => fl.getFileName.toString.startsWith(botId.value))
               .map((fl: Path) => root.resolve(fl.getFileName))
           }
@@ -93,8 +101,7 @@ class ResourceRepository[F[_]: Async: LogWriter](stage: Option[String] = None) e
             .map(x => Resource.pure(Right(x)))
         )
         .getOrElse(Resource.pure(Left(Repository.RepositoryError.NoResourcesFoundKind(criteria, botId))))
-    }
-    yield result
+    } yield result
   }
 
   override def getResourceFile(

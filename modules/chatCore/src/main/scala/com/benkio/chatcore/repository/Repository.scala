@@ -94,7 +94,9 @@ object Repository {
           )
         )
         .evalMap(inputStream => Async[F].blocking(inputStream.readAllBytes()))
-      _ <- Resource.eval(LogWriter.trace(s"[ResourcesAccess:86:48] getResourceByteArray total bytes read: ${result.size}"))
+      _ <- Resource.eval(
+        LogWriter.trace(s"[ResourcesAccess:86:48] getResourceByteArray total bytes read: ${result.size}")
+      )
     } yield Right(result))
       .handleErrorWith(_ => Resource.pure(Left(Repository.RepositoryError.NoResourcesFoundByteArray(resourceName))))
 }
