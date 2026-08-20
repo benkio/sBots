@@ -85,10 +85,10 @@ object CommandPatterns {
           "[CommandPatterns] RandomDataCommand En error occurred when fetching random media. None Was returned"
         )
 
-    private val randomDataCommandIta: String =
-      """'/random': Restituisce un dato(audio/video/testo/foto) casuale riguardante il personaggio del bot"""
-    private val randomDataCommandEng: String =
-      """'/random': Returns a random data (photo/video/audio/text) about the bot character"""
+    private[patterns] val randomDataCommandIta: String =
+      """'/random': Invia un contenuto casuale (testo/foto/audio/video) del personaggio del bot."""
+    private[patterns] val randomDataCommandEng: String =
+      """'/random': Send a random content (text/photo/audio/video) about the bot character."""
 
     def randomCommandLogic[F[_]: Async: LogWriter](dbMedia: DBMedia[F], sBotInfo: SBotInfo): F[MediaFile] =
       for {
@@ -117,32 +117,16 @@ object CommandPatterns {
 
   object SearchShowCommand {
 
-    private val searchShowCommandIta: String =
-      """'/searchshow 《testo》': Restituisce un link di uno show/video riguardante il personaggio del bot e contenente il testo specificato.
-Input come query string:
-  - No input: restituisce uno show random
-  - 'title=keyword: restituisce uno show contenente la keyword nel titolo. Il campo può essere specificato più volte, si cercherà uno show contenente tutte le keywords. Esempio: 'title=Paul+Gilbert&title=dissacrazione'
-  - 'description=keyword: restituisce uno show contenente la keyword nella descrizione. Il campo può essere specificato più volte, si cercherà uno show contenente tutte le keywords.  Esempio: 'description=Cris+Impellitteri&description=ramarro'
-  - 'caption=keyword: restituisce uno show contenente la keyword nella caption automatica. Il campo può essere specificato più volte, si cercherà uno show contenente tutte le keywords.  Esempio: 'caption=Cris+Impellitteri&caption=ramarro'
-  - 'minduration=X': restituisce uno show di durata minima pari a X secondi. Esempio: 'minduration=300'
-  - 'maxduration=X': restituisce uno show di durata massima pari a X secondi. Esempio: 'maxduration=1000'
-  - 'mindate=YYYYMMDD': restituisce uno show più recente della data specificata. Esempio: 'mindate=20200101'
-  - 'maxdate=YYYYMMDD': restituisce uno show più vecchio della data specificata. Esempio: 'mandate=20220101'
-  In caso di input non riconosciuto, verrà considerato come titolo, o descrizione, o caption.
-  I campi possono essere concatenati. Esempio: 'title=Cocktail+Micidiale&description=steve+vai&minduration=300'"""
-    private val searchShowCommandEng: String =
-      """'/searchshow 《text》': Return a link of a show/video about the specific bot's character and containing the specified keyword.
-Input as query string:
-  - No input: returns a random show
-  - 'title=keyword: returns a show with the keyword in the title. The field can be specified multiple times, the show will contain all the keywords. Example: 'title=Paul+Gilbert&title=dissacrazione'
-  - 'description=keyword: returns a show with the keyword in the description. The field can be specified multiple times, the show will contain all the keywords.  Example: 'description=Cris+Impellitteri&description=ramarro'
-  - 'caption=keyword: returns a show with the keyword in the caption. The field can be specified multiple times, the show will contain all the keywords.  Example: 'caption=Cris+Impellitteri&caption=ramarro'
-  - 'minduration=X': returns a show with minimal duration of X seconds.  Example: 'minduration=300'
-  - 'maxduration=X': returns a show with maximal duration of X seconds.  Example: 'maxduration=1000'
-  - 'mindate=YYYYMMDD': returns a show newer than the specified date.  Example: 'mindate=20200101'
-  - 'maxdate=YYYYMMDD': returns a show older than the specified date.  Example: 'mandate=20220101'
-  If the input is not recognized it will be considered as a title, or description, or caption.
-  Fields can be concatenated. Example: 'title=Cocktail+Micidiale&description=steve+vai&minduration=300'"""
+    private[patterns] val searchShowCommandIta: String =
+      """'/searchshow [query]': Cerca uno show e invia un link.
+        |Senza input: show casuale.
+        |Filtri supportati: title=, description=, caption=, minduration=, maxduration=, mindate=YYYYMMDD, maxdate=YYYYMMDD.
+        |Esempio: /searchshow title=paul+gilbert&minduration=300""".stripMargin
+    private[patterns] val searchShowCommandEng: String =
+      """'/searchshow [query]': Search shows and send a link.
+        |No input: random show.
+        |Supported filters: title=, description=, caption=, minduration=, maxduration=, mindate=YYYYMMDD, maxdate=YYYYMMDD.
+        |Example: /searchshow title=paul+gilbert&minduration=300""".stripMargin
 
     def searchShowCommandLogic[F[_]: Async: LogWriter](
         msg: Message,
@@ -215,10 +199,10 @@ Input as query string:
 
   object TriggerListCommand {
 
-    private val triggerListCommandDescriptionIta: String =
-      "'/triggerlist': Restituisce un link ad un file contenente tutti i trigger a cui il bot risponderà automaticamente. Alcuni di questi sono in formato Regex"
-    private val triggerListCommandDescriptionEng: String =
-      "'/triggerlist': Return a link to a file containing all the triggers used by the bot. Bot will reply automatically to these ones. Some of them are Regex"
+    private[patterns] val triggerListCommandDescriptionIta: String =
+      "'/triggerlist': Mostra il link al file con tutti i trigger automatici (inclusi quelli regex)."
+    private[patterns] val triggerListCommandDescriptionEng: String =
+      "'/triggerlist': Show the link to the file with all automatic triggers (including regex ones)."
 
     def triggerListLogic(triggerFileUri: Uri): Text =
       Text(s"Puoi trovare la lista dei trigger al seguente URL: $triggerFileUri")
@@ -238,10 +222,10 @@ Input as query string:
 
   object TriggerSearchCommand {
 
-    private val triggerSearchCommandDescriptionIta: String =
-      "'/triggersearch 《testo》': Consente di cercare se una parola o frase fa parte di un trigger"
-    private val triggerSearchCommandDescriptionEng: String =
-      "'/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger"
+    private[patterns] val triggerSearchCommandDescriptionIta: String =
+      "'/triggersearch <testo>': Cerca se una parola o frase corrisponde a un trigger."
+    private[patterns] val triggerSearchCommandDescriptionEng: String =
+      "'/triggersearch <text>': Check whether a word or phrase matches a trigger."
 
     def searchTriggerLogic[F[_]: ApplicativeThrow](
         mdr: List[ReplyBundleMessage],
@@ -291,7 +275,6 @@ Input as query string:
   }
 
   object InstructionsCommand {
-
     private def instructionMessageIta(
         sBotInfo: SBotInfo,
         ignoreMessagePrefix: Option[String],
@@ -394,18 +377,26 @@ ${ignoreMessagePrefix
 
   object SubscribeUnsubscribeCommand {
 
-    private val subscribeCommandDescriptionIta: String =
-      "'/subscribe 《cron time》': Iscrizione all'invio randomico di una puntata alla frequenza specificato nella chat corrente. Per il formato dell'input utilizzare questo codice come riferimento: https://scastie.scala-lang.org/ir5llpyPS5SmzU0zd46uLA oppure questo sito: https://www.freeformatter.com/cron-expression-generator-quartz.html#cronexpressionexamples Attenzione, la libreria usata richiede anche i secondi come riportato nella documentazione: https://www.alonsodomin.me/cron4s/userguide/index.html"
-    private val subscribeCommandDescriptionEng: String =
-      "'/subscribe 《cron time》': Subscribe to a random show at the specified frequency in the current chat. For the input format check the following code snippet: https://scastie.scala-lang.org/ir5llpyPS5SmzU0zd46uLA oppure questo sito: https://www.freeformatter.com/cron-expression-generator-quartz.html#cronexpressionexamples You can find the docs here: https://www.alonsodomin.me/cron4s/userguide/index.html"
-    private val unsubscribeCommandDescriptionIta: String =
-      "'/unsubscribe': Disiscrizione della chat corrente dall'invio di puntate. Disiscriviti da una sola iscrizione inviando l'UUID relativo o da tutte le sottoscrizioni per la chat corrente se non viene inviato nessun input"
-    private val unsubscribeCommandDescriptionEng: String =
-      "'/unsubscribe': Unsubscribe the current chat from random shows. With a UUID as input, the specific subscription will be deleted. With no input, all the subscriptions for the current chat will be deleted"
-    private val subscriptionsCommandDescriptionIta: String =
-      "'/subscriptions': Restituisce la lista delle iscrizioni correnti per la chat corrente"
-    private val subscriptionsCommandDescriptionEng: String =
-      "'/subscriptions': Return the amout of subscriptions for the current chat"
+    private[patterns] val subscribeCommandDescriptionIta: String =
+      """'/subscribe <cron time>': Iscrive questa chat all'invio casuale di una puntata.
+        |Formato cron (6 campi): secondi minuti ore giorno mese giorno-settimana.
+        |Tra giorno e giorno-settimana, uno deve essere '?'.
+        |Esempi: /subscribe 0 * * ? * * | /subscribe 0 30 9 * * ? | /subscribe 0 0 18 ? * MON
+        |Riferimento sintassi cron4s: https://github.com/alonsodomin/cron4s""".stripMargin
+    private[patterns] val subscribeCommandDescriptionEng: String =
+      """'/subscribe <cron time>': Subscribe this chat to random show messages at a chosen interval.
+        |Cron format (6 fields): seconds minutes hours day month day-of-week.
+        |Between day and day-of-week, one must be '?'.
+        |Examples: /subscribe 0 * * ? * * | /subscribe 0 30 9 * * ? | /subscribe 0 0 18 ? * MON
+        |cron4s syntax reference: https://github.com/alonsodomin/cron4s""".stripMargin
+    private[patterns] val unsubscribeCommandDescriptionIta: String =
+      "'/unsubscribe [uuid]': Disiscrive la chat corrente dall'invio di puntate. Con UUID rimuove solo quella iscrizione, senza input rimuove tutte le iscrizioni della chat."
+    private[patterns] val unsubscribeCommandDescriptionEng: String =
+      "'/unsubscribe [uuid]': Unsubscribe the current chat from random shows. With a UUID it removes only that subscription, with no input it removes all subscriptions for the chat."
+    private[patterns] val subscriptionsCommandDescriptionIta: String =
+      "'/subscriptions': Mostra tutte le iscrizioni correnti della chat (salvate e schedulate)."
+    private[patterns] val subscriptionsCommandDescriptionEng: String =
+      "'/subscriptions': Show all current subscriptions for this chat (stored and scheduled)."
 
     def subscribeCommandLogic[F[_]: Async](
         backgroundJobManager: BackgroundJobManager[F],
@@ -525,10 +516,10 @@ ${ignoreMessagePrefix
 
   object StatisticsCommands {
 
-    private val topTwentyTriggersCommandDescriptionIta: String =
-      "'/toptwenty': Restituisce una lista di file e il loro numero totale in invii"
-    private val topTwentyTriggersCommandDescriptionEng: String =
-      "'/toptwenty': Return a list of files and theirs send frequency"
+    private[patterns] val topTwentyTriggersCommandDescriptionIta: String =
+      "'/toptwenty': Mostra i file piu inviati, ordinati per frequenza."
+    private[patterns] val topTwentyTriggersCommandDescriptionEng: String =
+      "'/toptwenty': Show the most sent files, ordered by frequency."
 
     def topTwentyCommandLogic[F[_]: MonadThrow](sBotInfo: SBotInfo, dbMedia: DBMedia[F]): F[List[MediaFile]] =
       for {
@@ -554,10 +545,10 @@ ${ignoreMessagePrefix
 
   object SetTimeoutCommand {
 
-    private val setTimeoutCommandDescriptionIta: String =
-      "'/settimeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00. Senza input il timeout verrà rimosso"
-    private val setTimeoutCommandDescriptionEng: String =
-      "'/settimeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00. Without input the timeout will be removed"
+    private[patterns] val setTimeoutCommandDescriptionIta: String =
+      "'/settimeout [HH:MM:SS]': Imposta il tempo minimo tra le risposte del bot in questa chat. Senza input il timeout viene rimosso."
+    private[patterns] val setTimeoutCommandDescriptionEng: String =
+      "'/settimeout [HH:MM:SS]': Set the minimum time between bot replies in this chat. With no input, timeout is removed."
 
     def setTimeoutLogic[F[_]: MonadThrow: LogWriter](
         msg: Message,
@@ -621,10 +612,10 @@ ${ignoreMessagePrefix
 
   object GetTimeoutCommand {
 
-    private val getTimeoutCommandDescriptionIta: String =
-      "'/gettimeout': Restituisce il timeout della chat corrente"
-    private val getTimeoutCommandDescriptionEng: String =
-      "'/gettimeout': Returns the current chat timeout"
+    private[patterns] val getTimeoutCommandDescriptionIta: String =
+      "'/gettimeout': Mostra il timeout attivo per la chat corrente."
+    private[patterns] val getTimeoutCommandDescriptionEng: String =
+      "'/gettimeout': Show the active timeout for the current chat."
 
     def getTimeoutLogic[F[_]: MonadThrow](
         msg: Message,

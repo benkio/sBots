@@ -20,6 +20,45 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with BotSetupFixture {
 
   override def botSetupFixtureConfig: SBotConfig = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
 
+  private val expectedEnglishSnippets: List[String] = List(
+    "'/random': Send a random content",
+    "'/searchshow [query]': Search shows and send a link.",
+    "'/triggerlist': Show the link to the file with all automatic triggers",
+    "'/triggersearch <text>': Check whether a word or phrase matches a trigger.",
+    "'/subscribe <cron time>': Subscribe this chat to random show messages",
+    "'/unsubscribe [uuid]': Unsubscribe the current chat.",
+    "'/subscriptions': Show current subscriptions for this chat",
+    "'/toptwenty': Show the most sent files, ordered by frequency.",
+    "'/settimeout [HH:MM:SS]': Set the minimum time between bot replies in this chat.",
+    "'/gettimeout': Show the active timeout for the current chat."
+  )
+
+  private val expectedItalianSnippets: List[String] = List(
+    "'/random': Invia un contenuto casuale",
+    "'/searchshow [query]': Cerca uno show e invia un link.",
+    "'/triggerlist': Mostra il link al file con tutti i trigger automatici",
+    "'/triggersearch <testo>': Cerca se una parola o frase corrisponde a un trigger.",
+    "'/subscribe <cron time>': Iscrive la chat all'invio casuale di puntate.",
+    "'/unsubscribe [uuid]': Disiscrive la chat corrente.",
+    "'/subscriptions': Mostra le iscrizioni correnti della chat",
+    "'/toptwenty': Mostra i file piu inviati, ordinati per frequenza.",
+    "'/settimeout [HH:MM:SS]': Imposta il tempo minimo tra le risposte del bot in questa chat.",
+    "'/gettimeout': Mostra il timeout attivo per la chat corrente."
+  )
+
+  private def assertInstructionText(
+      text: String,
+      expectedSnippets: List[String],
+      language: String
+  ): Unit = {
+    expectedSnippets.foreach { snippet =>
+      assert(
+        text.contains(snippet),
+        s"[ITInstructionsCommandSpec] Missing $language snippet: $snippet\n$text"
+      )
+    }
+  }
+
   botSetupFixture.test(
     "Instruction Command should return a TextReply with the input instructions"
   ) { fixture =>
@@ -60,10 +99,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with BotSetupFixture {
               text.show.contains(botSetup.sBotConfig.sBotInfo.botName.value),
               s"[ITInstructionsCommandSpec] description should contains the botname: ${text.show}"
             )
-            assert(
-              text.show.contains("'/random': Returns a random data"),
-              s"[ITInstructionsCommandSpec] RichardPHJBensonBot.instructionCommandLogic should return the eng description and contain the random command: ${text.show}"
-            )
+            assertInstructionText(text.show, expectedEnglishSnippets, "english")
           })
       )
       _ <- Resource.eval(
@@ -88,10 +124,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with BotSetupFixture {
               text.show.contains(botSetup.sBotConfig.sBotInfo.botName.value),
               s"[ITInstructionsCommandSpec] description should contains the botname: ${text.show}"
             )
-            assert(
-              text.show.contains("'/random': Restituisce un dato"),
-              s"[ITInstructionsCommandSpec] RichardPHJBensonBot.instructionCommandLogic should return the ita description and contain the random command: ${text.show}"
-            )
+            assertInstructionText(text.show, expectedItalianSnippets, "italian")
           })
       )
     } yield ()
