@@ -53,6 +53,6 @@ object TelegramCallbackReply {
         ttl = ttl
       )
     case CallbackData.Media(value) => Media.reply(msg = msg, mediaName = value, repository = repository)
-    case CallbackData.Show(value)  => Show.reply(msg = msg, mediaName = value, repository = repository)
+    case CallbackData.Show(value)  => Show.reply(msg = msg, showId = value, showDb = dbLayer.dbShow)
   }
 }

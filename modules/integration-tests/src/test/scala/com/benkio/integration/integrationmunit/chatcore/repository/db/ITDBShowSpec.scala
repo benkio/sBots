@@ -46,6 +46,7 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
   ) {
     val botId = SBotId("test")
     check(DBShow.getShowsQuery(botId))
+    check(DBShow.getShowByIdQuery("test"))
     check(DBShow.getRandomShowQuery(botId))
     check(DBShow.getShowByShowQueryQuery(RandomQuery, botId))
     check(
@@ -74,6 +75,22 @@ class ITDBShowSpec extends CatsEffectSuite with DBFixture with IOChecker {
         assertEquals(testShowsByKeyword, List(testShow))
       }
     }
+  }
+
+  databaseFixture.test(
+    "DBShow: get show by id should return show when present and none when missing"
+  ) { fixture =>
+    val resourceAssert = for {
+      testShow        <- Resource.eval(IO.fromEither(decode[DBShowData](testShowRaw)))
+      dbShow          <- fixture.resourceDBLayer.map(_.dbShow)
+      showById        <- Resource.eval(dbShow.getShowById(testShow.show_id))
+      missingShowById <- Resource.eval(dbShow.getShowById("missing-show-id"))
+    } yield {
+      assertEquals(showById, Some(testShow))
+      assertEquals(missingShowById, None)
+    }
+
+    resourceAssert.use(IO.pure)
   }
 
   databaseFixture.test(
