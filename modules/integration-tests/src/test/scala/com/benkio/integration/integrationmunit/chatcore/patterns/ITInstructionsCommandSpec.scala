@@ -20,30 +20,34 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with BotSetupFixture {
 
   override def botSetupFixtureConfig: SBotConfig = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
 
+  private val docsBaseUrl = "https://github.com/benkio/sBots/blob/main"
+
   private val expectedEnglishSnippets: List[String] = List(
-    "'/random': Send a random content",
-    "'/searchshow [query]': Search shows and send a link.",
-    "'/triggerlist': Show the link to the file with all automatic triggers",
-    "'/triggersearch <text>': Check whether a word or phrase matches a trigger.",
-    "'/subscribe <cron time>': Subscribe this chat to random show messages",
-    "'/unsubscribe [uuid]': Unsubscribe the current chat.",
-    "'/subscriptions': Show current subscriptions for this chat",
-    "'/toptwenty': Show the most sent files, ordered by frequency.",
-    "'/settimeout [HH:MM:SS]': Set the minimum time between bot replies in this chat.",
-    "'/gettimeout': Show the active timeout for the current chat."
+    s"$docsBaseUrl/modules/chatCore/CommandsDocumentation/random.md#en",
+    s"$docsBaseUrl/modules/chatCore/CommandsDocumentation/searchshow.md#en",
+    s"$docsBaseUrl/modules/chatCore/CommandsDocumentation/triggerlist.md#en",
+    s"$docsBaseUrl/modules/chatCore/CommandsDocumentation/triggersearch.md#en",
+    s"$docsBaseUrl/modules/chatCore/CommandsDocumentation/subscribe.md#en",
+    s"$docsBaseUrl/modules/chatCore/CommandsDocumentation/unsubscribe.md#en",
+    s"$docsBaseUrl/modules/chatCore/CommandsDocumentation/subscriptions.md#en",
+    s"$docsBaseUrl/modules/chatCore/CommandsDocumentation/toptwenty.md#en",
+    s"$docsBaseUrl/modules/chatCore/CommandsDocumentation/settimeout.md#en",
+    s"$docsBaseUrl/modules/chatCore/CommandsDocumentation/gettimeout.md#en",
+    s"$docsBaseUrl/modules/bots/RichardPHJBensonBot/CommandsDocumentation/bensonify.md#en"
   )
 
   private val expectedItalianSnippets: List[String] = List(
-    "'/random': Invia un contenuto casuale",
-    "'/searchshow [query]': Cerca uno show e invia un link.",
-    "'/triggerlist': Mostra il link al file con tutti i trigger automatici",
-    "'/triggersearch <testo>': Cerca se una parola o frase corrisponde a un trigger.",
-    "'/subscribe <cron time>': Iscrive la chat all'invio casuale di puntate.",
-    "'/unsubscribe [uuid]': Disiscrive la chat corrente.",
-    "'/subscriptions': Mostra le iscrizioni correnti della chat",
-    "'/toptwenty': Mostra i file piu inviati, ordinati per frequenza.",
-    "'/settimeout [HH:MM:SS]': Imposta il tempo minimo tra le risposte del bot in questa chat.",
-    "'/gettimeout': Mostra il timeout attivo per la chat corrente."
+    s"$docsBaseUrl/modules/chatCore/CommandsDocumentation/random.md#it",
+    s"$docsBaseUrl/modules/chatCore/CommandsDocumentation/searchshow.md#it",
+    s"$docsBaseUrl/modules/chatCore/CommandsDocumentation/triggerlist.md#it",
+    s"$docsBaseUrl/modules/chatCore/CommandsDocumentation/triggersearch.md#it",
+    s"$docsBaseUrl/modules/chatCore/CommandsDocumentation/subscribe.md#it",
+    s"$docsBaseUrl/modules/chatCore/CommandsDocumentation/unsubscribe.md#it",
+    s"$docsBaseUrl/modules/chatCore/CommandsDocumentation/subscriptions.md#it",
+    s"$docsBaseUrl/modules/chatCore/CommandsDocumentation/toptwenty.md#it",
+    s"$docsBaseUrl/modules/chatCore/CommandsDocumentation/settimeout.md#it",
+    s"$docsBaseUrl/modules/chatCore/CommandsDocumentation/gettimeout.md#it",
+    s"$docsBaseUrl/modules/bots/RichardPHJBensonBot/CommandsDocumentation/bensonify.md#it"
   )
 
   private def assertInstructionText(
@@ -99,7 +103,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with BotSetupFixture {
               text.show.contains(botSetup.sBotConfig.sBotInfo.botName.value),
               s"[ITInstructionsCommandSpec] description should contains the botname: ${text.show}"
             )
-            assertInstructionText(text.show, expectedEnglishSnippets, "english")
+            assertInstructionText(text = text.show, expectedSnippets = expectedEnglishSnippets, language = "english")
           })
       )
       _ <- Resource.eval(
@@ -124,7 +128,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with BotSetupFixture {
               text.show.contains(botSetup.sBotConfig.sBotInfo.botName.value),
               s"[ITInstructionsCommandSpec] description should contains the botname: ${text.show}"
             )
-            assertInstructionText(text.show, expectedItalianSnippets, "italian")
+            assertInstructionText(text = text.show, expectedSnippets = expectedItalianSnippets, language = "italian")
           })
       )
     } yield ()

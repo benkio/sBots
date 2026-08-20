@@ -47,6 +47,11 @@ import scala.concurrent.duration.*
 import scala.util.Try
 
 object CommandPatterns {
+  private val commandsDocsBaseUrl                                = "https://github.com/benkio/sBots/blob/main/"
+  private def commandDocLink(path: String, lang: String): String =
+    s"$commandsDocsBaseUrl$path#$lang"
+  private def chatCoreCommandDocLink(command: String, lang: String): String =
+    commandDocLink(s"modules/chatCore/CommandsDocumentation/$command.md", lang)
 
   object MediaByKindCommand {
 
@@ -86,9 +91,9 @@ object CommandPatterns {
         )
 
     private[patterns] val randomDataCommandIta: String =
-      """'/random': Invia un contenuto casuale (testo/foto/audio/video) del personaggio del bot."""
+      s"'/random': Documentazione: ${chatCoreCommandDocLink("random", "it")}"
     private[patterns] val randomDataCommandEng: String =
-      """'/random': Send a random content (text/photo/audio/video) about the bot character."""
+      s"'/random': Documentation: ${chatCoreCommandDocLink("random", "en")}"
 
     def randomCommandLogic[F[_]: Async: LogWriter](dbMedia: DBMedia[F], sBotInfo: SBotInfo): F[MediaFile] =
       for {
@@ -118,15 +123,9 @@ object CommandPatterns {
   object SearchShowCommand {
 
     private[patterns] val searchShowCommandIta: String =
-      """'/searchshow [query]': Cerca uno show e invia un link.
-        |Senza input: show casuale.
-        |Filtri supportati: title=, description=, caption=, minduration=, maxduration=, mindate=YYYYMMDD, maxdate=YYYYMMDD.
-        |Esempio: /searchshow title=paul+gilbert&minduration=300""".stripMargin
+      s"'/searchshow': Documentazione: ${chatCoreCommandDocLink("searchshow", "it")}"
     private[patterns] val searchShowCommandEng: String =
-      """'/searchshow [query]': Search shows and send a link.
-        |No input: random show.
-        |Supported filters: title=, description=, caption=, minduration=, maxduration=, mindate=YYYYMMDD, maxdate=YYYYMMDD.
-        |Example: /searchshow title=paul+gilbert&minduration=300""".stripMargin
+      s"'/searchshow': Documentation: ${chatCoreCommandDocLink("searchshow", "en")}"
 
     def searchShowCommandLogic[F[_]: Async: LogWriter](
         msg: Message,
@@ -200,9 +199,9 @@ object CommandPatterns {
   object TriggerListCommand {
 
     private[patterns] val triggerListCommandDescriptionIta: String =
-      "'/triggerlist': Mostra il link al file con tutti i trigger automatici (inclusi quelli regex)."
+      s"'/triggerlist': Documentazione: ${chatCoreCommandDocLink("triggerlist", "it")}"
     private[patterns] val triggerListCommandDescriptionEng: String =
-      "'/triggerlist': Show the link to the file with all automatic triggers (including regex ones)."
+      s"'/triggerlist': Documentation: ${chatCoreCommandDocLink("triggerlist", "en")}"
 
     def triggerListLogic(triggerFileUri: Uri): Text =
       Text(s"Puoi trovare la lista dei trigger al seguente URL: $triggerFileUri")
@@ -223,9 +222,9 @@ object CommandPatterns {
   object TriggerSearchCommand {
 
     private[patterns] val triggerSearchCommandDescriptionIta: String =
-      "'/triggersearch <testo>': Cerca se una parola o frase corrisponde a un trigger."
+      s"'/triggersearch': Documentazione: ${chatCoreCommandDocLink("triggersearch", "it")}"
     private[patterns] val triggerSearchCommandDescriptionEng: String =
-      "'/triggersearch <text>': Check whether a word or phrase matches a trigger."
+      s"'/triggersearch': Documentation: ${chatCoreCommandDocLink("triggersearch", "en")}"
 
     def searchTriggerLogic[F[_]: ApplicativeThrow](
         mdr: List[ReplyBundleMessage],
@@ -378,25 +377,17 @@ ${ignoreMessagePrefix
   object SubscribeUnsubscribeCommand {
 
     private[patterns] val subscribeCommandDescriptionIta: String =
-      """'/subscribe <cron time>': Iscrive questa chat all'invio casuale di una puntata.
-        |Formato cron (6 campi): secondi minuti ore giorno mese giorno-settimana.
-        |Tra giorno e giorno-settimana, uno deve essere '?'.
-        |Esempi: /subscribe 0 * * ? * * | /subscribe 0 30 9 * * ? | /subscribe 0 0 18 ? * MON
-        |Riferimento sintassi cron4s: https://github.com/alonsodomin/cron4s""".stripMargin
+      s"'/subscribe': Documentazione: ${chatCoreCommandDocLink("subscribe", "it")}"
     private[patterns] val subscribeCommandDescriptionEng: String =
-      """'/subscribe <cron time>': Subscribe this chat to random show messages at a chosen interval.
-        |Cron format (6 fields): seconds minutes hours day month day-of-week.
-        |Between day and day-of-week, one must be '?'.
-        |Examples: /subscribe 0 * * ? * * | /subscribe 0 30 9 * * ? | /subscribe 0 0 18 ? * MON
-        |cron4s syntax reference: https://github.com/alonsodomin/cron4s""".stripMargin
+      s"'/subscribe': Documentation: ${chatCoreCommandDocLink("subscribe", "en")}"
     private[patterns] val unsubscribeCommandDescriptionIta: String =
-      "'/unsubscribe [uuid]': Disiscrive la chat corrente dall'invio di puntate. Con UUID rimuove solo quella iscrizione, senza input rimuove tutte le iscrizioni della chat."
+      s"'/unsubscribe': Documentazione: ${chatCoreCommandDocLink("unsubscribe", "it")}"
     private[patterns] val unsubscribeCommandDescriptionEng: String =
-      "'/unsubscribe [uuid]': Unsubscribe the current chat from random shows. With a UUID it removes only that subscription, with no input it removes all subscriptions for the chat."
+      s"'/unsubscribe': Documentation: ${chatCoreCommandDocLink("unsubscribe", "en")}"
     private[patterns] val subscriptionsCommandDescriptionIta: String =
-      "'/subscriptions': Mostra tutte le iscrizioni correnti della chat (salvate e schedulate)."
+      s"'/subscriptions': Documentazione: ${chatCoreCommandDocLink("subscriptions", "it")}"
     private[patterns] val subscriptionsCommandDescriptionEng: String =
-      "'/subscriptions': Show all current subscriptions for this chat (stored and scheduled)."
+      s"'/subscriptions': Documentation: ${chatCoreCommandDocLink("subscriptions", "en")}"
 
     def subscribeCommandLogic[F[_]: Async](
         backgroundJobManager: BackgroundJobManager[F],
@@ -517,9 +508,9 @@ ${ignoreMessagePrefix
   object StatisticsCommands {
 
     private[patterns] val topTwentyTriggersCommandDescriptionIta: String =
-      "'/toptwenty': Mostra i file piu inviati, ordinati per frequenza."
+      s"'/toptwenty': Documentazione: ${chatCoreCommandDocLink("toptwenty", "it")}"
     private[patterns] val topTwentyTriggersCommandDescriptionEng: String =
-      "'/toptwenty': Show the most sent files, ordered by frequency."
+      s"'/toptwenty': Documentation: ${chatCoreCommandDocLink("toptwenty", "en")}"
 
     def topTwentyCommandLogic[F[_]: MonadThrow](sBotInfo: SBotInfo, dbMedia: DBMedia[F]): F[List[MediaFile]] =
       for {
@@ -546,9 +537,9 @@ ${ignoreMessagePrefix
   object SetTimeoutCommand {
 
     private[patterns] val setTimeoutCommandDescriptionIta: String =
-      "'/settimeout [HH:MM:SS]': Imposta il tempo minimo tra le risposte del bot in questa chat. Senza input il timeout viene rimosso."
+      s"'/settimeout': Documentazione: ${chatCoreCommandDocLink("settimeout", "it")}"
     private[patterns] val setTimeoutCommandDescriptionEng: String =
-      "'/settimeout [HH:MM:SS]': Set the minimum time between bot replies in this chat. With no input, timeout is removed."
+      s"'/settimeout': Documentation: ${chatCoreCommandDocLink("settimeout", "en")}"
 
     def setTimeoutLogic[F[_]: MonadThrow: LogWriter](
         msg: Message,
@@ -613,9 +604,9 @@ ${ignoreMessagePrefix
   object GetTimeoutCommand {
 
     private[patterns] val getTimeoutCommandDescriptionIta: String =
-      "'/gettimeout': Mostra il timeout attivo per la chat corrente."
+      s"'/gettimeout': Documentazione: ${chatCoreCommandDocLink("gettimeout", "it")}"
     private[patterns] val getTimeoutCommandDescriptionEng: String =
-      "'/gettimeout': Show the active timeout for the current chat."
+      s"'/gettimeout': Documentation: ${chatCoreCommandDocLink("gettimeout", "en")}"
 
     def getTimeoutLogic[F[_]: MonadThrow](
         msg: Message,
