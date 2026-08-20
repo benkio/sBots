@@ -51,6 +51,7 @@ object DBShowData {
 
 trait DBShow[F[_]] {
   def getShows(botId: SBotId): F[List[DBShowData]]
+  def getShowById(showId: String): F[Option[DBShowData]]
   def getRandomShow(botId: SBotId): F[Option[DBShowData]]
   def getShowByShowQuery(query: ShowQuery, botId: SBotId): F[List[DBShowData]]
   def getShowBySimpleShowQuery(query: SimpleShowQuery, botId: SBotId): F[List[DBShowData]]

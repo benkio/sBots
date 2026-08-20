@@ -5,6 +5,9 @@ import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.ReplyValueCore
 import com.benkio.chatcore.model.reply.Text
+import com.benkio.chatcore.model.show.Show
+import com.benkio.chattelegramadapter.model.toCallbackKey
+import com.benkio.chattelegramadapter.model.CallbackData
 import telegramium.bots.InlineKeyboardButton
 
 trait ToInlineButton[A] {
@@ -13,14 +16,13 @@ trait ToInlineButton[A] {
 
 object ToInlineButton {
 
-  // TODO: Add tests
   given ToInlineButton[ReplyValue] with {
     extension (replyValue: ReplyValue) def toInlineKeyboardButton: Option[InlineKeyboardButton] =
       replyValue match {
         case core: ReplyValueCore =>
           core match {
-            case text: Text           => textToInlineButtonText.toInlineKeyboardButton(text)
-            case mediaFile: MediaFile => mediaFileToInlineButton.toInlineKeyboardButton(mediaFile)
+            case text: Text           => text.toInlineKeyboardButton
+            case mediaFile: MediaFile => mediaFile.toInlineKeyboardButton
           }
         case _ => None
       }
@@ -38,7 +40,15 @@ object ToInlineButton {
     extension (mediaFile: MediaFile) def toInlineKeyboardButton: Option[InlineKeyboardButton] =
       InlineKeyboardButton(
         text = mediaFile.filename,
-        callbackData = Some(mediaFile.filename)
+        callbackData = Some(CallbackData.Media(mediaFile.filename).toCallbackKey)
+      ).some
+  }
+
+  given showToInlineButton: ToInlineButton[Show] with {
+    extension (show: Show) def toInlineKeyboardButton: Option[InlineKeyboardButton] =
+      InlineKeyboardButton(
+        text = show.title,
+        callbackData = Some(CallbackData.Show(show.id).toCallbackKey)
       ).some
   }
 

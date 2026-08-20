@@ -20,18 +20,20 @@ extension (telegramKeyboardTitle: TelegramKeyboardTitle) {
 
 object SearchCommandTelegramKeyboardTitle {
 
-  def build(m: Message, trigger: Trigger): SearchCommandTelegramKeyboardTitle =
+  def build(m: Message, optTrigger: Option[Trigger]): SearchCommandTelegramKeyboardTitle =
     SearchCommandTelegramKeyboardTitle(s"""Input:
                                           |${m.getContent.getOrElse("")}
                                           |
-                                          |${trigger.show}""".stripMargin)
+                                          |${optTrigger.fold("")(_.show)}""".stripMargin)
 
 }
 
 object TelegramKeyboardTitle {
 
   def toTelegramKeyboardTitle(msg: Message, commandKey: CommandKey): TelegramKeyboardTitle = commandKey match {
-    case CommandKey.TriggerSearch => SearchCommandTelegramKeyboardTitle(msg.getContent.getOrElse(""))
-    case _                        => IdentityTelegramKeyboardTitle(msg.getContent.getOrElse(""))
+    case CommandKey.TriggerSearch | CommandKey.SearchShow =>
+      SearchCommandTelegramKeyboardTitle(msg.getContent.getOrElse(""))
+    case _ =>
+      IdentityTelegramKeyboardTitle(msg.getContent.getOrElse(""))
   }
 }

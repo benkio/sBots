@@ -75,12 +75,14 @@ class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
 
   test("EffectfulKey.overridePage should update page on supported keys") {
     val sBotInfo      = SBotInfo(SBotId("botid"), SBotName("bot"))
+    val searchShow    = EffectfulKey.SearchShow(sBotInfo, page = 0)
     val triggerSearch = EffectfulKey.TriggerSearch(
       sBotInfo = sBotInfo,
       replyBundleMessage = List.empty,
       ignoreMessagePrefix = None,
       page = 1
     )
+    assertEquals(searchShow.overridePage(Some(4)), EffectfulKey.SearchShow(sBotInfo, page = 4))
     assertEquals(
       triggerSearch.overridePage(Some(3)),
       EffectfulKey.TriggerSearch(

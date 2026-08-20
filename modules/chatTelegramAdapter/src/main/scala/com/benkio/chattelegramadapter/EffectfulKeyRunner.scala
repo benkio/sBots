@@ -47,13 +47,27 @@ object EffectfulKeyRunner {
           sBotInfo = sBotInfo
         )
       )
-    case EffectfulKey.SearchShow(sBotInfo) =>
+    case EffectfulKey.SearchShow(sBotInfo, page) =>
       toReplyValue(
         SearchShowCommand.searchShowCommandLogic(
           msg = msg,
           dbLayer = dbLayer,
           sBotInfo = sBotInfo,
-          ttl = ttl
+          ttl = ttl,
+          showTransformation = shows =>
+            TelegramInlineKeyboard(
+              keyboardTitle = SearchCommandTelegramKeyboardTitle
+                .build(
+                  m = msg,
+                  optTrigger = None
+                )
+                .value,
+              inlineKeyboard = buildInlineKeyboard(
+                data = shows.toList,
+                page = page,
+                commandKey = CommandKey.SearchShow
+              )
+            )
         )
       )
     case EffectfulKey.TriggerSearch(sBotInfo, replyBundleMessage, ignoreMessagePrefix, page) =>
@@ -69,7 +83,7 @@ object EffectfulKeyRunner {
               keyboardTitle = SearchCommandTelegramKeyboardTitle
                 .build(
                   m = msg,
-                  trigger = replyBundleMessage.trigger
+                  optTrigger = Some(replyBundleMessage.trigger)
                 )
                 .value,
               inlineKeyboard = buildInlineKeyboard(

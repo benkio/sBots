@@ -6,6 +6,7 @@ enum CallbackData {
   case PreviousPage(currentPage: Int, commandKey: CommandKey) extends CallbackData
   case NextPage(currentPage: Int, commandKey: CommandKey)     extends CallbackData
   case Media(mediaFileName: String)                           extends CallbackData
+  case Show(showId: String)                                   extends CallbackData
 }
 
 extension (callbackData: CallbackData) {
@@ -13,7 +14,8 @@ extension (callbackData: CallbackData) {
     callbackData match {
       case CallbackData.PreviousPage(currentPage, commandKey) => s"previousPage-${commandKey.asString}-$currentPage"
       case CallbackData.NextPage(currentPage, commandKey)     => s"nextPage-${commandKey.asString}-$currentPage"
-      case CallbackData.Media(value)                          => value
+      case CallbackData.Media(value)                          => s"media-$value"
+      case CallbackData.Show(value)                           => s"show-$value"
     }
 }
 
@@ -24,11 +26,15 @@ object CallbackData {
       callbackType <- callbackDataSplit.lift(0)
       commandKey   <- callbackDataSplit.lift(1).flatMap(CommandKey.fromString)
       currentPage  <- callbackDataSplit.lift(2).flatMap(_.toIntOption)
-    } yield {
-      if callbackType == "previousPage" then PreviousPage(currentPage = currentPage, commandKey = commandKey)
-      else if callbackType == "nextPage" then NextPage(currentPage = currentPage, commandKey = commandKey)
-      else Media(callbackData)
-    }
+      dataId       <- callbackDataSplit.lift(2)
+      result       <- callbackType match {
+        case "previousPage" => Some(PreviousPage(currentPage = currentPage, commandKey = commandKey))
+        case "nextPage"     => Some(NextPage(currentPage = currentPage, commandKey = commandKey))
+        case "media"        => Some(Media(dataId))
+        case "show"         => Some(Show(dataId))
+        case _              => None
+      }
+    } yield result
     maybePagination.getOrElse(Media(callbackData))
   }
 }
