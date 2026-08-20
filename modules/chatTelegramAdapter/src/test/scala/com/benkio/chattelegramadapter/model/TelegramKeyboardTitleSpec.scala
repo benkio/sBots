@@ -14,7 +14,7 @@ class TelegramKeyboardTitleSpec extends ScalaCheckSuite {
   property("SearchCommandTelegramKeyboardTitle.build should create the expected formatted title") {
     forAll { (message: Message, sampleTrigger: Trigger) =>
       val content = message.getContent.getOrElse("")
-      val result  = SearchCommandTelegramKeyboardTitle.build(message, Some(sampleTrigger))
+      val result  = SearchCommandTelegramKeyboardTitle.build(message, sampleTrigger)
 
       assertEquals(
         result.value,
@@ -39,14 +39,14 @@ class TelegramKeyboardTitleSpec extends ScalaCheckSuite {
 
   property("SearchCommandTelegramKeyboardTitle.extractInput should return the original input") {
     forAll { (message: Message, sampleTrigger: Trigger) =>
-      val title = SearchCommandTelegramKeyboardTitle.build(message, Some(sampleTrigger))
+      val title = SearchCommandTelegramKeyboardTitle.build(message, sampleTrigger)
       assertEquals(title.extractInput, message.getContent.getOrElse(""))
     }
   }
 
   property("SearchCommandTelegramKeyboardTitle built title and extractInput should preserve message content") {
     forAll { (originalMessage: Message, sampleTrigger: Trigger) =>
-      val title = SearchCommandTelegramKeyboardTitle.build(originalMessage, Some(sampleTrigger))
+      val title = SearchCommandTelegramKeyboardTitle.build(originalMessage, sampleTrigger)
 
       assertEquals(title.extractInput, originalMessage.getContent.getOrElse(""))
     }

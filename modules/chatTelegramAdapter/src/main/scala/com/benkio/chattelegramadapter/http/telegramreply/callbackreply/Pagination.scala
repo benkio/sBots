@@ -73,7 +73,7 @@ object Pagination {
       paginationContext <- MonadThrow[F].fromEither(
         prepare(msg = msg, commandKey = commandKey, allCommandRepliesData = allCommandRepliesData)
       )
-      _          <- LogWriter.info(s"[Pagination.reply] Run Reply: ${paginationContext.commandReply.reply}")
+      _ <- LogWriter.info(s"[Pagination.reply] Run Reply, modelMessage: ${paginationContext.modelMessage.text}")
       replyValue <- ComputeReply.runReply(
         reply = paginationContext.commandReply.reply,
         msg = paginationContext.modelMessage,

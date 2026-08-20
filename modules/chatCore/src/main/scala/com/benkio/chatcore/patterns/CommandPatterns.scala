@@ -133,7 +133,7 @@ object CommandPatterns {
         dbLayer: DBLayer[F],
         sBotInfo: SBotInfo,
         ttl: Option[FiniteDuration],
-        showTransformation: NonEmptyList[Show] => ReplyValue
+        showTransformation: String => NonEmptyList[Show] => ReplyValue
     ): F[ReplyValue] =
       handleCommandWithInput[F](
         msg = msg,
@@ -147,7 +147,7 @@ object CommandPatterns {
               dbShow = dbLayer.dbShow,
               sBotInfo = sBotInfo,
               ttl = ttl,
-              showTransformation = showTransformation
+              showTransformation = showTransformation(keywords)
             ): F[ReplyValue],
         defaultReply = "Input non riconosciuto. Controlla le instruzioni per i dettagli",
         allowEmptyString = true

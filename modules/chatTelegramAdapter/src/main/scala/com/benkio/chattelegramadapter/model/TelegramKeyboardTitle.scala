@@ -1,10 +1,10 @@
 package com.benkio.chattelegramadapter.model
 
 import cats.syntax.all.*
+import cats.Show
 import com.benkio.chatcore.messagefiltering.getContent
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
-import com.benkio.chatcore.model.Trigger
 
 sealed trait TelegramKeyboardTitle
 case class SearchCommandTelegramKeyboardTitle(value: String) extends TelegramKeyboardTitle
@@ -20,11 +20,11 @@ extension (telegramKeyboardTitle: TelegramKeyboardTitle) {
 
 object SearchCommandTelegramKeyboardTitle {
 
-  def build(m: Message, optTrigger: Option[Trigger]): SearchCommandTelegramKeyboardTitle =
+  def build[A: Show](m: Message, input: A): SearchCommandTelegramKeyboardTitle =
     SearchCommandTelegramKeyboardTitle(s"""Input:
                                           |${m.getContent.getOrElse("")}
                                           |
-                                          |${optTrigger.fold("")(_.show)}""".stripMargin)
+                                          |${input.show}""".stripMargin)
 
 }
 

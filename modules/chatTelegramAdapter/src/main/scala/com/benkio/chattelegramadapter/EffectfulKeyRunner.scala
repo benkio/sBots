@@ -8,6 +8,7 @@ import com.benkio.chatcore.model.reply.Reply.replyValues
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.Trigger
 import com.benkio.chatcore.patterns.CommandPatterns.GetTimeoutCommand
 import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.chatcore.patterns.CommandPatterns.MediaByKindCommand
@@ -54,20 +55,21 @@ object EffectfulKeyRunner {
           dbLayer = dbLayer,
           sBotInfo = sBotInfo,
           ttl = ttl,
-          showTransformation = shows =>
-            TelegramInlineKeyboard(
-              keyboardTitle = SearchCommandTelegramKeyboardTitle
-                .build(
-                  m = msg,
-                  optTrigger = None
+          showTransformation = keywords =>
+            shows =>
+              TelegramInlineKeyboard(
+                keyboardTitle = SearchCommandTelegramKeyboardTitle
+                  .build(
+                    m = msg,
+                    input = keywords
+                  )
+                  .value,
+                inlineKeyboard = buildInlineKeyboard(
+                  data = shows.toList,
+                  page = page,
+                  commandKey = CommandKey.SearchShow
                 )
-                .value,
-              inlineKeyboard = buildInlineKeyboard(
-                data = shows.toList,
-                page = page,
-                commandKey = CommandKey.SearchShow
               )
-            )
         )
       )
     case EffectfulKey.TriggerSearch(sBotInfo, replyBundleMessage, ignoreMessagePrefix, page) =>
@@ -83,7 +85,7 @@ object EffectfulKeyRunner {
               keyboardTitle = SearchCommandTelegramKeyboardTitle
                 .build(
                   m = msg,
-                  optTrigger = Some(replyBundleMessage.trigger)
+                  input = replyBundleMessage.trigger: Trigger
                 )
                 .value,
               inlineKeyboard = buildInlineKeyboard(
