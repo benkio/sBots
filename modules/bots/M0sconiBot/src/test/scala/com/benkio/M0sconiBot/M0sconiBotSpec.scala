@@ -112,12 +112,12 @@ class M0sconiBotSpec extends BaseBotSpec {
       |
       |I comandi del bot sono:
       |
-      |- '/random': Restituisce un dato(audio/video/testo/foto) casuale riguardante il personaggio del bot
-      |- '/triggerlist': Restituisce un link ad un file contenente tutti i trigger a cui il bot risponderà automaticamente. Alcuni di questi sono in formato Regex
-      |- '/triggersearch 《testo》': Consente di cercare se una parola o frase fa parte di un trigger
-      |- '/toptwenty': Restituisce una lista di file e il loro numero totale in invii
-      |- '/settimeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00. Senza input il timeout verrà rimosso
-      |- '/gettimeout': Restituisce il timeout della chat corrente
+      |- '/random': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/random.md#it
+      |- '/triggerlist': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/triggerlist.md#it
+      |- '/triggersearch': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/triggersearch.md#it
+      |- '/toptwenty': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/toptwenty.md#it
+      |- '/settimeout': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/settimeout.md#it
+      |- '/gettimeout': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/gettimeout.md#it
       |
       |Se si vuole disabilitare il bot per un particolare messaggio impedendo
       |che interagisca, è possibile farlo iniziando il messaggio con il
@@ -132,12 +132,12 @@ class M0sconiBotSpec extends BaseBotSpec {
       |
       |Bot commands are:
       |
-      |- '/random': Returns a random data (photo/video/audio/text) about the bot character
-      |- '/triggerlist': Return a link to a file containing all the triggers used by the bot. Bot will reply automatically to these ones. Some of them are Regex
-      |- '/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger
-      |- '/toptwenty': Return a list of files and theirs send frequency
-      |- '/settimeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00. Without input the timeout will be removed
-      |- '/gettimeout': Returns the current chat timeout
+      |- '/random': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/random.md#en
+      |- '/triggerlist': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/triggerlist.md#en
+      |- '/triggersearch': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/triggersearch.md#en
+      |- '/toptwenty': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/toptwenty.md#en
+      |- '/settimeout': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/settimeout.md#en
+      |- '/gettimeout': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/gettimeout.md#en
       |
       |if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix
       |character: `!`

@@ -72,50 +72,39 @@ class XahLeeBotSpec extends BaseBotSpec {
         |
         |I comandi del bot sono:
         |
-        |- '/searchshow 《testo》': Restituisce un link di uno show/video riguardante il personaggio del bot e contenente il testo specificato.
-        |Input come query string:
-        |  - No input: restituisce uno show random
-        |  - 'title=keyword: restituisce uno show contenente la keyword nel titolo. Il campo può essere specificato più volte, si cercherà uno show contenente tutte le keywords. Esempio: 'title=Paul+Gilbert&title=dissacrazione'
-        |  - 'description=keyword: restituisce uno show contenente la keyword nella descrizione. Il campo può essere specificato più volte, si cercherà uno show contenente tutte le keywords.  Esempio: 'description=Cris+Impellitteri&description=ramarro'
-        |  - 'caption=keyword: restituisce uno show contenente la keyword nella caption automatica. Il campo può essere specificato più volte, si cercherà uno show contenente tutte le keywords.  Esempio: 'caption=Cris+Impellitteri&caption=ramarro'
-        |  - 'minduration=X': restituisce uno show di durata minima pari a X secondi. Esempio: 'minduration=300'
-        |  - 'maxduration=X': restituisce uno show di durata massima pari a X secondi. Esempio: 'maxduration=1000'
-        |  - 'mindate=YYYYMMDD': restituisce uno show più recente della data specificata. Esempio: 'mindate=20200101'
-        |  - 'maxdate=YYYYMMDD': restituisce uno show più vecchio della data specificata. Esempio: 'mandate=20220101'
-        |  In caso di input non riconosciuto, verrà considerato come titolo, o descrizione, o caption.
-        |  I campi possono essere concatenati. Esempio: 'title=Cocktail+Micidiale&description=steve+vai&minduration=300'
-        |- '/subscribe 《cron time》': Iscrizione all'invio randomico di una puntata alla frequenza specificato nella chat corrente. Per il formato dell'input utilizzare questo codice come riferimento: https://scastie.scala-lang.org/ir5llpyPS5SmzU0zd46uLA oppure questo sito: https://www.freeformatter.com/cron-expression-generator-quartz.html#cronexpressionexamples Attenzione, la libreria usata richiede anche i secondi come riportato nella documentazione: https://www.alonsodomin.me/cron4s/userguide/index.html
-        |- '/unsubscribe': Disiscrizione della chat corrente dall'invio di puntate. Disiscriviti da una sola iscrizione inviando l'UUID relativo o da tutte le sottoscrizioni per la chat corrente se non viene inviato nessun input
-        |- '/subscriptions': Restituisce la lista delle iscrizioni correnti per la chat corrente
-        |- '/random': Restituisce un dato(audio/video/testo/foto) casuale riguardante il personaggio del bot
-        |- '/alanmackenzie': Restituisce un media file correlato a Alan Mackenzie"
-        |- '/ass': Restituisce un media file correlato alla parola "ass"
-        |- '/ccpp': Restituisce un media file correlato al C e C++
-        |- '/crap': Restituisce un media file correlato alla parola "crap"
-        |- '/emacs': Restituisce un media file correlato a Emacs
-        |- '/extra': Restituisce un media file extra
-        |- '/fak': Restituisce un media file correlato alla parola "fak"
-        |- '/fakhead': Restituisce un media file correlato alla parola "fakhead"
-        |- '/google': Restituisce un media file correlato a Google
-        |- '/idiocy': Restituisce un media file correlato alla parola "idiocy"
-        |- '/idiots': Restituisce un media file correlato alla parola "idiots"
-        |- '/laugh': Restituisce un media file correlato alla risata di Xah Lee
-        |- '/linux': Restituisce un media file correlato a Linux
-        |- '/millennial': Restituisce un media file correlato ai millennials
-        |- '/opensource': Restituisce un media file correlato all'open source
-        |- '/opera': Restituisce un media file correlato a Opera
-        |- '/python': Restituisce un media file correlato a Python
-        |- '/rantcompilation': Restituisce una delle compilation di rant
-        |- '/richardstallman': Restituisce un media file correlato a Richard Stallman
-        |- '/sucks': Restituisce un media file correlato alla parola "sucks"
-        |- '/unix': Restituisce un media file correlato a Unix
-        |- '/wtf': Restituisce un media file correlato all'espressione "what the fak"
-        |- '/zoomer': Restituisce un media file correlato ai zoomers
-        |- '/triggerlist': Restituisce un link ad un file contenente tutti i trigger a cui il bot risponderà automaticamente. Alcuni di questi sono in formato Regex
-        |- '/triggersearch 《testo》': Consente di cercare se una parola o frase fa parte di un trigger
-        |- '/toptwenty': Restituisce una lista di file e il loro numero totale in invii
-        |- '/settimeout 《intervallo》': Consente di impostare un limite di tempo tra una risposta e l'altra nella specifica chat. Formato dell'input: 00:00:00. Senza input il timeout verrà rimosso
-        |- '/gettimeout': Restituisce il timeout della chat corrente
+        |- '/searchshow': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/searchshow.md#it
+        |- '/subscribe': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/subscribe.md#it
+        |- '/unsubscribe': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/unsubscribe.md#it
+        |- '/subscriptions': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/subscriptions.md#it
+        |- '/random': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/random.md#it
+        |- '/alanmackenzie': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/alanmackenzie.md#it
+        |- '/ass': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/ass.md#it
+        |- '/ccpp': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/ccpp.md#it
+        |- '/crap': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/crap.md#it
+        |- '/emacs': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/emacs.md#it
+        |- '/extra': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/extra.md#it
+        |- '/fak': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/fak.md#it
+        |- '/fakhead': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/fakhead.md#it
+        |- '/google': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/google.md#it
+        |- '/idiocy': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/idiocy.md#it
+        |- '/idiots': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/idiots.md#it
+        |- '/laugh': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/laugh.md#it
+        |- '/linux': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/linux.md#it
+        |- '/millennial': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/millennial.md#it
+        |- '/opensource': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/opensource.md#it
+        |- '/opera': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/opera.md#it
+        |- '/python': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/python.md#it
+        |- '/rantcompilation': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/rantcompilation.md#it
+        |- '/richardstallman': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/richardstallman.md#it
+        |- '/sucks': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/sucks.md#it
+        |- '/unix': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/unix.md#it
+        |- '/wtf': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/wtf.md#it
+        |- '/zoomer': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/zoomer.md#it
+        |- '/triggerlist': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/triggerlist.md#it
+        |- '/triggersearch': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/triggersearch.md#it
+        |- '/toptwenty': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/toptwenty.md#it
+        |- '/settimeout': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/settimeout.md#it
+        |- '/gettimeout': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/gettimeout.md#it
         |
         |Se si vuole disabilitare il bot per un particolare messaggio impedendo
         |che interagisca, è possibile farlo iniziando il messaggio con il
@@ -131,50 +120,39 @@ class XahLeeBotSpec extends BaseBotSpec {
         |
         |Bot commands are:
         |
-        |- '/searchshow 《text》': Return a link of a show/video about the specific bot's character and containing the specified keyword.
-        |Input as query string:
-        |  - No input: returns a random show
-        |  - 'title=keyword: returns a show with the keyword in the title. The field can be specified multiple times, the show will contain all the keywords. Example: 'title=Paul+Gilbert&title=dissacrazione'
-        |  - 'description=keyword: returns a show with the keyword in the description. The field can be specified multiple times, the show will contain all the keywords.  Example: 'description=Cris+Impellitteri&description=ramarro'
-        |  - 'caption=keyword: returns a show with the keyword in the caption. The field can be specified multiple times, the show will contain all the keywords.  Example: 'caption=Cris+Impellitteri&caption=ramarro'
-        |  - 'minduration=X': returns a show with minimal duration of X seconds.  Example: 'minduration=300'
-        |  - 'maxduration=X': returns a show with maximal duration of X seconds.  Example: 'maxduration=1000'
-        |  - 'mindate=YYYYMMDD': returns a show newer than the specified date.  Example: 'mindate=20200101'
-        |  - 'maxdate=YYYYMMDD': returns a show older than the specified date.  Example: 'mandate=20220101'
-        |  If the input is not recognized it will be considered as a title, or description, or caption.
-        |  Fields can be concatenated. Example: 'title=Cocktail+Micidiale&description=steve+vai&minduration=300'
-        |- '/subscribe 《cron time》': Subscribe to a random show at the specified frequency in the current chat. For the input format check the following code snippet: https://scastie.scala-lang.org/ir5llpyPS5SmzU0zd46uLA oppure questo sito: https://www.freeformatter.com/cron-expression-generator-quartz.html#cronexpressionexamples You can find the docs here: https://www.alonsodomin.me/cron4s/userguide/index.html
-        |- '/unsubscribe': Unsubscribe the current chat from random shows. With a UUID as input, the specific subscription will be deleted. With no input, all the subscriptions for the current chat will be deleted
-        |- '/subscriptions': Return the amout of subscriptions for the current chat
-        |- '/random': Returns a random data (photo/video/audio/text) about the bot character
-        |- '/alanmackenzie': Returns a media file related to Alan Mackenzie
-        |- '/ass': Returns a media file related to the word "ass"
-        |- '/ccpp': Returns a media file related to the C and C++
-        |- '/crap': Returns a media file related to the word "crap"
-        |- '/emacs': Returns a media file related to Emacs
-        |- '/extra': Returns an extra media file
-        |- '/fak': Returns a media file related to the word "fak"
-        |- '/fakhead': Returns a media file related to the word "fakhead"
-        |- '/google': Returns a media file related to Google
-        |- '/idiocy': Returns a media file related to the word "idiocy"
-        |- '/idiots': Returns a media file related to the word "idiots"
-        |- '/laugh': Returns a Xah Lee's laugh
-        |- '/linux': Returns a media file related to Linux
-        |- '/millennial': Returns a media file related to the millennials
-        |- '/opensource': Returns a media file related to open source
-        |- '/opera': Returns a media file related to Opera
-        |- '/python': Returns a media file related to Python
-        |- '/rantcompilation': Returns a Xah Lee's rant compilation
-        |- '/richardstallman': Returns a media file related to Richard Stallman
-        |- '/sucks': Returns a media file related to the word "sucks"
-        |- '/unix': Returns a media file related to Unix
-        |- '/wtf': Returns a media file related to the expression "what the fak"
-        |- '/zoomer': Returns a media file related to zoomers
-        |- '/triggerlist': Return a link to a file containing all the triggers used by the bot. Bot will reply automatically to these ones. Some of them are Regex
-        |- '/triggersearch 《text》': Allow you to search if a specific word or phrase is part of a trigger
-        |- '/toptwenty': Return a list of files and theirs send frequency
-        |- '/settimeout 《time》': Allow you to set a timeout between bot's replies in the specific chat. input time format: 00:00:00. Without input the timeout will be removed
-        |- '/gettimeout': Returns the current chat timeout
+        |- '/searchshow': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/searchshow.md#en
+        |- '/subscribe': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/subscribe.md#en
+        |- '/unsubscribe': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/unsubscribe.md#en
+        |- '/subscriptions': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/subscriptions.md#en
+        |- '/random': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/random.md#en
+        |- '/alanmackenzie': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/alanmackenzie.md#en
+        |- '/ass': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/ass.md#en
+        |- '/ccpp': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/ccpp.md#en
+        |- '/crap': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/crap.md#en
+        |- '/emacs': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/emacs.md#en
+        |- '/extra': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/extra.md#en
+        |- '/fak': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/fak.md#en
+        |- '/fakhead': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/fakhead.md#en
+        |- '/google': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/google.md#en
+        |- '/idiocy': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/idiocy.md#en
+        |- '/idiots': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/idiots.md#en
+        |- '/laugh': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/laugh.md#en
+        |- '/linux': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/linux.md#en
+        |- '/millennial': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/millennial.md#en
+        |- '/opensource': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/opensource.md#en
+        |- '/opera': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/opera.md#en
+        |- '/python': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/python.md#en
+        |- '/rantcompilation': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/rantcompilation.md#en
+        |- '/richardstallman': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/richardstallman.md#en
+        |- '/sucks': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/sucks.md#en
+        |- '/unix': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/unix.md#en
+        |- '/wtf': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/wtf.md#en
+        |- '/zoomer': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/zoomer.md#en
+        |- '/triggerlist': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/triggerlist.md#en
+        |- '/triggersearch': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/triggersearch.md#en
+        |- '/toptwenty': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/toptwenty.md#en
+        |- '/settimeout': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/settimeout.md#en
+        |- '/gettimeout': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/gettimeout.md#en
         |
         |if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix
         |character: `!`
