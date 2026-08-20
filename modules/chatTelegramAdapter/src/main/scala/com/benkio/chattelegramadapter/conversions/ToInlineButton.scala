@@ -21,8 +21,8 @@ object ToInlineButton {
       replyValue match {
         case core: ReplyValueCore =>
           core match {
-            case text: Text           => text.toInlineKeyboardButton
-            case mediaFile: MediaFile => mediaFile.toInlineKeyboardButton
+            case text: Text           => textToInlineButtonText.toInlineKeyboardButton(text)
+            case mediaFile: MediaFile => mediaFileToInlineButton.toInlineKeyboardButton(mediaFile)
           }
         case _ => None
       }
