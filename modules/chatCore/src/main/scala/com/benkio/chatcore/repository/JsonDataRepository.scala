@@ -42,7 +42,8 @@ object JsonDataRepository {
         _       <- Resource.eval(LogWriter.trace(s"[JsonDataRepository] jsonContent length: ${jsonContent.length()}"))
         decoded <- Resource.eval(
           Async[F]
-            .fromEither(decode[List[T]](jsonContent))
+            .blocking(decode[List[T]](jsonContent))
+            .flatMap(Async[F].fromEither)
             .adaptError(e => JsonDataRepositoryError.DecodeError(jsonDataFilename, e))
         )
       } yield decoded

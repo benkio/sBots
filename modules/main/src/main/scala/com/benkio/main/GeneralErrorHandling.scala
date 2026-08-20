@@ -38,6 +38,6 @@ object GeneralErrorHandling {
     for {
       _ <- log.error(s"[Main] Exit Log: $error")
       _ <- dbLog.writeLog(error)
-      _ <- Async[F].delay(Files.writeString(Paths.get("log.txt"), error))
+      _ <- Async[F].blocking(Files.writeString(Paths.get("log.txt"), error))
     } yield ()
 }

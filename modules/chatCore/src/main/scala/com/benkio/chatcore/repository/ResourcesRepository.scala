@@ -14,7 +14,6 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.jar.JarFile
-import scala.collection.mutable.ArrayBuffer
 import scala.jdk.CollectionConverters.*
 
 object ResourcesRepository {
@@ -28,65 +27,74 @@ class ResourceRepository[F[_]: Async: LogWriter](stage: Option[String] = None) e
       criteria: String,
       botId: SBotId
   ): Resource[F, Either[Repository.RepositoryError, NonEmptyList[NonEmptyList[MediaResource[F]]]]] = {
-    val jarPath                     = Paths.get(getClass().getProtectionDomain().getCodeSource().getLocation().toURI())
-    val result: ArrayBuffer[String] = new ArrayBuffer();
+    val jarEntries: Resource[F, List[String]] = for {
+      jarPath <- Resource.eval(Async[F].blocking(Paths.get(getClass().getProtectionDomain().getCodeSource().getLocation().toURI())))
+      entries <- if !Files.isRegularFile(jarPath) then Resource.pure[F, List[String]](List.empty)
+      else
+        Resource
+          .fromAutoCloseable(Async[F].blocking(new JarFile(jarPath.toFile())))
+          .evalMap(jar =>
+            Async[F].blocking {
+              jar.entries().asScala
+                .map(_.getName)
+                .filter(name => name.startsWith(criteria + "/") && name.length > criteria.length + 1)
+                .toList
+            }
+          )
+    }
+    yield entries
 
-    // from https://stackoverflow.com/questions/11012819/how-can-i-get-a-resource-folder-from-inside-my-jar-file
-    if Files.isRegularFile(jarPath) then { // Run with JAR file
-      val jar     = new JarFile(jarPath.toFile())
-      val entries = jar.entries() // gives ALL entries in jar
-      while entries.hasMoreElements() do {
-        val name = entries.nextElement().getName()
-        if name
-          .startsWith(criteria + "/") && name.length > (criteria.length + 1)
-        then { // filter according to the path
-          result += name
-        }
-      }
-      jar.close()
+    val fsEntries: Resource[F, List[Path]] = {
+      val root = Repository.buildPath(criteria, stage)
+      Resource
+        .fromAutoCloseable(Async[F].blocking(Files.walk(root)))
+        .evalMap(walk =>
+          Async[F].blocking {
+            walk.iterator().asScala.toList.tail
+              .filter((fl: Path) => fl.getFileName.toString.startsWith(botId.value))
+              .map((fl: Path) => root.resolve(fl.getFileName))
+          }
+        )
+        .handleErrorWith(_ => Resource.pure(List.empty[Path]))
     }
 
-    NonEmptyList
-      .fromList(result.filter(s => s.stripPrefix(s"$criteria/").startsWith(botId.value)).toList)
-      .map(
-        _.traverse(s =>
-          Repository
-            .getResourceByteArray(s)
-            .map(contentEither =>
-              contentEither.map(content =>
-                NonEmptyList
-                  .one(
-                    MediaResourceFile(Repository.toTempFile(s.stripPrefix(s"$criteria/"), content))
-                  )
+    for {
+      entriesFromJar <- jarEntries
+      entriesFromFs  <- fsEntries
+      result         <- NonEmptyList
+        .fromList(entriesFromJar.filter(s => s.stripPrefix(s"$criteria/").startsWith(botId.value)))
+        .map(
+          _.traverse(s =>
+            Repository
+              .getResourceByteArray(s)
+              .map(contentEither =>
+                contentEither.map(content =>
+                  NonEmptyList
+                    .one(
+                      MediaResourceFile(Repository.toTempFile(s.stripPrefix(s"$criteria/"), content))
+                    )
+                )
               )
-            )
-        ).map(_.sequence)
-      )
-      .orElse(
-        NonEmptyList
-          .fromList(
-            Files
-              .walk(Repository.buildPath(criteria, stage))
-              .iterator
-              .asScala
-              .toList
-              .tail
-              .filter((fl: Path) => fl.getFileName.toString.startsWith(botId.value))
-              .map((fl: Path) =>
+          ).map(_.sequence)
+        )
+        .orElse(
+          NonEmptyList
+            .fromList(
+              entriesFromFs.map(path =>
                 NonEmptyList
                   .one(
                     MediaResourceFile(
                       Resource
-                        .pure[F, Path](
-                          Repository.buildPath(criteria, stage).resolve(fl.getFileName)
-                        )
+                        .pure[F, Path](path)
                     )
                   )
               )
-          )
-          .map(x => Resource.pure(Right(x)))
-      )
-      .getOrElse(Resource.pure(Left(Repository.RepositoryError.NoResourcesFoundKind(criteria, botId))))
+            )
+            .map(x => Resource.pure(Right(x)))
+        )
+        .getOrElse(Resource.pure(Left(Repository.RepositoryError.NoResourcesFoundKind(criteria, botId))))
+    }
+    yield result
   }
 
   override def getResourceFile(

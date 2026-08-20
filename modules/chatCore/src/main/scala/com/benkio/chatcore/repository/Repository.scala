@@ -10,13 +10,11 @@ import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBMediaData
 import log.effect.LogWriter
 
-import java.io.ByteArrayOutputStream
 import java.io.FileInputStream
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 import scala.io.Source
-import scala.util.Try
 
 trait Repository[F[_]] {
   def getResourcesByKind(
@@ -50,18 +48,18 @@ object Repository {
   def toTempFile[F[_]: Async](fileName: String, content: Array[Byte]): Resource[F, Path] = {
     val (name, ext) = fileName.span(_ != '.')
     Resource.make(
-      Async[F].delay {
+      Async[F].blocking {
         val path = Files.createTempFile(name, ext)
         Files.write(path, content)
         path
       }
-    )(f => Async[F].delay(Files.deleteIfExists(f)).void)
+    )(f => Async[F].blocking(Files.deleteIfExists(f)).void)
   }
 
   def fileToString[F[_]: Async: LogWriter](path: Path): Resource[F, String] =
     Resource
-      .make(Async[F].delay(Source.fromFile(path.toFile())))(bs => Async[F].delay(bs.close))
-      .map(_.getLines().mkString("\n"))
+      .fromAutoCloseable(Async[F].blocking(Source.fromFile(path.toFile())))
+      .evalMap(source => Async[F].blocking(source.getLines().mkString("\n")))
       .handleErrorWith((e: Throwable) =>
         Resource.eval(LogWriter.error(s"[Repository] `fileToString` failed with $e")) >>
           Resource.pure[F, String]("")
@@ -88,25 +86,15 @@ object Repository {
               )}"""
         )
       )
-      fis <- Resource.make(
-        Async[F].fromTry {
-          val stream = getClass().getResourceAsStream("/" + resourceName)
-          Try(if stream == null then new FileInputStream(resourceName) else stream)
-        }
-      )(fis => Async[F].delay(fis.close()))
-      bais <- Resource.make(Async[F].delay(new ByteArrayOutputStream()))(bais => Async[F].delay(bais.close()))
-    } yield (fis, bais))
-      .evalMap { case (fis, bais) =>
-        val tempArray = new Array[Byte](16384)
-        for {
-          firstChunk <- Async[F].delay(fis.read(tempArray, 0, tempArray.length))
-          _          <- Monad[F].iterateWhileM(firstChunk)(chunk =>
-            Async[F].delay(bais.write(tempArray, 0, chunk)) *> Async[F].delay(fis.read(tempArray, 0, tempArray.length))
-          )(_ != -1)
-          result = bais.toByteArray()
-          _ <- LogWriter.trace(s"[ResourcesAccess:86:48] getResourceByteArray total bytes read: ${result.size}")
-        } yield result
-      }
-      .map(Right(_))
+      result <- Resource
+        .fromAutoCloseable(
+          Async[F].blocking(
+            Option(getClass().getResourceAsStream("/" + resourceName))
+              .getOrElse(new FileInputStream(resourceName))
+          )
+        )
+        .evalMap(inputStream => Async[F].blocking(inputStream.readAllBytes()))
+      _ <- Resource.eval(LogWriter.trace(s"[ResourcesAccess:86:48] getResourceByteArray total bytes read: ${result.size}"))
+    } yield Right(result))
       .handleErrorWith(_ => Resource.pure(Left(Repository.RepositoryError.NoResourcesFoundByteArray(resourceName))))
 }
