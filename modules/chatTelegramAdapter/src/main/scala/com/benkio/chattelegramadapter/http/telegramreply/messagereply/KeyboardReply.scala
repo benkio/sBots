@@ -78,7 +78,7 @@ object KeyboardReply {
         callbackData = Some(CallbackData.PreviousPage(page, commandKey).toCallbackKey)
       )
     )
-    val next: Option[InlineKeyboardButton] = Option.unless((page + 1) * perPage == totalElems)(
+    val next: Option[InlineKeyboardButton] = Option.unless((page + 1) * perPage >= totalElems)(
       InlineKeyboardButton(
         text = "next ⎘",
         callbackData = Some(CallbackData.NextPage(page, commandKey).toCallbackKey)

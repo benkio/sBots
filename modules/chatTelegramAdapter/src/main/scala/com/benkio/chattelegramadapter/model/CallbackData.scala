@@ -20,21 +20,31 @@ extension (callbackData: CallbackData) {
 }
 
 object CallbackData {
+  private def parsePagination(
+      callbackDataSplit: Array[String],
+      build: (Int, CommandKey) => CallbackData
+  ): Option[CallbackData] =
+    for {
+      commandKey  <- callbackDataSplit.lift(1).flatMap(CommandKey.fromString)
+      currentPage <- callbackDataSplit.lift(2).flatMap(_.toIntOption)
+    } yield build(currentPage, commandKey)
+
   def apply(callbackData: String): CallbackData = {
     val callbackDataSplit = callbackData.split("-")
-    val maybePagination   = for {
+    val maybeCallbackData = for {
       callbackType <- callbackDataSplit.lift(0)
-      commandKey   <- callbackDataSplit.lift(1).flatMap(CommandKey.fromString)
-      currentPage  <- callbackDataSplit.lift(2).flatMap(_.toIntOption)
-      dataId       <- callbackDataSplit.lift(2)
       result       <- callbackType match {
-        case "previousPage" => Some(PreviousPage(currentPage = currentPage, commandKey = commandKey))
-        case "nextPage"     => Some(NextPage(currentPage = currentPage, commandKey = commandKey))
-        case "media"        => Some(Media(dataId))
-        case "show"         => Some(Show(dataId))
-        case _              => None
+        case "previousPage" =>
+          parsePagination(callbackDataSplit, PreviousPage.apply)
+        case "nextPage" =>
+          parsePagination(callbackDataSplit, NextPage.apply)
+        case "media" =>
+          Some(Media(callbackDataSplit.drop(1).mkString("-")))
+        case "show" =>
+          Some(Show(callbackDataSplit.drop(1).mkString("-")))
+        case _ => None
       }
     } yield result
-    maybePagination.getOrElse(Media(callbackData))
+    maybeCallbackData.getOrElse(Media(callbackData))
   }
 }
