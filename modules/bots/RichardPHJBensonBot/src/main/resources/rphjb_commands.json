@@ -18,8 +18,8 @@
     },
     "instruction": {
       "Instructions": {
-        "ita": "'/searchshow [query]': Cerca uno show e invia un link. Senza input: show casuale. Filtri: title=, description=, caption=, minduration=, maxduration=, mindate=YYYYMMDD, maxdate=YYYYMMDD.",
-        "eng": "'/searchshow [query]': Search shows and send a link. No input: random show. Filters: title=, description=, caption=, minduration=, maxduration=, mindate=YYYYMMDD, maxdate=YYYYMMDD."
+        "ita": "'/searchshow': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/searchshow.md#it",
+        "eng": "'/searchshow': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/searchshow.md#en"
       }
     }
   },
@@ -42,8 +42,8 @@
     },
     "instruction": {
       "Instructions": {
-        "ita": "'/subscribe <cron time>': Iscrive la chat all'invio casuale di puntate. Cron a 6 campi: secondi minuti ore giorno mese giorno-settimana (tra giorno e giorno-settimana uno deve essere '?'). Esempi: /subscribe 0 * * ? * * ; /subscribe 0 30 9 * * ?. Sintassi: https://github.com/alonsodomin/cron4s",
-        "eng": "'/subscribe <cron time>': Subscribe this chat to random show messages. Cron has 6 fields: seconds minutes hours day month day-of-week (between day and day-of-week one must be '?'). Examples: /subscribe 0 * * ? * * ; /subscribe 0 30 9 * * ?. Syntax: https://github.com/alonsodomin/cron4s"
+        "ita": "'/subscribe': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/subscribe.md#it",
+        "eng": "'/subscribe': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/subscribe.md#en"
       }
     }
   },
@@ -66,8 +66,8 @@
     },
     "instruction": {
       "Instructions": {
-        "ita": "'/unsubscribe [uuid]': Disiscrive la chat corrente. Con UUID rimuove solo quella iscrizione; senza input rimuove tutte le iscrizioni della chat.",
-        "eng": "'/unsubscribe [uuid]': Unsubscribe the current chat. With a UUID it removes that subscription only; with no input it removes all subscriptions for the chat."
+        "ita": "'/unsubscribe': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/unsubscribe.md#it",
+        "eng": "'/unsubscribe': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/unsubscribe.md#en"
       }
     }
   },
@@ -90,8 +90,8 @@
     },
     "instruction": {
       "Instructions": {
-        "ita": "'/subscriptions': Mostra le iscrizioni correnti della chat (salvate e schedulate).",
-        "eng": "'/subscriptions': Show current subscriptions for this chat (stored and scheduled)."
+        "ita": "'/subscriptions': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/subscriptions.md#it",
+        "eng": "'/subscriptions': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/subscriptions.md#en"
       }
     }
   },
@@ -114,8 +114,8 @@
     },
     "instruction": {
       "Instructions": {
-        "ita": "'/random': Invia un contenuto casuale (testo/foto/audio/video) del personaggio del bot.",
-        "eng": "'/random': Send a random content (text/photo/audio/video) about the bot character."
+        "ita": "'/random': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/random.md#it",
+        "eng": "'/random': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/random.md#en"
       }
     }
   },
@@ -139,8 +139,8 @@
     },
     "instruction": {
       "Instructions": {
-        "ita": "'/bensonify 《testo》': Traduce il testo in input nello stesso modo in cui benson lo scriverebbe. Il testo è obbligatorio",
-        "eng": "'/bensonify 《text》': Translate the text in the same way benson would write it. Text input is mandatory"
+        "ita": "'/bensonify': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/RichardPHJBensonBot/CommandsDocumentation/bensonify.md#it",
+        "eng": "'/bensonify': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/RichardPHJBensonBot/CommandsDocumentation/bensonify.md#en"
       }
     }
   }
