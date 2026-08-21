@@ -51,6 +51,7 @@ object DBShowData {
 
 trait DBShow[F[_]] {
   def getShows(botId: SBotId): F[List[DBShowData]]
+  def getShowById(showId: String): F[Option[DBShowData]]
   def getRandomShow(botId: SBotId): F[Option[DBShowData]]
   def getShowByShowQuery(query: ShowQuery, botId: SBotId): F[List[DBShowData]]
   def getShowBySimpleShowQuery(query: SimpleShowQuery, botId: SBotId): F[List[DBShowData]]
@@ -77,6 +78,19 @@ object DBShow {
       DBShow.getShowsQuery(botId).to[List].transact(transactor) <* log.debug(
         s"[DBShow] Get shows by bot id: $botId, sql: ${DBShow.getShowsQuery(botId).sql}"
       )
+
+    override def getShowById(showId: String): F[Option[DBShowData]] =
+      log.debug(s"[DBShow] getShowById for $showId. SQL: ${DBShow.getShowByIdQuery(showId).sql}") >>
+        DBShow
+          .getShowByIdQuery(showId)
+          .unique
+          .transact(transactor)
+          .map(_.some)
+          .handleErrorWith(e =>
+            log.debug(
+              s"[DBShow] getShowById fetch show for $showId, ${e.getMessage()}"
+            ) >> None.pure
+          )
 
     override def getRandomShow(botId: SBotId): F[Option[DBShowData]] =
       DBShow.getRandomShowQuery(botId).option.transact(transactor) <* log.debug(
@@ -146,6 +160,10 @@ object DBShow {
 
   def getShowsQuery(botId: SBotId): Query0[DBShowData] =
     sql"SELECT show_id, bot_id, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption, show_origin_automatic_caption_srt FROM show WHERE bot_id = ${botId.value}"
+      .query[DBShowData]
+
+  def getShowByIdQuery(showId: String): Query0[DBShowData] =
+    sql"SELECT show_id, bot_id, show_title, show_upload_date, show_duration, show_description, show_is_live, show_origin_automatic_caption, show_origin_automatic_caption_srt FROM show WHERE show_id = $showId"
       .query[DBShowData]
 
   def getRandomShowQuery(botId: SBotId): Query0[DBShowData] =

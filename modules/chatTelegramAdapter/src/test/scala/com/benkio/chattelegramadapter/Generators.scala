@@ -80,7 +80,8 @@ trait Generators extends com.benkio.chatcore.Generators {
       page <- Gen.choose(0, 100)
       key  <- commandKeyGen
     } yield CallbackData.NextPage(page, key),
-    mediaCallbackPayloadGen.map(CallbackData.Media.apply)
+    mediaCallbackPayloadGen.map(CallbackData.Media.apply),
+    mediaCallbackPayloadGen.map(CallbackData.Show.apply)
   )
 }
 

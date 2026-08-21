@@ -77,8 +77,8 @@ object Text {
 }
 
 enum EffectfulKey(val sBotInfo: SBotInfo) {
-  case Random(override val sBotInfo: SBotInfo)     extends EffectfulKey(sBotInfo)
-  case SearchShow(override val sBotInfo: SBotInfo) extends EffectfulKey(sBotInfo)
+  case Random(override val sBotInfo: SBotInfo)                    extends EffectfulKey(sBotInfo)
+  case SearchShow(override val sBotInfo: SBotInfo, page: Int = 0) extends EffectfulKey(sBotInfo)
   case TriggerSearch(
       override val sBotInfo: SBotInfo,
       replyBundleMessage: List[ReplyBundleMessage],
@@ -102,10 +102,12 @@ enum EffectfulKey(val sBotInfo: SBotInfo) {
 
 object EffectfulKey {
   given replyDecoder: Decoder[EffectfulKey] = deriveDecoder[EffectfulKey]
+
   given replyEncoder: Encoder[EffectfulKey] = deriveEncoder[EffectfulKey]
 
   extension (k: EffectfulKey) {
     def overridePage(mayPage: Option[Int]): EffectfulKey = k match {
+      case v: EffectfulKey.SearchShow    => v.copy(page = mayPage.getOrElse(v.page))
       case v: EffectfulKey.TriggerSearch => v.copy(page = mayPage.getOrElse(v.page))
       case v: EffectfulKey.TopTwenty     => v.copy(page = mayPage.getOrElse(v.page))
       case _                             => k

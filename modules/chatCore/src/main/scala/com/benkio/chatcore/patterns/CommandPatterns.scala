@@ -1,5 +1,6 @@
 package com.benkio.chatcore.patterns
 
+import cats.data.NonEmptyList
 import cats.effect.Async
 import cats.implicits.*
 import cats.ApplicativeThrow
@@ -131,7 +132,8 @@ object CommandPatterns {
         msg: Message,
         dbLayer: DBLayer[F],
         sBotInfo: SBotInfo,
-        ttl: Option[FiniteDuration]
+        ttl: Option[FiniteDuration],
+        showTransformation: String => NonEmptyList[Show] => ReplyValue
     ): F[ReplyValue] =
       handleCommandWithInput[F](
         msg = msg,
@@ -144,7 +146,8 @@ object CommandPatterns {
               keywords = keywords,
               dbShow = dbLayer.dbShow,
               sBotInfo = sBotInfo,
-              ttl = ttl
+              ttl = ttl,
+              showTransformation = showTransformation(keywords)
             ): F[ReplyValue],
         defaultReply = "Input non riconosciuto. Controlla le instruzioni per i dettagli",
         allowEmptyString = true
@@ -169,7 +172,8 @@ object CommandPatterns {
         keywords: String,
         dbShow: DBShow[F],
         sBotInfo: SBotInfo,
-        ttl: Option[FiniteDuration]
+        ttl: Option[FiniteDuration],
+        showTransformation: NonEmptyList[Show] => ReplyValue = shows => Text(shows.head.show)
     )(using log: LogWriter[F]): F[ReplyValue] = {
       val query: ShowQuery            = ShowQuery(keywords)
       val dbCall: F[List[DBShowData]] = query match {
@@ -179,20 +183,17 @@ object CommandPatterns {
       }
 
       for {
-        _ <- log.info(s"Select random Show: ${sBotInfo.botId} - $keywords - $query")
-        // TODO 814: eventually show all and allow the user to choose
-        results     <- dbCall
-        maybeResult <- results.headOption.traverse(Show.apply[F](_))
-        maybeResultWithTimestamp = maybeResult.map(_.addTimestamp(query))
-        result                   = maybeResultWithTimestamp
-          .map(_.show)
-          .fold(
-            Text(
-              value = s"Nessuna puntata/show contenente '$keywords' è stata trovata",
-              timeToLive = ttl
-            )
-          )(Text(_))
-      } yield result
+        _           <- log.info(s"Select random Show: ${sBotInfo.botId} - $keywords - $query")
+        dbResults   <- dbCall
+        showResults <- dbResults.traverse(Show.apply[F](_).map(_.addTimestamp(query)))
+      } yield NonEmptyList
+        .fromList(showResults)
+        .fold(
+          Text(
+            value = s"Nessuna puntata/show contenente '$keywords' è stata trovata",
+            timeToLive = ttl
+          )
+        )(showTransformation(_))
     }
   }
 

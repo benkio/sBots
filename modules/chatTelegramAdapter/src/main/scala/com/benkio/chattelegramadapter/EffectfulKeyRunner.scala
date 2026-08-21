@@ -8,6 +8,7 @@ import com.benkio.chatcore.model.reply.Reply.replyValues
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.Trigger
 import com.benkio.chatcore.patterns.CommandPatterns.GetTimeoutCommand
 import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.chatcore.patterns.CommandPatterns.MediaByKindCommand
@@ -47,13 +48,29 @@ object EffectfulKeyRunner {
           sBotInfo = sBotInfo
         )
       )
-    case EffectfulKey.SearchShow(sBotInfo) =>
+    case EffectfulKey.SearchShow(sBotInfo, page) =>
       toReplyValue(
         SearchShowCommand.searchShowCommandLogic(
           msg = msg,
           dbLayer = dbLayer,
           sBotInfo = sBotInfo,
-          ttl = ttl
+          ttl = ttl,
+          showTransformation = keywords =>
+            shows =>
+              TelegramInlineKeyboard(
+                keyboardTitle = SearchCommandTelegramKeyboardTitle
+                  .build(
+                    m = msg,
+                    input = keywords,
+                    valuesCount = shows.length
+                  )
+                  .value,
+                inlineKeyboard = buildInlineKeyboard(
+                  data = shows.toList,
+                  page = page,
+                  commandKey = CommandKey.SearchShow
+                )
+              )
         )
       )
     case EffectfulKey.TriggerSearch(sBotInfo, replyBundleMessage, ignoreMessagePrefix, page) =>
@@ -69,7 +86,8 @@ object EffectfulKeyRunner {
               keyboardTitle = SearchCommandTelegramKeyboardTitle
                 .build(
                   m = msg,
-                  trigger = replyBundleMessage.trigger
+                  input = replyBundleMessage.trigger: Trigger,
+                  valuesCount = replyBundleMessage.reply.replyValues.size
                 )
                 .value,
               inlineKeyboard = buildInlineKeyboard(

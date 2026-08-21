@@ -24,7 +24,7 @@ class ToInlineKeyboardButtonSpec extends FunSuite {
     val mediaFile: MediaFile = Mp3File("song.mp3")
     assertEquals(
       mediaFile.toInlineKeyboardButton,
-      Some(InlineKeyboardButton(text = "song.mp3", callbackData = Some("song.mp3")))
+      Some(InlineKeyboardButton(text = "song.mp3", callbackData = Some("media-song.mp3")))
     )
   }
 
@@ -40,7 +40,7 @@ class ToInlineKeyboardButtonSpec extends FunSuite {
     val replyValue: ReplyValue = VideoFile("video.mp4")
     assertEquals(
       replyValue.toInlineKeyboardButton,
-      Some(InlineKeyboardButton(text = "video.mp4", callbackData = Some("video.mp4")))
+      Some(InlineKeyboardButton(text = "video.mp4", callbackData = Some("media-video.mp4")))
     )
   }
 
@@ -75,7 +75,7 @@ class ToInlineKeyboardButtonSpec extends FunSuite {
     )
     val cases: List[(ReplyValue, Option[InlineKeyboardButton])] = List(
       Text("loop")           -> Some(InlineKeyboardButton(text = "loop", callbackData = None)),
-      VideoFile("media.mp4") -> Some(InlineKeyboardButton(text = "media.mp4", callbackData = Some("media.mp4"))),
+      VideoFile("media.mp4") -> Some(InlineKeyboardButton(text = "media.mp4", callbackData = Some("media-media.mp4"))),
       TelegramInlineKeyboard("loop kb", keyboard) -> None
     )
 

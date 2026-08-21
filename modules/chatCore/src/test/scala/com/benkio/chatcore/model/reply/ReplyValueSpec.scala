@@ -75,12 +75,14 @@ class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
 
   test("EffectfulKey.overridePage should update page on supported keys") {
     val sBotInfo      = SBotInfo(SBotId("botid"), SBotName("bot"))
+    val searchShow    = EffectfulKey.SearchShow(sBotInfo, page = 0)
     val triggerSearch = EffectfulKey.TriggerSearch(
       sBotInfo = sBotInfo,
       replyBundleMessage = List.empty,
       ignoreMessagePrefix = None,
       page = 1
     )
+    assertEquals(searchShow.overridePage(Some(4)), EffectfulKey.SearchShow(sBotInfo, page = 4))
     assertEquals(
       triggerSearch.overridePage(Some(3)),
       EffectfulKey.TriggerSearch(
@@ -99,6 +101,40 @@ class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
     val sBotInfo = SBotInfo(SBotId("botid"), SBotName("bot"))
     val random   = EffectfulKey.Random(sBotInfo)
     assertEquals(random.overridePage(Some(10)), random)
+  }
+
+  test("EffectfulKey decoder should decode JSON with page field") {
+    val searchShowJson =
+      """{
+        |  "SearchShow": {
+        |    "sBotInfo": {
+        |      "botId": "botid",
+        |      "botName": "bot"
+        |    },
+        |    "page": 0
+        |  }
+        |}""".stripMargin
+    val topTwentyJson =
+      """{
+        |  "TopTwenty": {
+        |    "sBotInfo": {
+        |      "botId": "botid",
+        |      "botName": "bot"
+        |    },
+        |    "page": 0
+        |  }
+        |}""".stripMargin
+
+    val expectedSBotInfo = SBotInfo(SBotId("botid"), SBotName("bot"))
+
+    assertEquals(
+      decode[EffectfulKey](searchShowJson),
+      Right(EffectfulKey.SearchShow(expectedSBotInfo, page = 0))
+    )
+    assertEquals(
+      decode[EffectfulKey](topTwentyJson),
+      Right(EffectfulKey.TopTwenty(expectedSBotInfo, page = 0))
+    )
   }
 
   test("MediaFile.fromString should infer media type from filename") {

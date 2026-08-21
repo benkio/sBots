@@ -22,7 +22,9 @@ class CallbackDataSpec extends ScalaCheckSuite {
         case CallbackData.NextPage(page, commandKey) =>
           assertEquals(callbackData.toCallbackKey, s"nextPage-${commandKey.asString}-$page")
         case CallbackData.Media(value) =>
-          assertEquals(callbackData.toCallbackKey, value)
+          assertEquals(callbackData.toCallbackKey, s"media-$value")
+        case CallbackData.Show(value) =>
+          assertEquals(callbackData.toCallbackKey, s"show-$value")
       }
     }
   }
@@ -37,6 +39,14 @@ class CallbackDataSpec extends ScalaCheckSuite {
     forAll(Gen.alphaNumStr.suchThat(_.nonEmpty)) { (suffix: String) =>
       val raw = s"previousPage-notACommand-$suffix"
       assertEquals(CallbackData(raw), CallbackData.Media(raw))
+    }
+  }
+
+  property("media/show callback payloads preserve dashes in IDs") {
+    forAll(Gen.alphaNumStr.suchThat(_.nonEmpty), Gen.alphaNumStr.suchThat(_.nonEmpty)) { (prefix, suffix) =>
+      val payload = s"$prefix-$suffix"
+      assertEquals(CallbackData(s"media-$payload"), CallbackData.Media(payload))
+      assertEquals(CallbackData(s"show-$payload"), CallbackData.Show(payload))
     }
   }
 }
