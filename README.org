@@ -204,10 +204,20 @@ SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' A
 
   The automated deploy workflow in ~.github/workflows/deploy.yml~ targets:
 
-  - host: ~corneo.eu~
-  - user: ~benkio~
+  - host: ~DEPLOY_HOST~
+  - ssh port: ~DEPLOY_PORT~
+  - user: ~DEPLOY_USER~
   - server OS/package manager: Alpine Linux (~apk~)
-  - remote deploy directory: ~/home/benkio/sBots~
+  - remote deploy directory: ~DEPLOY_DIR~
+  - webhook public host/IP: ~WEBHOOK_PUBLIC_HOST~
+
+  Required repository variables (Settings -> Secrets and variables -> Actions -> Variables):
+
+  - ~DEPLOY_HOST~
+  - ~DEPLOY_PORT~
+  - ~DEPLOY_USER~
+  - ~DEPLOY_DIR~
+  - ~WEBHOOK_PUBLIC_HOST~
 
   Required repository secrets:
 
@@ -217,7 +227,7 @@ SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' A
 
   Notes:
 
-  - The hostname itself does not have to be secret. It can stay hardcoded in the workflow (as now) or be moved to a repository variable for easier changes.
+  - The deploy and webhook endpoints are configured through repository variables, so no host/IP value needs to stay hardcoded in the workflow file.
   - For better security, prefer adding the server fingerprint to ~known_hosts~ instead of using ~StrictHostKeyChecking=no~.
 
 ** Deploy on Oracle Cloud Infrastructure VM

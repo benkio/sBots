@@ -21,9 +21,11 @@ jobs:
     runs-on: ubuntu-latest
     if: (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main') || github.event_name == 'workflow_dispatch'
     env:
-      DEPLOY_HOST: corneo.eu
-      DEPLOY_USER: benkio
-      DEPLOY_DIR: /home/benkio/sBots
+      DEPLOY_HOST: ${{ vars.DEPLOY_HOST }}
+      DEPLOY_PORT: ${{ vars.DEPLOY_PORT }}
+      WEBHOOK_PUBLIC_HOST: ${{ vars.WEBHOOK_PUBLIC_HOST }}
+      DEPLOY_USER: ${{ vars.DEPLOY_USER }}
+      DEPLOY_DIR: ${{ vars.DEPLOY_DIR }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -38,7 +40,7 @@ jobs:
       - name: Set Secrets & Run Assembly
         run: |
           sed -i 's!\"\.\./botDB\.sqlite3"!\"botDB\.sqlite3\"!g' /home/runner/work/sBots/sBots/modules/main/src/main/resources/application.conf
-          sed -i '0,/webhook-base-url = ".*"/s//webhook-base-url = "https:\/\/'"${{ env.DEPLOY_HOST }}"':443"/' /home/runner/work/sBots/sBots/modules/main/src/main/resources/application.conf
+          sed -i '0,/webhook-base-url = ".*"/s//webhook-base-url = "https:\/\/'"${{ env.WEBHOOK_PUBLIC_HOST }}"':443"/' /home/runner/work/sBots/sBots/modules/main/src/main/resources/application.conf
           cat /home/runner/work/sBots/sBots/modules/main/src/main/resources/application.conf
           printf '${{ secrets.ABAR_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/ABarberoBot/src/main/resources/abar_ABarberoBot.token
           printf '${{ secrets.CALA_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/CalandroBot/src/main/resources/cala_CalandroBot.token
@@ -57,22 +59,22 @@ jobs:
           printf '%s' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
       - name: Check Java & Install it on Server
         run: |
-          ssh -o StrictHostKeyChecking=no -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'if ! java --version >/dev/null 2>&1; then echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S apk add --no-cache openjdk21-jre; fi'"
+          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=no -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'if ! java --version >/dev/null 2>&1; then echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S apk add --no-cache openjdk21-jre; fi'"
       - name: Install Sqlite on Server
         run: |
-          ssh -o StrictHostKeyChecking=no -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S apk add --no-cache sqlite rsync'"
+          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=no -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S apk add --no-cache sqlite rsync'"
       - name: Ensure Deploy Directory
         run: |
-          ssh -o StrictHostKeyChecking=no -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -c 'mkdir -p ${{ env.DEPLOY_DIR }}'"
+          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=no -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -c 'mkdir -p ${{ env.DEPLOY_DIR }}'"
       - name: Kill Current bots
-        run: ssh -o StrictHostKeyChecking=no -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -c 'java --version; killall java || true'"
+        run: ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=no -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -c 'java --version; killall java || true'"
       - name: Replace Bot's Jar
-        run: rsync -av -e 'ssh -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/modules/main/target/scala-3.3.8/main.jar ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/main.jar
+        run: rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/modules/main/target/scala-3.3.8/main.jar ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/main.jar
       - name: Replace Migration DB Script
-        run: rsync -av -e 'ssh -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/DBMigration.sql ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/DBMigration.sql
+        run: rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/DBMigration.sql ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/DBMigration.sql
       - name: Update DB
         run: |
-          rsync -av -e 'ssh -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/botDB.sqlite3 ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/botDBBase.sqlite3
-          ssh -o StrictHostKeyChecking=no -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -c 'cd ${{ env.DEPLOY_DIR }}; mv botDB.sqlite3 botDBProdOld.sqlite3; sqlite3 botDBBase.sqlite3 < DBMigration.sql; mv botDBBase.sqlite3 botDB.sqlite3; rm botDBProdOld.sqlite3'"
+          rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/botDB.sqlite3 ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/botDBBase.sqlite3
+          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=no -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -c 'cd ${{ env.DEPLOY_DIR }}; mv botDB.sqlite3 botDBProdOld.sqlite3; sqlite3 botDBBase.sqlite3 < DBMigration.sql; mv botDBBase.sqlite3 botDB.sqlite3; rm botDBProdOld.sqlite3'"
       - name: Restart Bots
-        run: ssh -o StrictHostKeyChecking=no -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -c 'cd ${{ env.DEPLOY_DIR }}; nohup java -cp main.jar com.benkio.main.MainWebhook > /dev/null 2>&1 &'"
+        run: ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=no -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -c 'cd ${{ env.DEPLOY_DIR }}; nohup java -cp main.jar com.benkio.main.MainWebhook > /dev/null 2>&1 &'"
