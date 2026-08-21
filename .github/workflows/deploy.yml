@@ -38,6 +38,7 @@ jobs:
       - name: Set Secrets & Run Assembly
         run: |
           sed -i 's!\"\.\./botDB\.sqlite3"!\"botDB\.sqlite3\"!g' /home/runner/work/sBots/sBots/modules/main/src/main/resources/application.conf
+          sed -i '0,/webhook-base-url = ".*"/s//webhook-base-url = "https:\/\/'"${{ env.DEPLOY_HOST }}"':443"/' /home/runner/work/sBots/sBots/modules/main/src/main/resources/application.conf
           cat /home/runner/work/sBots/sBots/modules/main/src/main/resources/application.conf
           printf '${{ secrets.ABAR_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/ABarberoBot/src/main/resources/abar_ABarberoBot.token
           printf '${{ secrets.CALA_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/CalandroBot/src/main/resources/cala_CalandroBot.token
@@ -51,8 +52,9 @@ jobs:
           sbt "dbSetup; assembly"
       - name: Create SSH key
         run: |
-          install -m 600 -D /dev/null ~/.ssh/id_rsa
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          install -m 700 -d ~/.ssh
+          install -m 600 -D /dev/null ~/.ssh/id_ed25519
+          printf '%s' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
       - name: Check Java & Install it on Server
         run: |
           ssh -o StrictHostKeyChecking=no -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'if ! java --version >/dev/null 2>&1; then echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S apk add --no-cache openjdk21-jre; fi'"
