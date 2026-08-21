@@ -200,6 +200,26 @@ SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' A
   remotely on Oracle already. Every new ~main~ commit will result in a
   deployment.
 
+*** GitHub Deploy Workflow (current target)
+
+  The automated deploy workflow in ~.github/workflows/deploy.yml~ targets:
+
+  - host: ~corneo.eu~
+  - user: ~benkio~
+  - server OS/package manager: Alpine Linux (~apk~)
+  - remote deploy directory: ~/home/benkio/sBots~
+
+  Required repository secrets:
+
+  - ~SSH_PRIVATE_KEY~ :: private key used by GitHub Actions to connect via SSH
+  - ~DEPLOY_SUDO_PASSWORD~ :: password used for ~sudo~ while installing/updating runtime packages
+  - bot tokens (eg ~ABAR_TOKEN~, ~CALA_TOKEN~, etc.) as already used by the workflow
+
+  Notes:
+
+  - The hostname itself does not have to be secret. It can stay hardcoded in the workflow (as now) or be moved to a repository variable for easier changes.
+  - For better security, prefer adding the server fingerprint to ~known_hosts~ instead of using ~StrictHostKeyChecking=no~.
+
 ** Deploy on Oracle Cloud Infrastructure VM
 *** Setup
 

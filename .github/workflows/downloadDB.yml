@@ -6,6 +6,10 @@ on:
 jobs:
   download-db:
     runs-on: ubuntu-latest
+    env:
+      DEPLOY_HOST: corneo.eu
+      DEPLOY_USER: benkio
+      DEPLOY_DIR: /home/benkio/sBots
 
     steps:
       - name: Create SSH key
@@ -15,11 +19,11 @@ jobs:
 
       - name: Download SQLite DB Prod from VM
         run: |
-          rsync -av -e 'ssh -o StrictHostKeyChecking=no' ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/botDB.sqlite3 /home/runner/work/botDB.sqlite3
+          rsync -av -e 'ssh -o StrictHostKeyChecking=no' ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/botDB.sqlite3 /home/runner/work/botDB.sqlite3
 
       - name: Download log file from VM
         run: |
-          rsync -av -e 'ssh -o StrictHostKeyChecking=no' ubuntu@${{ secrets.DEPLOY_SERVER_IP }}:/home/ubuntu/bots/log.txt /home/runner/work/log.txt
+          rsync -av -e 'ssh -o StrictHostKeyChecking=no' ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/log.txt /home/runner/work/log.txt
       - name: Upload DB as artifact
         uses: actions/upload-artifact@v4
         with:
