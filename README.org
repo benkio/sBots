@@ -228,6 +228,7 @@ SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' A
   Notes:
 
   - The deploy and webhook endpoints are configured through repository variables, so no host/IP value needs to stay hardcoded in the workflow file.
+  - ~webhook-certificate~, ~keystore-path~, and ~keystore-password~ are optional. If omitted, the app can run behind a reverse proxy that terminates TLS.
   - For better security, prefer adding the server fingerprint to ~known_hosts~ instead of using ~StrictHostKeyChecking=no~.
 
 ** Deploy on Oracle Cloud Infrastructure VM
@@ -295,9 +296,10 @@ SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' A
    - ~webhook-base-url~ as ~https://<serverip>:<outsideport>~, eg ~https://129.152.27.196:8443~
    - ~host-url~ as ~0.0.0.0~
    - ~port~ as ~<internalPort>~ in our case ~8443~
-   - ~webhook-certificate~ with the path of the public certificate, eg ~sbotsCertificatePub.pem~
-   - ~keystore-path~ add the path to the keystore, eg ~sbotsKeystore.jks~
-   - ~keystore-password~ add the password of the keystore, eg ~sbotsKeystorePassword~
+   - ~webhook-certificate~ (optional) with the path of the public certificate, eg ~sbotsCertificatePub.pem~
+   - ~keystore-path~ (optional) add the path to the keystore, eg ~sbotsKeystore.jks~
+   - ~keystore-password~ (optional) add the password of the keystore, eg ~sbotsKeystorePassword~
+   - If TLS is terminated by a reverse proxy (nginx/caddy/traefik), leave the three options above unset and expose only the internal app port to the proxy.
  - Run ~sbt "clean; main/assembly"~ to create the fat jar
  - Move the fat jar to the VM by ~rsync~ and ~ssh~. Eg. ~rsync -P -e "ssh -i <<private key of the vm>>" <<path to the fat jar -> sBots/main/target/scala-3.3.8/main.jar>> <<user of the vm>>@<<public IP of the vm>>:/home/<<user of the vm>>/main.jar~ (~rsync -P -e "ssh -i ubuntu_rsa.pem" /home/benkio/workspace/sBots/main/target/scala-3.3.8/main.jar ubuntu@129.152.27.196:/home/ubuntu/bots/main.jar~)
  - Move the ~botDB.sqlite~ if not present in the same way before. If an update to the ~media~ needs to be done, better to dump the current database in order not to lose the ~timeout~, ~subscription~, or other changes in the process. No easy way to migrate the database as of now.

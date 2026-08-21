@@ -9,9 +9,9 @@ class ConfigSpec extends CatsEffectSuite {
     Config.loadConfig[IO].map { config =>
       assertEquals(config.hostUrl, "0.0.0.0")
       assertEquals(config.port, 8443)
-      assertEquals(config.webhookCertificate, Some("sbotsCertificatePub.pem"))
-      assertEquals(config.keystorePath, Some("sbotsKeystore.jks"))
-      assertEquals(config.keystorePassword, Some("sbotsKeystorePassword"))
+      assertEquals(config.webhookCertificate, None)
+      assertEquals(config.keystorePath, None)
+      assertEquals(config.keystorePassword, None)
       assertEquals(config.mainDB.driver, "org.sqlite.JDBC")
       assertEquals(config.mainDB.dbName, "../botDB.sqlite3")
       assertEquals(config.mainDB.url, "jdbc:sqlite:../botDB.sqlite3")
