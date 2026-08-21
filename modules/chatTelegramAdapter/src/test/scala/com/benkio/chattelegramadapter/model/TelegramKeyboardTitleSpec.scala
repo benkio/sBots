@@ -14,11 +14,12 @@ class TelegramKeyboardTitleSpec extends ScalaCheckSuite {
   property("SearchCommandTelegramKeyboardTitle.build should create the expected formatted title") {
     forAll { (message: Message, sampleTrigger: Trigger) =>
       val content = message.getContent.getOrElse("")
-      val result  = SearchCommandTelegramKeyboardTitle.build(message, sampleTrigger)
+      val count   = 3
+      val result  = SearchCommandTelegramKeyboardTitle.build(message, sampleTrigger, count)
 
       assertEquals(
         result.value,
-        s"Input:\n$content\n\n${sampleTrigger.show}"
+        s"Input ($count):\n$content\n\n${sampleTrigger.show}"
       )
     }
   }
@@ -37,18 +38,26 @@ class TelegramKeyboardTitleSpec extends ScalaCheckSuite {
     }
   }
 
-  property("SearchCommandTelegramKeyboardTitle.extractInput should return the original input") {
+  property("SearchCommandTelegramKeyboardTitle.extractInput should return the user input for command messages") {
     forAll { (message: Message, sampleTrigger: Trigger) =>
-      val title = SearchCommandTelegramKeyboardTitle.build(message, sampleTrigger)
-      assertEquals(title.extractInput, message.getContent.getOrElse(""))
+      val originalContent = message.getContent.getOrElse("").trim
+      val query           = if originalContent.nonEmpty then originalContent else "query words"
+      val commandMessage  = message.copy(text = Some(s"/searchshow@SomeBot $query"), caption = None)
+      val title           = SearchCommandTelegramKeyboardTitle.build(commandMessage, sampleTrigger, valuesCount = 7)
+      assertEquals(title.extractInput, query)
     }
   }
 
-  property("SearchCommandTelegramKeyboardTitle built title and extractInput should preserve message content") {
+  property("SearchCommandTelegramKeyboardTitle.extractInput should preserve plain non-command content") {
     forAll { (originalMessage: Message, sampleTrigger: Trigger) =>
-      val title = SearchCommandTelegramKeyboardTitle.build(originalMessage, sampleTrigger)
-
-      assertEquals(title.extractInput, originalMessage.getContent.getOrElse(""))
+      val originalContent = originalMessage.getContent.getOrElse("").trim
+      val plainInput      =
+        if originalContent.startsWith("/") then s"plain $originalContent"
+        else if originalContent.nonEmpty then originalContent
+        else "plain input"
+      val plainMessage = originalMessage.copy(text = Some(plainInput), caption = None)
+      val title        = SearchCommandTelegramKeyboardTitle.build(plainMessage, sampleTrigger, valuesCount = 7)
+      assertEquals(title.extractInput, plainInput)
     }
   }
 

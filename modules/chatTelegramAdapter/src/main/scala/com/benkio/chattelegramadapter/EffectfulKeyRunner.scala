@@ -61,7 +61,8 @@ object EffectfulKeyRunner {
                 keyboardTitle = SearchCommandTelegramKeyboardTitle
                   .build(
                     m = msg,
-                    input = keywords
+                    input = keywords,
+                    valuesCount = shows.length
                   )
                   .value,
                 inlineKeyboard = buildInlineKeyboard(
@@ -85,7 +86,8 @@ object EffectfulKeyRunner {
               keyboardTitle = SearchCommandTelegramKeyboardTitle
                 .build(
                   m = msg,
-                  input = replyBundleMessage.trigger: Trigger
+                  input = replyBundleMessage.trigger: Trigger,
+                  valuesCount = replyBundleMessage.reply.replyValues.size
                 )
                 .value,
               inlineKeyboard = buildInlineKeyboard(
