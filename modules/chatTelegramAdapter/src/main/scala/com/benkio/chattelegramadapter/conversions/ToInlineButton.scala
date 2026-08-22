@@ -1,6 +1,7 @@
 package com.benkio.chattelegramadapter.conversions
 
 import cats.syntax.all.*
+import com.benkio.chatcore.conversions.YouTubeTimestamp.finiteDurationToYoutubeTimestamp
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.ReplyValueCore
@@ -48,7 +49,8 @@ object ToInlineButton {
     extension (show: Show) def toInlineKeyboardButton: Option[InlineKeyboardButton] =
       InlineKeyboardButton(
         text = show.title,
-        callbackData = Some(CallbackData.Show(show.id).toCallbackKey)
+        callbackData =
+          Some(CallbackData.Show(show.id, show.timestamp.map(finiteDurationToYoutubeTimestamp)).toCallbackKey)
       ).some
   }
 

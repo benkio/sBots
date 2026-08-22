@@ -5,6 +5,7 @@ import cats.MonadThrow
 import cats.Show as CatsShow
 import com.benkio.chatcore.conversions.JsonConversions.SrtDecoder.given
 import com.benkio.chatcore.conversions.YouTubeTimestamp.finiteDurationToYoutubeTimestamp
+import com.benkio.chatcore.conversions.YouTubeTimestamp.youtubeTimestampToFiniteDuration
 import com.benkio.chatcore.model.show.ShowQuery.searchTimestamp
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBShowData
@@ -31,6 +32,8 @@ final case class Show(
 extension (show: Show) {
   def addTimestamp(query: ShowQuery): Show =
     show.copy(timestamp = searchTimestamp(show.originAutomaticCaptionSrt, query))
+  def addTimestamp(timestamp: String): Show =
+    show.copy(timestamp = youtubeTimestampToFiniteDuration(timestamp))
 }
 
 object Show {

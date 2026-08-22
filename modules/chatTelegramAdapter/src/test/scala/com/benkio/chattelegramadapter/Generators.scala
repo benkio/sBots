@@ -71,17 +71,29 @@ trait Generators extends com.benkio.chatcore.Generators {
         !s.startsWith("nextPage-")
     )
 
+  val previousPageCallbackDataGen: Gen[CallbackData] =
+    Gen
+      .choose(0, 100)
+      .flatMap(page => commandKeyGen.map(key => CallbackData.PreviousPage(page, key)))
+
+  val nextPageCallbackDataGen: Gen[CallbackData] =
+    Gen
+      .choose(0, 100)
+      .flatMap(page => commandKeyGen.map(key => CallbackData.NextPage(page, key)))
+
+  val mediaCallbackDataGen: Gen[CallbackData] =
+    mediaCallbackPayloadGen.map(CallbackData.Media.apply)
+
+  val showCallbackDataGen: Gen[CallbackData] =
+    mediaCallbackPayloadGen.flatMap(showId =>
+      Gen.option(Gen.oneOf("7s", "1m2s", "2h3m4s")).map(timestamp => CallbackData.Show(showId, timestamp))
+    )
+
   val callbackDataGen: Gen[CallbackData] = Gen.oneOf(
-    for {
-      page <- Gen.choose(0, 100)
-      key  <- commandKeyGen
-    } yield CallbackData.PreviousPage(page, key),
-    for {
-      page <- Gen.choose(0, 100)
-      key  <- commandKeyGen
-    } yield CallbackData.NextPage(page, key),
-    mediaCallbackPayloadGen.map(CallbackData.Media.apply),
-    mediaCallbackPayloadGen.map(CallbackData.Show.apply)
+    previousPageCallbackDataGen,
+    nextPageCallbackDataGen,
+    mediaCallbackDataGen,
+    showCallbackDataGen
   )
 }
 

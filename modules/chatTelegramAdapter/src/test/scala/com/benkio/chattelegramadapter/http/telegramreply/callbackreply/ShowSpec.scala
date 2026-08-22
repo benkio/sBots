@@ -41,7 +41,12 @@ class ShowSpec extends CatsEffectSuite {
       calls       <- {
         given Api[IO] = new RecordingApi(methodNames)
         val dbLayer   = DBLayerMock.mock(botId = SBotId("sbot"), shows = List(dbShowData))
-        Show.reply[IO](msg = callbackMsg, showId = dbShowData.show_id, showDb = dbLayer.dbShow) *> methodNames.get
+        Show.reply[IO](
+          msg = callbackMsg,
+          showId = dbShowData.show_id,
+          timestamp = None,
+          showDb = dbLayer.dbShow
+        ) *> methodNames.get
       }
     } yield assertEquals(calls, List("sendChatAction", "sendMessage", "deleteMessage"))
   }
@@ -52,7 +57,12 @@ class ShowSpec extends CatsEffectSuite {
       calls       <- {
         given Api[IO] = new RecordingApi(methodNames)
         val dbLayer   = DBLayerMock.mock(botId = SBotId("sbot"), shows = List.empty)
-        Show.reply[IO](msg = callbackMsg, showId = "missing-show-id", showDb = dbLayer.dbShow) *> methodNames.get
+        Show.reply[IO](
+          msg = callbackMsg,
+          showId = "missing-show-id",
+          timestamp = None,
+          showDb = dbLayer.dbShow
+        ) *> methodNames.get
       }
     } yield assertEquals(calls, List("sendChatAction", "sendMessage", "deleteMessage"))
   }

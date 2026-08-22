@@ -6,7 +6,7 @@ enum CallbackData {
   case PreviousPage(currentPage: Int, commandKey: CommandKey) extends CallbackData
   case NextPage(currentPage: Int, commandKey: CommandKey)     extends CallbackData
   case Media(mediaFileName: String)                           extends CallbackData
-  case Show(showId: String)                                   extends CallbackData
+  case Show(showId: String, timestamp: Option[String])        extends CallbackData
 }
 
 extension (callbackData: CallbackData) {
@@ -15,7 +15,7 @@ extension (callbackData: CallbackData) {
       case CallbackData.PreviousPage(currentPage, commandKey) => s"previousPage-${commandKey.asString}-$currentPage"
       case CallbackData.NextPage(currentPage, commandKey)     => s"nextPage-${commandKey.asString}-$currentPage"
       case CallbackData.Media(value)                          => s"media-$value"
-      case CallbackData.Show(value)                           => s"show-$value"
+      case CallbackData.Show(value, timestamp)                => s"""show-$value|${timestamp.getOrElse("")}"""
     }
 }
 
@@ -29,6 +29,19 @@ object CallbackData {
       currentPage <- callbackDataSplit.lift(2).flatMap(_.toIntOption)
     } yield build(currentPage, commandKey)
 
+  private def parseShow(raw: String): Show = {
+    val payload = raw.stripPrefix("show-")
+    val divider = payload.lastIndexOf('|')
+    if divider < 0
+    then Show(payload, None)
+    else {
+      val showId             = payload.take(divider)
+      val maybeTimestampPart = payload.drop(divider + 1)
+      val timestamp          = Option.when(maybeTimestampPart.nonEmpty)(maybeTimestampPart)
+      Show(showId, timestamp)
+    }
+  }
+
   def apply(callbackData: String): CallbackData = {
     val callbackDataSplit = callbackData.split("-")
     val maybeCallbackData = for {
@@ -41,7 +54,7 @@ object CallbackData {
         case "media" =>
           Some(Media(callbackDataSplit.drop(1).mkString("-")))
         case "show" =>
-          Some(Show(callbackDataSplit.drop(1).mkString("-")))
+          Some(parseShow(callbackData))
         case _ => None
       }
     } yield result

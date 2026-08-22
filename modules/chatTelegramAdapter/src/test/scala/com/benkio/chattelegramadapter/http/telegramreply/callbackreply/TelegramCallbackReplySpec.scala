@@ -55,7 +55,7 @@ class TelegramCallbackReplyRoutingSpec extends CatsEffectSuite {
         )
         TelegramCallbackReply.reply[IO](
           msg = callbackMsg,
-          callbackData = CallbackData.Show(dbShowData.show_id),
+          callbackData = CallbackData.Show(dbShowData.show_id, None),
           repository = RepositoryMock(),
           allCommandRepliesData = List.empty,
           backgroundJobManager = BackgroundJobManagerMock.mock(),

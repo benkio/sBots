@@ -1,6 +1,7 @@
 package com.benkio.chatcore.conversions
 
 import com.benkio.chatcore.Arbitraries.given
+import com.benkio.chatcore.InvalidYoutubeTimestamp
 import munit.FunSuite
 import munit.ScalaCheckEffectSuite
 import org.scalacheck.Prop.forAll
@@ -33,6 +34,20 @@ class YouTubeTimestampSpec extends FunSuite with ScalaCheckEffectSuite {
 
       assert(rendered.matches("""\d+h\d+m\d+s|\d+h\d+m|\d+h\d+s|\d+h|\d+m\d+s|\d+m|\d+s"""))
       assert(!rendered.contains("-"))
+    }
+  }
+
+  test("youtubeTimestampToFiniteDuration should parse generated valid youtube timestamps") {
+    forAll { (duration: FiniteDuration) =>
+      val normalized = duration.toSeconds.seconds
+      val rendered   = YouTubeTimestamp.finiteDurationToYoutubeTimestamp(normalized)
+      assertEquals(YouTubeTimestamp.youtubeTimestampToFiniteDuration(rendered), Some(normalized))
+    }
+  }
+
+  test("youtubeTimestampToFiniteDuration should reject generated invalid youtube timestamps") {
+    forAll { (timestamp: InvalidYoutubeTimestamp) =>
+      assertEquals(YouTubeTimestamp.youtubeTimestampToFiniteDuration(timestamp.value), None)
     }
   }
 }

@@ -36,6 +36,8 @@ import org.scalacheck.Gen
 import java.time.LocalDate
 import scala.concurrent.duration.*
 
+final case class InvalidYoutubeTimestamp(value: String)
+
 trait Generators {
 
   val commandKeyGen: Gen[CommandKey] = Gen.oneOf(CommandKey.values.toSeq)
@@ -139,6 +141,20 @@ trait Generators {
 
   val youtubeTimestampFiniteDurationGen: Gen[FiniteDuration] =
     Gen.chooseNum(0L, 48L * 3600L).map(_.seconds)
+
+  val invalidYoutubeTimestampGen: Gen[InvalidYoutubeTimestamp] =
+    Gen
+      .oneOf(
+        Gen.const(""),
+        Gen.nonEmptyListOf(Gen.numChar).map(_.mkString),
+        Gen.choose(1, 999).map(n => s"${n}x"),
+        for {
+          first  <- Gen.choose(0, 999)
+          second <- Gen.choose(0, 999)
+        } yield s"${first}s${second}m",
+        Gen.choose(1, 999).map(n => s"h$n")
+      )
+      .map(InvalidYoutubeTimestamp.apply)
 
   val showGen: Gen[Show] = for {
     id             <- Gen.alphaNumStr.suchThat(_.nonEmpty)

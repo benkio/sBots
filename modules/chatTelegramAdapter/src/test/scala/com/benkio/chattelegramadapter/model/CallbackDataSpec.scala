@@ -23,8 +23,8 @@ class CallbackDataSpec extends ScalaCheckSuite {
           assertEquals(callbackData.toCallbackKey, s"nextPage-${commandKey.asString}-$page")
         case CallbackData.Media(value) =>
           assertEquals(callbackData.toCallbackKey, s"media-$value")
-        case CallbackData.Show(value) =>
-          assertEquals(callbackData.toCallbackKey, s"show-$value")
+        case CallbackData.Show(value, timestamp) =>
+          assertEquals(callbackData.toCallbackKey, s"""show-$value|${timestamp.getOrElse("")}""")
       }
     }
   }
@@ -46,7 +46,14 @@ class CallbackDataSpec extends ScalaCheckSuite {
     forAll(Gen.alphaNumStr.suchThat(_.nonEmpty), Gen.alphaNumStr.suchThat(_.nonEmpty)) { (prefix, suffix) =>
       val payload = s"$prefix-$suffix"
       assertEquals(CallbackData(s"media-$payload"), CallbackData.Media(payload))
-      assertEquals(CallbackData(s"show-$payload"), CallbackData.Show(payload))
+      assertEquals(CallbackData(s"show-$payload"), CallbackData.Show(payload, None))
     }
+  }
+
+  test("show callback payload should parse youtube timestamp when present") {
+    assertEquals(
+      CallbackData("show-abc-123|1m2s"),
+      CallbackData.Show("abc-123", Some("1m2s"))
+    )
   }
 }
