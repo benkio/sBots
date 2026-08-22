@@ -76,5 +76,24 @@ jobs:
         run: |
           rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/botDB.sqlite3 ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/botDBBase.sqlite3
           ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=no -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -c 'cd ${{ env.DEPLOY_DIR }}; mv botDB.sqlite3 botDBProdOld.sqlite3; sqlite3 botDBBase.sqlite3 < DBMigration.sql; mv botDBBase.sqlite3 botDB.sqlite3; rm botDBProdOld.sqlite3'"
+      - name: Install & Enable Bots Service
+        run: |
+          cat > /tmp/sbots-openrc <<EOF
+          #!/sbin/openrc-run
+          name="sBots"
+          command="/usr/bin/java"
+          command_args="-cp ${{ env.DEPLOY_DIR }}/main.jar com.benkio.main.MainWebhook"
+          command_user="${{ env.DEPLOY_USER }}"
+          command_background=true
+          pidfile="/run/sbots.pid"
+          output_log="${{ env.DEPLOY_DIR }}/sbots.log"
+          error_log="${{ env.DEPLOY_DIR }}/sbots.err.log"
+
+          depend() {
+            need net
+          }
+          EOF
+          rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=no' /tmp/sbots-openrc ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:/tmp/sbots-openrc
+          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=no -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S install -m 755 /tmp/sbots-openrc /etc/init.d/sbots; if ! echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-update show default | rg -q \"^[[:space:]]*sbots[[:space:]]*$\"; then echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-update add sbots default; fi'"
       - name: Restart Bots
-        run: ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=no -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -c 'cd ${{ env.DEPLOY_DIR }}; nohup java -cp main.jar com.benkio.main.MainWebhook > /dev/null 2>&1 &'"
+        run: ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=no -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-service sbots restart || echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-service sbots start'"
