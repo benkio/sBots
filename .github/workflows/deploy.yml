@@ -82,7 +82,7 @@ jobs:
           #!/sbin/openrc-run
           name="sBots"
           command="/usr/bin/java"
-          command_args="-cp ${{ env.DEPLOY_DIR }}/main.jar com.benkio.main.MainWebhook"
+          command_args="-Xms128m -Xmx384m -cp ${{ env.DEPLOY_DIR }}/main.jar com.benkio.main.MainWebhook"
           directory="${{ env.DEPLOY_DIR }}"
           command_user="${{ env.DEPLOY_USER }}"
           command_background=true
