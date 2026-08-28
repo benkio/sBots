@@ -35,7 +35,7 @@ object KeyboardReply {
             .sendMessage(
               chatId = chatId,
               text = reply.keyboardTitle,
-              replyParameters = Option.when(replyToMessage)(ReplyParameters(msg.messageId)),
+              replyParameters = Option.when(replyToMessage)(ReplyParameters(Some(msg.messageId))),
               replyMarkup = Some(
                 reply.inlineKeyboard
               )

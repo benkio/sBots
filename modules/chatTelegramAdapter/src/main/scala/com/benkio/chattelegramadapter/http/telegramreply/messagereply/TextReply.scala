@@ -40,7 +40,7 @@ object TextReply {
             .sendMessage(
               chatId = chatId,
               text = reply.value,
-              replyParameters = Option.when(replyToMessage)(ReplyParameters(msg.messageId)),
+              replyParameters = Option.when(replyToMessage)(ReplyParameters(Some(msg.messageId))),
               parseMode = parseMode
             )
             .exec

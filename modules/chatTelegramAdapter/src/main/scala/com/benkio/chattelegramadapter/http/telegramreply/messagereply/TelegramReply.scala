@@ -40,7 +40,7 @@ object TelegramMessageReply {
         sendFileAPIMethod(
           chatId,
           iFile,
-          Option.when(replyToMessage)(ReplyParameters(msg.messageId))
+          Option.when(replyToMessage)(ReplyParameters(Some(msg.messageId)))
         ).exec
       )
     val result: EitherT[F, Throwable, List[TMessage]] = for {
