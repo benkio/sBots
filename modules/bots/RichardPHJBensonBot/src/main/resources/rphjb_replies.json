@@ -11280,7 +11280,7 @@
         "triggers" : [
           {
             "RegexTextTriggerValue" : {
-              "trigger" : "è (dura|alto|grosso)",
+              "trigger" : "è (dura|alto|grosso)\\b",
               "regexLength" : 6
             }
           },
@@ -27045,7 +27045,10 @@
             "StringTextTriggerValue" : "skinhead"
           },
           {
-            "StringTextTriggerValue" : "punkabbestia"
+            "RegexTextTriggerValue" : {
+              "trigger" : "punk[ ]?a[ ]?[b]+estia",
+              "regexLength" : 11
+            }
           },
           {
             "StringTextTriggerValue" : "tossicomane"
@@ -39163,6 +39166,15 @@
           },
           {
             "StringTextTriggerValue" : "gioco infernale"
+          },
+          {
+            "StringTextTriggerValue" : "vestiti abituali"
+          },
+          {
+            "StringTextTriggerValue" : "interpongo"
+          },
+          {
+            "StringTextTriggerValue" : "sono venuto vestito"
           }
         ]
       }
