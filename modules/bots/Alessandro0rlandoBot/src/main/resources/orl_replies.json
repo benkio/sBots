@@ -4,6 +4,775 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "de chirico"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "orl_CatalogoDeChirico.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_CavallinoDeChirico.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_CavallinoDeChirico.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "orl_CavallinoDeChiricoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "orl_CatalogoDeChiricoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_CatalogoDeChirico.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "vado a casa"
+          },
+          {
+            "StringTextTriggerValue" : "mi girano le"
+          },
+          {
+            "StringTextTriggerValue" : "brontolano"
+          },
+          {
+            "StringTextTriggerValue" : "non ne ho voglia"
+          },
+          {
+            "StringTextTriggerValue" : "passare guai"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_PassareGuaiGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_PassareGuai.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_PassareGuai.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "destando scompiglio"
+          },
+          {
+            "StringTextTriggerValue" : "galleristi"
+          },
+          {
+            "StringTextTriggerValue" : "mercanti"
+          },
+          {
+            "StringTextTriggerValue" : "di tutto il mondo"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_DestandoScompiglioGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_DestandoScompiglio.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_DestandoScompiglio.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "federica"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_FedericaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_Federica.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_Federica.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "mancanza di fiducia"
+          },
+          {
+            "StringTextTriggerValue" : "per carità"
+          },
+          {
+            "StringTextTriggerValue" : "persona gentile"
+          },
+          {
+            "StringTextTriggerValue" : "cassettino"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_CassettinoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_Cassettino.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_Cassettino.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "non è una promessa"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "è (cultura|storia)",
+              "regexLength" : 8
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_PromessaStoriaCulturaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_PromessaStoriaCultura.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_PromessaStoriaCultura.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "mia carriera"
+          },
+          {
+            "StringTextTriggerValue" : "in ascesa"
+          },
+          {
+            "StringTextTriggerValue" : "non mi brucio"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(49|quaranta[ ]?nove) anni",
+              "regexLength" : 7
+            }
+          },
+          {
+            "StringTextTriggerValue" : "state tranquilli"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_CarrieraAscesaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_CarrieraAscesa.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_CarrieraAscesa.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "museal"
+          },
+          {
+            "StringTextTriggerValue" : "commercial"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_MusealeNoCommercialeGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_CaffeMuseale.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "orl_CaffeMusealeGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_MusealeNoCommerciale.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_MusealeNoCommerciale.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_CaffeMuseale.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "il grande metafisico"
+          },
+          {
+            "StringTextTriggerValue" : "è famosa"
+          },
+          {
+            "StringTextTriggerValue" : "in tutto il mondo"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_IlGrandeMetafisicoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_IlGrandeMetafisico.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_IlGrandeMetafisico.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "non abbiamo segreti"
+          },
+          {
+            "StringTextTriggerValue" : "guardare in faccia"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_NonAbbiamoSegretiGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_NonAbbiamoSegreti.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_NonAbbiamoSegreti.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "non ne avete (ancora )?abbastanza",
+              "regexLength" : 23
+            }
+          },
+          {
+            "StringTextTriggerValue" : "promesse"
+          },
+          {
+            "StringTextTriggerValue" : "mai sufficienti"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "non [mtv]i stancano mai",
+              "regexLength" : 19
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_PromesseGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_Promesse.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_Promesse.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "artista furba"
+          },
+          {
+            "StringTextTriggerValue" : "un multiplo"
+          },
+          {
+            "StringTextTriggerValue" : "il prezzo di"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_PrezzoMultiploArtistaFurbaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_PrezzoMultiploArtistaFurba.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_PrezzoMultiploArtistaFurba.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "sai quanto costa"
+          },
+          {
+            "StringTextTriggerValue" : "cavallino"
+          },
+          {
+            "StringTextTriggerValue" : "foglio a quadretti"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(25000|(25|venticinque)[ ]?mila)",
+              "regexLength" : 5
+            }
+          },
+          {
+            "StringTextTriggerValue" : "piccolino"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_CavallinoDeChiricoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_CavallinoDeChirico.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_CavallinoDeChirico.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "catalogo"
+          },
+          {
+            "StringTextTriggerValue" : "stampato noi"
+          },
+          {
+            "StringTextTriggerValue" : "questo libro"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_CatalogoDeChiricoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_CatalogoDeChirico.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_CatalogoDeChirico.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "ma cosa fate?"
+          },
+          {
+            "StringTextTriggerValue" : "vostri soldi"
+          },
+          {
+            "StringTextTriggerValue" : "vostra attenzione"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_NoSoldiAttenzioneGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_NoSoldiAttenzione.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_NoSoldiAttenzione.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "rabarama"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "sei un[' ]animale",
+              "regexLength" : 14
+            }
+          },
+          {
+            "StringTextTriggerValue" : "mi hai venduto"
+          },
+          {
+            "StringTextTriggerValue" : "è da comprare"
+          },
+          {
+            "StringTextTriggerValue" : "direzione generale"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "tele[ ]?market",
+              "regexLength" : 10
+            }
+          },
+          {
+            "StringTextTriggerValue" : "scultura in bronzo"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\barman\\b",
+              "regexLength" : 5
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_SeiUnAnimaleGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_SeiUnAnimale.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_SeiUnAnimale.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "per colpa vostra"
           }
         ]
@@ -63,12 +832,6 @@
           },
           {
             "StringTextTriggerValue" : "caffè al bar"
-          },
-          {
-            "StringTextTriggerValue" : "museal"
-          },
-          {
-            "StringTextTriggerValue" : "commercial"
           },
           {
             "RegexTextTriggerValue" : {
@@ -141,8 +904,8 @@
             }
           },
           {
-            "VideoFile" : {
-              "filepath" : "orl_DueMilioniDiEuro.mp4",
+            "Sticker" : {
+              "filepath" : "orl_DueMilioni.sticker",
               "replyToMessage" : false
             }
           },
@@ -153,8 +916,8 @@
             }
           },
           {
-            "Sticker" : {
-              "filepath" : "orl_DueMilioni.sticker",
+            "VideoFile" : {
+              "filepath" : "orl_DueMilioniDiEuro.mp4",
               "replyToMessage" : false
             }
           },
