@@ -4,6 +4,131 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "testa di cazzo"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "sgar_ChiunqueScrivaControDiMeGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "sgar_ChiunqueScrivaControDiMe.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "sgar_SgarbiVSMughiniGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "sgar_ChiunqueScrivaControDiMe.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "sgar_SgarbiVSMughini.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "sgar_SgarbiVSMughini.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "è un crimine"
+          },
+          {
+            "StringTextTriggerValue" : "un'indagine"
+          },
+          {
+            "StringTextTriggerValue" : "corrotta"
+          },
+          {
+            "StringTextTriggerValue" : "magistratura"
+          },
+          {
+            "StringTextTriggerValue" : "è imbarazzante"
+          },
+          {
+            "StringTextTriggerValue" : "lascio perdere"
+          },
+          {
+            "StringTextTriggerValue" : "non lasciare perdere"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(sei|6) (una merda|un miserabile)",
+              "regexLength" : 13
+            }
+          },
+          {
+            "StringTextTriggerValue" : "calogero mannino"
+          },
+          {
+            "StringTextTriggerValue" : "vergognati"
+          },
+          {
+            "StringTextTriggerValue" : "mughini"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "sgar_SgarbiVSMughiniGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "sgar_SgarbiVSMughini.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "sgar_SgarbiVSMughini.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "incapaci"
           },
           {
@@ -192,9 +317,6 @@
           },
           {
             "StringTextTriggerValue" : "pezzo di merda"
-          },
-          {
-            "StringTextTriggerValue" : "testa di cazzo"
           },
           {
             "StringTextTriggerValue" : "grillino"
