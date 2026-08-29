@@ -31,7 +31,7 @@ object Dependencies {
     val munitCatsEffect       = "2.2.0"
     val pureConfig            = "0.17.10"
     val scalajsDom            = "2.8.1"
-    val scalacheck            = "1.19.0"
+    val scalacheck            = "1.20.0"
     val scalacheckEffectMunit = "2.1.0"
     val scalacheckGenRegexp   = "1.1.0"
     val scalatest             = "3.2.16"
