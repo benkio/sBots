@@ -2858,8 +2858,8 @@
         "triggers" : [
           {
             "RegexTextTriggerValue" : {
-              "trigger": "non lo so\\b",
-              "regexLength": 9
+              "trigger" : "non lo so\\b",
+              "regexLength" : 9
             }
           }
         ]
@@ -8444,7 +8444,10 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "cocco"
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bcocco\\b",
+              "regexLength" : 5
+            }
           }
         ]
       }
@@ -10303,7 +10306,10 @@
             "StringTextTriggerValue" : "incidente"
           },
           {
-            "StringTextTriggerValue" : "feriti"
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bferiti\\b",
+              "regexLength" : 6
+            }
           },
           {
             "StringTextTriggerValue" : "gravi o meno"

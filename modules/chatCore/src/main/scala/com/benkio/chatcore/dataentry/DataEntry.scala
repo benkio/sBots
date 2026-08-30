@@ -73,7 +73,7 @@ object DataEntry {
       .orElse(candidates.headOption)
       .liftTo[IO](new IllegalArgumentException("[DataEntry] No path candidates provided"))
 
-  def dataEntryLogic(input: List[String], sBotConfig: SBotConfig) = {
+  def dataEntryLogic(input: List[String], sBotConfig: SBotConfig): IO[Unit] = {
     for {
       botName          <- IO.pure(sBotConfig.sBotInfo.botName.value)
       listJsonFilepath <- resolvePath(
