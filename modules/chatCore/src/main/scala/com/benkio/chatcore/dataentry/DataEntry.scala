@@ -6,7 +6,6 @@ import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.model.media.MediaFileSource
 import com.benkio.chatcore.model.MimeTypeOps
-import com.benkio.chatcore.model.SBotInfo.SBotName
 import io.circe.parser.*
 import io.circe.syntax.*
 import io.circe.Json
@@ -15,7 +14,6 @@ import org.http4s.Uri
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.Path
-import java.nio.file.Paths
 
 object DataEntry {
 
@@ -67,35 +65,15 @@ object DataEntry {
   private[dataentry] def parseInput(links: List[String]): IO[List[MediaFileSource]] =
     links.traverse(parseInputLink)
 
-  private def resolvePath(candidates: List[Path]): IO[Path] =
-    candidates
-      .find(p => Files.exists(p) && !Files.isDirectory(p))
-      .orElse(candidates.headOption)
-      .liftTo[IO](new IllegalArgumentException("[DataEntry] No path candidates provided"))
-
-  def dataEntryLogic(input: List[String], sBotConfig: SBotConfig) = {
+  def dataEntryLogic(input: List[String], sBotConfig: SBotConfig): IO[Unit] = {
     for {
-      botName          <- IO.pure(sBotConfig.sBotInfo.botName.value)
-      listJsonFilepath <- resolvePath(
-        List(
-          Paths.get(sBotConfig.listJsonFilename),
-          Paths.get("modules", "bots", botName, sBotConfig.listJsonFilename)
-        )
+      listJsonFilepath    <- IO.pure(sBotConfig.listJsonFilePath)
+      repliesJsonFilepath <- IO.pure(sBotConfig.repliesJsonFilePath)
+      _                   <- IO.raiseUnless(Files.exists(listJsonFilepath))(
+        Throwable(s"[DataEntry] Missing list json file at: ${listJsonFilepath.toAbsolutePath}")
       )
-      repliesJsonFilepath <- resolvePath(
-        List(
-          Paths.get(sBotConfig.repliesJsonFilename),
-          Paths.get("src", "main", "resources", sBotConfig.repliesJsonFilename),
-          Paths.get(
-            "modules",
-            "bots",
-            botName,
-            "src",
-            "main",
-            "resources",
-            sBotConfig.repliesJsonFilename
-          )
-        )
+      _ <- IO.raiseUnless(Files.exists(repliesJsonFilepath))(
+        Throwable(s"[DataEntry] Missing replies json file at: ${repliesJsonFilepath.toAbsolutePath}")
       )
       jsonListFileResource = Resource.make(IO.delay(scala.io.Source.fromFile(listJsonFilepath.toFile)))(bufferedSorce =>
         IO.delay(bufferedSorce.close)
