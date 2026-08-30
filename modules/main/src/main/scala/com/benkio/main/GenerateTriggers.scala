@@ -32,16 +32,13 @@ object GenerateTriggers extends IOApp {
     }
 
   def generateTriggerFile(
-      botModuleRelativeFolderPath: String,
-      triggerFilename: String,
+      triggerFilePath: Path,
       triggers: List[ReplyBundleMessage]
   ): Resource[IO, Unit] = {
-    val triggerFilesPath = Path.of(botModuleRelativeFolderPath + s"/$triggerFilename")
-
     for {
-      _ <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $botModuleRelativeFolderPath Trigger file"))
-      _ <- Resource.eval(writeTriggerFile(triggerFilesPath, triggers))
-      _ <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $botModuleRelativeFolderPath done"))
+      _ <- Resource.eval(IO.println(s"[GenerateTriggers] Generate trigger file: $triggerFilePath"))
+      _ <- Resource.eval(writeTriggerFile(triggerFilePath, triggers))
+      _ <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $triggerFilePath done"))
     } yield ()
   }
 
@@ -59,8 +56,7 @@ object GenerateTriggers extends IOApp {
             jsonDataRepository.loadData[ReplyBundleMessage](botRegistryEntry.sBotConfig.repliesJsonFilename)
           )
           _ <- generateTriggerFile(
-            botModuleRelativeFolderPath = s"../bots/${botRegistryEntry.sBotInfo.botName.value}/",
-            triggerFilename = botRegistryEntry.sBotConfig.triggerFilename,
+            triggerFilePath = botRegistryEntry.sBotConfig.triggersFilePath,
             triggers = botData
           )
           _ <- Resource.eval(formatJsonsByEmptyDataEntry(botRegistryEntry))
