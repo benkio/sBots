@@ -82,7 +82,7 @@ jobs:
           #!/sbin/openrc-run
           name="sBots"
           command="/usr/bin/java"
-          command_args="-Xms128m -Xmx384m -cp ${{ env.DEPLOY_DIR }}/main.jar com.benkio.main.MainWebhook"
+          command_args="-Xms64m -Xmx256m -Xss512k -XX:MaxMetaspaceSize=96m -XX:ReservedCodeCacheSize=64m -XX:+ExitOnOutOfMemoryError -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=${{ env.DEPLOY_DIR }}/oom.hprof -cp ${{ env.DEPLOY_DIR }}/main.jar com.benkio.main.MainWebhook"
           directory="${{ env.DEPLOY_DIR }}"
           command_user="${{ env.DEPLOY_USER }}"
           command_background=true

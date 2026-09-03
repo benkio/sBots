@@ -29,7 +29,13 @@ object Settings {
   lazy val assemblySettings = Seq(
     assembly / assemblyJarName       := name.value + ".jar",
     assembly / assemblyMergeStrategy := {
-      case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+      case PathList("META-INF", "services", _*)                     => MergeStrategy.concat
+      case PathList("META-INF", "versions", _, "module-info.class") => MergeStrategy.discard
+      case PathList("META-INF", "MANIFEST.MF")                      => MergeStrategy.discard
+      case PathList("META-INF", xs @ _*)
+          if xs.exists(_.endsWith(".SF")) || xs.exists(_.endsWith(".DSA")) || xs.exists(_.endsWith(".RSA")) =>
+        MergeStrategy.discard
+      case PathList("META-INF", xs @ _*) => MergeStrategy.first
       case "application.conf"            => MergeStrategy.concat
       case x                             => MergeStrategy.first
     }
