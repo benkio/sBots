@@ -1,8 +1,10 @@
+import com.github.sbt.jacoco.report.JacocoReportSettings
+import com.github.sbt.jacoco.report.JacocoThresholds
+import com.github.sbt.jacoco.JacocoPlugin.autoImport.*
 import org.scalajs.sbtplugin.ScalaJSPlugin
 import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport.*
 import sbt.*
 import sbtassembly.AssemblyPlugin.autoImport.*
-import scoverage.ScoverageSbtPlugin.autoImport.*
 
 import Dependencies.*
 import Keys.*
@@ -23,7 +25,14 @@ object Settings {
         .cross(CrossVersion.full)
     },
     fork                   := true,
-    Test / publishArtifact := false
+    Test / publishArtifact := false,
+    jacocoExcludes         := Seq("com/benkio/chatcore/mocks/**"),
+    jacocoReportSettings   := JacocoReportSettings().withThresholds(JacocoThresholds(line = 60)),
+    // sbt-jacoco only adds this dependency itself when it sees `Test / fork` as true at
+    // plugin-settings-evaluation time, which is before our own `fork := true` above is
+    // layered on. Add it explicitly so offline-instrumented classes can find their
+    // runtime agent in the forked test JVM (avoids NoClassDefFoundError on $jacocoInit).
+    Test / libraryDependencies += ("org.jacoco" % "org.jacoco.agent" % "0.8.15" % Test).classifier("runtime")
   )
 
   lazy val assemblySettings = Seq(
@@ -55,10 +64,10 @@ object Settings {
     name                := "Integration",
     libraryDependencies := IntegrationDependencies,
     publish / skip      := true,
-    mUnitTests          := {
+    mUnitTests          := Def.uncached {
       (Test / testOnly).toTask(" com.benkio.integration.integrationmunit.*").value
     },
-    scalaTests := {
+    scalaTests := Def.uncached {
       (Test / testOnly).toTask(" com.benkio.integration.integrationscalatest.*").value
     }
   )
@@ -84,14 +93,14 @@ object Settings {
     runMigrate / fork := true
   ) ++ fullRunTask(runMigrate, Compile, "com.benkio.botDB.Main")
 
-  def RepliesEditorServer(repliesEditorUI: Project) = Seq(
+  def RepliesEditorServer(repliesEditorUI: ProjectReference) = Seq(
     name                := "repliesEditorServer",
     libraryDependencies := RepliesEditorServerDependencies,
     run / javaOptions += s"-Dsbots.repoRoot=${(ThisBuild / baseDirectory).value.getAbsolutePath}",
     Compile / resourceGenerators += Def.task {
       val _        = (repliesEditorUI / Compile / fastLinkJS).value // ensure UI is linked before copying
       val uiOutDir = (repliesEditorUI / Compile / fastLinkJS / scalaJSLinkerOutputDirectory).value
-      val jsFiles  = (uiOutDir ** "*.js").get
+      val jsFiles  = (uiOutDir ** "*.js").get()
       val uiJs     =
         jsFiles
           .find(_.getName == "main.js")
@@ -109,8 +118,6 @@ object Settings {
     name := "repliesEditorUI",
     libraryDependencies ++= RepliesEditorUiDependencies.value,
     scalaJSUseMainModuleInitializer := true,
-    Test / fork                     := false,
-    // scoverage + Scala.js currently crashes the Scala 3.7.2 JS backend (genSJSIR)
-    coverageEnabled := false
+    Test / fork                     := false
   )
 }

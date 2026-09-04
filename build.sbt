@@ -5,6 +5,9 @@
 // future bots continues to work. See docs/adding-a-bot.md.
 // -----------------------------------------------------------------------------
 
+import com.github.sbt.jacoco.report.JacocoReportSettings
+import com.github.sbt.jacoco.report.JacocoThresholds
+
 import Dependencies.*
 import Settings.*
 
@@ -19,7 +22,12 @@ newBot := {
 
 name                     := "sBots"
 organization             := "com.benkio"
-ThisBuild / scalaVersion := "3.9.0"
+ThisBuild / scalaVersion := "3.3.8"
+// sbt 2 defaults exportJars to true, which packages internal project dependencies
+// (e.g. chatCore's test classes/resources) as jars instead of loose class directories.
+// Test code resolves resources via `getClass.getResource(...).toURI` + `Paths.get`,
+// which only supports file: URIs, not jar: URIs. Restore sbt 1's directory-based default.
+ThisBuild / exportJars := false
 ThisBuild / scalacOptions ++= Seq(
   "-java-output-version",
   "21",
@@ -35,12 +43,12 @@ ThisBuild / scalafixDependencies ++= Seq(
 enablePlugins(FlywayPlugin)
 enablePlugins(GitVersioning)
 Global / onChangedBuildSource := ReloadOnSourceChanges
+Global / excludeLintKeys += git.gitDescribedVersion
 
-// SCoverage
-coverageEnabled          := true
-coverageFailOnMinimum    := true
-coverageMinimumStmtTotal := 60 // TODO: INCREASE THIS
-coverageExcludedPackages := "com.benkio.chatcore.mocks.*"
+// Jacoco (aggregate coverage report/threshold across all JVM sub-projects)
+jacocoAggregateReportSettings := JacocoReportSettings().withThresholds(
+  JacocoThresholds(line = 60)
+) // TODO: INCREASE THIS
 
 // COMMAND ALIASES
 
@@ -48,12 +56,12 @@ addCommandAlias("dbSetup", "runMigrate")
 addCommandAlias("fix", ";scalafixAll; scalafmtAll; integration/scalafixAll; integration/scalafmtAll; scalafmtSbt;")
 addCommandAlias(
   "check",
-  "undeclaredCompileDependenciesTest; scalafmtSbtCheck; scalafmtCheck; Test/scalafmtCheck"
+  "undeclaredCompileDependencies; unusedCompileDependencies; scalafmtSbtCheck; scalafmtCheck; Test/scalafmtCheck"
 )
 addCommandAlias("generateTriggerDocumentation", "main/runMain com.benkio.main.GenerateTriggers")
 addCommandAlias(
   "validate",
-  ";clean; compile; fix; generateTriggerDocumentation; dbSetup; coverage; test; integration/mUnitTests; coverageAggregate; assembly"
+  ";clean; compile; fix; generateTriggerDocumentation; dbSetup; jacocoAggregate; integration/mUnitTests; assembly"
 )
 addCommandAlias("compileAll", "compile; Test/compile; integration/Test/compile");
 addCommandAlias("checkAllLinksTest", "integration/scalaTests")
@@ -167,7 +175,7 @@ lazy val main = project
   .settings(Settings.settings *)
   .settings(Settings.MainSettings)
   .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
-  .dependsOn(botProjects.map(_ % "compile->compile;test->test"): _*)
+  .dependsOn(botProjects.map(_ % "compile->compile;test->test") *)
 
 lazy val botDB =
   Project("botDB", file("modules/botDB"))

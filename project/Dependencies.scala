@@ -4,7 +4,7 @@ import Keys.*
 
 object Dependencies {
 
-  lazy val versions = new {
+  object versions {
     val caseInsensitive       = "1.5.0"
     val cats                  = "2.13.0"
     val catsEffectTime        = "0.2.1"
@@ -27,7 +27,7 @@ object Dependencies {
     val logbackLogstash       = "9.0"
     val mules                 = "0.7.0"
     val mulesHttp4s           = "0.4.0"
-    val munit                 = "1.3.6"
+    val munit                 = "1.3.1"
     val munitCatsEffect       = "2.2.0"
     val pureConfig            = "0.17.10"
     val scalajsDom            = "2.8.1"
@@ -43,7 +43,7 @@ object Dependencies {
     val tuplez                = "0.4.0"
   }
 
-  lazy val libs = new {
+  object libs {
     val caseInsensitive      = "org.typelevel"                 %% "case-insensitive"        % versions.caseInsensitive
     val catsCore             = "org.typelevel"                 %% "cats-core"               % versions.cats
     val catsEffect           = "org.typelevel"                 %% "cats-effect"             % versions.catsEffectVersion
@@ -100,15 +100,15 @@ object Dependencies {
     val telegramiumHigh       = "io.github.apimorphism" %% "telegramium-high"        % versions.telegramiumVersion
     val vault                 = "org.typelevel"         %% "vault"                   % versions.vault
 
-    // Explicit _sjs1 module names to satisfy sbt-explicit-dependencies checks.
+    // ScalaJS-enabled projects already append the "_sjs1" cross-version suffix via `%%`.
     // The replies editor UI is Scala.js-only, so portability isn't needed here.
-    val laminarSjs1         = "com.raquo"    %% "laminar_sjs1"           % versions.laminar
-    val airstreamSjs1       = "com.raquo"    %% "airstream_sjs1"         % versions.laminar
-    val tuplezFullLightSjs1 = "app.tulz"     %% "tuplez-full-light_sjs1" % versions.tuplez
-    val scalajsDomSjs1      = "org.scala-js" %% "scalajs-dom_sjs1"       % versions.scalajsDom
-    val circeCoreSjs1       = "io.circe"     %% "circe-core_sjs1"        % versions.circe
-    val circeGenericSjs1    = "io.circe"     %% "circe-generic_sjs1"     % versions.circe
-    val circeParserSjs1     = "io.circe"     %% "circe-parser_sjs1"      % versions.circe
+    val laminarSjs1         = "com.raquo"    %% "laminar"           % versions.laminar
+    val airstreamSjs1       = "com.raquo"    %% "airstream"         % versions.laminar
+    val tuplezFullLightSjs1 = "app.tulz"     %% "tuplez-full-light" % versions.tuplez
+    val scalajsDomSjs1      = "org.scala-js" %% "scalajs-dom"       % versions.scalajsDom
+    val circeCoreSjs1       = "io.circe"     %% "circe-core"        % versions.circe
+    val circeGenericSjs1    = "io.circe"     %% "circe-generic"     % versions.circe
+    val circeParserSjs1     = "io.circe"     %% "circe-parser"      % versions.circe
   }
 
   private val CommonDependencies: Seq[ModuleID] = Seq(
