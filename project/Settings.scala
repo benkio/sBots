@@ -69,7 +69,14 @@ object Settings {
     name                := "Integration",
     libraryDependencies := IntegrationDependencies,
     publish / skip      := true,
-    mUnitTests          := Def.uncached {
+    // These tests share a single botDB.sqlite3 file and in-memory caches; running them
+    // concurrently races on that shared state and fails nondeterministically.
+    Test / parallelExecution := false,
+    // Constants.scala needs these paths (previously found via the now-unreliable
+    // `getClass.getResource("/")`, see Constants.scala for why).
+    Test / javaOptions += s"-Dsbots.repoRoot=${(ThisBuild / baseDirectory).value.getAbsolutePath}",
+    Test / javaOptions += s"-Dsbots.integrationTestResourcesDirectory=${(Test / resourceDirectory).value.getAbsolutePath}/",
+    mUnitTests := Def.uncached {
       (Test / testOnly).toTask(" com.benkio.integration.integrationmunit.*").value
     },
     scalaTests := Def.uncached {
