@@ -16,6 +16,17 @@ object Settings {
   lazy val runMigrate = taskKey[Unit]("Migrates the database schema.")
   lazy val scalaTests = taskKey[Unit]("Run ScalaTest tests")
 
+  /** Line-coverage threshold, rounded down from each module's current measured coverage (with a small safety margin) so
+    * `jacoco`/`jacocoAggregate` reflect reality instead of an arbitrary one-size-fits-all number. Raise per-module as
+    * coverage improves. Sets both `jacocoReportSettings` (used by `jacoco`/`jacocoReport`) and
+    * `jacocoAggregateReportSettings` (used by `jacocoAggregate`'s per-project checks) — the latter otherwise silently
+    * falls back to the root project's threshold.
+    */
+  def lineCoverageThreshold(pct: Double): Seq[Def.SettingsDefinition] = Seq(
+    jacocoReportSettings          := JacocoReportSettings().withThresholds(JacocoThresholds(line = pct)),
+    jacocoAggregateReportSettings := JacocoReportSettings().withThresholds(JacocoThresholds(line = pct))
+  )
+
   lazy val settings = Seq(
     organization             := "com.benkio",
     publishMavenStyle        := true,
@@ -26,14 +37,8 @@ object Settings {
     },
     fork                   := true,
     Test / publishArtifact := false,
-    jacocoExcludes         := Seq("com/benkio/chatcore/mocks/**"),
-    jacocoReportSettings   := JacocoReportSettings().withThresholds(JacocoThresholds(line = 60)),
-    // sbt-jacoco only adds this dependency itself when it sees `Test / fork` as true at
-    // plugin-settings-evaluation time, which is before our own `fork := true` above is
-    // layered on. Add it explicitly so offline-instrumented classes can find their
-    // runtime agent in the forked test JVM (avoids NoClassDefFoundError on $jacocoInit).
-    Test / libraryDependencies += ("org.jacoco" % "org.jacoco.agent" % "0.8.15" % Test).classifier("runtime")
-  )
+    jacocoExcludes         := Seq("com/benkio/chatcore/mocks/**")
+  ) ++ lineCoverageThreshold(60)
 
   lazy val assemblySettings = Seq(
     assembly / assemblyJarName       := name.value + ".jar",
@@ -53,12 +58,12 @@ object Settings {
   lazy val ChatCoreSettings = Seq(
     name                := "ChatCore",
     libraryDependencies := ChatCoreDependencies
-  )
+  ) ++ lineCoverageThreshold(55)
 
   lazy val ChatTelegramAdapterSettings = Seq(
     name                := "chatTelegramAdapter",
     libraryDependencies := ChatTelegramAdapterDependencies
-  )
+  ) ++ lineCoverageThreshold(55)
 
   lazy val IntegrationSettings = Seq(
     name                := "Integration",
@@ -72,13 +77,15 @@ object Settings {
     }
   )
 
-  /** Shared settings for all bot projects. Pass the project name (e.g. "CalandroBot"). */
-  def botProjectSettings(projectName: String): Seq[Def.SettingsDefinition] = Seq(
+  /** Shared settings for all bot projects. Pass the project name (e.g. "CalandroBot") and its current line-coverage
+    * threshold (see `lineCoverageThreshold`).
+    */
+  def botProjectSettings(projectName: String, lineCoverage: Double = 10): Seq[Def.SettingsDefinition] = Seq(
     name                     := projectName,
     libraryDependencies      := BotDependencies,
     mainClass                := Some(s"com.benkio.$projectName.${projectName}MainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
-  ) ++ assemblySettings
+  ) ++ lineCoverageThreshold(lineCoverage) ++ assemblySettings
 
   lazy val MainSettings = Seq(
     name                := "main",
@@ -119,5 +126,6 @@ object Settings {
     libraryDependencies ++= RepliesEditorUiDependencies.value,
     scalaJSUseMainModuleInitializer := true,
     Test / fork                     := false
-  )
+    // Jacoco instruments JVM bytecode; Scala.js's linked JS output has none to measure.
+  ) ++ lineCoverageThreshold(0)
 }

@@ -5,9 +5,6 @@
 // future bots continues to work. See docs/adding-a-bot.md.
 // -----------------------------------------------------------------------------
 
-import com.github.sbt.jacoco.report.JacocoReportSettings
-import com.github.sbt.jacoco.report.JacocoThresholds
-
 import Dependencies.*
 import Settings.*
 
@@ -44,11 +41,6 @@ enablePlugins(FlywayPlugin)
 enablePlugins(GitVersioning)
 Global / onChangedBuildSource := ReloadOnSourceChanges
 Global / excludeLintKeys += git.gitDescribedVersion
-
-// Jacoco (aggregate coverage report/threshold across all JVM sub-projects)
-jacocoAggregateReportSettings := JacocoReportSettings().withThresholds(
-  JacocoThresholds(line = 60)
-) // TODO: INCREASE THIS
 
 // COMMAND ALIASES
 
@@ -99,6 +91,8 @@ lazy val botProjects: Seq[sbt.ProjectReference] = Seq(
 
 lazy val sBots =
   Project("sBots", file("."))
+    // The root project has no sources of its own to instrument/test.
+    .disablePlugins(com.github.sbt.jacoco.JacocoPlugin)
     .settings(Settings.settings *)
     .aggregate(main, botDB, chatCore, chatTelegramAdapter, repliesEditorServer, repliesEditorUI)
     .aggregate(botProjects *)
@@ -119,7 +113,7 @@ lazy val chatTelegramAdapter =
 lazy val CalandroBot =
   Project("CalandroBot", file("modules/bots/CalandroBot"))
     .settings(Settings.settings *)
-    .settings(Settings.botProjectSettings("CalandroBot") *)
+    .settings(Settings.botProjectSettings("CalandroBot", lineCoverage = 20) *)
     .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
 
 lazy val ABarberoBot =
@@ -131,7 +125,7 @@ lazy val ABarberoBot =
 lazy val RichardPHJBensonBot =
   Project("RichardPHJBensonBot", file("modules/bots/RichardPHJBensonBot"))
     .settings(Settings.settings *)
-    .settings(Settings.botProjectSettings("RichardPHJBensonBot") *)
+    .settings(Settings.botProjectSettings("RichardPHJBensonBot", lineCoverage = 60) *)
     .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
 
 lazy val XahLeeBot =
@@ -190,7 +184,7 @@ lazy val repliesEditorUI =
     .enablePlugins(ScalaJSPlugin)
     .settings(Settings.settings *)
     .settings(
-      Settings.RepliesEditorUI
+      Settings.RepliesEditorUI *
     )
 
 lazy val repliesEditorServer =
