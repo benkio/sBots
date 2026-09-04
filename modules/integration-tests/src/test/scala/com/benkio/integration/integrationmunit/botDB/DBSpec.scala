@@ -17,6 +17,7 @@ class DBSpec extends CatsEffectSuite with Constants {
 
   val databaseConnection: FunFixture[Connection] = FunFixture[Connection](
     setup = { _ =>
+      Files.createDirectories(Paths.get(dbPath).getParent)
       Files.deleteIfExists(Paths.get(dbPath))
       val _       = DBMigrator.unsafeMigrate(TestData.config.copy(url = dbUrl))
       val conn    = DriverManager.getConnection(dbUrl)

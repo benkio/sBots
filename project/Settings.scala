@@ -1,6 +1,7 @@
 import com.github.sbt.jacoco.report.JacocoReportSettings
 import com.github.sbt.jacoco.report.JacocoThresholds
 import com.github.sbt.jacoco.JacocoPlugin.autoImport.*
+import explicitdeps.ExplicitDepsPlugin.autoImport.*
 import org.scalajs.sbtplugin.ScalaJSPlugin
 import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport.*
 import sbt.*
@@ -132,7 +133,21 @@ object Settings {
     name := "repliesEditorUI",
     libraryDependencies ++= RepliesEditorUiDependencies.value,
     scalaJSUseMainModuleInitializer := true,
-    Test / fork                     := false
+    Test / fork                     := false,
+    // sbt2-explicit-dependencies expects declared names to already carry the Scala.js
+    // "_sjs1" platform suffix, but that would double it up at resolution time (see
+    // Dependencies.scala). These are declared correctly; silence the false positive,
+    // including scala3-library_sjs1, which the Scala.js plugin pulls in transitively.
+    undeclaredCompileDependenciesFilter -= (
+      moduleFilter(name = "laminar_sjs1")
+        | moduleFilter(name = "airstream_sjs1")
+        | moduleFilter(name = "tuplez-full-light_sjs1")
+        | moduleFilter(name = "scalajs-dom_sjs1")
+        | moduleFilter(name = "circe-core_sjs1")
+        | moduleFilter(name = "circe-generic_sjs1")
+        | moduleFilter(name = "circe-parser_sjs1")
+        | moduleFilter(name = "scala3-library_sjs1")
+    )
     // Jacoco instruments JVM bytecode; Scala.js's linked JS output has none to measure.
   ) ++ lineCoverageThreshold(0)
 }
