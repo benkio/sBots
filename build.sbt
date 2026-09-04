@@ -197,6 +197,8 @@ lazy val repliesEditorServer =
     .dependsOn(chatCore % "compile->compile;test->test", main % "compile->compile")
 
 lazy val integration = (project in file("modules/integration-tests"))
+  // This project has only src/test, no src/main; jacoco has nothing to instrument there.
+  .disablePlugins(com.github.sbt.jacoco.JacocoPlugin)
   .dependsOn(
     chatCore            % "compile->compile;test->test",
     chatTelegramAdapter % "compile->compile;test->test",
