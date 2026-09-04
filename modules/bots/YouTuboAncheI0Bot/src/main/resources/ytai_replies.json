@@ -1996,7 +1996,7 @@
         "triggers" : [
           {
             "RegexTextTriggerValue" : {
-              "trigger" : "cocod[eè]",
+              "trigger" : "co[c]+od[eè]",
               "regexLength" : 6
             }
           },
@@ -6187,7 +6187,7 @@
         "triggers" : [
           {
             "RegexTextTriggerValue" : {
-              "trigger" : "fallo anche (te|tu)",
+              "trigger" : "fai anche (te|tu)",
               "regexLength" : 14
             }
           },
@@ -6208,7 +6208,29 @@
               "filepath" : "ytai_FalloAncheTeComeMeGif.mp4",
               "replyToMessage" : false
             }
-          },
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "fallo anche (te|tu)",
+              "regexLength" : 14
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
           {
             "GifFile" : {
               "filepath" : "ytai_FalloAncheTuGif.mp4",
