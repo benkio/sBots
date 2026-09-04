@@ -4,7 +4,7 @@ import Keys.*
 
 object Dependencies {
 
-  lazy val versions = new {
+  object versions {
     val caseInsensitive       = "1.5.0"
     val cats                  = "2.13.0"
     val catsEffectTime        = "0.2.1"
@@ -22,12 +22,13 @@ object Dependencies {
     val googleYouTubeApi      = "v3-rev20260902-2.0.0"
     val http4s                = "0.23.36"
     val ip4s                  = "3.8.0"
+    val jacoco                = "0.8.14" // must match the org.jacoco.core version sbt-jacoco 3.6.0 instruments with
     val logEffects            = "0.19.9"
     val logbackClassic        = "1.6.3"
     val logbackLogstash       = "9.0"
     val mules                 = "0.7.0"
     val mulesHttp4s           = "0.4.0"
-    val munit                 = "1.3.6"
+    val munit                 = "1.3.1"
     val munitCatsEffect       = "2.2.0"
     val pureConfig            = "0.17.10"
     val scalajsDom            = "2.8.1"
@@ -43,7 +44,7 @@ object Dependencies {
     val tuplez                = "0.4.0"
   }
 
-  lazy val libs = new {
+  object libs {
     val caseInsensitive      = "org.typelevel"                 %% "case-insensitive"        % versions.caseInsensitive
     val catsCore             = "org.typelevel"                 %% "cats-core"               % versions.cats
     val catsEffect           = "org.typelevel"                 %% "cats-effect"             % versions.catsEffectVersion
@@ -78,8 +79,11 @@ object Dependencies {
     val http4sServer      = "org.http4s"             %% "http4s-server"               % versions.http4s
     val http4sEmberServer = "org.http4s"             %% "http4s-ember-server"         % versions.http4s
     val ip4sCore          = "com.comcast"            %% "ip4s-core"                   % versions.ip4s
-    val logEffectsCore    = "io.laserdisc"           %% "log-effect-core"             % versions.logEffects
-    val logEffectsFs2     = "io.laserdisc"           %% "log-effect-fs2"              % versions.logEffects
+    // Offline-instrumented (jacoco) classes call into this runtime agent when loaded;
+    // without it on the test classpath they fail with NoClassDefFoundError on $jacocoInit.
+    val jacocoAgentRuntime = ("org.jacoco"   % "org.jacoco.agent" % versions.jacoco % "test").classifier("runtime")
+    val logEffectsCore     = "io.laserdisc" %% "log-effect-core"  % versions.logEffects
+    val logEffectsFs2      = "io.laserdisc" %% "log-effect-fs2"   % versions.logEffects
     val logbackClassic   = "ch.qos.logback"         % "logback-classic"          % versions.logbackClassic  % Runtime
     val logbackLogstash  = "net.logstash.logback"   % "logstash-logback-encoder" % versions.logbackLogstash % Runtime
     val mules            = "io.chrisdavenport"     %% "mules"                    % versions.mules
@@ -100,15 +104,15 @@ object Dependencies {
     val telegramiumHigh       = "io.github.apimorphism" %% "telegramium-high"        % versions.telegramiumVersion
     val vault                 = "org.typelevel"         %% "vault"                   % versions.vault
 
-    // Explicit _sjs1 module names to satisfy sbt-explicit-dependencies checks.
+    // ScalaJS-enabled projects already append the "_sjs1" cross-version suffix via `%%`.
     // The replies editor UI is Scala.js-only, so portability isn't needed here.
-    val laminarSjs1         = "com.raquo"    %% "laminar_sjs1"           % versions.laminar
-    val airstreamSjs1       = "com.raquo"    %% "airstream_sjs1"         % versions.laminar
-    val tuplezFullLightSjs1 = "app.tulz"     %% "tuplez-full-light_sjs1" % versions.tuplez
-    val scalajsDomSjs1      = "org.scala-js" %% "scalajs-dom_sjs1"       % versions.scalajsDom
-    val circeCoreSjs1       = "io.circe"     %% "circe-core_sjs1"        % versions.circe
-    val circeGenericSjs1    = "io.circe"     %% "circe-generic_sjs1"     % versions.circe
-    val circeParserSjs1     = "io.circe"     %% "circe-parser_sjs1"      % versions.circe
+    val laminarSjs1         = "com.raquo"    %% "laminar"           % versions.laminar
+    val airstreamSjs1       = "com.raquo"    %% "airstream"         % versions.laminar
+    val tuplezFullLightSjs1 = "app.tulz"     %% "tuplez-full-light" % versions.tuplez
+    val scalajsDomSjs1      = "org.scala-js" %% "scalajs-dom"       % versions.scalajsDom
+    val circeCoreSjs1       = "io.circe"     %% "circe-core"        % versions.circe
+    val circeGenericSjs1    = "io.circe"     %% "circe-generic"     % versions.circe
+    val circeParserSjs1     = "io.circe"     %% "circe-parser"      % versions.circe
   }
 
   private val CommonDependencies: Seq[ModuleID] = Seq(
@@ -123,6 +127,7 @@ object Dependencies {
     libs.http4sCore,
     libs.http4sEmberClient,
     libs.http4sServer,
+    libs.jacocoAgentRuntime,
     libs.logEffectsCore,
     libs.logEffectsFs2,
     libs.logbackClassic,
@@ -203,6 +208,7 @@ object Dependencies {
     libs.googleOauthClient,
     libs.googleYouTubeApi,
     libs.http4sCore,
+    libs.jacocoAgentRuntime,
     libs.logEffectsCore,
     libs.logEffectsFs2,
     libs.logbackClassic,
@@ -241,6 +247,7 @@ object Dependencies {
       libs.munit,
       libs.doobieMunit,
       libs.scalatest,
+      libs.jacocoAgentRuntime,
       libs.catsEffect        % "test",
       libs.catsCore          % "test",
       libs.cron4s            % "test",

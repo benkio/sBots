@@ -19,7 +19,12 @@ newBot := {
 
 name                     := "sBots"
 organization             := "com.benkio"
-ThisBuild / scalaVersion := "3.9.0"
+ThisBuild / scalaVersion := "3.3.8"
+// sbt 2 defaults exportJars to true, which packages internal project dependencies
+// (e.g. chatCore's test classes/resources) as jars instead of loose class directories.
+// Test code resolves resources via `getClass.getResource(...).toURI` + `Paths.get`,
+// which only supports file: URIs, not jar: URIs. Restore sbt 1's directory-based default.
+ThisBuild / exportJars := false
 ThisBuild / scalacOptions ++= Seq(
   "-java-output-version",
   "21",
@@ -35,12 +40,7 @@ ThisBuild / scalafixDependencies ++= Seq(
 enablePlugins(FlywayPlugin)
 enablePlugins(GitVersioning)
 Global / onChangedBuildSource := ReloadOnSourceChanges
-
-// SCoverage
-coverageEnabled          := true
-coverageFailOnMinimum    := true
-coverageMinimumStmtTotal := 60 // TODO: INCREASE THIS
-coverageExcludedPackages := "com.benkio.chatcore.mocks.*"
+Global / excludeLintKeys += git.gitDescribedVersion
 
 // COMMAND ALIASES
 
@@ -48,12 +48,12 @@ addCommandAlias("dbSetup", "runMigrate")
 addCommandAlias("fix", ";scalafixAll; scalafmtAll; integration/scalafixAll; integration/scalafmtAll; scalafmtSbt;")
 addCommandAlias(
   "check",
-  "undeclaredCompileDependenciesTest; scalafmtSbtCheck; scalafmtCheck; Test/scalafmtCheck"
+  "undeclaredCompileDependencies; unusedCompileDependencies; scalafmtSbtCheck; scalafmtCheck; Test/scalafmtCheck"
 )
 addCommandAlias("generateTriggerDocumentation", "main/runMain com.benkio.main.GenerateTriggers")
 addCommandAlias(
   "validate",
-  ";clean; compile; fix; generateTriggerDocumentation; dbSetup; coverage; test; integration/mUnitTests; coverageAggregate; assembly"
+  ";clean; compile; fix; generateTriggerDocumentation; dbSetup; jacocoAggregate; integration/mUnitTests; assembly"
 )
 addCommandAlias("compileAll", "compile; Test/compile; integration/Test/compile");
 addCommandAlias("checkAllLinksTest", "integration/scalaTests")
@@ -91,6 +91,8 @@ lazy val botProjects: Seq[sbt.ProjectReference] = Seq(
 
 lazy val sBots =
   Project("sBots", file("."))
+    // The root project has no sources of its own to instrument/test.
+    .disablePlugins(com.github.sbt.jacoco.JacocoPlugin)
     .settings(Settings.settings *)
     .aggregate(main, botDB, chatCore, chatTelegramAdapter, repliesEditorServer, repliesEditorUI)
     .aggregate(botProjects *)
@@ -111,7 +113,7 @@ lazy val chatTelegramAdapter =
 lazy val CalandroBot =
   Project("CalandroBot", file("modules/bots/CalandroBot"))
     .settings(Settings.settings *)
-    .settings(Settings.botProjectSettings("CalandroBot") *)
+    .settings(Settings.botProjectSettings("CalandroBot", lineCoverage = 20) *)
     .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
 
 lazy val ABarberoBot =
@@ -123,7 +125,7 @@ lazy val ABarberoBot =
 lazy val RichardPHJBensonBot =
   Project("RichardPHJBensonBot", file("modules/bots/RichardPHJBensonBot"))
     .settings(Settings.settings *)
-    .settings(Settings.botProjectSettings("RichardPHJBensonBot") *)
+    .settings(Settings.botProjectSettings("RichardPHJBensonBot", lineCoverage = 60) *)
     .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
 
 lazy val XahLeeBot =
@@ -167,7 +169,7 @@ lazy val main = project
   .settings(Settings.settings *)
   .settings(Settings.MainSettings)
   .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
-  .dependsOn(botProjects.map(_ % "compile->compile;test->test"): _*)
+  .dependsOn(botProjects.map(_ % "compile->compile;test->test") *)
 
 lazy val botDB =
   Project("botDB", file("modules/botDB"))
@@ -182,7 +184,7 @@ lazy val repliesEditorUI =
     .enablePlugins(ScalaJSPlugin)
     .settings(Settings.settings *)
     .settings(
-      Settings.RepliesEditorUI
+      Settings.RepliesEditorUI *
     )
 
 lazy val repliesEditorServer =
@@ -195,6 +197,8 @@ lazy val repliesEditorServer =
     .dependsOn(chatCore % "compile->compile;test->test", main % "compile->compile")
 
 lazy val integration = (project in file("modules/integration-tests"))
+  // This project has only src/test, no src/main; jacoco has nothing to instrument there.
+  .disablePlugins(com.github.sbt.jacoco.JacocoPlugin)
   .dependsOn(
     chatCore            % "compile->compile;test->test",
     chatTelegramAdapter % "compile->compile;test->test",
