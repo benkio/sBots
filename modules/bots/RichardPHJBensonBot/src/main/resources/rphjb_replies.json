@@ -4,6 +4,43 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "deludendo quasi tutto"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Sticker" : {
+              "filepath" : "rphjb_DeludendoBensoniani.sticker",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_DeludendoQuasiTutto.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_Deluso.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "RegexTextTriggerValue" : {
               "trigger" : "\\bore e ore\\b",
               "regexLength" : 9
