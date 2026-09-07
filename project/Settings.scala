@@ -29,13 +29,11 @@ object Settings {
   )
 
   lazy val settings = Seq(
-    organization             := "com.benkio",
-    publishMavenStyle        := true,
-    semanticdbEnabled        := true,
-    semanticdbCompilerPlugin := {
-      ("org.scalameta" % "semanticdb-scalac" % "4.7.8")
-        .cross(CrossVersion.full)
-    },
+    organization      := "com.benkio",
+    publishMavenStyle := true,
+    scalaModuleInfo ~= (_.map(_.withOverrideScalaVersion(true))),
+    update / scalaModuleInfo ~= (_.map(_.withOverrideScalaVersion(true))),
+    semanticdbEnabled      := true,
     fork                   := true,
     Test / publishArtifact := false,
     jacocoExcludes         := Seq("com/benkio/chatcore/mocks/**")

@@ -10,8 +10,6 @@ import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message as ModelMessage
 import com.benkio.chatcore.model.RegexTextTriggerValue
 import com.benkio.chatcore.model.SBotInfo
-import com.benkio.chatcore.model.SBotInfo.SBotId
-import com.benkio.chatcore.model.SBotInfo.SBotName
 import com.benkio.chatcore.patterns.CommandPatterns.TriggerSearchCommand
 import munit.*
 

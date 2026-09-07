@@ -39,16 +39,21 @@ then
     echo "-------------------------Assembly-------------------------"
 
     sbt --supershell=false main/assembly
+    SCALA_TARGET_DIR=$(ls -d ./modules/main/target/scala-* 2>/dev/null | head -n 1)
+    if [ -z "$SCALA_TARGET_DIR" ] ; then
+        echo "Unable to locate ./modules/main/target/scala-*/ directory"
+        exit 1
+    fi
 
     if [ "$WEBHOOK" = false ] ;
     then
         echo "-------------------------Run Polling Bots-------------------------"
         cp ./botDB.sqlite3 ./modules/main/target/
-        (cd ./modules/main/target/scala-3.3.8/; java -cp main.jar com.benkio.main.MainPolling)
+        (cd "$SCALA_TARGET_DIR"; java -cp main.jar com.benkio.main.MainPolling)
     else
         echo "-------------------------Run Webhook Bots-------------------------"
         cp ./botDB.sqlite3 ./modules/main/target/
-        (cd ./modules/main/target/scala-3.3.8/; java -cp main.jar com.benkio.main.MainWebhook)
+        (cd "$SCALA_TARGET_DIR"; java -cp main.jar com.benkio.main.MainWebhook)
     fi
 
 
