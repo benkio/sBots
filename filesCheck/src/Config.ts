@@ -50,7 +50,7 @@ export const bots: Bot[] = [
   },
   {
     id: 'sgar',
-    artist: 'VittorioSgarbiBot',
+    artist: 'Vittorio Sgarbi',
     filePath: '/Mega/sBots/VittorioSgarbiBot/src/main/resources',
     jsonFilePath: '../modules/bots/VittorioSgarbiBot/sgar_list.json',
   },
