@@ -17,9 +17,9 @@ newBot := {
 
 // GLOBAL SETTINGS
 
-name                                                := "sBots"
-organization                                        := "com.benkio"
-ThisBuild / scalaVersion                            := "3.9.0"
+name                     := "sBots"
+organization             := "com.benkio"
+ThisBuild / scalaVersion := "3.9.0"
 // Remove this override when all the dependencies support natively the new version of scala
 ThisBuild / dependencyOverrides += "org.scala-lang" %% "scala3-library" % (ThisBuild / scalaVersion).value
 // sbt 2 defaults exportJars to true, which packages internal project dependencies
