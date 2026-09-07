@@ -9,8 +9,6 @@ import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
-import com.benkio.chatcore.model.SBotInfo.SBotId
-import com.benkio.chatcore.model.SBotInfo.SBotName
 import com.benkio.chatcore.patterns.PostComputationPatterns
 import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.Logger.given

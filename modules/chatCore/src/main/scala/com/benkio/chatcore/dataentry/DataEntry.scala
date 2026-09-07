@@ -13,7 +13,6 @@ import org.http4s.Uri
 
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
-import java.nio.file.Path
 
 object DataEntry {
 

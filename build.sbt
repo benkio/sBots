@@ -17,9 +17,10 @@ newBot := {
 
 // GLOBAL SETTINGS
 
-name                     := "sBots"
-organization             := "com.benkio"
-ThisBuild / scalaVersion := "3.3.8"
+name                                                := "sBots"
+organization                                        := "com.benkio"
+ThisBuild / scalaVersion                            := "3.9.0"
+ThisBuild / dependencyOverrides += "org.scala-lang" %% "scala3-library" % (ThisBuild / scalaVersion).value
 // sbt 2 defaults exportJars to true, which packages internal project dependencies
 // (e.g. chatCore's test classes/resources) as jars instead of loose class directories.
 // Test code resolves resources via `getClass.getResource(...).toURI` + `Paths.get`,
