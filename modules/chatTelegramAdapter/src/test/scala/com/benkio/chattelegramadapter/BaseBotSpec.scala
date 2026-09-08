@@ -217,10 +217,13 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
           })
       }
       matchingFilenames.zip(inputTextTxtContent).foreach { case (mediaFiles, (input, expectedFilenames)) =>
+        val retrievedFilenames    = mediaFiles.map(_.filename)
+        val missingFromRetrieved  = expectedFilenames.diff(retrievedFilenames.toList)
+        val unexpectedInRetrieved = retrievedFilenames.toList.diff(expectedFilenames)
         assertEquals(
           mediaFiles.size,
           expectedFilenames.length,
-          s"Expected same length for `$input` of expectedFilenames(${expectedFilenames.length}) and retrieved mediafiles(${mediaFiles.size})"
+          s"Expected same length for `$input` of expectedFilenames(${expectedFilenames.length}) and retrieved mediafiles(${mediaFiles.size}). Missing from retrieved: ${missingFromRetrieved.mkString(", ")}. Unexpected in retrieved: ${unexpectedInRetrieved.mkString(", ")}"
         )
         expectedFilenames.foreach { expectedFilename =>
           assert(
