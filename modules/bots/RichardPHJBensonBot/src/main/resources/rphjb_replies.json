@@ -900,7 +900,10 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "new data"
+            "StringTextTriggerValue" : "tante emozioni"
+          },
+          {
+            "StringTextTriggerValue" : "tante fazioni"
           }
         ]
       }
@@ -937,7 +940,13 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "new data"
+            "StringTextTriggerValue" : "si può considerare"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(15[.,-]?000|quindici[- ]?mila) donne",
+              "regexLength" : 10
+            }
           }
         ]
       }
@@ -974,7 +983,31 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "new data"
+            "RegexTextTriggerValue" : {
+              "trigger" : "non riesco( pi[uù])? a dormire",
+              "regexLength" : 20
+            }
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "m('|i )ha fatto dormire",
+              "regexLength" : 18
+            }
+          },
+          {
+            "StringTextTriggerValue" : "altra volta ancora"
+          },
+          {
+            "StringTextTriggerValue" : "pecore"
+          },
+          {
+            "StringTextTriggerValue" : "contavano me"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(🐑|💤|🛏|🥱|🛌|😴|😪)",
+              "regexLength" : 1
+            }
           }
         ]
       }
@@ -1011,7 +1044,10 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "new data"
+            "StringTextTriggerValue" : "ciofeca"
+          },
+          {
+            "StringTextTriggerValue" : "non serve"
           }
         ]
       }
@@ -1048,7 +1084,25 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "new data"
+            "StringTextTriggerValue" : "laurea"
+          },
+          {
+            "StringTextTriggerValue" : "honoris causa"
+          },
+          {
+            "StringTextTriggerValue" : "sapienza"
+          },
+          {
+            "StringTextTriggerValue" : "👨‍🎓"
+          },
+          {
+            "StringTextTriggerValue" : "🎓"
+          },
+          {
+            "StringTextTriggerValue" : "👩‍🎓"
+          },
+          {
+            "StringTextTriggerValue" : "🧑‍🎓"
           }
         ]
       }
@@ -1085,7 +1139,7 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "new data"
+            "StringTextTriggerValue" : "ramificazio"
           }
         ]
       }
@@ -1093,12 +1147,6 @@
     "reply" : {
       "MediaReply" : {
         "mediaFiles" : [
-          {
-            "GifFile" : {
-              "filepath" : "rphjb_TanteMusicheGif.mp4",
-              "replyToMessage" : false
-            }
-          },
           {
             "VideoFile" : {
               "filepath" : "rphjb_TanteMusiche.mp4",
@@ -1108,6 +1156,24 @@
           {
             "Mp3File" : {
               "filepath" : "rphjb_TanteMusiche.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_MappaInternettaria.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_MappaInternettaria.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_TanteMusicheGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -8592,19 +8658,25 @@
           },
           {
             "Mp3File" : {
+              "filepath" : "rphjb_CuoreMenteVitaStatoMentale.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
               "filepath" : "rphjb_VitaStatoMentale.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_CuoreMenteVitaStatoMentaleGif.mp4",
               "replyToMessage" : false
             }
           },
           {
             "VideoFile" : {
               "filepath" : "rphjb_VitaStatoMentale.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "GifFile" : {
-              "filepath" : "rphjb_VitaNemicoStatoMentale2Gif.mp4",
               "replyToMessage" : false
             }
           },
@@ -8617,6 +8689,18 @@
           {
             "Mp3File" : {
               "filepath" : "rphjb_VitaNemicoStatoMentale2.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_CuoreMenteVitaStatoMentale.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_VitaNemicoStatoMentale2Gif.mp4",
               "replyToMessage" : false
             }
           }
@@ -23589,13 +23673,68 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bcolori\\b",
+              "regexLength" : 6
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_AbbellimentiRivoltiRivoliMordentiImpennateColori.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_CuoreMenteVitaStatoMentaleGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_CuoreMenteVitaStatoMentale.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_CuoreMenteVitaStatoMentale.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_QuadriCambiare.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_QuadriCambiare.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "rivoli"
           },
           {
             "StringTextTriggerValue" : "impennate"
-          },
-          {
-            "StringTextTriggerValue" : "colori"
           }
         ]
       }
@@ -40864,14 +41003,32 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
+            "VideoFile" : {
+              "filepath" : "rphjb_TanteMusiche.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "Mp3File" : {
               "filepath" : "rphjb_Tastieristi.mp3",
               "replyToMessage" : false
             }
           },
           {
+            "Mp3File" : {
+              "filepath" : "rphjb_TanteMusiche.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
             "VideoFile" : {
               "filepath" : "rphjb_Tastieristi.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_TanteMusicheGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -40940,6 +41097,12 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
+            "VideoFile" : {
+              "filepath" : "rphjb_TanteMusiche.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "Mp3File" : {
               "filepath" : "rphjb_MusicaEtichetteWhiskey.mp3",
               "replyToMessage" : false
@@ -40959,7 +41122,19 @@
           },
           {
             "Mp3File" : {
+              "filepath" : "rphjb_TanteMusiche.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
               "filepath" : "rphjb_DoveStannoGliAppassionatiTanteMusiche.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_TanteMusicheGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -41019,6 +41194,12 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
+            "VideoFile" : {
+              "filepath" : "rphjb_TanteMusiche.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "Mp3File" : {
               "filepath" : "rphjb_MusicaEtichetteWhiskey.mp3",
               "replyToMessage" : false
@@ -41050,13 +41231,13 @@
           },
           {
             "VideoFile" : {
-              "filepath" : "rphjb_Blues.mp4",
+              "filepath" : "rphjb_CervelloSuperaLinguaListaGruppiAnni60.mp4",
               "replyToMessage" : false
             }
           },
           {
-            "VideoFile" : {
-              "filepath" : "rphjb_CervelloSuperaLinguaListaGruppiAnni60.mp4",
+            "GifFile" : {
+              "filepath" : "rphjb_TanteMusicheGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -41087,6 +41268,18 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_MaCheMeFregaDeSanremo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_Blues.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_TanteMusiche.mp3",
               "replyToMessage" : false
             }
           },
@@ -41266,6 +41459,12 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
+            "VideoFile" : {
+              "filepath" : "rphjb_TanteMusiche.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "Mp3File" : {
               "filepath" : "rphjb_MusicaEtichetteWhiskey.mp3",
               "replyToMessage" : false
@@ -41284,8 +41483,20 @@
             }
           },
           {
+            "Mp3File" : {
+              "filepath" : "rphjb_TanteMusiche.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
             "VideoFile" : {
               "filepath" : "rphjb_Tastieristi.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_TanteMusicheGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -44978,12 +45189,6 @@
             }
           },
           {
-            "GifFile" : {
-              "filepath" : "rphjb_PassarePerFrocioUnAltraVoltaGif.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
             "VideoFile" : {
               "filepath" : "rphjb_FrocioFrocio2.mp4",
               "replyToMessage" : false
@@ -45014,6 +45219,12 @@
             }
           },
           {
+            "GifFile" : {
+              "filepath" : "rphjb_Frocio15000DonneGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "VideoFile" : {
               "filepath" : "rphjb_FrocioCoglione.mp4",
               "replyToMessage" : false
@@ -45034,6 +45245,12 @@
           {
             "Mp3File" : {
               "filepath" : "rphjb_FrocioFrocio4.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_Frocio15000Donne.mp4",
               "replyToMessage" : false
             }
           },
@@ -45064,6 +45281,18 @@
           {
             "Mp3File" : {
               "filepath" : "rphjb_Frocio6.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_PassarePerFrocioUnAltraVoltaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_Frocio15000Donne.mp3",
               "replyToMessage" : false
             }
           },
@@ -51423,16 +51652,68 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "tante vite in una sola"
-          },
-          {
-            "StringTextTriggerValue" : "da quello che hai dentro"
-          },
-          {
             "RegexTextTriggerValue" : {
               "trigger" : "può essere (rosa|grigio)",
               "regexLength" : 15
             }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_CuoreMenteVitaStatoMentaleGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_CuoreMenteVitaStatoMentale.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_CuoreMenteVitaStatoMentale.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_VitaStatoMentale.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_VitaStatoMentaleGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_VitaStatoMentale.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "tante vite in una sola"
+          },
+          {
+            "StringTextTriggerValue" : "da quello che hai dentro"
           }
         ]
       }
@@ -58798,9 +59079,6 @@
             }
           },
           {
-            "StringTextTriggerValue" : "ramificazio"
-          },
-          {
             "RegexTextTriggerValue" : {
               "trigger" : "tok[iy]o",
               "regexLength" : 5
@@ -64882,9 +65160,6 @@
               "trigger" : "quadr[oi]",
               "regexLength" : 6
             }
-          },
-          {
-            "StringTextTriggerValue" : "i colori"
           },
           {
             "StringTextTriggerValue" : "le tele"
