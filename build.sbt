@@ -46,8 +46,14 @@ Global / excludeLintKeys += git.gitDescribedVersion
 
 // COMMAND ALIASES
 
+addCommandAlias("checkAllLinksTest", "integration/scalaTests")
+addCommandAlias("integrationTests", "integration/mUnitTests")
 addCommandAlias("dbSetup", "runMigrate")
-addCommandAlias("fix", ";scalafixAll; scalafmtAll; integration/scalafixAll; integration/scalafmtAll; scalafmtSbt;")
+addCommandAlias("compileAll", "compile; Test/compile; integration/Test/compile");
+addCommandAlias(
+  "fix",
+  ";scalafixAll; scalafmtAll; integration/scalafixAll; integration/scalafmtAll; scalafmtSbt; generateTriggerDocumentation;"
+)
 addCommandAlias(
   "check",
   "undeclaredCompileDependencies; unusedCompileDependencies; scalafmtSbtCheck; scalafmtCheck; Test/scalafmtCheck"
@@ -55,11 +61,8 @@ addCommandAlias(
 addCommandAlias("generateTriggerDocumentation", "main/runMain com.benkio.main.GenerateTriggers")
 addCommandAlias(
   "validate",
-  ";clean; compile; fix; generateTriggerDocumentation; dbSetup; jacocoAggregate; integration/mUnitTests; assembly"
+  ";clean; compile; fix; dbSetup; jacocoAggregate; integration/mUnitTests; assembly"
 )
-addCommandAlias("compileAll", "compile; Test/compile; integration/Test/compile");
-addCommandAlias("checkAllLinksTest", "integration/scalaTests")
-addCommandAlias("integrationTests", "integration/mUnitTests")
 // Data Entry Aliases
 addCommandAlias("abarAddData", "ABarberoBot/runMain com.benkio.ABarberoBot.ABarberoBotMainDataEntry")
 addCommandAlias("xahAddData", "XahLeeBot/runMain com.benkio.XahLeeBot.XahLeeBotMainDataEntry")
