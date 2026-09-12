@@ -7,7 +7,11 @@ import com.benkio.chatcore.messagefiltering.MessageMatches
 import com.benkio.chatcore.model.media.MediaFileSource
 import com.benkio.chatcore.model.reply.*
 import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.LeftMemberTrigger
 import com.benkio.chatcore.model.Message as ModelMessage
+import com.benkio.chatcore.model.MessageLengthTrigger
+import com.benkio.chatcore.model.MessageTrigger
+import com.benkio.chatcore.model.NewMemberTrigger
 import com.benkio.chatcore.model.RegexTextTriggerValue
 import com.benkio.chatcore.model.StringTextTriggerValue
 import com.benkio.chatcore.model.TextTrigger
@@ -317,6 +321,13 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
       }
     }
 
+  private def triggerKind(trigger: MessageTrigger): String = trigger match {
+    case _: TextTrigger          => "TextTrigger"
+    case MessageLengthTrigger(_) => "MessageLengthTrigger"
+    case NewMemberTrigger        => "NewMemberTrigger"
+    case LeftMemberTrigger       => "LeftMemberTrigger"
+  }
+
   def exactTriggerReturnExpectedReplyBundle(
       replyBundleMessages: List[ReplyBundleMessage]
   ): Unit =
@@ -382,4 +393,24 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
             }
           }
       }
+
+  def noOverlappingReplyBundles(
+      replyBundleMessages: List[ReplyBundleMessage]
+  ): Unit =
+    test(
+      "No overlapping reply bundles: each (reply, matcher) and trigger kind must map to a single reply bundle"
+    ) {
+      val overlaps: List[String] = replyBundleMessages
+        .groupBy(rbm => (rbm.reply, rbm.matcher))
+        .toList
+        .flatMap { case ((reply, matcher), bundles) =>
+          bundles
+            .groupBy(rbm => triggerKind(rbm.trigger))
+            .collect {
+              case (kind, kindBundles) if kindBundles.length != 1 =>
+                s"${kindBundles.length} reply bundles share the same $kind, reply ($reply) and matcher ($matcher)"
+            }
+        }
+      assertEquals(overlaps, Nil, s"Found overlapping reply bundles:\n${overlaps.mkString("\n")}")
+    }
 }

@@ -88,6 +88,7 @@ class CalandroBotSpec extends BaseBotSpec {
   messageRepliesData
     .map(mrds => {
       exactTriggerReturnExpectedReplyBundle(mrds)
+      noOverlappingReplyBundles(mrds)
     })
     .unsafeRunSync()
 
