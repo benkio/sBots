@@ -76,6 +76,7 @@ class TemplateBotSpec extends BaseBotSpec {
   messageRepliesData
     .map(mrd => {
       exactTriggerReturnExpectedReplyBundle(mrd)
+      noOverlappingReplyBundles(mrd)
     })
     .unsafeRunSync()
 

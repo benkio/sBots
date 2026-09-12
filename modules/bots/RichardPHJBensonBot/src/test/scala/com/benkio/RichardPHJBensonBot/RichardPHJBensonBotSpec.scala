@@ -92,6 +92,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
   messageRepliesData
     .map(mrd => {
       exactTriggerReturnExpectedReplyBundle(mrd)
+      noOverlappingReplyBundles(mrd)
       inputFileShouldRespondAsExpected(mrd)
     })
     .unsafeRunSync()

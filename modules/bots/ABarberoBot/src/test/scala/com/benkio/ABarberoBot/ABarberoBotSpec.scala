@@ -76,6 +76,7 @@ class ABarberoBotSpec extends BaseBotSpec {
     .map(mrd => {
 
       exactTriggerReturnExpectedReplyBundle(mrd)
+      noOverlappingReplyBundles(mrd)
       inputFileShouldRespondAsExpected(mrd)
     })
     .unsafeRunSync()
