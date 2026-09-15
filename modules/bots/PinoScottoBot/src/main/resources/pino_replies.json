@@ -4,6 +4,233 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "impanato"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "pino_ColeotteroImpanatoDottoreGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_ColeotteroImpanatoDottore.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_ColeotteroSputarsiInFacciaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_ColeotteroSputarsiInFaccia.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_ColeotteroSputarsiInFaccia.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_ColeotteroImpanatoDottore.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "scemo"
+          },
+          {
+            "StringTextTriggerValue" : "non gli rispondo"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "pino_ScemoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_Scemo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_Scemo.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "porta allegria"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "mitolo[g]+ico",
+              "regexLength" : 10
+            }
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "sputar[tm]i in faccia",
+              "regexLength" : 18
+            }
+          },
+          {
+            "StringTextTriggerValue" : "rispondendo a te"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "pino_ColeotteroSputarsiInFacciaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_ColeotteroSputarsiInFaccia.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_ColeotteroSputarsiInFaccia.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "somaro"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "pino_AltroCoglioneFilaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_AltroCoglioneFila.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_AltroCoglioneFila.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "gli va bene tutto"
+          },
+          {
+            "StringTextTriggerValue" : "pali nel culo"
+          },
+          {
+            "StringTextTriggerValue" : "gli piace pure"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "pino_PaliNelCuloGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_PaliNelCulo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_PaliNelCulo.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "vergognatevi"
           }
         ]
@@ -667,6 +894,12 @@
             }
           },
           {
+            "VideoFile" : {
+              "filepath" : "pino_AltroCoglioneFila.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "GifFile" : {
               "filepath" : "pino_CazzoApplaudiCoglioneGif.mp4",
               "replyToMessage" : false
@@ -674,7 +907,19 @@
           },
           {
             "GifFile" : {
+              "filepath" : "pino_AltroCoglioneFilaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
               "filepath" : "pino_AlesinoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_AltroCoglioneFila.mp3",
               "replyToMessage" : false
             }
           },
@@ -2949,6 +3194,12 @@
           },
           {
             "Mp3File" : {
+              "filepath" : "pino_PaliNelCulo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
               "filepath" : "pino_VincenzoCapaDiBomba.mp3",
               "replyToMessage" : false
             }
@@ -2962,6 +3213,18 @@
           {
             "Mp3File" : {
               "filepath" : "pino_BombaroloEsplodereIlCulo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_PaliNelCuloGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_PaliNelCulo.mp4",
               "replyToMessage" : false
             }
           }
@@ -3056,6 +3319,9 @@
               "trigger" : "perbacco @?\\w+",
               "regexLength" : 10
             }
+          },
+          {
+            "StringTextTriggerValue" : "non ti rendi conto"
           }
         ]
       }
@@ -3992,6 +4258,12 @@
             }
           },
           {
+            "GifFile" : {
+              "filepath" : "pino_ColeotteroSputarsiInFacciaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "VideoFile" : {
               "filepath" : "pino_ColeotteroCagata.mp4",
               "replyToMessage" : false
@@ -4005,7 +4277,7 @@
           },
           {
             "Mp3File" : {
-              "filepath" : "pino_ColeotteroCagata.mp3",
+              "filepath" : "pino_ColeotteroSputarsiInFaccia.mp3",
               "replyToMessage" : false
             }
           },
@@ -4024,6 +4296,18 @@
           {
             "GifFile" : {
               "filepath" : "pino_ColeotteroCagataGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_ColeotteroCagata.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_ColeotteroSputarsiInFaccia.mp4",
               "replyToMessage" : false
             }
           },
@@ -4133,12 +4417,6 @@
           },
           {
             "VideoFile" : {
-              "filepath" : "pino_ColeotteroOtorinoSpacciatore.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "VideoFile" : {
               "filepath" : "pino_ColeotteroCagata.mp4",
               "replyToMessage" : false
             }
@@ -4146,18 +4424,6 @@
           {
             "GifFile" : {
               "filepath" : "pino_AndateALavorareFabbicaColeotteroBenzinaGif.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "Mp3File" : {
-              "filepath" : "pino_ColeotteroCagata.mp3",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "GifFile" : {
-              "filepath" : "pino_ColeotteroOtorinoSpacciatoreGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -4176,6 +4442,18 @@
           {
             "Mp3File" : {
               "filepath" : "pino_ColeotteroImpanatoDottore.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_ColeotteroSputarsiInFacciaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_ColeotteroOtorinoSpacciatore.mp4",
               "replyToMessage" : false
             }
           },
@@ -4210,6 +4488,18 @@
             }
           },
           {
+            "Mp3File" : {
+              "filepath" : "pino_ColeotteroCagata.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_ColeotteroSputarsiInFaccia.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "VideoFile" : {
               "filepath" : "pino_PaceColCervelloColeottero.mp4",
               "replyToMessage" : false
@@ -4218,6 +4508,18 @@
           {
             "GifFile" : {
               "filepath" : "pino_PaceColCervelloColeotteroGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_ColeotteroSputarsiInFaccia.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_ColeotteroOtorinoSpacciatoreGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -4566,14 +4868,32 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
-            "GifFile" : {
-              "filepath" : "pino_AndateALavorareFabbicaColeotteroBenzinaGif.mp4",
+            "Mp3File" : {
+              "filepath" : "pino_Scemo.mp3",
               "replyToMessage" : false
             }
           },
           {
             "VideoFile" : {
               "filepath" : "pino_AndateALavorareFabbicaColeotteroBenzina.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_ScemoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_Scemo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_AndateALavorareFabbicaColeotteroBenzinaGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -5145,9 +5465,6 @@
     "trigger" : {
       "TextTrigger" : {
         "triggers" : [
-          {
-            "StringTextTriggerValue" : "impanato"
-          },
           {
             "RegexTextTriggerValue" : {
               "trigger" : "il (tuo |suo )?consiglio",
@@ -7952,20 +8269,14 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
-            "GifFile" : {
-              "filepath" : "pino_CinquantaEuroBenzinaAlbanoRominaGif.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
             "VideoFile" : {
               "filepath" : "pino_Volpe.mp4",
               "replyToMessage" : false
             }
           },
           {
-            "Mp3File" : {
-              "filepath" : "pino_BombaroloVecchiaBagascia.mp3",
+            "GifFile" : {
+              "filepath" : "pino_AltroCoglioneFilaGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -8026,6 +8337,18 @@
           {
             "Mp3File" : {
               "filepath" : "pino_Volpe.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_CinquantaEuroBenzinaAlbanoRominaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_Scemo.mp3",
               "replyToMessage" : false
             }
           },
@@ -8120,8 +8443,20 @@
             }
           },
           {
+            "VideoFile" : {
+              "filepath" : "pino_AltroCoglioneFila.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "GifFile" : {
               "filepath" : "pino_BombaroloVecchiaBagasciaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_ColeotteroSputarsiInFacciaGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -8240,6 +8575,12 @@
             }
           },
           {
+            "GifFile" : {
+              "filepath" : "pino_ScemoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "VideoFile" : {
               "filepath" : "pino_Cudeghin.mp4",
               "replyToMessage" : false
@@ -8260,6 +8601,24 @@
           {
             "GifFile" : {
               "filepath" : "pino_VafanguloGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_AltroCoglioneFila.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_Scemo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_BombaroloVecchiaBagascia.mp3",
               "replyToMessage" : false
             }
           },
@@ -8288,6 +8647,12 @@
             }
           },
           {
+            "VideoFile" : {
+              "filepath" : "pino_ColeotteroSputarsiInFaccia.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "Mp3File" : {
               "filepath" : "pino_CazzoApplaudiCoglione.mp3",
               "replyToMessage" : false
@@ -8302,6 +8667,12 @@
           {
             "VideoFile" : {
               "filepath" : "pino_BombaroloVecchiaBagascia.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_ColeotteroSputarsiInFaccia.mp3",
               "replyToMessage" : false
             }
           },

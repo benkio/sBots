@@ -4,6 +4,263 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "dio mio"
+          },
+          {
+            "StringTextTriggerValue" : "confessare"
+          },
+          {
+            "StringTextTriggerValue" : "non ditela"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "di(re|tela|rla) a nessuno",
+              "regexLength" : 14
+            }
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "promett(i|ete|imi) di",
+              "regexLength" : 11
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_ConfessioneGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_Confessione.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_Confessione.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(48|quarant[']?otto) anni",
+              "regexLength" : 7
+            }
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "arreda(to|re)",
+              "regexLength" : 8
+            }
+          },
+          {
+            "StringTextTriggerValue" : "motivi di lavoro"
+          },
+          {
+            "StringTextTriggerValue" : "per altri motivi"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_TraslochiArredatoCaseGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_TraslochiArredatoCase.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_TraslochiArredatoCase.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "picasso"
+          },
+          {
+            "StringTextTriggerValue" : "arredamento"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\w+ d'oriente",
+              "regexLength" : 10
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_PicassoDOrienteGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_PicassoDOriente.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_PicassoDOriente.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "è (un po' )?grandina",
+              "regexLength" : 10
+            }
+          },
+          {
+            "StringTextTriggerValue" : "dove metterla"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "fare (i soldi|società)",
+              "regexLength" : 12
+            }
+          },
+          {
+            "StringTextTriggerValue" : "la vendiamo"
+          },
+          {
+            "StringTextTriggerValue" : "prendila"
+          },
+          {
+            "StringTextTriggerValue" : "chiamami"
+          },
+          {
+            "StringTextTriggerValue" : "puoi fidarti"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_BusinessFacciamoISoldiGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_BusinessFacciamoISoldi.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_BusinessFacciamoISoldi.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "bischero"
+          },
+          {
+            "StringTextTriggerValue" : "stiamo calmi"
+          },
+          {
+            "StringTextTriggerValue" : "a comando"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_ComandoBischeroGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_ComandoBischero.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_ComandoBischero.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "de chirico"
           }
         ]
@@ -1413,6 +1670,24 @@
               "filepath" : "orl_Business.sticker",
               "replyToMessage" : false
             }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_BusinessFacciamoISoldi.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_BusinessFacciamoISoldi.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "orl_BusinessFacciamoISoldiGif.mp4",
+              "replyToMessage" : false
+            }
           }
         ],
         "replyToMessage" : false
@@ -1779,6 +2054,24 @@
           {
             "Sticker" : {
               "filepath" : "orl_PersonaBene.sticker",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_BusinessFacciamoISoldi.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_BusinessFacciamoISoldi.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "orl_BusinessFacciamoISoldiGif.mp4",
               "replyToMessage" : false
             }
           }

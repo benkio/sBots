@@ -7821,7 +7821,10 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "ricordami fino a domani"
+            "StringTextTriggerValue" : "fino a domani"
+          },
+          {
+            "StringTextTriggerValue" : "ricordami"
           }
         ]
       }
@@ -7831,13 +7834,19 @@
         "mediaFiles" : [
           {
             "GifFile" : {
-              "filepath" : "ytai_RicordamiGif.mp4",
+              "filepath" : "ytai_RicordamiFinoADomaniGif.mp4",
               "replyToMessage" : false
             }
           },
           {
             "VideoFile" : {
               "filepath" : "ytai_RicordamiFinoADomani.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_RicordamiFinoADomani.mp3",
               "replyToMessage" : false
             }
           }
@@ -8017,6 +8026,12 @@
           {
             "VideoFile" : {
               "filepath" : "ytai_PuoCapitare.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_PuoCapitare.mp3",
               "replyToMessage" : false
             }
           }
@@ -11804,7 +11819,10 @@
             "StringTextTriggerValue" : "meravigliose"
           },
           {
-            "StringTextTriggerValue" : "olive"
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bolive\\b",
+              "regexLength" : 5
+            }
           }
         ]
       }
@@ -13461,6 +13479,15 @@
           },
           {
             "StringTextTriggerValue" : "non ne mangio più"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(2|due) novembre",
+              "regexLength" : 10
+            }
+          },
+          {
+            "StringTextTriggerValue" : "scusate un attimo"
           }
         ]
       }
@@ -13471,6 +13498,18 @@
           {
             "VideoFile" : {
               "filepath" : "ytai_Senape.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "ytai_SenapeGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_Senape.mp3",
               "replyToMessage" : false
             }
           }
