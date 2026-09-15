@@ -143,67 +143,18 @@
         "triggers" : [
           {
             "RegexTextTriggerValue" : {
-              "trigger" : "non (la )?bevo",
-              "regexLength" : 8
-            }
-          }
-        ]
-      }
-    },
-    "reply" : {
-      "MediaReply" : {
-        "mediaFiles" : [
-          {
-            "Mp3File" : {
-              "filepath" : "sgar_SpremuteTerrorista.mp3",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "GifFile" : {
-              "filepath" : "sgar_SonoUnTerroristaCocaColaGif.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "VideoFile" : {
-              "filepath" : "sgar_SonoUnTerroristaCocaCola.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "GifFile" : {
-              "filepath" : "sgar_SpremuteTerroristaGif.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "VideoFile" : {
-              "filepath" : "sgar_SpremuteTerrorista.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "Mp3File" : {
-              "filepath" : "sgar_SonoUnTerroristaCocaCola.mp3",
-              "replyToMessage" : false
-            }
-          }
-        ],
-        "replyToMessage" : false
-      }
-    },
-    "matcher" : "ContainsOnce"
-  },
-  {
-    "trigger" : {
-      "TextTrigger" : {
-        "triggers" : [
-          {
-            "RegexTextTriggerValue" : {
               "trigger" : "coca[ -]cola",
               "regexLength" : 8
             }
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "non (la )?bevo",
+              "regexLength" : 8
+            }
+          },
+          {
+            "StringTextTriggerValue" : "spremuta"
           }
         ]
       }
@@ -348,67 +299,6 @@
     "trigger" : {
       "TextTrigger" : {
         "triggers" : [
-          {
-            "StringTextTriggerValue" : "spremuta"
-          }
-        ]
-      }
-    },
-    "reply" : {
-      "MediaReply" : {
-        "mediaFiles" : [
-          {
-            "Mp3File" : {
-              "filepath" : "sgar_SpremuteTerrorista.mp3",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "GifFile" : {
-              "filepath" : "sgar_SonoUnTerroristaCocaColaGif.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "VideoFile" : {
-              "filepath" : "sgar_SonoUnTerroristaCocaCola.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "GifFile" : {
-              "filepath" : "sgar_SpremuteTerroristaGif.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "VideoFile" : {
-              "filepath" : "sgar_SpremuteTerrorista.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "Mp3File" : {
-              "filepath" : "sgar_SonoUnTerroristaCocaCola.mp3",
-              "replyToMessage" : false
-            }
-          }
-        ],
-        "replyToMessage" : false
-      }
-    },
-    "matcher" : "ContainsOnce"
-  },
-  {
-    "trigger" : {
-      "TextTrigger" : {
-        "triggers" : [
-          {
-            "RegexTextTriggerValue" : {
-              "trigger" : "non (la )?bevo(no)",
-              "regexLength" : 8
-            }
-          },
           {
             "StringTextTriggerValue" : "terroristi"
           }
