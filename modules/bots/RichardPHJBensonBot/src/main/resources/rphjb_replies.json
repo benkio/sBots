@@ -47,6 +47,43 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "e da lì"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_ViDevoRaccontareUnAltraStoria.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_ViDevoRaccontareUnAltraStoria.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_ViDevoRaccontareUnAltraStoriaGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "video didattico"
           },
           {
