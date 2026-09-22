@@ -4341,6 +4341,9 @@
           },
           {
             "StringTextTriggerValue" : "suona il basso e canta"
+          },
+          {
+            "StringTextTriggerValue" : "suono di chitarra"
           }
         ]
       }
@@ -23460,7 +23463,10 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "invece no"
+            "RegexTextTriggerValue" : {
+              "trigger" : "invece no\\b",
+              "regexLength" : 9
+            }
           },
           {
             "StringTextTriggerValue" : "si ricomincia"

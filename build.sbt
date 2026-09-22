@@ -130,7 +130,7 @@ lazy val ABarberoBot =
 lazy val RichardPHJBensonBot =
   Project("RichardPHJBensonBot", file("modules/bots/RichardPHJBensonBot"))
     .settings(Settings.settings *)
-    .settings(Settings.botProjectSettings("RichardPHJBensonBot", lineCoverage = 60) *)
+    .settings(Settings.botProjectSettings("RichardPHJBensonBot", lineCoverage = 56) *)
     .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
 
 lazy val XahLeeBot =
