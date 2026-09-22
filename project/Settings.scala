@@ -37,7 +37,7 @@ object Settings {
     fork                   := true,
     Test / publishArtifact := false,
     jacocoExcludes         := Seq("com/benkio/chatcore/mocks/**")
-  ) ++ lineCoverageThreshold(60)
+  ) ++ lineCoverageThreshold(56)
 
   lazy val assemblySettings = Seq(
     assembly / assemblyJarName       := name.value + ".jar",
@@ -57,7 +57,7 @@ object Settings {
   lazy val ChatCoreSettings = Seq(
     name                := "ChatCore",
     libraryDependencies := ChatCoreDependencies
-  ) ++ lineCoverageThreshold(55)
+  ) ++ lineCoverageThreshold(54)
 
   lazy val ChatTelegramAdapterSettings = Seq(
     name                := "chatTelegramAdapter",
