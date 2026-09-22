@@ -38,6 +38,7 @@ ThisBuild / scalafixDependencies ++= Seq(
   "com.github.jatcwang" %% "scalafix-named-params" % "0.2.6",
   "org.typelevel"       %% "typelevel-scalafix"    % "0.6.0"
 )
+ThisBuild / semanticdbVersion := scalafixSemanticdb.revision
 
 enablePlugins(FlywayPlugin)
 enablePlugins(GitVersioning)
@@ -52,7 +53,8 @@ addCommandAlias("dbSetup", "runMigrate")
 addCommandAlias("compileAll", "compile; Test/compile; integration/Test/compile");
 addCommandAlias(
   "fix",
-  ";scalafixAll; scalafmtAll; integration/scalafixAll; integration/scalafmtAll; scalafmtSbt; generateTriggerDocumentation;"
+  // Ensure SemanticDB exists for all scopes before semantic scalafix rules run.
+  ";compileAll; scalafixAll; scalafmtAll; integration/scalafixAll; integration/scalafmtAll; scalafmtSbt; generateTriggerDocumentation;"
 )
 addCommandAlias(
   "check",
@@ -61,7 +63,7 @@ addCommandAlias(
 addCommandAlias("generateTriggerDocumentation", "main/runMain com.benkio.main.GenerateTriggers")
 addCommandAlias(
   "validate",
-  ";clean; compile; fix; dbSetup; jacocoAggregate; integration/mUnitTests; assembly"
+  ";clean; fix; dbSetup; jacocoAggregate; integration/mUnitTests; assembly"
 )
 // Data Entry Aliases
 addCommandAlias("abarAddData", "ABarberoBot/runMain com.benkio.ABarberoBot.ABarberoBotMainDataEntry")
