@@ -24,7 +24,7 @@ object Dependencies {
     val ip4s                  = "3.8.0"
     val jacoco                = "0.8.15" // must match the org.jacoco.core version sbt-jacoco instruments with
     val logEffects            = "0.19.9"
-    val logbackClassic        = "1.6.3"
+    val logbackClassic        = "1.6.4"
     val logbackLogstash       = "9.0"
     val mules                 = "0.7.1"
     val mulesHttp4s           = "0.4.0"
