@@ -408,7 +408,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
             .groupBy(rbm => triggerKind(rbm.trigger))
             .collect {
               case (kind, kindBundles) if kindBundles.length != 1 =>
-                s"${kindBundles.length} reply bundles share the same $kind, reply ($reply) and matcher ($matcher)"
+                s"${kindBundles.length} reply bundles share the same ${kind.show}, reply ($reply) and matcher ($matcher)"
             }
         }
       assertEquals(overlaps, Nil, s"Found overlapping reply bundles:\n${overlaps.mkString("\n")}")
