@@ -19,7 +19,7 @@ object Dependencies {
     val googleApiClient       = "2.9.1"
     val googleHttpClient      = "2.2.0"
     val googleOauthClient     = "1.39.0"
-    val googleYouTubeApi      = "v3-rev20260902-2.0.0"
+    val googleYouTubeApi      = "v3-rev20260924-2.0.0"
     val http4s                = "0.23.37"
     val ip4s                  = "3.8.0"
     val jacoco                = "0.8.15" // must match the org.jacoco.core version sbt-jacoco instruments with
