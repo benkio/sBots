@@ -54,7 +54,7 @@ addCommandAlias("compileAll", "compile; Test/compile; integration/Test/compile")
 addCommandAlias(
   "fix",
   // Ensure SemanticDB exists for all scopes before semantic scalafix rules run.
-  "cleanAll; compileAll; scalafixAll; scalafmtAll; integration/scalafixAll; integration/scalafmtAll; scalafmtSbt; generateTriggerDocumentation;"
+  "cleanFull; compileAll; scalafixAll; scalafmtAll; integration/scalafixAll; integration/scalafmtAll; scalafmtSbt; generateTriggerDocumentation;"
 )
 addCommandAlias(
   "check",

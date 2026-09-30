@@ -70,9 +70,17 @@ class MediaUpdaterSpec extends CatsEffectSuite {
   }
 
   test("MediaUpdater.filterMediaJsonFiles should return the expected json files") {
+    val tempDir      = Files.createTempDirectory("mediaupdater-filter-json-files")
+    val listJsonPath = Files.writeString(tempDir.resolve("test_list.json"), "[]")
+    val repliesPath  = Files.writeString(tempDir.resolve("test_replies.json"), "[]")
+    val input        = List(
+      MediaResourceFile(Resource.pure(listJsonPath)): MediaResource[IO],
+      MediaResourceFile(Resource.pure(repliesPath)): MediaResource[IO]
+    )
+
     assertIO(
-      mediaUpdater.fetchRootBotFiles.flatMap(roots => mediaUpdater.filterMediaJsonFiles(roots)).use(_.pure[IO]),
-      List(Paths.get(getClass.getResource("/testdata/test_list.json").toURI))
+      mediaUpdater.filterMediaJsonFiles(input).use(_.pure[IO]),
+      List(listJsonPath)
     )
   }
 
