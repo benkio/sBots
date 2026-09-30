@@ -4,6 +4,52 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "fieno"
+          },
+          {
+            "StringTextTriggerValue" : "scusate"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "o[p]+(e)?[l]+[aàá]+",
+              "regexLength" : 4
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_OpplaFienoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_OpplaFieno.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_OpplaFieno.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "dio mio"
           },
           {
