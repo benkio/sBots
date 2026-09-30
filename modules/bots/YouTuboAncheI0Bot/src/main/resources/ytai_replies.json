@@ -4,6 +4,40 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "versamento"
+          },
+          {
+            "StringTextTriggerValue" : "∞"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "t(è|he|é) infinito",
+              "regexLength" : 11
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "ytai_TheInfinitoLoopGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "150"
           },
           {
@@ -8656,6 +8690,18 @@
           },
           {
             "GifFile" : {
+              "filepath" : "ytai_StoriaChampignonGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_StoriaChampignon.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
               "filepath" : "ytai_FungoChampignonRovinatoStomacoGif.mp4",
               "replyToMessage" : false
             }
@@ -8691,6 +8737,18 @@
           {
             "VideoFile" : {
               "filepath" : "ytai_StoriaChampignon.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "ytai_StoriaChampignonGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_StoriaChampignon.mp3",
               "replyToMessage" : false
             }
           },
@@ -8991,6 +9049,12 @@
           {
             "VideoFile" : {
               "filepath" : "ytai_StoriaChampignon.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "ytai_StoriaChampignonGif.mp4",
               "replyToMessage" : false
             }
           },
