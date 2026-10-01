@@ -7680,7 +7680,10 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "colore"
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bcolore\\b",
+              "regexLength" : 6
+            }
           }
         ]
       }
@@ -7691,24 +7694,6 @@
           {
             "GifFile" : {
               "filepath" : "ytai_ColoreMeravigliosoGif.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "Mp3File" : {
-              "filepath" : "ytai_VeritaPegnoPeperoncino.mp3",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "GifFile" : {
-              "filepath" : "ytai_VeritaPegnoPeperoncinoGif.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "VideoFile" : {
-              "filepath" : "ytai_VeritaPegnoPeperoncino.mp4",
               "replyToMessage" : false
             }
           }

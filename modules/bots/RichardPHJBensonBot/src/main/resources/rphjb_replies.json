@@ -4,6 +4,49 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "da solo fai schifo"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(con il|col) gruppo [vf]ai bene",
+              "regexLength" : 19
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_VergognatiMatosFalasci.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_VergognatiMatosFalasci.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_VergognatiMatosFalasciGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "molti non sanno"
           },
           {
@@ -5243,6 +5286,9 @@
           },
           {
             "StringTextTriggerValue" : "vi chiamate?"
+          },
+          {
+            "StringTextTriggerValue" : "batterista degli ignoranza"
           }
         ]
       }
@@ -5411,7 +5457,7 @@
             "StringTextTriggerValue" : "non stanno bene"
           },
           {
-            "StringTextTriggerValue" : "amici purtroppo che"
+            "StringTextTriggerValue" : "amici purtroppo"
           },
           {
             "StringTextTriggerValue" : "nella mia testa"
@@ -5424,6 +5470,9 @@
           },
           {
             "StringTextTriggerValue" : "non ci riescono"
+          },
+          {
+            "StringTextTriggerValue" : "degli altri amici"
           }
         ]
       }
@@ -45653,10 +45702,10 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "edu falasci"
-          },
-          {
-            "StringTextTriggerValue" : "edoardo falaschi"
+            "RegexTextTriggerValue" : {
+              "trigger" : "(edoardo|edu) falasc[h]?i",
+              "regexLength" : 11
+            }
           }
         ]
       }
