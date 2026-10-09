@@ -124,12 +124,12 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
         mime_type = "video/mp4"
       ),
       DBMediaData(
-        media_name = "rphjb_9MesiUscireRientrare.mp3",
+        media_name = "rphjb_AStronzo.mp3",
         bot_id = testMediaId.value,
         kinds = """"[]"""",
-        media_sources = """"[\"https://mega.nz/file/6HpUxC5a#2_tLJMV6r4PiUVrr1TX_Au-lt17w0LTlaHNnwBF8vKg\"]"""",
+        media_sources = """"[\"https://mega.nz/file/mOxRRILQ#QktG_e6lmbW-kywBqDkLOSKkHQludHzni9ssPNgmw34\"]"""",
         media_count = 0,
-        created_at = "1681990713607",
+        created_at = "1791560348",
         mime_type = "audio/mpeg"
       )
     )
