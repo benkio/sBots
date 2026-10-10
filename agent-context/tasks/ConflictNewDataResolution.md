@@ -23,6 +23,7 @@ Treat an item as a conflict candidate when one or more of these are true:
 
 - the newly added media is the same semantic content as an existing one (replacement quality/version),
 - the new media complements an existing base item (`mp3`, `.mp4`, `Gif.mp4` trio),
+- two files share the same `<botid>_<filename>` base (for example `rphjb_Foo.mp4` and `rphjb_Foo.mp3`), even if `<bot_id>_list.json` does not contain duplicate rows,
 - a new `new data` placeholder points to media that should belong to an existing trigger/reply bundle.
 
 If uncertain whether it is a replacement or truly new content, stop and ask for clarification.
