@@ -5070,7 +5070,10 @@
             "StringTextTriggerValue" : "rocchettaro"
           },
           {
-            "StringTextTriggerValue" : "io lo butto"
+            "RegexTextTriggerValue" : {
+              "trigger" : "io( \\w+)? lo butto",
+              "regexLength" : 18
+            }
           },
           {
             "StringTextTriggerValue" : "sto coso"
@@ -11058,9 +11061,6 @@
               "trigger" : "siamo (tutti )?froci",
               "regexLength" : 11
             }
-          },
-          {
-            "StringTextTriggerValue" : "che bello"
           }
         ]
       }
