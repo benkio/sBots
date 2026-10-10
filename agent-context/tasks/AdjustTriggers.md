@@ -54,7 +54,8 @@ If the issue is "should not trigger", ignore.
 
 After edits, run:
 
-- `sbt "fix; test"`
+- `sbt "fix"` (**mandatory** for every trigger adjustment)
+- `sbt "test"` (or at minimum the affected bot suite when runtime is too long)
 
 If runtime is too long, run at least the affected bot test suite first, then full test when requested.
 
