@@ -29,6 +29,11 @@ If any of these are unclear, pause and ask before editing.
 
 - Update only the necessary trigger/matcher logic to satisfy the expected behavior.
 - Prefer the smallest safe change to avoid regressions on unrelated inputs.
+- When the new case is a close variant of an existing trigger, prefer extending the
+  existing trigger definition (for example with a scoped regex) instead of adding
+  many near-duplicate strings.
+- Any extension must preserve previous behavior: inputs that matched before must
+  still match after the change, and unrelated inputs must not start matching.
 
 ### 3) Update regression input tests (when needed)
 
@@ -36,7 +41,12 @@ If the issue is "should trigger but currently does not trigger":
 
 - add/update a line in that bot `src/test/resources/inputTest.txt` with format:
   `input message -> filename1, filename2`
+- `inputTest.txt` uses **one input per line** only; multiline messages must be
+  flattened into a single representative line.
+- Keep the input as close as possible to the original reported message. You may
+  redact personal names/handles, but preserve wording and structure when feasible.
 - include only the expected media filenames for that input.
+- This update is mandatory for wanted-trigger cases ("should trigger").
 
 If the issue is "should not trigger", ignore.
 
