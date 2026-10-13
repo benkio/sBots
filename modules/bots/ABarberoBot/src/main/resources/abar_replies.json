@@ -4,6 +4,89 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "stessa cosa"
+          },
+          {
+            "StringTextTriggerValue" : "san francesco"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "abar_FrancescoMussoliniGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "abar_FrancescoMussolini.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "abar_FrancescoMussolini.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "mussolini"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "abar_FrancescoMussoliniGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "abar_FrancescoMussolini.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "abar_FrancescoMussolini.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "abar_Mussolini.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "peccato"
           }
         ]
@@ -1986,9 +2069,6 @@
     "trigger" : {
       "TextTrigger" : {
         "triggers" : [
-          {
-            "StringTextTriggerValue" : "mussolini"
-          },
           {
             "StringTextTriggerValue" : "fascismo"
           },

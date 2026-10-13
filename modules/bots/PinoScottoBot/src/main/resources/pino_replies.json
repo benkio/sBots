@@ -4,6 +4,211 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "al posto del"
+          },
+          {
+            "StringTextTriggerValue" : "conciati male"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "pino_MerdaCervelloGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_MerdaCervello.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_MerdaCervello.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "puzzi",
+              "regexLength" : 5
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "pino_PuzziGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_Puzzi.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_Puzzi.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "stai male"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(far|fatti) curare",
+              "regexLength" : 10
+            }
+          },
+          {
+            "StringTextTriggerValue" : "massoneria"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "non c'è (mai )?fine",
+              "regexLength" : 12
+            }
+          },
+          {
+            "StringTextTriggerValue" : "minchia ragazzi"
+          },
+          {
+            "StringTextTriggerValue" : "da record"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "pino_ScemoMassoneriaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_ScemoMassoneria.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_ScemoMassoneria.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "roba da matti"
+          },
+          {
+            "StringTextTriggerValue" : "paragonare"
+          },
+          {
+            "StringTextTriggerValue" : "fai sul serio"
+          },
+          {
+            "StringTextTriggerValue" : "sei un coglione"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "pinguini (tattici|tattici nucleari)?",
+              "regexLength" : 8
+            }
+          },
+          {
+            "StringTextTriggerValue" : "il banco"
+          },
+          {
+            "StringTextTriggerValue" : "banco del mutuo soccorso"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bpfm\\b",
+              "regexLength" : 3
+            }
+          },
+          {
+            "StringTextTriggerValue" : "scomodare i giganti"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "pino_PFMPinguiniGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_PFMPinguini.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_PFMPinguini.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "impanato"
           }
         ]
@@ -59,10 +264,10 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "scemo"
-          },
-          {
-            "StringTextTriggerValue" : "non gli rispondo"
+            "RegexTextTriggerValue" : {
+              "trigger" : "non (gli )?rispondo",
+              "regexLength" : 12
+            }
           }
         ]
       }
@@ -85,6 +290,61 @@
           {
             "Mp3File" : {
               "filepath" : "pino_Scemo.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "scemo"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "pino_Scemo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_ScemoMassoneria.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_ScemoMassoneriaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_Scemo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_ScemoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_ScemoMassoneria.mp3",
               "replyToMessage" : false
             }
           }
@@ -632,9 +892,6 @@
             "StringTextTriggerValue" : "programmi di merda"
           },
           {
-            "StringTextTriggerValue" : "porca puttana"
-          },
-          {
             "StringTextTriggerValue" : "maremma maiala"
           },
           {
@@ -673,6 +930,61 @@
           {
             "Mp3File" : {
               "filepath" : "pino_DignitaPorcaPuttana.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "porca puttana"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "pino_DignitaPorcaPuttanaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_DignitaPorcaPuttana.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_DignitaPorcaPuttana.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_MerdaCervelloGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_MerdaCervello.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_MerdaCervello.mp3",
               "replyToMessage" : false
             }
           }
@@ -5856,9 +6168,6 @@
             "StringTextTriggerValue" : "il premio"
           },
           {
-            "StringTextTriggerValue" : "demenza"
-          },
-          {
             "StringTextTriggerValue" : "interessi delle banche"
           },
           {
@@ -5879,6 +6188,61 @@
     "reply" : {
       "MediaReply" : {
         "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "pino_AcidiPremioDemenzaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_AcidiPremioDemenza.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_AcidiPremioDemenza.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "demenza"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "pino_ScemoMassoneria.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_ScemoMassoneria.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_ScemoMassoneriaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
           {
             "GifFile" : {
               "filepath" : "pino_AcidiPremioDemenzaGif.mp4",
@@ -6012,9 +6376,6 @@
             "StringTextTriggerValue" : "col cuore in mano"
           },
           {
-            "StringTextTriggerValue" : "fatevi curare"
-          },
-          {
             "StringTextTriggerValue" : "augurato"
           },
           {
@@ -6044,6 +6405,61 @@
           {
             "Mp3File" : {
               "filepath" : "pino_InsultiPorchettaFateviCurare.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "fatevi curare"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "pino_InsultiPorchettaFateviCurareGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_InsultiPorchettaFateviCurare.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_InsultiPorchettaFateviCurare.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_MerdaCervelloGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_MerdaCervello.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_MerdaCervello.mp3",
               "replyToMessage" : false
             }
           }
@@ -6168,14 +6584,32 @@
             }
           },
           {
-            "VideoFile" : {
-              "filepath" : "pino_InsultiPorchettaSoldiFabbrica.mp4",
+            "Mp3File" : {
+              "filepath" : "pino_Puzzi.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_PuzziGif.mp4",
               "replyToMessage" : false
             }
           },
           {
             "Mp3File" : {
               "filepath" : "pino_InsultiPorchettaSoldiFabbrica.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_Puzzi.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_InsultiPorchettaSoldiFabbrica.mp4",
               "replyToMessage" : false
             }
           }
@@ -10190,6 +10624,9 @@
           },
           {
             "StringTextTriggerValue" : "a fare in culo"
+          },
+          {
+            "StringTextTriggerValue" : "🖕"
           }
         ]
       }
@@ -10206,6 +10643,12 @@
           {
             "Mp3File" : {
               "filepath" : "pino_MaVafanguloVaJack.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_PFMPinguini.mp3",
               "replyToMessage" : false
             }
           },
@@ -10242,6 +10685,12 @@
           {
             "VideoFile" : {
               "filepath" : "pino_Vafangulo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_PFMPinguini.mp4",
               "replyToMessage" : false
             }
           },
@@ -10380,6 +10829,12 @@
           {
             "Mp3File" : {
               "filepath" : "pino_Vafangulo.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_PFMPinguiniGif.mp4",
               "replyToMessage" : false
             }
           },
