@@ -12,7 +12,7 @@ import {
   id3TagService,
 } from '../src/Id3NodeService';
 
-void test('getFiles maps filesystem entries with mocked FileSystem', async () => {
+void test('getFilePaths maps filesystem entries with mocked FileSystem', async () => {
   const mockFileSystemLayer = FileSystem.layerNoop({
     readDirectory: (directoryPath) =>
       Effect.succeed(
@@ -25,12 +25,12 @@ void test('getFiles maps filesystem entries with mocked FileSystem', async () =>
     Layer.provide(NodePath.layer)
   );
 
-  const getFiles = Effect.gen(function* () {
+  const getFilePaths = Effect.gen(function* () {
     const fileService = yield* FileService;
-    return yield* fileService.getFiles('/resource');
+    return yield* fileService.getFilePaths('/resource');
   }).pipe(Effect.provide(mockedFileServiceLayer));
 
-  const files = await Effect.runPromise(getFiles);
+  const files = await Effect.runPromise(getFilePaths);
   assert.deepStrictEqual(files, ['/resource/song.mp3', '/resource/meta.txt']);
 });
 

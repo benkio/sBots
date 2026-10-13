@@ -1,6 +1,4 @@
-import * as fs from 'node:fs';
-import * as path from 'node:path';
-import { Effect } from 'effect';
+import { ByteSize, Effect, type FileSystem, type PlatformError } from 'effect';
 import type { Bot } from './Config';
 import type { MediaList, MediaListItem } from './MediaListSchema';
 
@@ -16,143 +14,207 @@ interface MediaInfoServiceLike {
   checkAudioVideoTrackExists(filePath: string): Effect.Effect<boolean, never>;
 }
 
+interface FileServiceLike {
+  stat: (
+    path: string
+  ) => Effect.Effect<FileSystem.File.Info, PlatformError.PlatformError>;
+  extname: (path: string) => string;
+  basename: (path: string) => string;
+}
+
 interface Matches {
-  check: (f: string) => boolean;
+  check: (f: string) => Effect.Effect<boolean>;
   logic: (f: string) => Effect.Effect<void, unknown>;
 }
 
-const isMediaListItem = (mediaList: MediaList, filePath: string): boolean =>
+const sizeThresholdMB = 10;
+
+const isMediaListItem = (
+  mediaList: MediaList,
+  filePath: string,
+  fileService: FileServiceLike
+): boolean =>
   mediaList.some(
     (mediaListItem: MediaListItem) =>
-      path.basename(filePath) === mediaListItem.filename
+      fileService.basename(filePath) === mediaListItem.filename
   );
 
 const containinedInMediaListLogic =
-  (_bot: Bot, mediaList: MediaList) =>
+  (_bot: Bot, mediaList: MediaList, fileService: FileServiceLike) =>
   (f: string): Effect.Effect<void, never> =>
-    isMediaListItem(mediaList, f)
+    isMediaListItem(mediaList, f, fileService)
       ? Effect.void
       : Effect.logError(
-          `[filesCheck] 🚫 ${path.basename(f)} is not contained in the bot media list`
+          `[filesCheck] 🚫 ${fileService.basename(f)} is not contained in the bot media list`
         );
 
+const isLessThenMB = (
+  f: string,
+  sizeThresholdMB: number,
+  fileService: FileServiceLike
+): Effect.Effect<boolean, PlatformError.PlatformError> =>
+  fileService
+    .stat(f)
+    .pipe(
+      Effect.map((stat) => stat.size < ByteSize.megabytes(sizeThresholdMB))
+    );
+
 const mp3Logic =
-  (bot: Bot, mediaList: MediaList, id3TagService: Id3TagServiceLike) =>
+  (
+    bot: Bot,
+    mediaList: MediaList,
+    id3TagService: Id3TagServiceLike,
+    fileService: FileServiceLike
+  ) =>
   (f: string) =>
     Effect.gen(function* () {
-      const guard = containinedInMediaListLogic(bot, mediaList);
+      const guard = containinedInMediaListLogic(bot, mediaList, fileService);
       yield* guard(f);
       yield* id3TagService.fixMp3ArtistId3Tag(f, bot.artist);
-      yield* Effect.logInfo(`[filesCheck] ✓ ${path.basename(f)}`);
+      yield* Effect.logInfo(`[filesCheck] ✓ ${fileService.basename(f)}`);
     });
 
 const gifLogic =
-  (bot: Bot, mediaList: MediaList, mediaInfoService: MediaInfoServiceLike) =>
+  (
+    bot: Bot,
+    mediaList: MediaList,
+    mediaInfoService: MediaInfoServiceLike,
+    fileService: FileServiceLike
+  ) =>
   (f: string) =>
     Effect.gen(function* () {
-      const guard = containinedInMediaListLogic(bot, mediaList);
+      const guard = containinedInMediaListLogic(bot, mediaList, fileService);
       yield* guard(f);
       const hasAudioTrack = yield* mediaInfoService.checkAudioTrackMissing(f);
 
       yield* hasAudioTrack
         ? Effect.logError(
-            `[filesCheck] 🚫  ${path.basename(f)} contains audio track`
+            `[filesCheck] 🚫  ${fileService.basename(f)} contains audio track`
           )
-        : Effect.logInfo(`[filesCheck] ✓ ${path.basename(f)}`);
+        : Effect.void;
+
+      const sizeCheck = yield* isLessThenMB(f, sizeThresholdMB, fileService);
+      yield* sizeCheck
+        ? Effect.logInfo(`[filesCheck] ✓ ${fileService.basename(f)}`)
+        : Effect.logError(
+            `[filesCheck] 🚫  ${fileService.basename(f)} is Bigger than ${sizeThresholdMB}MB`
+          );
     });
 
 const videoLogic =
-  (bot: Bot, mediaList: MediaList, mediaInfoService: MediaInfoServiceLike) =>
+  (
+    bot: Bot,
+    mediaList: MediaList,
+    mediaInfoService: MediaInfoServiceLike,
+    fileService: FileServiceLike
+  ) =>
   (f: string) =>
     Effect.gen(function* () {
-      const guard = containinedInMediaListLogic(bot, mediaList);
+      const guard = containinedInMediaListLogic(bot, mediaList, fileService);
       yield* guard(f);
       const hasBothAudioAndVideo =
         yield* mediaInfoService.checkAudioVideoTrackExists(f);
 
       yield* !hasBothAudioAndVideo
         ? Effect.logError(
-            `[filesCheck] 🚫  ${path.basename(f)} doesn't contain both audio and video tracks`
+            `[filesCheck] 🚫  ${fileService.basename(f)} doesn't contain both audio and video tracks`
           )
-        : Effect.logInfo(`[filesCheck] ✓ ${path.basename(f)}`);
+        : Effect.void;
+
+      const sizeCheck = yield* isLessThenMB(f, sizeThresholdMB, fileService);
+      yield* sizeCheck
+        ? Effect.logInfo(`[filesCheck] ✓ ${fileService.basename(f)}`)
+        : Effect.logError(
+            `[filesCheck] 🚫  ${fileService.basename(f)} is Bigger than ${sizeThresholdMB}MB`
+          );
     });
 
 export const buildFileLogic = (
   bot: Bot,
   id3TagService: Id3TagServiceLike,
   mediaInfoService: MediaInfoServiceLike,
+  fileService: FileServiceLike,
   mediaList: MediaList
 ): Matches[] => [
   {
-    check: (f: string) => path.basename(f).length > 64,
+    check: (f: string) => Effect.succeed(fileService.basename(f).length > 64),
     logic: (f: string) =>
       Effect.logError(
-        `[filesCheck] 🚫 ${path.basename(f)} is too long (max 64): ${path.basename(f).length}`
+        `[filesCheck] 🚫 ${fileService.basename(f)} is too long (max 64): ${fileService.basename(f).length}`
       ),
   },
   {
     check: (f: string) => {
       const mp3Regex = new RegExp(`^${bot.id}_[A-Za-z0-9]+.mp3$`);
-      return mp3Regex.test(path.basename(f));
+      return Effect.succeed(mp3Regex.test(fileService.basename(f)));
     },
-    logic: mp3Logic(bot, mediaList, id3TagService),
+    logic: mp3Logic(bot, mediaList, id3TagService, fileService),
   },
   {
     check: (f: string) => {
       const gifRegex = new RegExp(`^${bot.id}_[A-Za-z0-9]+Gif.mp4$`);
-      return gifRegex.test(path.basename(f));
+      return Effect.succeed(gifRegex.test(fileService.basename(f)));
     },
-    logic: gifLogic(bot, mediaList, mediaInfoService),
+    logic: gifLogic(bot, mediaList, mediaInfoService, fileService),
   },
   {
     check: (f: string) => {
       const videoRegex = new RegExp(`^${bot.id}_[A-Za-z0-9]+.mp4$`);
-      return videoRegex.test(path.basename(f));
+      return Effect.succeed(videoRegex.test(fileService.basename(f)));
     },
-    logic: videoLogic(bot, mediaList, mediaInfoService),
+    logic: videoLogic(bot, mediaList, mediaInfoService, fileService),
   },
   {
-    check: (f: string) => path.extname(f) === '.gif',
+    check: (f: string) => Effect.succeed(fileService.extname(f) === '.gif'),
     logic: (f: string) =>
       Effect.logError(
-        `[filesCheck] 🚫  ${path.basename(f)} Gif is not supported`
+        `[filesCheck] 🚫  ${fileService.basename(f)} Gif is not supported`
       ),
   },
   {
-    check: (f: string) => {
-      const stats = fs.statSync(f);
-      const generalFilename = new RegExp(
-        `^${bot.id}_[A-Za-z0-9]+.[A-Za-z0-9]+$`
-      );
-      return (
-        stats.isFile() &&
-        ['.token', '.jpg'].find((ext) => path.extname(f) === ext) ===
-          undefined &&
-        !generalFilename.test(path.basename(f))
-      );
-    },
+    check: (f: string) =>
+      fileService.stat(f).pipe(
+        Effect.map((stat) => {
+          const generalFilename = new RegExp(
+            `^${bot.id}_[A-Za-z0-9]+.[A-Za-z0-9]+$`
+          );
+          return (
+            stat.type === 'File' &&
+            ['.token', '.jpg'].find((ext) => fileService.extname(f) === ext) ===
+              undefined &&
+            !generalFilename.test(fileService.basename(f))
+          );
+        }),
+        Effect.catch(() => Effect.succeed(false))
+      ),
     logic: (f: string) =>
       Effect.logError(
-        `[filesCheck] 🚫 ${path.basename(f)} file doesn't comply to expected filename or not supported`
+        `[filesCheck] 🚫 ${fileService.basename(f)} file doesn't comply to expected filename or not supported`
       ),
   },
   {
-    check: (f: string) => {
-      const stats = fs.statSync(f);
-      return stats.isDirectory() || path.basename(f) === 'application.conf';
-    },
+    check: (f: string) =>
+      fileService.stat(f).pipe(
+        Effect.map(
+          (stat) =>
+            stat.type === 'Directory' ||
+            fileService.basename(f) === 'application.conf'
+        ),
+        Effect.catch(() => Effect.succeed(false))
+      ),
     logic: (f: string) =>
-      Effect.logWarning(`[filesCheck] ⚠️ Ignore ${path.basename(f)}`),
+      Effect.logWarning(`[filesCheck] ⚠️ Ignore ${fileService.basename(f)}`),
   },
 ];
 
 export const unprocessedLogic = (
-  bot: Bot
+  bot: Bot,
+  fileService: FileServiceLike
 ): {
   logic: (file: string) => Effect.Effect<void, unknown>;
 } => ({
   logic: (file: string) =>
     Effect.logWarning(
-      `[filesCheck] ⚠️  Not Processed ${path.basename(file)} for ${bot.artist}`
+      `[filesCheck] ⚠️  Not Processed ${fileService.basename(file)} for ${bot.artist}`
     ),
 });

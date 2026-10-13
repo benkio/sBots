@@ -7,7 +7,7 @@ import { Effect, FileSystem, Layer } from 'effect';
 import { NodePath } from '@effect/platform-node';
 import { FileService, fileService } from '../src/FileService';
 
-void test('getFiles joins directory path and entry names', async () => {
+void test('getFilePaths joins directory path and entry names', async () => {
   const mockFileSystemLayer = FileSystem.layerNoop({
     readDirectory: (directoryPath) =>
       Effect.succeed(
@@ -22,12 +22,12 @@ void test('getFiles joins directory path and entry names', async () => {
     Layer.provide(NodePath.layer)
   );
 
-  const getFiles = Effect.gen(function* () {
+  const getFilePaths = Effect.gen(function* () {
     const service = yield* FileService;
-    return yield* service.getFiles('/tmp/resource');
+    return yield* service.getFilePaths('/tmp/resource');
   }).pipe(Effect.provide(mockedFileServiceLayer));
 
-  const files = await Effect.runPromise(getFiles);
+  const files = await Effect.runPromise(getFilePaths);
   assert.deepStrictEqual(files, [
     path.join('/tmp/resource', 'song.mp3'),
     path.join('/tmp/resource', 'meta.txt'),

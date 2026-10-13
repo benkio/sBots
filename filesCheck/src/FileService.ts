@@ -19,7 +19,7 @@ export class FileServiceError extends Data.TaggedError('FileServiceError')<{
 export class FileService extends Context.Service<
   FileService,
   {
-    getFiles: (
+    getFilePaths: (
       directoryPath: string
     ) => Effect.Effect<string[], PlatformError.PlatformError>;
     getFile: (
@@ -29,6 +29,11 @@ export class FileService extends Context.Service<
     buildFromProjectDirectory: (
       relPath: string
     ) => Effect.Effect<string, FileServiceError>;
+    stat: (
+      targetPath: string
+    ) => Effect.Effect<FileSystem.File.Info, PlatformError.PlatformError>;
+    extname: (inputPath: string) => string;
+    basename: (inputPath: string) => string;
   }
 >()('FileService') {}
 
@@ -37,7 +42,7 @@ export const fileService = Effect.gen(function* () {
   const path = yield* Path.Path;
 
   return {
-    getFiles: (directoryPath: string) =>
+    getFilePaths: (directoryPath: string) =>
       fileSystem
         .readDirectory(directoryPath)
         .pipe(
@@ -73,6 +78,9 @@ export const fileService = Effect.gen(function* () {
           }
         })
       ),
+    stat: (targetPath: string) => fileSystem.stat(targetPath),
+    extname: (inputPath: string) => path.extname(inputPath),
+    basename: (inputPath: string) => path.basename(inputPath),
   };
 });
 
