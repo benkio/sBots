@@ -1,10 +1,13 @@
-import { Effect, Logger } from 'effect';
+import { Effect, Logger, References, Layer } from 'effect';
 import { bots } from './Config';
 import { FileService, fileServiceLayer } from './FileService';
 import { Id3TagService, Id3TagServiceLayer } from './Id3NodeService';
 import { MediaInfoService, mediaInfoServiceLayer } from './MediaInfoService';
 import { buildFileLogic, unprocessedLogic } from './Logic';
 import { decodeMediaListFromJson } from './MediaListSchema';
+
+// Raise the minimum level to "Warn" to skip debug/info logs.
+export const WarnAndAbove = Layer.succeed(References.MinimumLogLevel, 'Warn');
 
 const program = Effect.gen(function* () {
   const fileService = yield* FileService;
@@ -47,7 +50,11 @@ void Effect.runPromise(
     Effect.provide(fileServiceLayer),
     Effect.provide(Id3TagServiceLayer),
     Effect.provide(mediaInfoServiceLayer),
-    Effect.provide(Logger.layer([Logger.consoleLogFmt])),
+    Effect.provide(
+      Logger.layer([Logger.consoleLogFmt]).pipe(
+        Layer.provideMerge(WarnAndAbove) // Start with "Warn" level for the app logger.
+      )
+    ),
     Effect.catch((err) =>
       Effect.logError(`[filesCheck] 🚫 Error occurred: ${String(err)}`)
     )
