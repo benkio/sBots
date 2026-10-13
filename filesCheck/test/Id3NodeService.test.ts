@@ -2,9 +2,8 @@ import * as assert from 'node:assert';
 import * as os from 'node:os';
 import { test } from 'node:test';
 import * as path from 'node:path';
-import { Effect, Layer } from 'effect';
+import { Effect, FileSystem, Layer } from 'effect';
 import * as NodeID3 from 'node-id3';
-import { FileSystem } from '@effect/platform';
 import { NodePath } from '@effect/platform-node';
 import { FileService, fileService } from '../src/FileService';
 import {

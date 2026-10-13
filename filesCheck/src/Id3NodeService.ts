@@ -6,7 +6,7 @@ class Id3NodeError extends Data.TaggedError('Id3NodeError')<{
   readonly message: string;
 }> {}
 
-export class Id3NodeService extends Context.Tag('Id3NodeService')<
+export class Id3NodeService extends Context.Service<
   Id3NodeService,
   {
     read: (file: string) => Effect.Effect<NodeID3.Tags, Id3NodeError>;
@@ -15,7 +15,7 @@ export class Id3NodeService extends Context.Tag('Id3NodeService')<
       file: string
     ) => Effect.Effect<void, Id3NodeError>;
   }
->() {}
+>()('Id3NodeService') {}
 
 export const Id3NodeServiceLayer = Layer.succeed(Id3NodeService, {
   read: (file) =>
@@ -52,7 +52,7 @@ export const Id3NodeServiceLayer = Layer.succeed(Id3NodeService, {
     ),
 });
 
-export class Id3TagService extends Context.Tag('Id3TagService')<
+export class Id3TagService extends Context.Service<
   Id3TagService,
   {
     checkArtist: (
@@ -69,7 +69,7 @@ export class Id3TagService extends Context.Tag('Id3TagService')<
       initialArtist: string
     ) => Effect.Effect<void, Id3NodeError>;
   }
->() {}
+>()('Id3TagService') {}
 
 export const id3TagService = Effect.gen(function* () {
   const id3NodeService = yield* Id3NodeService;
@@ -94,7 +94,7 @@ export const id3TagService = Effect.gen(function* () {
             yield* id3NodeService
               .write({ artist: initialArtist }, file)
               .pipe(
-                Effect.catchAll((error) =>
+                Effect.catch((error) =>
                   Effect.logError(
                     `[id3TagService] Tag not updated: operation failed: file ${path.basename(file)} - error: ${String(error)}`
                   )
@@ -126,10 +126,10 @@ export const id3TagService = Effect.gen(function* () {
         const tags = yield* id3NodeService.read(file);
         yield* checkArtistFun(
           initialArtist,
-          Option.fromNullable(tags.artist),
+          Option.fromNullishOr(tags.artist),
           file
         );
-        yield* checkTitleFun(file, Option.fromNullable(tags.title));
+        yield* checkTitleFun(file, Option.fromNullishOr(tags.title));
         yield* Effect.logTrace(`[id3TagService] ✓ ${path.basename(file)}`);
       }),
   };

@@ -21,35 +21,31 @@
   },
   "homepage": "https://github.com/benkio/sBots#readme",
   "dependencies": {
-    "@effect/platform": "^0.96.0",
-    "@effect/platform-node": "^0.106.0",
-    "effect": "^3.21.0",
-    "gts": "^6.0.2",
+    "@effect/platform-node": "^4.0.4",
+    "effect": "^4.0.4",
     "mediainfo-parser": "^1.1.5",
     "node-id3": "^0.2.9",
-    "read-package-up": "^11.0.0",
-    "tsx": "^4.22.4"
+    "read-package-up": "^12.0.0",
+    "tsx": "^4.23.15"
   },
   "devDependencies": {
-    "@types/node": "^22.7.5",
-    "@types/ws": "^8.18.1",
-    "gts": "^6.0.2",
-    "prettier": "3.6.2",
-    "typescript": "^5.6.3"
+    "@eslint/js": "^9.39.5",
+    "@types/node": "^26.6.5",
+    "@types/ws": "^8.18.2",
+    "eslint": "^9.39.5",
+    "prettier": "3.9.10",
+    "typescript": "^6.0.2",
+    "typescript-eslint": "^8.71.2"
   },
   "scripts": {
-    "lint": "gts lint",
-    "check": "prettier . --check",
-    "clean": "gts clean",
-    "compile": "tsc",
-    "fix": "gts fix",
+    "lint": "eslint .",
+    "check": "prettier . --check && eslint .",
+    "compile": "tsc6",
+    "fix": "eslint . --fix",
     "format": "prettier . --write",
-    "prepare": "npm run compile",
     "test": "node --test --import tsx test/*.ts",
-    "pretest": "npm run compile",
-    "posttest": "npm run lint",
     "start": "tsx ./src/index.ts",
     "validate": "npm run compile && npm run format && npm run fix && npm run lint",
-    "watch": "tsc -w"
+    "watch": "tsc6 -w"
   }
 }

@@ -1,14 +1,14 @@
 declare module 'mediainfo-parser' {
-  export type MediaTrack = {
+  export interface MediaTrack {
     readonly type?: string;
     readonly _type?: string;
-  };
+  }
 
-  export type MediaInfo = {
+  export interface MediaInfo {
     media: {
-      track: Array<MediaTrack>;
+      track: MediaTrack[];
     };
-  };
+  }
 
   export type ExecCallback = (err: unknown, result?: MediaInfo) => void;
 

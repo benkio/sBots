@@ -3,8 +3,7 @@ import * as fs from 'node:fs';
 import * as os from 'node:os';
 import * as path from 'node:path';
 import { test } from 'node:test';
-import { Effect, Layer } from 'effect';
-import { FileSystem } from '@effect/platform';
+import { Effect, FileSystem, Layer } from 'effect';
 import { NodePath } from '@effect/platform-node';
 import { FileService, fileService } from '../src/FileService';
 
