@@ -4,6 +4,165 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "RegexTextTriggerValue" : {
+              "trigger" : "risparmi(ate)? una spesa",
+              "regexLength" : 21
+            }
+          },
+          {
+            "StringTextTriggerValue" : "non potrei affrontare"
+          },
+          {
+            "StringTextTriggerValue" : "altre in corso"
+          },
+          {
+            "StringTextTriggerValue" : "ordine delle cose"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "ytai_MiRisparmiateUnaSpesaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_MiRisparmiateUnaSpesa.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_MiRisparmiateUnaSpesa.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "non sono in difficoltà"
+          },
+          {
+            "StringTextTriggerValue" : "proprio per niente"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "avrò (ancora )?fame",
+              "regexLength" : 9
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "ytai_NonSonoInDifficoltaAncoraFameGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_NonSonoInDifficoltaAncoraFame.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_NonSonoInDifficoltaAncoraFame.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(computer|laptop) nuovo",
+              "regexLength" : 14
+            }
+          },
+          {
+            "StringTextTriggerValue" : "omaggiarmi"
+          },
+          {
+            "StringTextTriggerValue" : "la pubblicità"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "ne avrei (veramente )?bisogno",
+              "regexLength" : 16
+            }
+          },
+          {
+            "StringTextTriggerValue" : "⌨️"
+          },
+          {
+            "StringTextTriggerValue" : "💻"
+          },
+          {
+            "StringTextTriggerValue" : "👨‍💻"
+          },
+          {
+            "StringTextTriggerValue" : "🖥"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "ytai_ComputerNuovoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "ytai_ComputerNuovo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "ytai_ComputerNuovo.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "versamento"
           },
           {
