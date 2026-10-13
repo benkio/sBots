@@ -1,10 +1,22 @@
 {
-  "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
-    "rootDir": ".",
-    "outDir": "build",
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "composite": true,
+    "forceConsistentCasingInFileNames": true,
     "lib": ["ES2022", "DOM"],
-    "strict": true
+    "module": "commonjs",
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "pretty": true,
+    "sourceMap": true,
+    "stripInternal": true,
+    "strict": true,
+    "target": "ES2022",
+    "rootDir": ".",
+    "outDir": "build"
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "test/**/*.ts"]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "test/**/*.ts"],
+  "exclude": ["node_modules"]
 }

@@ -1,16 +1,16 @@
 import { exec as mediainfoExec } from 'mediainfo-parser';
 import { Context, Data, Effect, Layer } from 'effect';
 
-type MediaTrack = {
+interface MediaTrack {
   readonly type?: string;
   readonly _type?: string;
-};
+}
 
-export type MediaInfo = {
+export interface MediaInfo {
   media: {
-    track: ReadonlyArray<MediaTrack>;
+    track: readonly MediaTrack[];
   };
-};
+}
 
 class MediaInfoParserError extends Data.TaggedError('MediaInfoError')<{
   readonly message: string;

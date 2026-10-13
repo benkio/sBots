@@ -4,22 +4,22 @@ import { Effect } from 'effect';
 import type { Bot } from './Config';
 import type { MediaList, MediaListItem } from './MediaListSchema';
 
-type Id3TagServiceLike = {
+interface Id3TagServiceLike {
   fixMp3ArtistId3Tag: (
     file: string,
     initialArtist: string
   ) => Effect.Effect<void, unknown>;
-};
+}
 
-type MediaInfoServiceLike = {
+interface MediaInfoServiceLike {
   checkAudioTrackMissing(filePath: string): Effect.Effect<boolean, never>;
   checkAudioVideoTrackExists(filePath: string): Effect.Effect<boolean, never>;
-};
+}
 
-type Matches = {
+interface Matches {
   check: (f: string) => boolean;
   logic: (f: string) => Effect.Effect<void, unknown>;
-};
+}
 
 const isMediaListItem = (mediaList: MediaList, filePath: string): boolean =>
   mediaList.some(

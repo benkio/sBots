@@ -15,8 +15,7 @@ jobs:
       run: |
         cd filesCheck/
         npm install # Compile included here
-        npm run clean
-        npm run validate
+        npm run check # Formatting and Compiling
     - name: Run TypeScript tests
       run: |
         cd filesCheck/

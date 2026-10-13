@@ -2,12 +2,12 @@ import { Schema } from 'effect';
 
 export interface MediaListItem {
   filename: string;
-  kinds?: ReadonlyArray<string>;
+  kinds?: readonly string[];
   mime?: string;
-  sources: ReadonlyArray<string>;
+  sources: readonly string[];
 }
 
-export type MediaList = ReadonlyArray<MediaListItem>;
+export type MediaList = readonly MediaListItem[];
 
 export const mediaListItemSchema = Schema.Struct({
   filename: Schema.String,

@@ -1,9 +1,9 @@
-export type Bot = {
+export interface Bot {
   id: string;
   artist: string;
   filePath: string;
   jsonFilePath: string;
-};
+}
 
 export const bots: Bot[] = [
   {
