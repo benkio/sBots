@@ -1,5 +1,4 @@
-import * as JSONSchema from 'effect/JSONSchema';
-import * as Schema from 'effect/Schema';
+import { Schema } from 'effect';
 
 export interface MediaListItem {
   filename: string;
@@ -10,19 +9,18 @@ export interface MediaListItem {
 
 export type MediaList = ReadonlyArray<MediaListItem>;
 
-export const mediaListItemSchema: Schema.Schema<MediaListItem, MediaListItem> =
-  Schema.Struct({
-    filename: Schema.String,
-    kinds: Schema.optional(Schema.Array(Schema.String)),
-    mime: Schema.optional(Schema.String),
-    sources: Schema.Array(Schema.String),
-  });
+export const mediaListItemSchema = Schema.Struct({
+  filename: Schema.String,
+  kinds: Schema.optional(Schema.Array(Schema.String)),
+  mime: Schema.optional(Schema.String),
+  sources: Schema.Array(Schema.String),
+});
 
-export const mediaListSchema: Schema.Schema<MediaList, MediaList> =
-  Schema.Array(mediaListItemSchema);
+export const mediaListSchema = Schema.Array(mediaListItemSchema);
 
-export const mediaListJsonSchema: ReturnType<typeof JSONSchema.make> =
-  JSONSchema.make(mediaListSchema);
+export const mediaListJsonSchema: ReturnType<
+  typeof Schema.toJsonSchemaDocument
+> = Schema.toJsonSchemaDocument(mediaListSchema);
 
 export const decodeMediaList: (input: unknown) => MediaList = (input) =>
   Schema.decodeUnknownSync(mediaListSchema)(input);

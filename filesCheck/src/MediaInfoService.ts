@@ -16,21 +16,19 @@ class MediaInfoParserError extends Data.TaggedError('MediaInfoError')<{
   readonly message: string;
 }> {}
 
-export class MediaInfoParserService extends Context.Tag(
-  'MediaInfoParserService'
-)<
+export class MediaInfoParserService extends Context.Service<
   MediaInfoParserService,
   {
     readonly exec: (
       file: string
     ) => Effect.Effect<MediaInfo, MediaInfoParserError>;
   }
->() {}
+>()('MediaInfoParserService') {}
 
 const mediaInfoParserService = Effect.sync(() => {
   return {
     exec: (file: string) =>
-      Effect.async<MediaInfo, MediaInfoParserError>((resume) => {
+      Effect.callback<MediaInfo, MediaInfoParserError>((resume) => {
         mediainfoExec(file, (err: unknown, result: unknown) => {
           if (err) {
             resume(
@@ -55,7 +53,7 @@ export const mediaInfoParserServiceLayer = Layer.effect(
   mediaInfoParserService
 );
 
-export class MediaInfoService extends Context.Tag('MediaInfoService')<
+export class MediaInfoService extends Context.Service<
   MediaInfoService,
   {
     checkAudioTrackMissing: (filePath: string) => Effect.Effect<boolean, never>;
@@ -63,7 +61,7 @@ export class MediaInfoService extends Context.Tag('MediaInfoService')<
       filePath: string
     ) => Effect.Effect<boolean, never>;
   }
->() {}
+>()('MediaInfoService') {}
 
 export const mediaInfoService = Effect.gen(function* () {
   const mediaInfoParserService = yield* MediaInfoParserService;
@@ -75,7 +73,7 @@ export const mediaInfoService = Effect.gen(function* () {
             (tr) => tr.type === 'Audio' || tr._type === 'Audio'
           )
         ),
-        Effect.catchAll((error) =>
+        Effect.catch((error) =>
           Effect.logError(
             `[MediaInfoService] 🚫 ${filePath} checkAudioTrackMissing Error: ${error}`
           ).pipe(Effect.as(false))
@@ -89,7 +87,7 @@ export const mediaInfoService = Effect.gen(function* () {
           );
           return tracks.includes('Audio') && tracks.includes('Video');
         }),
-        Effect.catchAll((error) =>
+        Effect.catch((error) =>
           Effect.logError(
             `[MediaInfoService] 🚫 ${filePath} checkAudioVideoTrackExists Error: ${error}`
           ).pipe(Effect.as(false))

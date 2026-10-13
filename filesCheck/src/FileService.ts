@@ -1,8 +1,14 @@
 import * as os from 'node:os';
 import { Buffer } from 'node:buffer';
-import { Context, Effect, Layer, Data } from 'effect';
-import { FileSystem, Path } from '@effect/platform';
-import { PlatformError } from '@effect/platform/Error';
+import {
+  Context,
+  PlatformError,
+  Effect,
+  Layer,
+  Data,
+  FileSystem,
+  Path,
+} from 'effect';
 import { NodeFileSystem, NodePath } from '@effect/platform-node';
 import { readPackageUp } from 'read-package-up';
 
@@ -10,17 +16,21 @@ export class FileServiceError extends Data.TaggedError('FileServiceError')<{
   readonly message: string;
 }> {}
 
-export class FileService extends Context.Tag('FileService')<
+export class FileService extends Context.Service<
   FileService,
   {
-    getFiles: (directoryPath: string) => Effect.Effect<string[], PlatformError>;
-    getFile: (filePath: string) => Effect.Effect<string, PlatformError>;
+    getFiles: (
+      directoryPath: string
+    ) => Effect.Effect<string[], PlatformError.PlatformError>;
+    getFile: (
+      filePath: string
+    ) => Effect.Effect<string, PlatformError.PlatformError>;
     buildFromHomeDirectory: (botDir: string) => Effect.Effect<string, never>;
     buildFromProjectDirectory: (
       relPath: string
     ) => Effect.Effect<string, FileServiceError>;
   }
->() {}
+>()('FileService') {}
 
 export const fileService = Effect.gen(function* () {
   const fileSystem = yield* FileSystem.FileSystem;

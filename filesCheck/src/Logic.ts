@@ -17,7 +17,7 @@ type MediaInfoServiceLike = {
 };
 
 type Matches = {
-  check: (f: string) => Boolean;
+  check: (f: string) => boolean;
   logic: (f: string) => Effect.Effect<void, unknown>;
 };
 

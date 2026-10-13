@@ -47,8 +47,8 @@ void Effect.runPromise(
     Effect.provide(fileServiceLayer),
     Effect.provide(Id3TagServiceLayer),
     Effect.provide(mediaInfoServiceLayer),
-    Effect.provide(Logger.logFmt),
-    Effect.catchAll((err) =>
+    Effect.provide(Logger.layer([Logger.consoleLogFmt])),
+    Effect.catch((err) =>
       Effect.logError(`[filesCheck] 🚫 Error occurred: ${String(err)}`)
     )
   )
