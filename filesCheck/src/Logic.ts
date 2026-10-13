@@ -1,5 +1,6 @@
-import { ByteSize, Effect, type FileSystem, type PlatformError } from 'effect';
+import { ByteSize, Effect, type PlatformError } from 'effect';
 import type { Bot } from './Config';
+import type { FileService } from './FileService';
 import type { MediaList, MediaListItem } from './MediaListSchema';
 
 interface Id3TagServiceLike {
@@ -14,14 +15,6 @@ interface MediaInfoServiceLike {
   checkAudioVideoTrackExists(filePath: string): Effect.Effect<boolean, never>;
 }
 
-interface FileServiceLike {
-  stat: (
-    path: string
-  ) => Effect.Effect<FileSystem.File.Info, PlatformError.PlatformError>;
-  extname: (path: string) => string;
-  basename: (path: string) => string;
-}
-
 interface Matches {
   check: (f: string) => Effect.Effect<boolean>;
   logic: (f: string) => Effect.Effect<void, unknown>;
@@ -32,7 +25,7 @@ const sizeThresholdMB = 10;
 const isMediaListItem = (
   mediaList: MediaList,
   filePath: string,
-  fileService: FileServiceLike
+  fileService: FileService['Service']
 ): boolean =>
   mediaList.some(
     (mediaListItem: MediaListItem) =>
@@ -40,7 +33,7 @@ const isMediaListItem = (
   );
 
 const containinedInMediaListLogic =
-  (_bot: Bot, mediaList: MediaList, fileService: FileServiceLike) =>
+  (_bot: Bot, mediaList: MediaList, fileService: FileService['Service']) =>
   (f: string): Effect.Effect<void, never> =>
     isMediaListItem(mediaList, f, fileService)
       ? Effect.void
@@ -51,7 +44,7 @@ const containinedInMediaListLogic =
 const isLessThenMB = (
   f: string,
   sizeThresholdMB: number,
-  fileService: FileServiceLike
+  fileService: FileService['Service']
 ): Effect.Effect<boolean, PlatformError.PlatformError> =>
   fileService
     .stat(f)
@@ -64,7 +57,7 @@ const mp3Logic =
     bot: Bot,
     mediaList: MediaList,
     id3TagService: Id3TagServiceLike,
-    fileService: FileServiceLike
+    fileService: FileService['Service']
   ) =>
   (f: string) =>
     Effect.gen(function* () {
@@ -79,7 +72,7 @@ const gifLogic =
     bot: Bot,
     mediaList: MediaList,
     mediaInfoService: MediaInfoServiceLike,
-    fileService: FileServiceLike
+    fileService: FileService['Service']
   ) =>
   (f: string) =>
     Effect.gen(function* () {
@@ -106,7 +99,7 @@ const videoLogic =
     bot: Bot,
     mediaList: MediaList,
     mediaInfoService: MediaInfoServiceLike,
-    fileService: FileServiceLike
+    fileService: FileService['Service']
   ) =>
   (f: string) =>
     Effect.gen(function* () {
@@ -133,7 +126,7 @@ export const buildFileLogic = (
   bot: Bot,
   id3TagService: Id3TagServiceLike,
   mediaInfoService: MediaInfoServiceLike,
-  fileService: FileServiceLike,
+  fileService: FileService['Service'],
   mediaList: MediaList
 ): Matches[] => [
   {
@@ -209,7 +202,7 @@ export const buildFileLogic = (
 
 export const unprocessedLogic = (
   bot: Bot,
-  fileService: FileServiceLike
+  fileService: FileService['Service']
 ): {
   logic: (file: string) => Effect.Effect<void, unknown>;
 } => ({
