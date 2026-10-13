@@ -1,6 +1,6 @@
 import * as NodeID3 from 'node-id3';
-import * as path from 'node:path';
 import { Context, Data, Effect, Layer, Option } from 'effect';
+import { FileService, fileServiceLayer } from './FileService';
 
 class Id3NodeError extends Data.TaggedError('Id3NodeError')<{
   readonly message: string;
@@ -73,6 +73,7 @@ export class Id3TagService extends Context.Service<
 
 export const id3TagService = Effect.gen(function* () {
   const id3NodeService = yield* Id3NodeService;
+  const fileService = yield* FileService;
 
   const checkArtistFun = (
     initialArtist: string,
@@ -84,19 +85,19 @@ export const id3TagService = Effect.gen(function* () {
       {
         onSome: (okArtist) =>
           Effect.logTrace(
-            `[id3TagService] ⚠️ ${path.basename(file)} not updated: ${okArtist}(file) === ${initialArtist}(wanted)`
+            `[id3TagService] ⚠️ ${fileService.basename(file)} not updated: ${okArtist}(file) === ${initialArtist}(wanted)`
           ),
         onNone: () =>
           Effect.gen(function* () {
             yield* Effect.logInfo(
-              `[id3TagService] Update file ${path.basename(file)} with artist ${initialArtist}`
+              `[id3TagService] Update file ${fileService.basename(file)} with artist ${initialArtist}`
             );
             yield* id3NodeService
               .write({ artist: initialArtist }, file)
               .pipe(
                 Effect.catch((error) =>
                   Effect.logError(
-                    `[id3TagService] Tag not updated: operation failed: file ${path.basename(file)} - error: ${String(error)}`
+                    `[id3TagService] Tag not updated: operation failed: file ${fileService.basename(file)} - error: ${String(error)}`
                   )
                 )
               );
@@ -109,7 +110,7 @@ export const id3TagService = Effect.gen(function* () {
       onSome: () => Effect.void,
       onNone: () =>
         Effect.logError(
-          `[id3TagService] 🚫 ${path.basename(file)} doesn't contain a title`
+          `[id3TagService] 🚫 ${fileService.basename(file)} doesn't contain a title`
         ),
     });
 
@@ -130,7 +131,9 @@ export const id3TagService = Effect.gen(function* () {
           file
         );
         yield* checkTitleFun(file, Option.fromNullishOr(tags.title));
-        yield* Effect.logTrace(`[id3TagService] ✓ ${path.basename(file)}`);
+        yield* Effect.logTrace(
+          `[id3TagService] ✓ ${fileService.basename(file)}`
+        );
       }),
   };
 });
@@ -144,7 +147,7 @@ const fixMp3ArtistId3TagEffect = (file: string, initialArtist: string) =>
 export const Id3TagServiceLayer = Layer.effect(
   Id3TagService,
   id3TagService
-).pipe(Layer.provide(Id3NodeServiceLayer));
+).pipe(Layer.provide(Id3NodeServiceLayer), Layer.provide(fileServiceLayer));
 
 export const fixMp3ArtistId3Tag = (file: string, initialArtist: string) =>
   Effect.runPromise(fixMp3ArtistId3TagEffect(file, initialArtist));

@@ -38,7 +38,7 @@ void test('getFilePaths joins directory path and entry names', async () => {
 void test('getFile reads and decodes file contents', async () => {
   const mockFileSystemLayer = FileSystem.layerNoop({
     readDirectory: () => Effect.succeed([]),
-    readFile: () => Effect.succeed(Buffer.from('hello-list')),
+    readFileString: () => Effect.succeed('hello-list'),
   });
 
   const mockedFileServiceLayer = Layer.effect(FileService, fileService).pipe(

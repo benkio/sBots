@@ -5,7 +5,7 @@ import * as path from 'node:path';
 import { Effect, FileSystem, Layer } from 'effect';
 import * as NodeID3 from 'node-id3';
 import { NodePath } from '@effect/platform-node';
-import { FileService, fileService } from '../src/FileService';
+import { FileService, fileService, fileServiceLayer } from '../src/FileService';
 import {
   Id3NodeService,
   Id3TagService,
@@ -66,7 +66,8 @@ void test('fixMp3ArtistId3Tag updates artist when different and keeps title when
   });
 
   const mockTagServiceLayer = Layer.effect(Id3TagService, id3TagService).pipe(
-    Layer.provide(mockId3NodeLayer)
+    Layer.provide(mockId3NodeLayer),
+    Layer.provide(fileServiceLayer)
   );
 
   await Effect.runPromise(
@@ -98,7 +99,8 @@ void test('fixMp3ArtistId3Tag does not call write when artist already matches', 
   });
 
   const mockTagServiceLayer = Layer.effect(Id3TagService, id3TagService).pipe(
-    Layer.provide(mockId3NodeLayer)
+    Layer.provide(mockId3NodeLayer),
+    Layer.provide(fileServiceLayer)
   );
 
   await Effect.runPromise(
@@ -121,7 +123,8 @@ void test('fixMp3ArtistId3Tag works when title is missing', async () => {
   });
 
   const mockTagServiceLayer = Layer.effect(Id3TagService, id3TagService).pipe(
-    Layer.provide(mockId3NodeLayer)
+    Layer.provide(mockId3NodeLayer),
+    Layer.provide(fileServiceLayer)
   );
 
   await Effect.runPromise(

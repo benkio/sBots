@@ -1,6 +1,5 @@
-import * as os from 'node:os';
-import { Buffer } from 'node:buffer';
 import {
+  Config,
   Context,
   PlatformError,
   Effect,
@@ -25,7 +24,9 @@ export class FileService extends Context.Service<
     getFile: (
       filePath: string
     ) => Effect.Effect<string, PlatformError.PlatformError>;
-    buildFromHomeDirectory: (botDir: string) => Effect.Effect<string, never>;
+    buildFromHomeDirectory: (
+      botDir: string
+    ) => Effect.Effect<string, Config.ConfigError>;
     buildFromProjectDirectory: (
       relPath: string
     ) => Effect.Effect<string, FileServiceError>;
@@ -50,18 +51,12 @@ export const fileService = Effect.gen(function* () {
             entries.map((entry) => path.join(directoryPath, entry))
           )
         ),
-    getFile: (filePath: string) =>
-      fileSystem.readFile(filePath).pipe(
-        Effect.map((contents) => {
-          if (typeof contents === 'string') {
-            return contents;
-          }
-
-          return Buffer.from(contents).toString('utf8');
-        })
-      ),
+    getFile: (filePath: string) => fileSystem.readFileString(filePath),
     buildFromHomeDirectory: (botDir: string) =>
-      Effect.succeed(path.join(os.homedir(), botDir)),
+      Config.String('HOME').pipe(
+        Config.orElse(() => Config.String('USERPROFILE')),
+        Config.map((home) => path.join(home, botDir))
+      ),
     buildFromProjectDirectory: (relPath: string) =>
       Effect.promise(() => readPackageUp()).pipe(
         Effect.flatMap((packageUpResult) => {
