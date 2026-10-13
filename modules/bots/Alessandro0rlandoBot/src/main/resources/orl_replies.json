@@ -4,6 +4,113 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(la|una) scopa\\b",
+              "regexLength" : 8
+            }
+          },
+          {
+            "StringTextTriggerValue" : "saggina"
+          },
+          {
+            "StringTextTriggerValue" : "bisogno di fare"
+          },
+          {
+            "StringTextTriggerValue" : "spazzata"
+          },
+          {
+            "StringTextTriggerValue" : "meraviglioso"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_ScopaDiSagginaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_ScopaDiSaggina.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_ScopaDiSaggina.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bche belle\\b",
+              "regexLength" : 9
+            }
+          },
+          {
+            "StringTextTriggerValue" : "con i miei occhi"
+          },
+          {
+            "StringTextTriggerValue" : "lo giuro"
+          },
+          {
+            "StringTextTriggerValue" : "serigrafia"
+          },
+          {
+            "StringTextTriggerValue" : "galleria"
+          },
+          {
+            "StringTextTriggerValue" : "a roma"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_VeLoGiuroGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_VeLoGiuro.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_VeLoGiuro.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "fieno"
           },
           {
