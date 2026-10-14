@@ -293,7 +293,10 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "mi diverti"
+            "RegexTextTriggerValue" : {
+              "trigger" : "mi divert[ie]",
+              "regexLength" : 10
+            }
           }
         ]
       }
@@ -5067,7 +5070,10 @@
             "StringTextTriggerValue" : "riccamente"
           },
           {
-            "StringTextTriggerValue" : "rocchettaro"
+            "RegexTextTriggerValue" : {
+              "trigger" : "roc(ch|k+)ettaro",
+              "regexLength" : 11
+            }
           },
           {
             "RegexTextTriggerValue" : {
@@ -5077,6 +5083,9 @@
           },
           {
             "StringTextTriggerValue" : "sto coso"
+          },
+          {
+            "StringTextTriggerValue" : "fa schifo sto coso"
           }
         ]
       }
@@ -7311,6 +7320,12 @@
           },
           {
             "VideoFile" : {
+              "filepath" : "rphjb_SchizzoLoopSlowmotion2.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
               "filepath" : "rphjb_Yogurt2.mp4",
               "replyToMessage" : false
             }
@@ -7329,13 +7344,13 @@
           },
           {
             "GifFile" : {
-              "filepath" : "rphjb_PolloInFacciaGif.mp4",
+              "filepath" : "rphjb_SchizzoLoopSlowmotion2Gif.mp4",
               "replyToMessage" : false
             }
           },
           {
             "GifFile" : {
-              "filepath" : "rphjb_StraccioAddossoGif.mp4",
+              "filepath" : "rphjb_PolloInFacciaGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -7353,6 +7368,12 @@
           },
           {
             "GifFile" : {
+              "filepath" : "rphjb_SchizzoLoopSlowmotionGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
               "filepath" : "rphjb_Yogurt2Gif.mp4",
               "replyToMessage" : false
             }
@@ -7365,19 +7386,7 @@
           },
           {
             "GifFile" : {
-              "filepath" : "rphjb_SchizzoLoopSlowmotion2Gif.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "VideoFile" : {
-              "filepath" : "rphjb_SchizzoLoopSlowmotion2.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "GifFile" : {
-              "filepath" : "rphjb_SchizzoLoopSlowmotionGif.mp4",
+              "filepath" : "rphjb_StraccioAddossoGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -13165,14 +13174,8 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
-            "GifFile" : {
-              "filepath" : "rphjb_DitoMedioGif.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
             "VideoFile" : {
-              "filepath" : "rphjb_DitoMedio.mp4",
+              "filepath" : "rphjb_SchizzoLoopSlowmotion2.mp4",
               "replyToMessage" : false
             }
           },
@@ -13183,8 +13186,14 @@
             }
           },
           {
+            "VideoFile" : {
+              "filepath" : "rphjb_DitoMedio.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "GifFile" : {
-              "filepath" : "rphjb_Yogurt2Gif.mp4",
+              "filepath" : "rphjb_DitoMedioGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -13195,20 +13204,20 @@
             }
           },
           {
-            "VideoFile" : {
-              "filepath" : "rphjb_SchizzoLoopSlowmotion2.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
             "GifFile" : {
-              "filepath" : "rphjb_SchizzoLoopSlowmotionGif.mp4",
+              "filepath" : "rphjb_Yogurt2Gif.mp4",
               "replyToMessage" : false
             }
           },
           {
             "VideoFile" : {
               "filepath" : "rphjb_SchizzoLoopSlowmotion.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_SchizzoLoopSlowmotionGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -13866,20 +13875,8 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
-            "Mp3File" : {
-              "filepath" : "rphjb_ScopareDaiCavalli.mp3",
-              "replyToMessage" : false
-            }
-          },
-          {
             "VideoFile" : {
               "filepath" : "rphjb_EraVero.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "GifFile" : {
-              "filepath" : "rphjb_EraVeroGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -13896,8 +13893,20 @@
             }
           },
           {
+            "GifFile" : {
+              "filepath" : "rphjb_EraVeroGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "Mp3File" : {
               "filepath" : "rphjb_FrocioConfermaEster.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_ScopareDaiCavalli.mp3",
               "replyToMessage" : false
             }
           }
@@ -19498,7 +19507,7 @@
           },
           {
             "VideoFile" : {
-              "filepath" : "rphjb_PassaportoDegliStronzi.mp4",
+              "filepath" : "rphjb_RockettariComeBestieCravattaPassaportoStronzi.mp4",
               "replyToMessage" : false
             }
           },
@@ -19509,8 +19518,8 @@
             }
           },
           {
-            "VideoFile" : {
-              "filepath" : "rphjb_RockettariComeBestieCravattaPassaportoStronzi.mp4",
+            "GifFile" : {
+              "filepath" : "rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -19521,8 +19530,8 @@
             }
           },
           {
-            "GifFile" : {
-              "filepath" : "rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoGif.mp4",
+            "VideoFile" : {
+              "filepath" : "rphjb_PassaportoDegliStronzi.mp4",
               "replyToMessage" : false
             }
           },
@@ -22312,32 +22321,14 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
-            "GifFile" : {
-              "filepath" : "rphjb_CaroEduGif.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
             "VideoFile" : {
               "filepath" : "rphjb_CaroEdu.mp4",
               "replyToMessage" : false
             }
           },
           {
-            "Mp3File" : {
-              "filepath" : "rphjb_CaroEdu.mp3",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "VideoFile" : {
-              "filepath" : "rphjb_Labrie.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
             "GifFile" : {
-              "filepath" : "rphjb_VibratoMelodicoLisaOcchiBluGif.mp4",
+              "filepath" : "rphjb_CaroEduGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -22350,6 +22341,24 @@
           {
             "Mp3File" : {
               "filepath" : "rphjb_VibratoMelodicoLisaOcchiBlu.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_CaroEdu.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_VibratoMelodicoLisaOcchiBluGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_Labrie.mp4",
               "replyToMessage" : false
             }
           }
@@ -24068,6 +24077,12 @@
             }
           },
           {
+            "GifFile" : {
+              "filepath" : "rphjb_2Orecchie1BoccaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "VideoFile" : {
               "filepath" : "rphjb_SentireDoppioParlareMeta.mp4",
               "replyToMessage" : false
@@ -24080,6 +24095,12 @@
             }
           },
           {
+            "Mp3File" : {
+              "filepath" : "rphjb_2Orecchie1Bocca.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
             "VideoFile" : {
               "filepath" : "rphjb_2Orecchie1Bocca2.mp4",
               "replyToMessage" : false
@@ -24088,18 +24109,6 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_2Orecchie1Bocca.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "GifFile" : {
-              "filepath" : "rphjb_2Orecchie1BoccaGif.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "Mp3File" : {
-              "filepath" : "rphjb_2Orecchie1Bocca.mp3",
               "replyToMessage" : false
             }
           }
@@ -31852,7 +31861,7 @@
         "triggers" : [
           {
             "RegexTextTriggerValue" : {
-              "trigger" : "(mi|a me)? fa schifo",
+              "trigger" : "\\b(mi |a me )?fa schifo\\b",
               "regexLength" : 10
             }
           }
@@ -34400,8 +34409,8 @@
             }
           },
           {
-            "Mp3File" : {
-              "filepath" : "rphjb_MaCheCazzoEraQuellaRobaDroghe.mp3",
+            "GifFile" : {
+              "filepath" : "rphjb_CheCazzoEraQuellaRoba3Gif.mp4",
               "replyToMessage" : false
             }
           },
@@ -34412,14 +34421,14 @@
             }
           },
           {
-            "GifFile" : {
-              "filepath" : "rphjb_CheCazzoEraQuellaRoba3Gif.mp4",
+            "Mp3File" : {
+              "filepath" : "rphjb_CheCazzoEraQuellaRoba3.mp3",
               "replyToMessage" : false
             }
           },
           {
             "Mp3File" : {
-              "filepath" : "rphjb_CheCazzoEraQuellaRoba3.mp3",
+              "filepath" : "rphjb_MaCheCazzoEraQuellaRobaDroghe.mp3",
               "replyToMessage" : false
             }
           }
@@ -37780,6 +37789,12 @@
           },
           {
             "GifFile" : {
+              "filepath" : "rphjb_AveteCapitoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
               "filepath" : "rphjb_AveteCapitoRispiegoGif.mp4",
               "replyToMessage" : false
             }
@@ -37895,12 +37910,6 @@
           {
             "Mp3File" : {
               "filepath" : "rphjb_DavantiGenteNonHaCapisceUnCazzo.mp3",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "GifFile" : {
-              "filepath" : "rphjb_AveteCapitoGif.mp4",
               "replyToMessage" : false
             }
           }
@@ -46955,6 +46964,12 @@
           },
           {
             "GifFile" : {
+              "filepath" : "rphjb_FrocioFrocio5Gif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
               "filepath" : "rphjb_Frocio6Gif.mp4",
               "replyToMessage" : false
             }
@@ -47088,12 +47103,6 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_FrocioFrocio5.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "GifFile" : {
-              "filepath" : "rphjb_FrocioFrocio5Gif.mp4",
               "replyToMessage" : false
             }
           }
@@ -49207,20 +49216,20 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
-            "VideoFile" : {
-              "filepath" : "rphjb_DrogatiRockettari.mp4",
+            "Mp3File" : {
+              "filepath" : "rphjb_DrogatiRockettari.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_RocchettariCapelliCortiGiaccaCravattaPassaporto.mp3",
               "replyToMessage" : false
             }
           },
           {
             "VideoFile" : {
               "filepath" : "rphjb_RocchettariCapelliCortiGiaccaCravattaPassaporto.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "Mp3File" : {
-              "filepath" : "rphjb_DrogatiRockettari.mp3",
               "replyToMessage" : false
             }
           },
@@ -49237,8 +49246,8 @@
             }
           },
           {
-            "Mp3File" : {
-              "filepath" : "rphjb_RocchettariCapelliCortiGiaccaCravattaPassaporto.mp3",
+            "VideoFile" : {
+              "filepath" : "rphjb_DrogatiRockettari.mp4",
               "replyToMessage" : false
             }
           }
@@ -49284,19 +49293,7 @@
           },
           {
             "Mp3File" : {
-              "filepath" : "rphjb_StoriaBambiniBiondi.mp3",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "Mp3File" : {
               "filepath" : "rphjb_StoriaBambiniBiondi2.mp3",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "VideoFile" : {
-              "filepath" : "rphjb_RocchettariCapelliCortiGiaccaCravattaPassaporto.mp4",
               "replyToMessage" : false
             }
           },
@@ -49308,7 +49305,7 @@
           },
           {
             "VideoFile" : {
-              "filepath" : "rphjb_DrogatiRockettari.mp4",
+              "filepath" : "rphjb_RocchettariCapelliCortiGiaccaCravattaPassaporto.mp4",
               "replyToMessage" : false
             }
           },
@@ -49319,14 +49316,26 @@
             }
           },
           {
-            "GifFile" : {
-              "filepath" : "rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoGif.mp4",
+            "Mp3File" : {
+              "filepath" : "rphjb_StoriaBambiniBiondi.mp3",
               "replyToMessage" : false
             }
           },
           {
             "Mp3File" : {
               "filepath" : "rphjb_RocchettariCapelliCortiGiaccaCravattaPassaporto.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_RocchettariCapelliCortiGiaccaCravattaPassaportoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_DrogatiRockettari.mp4",
               "replyToMessage" : false
             }
           }
@@ -59440,12 +59449,6 @@
             }
           },
           {
-            "Mp3File" : {
-              "filepath" : "rphjb_AltroLook.mp3",
-              "replyToMessage" : false
-            }
-          },
-          {
             "VideoFile" : {
               "filepath" : "rphjb_LookDellaTuaRazza.mp4",
               "replyToMessage" : false
@@ -59478,6 +59481,12 @@
           {
             "GifFile" : {
               "filepath" : "rphjb_MortoPippoBaudoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_AltroLook.mp3",
               "replyToMessage" : false
             }
           }
@@ -71191,6 +71200,12 @@
             }
           },
           {
+            "GifFile" : {
+              "filepath" : "rphjb_AveteCapitoGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "Mp3File" : {
               "filepath" : "rphjb_AveteCapitoUltimiBestie.mp3",
               "replyToMessage" : false
@@ -71217,12 +71232,6 @@
           {
             "VideoFile" : {
               "filepath" : "rphjb_UnCasinoComeAlSolito.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "GifFile" : {
-              "filepath" : "rphjb_AveteCapitoGif.mp4",
               "replyToMessage" : false
             }
           }

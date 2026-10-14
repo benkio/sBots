@@ -9369,7 +9369,10 @@
             "StringTextTriggerValue" : "autori"
           },
           {
-            "StringTextTriggerValue" : "massicci piedi"
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bmassicci[o]?\\b",
+              "regexLength" : 8
+            }
           }
         ]
       }
