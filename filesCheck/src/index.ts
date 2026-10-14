@@ -1,4 +1,4 @@
-import { Effect, Logger, References, Layer } from 'effect';
+import { Effect, Logger, References, Layer, Option } from 'effect';
 import { bots } from './Config';
 import { FileService, fileServiceLayer } from './FileService';
 import { Id3TagService, Id3TagServiceLayer } from './Id3NodeService';
@@ -20,24 +20,30 @@ const program = Effect.gen(function* () {
       const botListFilePath = yield* fileService.buildFromProjectDirectory(
         bot.jsonFilePath
       );
-      const files = yield* fileService.getFiles(botDir);
+      const files = yield* fileService.getFilePaths(botDir);
       const mediaListFileContent = yield* fileService.getFile(botListFilePath);
       const mediaList = decodeMediaListFromJson(mediaListFileContent);
       const checks = buildFileLogic(
         bot,
         id3TagService,
         mediaInfoService,
+        fileService,
         mediaList
       );
 
       yield* Effect.forEach(
         files,
-        (f: string) => {
-          const { logic } =
-            checks.find(({ check }) => check(f) === true) ??
-            unprocessedLogic(bot);
-          return logic(f);
-        },
+        (f: string) =>
+          Effect.gen(function* () {
+            const matched = yield* Effect.findFirst(checks, ({ check }) =>
+              check(f)
+            );
+            const { logic } = Option.match(matched, {
+              onNone: () => unprocessedLogic(bot, fileService),
+              onSome: (match) => match,
+            });
+            return yield* logic(f);
+          }),
         { concurrency: 'unbounded' }
       );
     })

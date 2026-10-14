@@ -1,6 +1,5 @@
-import * as os from 'node:os';
-import { Buffer } from 'node:buffer';
 import {
+  Config,
   Context,
   PlatformError,
   Effect,
@@ -19,16 +18,23 @@ export class FileServiceError extends Data.TaggedError('FileServiceError')<{
 export class FileService extends Context.Service<
   FileService,
   {
-    getFiles: (
+    getFilePaths: (
       directoryPath: string
     ) => Effect.Effect<string[], PlatformError.PlatformError>;
     getFile: (
       filePath: string
     ) => Effect.Effect<string, PlatformError.PlatformError>;
-    buildFromHomeDirectory: (botDir: string) => Effect.Effect<string, never>;
+    buildFromHomeDirectory: (
+      botDir: string
+    ) => Effect.Effect<string, Config.ConfigError>;
     buildFromProjectDirectory: (
       relPath: string
     ) => Effect.Effect<string, FileServiceError>;
+    stat: (
+      targetPath: string
+    ) => Effect.Effect<FileSystem.File.Info, PlatformError.PlatformError>;
+    extname: (inputPath: string) => string;
+    basename: (inputPath: string) => string;
   }
 >()('FileService') {}
 
@@ -37,7 +43,7 @@ export const fileService = Effect.gen(function* () {
   const path = yield* Path.Path;
 
   return {
-    getFiles: (directoryPath: string) =>
+    getFilePaths: (directoryPath: string) =>
       fileSystem
         .readDirectory(directoryPath)
         .pipe(
@@ -45,18 +51,12 @@ export const fileService = Effect.gen(function* () {
             entries.map((entry) => path.join(directoryPath, entry))
           )
         ),
-    getFile: (filePath: string) =>
-      fileSystem.readFile(filePath).pipe(
-        Effect.map((contents) => {
-          if (typeof contents === 'string') {
-            return contents;
-          }
-
-          return Buffer.from(contents).toString('utf8');
-        })
-      ),
+    getFile: (filePath: string) => fileSystem.readFileString(filePath),
     buildFromHomeDirectory: (botDir: string) =>
-      Effect.succeed(path.join(os.homedir(), botDir)),
+      Config.String('HOME').pipe(
+        Config.orElse(() => Config.String('USERPROFILE')),
+        Config.map((home) => path.join(home, botDir))
+      ),
     buildFromProjectDirectory: (relPath: string) =>
       Effect.promise(() => readPackageUp()).pipe(
         Effect.flatMap((packageUpResult) => {
@@ -73,6 +73,9 @@ export const fileService = Effect.gen(function* () {
           }
         })
       ),
+    stat: (targetPath: string) => fileSystem.stat(targetPath),
+    extname: (inputPath: string) => path.extname(inputPath),
+    basename: (inputPath: string) => path.basename(inputPath),
   };
 });
 
