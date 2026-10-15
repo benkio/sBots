@@ -317,8 +317,8 @@ object ShowUpdater {
     } yield ()
 
     private[show] def saveAndFetchCaption(
-      youTubeBotDBShowDatas: YouTubeBotDBShowDatas,
-      index: Int
+        youTubeBotDBShowDatas: YouTubeBotDBShowDatas,
+        index: Int
     ): F[Unit] = for {
       _ <- LogWriter.info(s"[ShowUpdater - $index] 🚀 Start fetching and saving captions")
       _ <- youTubeBotDBShowDatas.dbShowDatas.parTraverse(
