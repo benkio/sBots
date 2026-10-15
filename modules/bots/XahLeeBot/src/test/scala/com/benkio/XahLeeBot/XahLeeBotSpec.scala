@@ -78,6 +78,7 @@ class XahLeeBotSpec extends BaseBotSpec {
         |- '/subscriptions': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/subscriptions.md#it
         |- '/random': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/random.md#it
         |- '/alanmackenzie': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/alanmackenzie.md#it
+        |- '/apple': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/apple.md#it
         |- '/ass': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/ass.md#it
         |- '/ccpp': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/ccpp.md#it
         |- '/crap': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/crap.md#it
@@ -98,6 +99,7 @@ class XahLeeBotSpec extends BaseBotSpec {
         |- '/richardstallman': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/richardstallman.md#it
         |- '/sucks': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/sucks.md#it
         |- '/unix': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/unix.md#it
+        |- '/windows': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/windows.md#it
         |- '/wtf': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/wtf.md#it
         |- '/zoomer': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/zoomer.md#it
         |- '/triggerlist': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/triggerlist.md#it
@@ -126,6 +128,7 @@ class XahLeeBotSpec extends BaseBotSpec {
         |- '/subscriptions': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/subscriptions.md#en
         |- '/random': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/random.md#en
         |- '/alanmackenzie': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/alanmackenzie.md#en
+        |- '/apple': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/apple.md#en
         |- '/ass': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/ass.md#en
         |- '/ccpp': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/ccpp.md#en
         |- '/crap': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/crap.md#en
@@ -146,6 +149,7 @@ class XahLeeBotSpec extends BaseBotSpec {
         |- '/richardstallman': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/richardstallman.md#en
         |- '/sucks': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/sucks.md#en
         |- '/unix': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/unix.md#en
+        |- '/windows': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/windows.md#en
         |- '/wtf': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/wtf.md#en
         |- '/zoomer': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/zoomer.md#en
         |- '/triggerlist': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/triggerlist.md#en
