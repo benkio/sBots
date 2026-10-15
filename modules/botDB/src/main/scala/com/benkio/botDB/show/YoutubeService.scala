@@ -203,14 +203,23 @@ object YouTubeService {
   ): F[List[String]] = {
     def extractPlaylistIds(response: PlaylistItemListResponse): List[String] =
       response.getItems().asScala.toList.map(_.getContentDetails().getVideoId())
-    def collectAllIds(response: PlaylistItemListResponse): F[List[String]] =
+    def collectAllIds(
+        response: PlaylistItemListResponse,
+        visitedNextPageTokens: Set[String] = Set.empty
+    ): F[List[String]] =
       Option(response.getNextPageToken())
+        .filter(!visitedNextPageTokens.contains(_))
         .fold(List.empty.pure[F])(nextPageToken =>
           for {
+            _           <- LogWriter.info(s"[YouTubeService] $playlistId Request for next Page Token: $nextPageToken")
             nextRequest <- YouTubeRequests
               .createYouTubePlaylistRequest(youTubeService, playlistId, nextPageToken.some, youTubeApiKey)
             nextResponse <- Async[F].delay(nextRequest.execute())
-            nextIds      <- collectAllIds(nextResponse)
+            nextIds      <- collectAllIds(
+              response = nextResponse,
+              visitedNextPageTokens = visitedNextPageTokens + nextPageToken
+            )
+            _ <- LogWriter.info(s"[YouTubeService] $playlistId - ${nextIds.size} new Ids collected")
           } yield nextIds
         )
         .map(nextIds => extractPlaylistIds(response) ++ nextIds)
