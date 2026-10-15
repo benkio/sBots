@@ -308,20 +308,26 @@ object ShowUpdater {
     ): F[Unit] = for {
       _ <- LogWriter.info(s"[ShowUpdater] Check Dependencies: ${shellDependencies.mkString}")
       _ <- checkDependencies(dependencies)
-      _ <- youTubeBotDBShowDatass.traverse(saveAndFetchCaption)
+      _ <- youTubeBotDBShowDatass.zipWithIndex.traverse { case (youTubeBotDBShowDatas, index) =>
+        saveAndFetchCaption(
+          youTubeBotDBShowDatas = youTubeBotDBShowDatas,
+          index = index
+        )
+      }
     } yield ()
 
     private[show] def saveAndFetchCaption(
-        youTubeBotDBShowDatas: YouTubeBotDBShowDatas
+      youTubeBotDBShowDatas: YouTubeBotDBShowDatas,
+      index: Int
     ): F[Unit] = for {
-      _ <- LogWriter.info("[ShowUpdater] 🚀 Start fetching and saving captions")
+      _ <- LogWriter.info(s"[ShowUpdater - $index] 🚀 Start fetching and saving captions")
       _ <- youTubeBotDBShowDatas.dbShowDatas.parTraverse(
         saveAndFetchCaptionDbShowData(
           _,
           youTubeBotDBShowDatas = youTubeBotDBShowDatas
         )
       )
-      _ <- LogWriter.info("[ShowUpdater] 🏁 Finish saving captions")
+      _ <- LogWriter.info(s"[ShowUpdater - $index] 🏁 Finish saving captions")
     } yield ()
 
     private[show] def saveAndFetchCaptionDbShowData(
