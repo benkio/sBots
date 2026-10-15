@@ -4,11 +4,11 @@
 
 ### Descrizione
 
-Invia un media appleociato al topic 'apple'.
+Invia un media associato al topic 'apple'.
 
 ### Come usarlo
 
-- Sintapplei: `/apple`
+- Sintassi: `/apple`
 - Input: varia in base al comando
 - Output: risposta del bot con testo o media
 
