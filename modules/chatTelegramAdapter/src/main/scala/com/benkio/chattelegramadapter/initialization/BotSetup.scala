@@ -117,19 +117,13 @@ object BotSetup {
       dropboxClient <- Resource.eval(
         DropboxClient[F](
           httpClient,
-          DropboxClient.CacheConfig(
-            ttl = config.httpCache.dropbox.ttl,
-            maxSize = config.httpCache.dropbox.maxSize
-          )
+          config.httpCache.dropbox
         )
       )
       megaClient <- Resource.eval(
         MegaClient[F](
           httpClient,
-          MegaClient.CacheConfig(
-            ttl = config.httpCache.mega.ttl,
-            maxSize = config.httpCache.mega.maxSize
-          )
+          config.httpCache.mega
         )
       )
       clients = HttpClients(

@@ -27,7 +27,6 @@ object Dependencies {
     val logbackClassic        = "1.6.5"
     val logbackLogstash       = "9.0"
     val mules                 = "0.8.0"
-    val mulesCaffeine         = "0.8.0"
     val mulesHttp4s           = "0.6.0"
     val munit                 = "1.3.1"
     val munitCatsEffect       = "2.2.1"
@@ -88,7 +87,7 @@ object Dependencies {
     val logbackClassic   = "ch.qos.logback"         % "logback-classic"          % versions.logbackClassic  % Runtime
     val logbackLogstash  = "net.logstash.logback"   % "logstash-logback-encoder" % versions.logbackLogstash % Runtime
     val mules            = "io.chrisdavenport"     %% "mules"                    % versions.mules
-    val mulesCaffeine    = "io.chrisdavenport"     %% "mules-caffeine"           % versions.mulesCaffeine
+    val mulesCaffeine    = "io.chrisdavenport"     %% "mules-caffeine"           % versions.mules
     val mulesHttp4s      = "io.chrisdavenport"     %% "mules-http4s"             % versions.mulesHttp4s
     val munit            = "org.scalameta"         %% "munit"                    % versions.munit           % "test"
     val munitCatsEffect  = "org.typelevel"         %% "munit-cats-effect"        % versions.munitCatsEffect % "test"

@@ -3,6 +3,7 @@ package com.benkio.chatcore.http
 import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits.*
+import com.benkio.chatcore.initialization.HttpCacheConfig
 import com.benkio.chatcore.repository.Repository
 import io.chrisdavenport.mules.*
 import io.chrisdavenport.mules.caffeine.CaffeineCache
@@ -15,24 +16,15 @@ import org.http4s.Method.GET
 import org.typelevel.ci.*
 
 import java.nio.file.Path
-import scala.concurrent.duration.*
 
 trait DropboxClient[F[_]] {
   def fetchFile(filename: String, url: Uri): Resource[F, Path]
 }
 
 object DropboxClient {
-  final case class CacheConfig(ttl: FiniteDuration, maxSize: Int)
-  object CacheConfig {
-    val default: CacheConfig = CacheConfig(
-      ttl = 6.hours,
-      maxSize = 20
-    )
-  }
-
   def apply[F[_]: Async: LogWriter](
       httpClient: Client[F],
-      cacheConfig: CacheConfig = CacheConfig.default
+      cacheConfig: HttpCacheConfig = HttpCacheConfig()
   ): F[DropboxClient[F]] = for {
     httpCache <- CaffeineCache.build[F, (Method, Uri), CacheItem](
       defaultTimeout = TimeSpec.fromDuration(cacheConfig.ttl),

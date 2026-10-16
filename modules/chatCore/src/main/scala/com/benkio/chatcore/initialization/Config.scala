@@ -17,12 +17,12 @@ final case class DBConfig(
     url: String
 ) derives ConfigReader
 final case class HttpClientsCacheConfig(
-    dropbox: HttpCacheConfig,
-    mega: HttpCacheConfig
+    dropbox: HttpCacheConfig = HttpCacheConfig(),
+    mega: HttpCacheConfig = HttpCacheConfig()
 ) derives ConfigReader
 final case class HttpCacheConfig(
-    ttlSeconds: Long,
-    maxSize: Int
+    ttlSeconds: Long = 21600L,
+    maxSize: Int = 20
 ) derives ConfigReader {
   val ttl: FiniteDuration = ttlSeconds.seconds
 }

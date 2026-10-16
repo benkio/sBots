@@ -6,6 +6,7 @@ import cats.implicits.*
 import cats.MonadThrow
 import com.benkio.chatcore.http.MegaEncryptedFileRequest.given
 import com.benkio.chatcore.http.MegaEncryptedFileResponse.given
+import com.benkio.chatcore.initialization.HttpCacheConfig
 import com.benkio.chatcore.repository.Repository
 import io.chrisdavenport.mules.*
 import io.chrisdavenport.mules.caffeine.CaffeineCache
@@ -26,7 +27,6 @@ import org.http4s.syntax.literals.*
 import java.nio.file.Path
 import java.util.Base64
 import scala.annotation.unused
-import scala.concurrent.duration.*
 
 trait MegaClient[F[_]] {
   def fetchFile(filename: String, url: Uri): Resource[F, Path]
@@ -34,17 +34,10 @@ trait MegaClient[F[_]] {
 
 object MegaClient {
   val megaApiUri: Uri = uri"https://g.api.mega.co.nz/cs"
-  final case class CacheConfig(ttl: FiniteDuration, maxSize: Int)
-  object CacheConfig {
-    val default: CacheConfig = CacheConfig(
-      ttl = 6.hours,
-      maxSize = 20
-    )
-  }
 
   def apply[F[_]: Async: LogWriter](
       httpClient: Client[F],
-      cacheConfig: CacheConfig = CacheConfig.default
+      cacheConfig: HttpCacheConfig = HttpCacheConfig()
   ): F[MegaClient[F]] = for {
     httpCache <- CaffeineCache.build[F, (Method, Uri), CacheItem](
       defaultTimeout = TimeSpec.fromDuration(cacheConfig.ttl),
