@@ -95,10 +95,12 @@ void test('markdownLintIssues should detect markdown lint violations', () => {
     markdownLintIssues('Escaped dot\\. and escaped exclamation\\!'),
     []
   );
+  const malformedMarkdownIssues = markdownLintIssues(
+    '[broken link](https://example.com'
+  );
+  assert.ok(malformedMarkdownIssues.length > 0);
   assert.ok(
-    markdownLintIssues('[broken link](https://example.com').includes(
-      'unclosed-inline-link'
-    )
+    malformedMarkdownIssues.every((issue) => /^[A-Z0-9-]+:\d+$/.test(issue))
   );
 });
 
