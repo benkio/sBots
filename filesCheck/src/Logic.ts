@@ -124,11 +124,7 @@ const videoLogic =
     });
 
 const markdownLogic =
-  (
-    bot: Bot,
-    mediaList: MediaList,
-    fileService: FileService['Service']
-  ) =>
+  (bot: Bot, mediaList: MediaList, fileService: FileService['Service']) =>
   (f: string) =>
     Effect.gen(function* () {
       const guard = containinedInMediaListLogic(bot, mediaList, fileService);

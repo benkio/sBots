@@ -54,7 +54,10 @@ void test('buildFileLogic markdown rule should check file size', async () => {
 
   const fileService = buildMockFileService(() => {
     statCalls += 1;
-    return Effect.succeed({ type: 'File', size: 2_000_000 } as any);
+    return Effect.succeed({
+      type: 'File',
+      size: 2_000_000,
+    } as unknown as FileSystem.File.Info);
   });
 
   const mediaList: MediaList = [
@@ -83,7 +86,10 @@ void test('buildFileLogic mp3 rule should invoke id3 fix logic', async () => {
 
   const fileService = buildMockFileService(() => {
     statCalls += 1;
-    return Effect.succeed({ type: 'File', size: 100 } as any);
+    return Effect.succeed({
+      type: 'File',
+      size: 100,
+    } as unknown as FileSystem.File.Info);
   });
 
   const checks = buildFileLogic(
@@ -126,7 +132,10 @@ void test('buildFileLogic gif rule should invoke mediaInfo and size checks', asy
     },
     buildMockFileService(() => {
       statCalls += 1;
-      return Effect.succeed({ type: 'File', size: 100 } as any);
+      return Effect.succeed({
+        type: 'File',
+        size: 100,
+      } as unknown as FileSystem.File.Info);
     }),
     [
       {
@@ -158,7 +167,10 @@ void test('buildFileLogic video rule should invoke audio+video and size checks',
     },
     buildMockFileService(() => {
       statCalls += 1;
-      return Effect.succeed({ type: 'File', size: 100 } as any);
+      return Effect.succeed({
+        type: 'File',
+        size: 100,
+      } as unknown as FileSystem.File.Info);
     }),
     [
       {
@@ -183,7 +195,10 @@ void test('buildFileLogic .gif extension should match unsupported gif rule', asy
     mediaInfoService,
     buildMockFileService(() => {
       statCalls += 1;
-      return Effect.succeed({ type: 'File', size: 100 } as any);
+      return Effect.succeed({
+        type: 'File',
+        size: 100,
+      } as unknown as FileSystem.File.Info);
     }),
     []
   );
@@ -202,7 +217,9 @@ void test('buildFileLogic should match ignore rule for directories', async () =>
     mediaInfoService,
     buildMockFileService(() => {
       statCalls += 1;
-      return Effect.succeed({ type: 'Directory' } as any);
+      return Effect.succeed({
+        type: 'Directory',
+      } as unknown as FileSystem.File.Info);
     }),
     []
   );
