@@ -1,5 +1,5 @@
 import { ByteSize, Effect, type PlatformError } from 'effect';
-import * as markdownlint from 'markdownlint';
+import { lint as markdownLintSync } from 'markdownlint/sync';
 import type { Bot } from './Config';
 import type { FileService } from './FileService';
 import type { MediaList, MediaListItem } from './MediaListSchema';
@@ -25,7 +25,7 @@ const gifVideoSizeThresholdMB = 10;
 const markdownSizeThresholdMB = 1;
 
 export const markdownLintIssues = (content: string): string[] => {
-  const linterResult = markdownlint.sync({
+  const linterResult = markdownLintSync({
     strings: {
       inline: content,
     },
