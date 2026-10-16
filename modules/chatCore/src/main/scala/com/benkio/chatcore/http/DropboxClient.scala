@@ -5,6 +5,7 @@ import cats.effect.Resource
 import cats.implicits.*
 import com.benkio.chatcore.repository.Repository
 import io.chrisdavenport.mules.*
+import io.chrisdavenport.mules.caffeine.CaffeineCache
 import io.chrisdavenport.mules.http4s.*
 import log.effect.LogWriter
 import org.http4s.*
@@ -21,9 +22,22 @@ trait DropboxClient[F[_]] {
 }
 
 object DropboxClient {
-  def apply[F[_]: Async: LogWriter](httpClient: Client[F]): F[DropboxClient[F]] = for {
-    httpCache <- MemoryCache.ofSingleImmutableMap[F, (Method, Uri), CacheItem](defaultExpiration =
-      TimeSpec.fromDuration(6.hours)
+  final case class CacheConfig(ttl: FiniteDuration, maxSize: Int)
+  object CacheConfig {
+    val default: CacheConfig = CacheConfig(
+      ttl = 6.hours,
+      maxSize = 20
+    )
+  }
+
+  def apply[F[_]: Async: LogWriter](
+      httpClient: Client[F],
+      cacheConfig: CacheConfig = CacheConfig.default
+  ): F[DropboxClient[F]] = for {
+    httpCache <- CaffeineCache.build[F, (Method, Uri), CacheItem](
+      defaultTimeout = TimeSpec.fromDuration(cacheConfig.ttl),
+      accessTimeout = None,
+      maxSize = Some(cacheConfig.maxSize.toLong)
     )
     cachedMiddleware = CacheMiddleware.client(httpCache, CacheType.Public)
   } yield new DropboxClientImpl[F](

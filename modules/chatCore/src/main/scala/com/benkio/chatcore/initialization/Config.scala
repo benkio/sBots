@@ -4,13 +4,27 @@ import cats.*
 import cats.implicits.*
 import log.effect.LogWriter
 import pureconfig.*
+import scala.concurrent.duration.*
 
-final case class Config(db: DBConfig) derives ConfigReader
+final case class Config(
+    db: DBConfig,
+    httpCache: HttpClientsCacheConfig
+) derives ConfigReader
 final case class DBConfig(
     driver: String,
     dbName: String,
     url: String
 ) derives ConfigReader
+final case class HttpClientsCacheConfig(
+    dropbox: HttpCacheConfig,
+    mega: HttpCacheConfig
+) derives ConfigReader
+final case class HttpCacheConfig(
+    ttlSeconds: Long,
+    maxSize: Int
+) derives ConfigReader {
+  val ttl: FiniteDuration = ttlSeconds.seconds
+}
 
 object Config {
 
