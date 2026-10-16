@@ -1,7 +1,7 @@
 import * as assert from 'node:assert';
 import { test } from 'node:test';
 import { Effect } from 'effect';
-import { buildFileLogic, hasInvalidTelegramMarkdownV2 } from '../src/Logic';
+import { buildFileLogic, markdownLintIssues } from '../src/Logic';
 import type { Bot } from '../src/Config';
 import type { MediaList } from '../src/MediaListSchema';
 import type { FileService } from '../src/FileService';
@@ -88,12 +88,17 @@ void test('buildFileLogic markdown rule should check file size', async () => {
   assert.strictEqual(getFileCalls, 1);
 });
 
-void test('hasInvalidTelegramMarkdownV2 should detect invalid content', () => {
-  assert.strictEqual(hasInvalidTelegramMarkdownV2('Plain text'), false);
-  assert.strictEqual(hasInvalidTelegramMarkdownV2('Ends with dot.'), true);
-  assert.strictEqual(
-    hasInvalidTelegramMarkdownV2('Escaped dot\\. and escaped exclamation\\!'),
-    false
+void test('markdownLintIssues should detect markdown lint violations', () => {
+  assert.deepStrictEqual(markdownLintIssues('Plain text'), []);
+  assert.deepStrictEqual(markdownLintIssues('Ends with dot.'), []);
+  assert.deepStrictEqual(
+    markdownLintIssues('Escaped dot\\. and escaped exclamation\\!'),
+    []
+  );
+  assert.ok(
+    markdownLintIssues('[broken link](https://example.com').includes(
+      'unclosed-inline-link'
+    )
   );
 });
 
