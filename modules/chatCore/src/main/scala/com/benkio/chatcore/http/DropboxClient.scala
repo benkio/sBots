@@ -3,8 +3,10 @@ package com.benkio.chatcore.http
 import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits.*
+import com.benkio.chatcore.initialization.HttpCacheConfig
 import com.benkio.chatcore.repository.Repository
 import io.chrisdavenport.mules.*
+import io.chrisdavenport.mules.caffeine.CaffeineCache
 import io.chrisdavenport.mules.http4s.*
 import log.effect.LogWriter
 import org.http4s.*
@@ -14,16 +16,20 @@ import org.http4s.Method.GET
 import org.typelevel.ci.*
 
 import java.nio.file.Path
-import scala.concurrent.duration.*
 
 trait DropboxClient[F[_]] {
   def fetchFile(filename: String, url: Uri): Resource[F, Path]
 }
 
 object DropboxClient {
-  def apply[F[_]: Async: LogWriter](httpClient: Client[F]): F[DropboxClient[F]] = for {
-    httpCache <- MemoryCache.ofSingleImmutableMap[F, (Method, Uri), CacheItem](defaultExpiration =
-      TimeSpec.fromDuration(6.hours)
+  def apply[F[_]: Async: LogWriter](
+      httpClient: Client[F],
+      cacheConfig: HttpCacheConfig = HttpCacheConfig()
+  ): F[DropboxClient[F]] = for {
+    httpCache <- CaffeineCache.build[F, (Method, Uri), CacheItem](
+      defaultTimeout = TimeSpec.fromDuration(cacheConfig.ttl),
+      accessTimeout = None,
+      maxSize = Some(cacheConfig.maxSize.toLong)
     )
     cachedMiddleware = CacheMiddleware.client(httpCache, CacheType.Public)
   } yield new DropboxClientImpl[F](

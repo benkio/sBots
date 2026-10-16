@@ -114,8 +114,18 @@ object BotSetup {
       tk            <- token[F](sBotConfig.token, resourceRepository)
       config        <- Resource.eval(Config.loadConfig[F](sBotConfig.sBotInfo.botId.value))
       _             <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Configuration: $config"))
-      dropboxClient <- Resource.eval(DropboxClient[F](httpClient))
-      megaClient    <- Resource.eval(MegaClient[F](httpClient))
+      dropboxClient <- Resource.eval(
+        DropboxClient[F](
+          httpClient,
+          config.httpCache.dropbox
+        )
+      )
+      megaClient <- Resource.eval(
+        MegaClient[F](
+          httpClient,
+          config.httpCache.mega
+        )
+      )
       clients = HttpClients(
         dropboxClient = dropboxClient,
         megaClient = megaClient

@@ -6,8 +6,10 @@ import cats.implicits.*
 import cats.MonadThrow
 import com.benkio.chatcore.http.MegaEncryptedFileRequest.given
 import com.benkio.chatcore.http.MegaEncryptedFileResponse.given
+import com.benkio.chatcore.initialization.HttpCacheConfig
 import com.benkio.chatcore.repository.Repository
 import io.chrisdavenport.mules.*
+import io.chrisdavenport.mules.caffeine.CaffeineCache
 import io.chrisdavenport.mules.http4s.*
 import io.circe.syntax.*
 import io.circe.Json
@@ -25,7 +27,6 @@ import org.http4s.syntax.literals.*
 import java.nio.file.Path
 import java.util.Base64
 import scala.annotation.unused
-import scala.concurrent.duration.*
 
 trait MegaClient[F[_]] {
   def fetchFile(filename: String, url: Uri): Resource[F, Path]
@@ -35,10 +36,13 @@ object MegaClient {
   val megaApiUri: Uri = uri"https://g.api.mega.co.nz/cs"
 
   def apply[F[_]: Async: LogWriter](
-      httpClient: Client[F]
+      httpClient: Client[F],
+      cacheConfig: HttpCacheConfig = HttpCacheConfig()
   ): F[MegaClient[F]] = for {
-    httpCache <- MemoryCache.ofSingleImmutableMap[F, (Method, Uri), CacheItem](defaultExpiration =
-      TimeSpec.fromDuration(6.hours)
+    httpCache <- CaffeineCache.build[F, (Method, Uri), CacheItem](
+      defaultTimeout = TimeSpec.fromDuration(cacheConfig.ttl),
+      accessTimeout = None,
+      maxSize = Some(cacheConfig.maxSize.toLong)
     )
     cachedMiddleware = CacheMiddleware.client(httpCache, CacheType.Public)
   } yield new MegaClientImpl[F](
