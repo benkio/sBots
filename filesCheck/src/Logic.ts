@@ -1,5 +1,5 @@
 import { ByteSize, Effect, type PlatformError } from 'effect';
-import { lint as markdownLintSync } from 'markdownlint/sync';
+import { converter as tgMarkdownConverter } from 'tg-markdown-converter';
 import type { Bot } from './Config';
 import type { FileService } from './FileService';
 import type { MediaList, MediaListItem } from './MediaListSchema';
@@ -24,22 +24,8 @@ interface Matches {
 const gifVideoSizeThresholdMB = 10;
 const markdownSizeThresholdMB = 1;
 
-export const markdownLintIssues = (content: string): string[] => {
-  const linterResult = markdownLintSync({
-    strings: {
-      inline: content,
-    },
-    config: {
-      default: true,
-      MD013: false, // long lines are expected in transcript-like content
-      MD041: false, // these markdown files are plain text snippets, not docs pages
-      MD047: false, // trailing newline is irrelevant for telegram message payloads
-    },
-  });
-  return linterResult.inline.map(
-    (issue) => `${issue.ruleNames[0]}:${issue.lineNumber}`
-  );
-};
+export const markdownConversionMatchesInput = (content: string): boolean =>
+  tgMarkdownConverter(content) === content;
 
 const isMediaListItem = (
   mediaList: MediaList,
@@ -159,10 +145,10 @@ const markdownLogic =
       yield* guard(f);
 
       const markdownContent = yield* fileService.getFile(f);
-      const markdownIssues = markdownLintIssues(markdownContent);
-      yield* markdownIssues.length > 0
+      const isMarkdownValid = markdownConversionMatchesInput(markdownContent);
+      yield* !isMarkdownValid
         ? Effect.logError(
-            `[filesCheck] 🚫  ${fileService.basename(f)} invalid markdown (${markdownIssues.join(', ')})`
+            `[filesCheck] 🚫  ${fileService.basename(f)} invalid telegram markdown (content changes after tg-markdown-converter)`
           )
         : Effect.void;
 

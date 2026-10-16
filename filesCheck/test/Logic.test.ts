@@ -1,7 +1,7 @@
 import * as assert from 'node:assert';
 import { test } from 'node:test';
 import { Effect } from 'effect';
-import { buildFileLogic, markdownLintIssues } from '../src/Logic';
+import { buildFileLogic, markdownConversionMatchesInput } from '../src/Logic';
 import type { Bot } from '../src/Config';
 import type { MediaList } from '../src/MediaListSchema';
 import type { FileService } from '../src/FileService';
@@ -88,20 +88,13 @@ void test('buildFileLogic markdown rule should check file size', async () => {
   assert.strictEqual(getFileCalls, 1);
 });
 
-void test('markdownLintIssues should detect markdown lint violations', () => {
-  assert.deepStrictEqual(markdownLintIssues('Plain text'), []);
-  assert.deepStrictEqual(markdownLintIssues('Ends with dot.'), []);
-  assert.deepStrictEqual(
-    markdownLintIssues('Escaped dot\\. and escaped exclamation\\!'),
-    []
+void test('markdownConversionMatchesInput validates telegram markdown compatibility', () => {
+  assert.strictEqual(markdownConversionMatchesInput('Plain text'), true);
+  assert.strictEqual(
+    markdownConversionMatchesInput('Escaped exclamation\\!'),
+    true
   );
-  const malformedMarkdownIssues = markdownLintIssues(
-    '[broken link](https://example.com'
-  );
-  assert.ok(malformedMarkdownIssues.length > 0);
-  assert.ok(
-    malformedMarkdownIssues.every((issue) => /^[A-Z0-9-]+:\d+$/.test(issue))
-  );
+  assert.strictEqual(markdownConversionMatchesInput('Needs escaping!'), false);
 });
 
 void test('buildFileLogic mp3 rule should invoke id3 fix logic', async () => {
