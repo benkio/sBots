@@ -59,7 +59,7 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
   test("MediaFileReply.sendVideo reply should work as expected") {
     val video          = VideoFile("testVideo.mp4")
     val repositoryMock = iFileRepositoryMock(video.filepath)
-    val result = MediaFileReply
+    val result         = MediaFileReply
       .sendVideo[IO](
         video,
         testMessage.toTelegramium,
@@ -73,7 +73,7 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
   test("MediaFileReply.sendPhoto reply should work as expected") {
     val photo          = PhotoFile("testPhoto.jpg")
     val repositoryMock = iFileRepositoryMock(photo.filepath)
-    val result = MediaFileReply
+    val result         = MediaFileReply
       .sendPhoto[IO](
         photo,
         testMessage.toTelegramium,
@@ -87,7 +87,7 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
   test("MediaFileReply.sendDocument reply should work as expected") {
     val document       = Document("testDocument.jpg")
     val repositoryMock = iFileRepositoryMock(document.filepath)
-    val result = MediaFileReply
+    val result         = MediaFileReply
       .sendDocument[IO](
         document,
         testMessage.toTelegramium,
@@ -101,7 +101,7 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
   test("MediaFileReply.sendGif reply should work as expected") {
     val gif            = GifFile("testGif.mp4")
     val repositoryMock = iFileRepositoryMock(gif.filepath)
-    val result = MediaFileReply
+    val result         = MediaFileReply
       .sendGif[IO](
         gif,
         testMessage.toTelegramium,
@@ -115,7 +115,7 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
   test("MediaFileReply.sendMp3 reply should work as expected") {
     val mp3            = Mp3File("testMp3.mp3")
     val repositoryMock = iFileRepositoryMock(mp3.filepath)
-    val result = MediaFileReply
+    val result         = MediaFileReply
       .sendMp3[IO](
         mp3,
         testMessage.toTelegramium,
@@ -153,6 +153,20 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
       )
       .map(messages => messages.map(_.text))
     assertIO(result, List(Some("[apiMock] sendMessage reply")))
+  }
+
+  test("MediaFileReply.sendMarkdown should return empty when source is MediaResourceIFile") {
+    val markdown       = MarkdownFile("testMarkdown.md")
+    val repositoryMock = iFileRepositoryMock(markdown.filepath)
+
+    val result = MediaFileReply.sendMarkdown[IO](
+      markdown,
+      testMessage.toTelegramium,
+      repositoryMock,
+      false
+    )
+
+    assertIO(result, List.empty)
   }
 
   test("TextReply.deleteMessage reply should work as expected") {

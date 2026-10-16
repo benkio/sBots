@@ -1,6 +1,7 @@
 package com.benkio.chattelegramadapter.http.telegramreply.messagereply
 
 import cats.effect.*
+import cats.implicits.*
 import com.benkio.chatcore.model.reply.Document
 import com.benkio.chatcore.model.reply.GifFile
 import com.benkio.chatcore.model.reply.MarkdownFile
@@ -8,13 +9,19 @@ import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.PhotoFile
 import com.benkio.chatcore.model.reply.Sticker
+import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.VideoFile
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chattelegramadapter.conversions.MessageConversions.*
 import log.effect.LogWriter
 import telegramium.bots.high.*
+import telegramium.bots.high.implicits.*
+import telegramium.bots.InputLinkFile
+import telegramium.bots.InputPartFile
 import telegramium.bots.Message as TMessage
+
+import java.nio.file.Path
 
 object MediaFileReply {
 
@@ -87,10 +94,36 @@ object MediaFileReply {
       chatAction = "",
       mediaFile = reply,
       replyToMessage = replyToMessage,
-      sendFileAPIMethod = (_, _, _) =>
-        // extract the content from the file or the link file
-        // use the sendMessage or TextReply to sent the markdown content
-        ???
+      sendFileAPIMethod = (_, ifile, _) =>
+        ifile match {
+          case InputPartFile(file) =>
+            Repository
+              .fileToString[F](Path.of(file.getAbsolutePath))
+              .use(content => {
+                val markdownText = Text(content, Text.TextType.Markdown)
+                TextReply
+                  .sendText[F](
+                    reply = markdownText,
+                    msg = msg.toModel,
+                    replyToMessage = replyToMessage
+                  )
+                  .flatMap {
+                    case message :: _ => Async[F].pure(message)
+                    case Nil          =>
+                      Async[F].raiseError(
+                        new RuntimeException(
+                          s"[MediaFileReply] No Telegram message returned while sending markdown ${reply.filepath}"
+                        )
+                      )
+                  }
+              })
+          case InputLinkFile(fileIdOrUrl) =>
+            Async[F].raiseError(
+              new UnsupportedOperationException(
+                s"[MediaFileReply] Markdown does not support MediaResourceIFile source: $fileIdOrUrl"
+              )
+            )
+        }
     )
   }
 
@@ -107,11 +140,13 @@ object MediaFileReply {
       mediaFile = reply,
       replyToMessage = replyToMessage,
       sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
-        Methods.sendAudio(
-          chatId = chatId,
-          audio = ifile,
-          replyParameters = replyToMessageId
-        )
+        Methods
+          .sendAudio(
+            chatId = chatId,
+            audio = ifile,
+            replyParameters = replyToMessageId
+          )
+          .exec
     )
   }
 
@@ -128,11 +163,13 @@ object MediaFileReply {
       mediaFile = reply,
       replyToMessage = replyToMessage,
       sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
-        Methods.sendAnimation(
-          chatId = chatId,
-          animation = ifile,
-          replyParameters = replyToMessageId
-        )
+        Methods
+          .sendAnimation(
+            chatId = chatId,
+            animation = ifile,
+            replyParameters = replyToMessageId
+          )
+          .exec
     )
   }
 
@@ -149,11 +186,13 @@ object MediaFileReply {
       mediaFile = reply,
       replyToMessage = replyToMessage,
       sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
-        Methods.sendPhoto(
-          chatId = chatId,
-          photo = ifile,
-          replyParameters = replyToMessageId
-        )
+        Methods
+          .sendPhoto(
+            chatId = chatId,
+            photo = ifile,
+            replyParameters = replyToMessageId
+          )
+          .exec
     )
   }
 
@@ -170,11 +209,13 @@ object MediaFileReply {
       mediaFile = reply,
       replyToMessage = replyToMessage,
       sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
-        Methods.sendVideo(
-          chatId = chatId,
-          video = ifile,
-          replyParameters = replyToMessageId
-        )
+        Methods
+          .sendVideo(
+            chatId = chatId,
+            video = ifile,
+            replyParameters = replyToMessageId
+          )
+          .exec
     )
   }
 
@@ -191,11 +232,13 @@ object MediaFileReply {
       mediaFile = reply,
       replyToMessage = replyToMessage,
       sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
-        Methods.sendDocument(
-          chatId = chatId,
-          document = ifile,
-          replyParameters = replyToMessageId
-        )
+        Methods
+          .sendDocument(
+            chatId = chatId,
+            document = ifile,
+            replyParameters = replyToMessageId
+          )
+          .exec
     )
   }
 
@@ -212,11 +255,13 @@ object MediaFileReply {
       mediaFile = reply,
       replyToMessage = replyToMessage,
       sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
-        Methods.sendSticker(
-          chatId = chatId,
-          sticker = ifile,
-          replyParameters = replyToMessageId
-        )
+        Methods
+          .sendSticker(
+            chatId = chatId,
+            sticker = ifile,
+            replyParameters = replyToMessageId
+          )
+          .exec
     )
   }
 }
