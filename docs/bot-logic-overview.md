@@ -10,21 +10,21 @@ At startup, the app builds one runtime per bot from `BotRegistry`, then each run
 
 ```mermaid
 flowchart TD
-  A[Main Runtime] --> B[BotRegistry.value]
-  B --> C[BotRegistryEntry for each bot]
-  C --> D[TelegramWebhookRuntime.buildWebhookBot]
-  D --> E[BotSetup.apply]
+  A["Main Runtime"] --> B["BotRegistry.value"]
+  B --> C["BotRegistryEntry for each bot"]
+  C --> D["TelegramWebhookRuntime.buildWebhookBot"]
+  D --> E["BotSetup.apply"]
 
-  E --> F[Read token from resources]
-  E --> G[Load bot config]
-  E --> H[Build DropboxClient]
-  E --> I[Build MegaClient]
-  E --> J[Build DBLayer]
-  E --> K[Build Repository = DBRepository.dbResources]
-  E --> L[Build Telegram Api]
-  E --> M[Build BackgroundJobManager]
+  E --> F["Read token from resources"]
+  E --> G["Load bot config"]
+  E --> H["Build DropboxClient"]
+  E --> I["Build MegaClient"]
+  E --> J["Build DBLayer"]
+  E --> K["Build Repository DBRepository.dbResources"]
+  E --> L["Build Telegram Api"]
+  E --> M["Build BackgroundJobManager"]
 
-  H --> N[HttpClients]
+  H --> N["HttpClients"]
   I --> N
   N --> K
 ```
@@ -41,28 +41,28 @@ Once a message is parsed into your internal model, reply sending is dispatched b
 
 ```mermaid
 flowchart TD
-  A[Incoming Telegram Message] --> B[Compute ReplyValue]
-  B --> C[TelegramMessageReply.sendReplyValue]
+  A["Incoming Telegram Message"] --> B["Compute ReplyValue"]
+  B --> C["TelegramMessageReply.sendReplyValue"]
 
   C --> D{ReplyValue type}
-  D -->|Text| E[TextReply.sendText]
-  D -->|MediaFile| F[MediaFileReply.sendMediaFile]
-  D -->|TelegramInlineKeyboard| G[KeyboardReply.sendKeyboard]
-  D -->|Other| H[Warn + return empty]
+  D -->|Text| E["TextReply.sendText"]
+  D -->|MediaFile| F["MediaFileReply.sendMediaFile"]
+  D -->|TelegramInlineKeyboard| G["KeyboardReply.sendKeyboard"]
+  D -->|Other| H["Warn and return empty"]
 ```
 
 ### Media subtype dispatch
 
 ```mermaid
 flowchart TD
-  A[MediaFileReply.sendMediaFile] --> B{Media subtype}
-  B --> C[Mp3 -> sendAudio]
-  B --> D[Gif -> sendAnimation]
-  B --> E[Photo -> sendPhoto]
-  B --> F[Video -> sendVideo]
-  B --> G[Document -> sendDocument]
-  B --> H[Sticker -> sendSticker]
-  B --> I[MarkdownFile -> sendMarkdown WIP]
+  A["MediaFileReply.sendMediaFile"] --> B{Media subtype}
+  B --> C["Mp3 to sendAudio"]
+  B --> D["Gif to sendAnimation"]
+  B --> E["Photo to sendPhoto"]
+  B --> F["Video to sendVideo"]
+  B --> G["Document to sendDocument"]
+  B --> H["Sticker to sendSticker"]
+  B --> I["MarkdownFile to sendMarkdown"]
 ```
 
 ## 3) How Media Is Resolved From DB Sources
@@ -74,23 +74,23 @@ The repository resolves each media file to one or more candidate sources. Source
 
 ```mermaid
 flowchart TD
-  A[MediaFile requested] --> B[DBRepository.getResourceFile]
-  B --> C[DBMedia.getMedia(filepath)]
+  A["MediaFile requested"] --> B["DBRepository.getResourceFile"]
+  B --> C["DBMedia.getMedia filepath"]
   C --> D{Found?}
-  D -->|No| E[RepositoryError.NoResourcesFoundFile]
-  D -->|Yes| F[DBMediaData -> Media]
-  F --> G[Iterate mediaSources]
+  D -->|No| E["RepositoryError NoResourcesFoundFile"]
+  D -->|Yes| F["DBMediaData to Media"]
+  F --> G["Iterate media sources"]
 
-  G -->|Right Uri| H[HttpClients.fetchFile]
+  G -->|Right Uri| H["HttpClients.fetchFile"]
   H --> I{Host}
-  I -->|dropbox.com| J[DropboxClient.fetchFile]
-  I -->|mega.nz| K[MegaClient.fetchFile]
-  J --> L[MediaResourceFile temp path]
+  I -->|dropbox.com| J["DropboxClient.fetchFile"]
+  I -->|mega.nz| K["MegaClient.fetchFile"]
+  J --> L["MediaResourceFile temp path"]
   K --> L
 
-  G -->|Left string| M[MediaResourceIFile]
+  G -->|Left string| M["MediaResourceIFile"]
 
-  L --> N[NonEmptyList MediaResource]
+  L --> N["NonEmptyList MediaResource"]
   M --> N
 ```
 
@@ -124,22 +124,21 @@ sequenceDiagram
 - A media item can have multiple sources.
 - If first source fails (expired link, transient network issue), next source is attempted.
 
-## 5) Markdown WIP Positioning
+## 5) Markdown Current Behavior
 
-Markdown currently enters the same `MediaFile` branch but requires a different final step:
+Markdown enters the same `MediaFile` branch and is handled by `sendMarkdown` with the current behavior:
 
-- `MediaResourceFile` can be read as text and sent with `sendMessage`.
-- `MediaResourceIFile` is not text by itself; it is a reference usable as file input.
+- `MediaResourceFile` is read as text and sent via `TextReply.sendText` using markdown text mode.
+- `MediaResourceIFile` is explicitly unsupported and raises an exception in `F`; this is then handled by the shared reply pipeline as a failed source.
 
 ```mermaid
 flowchart TD
-  A[MarkdownFile] --> B[Repository.getResourceFile]
+  A["MarkdownFile"] --> B["Repository.getResourceFile"]
   B --> C{MediaResource kind}
-  C -->|MediaResourceFile Path| D[Read file content as String]
-  D --> E[Methods.sendMessage]
-  C -->|MediaResourceIFile id/link| F[Fallback strategy]
-  F --> G[sendDocument with InputLinkFile]
-  F --> H[or getFile+download+sendMessage]
+  C -->|MediaResourceFile| D["Read file content as String"]
+  D --> E["TextReply.sendText markdown mode"]
+  C -->|MediaResourceIFile| F["raise UnsupportedOperationException in F"]
+  F --> G["Shared fallback tries next source or returns empty"]
 ```
 
 ## 6) Practical Mental Model
