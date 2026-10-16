@@ -17,8 +17,8 @@ fixes) even when `filesCheck` did not report an error.
 - storage provider (`Mega` or `Dropbox`) if not inferable.
 - rename scope:
   - only this file, or
-  - all sibling media sharing the same base name (typical trio `.mp3`, `.mp4`,
-    `Gif.mp4`), or
+  - all sibling media sharing the same base name (typical set `.mp3`, `.mp4`,
+    `Gif.mp4`, `.md`), or
   - another explicitly requested group.
 
 If the request might be a typo correction and scope is not explicit, ask the
@@ -32,7 +32,7 @@ renaming.
 ### 1) Confirm rename intent and sibling propagation
 
 - Detect sibling files with same base name (for example:
-  `botid_Name.mp3`, `botid_Name.mp4`, `botid_NameGif.mp4`).
+  `botid_Name.mp3`, `botid_Name.mp4`, `botid_NameGif.mp4`, `botid_Name.md`).
 - If siblings exist and the developer did not explicitly constrain scope, ask
   whether the rename must be propagated to the full sibling family.
 - For typo-style corrections, default to asking for sibling propagation instead
@@ -44,7 +44,7 @@ renaming.
 - Confirm there is exactly one matching entry.
 - For each file in scope, ensure the target filename:
   - starts with `<bot_id>_`,
-  - uses supported extension (`.mp3`, `.mp4`, `Gif.mp4`, `.jpg` where applicable),
+  - uses supported extension (`.mp3`, `.mp4`, `Gif.mp4`, `.md`, `.jpg` where applicable),
   - does not exceed naming constraints used by checks (max 64 chars).
 - Ensure no existing `<bot_id>_list.json` entry already uses any target
   filename in scope.

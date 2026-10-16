@@ -15,7 +15,6 @@ import com.benkio.chattelegramadapter.conversions.MediaResourceConversions.*
 import com.benkio.chattelegramadapter.http.LogTelegramChat
 import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
 import log.effect.LogWriter
-import telegramium.bots.client.Method
 import telegramium.bots.high.*
 import telegramium.bots.high.implicits.*
 import telegramium.bots.ChatId
@@ -32,7 +31,7 @@ object TelegramMessageReply {
       chatAction: String,
       mediaFile: MediaFile,
       replyToMessage: Boolean,
-      sendFileAPIMethod: (ChatId, IFile, Option[ReplyParameters]) => Method[TMessage]
+      sendFileAPIMethod: (ChatId, IFile, Option[ReplyParameters]) => F[TMessage]
   ): F[List[TMessage]] = {
     val chatId: ChatId                                                     = ChatIntId(msg.chat.id)
     def computeMediaResource(mediaResource: MediaResource[F]): F[TMessage] =
@@ -41,7 +40,7 @@ object TelegramMessageReply {
           chatId,
           iFile,
           Option.when(replyToMessage)(ReplyParameters(Some(msg.messageId)))
-        ).exec
+        )
       )
     val result: EitherT[F, Throwable, List[TMessage]] = for {
       _       <- Methods.sendChatAction(chatId, chatAction).exec.attemptT

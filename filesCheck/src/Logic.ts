@@ -21,6 +21,7 @@ interface Matches {
 }
 
 const sizeThresholdMB = 10;
+const markdownSizeThresholdMB = 1;
 
 const isMediaListItem = (
   mediaList: MediaList,
@@ -122,6 +123,25 @@ const videoLogic =
           );
     });
 
+const markdownLogic =
+  (bot: Bot, mediaList: MediaList, fileService: FileService['Service']) =>
+  (f: string) =>
+    Effect.gen(function* () {
+      const guard = containinedInMediaListLogic(bot, mediaList, fileService);
+      yield* guard(f);
+
+      const sizeCheck = yield* isLessThenMB(
+        f,
+        markdownSizeThresholdMB,
+        fileService
+      );
+      yield* sizeCheck
+        ? Effect.logInfo(`[filesCheck] ✓ ${fileService.basename(f)}`)
+        : Effect.logError(
+            `[filesCheck] 🚫  ${fileService.basename(f)} is Bigger than ${markdownSizeThresholdMB}MB`
+          );
+    });
+
 export const buildFileLogic = (
   bot: Bot,
   id3TagService: Id3TagServiceLike,
@@ -156,6 +176,13 @@ export const buildFileLogic = (
       return Effect.succeed(videoRegex.test(fileService.basename(f)));
     },
     logic: videoLogic(bot, mediaList, mediaInfoService, fileService),
+  },
+  {
+    check: (f: string) => {
+      const markdownRegex = new RegExp(`^${bot.id}_[A-Za-z0-9]+.md$`);
+      return Effect.succeed(markdownRegex.test(fileService.basename(f)));
+    },
+    logic: markdownLogic(bot, mediaList, fileService),
   },
   {
     check: (f: string) => Effect.succeed(fileService.extname(f) === '.gif'),

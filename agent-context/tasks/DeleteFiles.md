@@ -60,6 +60,7 @@ For each confirmed target, compute sibling files sharing the same base name:
 - `<botid>_<name>.mp3`
 - `<botid>_<name>.mp4`
 - `<botid>_<name>Gif.mp4`
+- `<botid>_<name>.md`
 - plus any same-base variant matching `<botid>_<name>[Gif]?.<extension>` in
   current data.
 

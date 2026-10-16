@@ -3,7 +3,8 @@
 ## Goal
 
 After `sbt <botId>AddData`, resolve conflicts when newly added media is a
-replacement of existing media (better quality and/or completing an mp3/gif/mp4 trio).
+replacement of existing media (better quality and/or completing an
+mp3/gif/mp4/markdown set when applicable).
 
 The objective is to keep bot data coherent without touching unrelated, truly new data.
 
@@ -22,7 +23,7 @@ When the new media is actually a replacement, those placeholders are often wrong
 Treat an item as a conflict candidate when one or more of these are true:
 
 - the newly added media is the same semantic content as an existing one (replacement quality/version),
-- the new media complements an existing base item (`mp3`, `.mp4`, `Gif.mp4` trio),
+- the new media complements an existing base item (`.mp3`, `.mp4`, `Gif.mp4`, optional `.md`),
 - two files share the same `<botid>_<filename>` base (for example `rphjb_Foo.mp4` and `rphjb_Foo.mp3`), even if `<bot_id>_list.json` does not contain duplicate rows,
 - a new `new data` placeholder points to media that should belong to an existing trigger/reply bundle.
 
@@ -42,7 +43,7 @@ Note: bot tests include a duplicate-filename guard on list JSON.
 
 - Remove `new data` placeholder bundles that were created for replacement media.
 - Update existing reply bundles so they reference the correct new media filenames.
-- When relevant, ensure the full trio (`.mp3`, `.mp4`, `Gif.mp4`) is present in the same logical place where the old media was used.
+- When relevant, ensure the expected media set (`.mp3`, `.mp4`, `Gif.mp4`, optional `.md`) is present in the same logical place where the old media was used.
 
 ### 3) Preserve real new content
 
