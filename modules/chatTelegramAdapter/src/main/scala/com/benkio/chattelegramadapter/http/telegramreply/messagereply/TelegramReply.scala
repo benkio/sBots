@@ -36,35 +36,39 @@ object TelegramMessageReply {
     val chatId: ChatId                                                     = ChatIntId(msg.chat.id)
     def computeMediaResource(mediaResource: MediaResource[F]): F[TMessage] =
       mediaResource.toTelegramApi.use(iFile =>
-        sendFileAPIMethod(
-          chatId,
-          iFile,
-          Option.when(replyToMessage)(ReplyParameters(Some(msg.messageId)))
-        )
+        LogWriter.trace(s"[TelegramReply - ${mediaFile.filename}] Send $mediaResource") >>
+          sendFileAPIMethod(
+            chatId,
+            iFile,
+            Option.when(replyToMessage)(ReplyParameters(Some(msg.messageId)))
+          )
       )
     val result: EitherT[F, Throwable, List[TMessage]] = for {
-      _       <- Methods.sendChatAction(chatId, chatAction).exec.attemptT
+      _ <- EitherT.liftF(LogWriter.trace(s"[TelegramReply - ${mediaFile.filename}] Send Chat Action"))
+      _ <- Methods.sendChatAction(chatId, chatAction).exec.void.attemptT
+      _ <- EitherT.liftF(LogWriter.trace(s"[TelegramReply - ${mediaFile.filename}] Get media resources from the db"))
       message <-
         repository
           .getResourceFile(mediaFile)
           .use[List[TMessage]](mediaResources =>
-            Async[F]
-              .fromEither(mediaResources)
-              .flatMap(
-                _.reduceLeftTo(computeMediaResource(_))((prevExec, nextRes) =>
-                  prevExec.handleErrorWith(e =>
-                    LogWriter.error(
-                      s"[TelegramMessageReply] ERROR while executing media resource for $mediaFile with $e. Fallback to $nextRes"
-                    ) >>
-                      computeMediaResource(nextRes)
+            LogWriter.trace(s"[TelegramReply - ${mediaFile.filename}] Fetched $mediaResources") >>
+              Async[F]
+                .fromEither(mediaResources)
+                .flatMap(
+                  _.reduceLeftTo(computeMediaResource(_))((prevExec, nextRes) =>
+                    prevExec.handleErrorWith(e =>
+                      LogWriter.error(
+                        s"[TelegramMessageReply] ERROR while executing media resource for $mediaFile with $e. Fallback to $nextRes"
+                      ) >>
+                        computeMediaResource(nextRes)
+                    )
                   )
                 )
-              )
-              .map(List(_))
+                .map(List(_))
           )
           .onError(e =>
             LogWriter.error(
-              s"[TelegramMessageReply:71:63]] ERROR when replying to $chatId with $mediaFile: $e"
+              s"[TelegramMessageReply] ERROR when replying to $chatId with $mediaFile: $e"
             ) >> LogTelegramChat.sendError[F](msg, mediaFile, e)
           )
           .attemptT

@@ -32,54 +32,61 @@ object MediaFileReply {
       replyToMessage: Boolean
   ): F[List[TMessage]] = reply match {
     case mp3: Mp3File =>
-      sendMp3(
-        reply = mp3,
-        msg = msg.toTelegramium,
-        repository = repository,
-        replyToMessage = replyToMessage
-      )
+      LogWriter.trace(s"Send Mp3: $mp3") >>
+        sendMp3(
+          reply = mp3,
+          msg = msg.toTelegramium,
+          repository = repository,
+          replyToMessage = replyToMessage
+        )
     case gif: GifFile =>
-      sendGif(
-        reply = gif,
-        msg = msg.toTelegramium,
-        repository = repository,
-        replyToMessage = replyToMessage
-      )
+      LogWriter.trace(s"Send Gif: $gif") >>
+        sendGif(
+          reply = gif,
+          msg = msg.toTelegramium,
+          repository = repository,
+          replyToMessage = replyToMessage
+        )
     case photo: PhotoFile =>
-      sendPhoto(
-        reply = photo,
-        msg = msg.toTelegramium,
-        repository = repository,
-        replyToMessage = replyToMessage
-      )
+      LogWriter.trace(s"Send Photo: $photo") >>
+        sendPhoto(
+          reply = photo,
+          msg = msg.toTelegramium,
+          repository = repository,
+          replyToMessage = replyToMessage
+        )
     case video: VideoFile =>
-      sendVideo(
-        reply = video,
-        msg = msg.toTelegramium,
-        repository = repository,
-        replyToMessage = replyToMessage
-      )
+      LogWriter.trace(s"Send Video: $video") >>
+        sendVideo(
+          reply = video,
+          msg = msg.toTelegramium,
+          repository = repository,
+          replyToMessage = replyToMessage
+        )
     case document: Document =>
-      sendDocument(
-        reply = document,
-        msg = msg.toTelegramium,
-        repository = repository,
-        replyToMessage = replyToMessage
-      )
+      LogWriter.trace(s"Send document: $document") >>
+        sendDocument(
+          reply = document,
+          msg = msg.toTelegramium,
+          repository = repository,
+          replyToMessage = replyToMessage
+        )
     case sticker: Sticker =>
-      sendSticker(
-        reply = sticker,
-        msg = msg.toTelegramium,
-        repository = repository,
-        replyToMessage = replyToMessage
-      )
+      LogWriter.trace(s"Send sticker: $sticker") >>
+        sendSticker(
+          reply = sticker,
+          msg = msg.toTelegramium,
+          repository = repository,
+          replyToMessage = replyToMessage
+        )
     case markdown: MarkdownFile =>
-      sendMarkdown(
-        reply = markdown,
-        msg = msg.toTelegramium,
-        repository = repository,
-        replyToMessage = replyToMessage
-      )
+      LogWriter.trace(s"Send Markdown: $markdown") >>
+        sendMarkdown(
+          reply = markdown,
+          msg = msg.toTelegramium,
+          repository = repository,
+          replyToMessage = replyToMessage
+        )
   }
 
   def sendMarkdown[F[_]: Async: LogWriter: Api](
@@ -91,7 +98,7 @@ object MediaFileReply {
     TelegramMessageReply.telegramFileReplyPattern[F](
       msg = msg,
       repository = repository,
-      chatAction = "",
+      chatAction = "typing",
       mediaFile = reply,
       replyToMessage = replyToMessage,
       sendFileAPIMethod = (_, ifile, _) =>
