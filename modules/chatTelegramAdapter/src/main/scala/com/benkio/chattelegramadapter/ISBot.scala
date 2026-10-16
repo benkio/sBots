@@ -176,9 +176,12 @@ trait ISBot[F[_]: Async: LogWriter] {
       msg: ModelMessage
   )(using api: Api[F]): F[Unit] =
     msg.messageType(sBotConfig.sBotInfo.botId) match {
-      case MessageType.Message     => messageLogic(msg)
-      case MessageType.Command     => commandLogic(msg)
-      case MessageType.FileRequest => fileRequestLogic(msg)
+      case MessageType.Message =>
+        LogWriter.trace("Message Type: Message") >> messageLogic(msg)
+      case MessageType.Command =>
+        LogWriter.trace("Message Type: Command") >> commandLogic(msg)
+      case MessageType.FileRequest =>
+        LogWriter.trace("Message Type: File Request") >> fileRequestLogic(msg)
     }
 
   def onMessageLogic(msg: ModelMessage)(using api: Api[F]): F[Unit] = for {

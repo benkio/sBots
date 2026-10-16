@@ -1,4 +1,5 @@
 import { ByteSize, Effect, type PlatformError } from 'effect';
+import * as markdownlint from 'markdownlint';
 import type { Bot } from './Config';
 import type { FileService } from './FileService';
 import type { MediaList, MediaListItem } from './MediaListSchema';
@@ -20,8 +21,25 @@ interface Matches {
   logic: (f: string) => Effect.Effect<void, unknown>;
 }
 
-const sizeThresholdMB = 10;
+const gifVideoSizeThresholdMB = 10;
 const markdownSizeThresholdMB = 1;
+
+export const markdownLintIssues = (content: string): string[] => {
+  const linterResult = markdownlint.sync({
+    strings: {
+      inline: content,
+    },
+    config: {
+      default: true,
+      MD013: false, // long lines are expected in transcript-like content
+      MD041: false, // these markdown files are plain text snippets, not docs pages
+      MD047: false, // trailing newline is irrelevant for telegram message payloads
+    },
+  });
+  return linterResult.inline.map(
+    (issue) => `${issue.ruleNames[0]}:${issue.lineNumber}`
+  );
+};
 
 const isMediaListItem = (
   mediaList: MediaList,
@@ -44,13 +62,15 @@ const containinedInMediaListLogic =
 
 const isLessThenMB = (
   f: string,
-  sizeThresholdMB: number,
+  gifVideoSizeThresholdMB: number,
   fileService: FileService['Service']
 ): Effect.Effect<boolean, PlatformError.PlatformError> =>
   fileService
     .stat(f)
     .pipe(
-      Effect.map((stat) => stat.size < ByteSize.megabytes(sizeThresholdMB))
+      Effect.map(
+        (stat) => stat.size < ByteSize.megabytes(gifVideoSizeThresholdMB)
+      )
     );
 
 const mp3Logic =
@@ -87,11 +107,15 @@ const gifLogic =
           )
         : Effect.void;
 
-      const sizeCheck = yield* isLessThenMB(f, sizeThresholdMB, fileService);
+      const sizeCheck = yield* isLessThenMB(
+        f,
+        gifVideoSizeThresholdMB,
+        fileService
+      );
       yield* sizeCheck
         ? Effect.logInfo(`[filesCheck] ✓ ${fileService.basename(f)}`)
         : Effect.logError(
-            `[filesCheck] 🚫  ${fileService.basename(f)} is Bigger than ${sizeThresholdMB}MB`
+            `[filesCheck] 🚫  ${fileService.basename(f)} is Bigger than ${gifVideoSizeThresholdMB}MB`
           );
     });
 
@@ -115,11 +139,15 @@ const videoLogic =
           )
         : Effect.void;
 
-      const sizeCheck = yield* isLessThenMB(f, sizeThresholdMB, fileService);
+      const sizeCheck = yield* isLessThenMB(
+        f,
+        gifVideoSizeThresholdMB,
+        fileService
+      );
       yield* sizeCheck
         ? Effect.logInfo(`[filesCheck] ✓ ${fileService.basename(f)}`)
         : Effect.logError(
-            `[filesCheck] 🚫  ${fileService.basename(f)} is Bigger than ${sizeThresholdMB}MB`
+            `[filesCheck] 🚫  ${fileService.basename(f)} is Bigger than ${gifVideoSizeThresholdMB}MB`
           );
     });
 
@@ -129,6 +157,14 @@ const markdownLogic =
     Effect.gen(function* () {
       const guard = containinedInMediaListLogic(bot, mediaList, fileService);
       yield* guard(f);
+
+      const markdownContent = yield* fileService.getFile(f);
+      const markdownIssues = markdownLintIssues(markdownContent);
+      yield* markdownIssues.length > 0
+        ? Effect.logError(
+            `[filesCheck] 🚫  ${fileService.basename(f)} invalid markdown (${markdownIssues.join(', ')})`
+          )
+        : Effect.void;
 
       const sizeCheck = yield* isLessThenMB(
         f,

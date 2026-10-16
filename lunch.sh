@@ -39,20 +39,28 @@ then
     echo "-------------------------Assembly-------------------------"
 
     sbt --supershell=false main/assembly
+
+    # Support both legacy and current sbt output layouts.
     SCALA_TARGET_DIR=$(ls -d ./modules/main/target/scala-* 2>/dev/null | head -n 1)
+    RUNTIME_DB_DIR="./modules/main/target"
     if [ -z "$SCALA_TARGET_DIR" ] ; then
-        echo "Unable to locate ./modules/main/target/scala-*/ directory"
+        SCALA_TARGET_DIR=$(ls -d ./target/out/jvm/scala-*/main 2>/dev/null | head -n 1)
+        RUNTIME_DB_DIR=$(dirname "$SCALA_TARGET_DIR")
+    fi
+    if [ -z "$SCALA_TARGET_DIR" ] ; then
+        echo "Unable to locate assembly output directory."
+        echo "Looked in ./modules/main/target/scala-* and ./target/out/jvm/scala-*/main"
         exit 1
     fi
 
     if [ "$WEBHOOK" = false ] ;
     then
         echo "-------------------------Run Polling Bots-------------------------"
-        cp ./botDB.sqlite3 ./modules/main/target/
+        cp ./botDB.sqlite3 "$RUNTIME_DB_DIR"/
         (cd "$SCALA_TARGET_DIR"; java -cp main.jar com.benkio.main.MainPolling)
     else
         echo "-------------------------Run Webhook Bots-------------------------"
-        cp ./botDB.sqlite3 ./modules/main/target/
+        cp ./botDB.sqlite3 "$RUNTIME_DB_DIR"/
         (cd "$SCALA_TARGET_DIR"; java -cp main.jar com.benkio.main.MainWebhook)
     fi
 

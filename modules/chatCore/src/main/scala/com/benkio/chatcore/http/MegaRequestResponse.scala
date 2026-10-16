@@ -50,7 +50,7 @@ final case class MegaEncryptedFileResponse(
     s: Int,
     at: String,
     msd: Int,
-    fa: String,
+    fa: Option[String],
     g: Either[Uri, Array[Uri]],
     ip: Array[String],
     fh: String
