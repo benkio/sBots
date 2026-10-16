@@ -104,42 +104,30 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
   databaseFixture.test(
     "DBMedia.getMediaByMediaCount should return the expected list of media"
   ) { fixture =>
-    val expected: List[DBMediaData] = List(
-      DBMediaData(
-        media_name = "rphjb_06Gif.mp4",
-        bot_id = testMediaId.value,
-        kinds = """"[]"""",
-        media_sources = """"[\"https://mega.nz/file/mPYCWJwY#q0_7BNEG0Uj2qxDTzr3W8AxfvbGr_ZMwr8F-_yJQh-8\"]"""",
-        media_count = 0,
-        created_at = "1710379153288",
-        mime_type = "image/gif"
-      ),
-      DBMediaData(
-        media_name = "rphjb_3Minuti.mp4",
-        bot_id = testMediaId.value,
-        kinds = """"[]"""",
-        media_sources = """"[\"https://mega.nz/file/PaY0lIIY#seJaOyoxTNqIi1oGVE2dWL0GSvLRZAtfUYQDk2KU0UM\"]"""",
-        media_count = 0,
-        created_at = "1674248160242",
-        mime_type = "video/mp4"
-      ),
-      DBMediaData(
-        media_name = "rphjb_AStronzo.mp3",
-        bot_id = testMediaId.value,
-        kinds = """"[]"""",
-        media_sources = """"[\"https://mega.nz/file/mOxRRILQ#QktG_e6lmbW-kywBqDkLOSKkHQludHzni9ssPNgmw34\"]"""",
-        media_count = 0,
-        created_at = "1791560348",
-        mime_type = "audio/mpeg"
-      )
+    val boostedMediaOrder = List(
+      "rphjb_06.md"  -> 3,
+      "rphjb_06.mp3" -> 2,
+      "rphjb_06.mp4" -> 1
     )
 
     val resourceAssert = for {
       dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
-      medias  <- Resource.eval(dbMedia.getMediaByMediaCount(limit = 3, botId = Some(testMediaId)))
-      _       <- Resource.eval(IO.println(medias))
-    } yield medias.zip(expected).foldLeft(true) { case (acc, (actual, exp)) =>
-      acc && checkMedia(actual, exp)
+      _       <- Resource.eval {
+        boostedMediaOrder.foldLeft(IO.unit) { case (acc, (filename, bumps)) =>
+          acc >> (1 to bumps).foldLeft(IO.unit) { case (innerAcc, _) =>
+            innerAcc >> dbMedia.incrementMediaCount(filename)
+          }
+        }
+      }
+      medias <- Resource.eval(dbMedia.getMediaByMediaCount(limit = 3, botId = Some(testMediaId)))
+    } yield {
+      val retrievedOrder = medias.map(_.media_name)
+      val expectedOrder  = boostedMediaOrder.map(_._1)
+      val expectedCounts = boostedMediaOrder.map(_._2)
+
+      retrievedOrder == expectedOrder &&
+      medias.map(_.media_count) == expectedCounts &&
+      medias.forall(_.bot_id == testMediaId.value)
     }
     resourceAssert.use(IO.pure).assert
   }
