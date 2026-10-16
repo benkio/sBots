@@ -4,6 +4,7 @@ import cats.*
 import cats.implicits.*
 import log.effect.LogWriter
 import pureconfig.*
+
 import scala.concurrent.duration.*
 
 final case class Config(
