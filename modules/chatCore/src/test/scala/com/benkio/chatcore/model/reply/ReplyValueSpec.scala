@@ -46,6 +46,12 @@ class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
         |    "filepath" : "testFilePath.mp4",
         |    "replyToMessage" : false
         |  }
+        |}""".stripMargin,
+      """{
+        |  "MarkdownFile" : {
+        |    "filepath" : "testFilePath.md",
+        |    "replyToMessage" : false
+        |  }
         |}""".stripMargin
     )
 
@@ -143,6 +149,7 @@ class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
     assertEquals(MediaFile.fromString("image.png"), PhotoFile("image.png"))
     assertEquals(MediaFile.fromString("animation.Gif.mp4"), GifFile("animation.Gif.mp4"))
     assertEquals(MediaFile.fromString("video.mp4"), VideoFile("video.mp4"))
+    assertEquals(MediaFile.fromString("readme.md"), MarkdownFile("readme.md"))
     assertEquals(MediaFile.fromString("note.sticker"), Sticker("note.sticker"))
     assertEquals(MediaFile.fromString("document.txt"), Document("document.txt"))
   }
@@ -183,6 +190,10 @@ class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
       VideoFile("x.mp4", false)
     )
     assertEquals(
+      MediaFile.fromMimeType(baseMedia.copy(mediaName = "x.md", mimeType = MimeType.MD)),
+      MarkdownFile("x.md", false)
+    )
+    assertEquals(
       MediaFile.fromMimeType(baseMedia.copy(mediaName = "x.doc", mimeType = MimeType.DOC)),
       Document("x.doc", false)
     )
@@ -207,13 +218,15 @@ class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
     forAll { (replyValueCore: ReplyValueCore) =>
       val replyValue: ReplyValue = replyValueCore
       replyValueCore match {
-        case text: Text           => assertEquals(ReplyValue.from[Text](replyValue), Some(text))
-        case mp3File: Mp3File     => assertEquals(ReplyValue.from[Mp3File](replyValue), Some(mp3File))
-        case gifFile: GifFile     => assertEquals(ReplyValue.from[GifFile](replyValue), Some(gifFile))
-        case photoFile: PhotoFile => assertEquals(ReplyValue.from[PhotoFile](replyValue), Some(photoFile))
-        case videoFile: VideoFile => assertEquals(ReplyValue.from[VideoFile](replyValue), Some(videoFile))
-        case document: Document   => assertEquals(ReplyValue.from[Document](replyValue), Some(document))
-        case sticker: Sticker     => assertEquals(ReplyValue.from[Sticker](replyValue), Some(sticker))
+        case text: Text                 => assertEquals(ReplyValue.from[Text](replyValue), Some(text))
+        case mp3File: Mp3File           => assertEquals(ReplyValue.from[Mp3File](replyValue), Some(mp3File))
+        case gifFile: GifFile           => assertEquals(ReplyValue.from[GifFile](replyValue), Some(gifFile))
+        case photoFile: PhotoFile       => assertEquals(ReplyValue.from[PhotoFile](replyValue), Some(photoFile))
+        case videoFile: VideoFile       => assertEquals(ReplyValue.from[VideoFile](replyValue), Some(videoFile))
+        case markdownFile: MarkdownFile =>
+          assertEquals(ReplyValue.from[MarkdownFile](replyValue), Some(markdownFile))
+        case document: Document => assertEquals(ReplyValue.from[Document](replyValue), Some(document))
+        case sticker: Sticker   => assertEquals(ReplyValue.from[Sticker](replyValue), Some(sticker))
       }
     }
   }
@@ -224,6 +237,7 @@ class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
       assert(MediaFile.fromString(s"$prefix.jpg").isInstanceOf[PhotoFile])
       assert(MediaFile.fromString(s"$prefix.png").isInstanceOf[PhotoFile])
       assert(MediaFile.fromString(s"${prefix}Gif.mp4").isInstanceOf[GifFile])
+      assert(MediaFile.fromString(s"$prefix.md").isInstanceOf[MarkdownFile])
       assert(MediaFile.fromString(s"$prefix.sticker").isInstanceOf[Sticker])
       val videoName = if prefix.toLowerCase.endsWith("gif") then s"x$prefix.mp4" else s"$prefix.mp4"
       assert(MediaFile.fromString(videoName).isInstanceOf[VideoFile])

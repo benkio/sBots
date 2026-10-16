@@ -8,6 +8,7 @@ enum MimeType(val value: String) {
   case STICKER extends MimeType("image/sticker")
   case MPEG    extends MimeType("audio/mpeg")
   case MP4     extends MimeType("video/mp4")
+  case MD      extends MimeType("text/markdown")
   case DOC     extends MimeType("application/octet-stream")
 }
 
@@ -22,6 +23,7 @@ object MimeTypeOps {
     case "image/sticker"            => Some(MimeType.STICKER)
     case "audio/mpeg"               => Some(MimeType.MPEG)
     case "video/mp4"                => Some(MimeType.MP4)
+    case "text/markdown"            => Some(MimeType.MD)
     case "application/octet-stream" => Some(MimeType.DOC)
     case _                          => None
   }
@@ -33,6 +35,7 @@ object MimeTypeOps {
       case "png"                                                     => Some(MimeType.PNG)
       case "sticker"                                                 => Some(MimeType.STICKER)
       case "mp3"                                                     => Some(MimeType.MPEG)
+      case "md"                                                      => Some(MimeType.MD)
       case "mp4" if media_name.toLowerCase.takeRight(7) == "gif.mp4" => Some(MimeType.GIF)
       case "mp4"                                                     => Some(MimeType.MP4)
       case _                                                         => None

@@ -34,19 +34,23 @@ object ReplyValueCore {
         .orElse(
           c.downField("VideoFile").as[VideoFile].map(mediaFile => mediaFile)
         )
+        .orElse(
+          c.downField("MarkdownFile").as[MarkdownFile].map(mediaFile => mediaFile)
+        )
         .orElse(c.downField("Document").as[Document].map(mediaFile => mediaFile))
         .orElse(c.downField("Sticker").as[Sticker].map(mediaFile => mediaFile))
   }
 
   given Encoder[ReplyValueCore] = new Encoder[ReplyValueCore] {
     def apply(value: ReplyValueCore): Json = value match {
-      case text: Text           => Json.obj("Text" -> text.asJson)
-      case mp3File: Mp3File     => Json.obj("Mp3File" -> mp3File.asJson)
-      case gifFile: GifFile     => Json.obj("GifFile" -> gifFile.asJson)
-      case photoFile: PhotoFile => Json.obj("PhotoFile" -> photoFile.asJson)
-      case videoFile: VideoFile => Json.obj("VideoFile" -> videoFile.asJson)
-      case document: Document   => Json.obj("Document" -> document.asJson)
-      case sticker: Sticker     => Json.obj("Sticker" -> sticker.asJson)
+      case text: Text                 => Json.obj("Text" -> text.asJson)
+      case mp3File: Mp3File           => Json.obj("Mp3File" -> mp3File.asJson)
+      case gifFile: GifFile           => Json.obj("GifFile" -> gifFile.asJson)
+      case photoFile: PhotoFile       => Json.obj("PhotoFile" -> photoFile.asJson)
+      case videoFile: VideoFile       => Json.obj("VideoFile" -> videoFile.asJson)
+      case markdownFile: MarkdownFile => Json.obj("MarkdownFile" -> markdownFile.asJson)
+      case document: Document         => Json.obj("Document" -> document.asJson)
+      case sticker: Sticker           => Json.obj("Sticker" -> sticker.asJson)
     }
   }
 
@@ -157,6 +161,15 @@ object VideoFile {
   given Encoder[VideoFile] = deriveEncoder[VideoFile]
 }
 
+final case class MarkdownFile(filepath: String, replyToMessage: Boolean = false) extends MediaFile {
+  require(List(".md").exists(filepath.endsWith(_)))
+}
+
+object MarkdownFile {
+  given Decoder[MarkdownFile] = deriveDecoder[MarkdownFile]
+  given Encoder[MarkdownFile] = deriveEncoder[MarkdownFile]
+}
+
 final case class Document(filepath: String, replyToMessage: Boolean = false) extends MediaFile {}
 
 object Document {
@@ -178,13 +191,19 @@ object MediaFile {
 
   given showInstance: Show[MediaFile] = Show.show(_.filename)
 
-  def fromString(filename: String): MediaFile = filename.takeRight(4) match {
-    case ".mp3"                                       => Mp3File(filename)
-    case ".jpg" | ".png"                              => PhotoFile(filename)
-    case ".mp4" if filename.takeRight(7) == "Gif.mp4" => GifFile(filename)
-    case ".mp4"                                       => VideoFile(filename)
-    case _ if filename.takeRight(8) == ".sticker"     => Sticker(filename)
-    case _                                            => Document(filename)
+  def fromString(filename: String): MediaFile = {
+    List[(String, String => MediaFile)](
+      "Gif.mp4"  -> (f => GifFile(f)),
+      ".mp3"     -> (f => Mp3File(f)),
+      ".mp4"     -> (f => VideoFile(f)),
+      ".md"      -> (f => MarkdownFile(f)),
+      ".jpg"     -> (f => PhotoFile(f)),
+      ".png"     -> (f => PhotoFile(f)),
+      ".sticker" -> (f => Sticker(f))
+    ).collectFirst {
+      case (suffix, filenameConstructor) if filename.endsWith(suffix) =>
+        filenameConstructor
+    }.fold(Document(filename))(constructor => constructor(filename))
   }
 
   def fromMimeType(media: Media, replyToMessage: Boolean = false): MediaFile = media.mimeType match {
@@ -194,6 +213,7 @@ object MediaFile {
     case MimeType.MPEG    => Mp3File(media.mediaName, replyToMessage)
     case MimeType.STICKER => Sticker(media.mediaName, replyToMessage)
     case MimeType.MP4     => VideoFile(media.mediaName, replyToMessage)
+    case MimeType.MD      => MarkdownFile(media.mediaName, replyToMessage)
     case MimeType.DOC     => Document(media.mediaName, replyToMessage)
   }
 }

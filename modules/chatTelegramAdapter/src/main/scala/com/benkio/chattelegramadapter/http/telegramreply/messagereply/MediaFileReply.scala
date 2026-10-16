@@ -3,6 +3,7 @@ package com.benkio.chattelegramadapter.http.telegramreply.messagereply
 import cats.effect.*
 import com.benkio.chatcore.model.reply.Document
 import com.benkio.chatcore.model.reply.GifFile
+import com.benkio.chatcore.model.reply.MarkdownFile
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.PhotoFile
@@ -65,6 +66,32 @@ object MediaFileReply {
         repository = repository,
         replyToMessage = replyToMessage
       )
+    case markdown: MarkdownFile =>
+      sendMarkdown(
+        reply = markdown,
+        msg = msg.toTelegramium,
+        repository = repository,
+        replyToMessage = replyToMessage
+      )
+  }
+
+  def sendMarkdown[F[_]: Async: LogWriter: Api](
+      reply: MarkdownFile,
+      msg: TMessage,
+      repository: Repository[F],
+      replyToMessage: Boolean
+  ): F[List[TMessage]] = {
+    TelegramMessageReply.telegramFileReplyPattern[F](
+      msg = msg,
+      repository = repository,
+      chatAction = "",
+      mediaFile = reply,
+      replyToMessage = replyToMessage,
+      sendFileAPIMethod = (_, _, _) =>
+        // extract the content from the file or the link file
+        // use the sendMessage or TextReply to sent the markdown content
+        ???
+    )
   }
 
   def sendMp3[F[_]: Async: LogWriter: Api](
