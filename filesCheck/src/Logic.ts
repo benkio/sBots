@@ -22,6 +22,41 @@ interface Matches {
 
 const sizeThresholdMB = 10;
 const markdownSizeThresholdMB = 1;
+const markdownV2ReservedChars = new Set([
+  '_',
+  '*',
+  '[',
+  ']',
+  '(',
+  ')',
+  '~',
+  '`',
+  '>',
+  '#',
+  '+',
+  '-',
+  '=',
+  '|',
+  '{',
+  '}',
+  '.',
+  '!',
+  '\\',
+]);
+
+export const hasInvalidTelegramMarkdownV2 = (content: string): boolean => {
+  for (let i = 0; i < content.length; i += 1) {
+    const char = content[i];
+    if (char === '\\') {
+      i += 1;
+      continue;
+    }
+    if (markdownV2ReservedChars.has(char)) {
+      return true;
+    }
+  }
+  return false;
+};
 
 const isMediaListItem = (
   mediaList: MediaList,
@@ -129,6 +164,15 @@ const markdownLogic =
     Effect.gen(function* () {
       const guard = containinedInMediaListLogic(bot, mediaList, fileService);
       yield* guard(f);
+
+      const markdownContent = yield* fileService.getFile(f);
+      const hasInvalidMarkdown =
+        hasInvalidTelegramMarkdownV2(markdownContent);
+      yield* hasInvalidMarkdown
+        ? Effect.logError(
+            `[filesCheck] 🚫  ${fileService.basename(f)} contains unescaped Telegram MarkdownV2 special chars`
+          )
+        : Effect.void;
 
       const sizeCheck = yield* isLessThenMB(
         f,
