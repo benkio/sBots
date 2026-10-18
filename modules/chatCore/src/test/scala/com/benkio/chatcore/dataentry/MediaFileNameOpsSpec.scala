@@ -7,6 +7,7 @@ class MediaFileNameOpsSpec extends FunSuite {
     val test = List(
       "rphjb_06.mp4"                                    -> "rphjb_06",
       "rphjb_06Gif.mp4"                                 -> "rphjb_06",
+      "rphjb_06.md"                                     -> "rphjb_06",
       "rphjb_2Orecchie1Bocca.mp4"                       -> "rphjb_2Orecchie1Bocca",
       "rphjb_2Orecchie1Bocca2.mp4"                      -> "rphjb_2Orecchie1Bocca2",
       "rphjb_3Minuti.mp4"                               -> "rphjb_3Minuti",
