@@ -1,11 +1,21 @@
 package com.benkio.chatcore.dataentry
 
+import com.benkio.chatcore.model.reply.GifFile
+import com.benkio.chatcore.model.reply.MarkdownFile
+import com.benkio.chatcore.model.reply.MediaFile
+import com.benkio.chatcore.model.reply.Sticker
+
 object MediaFileNameOps {
 
-  private def isGifMp4(mediaFileName: String): Boolean =
-    mediaFileName.dropRight(4).takeRight(3).toLowerCase == "gif"
   def getPrefix(mediaFileName: String): String =
-    if isGifMp4(mediaFileName)
-    then mediaFileName.dropRight(7)
-    else mediaFileName.dropRight(4)
+    MediaFile.fromString(mediaFileName) match {
+      case _: GifFile      => mediaFileName.dropRight(7)
+      case _: MarkdownFile => mediaFileName.dropRight(3)
+      case _: Sticker      => mediaFileName.dropRight(8)
+      case _               =>
+        mediaFileName.lastIndexOf('.') match {
+          case -1 => mediaFileName
+          case i  => mediaFileName.take(i)
+        }
+    }
 }

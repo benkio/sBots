@@ -40,6 +40,16 @@ class MediaFileSourceGroupSpec extends FunSuite {
               uri"https://www.dropbox.com/scl/fi/1uo9npnlupdk5jhykd8zt/rphjb_5DitaRivoltaGif.mp4?rlkey=2nzrxid175oik5m5fva1z54kr&dl=1"
             )
           )
+        ),
+        MediaFileSource(
+          filename = "rphjb_5DitaRivolta.md",
+          kinds = List.empty,
+          mime = MimeType.MD,
+          sources = List(
+            Right(
+              uri"https://www.dropbox.com/scl/fi/aaaaaaaaaaaaaaaaaaaaa/rphjb_5DitaRivolta.md?rlkey=aaaaaaaaaaaaaaaaaaaaa&dl=1"
+            )
+          )
         )
       )
     )
@@ -72,6 +82,12 @@ class MediaFileSourceGroupSpec extends FunSuite {
                      |        {
                      |          "GifFile" : {
                      |            "filepath" : "rphjb_5DitaRivoltaGif.mp4",
+                     |            "replyToMessage" : false
+                     |          }
+                     |        },
+                     |        {
+                     |          "MarkdownFile" : {
+                     |            "filepath" : "rphjb_5DitaRivolta.md",
                      |            "replyToMessage" : false
                      |          }
                      |        }
@@ -114,6 +130,16 @@ class MediaFileSourceGroupSpec extends FunSuite {
           sources = List(
             Right(
               uri"https://www.dropbox.com/scl/fi/1uo9npnlupdk5jhykd8zt/rphjb_5DitaRivoltaGif.mp4?rlkey=2nzrxid175oik5m5fva1z54kr&dl=1"
+            )
+          )
+        ),
+        MediaFileSource(
+          filename = "rphjb_5DitaRivolta.md",
+          kinds = List.empty,
+          mime = MimeType.MD,
+          sources = List(
+            Right(
+              uri"https://www.dropbox.com/scl/fi/aaaaaaaaaaaaaaaaaaaaa/rphjb_5DitaRivolta.md?rlkey=aaaaaaaaaaaaaaaaaaaaa&dl=1"
             )
           )
         ),
@@ -174,6 +200,16 @@ class MediaFileSourceGroupSpec extends FunSuite {
               sources = List(
                 Right(
                   uri"https://www.dropbox.com/scl/fi/1uo9npnlupdk5jhykd8zt/rphjb_5DitaRivoltaGif.mp4?rlkey=2nzrxid175oik5m5fva1z54kr&dl=1"
+                )
+              )
+            ),
+            MediaFileSource(
+              filename = "rphjb_5DitaRivolta.md",
+              kinds = List.empty,
+              mime = MimeType.MD,
+              sources = List(
+                Right(
+                  uri"https://www.dropbox.com/scl/fi/aaaaaaaaaaaaaaaaaaaaa/rphjb_5DitaRivolta.md?rlkey=aaaaaaaaaaaaaaaaaaaaa&dl=1"
                 )
               )
             )
