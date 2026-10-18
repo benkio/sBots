@@ -30,7 +30,7 @@ object Dependencies {
     val mulesHttp4s           = "0.6.0"
     val munit                 = "1.3.1"
     val munitCatsEffect       = "2.2.1"
-    val pureConfig            = "0.17.10"
+    val pureConfig            = "0.17.11"
     val scalajsDom            = "2.8.1"
     val scalacheck            = "1.20.0"
     val scalacheckEffectMunit = "2.1.0"
