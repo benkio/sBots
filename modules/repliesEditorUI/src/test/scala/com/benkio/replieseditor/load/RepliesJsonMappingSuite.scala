@@ -30,6 +30,28 @@ class RepliesJsonMappingSuite extends FunSuite {
     assertEquals(e.replies, Vector(ReplyItem(ReplyItemKind.File, "bot_x.mp3")))
   }
 
+  test("extractEditableEntry parses MarkdownFile media entries") {
+    val jsonStr =
+      """
+        |{
+        |  "trigger": { "TextTrigger": { "triggers": [ { "StringTextTriggerValue": "md" } ] } },
+        |  "reply": {
+        |    "MediaReply": {
+        |      "mediaFiles": [
+        |        { "MarkdownFile": { "filepath": "bot_x.md", "replyToMessage": false } }
+        |      ],
+        |      "replyToMessage": false
+        |    }
+        |  },
+        |  "matcher": "ContainsOnce"
+        |}
+        |""".stripMargin
+
+    val json = parse(jsonStr).toOption.get
+    val e    = RepliesJsonMapping.extractEditableEntry(json).get
+    assertEquals(e.replies, Vector(ReplyItem(ReplyItemKind.File, "bot_x.md")))
+  }
+
   test("extractEditableEntry parses TextReply into text reply items") {
     val jsonStr =
       """
@@ -66,6 +88,29 @@ class RepliesJsonMappingSuite extends FunSuite {
         .as[String]
         .toOption,
       Some("bot_a.mp3")
+    )
+  }
+
+  test("buildJsonFromEditable maps .md files to MarkdownFile wrapper") {
+    val e =
+      EditableEntry(
+        replies = Vector(ReplyItem(ReplyItemKind.File, "bot_a.md")),
+        triggers = Vector(TriggerEdit(TriggerKind.PlainString, "t", None)),
+        matcher = "ContainsOnce"
+      )
+
+    val out = RepliesJsonMapping.buildJsonFromEditable(e).toOption.get
+    val c   = out.hcursor
+    assertEquals(
+      c.downField("reply")
+        .downField("MediaReply")
+        .downField("mediaFiles")
+        .downArray
+        .downField("MarkdownFile")
+        .downField("filepath")
+        .as[String]
+        .toOption,
+      Some("bot_a.md")
     )
   }
 

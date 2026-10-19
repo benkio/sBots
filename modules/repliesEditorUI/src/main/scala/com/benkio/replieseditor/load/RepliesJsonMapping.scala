@@ -42,7 +42,7 @@ object RepliesJsonMapping {
             mediaFilesArr <- mediaReply.hcursor.downField("mediaFiles").as[Vector[Json]].toOption
           } yield mediaFilesArr.flatMap { mf =>
             val mc        = mf.hcursor
-            val fileKinds = List("Mp3File", "GifFile", "VideoFile", "PhotoFile", "Document", "Sticker")
+            val fileKinds = List("Mp3File", "GifFile", "VideoFile", "PhotoFile", "MarkdownFile", "Document", "Sticker")
             fileKinds.view
               .flatMap(k => mc.downField(k).downField("filepath").as[String].toOption)
               .headOption
@@ -79,6 +79,7 @@ object RepliesJsonMapping {
     else if filename.endsWith(".jpg") || filename.endsWith(".png") then "PhotoFile"
     else if filename.endsWith(".mp4") && filename.endsWith("Gif.mp4") then "GifFile"
     else if filename.endsWith(".mp4") then "VideoFile"
+    else if filename.endsWith(".md") then "MarkdownFile"
     else if filename.endsWith(".sticker") then "Sticker"
     else "Document"
 
