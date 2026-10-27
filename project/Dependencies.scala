@@ -22,7 +22,7 @@ object Dependencies {
     val googleYouTubeApi      = "v3-rev20261019-2.0.0"
     val http4s                = "0.23.38"
     val ip4s                  = "3.8.0"
-    val jacoco                = "0.8.15" // must match the org.jacoco.core version sbt-jacoco instruments with
+    val jacoco                = "0.8.16" // must match the org.jacoco.core version sbt-jacoco instruments with
     val logEffects            = "0.19.9"
     val logbackClassic        = "1.6.6"
     val logbackLogstash       = "9.0"
