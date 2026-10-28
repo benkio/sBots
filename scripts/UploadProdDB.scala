@@ -1,6 +1,6 @@
 #!/usr/bin/env -S scala-cli run
 //> using scala "3"
-//> using dep "com.lihaoyi::os-lib:0.11.8"
+//> using dep "com.lihaoyi::os-lib:0.11.10"
 
 /** Replace prod botDB.sqlite3 with a local sqlite file and restart bots.
   *
