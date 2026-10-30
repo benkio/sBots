@@ -44,7 +44,7 @@ class CommandPatternsCommandsSpec extends CatsEffectSuite {
     )
 
     result.map {
-      case Text(value, _, _) =>
+      case Text(value, _) =>
         assert(value.contains("---- Instruzioni Per SampleWebhookBot ----"))
         assert(value.contains("Se si vuole disabilitare il bot"))
       case other =>

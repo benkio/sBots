@@ -176,7 +176,7 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
         chatId = 0L,
         messageId = 0,
         ttl = 300.millis,
-        reply = text
+        value = text.value
       )
     assertIO(result, true)
   }

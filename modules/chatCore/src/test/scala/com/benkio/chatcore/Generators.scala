@@ -53,12 +53,10 @@ trait Generators {
     base = (if withSlash then "/" else "") + cased + (if withAtBot then s"@$botSuffix" else "")
   } yield key -> (leadingWs + base + trailingWs)
 
-  val textTypeGen: Gen[Text.TextType] = Gen.oneOf(Text.TextType.values.toSeq)
-  val textGen: Gen[Text]              = for {
-    ttl      <- Gen.option(Gen.finiteDuration)
-    textType <- textTypeGen
-    value    <- Gen.alphaStr
-  } yield Text(value = value, timeToLive = ttl, textType = textType)
+  val textGen: Gen[Text] = for {
+    ttl   <- Gen.option(Gen.finiteDuration)
+    value <- Gen.alphaStr
+  } yield Text(value = value, timeToLive = ttl)
   val gifGen: Gen[GifFile]         = Gen.alphaStr.map(s => GifFile(s + "Gif.mp4"))
   val mp3Gen: Gen[Mp3File]         = Gen.alphaStr.map(s => Mp3File(s + ".mp3"))
   val photoGen: Gen[PhotoFile]     = Gen.alphaStr.map(s => PhotoFile(s + ".jpg"))

@@ -219,6 +219,7 @@ class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
       val replyValue: ReplyValue = replyValueCore
       replyValueCore match {
         case text: Text                 => assertEquals(ReplyValue.from[Text](replyValue), Some(text))
+        case markdown: Markdown         => assertEquals(ReplyValue.from[Markdown](replyValue), Some(markdown))
         case mp3File: Mp3File           => assertEquals(ReplyValue.from[Mp3File](replyValue), Some(mp3File))
         case gifFile: GifFile           => assertEquals(ReplyValue.from[GifFile](replyValue), Some(gifFile))
         case photoFile: PhotoFile       => assertEquals(ReplyValue.from[PhotoFile](replyValue), Some(photoFile))

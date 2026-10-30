@@ -11,10 +11,7 @@ import telegramium.bots.high.*
 import telegramium.bots.high.implicits.*
 import telegramium.bots.ChatId
 import telegramium.bots.ChatIntId
-import telegramium.bots.Html
-import telegramium.bots.Markdown2
 import telegramium.bots.Message as TMessage
-import telegramium.bots.ParseMode
 import telegramium.bots.ReplyParameters
 
 import scala.concurrent.duration.FiniteDuration
@@ -25,12 +22,7 @@ object TextReply {
       msg: Message,
       replyToMessage: Boolean
   ): F[List[TMessage]] = {
-    val chatId: ChatId               = ChatIntId(msg.chatId.value)
-    val parseMode: Option[ParseMode] = reply.textType match {
-      case Text.TextType.Plain    => None
-      case Text.TextType.Markdown => Markdown2.some
-      case Text.TextType.Html     => Html.some
-    }
+    val chatId: ChatId            = ChatIntId(msg.chatId.value)
     val result: F[List[TMessage]] =
       for {
         _       <- LogWriter.info(s"[TelegramMessageReply[Text]] reply to message: ${msg.getContent}")
@@ -40,8 +32,7 @@ object TextReply {
             .sendMessage(
               chatId = chatId,
               text = reply.value,
-              replyParameters = Option.when(replyToMessage)(ReplyParameters(Some(msg.messageId))),
-              parseMode = parseMode
+              replyParameters = Option.when(replyToMessage)(ReplyParameters(Some(msg.messageId)))
             )
             .exec
         _ <- reply.timeToLive.fold(Async[F].unit)(ttl => {
@@ -51,7 +42,7 @@ object TextReply {
                 chatId = message.chat.id,
                 messageId = message.messageId,
                 ttl = ttl,
-                reply = reply
+                value = reply.value
               )
             )
             .void
@@ -67,10 +58,10 @@ object TextReply {
       chatId: Long,
       messageId: Int,
       ttl: FiniteDuration,
-      reply: Text
+      value: String
   ): F[Boolean] = {
     Async[F].sleep(ttl) >>
-      LogWriter.info(s"[TelegramMessageReply[Text]] deleting `${reply.value}` after $ttl") >>
+      LogWriter.info(s"[TelegramMessageReply[Text]] deleting `$value` after $ttl") >>
       Methods
         .deleteMessage(
           chatId = ChatIntId(chatId),
@@ -80,7 +71,7 @@ object TextReply {
         .handleErrorWith(e =>
           LogWriter
             .error(
-              s"[TelegramMessageReply[Text]] error occurred when deleting `${reply.value}` after $ttl. Error: $e"
+              s"[TelegramMessageReply[Text]] error occurred when deleting `$value` after $ttl. Error: $e"
             )
             .as(false)
         )
