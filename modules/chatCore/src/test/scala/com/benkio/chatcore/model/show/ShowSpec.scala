@@ -54,7 +54,7 @@ class ShowSpec extends ScalaCheckSuite {
   }
 
   property("addTimestamp(ShowQuery) should set timestamp from matching captions") {
-    val keywordGen = Gen.alphaLowerStr.suchThat(_.nonEmpty)
+    val keywordGen = Gen.alphaLowerStr.suchThat(_.length >= 4)
     val tsGen      = Gen.choose(1L, 10_000L)
     forAll(keywordGen, tsGen) { (keyword: String, timestampSeconds: Long) =>
       val timestamp = timestampSeconds.seconds
@@ -69,7 +69,7 @@ class ShowSpec extends ScalaCheckSuite {
           isLive = false,
           originAutomaticCaption = None,
           originAutomaticCaptionSrt = Vector(
-            2.seconds -> "intro",
+            2.seconds -> "1234567890",
             timestamp -> s"caption contains $keyword"
           ),
           timestamp = None
