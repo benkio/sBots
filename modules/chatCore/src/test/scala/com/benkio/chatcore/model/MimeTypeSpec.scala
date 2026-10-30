@@ -21,6 +21,19 @@ class MimeTypeSpec extends ScalaCheckSuite {
     }
   }
 
+  property("filename extension infers sticker and markdown mime types") {
+    forAll(Gen.alphaNumStr.suchThat(_.nonEmpty)) { (prefix: String) =>
+      assertEquals(MimeTypeOps.mimeTypeOrDefault(s"$prefix.sticker", None), MimeType.STICKER)
+      assertEquals(MimeTypeOps.mimeTypeOrDefault(s"$prefix.md", None), MimeType.MD)
+    }
+  }
+
+  property("gif.mp4 is inferred as gif and not mp4") {
+    forAll(Gen.alphaNumStr.suchThat(_.nonEmpty)) { (prefix: String) =>
+      assertEquals(MimeTypeOps.mimeTypeOrDefault(s"${prefix}Gif.mp4", None), MimeType.GIF)
+    }
+  }
+
   property("unrecognized mime and extension fall back to DOC") {
     forAll(Gen.alphaNumStr.map(_ + ".abc")) { (name: String) =>
       assertEquals(MimeTypeOps.mimeTypeOrDefault(name, Some("invalid/type")), MimeType.DOC)

@@ -79,6 +79,37 @@ class MessageMatchesSpec extends ScalaCheckSuite {
     }
   }
 
+  property("ContainsOnce evaluates caption when text is missing") {
+    forAll(Gen.alphaLowerStr.suchThat(_.nonEmpty)) { (needle: String) =>
+      val trigger = StringTextTriggerValue(needle)
+      val b       = bundle(TextTrigger(trigger), MessageMatches.ContainsOnce)
+      val msg     = Message(
+        0,
+        0L,
+        ChatId(0L),
+        "private",
+        text = None,
+        caption = Some(s"caption with $needle")
+      )
+      assert(MessageMatches.doesMatch(b, msg, None).isDefined)
+    }
+  }
+
+  property("ContainsOnce returns None when both text and caption are missing") {
+    forAll(Gen.alphaNumStr.suchThat(_.nonEmpty)) { (needle: String) =>
+      val b   = bundle(TextTrigger(StringTextTriggerValue(needle)), MessageMatches.ContainsOnce)
+      val msg = Message(
+        0,
+        0L,
+        ChatId(0L),
+        "private",
+        text = None,
+        caption = None
+      )
+      assert(MessageMatches.doesMatch(b, msg, None).isEmpty)
+    }
+  }
+
   property("ContainsAll matches iff every string trigger is contained") {
     forAll(
       Gen
@@ -103,33 +134,33 @@ class MessageMatchesSpec extends ScalaCheckSuite {
     }
   }
 
-  // Golden case: longest ContainsOnce trigger wins
-  test("ContainsOnce prefers the longest matching string trigger") {
-    val b = bundle(
-      TextTrigger(
-        StringTextTriggerValue("test"),
-        StringTextTriggerValue("some other long trigger")
+  property("ContainsOnce prefers the longest matching string trigger") {
+    val wordGen = Gen.alphaLowerStr.suchThat(s => s.length >= 3)
+    forAll(wordGen, wordGen) { (shortWord: String, suffix: String) =>
+      val longTrigger = s"$shortWord $suffix"
+      val b = bundle(
+        TextTrigger(
+          StringTextTriggerValue(shortWord),
+          StringTextTriggerValue(longTrigger)
+        )
       )
-    )
-    val msg = Message(
-      0,
-      0L,
-      ChatId(0L),
-      "private",
-      text = Some("message matching twice, the short trigger and some other long trigger in test text")
-    )
-    val result = MessageMatches.doesMatch(b, msg, Some(ignorePrefix))
-    assertEquals(result.map(_._1), Some(TextTrigger(StringTextTriggerValue("some other long trigger"))))
+      val msg = Message(
+        0,
+        0L,
+        ChatId(0L),
+        "private",
+        text = Some(s"message containing $shortWord and also $longTrigger")
+      )
+      val result = MessageMatches.doesMatch(b, msg, Some(ignorePrefix))
+      assertEquals(result.map(_._1), Some(TextTrigger(StringTextTriggerValue(longTrigger))))
+    }
   }
 
-  test("MessageMatches JSON decode/encode should work as expected") {
-    val jsonInputs = List(""""ContainsOnce"""", """"ContainsAll"""")
-    for inputString <- jsonInputs yield {
-      val eitherMessageMatches = decode[MessageMatches](inputString)
-      eitherMessageMatches.fold(
-        e => fail("failed in parsing the input string as MessageMatches", e),
-        mm => assertEquals(mm.asJson.toString, inputString)
-      )
+  property("MessageMatches JSON decode/encode should work as expected") {
+    val mmGen = Gen.oneOf(MessageMatches.ContainsOnce, MessageMatches.ContainsAll)
+    forAll(mmGen) { (mm: MessageMatches) =>
+      val encoded = mm.asJson.noSpaces
+      assertEquals(decode[MessageMatches](encoded), Right(mm))
     }
   }
 }
