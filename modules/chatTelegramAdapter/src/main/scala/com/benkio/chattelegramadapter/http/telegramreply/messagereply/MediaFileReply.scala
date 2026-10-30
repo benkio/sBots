@@ -25,6 +25,10 @@ import java.nio.file.Path
 
 object MediaFileReply {
 
+  case class EmptyMarkdownFile(
+      markdownFile: MarkdownFile
+  ) extends Throwable(s"The Markdown File: $markdownFile returned empty content")
+
   def sendMediaFile[F[_]: Async: LogWriter: Api](
       reply: MediaFile,
       msg: Message,
@@ -107,21 +111,22 @@ object MediaFileReply {
             Repository
               .fileToString[F](Path.of(file.getAbsolutePath))
               .use(content => {
-                RichTextReply
-                  .sendRichText[F](
-                    richMessage = InputRichMessage(markdown = content.some),
-                    msg = msg.toModel,
-                    replyToMessage = replyToMessage
-                  )
-                  .flatMap {
-                    case message :: _ => Async[F].pure(message)
-                    case Nil          =>
-                      Async[F].raiseError(
-                        new RuntimeException(
-                          s"[MediaFileReply] No Telegram message returned while sending markdown ${reply.filepath}"
+                Async[F].raiseWhen(content.trim.isEmpty)(EmptyMarkdownFile(reply)) >>
+                  RichTextReply
+                    .sendRichText[F](
+                      richMessage = InputRichMessage(markdown = content.some),
+                      msg = msg.toModel,
+                      replyToMessage = replyToMessage
+                    )
+                    .flatMap {
+                      case message :: _ => Async[F].pure(message)
+                      case Nil          =>
+                        Async[F].raiseError(
+                          new RuntimeException(
+                            s"[MediaFileReply] No Telegram message returned while sending markdown ${reply.filepath}"
+                          )
                         )
-                      )
-                  }
+                    }
               })
           case InputLinkFile(fileIdOrUrl) =>
             Async[F].raiseError(

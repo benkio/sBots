@@ -18,50 +18,23 @@ final class ApiMock extends Api[IO] {
 object ApiMock {
   given Api[IO] = new ApiMock
 
-  val expectedResponses: Map[String, Json] = Map(
-    "sendChatAction" -> Json.False,
-    "deleteMessage"  -> true.asJson,
-    "sendMessage"    -> Message(
+  private def messageResponse(text: String): Json =
+    Message(
       0,
       date = 0,
       chat = Chat(0, `type` = "private"),
-      text = Some("[apiMock] sendMessage reply")
-    ).asJson,
-    "sendRichMessage" -> Message(
-      0,
-      date = 0,
-      chat = Chat(0, `type` = "private"),
-      text = Some("[apiMock] sendRichMessage reply")
-    ).asJson,
-    "sendVideo" -> Message(
-      0,
-      date = 0,
-      chat = Chat(0, `type` = "private"),
-      text = Some("[apiMock] sendVideo reply")
-    ).asJson,
-    "sendAudio" -> Message(
-      0,
-      date = 0,
-      chat = Chat(0, `type` = "private"),
-      text = Some("[apiMock] sendMp3 reply")
-    ).asJson,
-    "sendAnimation" -> Message(
-      0,
-      date = 0,
-      chat = Chat(0, `type` = "private"),
-      text = Some("[apiMock] sendGif reply")
-    ).asJson,
-    "sendPhoto" -> Message(
-      0,
-      date = 0,
-      chat = Chat(0, `type` = "private"),
-      text = Some("[apiMock] sendPhoto reply")
-    ).asJson,
-    "sendDocument" -> Message(
-      0,
-      date = 0,
-      chat = Chat(0, `type` = "private"),
-      text = Some("[apiMock] sendDocument reply")
+      text = Some(text)
     ).asJson
+
+  val expectedResponses: Map[String, Json] = Map(
+    "sendChatAction"  -> Json.False,
+    "deleteMessage"   -> true.asJson,
+    "sendMessage"     -> messageResponse("[apiMock] sendMessage reply"),
+    "sendRichMessage" -> messageResponse("[apiMock] sendRichMessage reply"),
+    "sendVideo"       -> messageResponse("[apiMock] sendVideo reply"),
+    "sendAudio"       -> messageResponse("[apiMock] sendMp3 reply"),
+    "sendAnimation"   -> messageResponse("[apiMock] sendGif reply"),
+    "sendPhoto"       -> messageResponse("[apiMock] sendPhoto reply"),
+    "sendDocument"    -> messageResponse("[apiMock] sendDocument reply")
   )
 }

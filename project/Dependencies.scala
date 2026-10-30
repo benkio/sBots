@@ -22,7 +22,6 @@ object Dependencies {
     val googleYouTubeApi      = "v3-rev20261019-2.9.2"
     val http4s                = "0.23.38"
     val ip4s                  = "3.8.0"
-    val jacoco                = "0.8.15" // must match the org.jacoco.core version sbt-jacoco instruments with
     val logEffects            = "0.19.9"
     val logbackClassic        = "1.6.6"
     val logbackLogstash       = "9.0"
@@ -79,11 +78,8 @@ object Dependencies {
     val http4sServer      = "org.http4s"             %% "http4s-server"               % versions.http4s
     val http4sEmberServer = "org.http4s"             %% "http4s-ember-server"         % versions.http4s
     val ip4sCore          = "com.comcast"            %% "ip4s-core"                   % versions.ip4s
-    // Offline-instrumented (jacoco) classes call into this runtime agent when loaded;
-    // without it on the test classpath they fail with NoClassDefFoundError on $jacocoInit.
-    val jacocoAgentRuntime = ("org.jacoco"   % "org.jacoco.agent" % versions.jacoco % "test").classifier("runtime")
-    val logEffectsCore     = "io.laserdisc" %% "log-effect-core"  % versions.logEffects
-    val logEffectsFs2      = "io.laserdisc" %% "log-effect-fs2"   % versions.logEffects
+    val logEffectsCore    = "io.laserdisc"           %% "log-effect-core"             % versions.logEffects
+    val logEffectsFs2     = "io.laserdisc"           %% "log-effect-fs2"              % versions.logEffects
     val logbackClassic   = "ch.qos.logback"         % "logback-classic"          % versions.logbackClassic  % Runtime
     val logbackLogstash  = "net.logstash.logback"   % "logstash-logback-encoder" % versions.logbackLogstash % Runtime
     val mules            = "io.chrisdavenport"     %% "mules"                    % versions.mules
@@ -128,7 +124,6 @@ object Dependencies {
     libs.http4sCore,
     libs.http4sEmberClient,
     libs.http4sServer,
-    libs.jacocoAgentRuntime,
     libs.logEffectsCore,
     libs.logEffectsFs2,
     libs.logbackClassic,
@@ -210,7 +205,6 @@ object Dependencies {
     libs.googleOauthClient,
     libs.googleYouTubeApi,
     libs.http4sCore,
-    libs.jacocoAgentRuntime,
     libs.logEffectsCore,
     libs.logEffectsFs2,
     libs.logbackClassic,
@@ -249,7 +243,6 @@ object Dependencies {
       libs.munit,
       libs.doobieMunit,
       libs.scalatest,
-      libs.jacocoAgentRuntime,
       libs.catsEffect        % "test",
       libs.catsCore          % "test",
       libs.cron4s            % "test",
