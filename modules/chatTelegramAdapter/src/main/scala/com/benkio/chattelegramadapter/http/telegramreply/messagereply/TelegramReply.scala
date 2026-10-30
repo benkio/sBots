@@ -107,8 +107,7 @@ object TelegramMessageReply {
               richMessage = InputRichMessage(markdown = markdown.value.some),
               msg = msg,
               replyToMessage = replyToMessage,
-              timeToLive = markdown.timeToLive,
-              value = markdown.value
+              timeToLive = markdown.timeToLive
             )
       }
     case telegramInlineKeyboard: TelegramInlineKeyboard =>
