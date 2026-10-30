@@ -1,11 +1,9 @@
-import com.github.sbt.jacoco.report.JacocoReportSettings
-import com.github.sbt.jacoco.report.JacocoThresholds
-import com.github.sbt.jacoco.JacocoPlugin.autoImport.*
 import explicitdeps.ExplicitDepsPlugin.autoImport.*
 import org.scalajs.sbtplugin.ScalaJSPlugin
 import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport.*
 import sbt.*
 import sbtassembly.AssemblyPlugin.autoImport.*
+import scoverage.ScoverageKeys.*
 
 import Dependencies.*
 import Keys.*
@@ -17,15 +15,13 @@ object Settings {
   lazy val runMigrate = taskKey[Unit]("Migrates the database schema.")
   lazy val scalaTests = taskKey[Unit]("Run ScalaTest tests")
 
-  /** Line-coverage threshold, rounded down from each module's current measured coverage (with a small safety margin) so
-    * `jacoco`/`jacocoAggregate` reflect reality instead of an arbitrary one-size-fits-all number. Raise per-module as
-    * coverage improves. Sets both `jacocoReportSettings` (used by `jacoco`/`jacocoReport`) and
-    * `jacocoAggregateReportSettings` (used by `jacocoAggregate`'s per-project checks) — the latter otherwise silently
-    * falls back to the root project's threshold.
+  /** Statement-coverage threshold, rounded down from each module's current measured coverage (with a small safety
+    * margin) so coverage checks reflect reality instead of an arbitrary one-size-fits-all number. Raise per-module as
+    * coverage improves.
     */
   def lineCoverageThreshold(pct: Double): Seq[Def.SettingsDefinition] = Seq(
-    jacocoReportSettings          := JacocoReportSettings().withThresholds(JacocoThresholds(line = pct)),
-    jacocoAggregateReportSettings := JacocoReportSettings().withThresholds(JacocoThresholds(line = pct))
+    coverageFailOnMinimum    := true,
+    coverageMinimumStmtTotal := pct
   )
 
   lazy val settings = Seq(
@@ -33,10 +29,10 @@ object Settings {
     publishMavenStyle := true,
     scalaModuleInfo ~= (_.map(_.withOverrideScalaVersion(true))),
     update / scalaModuleInfo ~= (_.map(_.withOverrideScalaVersion(true))),
-    semanticdbEnabled      := true,
-    fork                   := true,
-    Test / publishArtifact := false,
-    jacocoExcludes         := Seq("com/benkio/chatcore/mocks/**")
+    semanticdbEnabled        := true,
+    fork                     := true,
+    Test / publishArtifact   := false,
+    coverageExcludedPackages := "com\\.benkio\\.chatcore\\.mocks\\..*"
   ) ++ lineCoverageThreshold(56)
 
   lazy val assemblySettings = Seq(
@@ -145,7 +141,8 @@ object Settings {
         | moduleFilter(name = "circe-generic_sjs1")
         | moduleFilter(name = "circe-parser_sjs1")
         | moduleFilter(name = "scala3-library_sjs1")
-    )
-    // Jacoco instruments JVM bytecode; Scala.js's linked JS output has none to measure.
-  ) ++ lineCoverageThreshold(0)
+    ),
+    // Disable coverage instrumentation for Scala.js modules.
+    coverageEnabled := false
+  )
 }
