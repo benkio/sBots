@@ -19,8 +19,8 @@ import io.circe.parser.decode
 import io.circe.syntax.*
 import munit.CatsEffectSuite
 import munit.ScalaCheckEffectSuite
-import org.scalacheck.Gen
 import org.scalacheck.effect.PropF
+import org.scalacheck.Gen
 import org.scalacheck.Prop.forAll
 
 import java.time.Instant
@@ -169,7 +169,7 @@ class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
     val shortWordGen = Gen.alphaLowerStr.suchThat(_.length >= 3)
     val suffixGen    = Gen.alphaLowerStr.suchThat(_.nonEmpty)
     forAll(shortWordGen, suffixGen) { (shortWord: String, suffix: String) =>
-      val longWord = s"$shortWord $suffix"
+      val longWord         = s"$shortWord $suffix"
       val message: Message = Message(
         messageId = 1,
         date = Instant.now.getEpochSecond(),

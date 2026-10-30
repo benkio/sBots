@@ -138,7 +138,7 @@ class MessageMatchesSpec extends ScalaCheckSuite {
     val wordGen = Gen.alphaLowerStr.suchThat(s => s.length >= 3)
     forAll(wordGen, wordGen) { (shortWord: String, suffix: String) =>
       val longTrigger = s"$shortWord $suffix"
-      val b = bundle(
+      val b           = bundle(
         TextTrigger(
           StringTextTriggerValue(shortWord),
           StringTextTriggerValue(longTrigger)

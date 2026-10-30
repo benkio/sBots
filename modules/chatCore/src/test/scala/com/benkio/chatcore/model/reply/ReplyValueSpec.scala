@@ -68,7 +68,7 @@ class ReplyValueSpec extends ScalaCheckSuite {
     val mediaNameGen = Gen.alphaNumStr.suchThat(_.nonEmpty)
     forAll(mediaNameGen) { (mediaNamePrefix: String) =>
       val mediaName = s"${mediaNamePrefix}.mp4"
-      val actual = Media(
+      val actual    = Media(
         mediaName = mediaName,
         botId = SBotId("botid"),
         kinds = List("kind"),
@@ -350,7 +350,7 @@ class ReplyValueSpec extends ScalaCheckSuite {
 
     forAll(Gen.alphaNumStr.suchThat(_.nonEmpty)) { (label: String) =>
       val replyValue: ReplyValue = AdapterReplyValue(label)
-      val _ = intercept[UnsupportedOperationException] {
+      val _                      = intercept[UnsupportedOperationException] {
         replyValue.asJson.noSpaces
       }
       assert(true)

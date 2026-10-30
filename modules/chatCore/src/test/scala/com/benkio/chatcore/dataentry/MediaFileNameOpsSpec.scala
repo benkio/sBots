@@ -39,7 +39,7 @@ class MediaFileNameOpsSpec extends ScalaCheckSuite {
   }
 
   property("getPrefix should remove only the last extension segment for unknown extensions") {
-    val validPrefix = Gen.alphaNumStr.suchThat(_.nonEmpty)
+    val validPrefix      = Gen.alphaNumStr.suchThat(_.nonEmpty)
     val unknownExtension = Gen.oneOf("tar", "zip", "abc", "tmp")
     forAll(validPrefix, unknownExtension) { (prefix: String, extension: String) =>
       val filename = s"$prefix.backup.$extension"

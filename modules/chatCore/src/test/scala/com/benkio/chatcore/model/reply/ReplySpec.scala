@@ -92,9 +92,9 @@ class ReplySpec extends ScalaCheckSuite {
     val nonEmptyAlpha = Gen.alphaStr.suchThat(_.nonEmpty)
     forAll(nonEmptyAlpha, nonEmptyAlpha, nonEmptyAlpha, nonEmptyAlpha) {
       (a: String, b: String, botIdValue: String, botNameValue: String) =>
-        val textReply  = TextReply.fromList(b, a)(false)
-        val mediaReply = MediaReply.fromList(List(Mp3File("track.mp3"), VideoFile("video.mp4")))
-        val sBotInfo   = SBotInfo(SBotId(botIdValue), SBotName(botNameValue))
+        val textReply      = TextReply.fromList(b, a)(false)
+        val mediaReply     = MediaReply.fromList(List(Mp3File("track.mp3"), VideoFile("video.mp4")))
+        val sBotInfo       = SBotInfo(SBotId(botIdValue), SBotName(botNameValue))
         val effectfulReply = EffectfulReply(EffectfulKey.Random(sBotInfo))
 
         assertEquals(textReply.prettyPrint, List(a, b).distinct.sorted)
