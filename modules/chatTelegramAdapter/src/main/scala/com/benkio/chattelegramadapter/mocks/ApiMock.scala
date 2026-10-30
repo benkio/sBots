@@ -27,6 +27,12 @@ object ApiMock {
       chat = Chat(0, `type` = "private"),
       text = Some("[apiMock] sendMessage reply")
     ).asJson,
+    "sendRichMessage" -> Message(
+      0,
+      date = 0,
+      chat = Chat(0, `type` = "private"),
+      text = Some("[apiMock] sendRichMessage reply")
+    ).asJson,
     "sendVideo" -> Message(
       0,
       date = 0,

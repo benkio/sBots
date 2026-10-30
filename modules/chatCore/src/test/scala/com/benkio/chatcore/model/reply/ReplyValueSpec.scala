@@ -219,6 +219,7 @@ class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
       val replyValue: ReplyValue = replyValueCore
       replyValueCore match {
         case text: Text                 => assertEquals(ReplyValue.from[Text](replyValue), Some(text))
+        case markdown: Markdown         => assertEquals(ReplyValue.from[Markdown](replyValue), Some(markdown))
         case mp3File: Mp3File           => assertEquals(ReplyValue.from[Mp3File](replyValue), Some(mp3File))
         case gifFile: GifFile           => assertEquals(ReplyValue.from[GifFile](replyValue), Some(gifFile))
         case photoFile: PhotoFile       => assertEquals(ReplyValue.from[PhotoFile](replyValue), Some(photoFile))
@@ -242,6 +243,13 @@ class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
       val videoName = if prefix.toLowerCase.endsWith("gif") then s"x$prefix.mp4" else s"$prefix.mp4"
       assert(MediaFile.fromString(videoName).isInstanceOf[VideoFile])
       assert(MediaFile.fromString(s"$prefix.bin").isInstanceOf[Document])
+    }
+  }
+
+  test("Markdown codec should round-trip string payloads with ScalaCheck samples") {
+    forAll(Gen.alphaStr) { (value: String) =>
+      val encoded = Markdown(value).asJson.noSpaces
+      assertEquals(decode[Markdown](encoded), Right(Markdown(value)))
     }
   }
 }

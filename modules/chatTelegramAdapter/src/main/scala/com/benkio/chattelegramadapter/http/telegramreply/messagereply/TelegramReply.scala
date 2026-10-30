@@ -5,6 +5,7 @@ import cats.data.EitherT
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.chatcore.model.media.MediaResource
+import com.benkio.chatcore.model.reply.Markdown
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.ReplyValueCore
@@ -20,6 +21,7 @@ import telegramium.bots.high.implicits.*
 import telegramium.bots.ChatId
 import telegramium.bots.ChatIntId
 import telegramium.bots.IFile
+import telegramium.bots.InputRichMessage
 import telegramium.bots.Message as TMessage
 import telegramium.bots.ReplyParameters
 
@@ -96,6 +98,14 @@ object TelegramMessageReply {
             reply = text,
             msg = msg,
             replyToMessage = replyToMessage
+          )
+        case markdown: Markdown =>
+          RichTextReply.sendRichText(
+            richMessage = InputRichMessage(markdown = markdown.value.some),
+            msg = msg,
+            replyToMessage = replyToMessage,
+            timeToLive = markdown.timeToLive,
+            value = markdown.value
           )
       }
     case telegramInlineKeyboard: TelegramInlineKeyboard =>

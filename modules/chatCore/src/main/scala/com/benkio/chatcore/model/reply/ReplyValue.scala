@@ -23,6 +23,9 @@ object ReplyValueCore {
         .as[Text]
         .map(identity)
         .orElse(
+          c.downField("Markdown").as[Markdown].map(markdown => markdown)
+        )
+        .orElse(
           c.downField("Mp3File").as[Mp3File].map(mediaFile => mediaFile)
         )
         .orElse(
@@ -44,6 +47,7 @@ object ReplyValueCore {
   given Encoder[ReplyValueCore] = new Encoder[ReplyValueCore] {
     def apply(value: ReplyValueCore): Json = value match {
       case text: Text                 => Json.obj("Text" -> text.asJson)
+      case markdown: Markdown         => Json.obj("Markdown" -> markdown.asJson)
       case mp3File: Mp3File           => Json.obj("Mp3File" -> mp3File.asJson)
       case gifFile: GifFile           => Json.obj("GifFile" -> gifFile.asJson)
       case photoFile: PhotoFile       => Json.obj("PhotoFile" -> photoFile.asJson)
@@ -57,6 +61,7 @@ object ReplyValueCore {
   given Show[ReplyValueCore] with {
     def show(value: ReplyValueCore): String = value match {
       case text: Text           => text.value
+      case markdown: Markdown   => markdown.value
       case mediaFile: MediaFile => mediaFile.filename
     }
   }
@@ -64,20 +69,24 @@ object ReplyValueCore {
 
 final case class Text(
     value: String,
-    textType: Text.TextType = TextType.Plain,
     timeToLive: Option[FiniteDuration] = None
 ) extends ReplyValueCore
 
 object Text {
-  enum TextType {
-    case Plain    extends TextType
-    case Html     extends TextType
-    case Markdown extends TextType
-  }
 
   given Show[Text]    = Show.show(_.value)
   given Decoder[Text] = Decoder[String].map(Text(_))
   given Encoder[Text] = Encoder[String].contramap(_.value)
+}
+
+final case class Markdown(
+    value: String,
+    timeToLive: Option[FiniteDuration] = None
+) extends ReplyValueCore
+
+object Markdown {
+  given Decoder[Markdown] = Decoder[String].map(Markdown(_))
+  given Encoder[Markdown] = Encoder[String].contramap(_.value)
 }
 
 enum EffectfulKey(val sBotInfo: SBotInfo) {

@@ -9,7 +9,6 @@ import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.PhotoFile
 import com.benkio.chatcore.model.reply.Sticker
-import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.VideoFile
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.Repository
@@ -19,6 +18,7 @@ import telegramium.bots.high.*
 import telegramium.bots.high.implicits.*
 import telegramium.bots.InputLinkFile
 import telegramium.bots.InputPartFile
+import telegramium.bots.InputRichMessage
 import telegramium.bots.Message as TMessage
 
 import java.nio.file.Path
@@ -107,10 +107,9 @@ object MediaFileReply {
             Repository
               .fileToString[F](Path.of(file.getAbsolutePath))
               .use(content => {
-                val markdownText = Text(content, Text.TextType.Markdown)
-                TextReply
-                  .sendText[F](
-                    reply = markdownText,
+                RichTextReply
+                  .sendRichText[F](
+                    richMessage = InputRichMessage(markdown = content.some),
                     msg = msg.toModel,
                     replyToMessage = replyToMessage
                   )
