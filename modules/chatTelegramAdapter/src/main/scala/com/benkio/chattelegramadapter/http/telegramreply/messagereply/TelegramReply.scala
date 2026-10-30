@@ -100,7 +100,7 @@ object TelegramMessageReply {
             replyToMessage = replyToMessage
           )
         case markdown: Markdown =>
-          RichTextReply.sendRickText(
+          RichTextReply.sendRichText(
             richMessage = InputRichMessage(markdown = markdown.value.some),
             msg = msg,
             replyToMessage = replyToMessage,

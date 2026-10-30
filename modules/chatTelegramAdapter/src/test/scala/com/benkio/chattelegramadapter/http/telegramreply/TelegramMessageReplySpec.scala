@@ -6,6 +6,7 @@ import com.benkio.chatcore.mocks.RepositoryMock
 import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.reply.Document
 import com.benkio.chatcore.model.reply.GifFile
+import com.benkio.chatcore.model.reply.Markdown
 import com.benkio.chatcore.model.reply.MarkdownFile
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.PhotoFile
@@ -17,6 +18,7 @@ import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.Logger.given
 import com.benkio.chattelegramadapter.conversions.MessageConversions.*
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.MediaFileReply
+import com.benkio.chattelegramadapter.http.telegramreply.messagereply.TelegramMessageReply
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.TextReply
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import munit.*
@@ -152,7 +154,7 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
         false
       )
       .map(messages => messages.map(_.text))
-    assertIO(result, List(Some("[apiMock] sendMessage reply")))
+    assertIO(result, List(Some("[apiMock] sendRichMessage reply")))
   }
 
   test("MediaFileReply.sendMarkdown should return empty when source is MediaResourceIFile") {
@@ -167,6 +169,34 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
     )
 
     assertIO(result, List.empty)
+  }
+
+  test("TelegramMessageReply.sendReplyValue should route Markdown replies through rich text") {
+    val markdown = Markdown("## test markdown body")
+    val result   = TelegramMessageReply
+      .sendReplyValue[IO](
+        replyValue = markdown,
+        msg = testMessage,
+        repository = RepositoryMock(),
+        replyToMessage = false
+      )
+      .map(messages => messages.map(_.text))
+
+    assertIO(result, List(Some("[apiMock] sendRichMessage reply")))
+  }
+
+  test("TelegramMessageReply.sendReplyValue should support Markdown replies with ttl") {
+    val markdown = Markdown("## test markdown body", Some(50.millis))
+    val result   = TelegramMessageReply
+      .sendReplyValue[IO](
+        replyValue = markdown,
+        msg = testMessage,
+        repository = RepositoryMock(),
+        replyToMessage = false
+      )
+      .map(messages => messages.map(_.text))
+
+    assertIO(result, List(Some("[apiMock] sendRichMessage reply")))
   }
 
   test("TextReply.deleteMessage reply should work as expected") {

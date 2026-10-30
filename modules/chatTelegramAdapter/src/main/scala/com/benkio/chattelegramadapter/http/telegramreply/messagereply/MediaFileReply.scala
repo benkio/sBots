@@ -108,7 +108,7 @@ object MediaFileReply {
               .fileToString[F](Path.of(file.getAbsolutePath))
               .use(content => {
                 RichTextReply
-                  .sendRickText[F](
+                  .sendRichText[F](
                     richMessage = InputRichMessage(markdown = content.some),
                     msg = msg.toModel,
                     replyToMessage = replyToMessage

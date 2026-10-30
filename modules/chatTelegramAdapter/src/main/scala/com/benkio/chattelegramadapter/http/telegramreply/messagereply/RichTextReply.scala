@@ -18,7 +18,7 @@ import scala.concurrent.duration.FiniteDuration
 
 object RichTextReply {
 
-  def sendRickText[F[_]: Async: LogWriter: Api](
+  def sendRichText[F[_]: Async: LogWriter: Api](
       richMessage: InputRichMessage,
       msg: Message,
       replyToMessage: Boolean,

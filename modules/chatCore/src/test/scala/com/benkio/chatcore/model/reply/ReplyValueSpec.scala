@@ -245,4 +245,11 @@ class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
       assert(MediaFile.fromString(s"$prefix.bin").isInstanceOf[Document])
     }
   }
+
+  test("Markdown codec should round-trip string payloads with ScalaCheck samples") {
+    forAll(Gen.alphaStr) { (value: String) =>
+      val encoded = Markdown(value).asJson.noSpaces
+      assertEquals(decode[Markdown](encoded), Right(Markdown(value)))
+    }
+  }
 }

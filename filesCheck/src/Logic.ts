@@ -1,5 +1,4 @@
 import { ByteSize, Effect, type PlatformError } from 'effect';
-import { converter as tgMarkdownConverter } from 'tg-markdown-converter';
 import type { Bot } from './Config';
 import type { FileService } from './FileService';
 import type { MediaList, MediaListItem } from './MediaListSchema';
@@ -23,9 +22,6 @@ interface Matches {
 
 const gifVideoSizeThresholdMB = 10;
 const markdownSizeThresholdMB = 1;
-
-export const markdownConversionMatchesInput = (content: string): boolean =>
-  tgMarkdownConverter(content) === content;
 
 const isMediaListItem = (
   mediaList: MediaList,
@@ -143,14 +139,6 @@ const markdownLogic =
     Effect.gen(function* () {
       const guard = containinedInMediaListLogic(bot, mediaList, fileService);
       yield* guard(f);
-
-      const markdownContent = yield* fileService.getFile(f);
-      const isMarkdownValid = markdownConversionMatchesInput(markdownContent);
-      yield* !isMarkdownValid
-        ? Effect.logError(
-            `[filesCheck] 🚫  ${fileService.basename(f)} invalid telegram markdown (content changes after tg-markdown-converter)`
-          )
-        : Effect.void;
 
       const sizeCheck = yield* isLessThenMB(
         f,

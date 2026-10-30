@@ -1,7 +1,7 @@
 import * as assert from 'node:assert';
 import { test } from 'node:test';
 import { Effect } from 'effect';
-import { buildFileLogic, markdownConversionMatchesInput } from '../src/Logic';
+import { buildFileLogic } from '../src/Logic';
 import type { Bot } from '../src/Config';
 import type { MediaList } from '../src/MediaListSchema';
 import type { FileService } from '../src/FileService';
@@ -51,7 +51,6 @@ const buildMockFileService = (
 
 void test('buildFileLogic markdown rule should check file size', async () => {
   let statCalls = 0;
-  let getFileCalls = 0;
 
   const fileService = {
     ...buildMockFileService(() => {
@@ -61,10 +60,6 @@ void test('buildFileLogic markdown rule should check file size', async () => {
         size: 2_000_000,
       } as unknown as FileSystem.File.Info);
     }),
-    getFile: () => {
-      getFileCalls += 1;
-      return Effect.succeed('Unescaped markdown. Needs escaping!');
-    },
   } satisfies FileService['Service'];
 
   const mediaList: MediaList = [
@@ -85,16 +80,6 @@ void test('buildFileLogic markdown rule should check file size', async () => {
   const matched = await runFirstMatchingLogic(checks, '/tmp/bot_readme.md');
   assert.strictEqual(matched, true);
   assert.strictEqual(statCalls, 1);
-  assert.strictEqual(getFileCalls, 1);
-});
-
-void test('markdownConversionMatchesInput validates telegram markdown compatibility', () => {
-  assert.strictEqual(markdownConversionMatchesInput('Plain text'), true);
-  assert.strictEqual(
-    markdownConversionMatchesInput('Escaped exclamation\\!'),
-    true
-  );
-  assert.strictEqual(markdownConversionMatchesInput('Needs escaping!'), false);
 });
 
 void test('buildFileLogic mp3 rule should invoke id3 fix logic', async () => {
