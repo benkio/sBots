@@ -2917,6 +2917,31 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "quasi dimenticavo"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "ytai_BuonanotteGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "buonasera"
           }
         ]
@@ -10503,7 +10528,7 @@
           },
           {
             "RegexTextTriggerValue" : {
-              "trigger" : "ho (ancora )?tanta fame",
+              "trigger" : "(ho )?(ancora )?tanta fame",
               "regexLength" : 13
             }
           }
