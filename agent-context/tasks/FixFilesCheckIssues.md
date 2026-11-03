@@ -171,7 +171,7 @@ Steps:
 
 ### E8. `is Bigger than 10MB` (video `.mp4` and Gif `.mp4`)
 
-Cause: size >= 10 MB (`ByteSize.megabytes(10)` = 10 * 1024 * 1024 bytes).
+Cause: size >= 10 MB (`ByteSize.megabytes(10)` = 10,000,000 bytes, decimal; verified in effect).
 Target: strictly below that, keeping the highest possible quality. Aim for
 ≤ ~9.5 MB for safety margin.
 
@@ -182,7 +182,7 @@ Steps:
    1. **Remux only** (drops container overhead/metadata):
       `ffmpeg -i <in> -c copy -map_metadata -1 -movflags +faststart <tmp>.mp4`
    2. **Constrained-size re-encode (two-pass, size-targeted bitrate)**:
-      - total_kbps = `(9.3 * 8192) / duration_seconds`; for videos reserve audio
+      - total_kbps = `(9.3 * 8000) / duration_seconds`; for videos reserve audio
         at 96–128 kbps (AAC), the rest to video; for gifs (no audio) all to video.
       - ```
         ffmpeg -y -i <in> -c:v libx264 -preset slow -b:v <vkbps>k -pass 1 -an -f null /dev/null
