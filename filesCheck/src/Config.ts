@@ -54,4 +54,10 @@ export const bots: Bot[] = [
     filePath: '/Mega/sBots/VittorioSgarbiBot/src/main/resources',
     jsonFilePath: '../modules/bots/VittorioSgarbiBot/sgar_list.json',
   },
+  {
+    id: 'pino',
+    artist: 'Pino Scotto',
+    filePath: '/Dropbox/sBots/PinoScottoBot/src/main/resources',
+    jsonFilePath: '../modules/bots/PinoScottoBot/pino_list.json',
+  }
 ];
