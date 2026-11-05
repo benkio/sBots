@@ -142,7 +142,7 @@ addCommandAlias("mynewAddData", "MyNewBot/runMain com.benkio.MyNewBot.MyNewBotMa
 
 ## Triggers
 
-- **Triggers file**: The template includes an empty `{id}_triggers.md`. The task `GeneraterTriggerDocumentation` (run via `sbt GeneraterTriggerDocumentation`) regenerates trigger files from the JSON data for all bots in the registry.
+- **Triggers file**: The template includes an empty `{id}_triggers.md`. The task `generateTriggerDocumentation` (run via `sbt generateTriggerDocumentation`) regenerates trigger files from the JSON data for all bots in the registry. Likewise `sbt generateCalendar` regenerates the `{id}_calendar.ics` file (yearly events from the shows JSON) of every bot.
 
 ## Summary
 

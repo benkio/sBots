@@ -37,6 +37,8 @@ jobs:
       run: printf '${{ secrets.YOUTUBE_API_KEY }}' > modules/botDB/src/main/resources/youTubeApiKey.token
     - name: Run dbSetup
       run: sbt dbSetup
+    - name: Generate Calendars
+      run: sbt generateCalendar
     - name: Revert Config Changes
       run: |
         git restore modules/botDB/src/main/resources/application.conf
@@ -64,6 +66,7 @@ jobs:
           PR Adding the latest Bot's shows based on the BotDB sources'
           Changes:
           - JSON Show Files
+          - Show Calendar ICS Files
         base: main # Target branch for the PR
         labels: Update
         token: ${{ secrets.GITHUB_TOKEN }} # Use the default GitHub token
