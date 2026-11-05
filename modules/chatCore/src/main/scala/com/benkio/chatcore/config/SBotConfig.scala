@@ -24,6 +24,7 @@ case class SBotConfig(
   def triggerFilename: String      = triggersFilePath.getFileName.toString
   def listJsonFilename: String     = listJsonFilePath.getFileName.toString
   def showFilename: String         = showFilePath.getFileName.toString
+  def calendarFilePath: Path       = showFilePath.resolveSibling(s"${sBotInfo.botId.value}_calendar.ics")
   def repliesJsonFilename: String  = repliesJsonFilePath.getFileName.toString
   def commandsJsonFilename: String = commandsJsonFilePath.getFileName.toString
 }

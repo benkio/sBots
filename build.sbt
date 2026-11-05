@@ -54,13 +54,14 @@ addCommandAlias("compileAll", "compile; Test/compile; integration/Test/compile")
 addCommandAlias(
   "fix",
   // Ensure SemanticDB exists for all scopes before semantic scalafix rules run.
-  "cleanFull; compileAll; scalafixAll; scalafmtAll; integration/scalafixAll; integration/scalafmtAll; scalafmtSbt; generateTriggerDocumentation;"
+  "cleanFull; compileAll; scalafixAll; scalafmtAll; integration/scalafixAll; integration/scalafmtAll; scalafmtSbt; generateTriggerDocumentation; generateCalendar;"
 )
 addCommandAlias(
   "check",
   "undeclaredCompileDependencies; unusedCompileDependencies; scalafmtSbtCheck; scalafmtCheck; Test/scalafmtCheck"
 )
 addCommandAlias("generateTriggerDocumentation", "main/runMain com.benkio.main.GenerateTriggers")
+addCommandAlias("generateCalendar", "main/runMain com.benkio.main.GenerateCalendar")
 addCommandAlias(
   "validate",
   "fix; dbSetup; jacocoAggregate; integration/mUnitTests; assembly"
