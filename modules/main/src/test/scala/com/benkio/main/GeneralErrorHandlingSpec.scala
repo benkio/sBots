@@ -11,7 +11,7 @@ import scala.concurrent.duration.*
 
 class GeneralErrorHandlingSpec extends CatsEffectSuite {
 
-  val sleepTime                    = 100.millis
+  val sleepTime                    = 200.millis
   val plainErrorMessage: String    = "Test Throwable"
   val expectedErrorMessage: String = "Terminated with Error 🚫: Test Throwable"
   val failedIO: IO[ExitCode]       =
