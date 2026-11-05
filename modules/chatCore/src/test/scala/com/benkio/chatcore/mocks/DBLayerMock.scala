@@ -8,6 +8,7 @@ import com.benkio.chatcore.model.show.ShowQuery
 import com.benkio.chatcore.model.show.SimpleShowQuery
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.model.Timeout
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBLog
@@ -134,6 +135,15 @@ object DBLayerMock {
         chatId: Long
     ): IO[Unit] =
       db.update((subs: List[DBSubscriptionData]) => subs.filterNot((s: DBSubscriptionData) => s.chat_id == chatId))
+    override def deleteSubscriptionsByType(
+        chatId: Long,
+        subscriptionType: SubscriptionType
+    ): IO[Unit] =
+      db.update((subs: List[DBSubscriptionData]) =>
+        subs.filterNot((s: DBSubscriptionData) =>
+          s.chat_id == chatId && s.subscription_type == subscriptionType.asString
+        )
+      )
     override def getSubscription(id: String): IO[Option[DBSubscriptionData]] =
       db.get.map(_.find(sub => sub.id.toString == id))
     override def getRandomSubscription(): IO[Option[DBSubscriptionData]] =

@@ -32,6 +32,7 @@ import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionId
+import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.model.Timeout
 import com.benkio.chatcore.model.Trigger
 import com.benkio.chatcore.repository.db.*
@@ -398,7 +399,7 @@ ${ignoreMessagePrefix
     ): F[ReplyValue] = {
       val computation: String => F[ReplyValue] = (cronInput: String) =>
         for {
-          subscription <- Subscription(m.chatId.value, sBotInfo.botId, cronInput)
+          subscription <- Subscription(m.chatId.value, sBotInfo.botId, cronInput, SubscriptionType.Show, None)
           nextOccurrence = subscription.cron
             .next(LocalDateTime.now)
             .fold("`Unknown next occurrence`")(date => s"`${date.toString}`")
