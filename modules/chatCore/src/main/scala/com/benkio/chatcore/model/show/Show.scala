@@ -63,13 +63,15 @@ object Show {
     timestamp = None
   )
 
+  def youtubeUrl(show: Show): String = s"https://www.youtube.com/watch?v=${show.id}"
+
   given showInstance: CatsShow[Show] =
     CatsShow.show(show => {
       val description    = show.description.getOrElse("")
       val timestampQuery = show.timestamp
         .map(timestamp => s"&t=${finiteDurationToYoutubeTimestamp(timestamp)}")
         .getOrElse("")
-      s"""${show.uploadDate} - https://www.youtube.com/watch?v=${show.id}$timestampQuery
+      s"""${show.uploadDate} - ${youtubeUrl(show)}$timestampQuery
          | ${show.title}
          |----------
          | $description""".stripMargin
