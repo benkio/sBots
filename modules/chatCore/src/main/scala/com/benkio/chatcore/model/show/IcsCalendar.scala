@@ -8,11 +8,11 @@ import java.time.ZoneOffset
 /** Minimal RFC 5545 writer: all-day, yearly-recurring events, one per show. */
 object IcsCalendar {
 
-  private val crlf                          = "\r\n"
-  private val dateFormatter                 = DateTimeFormatter.ofPattern("yyyyMMdd")
-  private val dateTimeFormatter             = DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'").withZone(ZoneOffset.UTC)
-  private val maxLineOctets                 = 75
-  private val newlineRegex                  = "\r\n|\r|\n"
+  private val crlf              = "\r\n"
+  private val dateFormatter     = DateTimeFormatter.ofPattern("yyyyMMdd")
+  private val dateTimeFormatter = DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'").withZone(ZoneOffset.UTC)
+  private val maxLineOctets     = 75
+  private val newlineRegex      = "\r\n|\r|\n"
   private final case class Chunks(done: Vector[String], current: List[String], octets: Int)
 
   def escape(text: String): String =

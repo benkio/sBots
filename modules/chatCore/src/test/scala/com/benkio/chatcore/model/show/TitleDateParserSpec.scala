@@ -13,18 +13,18 @@ class TitleDateParserSpec extends FunSuite with ScalaCheckSuite {
     TitleDateParser.parse(title, uploadYear)
 
   List(
-    "Orlando Art LIVE - 25/11/2025 - Canale 124 DTT"                       -> LocalDate.of(2025, 11, 25),
-    "Camera, 24/03/21"                                                     -> LocalDate.of(2021, 3, 24),
-    "Anche la rabbia ha un cuore (2 gennaio 2008) Steve Vai"               -> LocalDate.of(2008, 1, 2),
-    "RICHARD BENSON - 11 GENNAIO 2008 - 1a parte"                          -> LocalDate.of(2008, 1, 11),
-    "Ottava Nota | Nomi grossi (14 Febbraio 1996) [PUNTATA INEDITA]"       -> LocalDate.of(1996, 2, 14),
-    "Cocktail Micidiale 09 settembre 2005 (puntata completa)"              -> LocalDate.of(2005, 9, 9),
-    "Live 23 Novembre 1999 | Presentazione"                                -> LocalDate.of(1999, 11, 23),
-    "Xah Talk Show 2019-10-18. netiquette"                                 -> LocalDate.of(2019, 10, 18),
-    "Xah Talk Show 2020-07-15, coding emacs lisp"                          -> LocalDate.of(2020, 7, 15),
-    "xah talk show 2019-07-02. emacs"                                      -> LocalDate.of(2019, 7, 2),
-    "Il 26 giugno a Roma la presentazione della lista"                     -> LocalDate.of(2020, 6, 26),
-    "Il 1° maggio si festeggia"                                            -> LocalDate.of(2020, 5, 1)
+    "Orlando Art LIVE - 25/11/2025 - Canale 124 DTT"                 -> LocalDate.of(2025, 11, 25),
+    "Camera, 24/03/21"                                               -> LocalDate.of(2021, 3, 24),
+    "Anche la rabbia ha un cuore (2 gennaio 2008) Steve Vai"         -> LocalDate.of(2008, 1, 2),
+    "RICHARD BENSON - 11 GENNAIO 2008 - 1a parte"                    -> LocalDate.of(2008, 1, 11),
+    "Ottava Nota | Nomi grossi (14 Febbraio 1996) [PUNTATA INEDITA]" -> LocalDate.of(1996, 2, 14),
+    "Cocktail Micidiale 09 settembre 2005 (puntata completa)"        -> LocalDate.of(2005, 9, 9),
+    "Live 23 Novembre 1999 | Presentazione"                          -> LocalDate.of(1999, 11, 23),
+    "Xah Talk Show 2019-10-18. netiquette"                           -> LocalDate.of(2019, 10, 18),
+    "Xah Talk Show 2020-07-15, coding emacs lisp"                    -> LocalDate.of(2020, 7, 15),
+    "xah talk show 2019-07-02. emacs"                                -> LocalDate.of(2019, 7, 2),
+    "Il 26 giugno a Roma la presentazione della lista"               -> LocalDate.of(2020, 6, 26),
+    "Il 1° maggio si festeggia"                                      -> LocalDate.of(2020, 5, 1)
   ).foreach { case (title, expected) =>
     test(s"parse '$title'") {
       assertEquals(parse(title), Some(expected))

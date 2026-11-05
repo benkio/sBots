@@ -31,8 +31,8 @@ object TitleDateParser {
 
   private val monthAlternatives = italianMonths.keys.mkString("|")
 
-  private val isoRegex: Regex     = """(?<!\d)(\d{4})-(\d{2})-(\d{2})(?!\d)""".r
-  private val numericRegex: Regex = """(?<!\d)(\d{1,2})/(\d{1,2})/(\d{4}|\d{2})(?!\d)""".r
+  private val isoRegex: Regex       = """(?<!\d)(\d{4})-(\d{2})-(\d{2})(?!\d)""".r
+  private val numericRegex: Regex   = """(?<!\d)(\d{1,2})/(\d{1,2})/(\d{4}|\d{2})(?!\d)""".r
   private val monthNameRegex: Regex =
     s"""(?iu)(?<![\\p{L}\\d])(\\d{1,2})\\s*°?\\s+($monthAlternatives)(?:\\s+(\\d{4})(?!\\d))?(?![\\p{L}])""".r
 
@@ -56,7 +56,9 @@ object TitleDateParser {
   private def parseNumeric(title: String, uploadYear: Int): Option[LocalDate] =
     numericRegex
       .findAllMatchIn(title)
-      .flatMap(m => safeDate(year = expandYear(m.group(3), uploadYear), month = m.group(2).toInt, day = m.group(1).toInt))
+      .flatMap(m =>
+        safeDate(year = expandYear(m.group(3), uploadYear), month = m.group(2).toInt, day = m.group(1).toInt)
+      )
       .nextOption()
 
   private def parseMonthName(title: String, uploadYear: Int, withYear: Boolean): Option[LocalDate] =
@@ -66,7 +68,9 @@ object TitleDateParser {
       .flatMap(m =>
         italianMonths
           .get(m.group(2).toLowerCase)
-          .flatMap(month => safeDate(year = Option(m.group(3)).fold(uploadYear)(_.toInt), month = month, day = m.group(1).toInt))
+          .flatMap(month =>
+            safeDate(year = Option(m.group(3)).fold(uploadYear)(_.toInt), month = month, day = m.group(1).toInt)
+          )
       )
       .nextOption()
 

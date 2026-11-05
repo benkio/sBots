@@ -28,7 +28,8 @@ class GenerateCalendarSpec extends CatsEffectSuite {
        |  "show_origin_automatic_caption": null, "show_origin_automatic_caption_srt": "$srt" }""".stripMargin
 
   test("loadShows decodes the shows file, tolerating non decodable captions") {
-    val json = s"[${showJson(id = "a", title = "Live 23 Novembre 1999", date = "2020-05-17T11:46:11.000Z", duration = 3600, live = false, srt = "{}")}]"
+    val json =
+      s"[${showJson(id = "a", title = "Live 23 Novembre 1999", date = "2020-05-17T11:46:11.000Z", duration = 3600, live = false, srt = "{}")}]"
     withShowFile(json)(GenerateCalendar.loadShows).map { shows =>
       assertEquals(shows.map(_.id), List("a"))
       assertEquals(shows.flatMap(_.originAutomaticCaptionSrt), List.empty)
@@ -48,9 +49,30 @@ class GenerateCalendarSpec extends CatsEffectSuite {
 
   test("generateCalendar keeps the candidates only") {
     val json = List(
-      showJson(id = "vod", title = "Plain", date = "2020-05-17T11:46:11.000Z", duration = 3600, live = false, srt = "[]"),
-      showJson(id = "live", title = "Plain live", date = "2020-05-17T11:46:11.000Z", duration = 3600, live = true, srt = "[]"),
-      showJson(id = "short", title = "Short", date = "2021-05-17T11:46:11.000Z", duration = 30, live = false, srt = "[]")
+      showJson(
+        id = "vod",
+        title = "Plain",
+        date = "2020-05-17T11:46:11.000Z",
+        duration = 3600,
+        live = false,
+        srt = "[]"
+      ),
+      showJson(
+        id = "live",
+        title = "Plain live",
+        date = "2020-05-17T11:46:11.000Z",
+        duration = 3600,
+        live = true,
+        srt = "[]"
+      ),
+      showJson(
+        id = "short",
+        title = "Short",
+        date = "2021-05-17T11:46:11.000Z",
+        duration = 30,
+        live = false,
+        srt = "[]"
+      )
     ).mkString("[", ",", "]")
     withShowFile(json)(GenerateCalendar.loadShows).map { shows =>
       val ics = GenerateCalendar.generateCalendar(shows, dtStamp)
@@ -62,7 +84,8 @@ class GenerateCalendarSpec extends CatsEffectSuite {
   }
 
   test("generateCalendarFile writes the ics next to the given path") {
-    val json = s"[${showJson(id = "a", title = "Plain", date = "2020-05-17T11:46:11.000Z", duration = 3600, live = false, srt = "{}")}]"
+    val json =
+      s"[${showJson(id = "a", title = "Plain", date = "2020-05-17T11:46:11.000Z", duration = 3600, live = false, srt = "{}")}]"
     withShowFile(json) { showPath =>
       val calendarPath = showPath.resolveSibling(showPath.getFileName.toString + ".ics")
       GenerateCalendar
