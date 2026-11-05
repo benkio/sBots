@@ -4,6 +4,7 @@ import cats.effect.*
 import cats.implicits.*
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.Subscription
+import com.benkio.chatcore.model.SubscriptionType
 import doobie.*
 import doobie.implicits.*
 import doobie.util.fragments
@@ -15,6 +16,8 @@ final case class DBSubscriptionData(
     id: String,
     chat_id: Long,
     bot_id: String,
+    subscription_type: String = SubscriptionType.Show.asString,
+    target: Option[String] = None,
     cron: String,
     subscribed_at: String
 )
@@ -25,6 +28,8 @@ object DBSubscriptionData {
       id = subscription.id.value.toString,
       chat_id = subscription.chatId.value,
       bot_id = subscription.botId.value,
+      subscription_type = subscription.subscriptionType.asString,
+      target = subscription.target,
       cron = subscription.cron.toString,
       subscribed_at = subscription.subscribedAt.getEpochSecond.toString
     )
@@ -40,6 +45,10 @@ trait DBSubscription[F[_]] {
   ): F[Unit]
   def deleteSubscriptions(
       chatId: Long
+  ): F[Unit]
+  def deleteSubscriptionsByType(
+      chatId: Long,
+      subscriptionType: SubscriptionType
   ): F[Unit]
 }
 
@@ -77,6 +86,14 @@ object DBSubscription {
         s"delete subscriptions for chat id $chatId"
       )
 
+    override def deleteSubscriptionsByType(
+        chatId: Long,
+        subscriptionType: SubscriptionType
+    ): F[Unit] =
+      deleteSubscriptionsByTypeQuery(chatId, subscriptionType).run.transact(transactor).void <* log.debug(
+        s"delete subscriptions for chat id $chatId and type ${subscriptionType.asString}"
+      )
+
     override def getSubscriptions(botId: SBotId, chatId: Option[Long]): F[List[DBSubscriptionData]] =
       getSubscriptionsQuery(botId, chatId).to[List].transact(transactor) <* log.debug(
         "Get subscriptions"
@@ -91,22 +108,23 @@ object DBSubscription {
   }
 
   def getSubscriptionQuery(id: String): Query0[DBSubscriptionData] =
-    sql"SELECT subscription_id, chat_id, bot_id, cron, subscribed_at FROM subscription WHERE subscription_id = $id"
+    sql"SELECT subscription_id, chat_id, bot_id, subscription_type, target, cron, subscribed_at FROM subscription WHERE subscription_id = $id"
       .query[DBSubscriptionData]
 
   def getRandomSubscriptionQuery(): Query0[DBSubscriptionData] =
-    sql"SELECT subscription_id, chat_id, bot_id, cron, subscribed_at FROM subscription ORDER BY RANDOM() LIMIT 1"
+    sql"SELECT subscription_id, chat_id, bot_id, subscription_type, target, cron, subscribed_at FROM subscription ORDER BY RANDOM() LIMIT 1"
       .query[DBSubscriptionData]
 
   def getSubscriptionsQuery(botId: SBotId, chatId: Option[Long] = None): Query0[DBSubscriptionData] =
-    (sql"SELECT subscription_id, chat_id, bot_id, cron, subscribed_at FROM subscription " ++ Fragments.whereAndOpt(
-      fr"bot_id = ${botId.value}".some,
-      chatId.map(cid => fr"chat_id = $cid")
-    ))
+    (sql"SELECT subscription_id, chat_id, bot_id, subscription_type, target, cron, subscribed_at FROM subscription " ++ Fragments
+      .whereAndOpt(
+        fr"bot_id = ${botId.value}".some,
+        chatId.map(cid => fr"chat_id = $cid")
+      ))
       .query[DBSubscriptionData]
 
   def insertSubscriptionQuery(subscription: DBSubscriptionData): Update0 =
-    sql"INSERT INTO subscription (subscription_id, chat_id, bot_id, cron, subscribed_at) VALUES ${fragments
+    sql"INSERT INTO subscription (subscription_id, chat_id, bot_id, subscription_type, target, cron, subscribed_at) VALUES ${fragments
         .parentheses(fragments.values(subscription))}".update
 
   def deleteSubscriptionQuery(subscriptionId: String): Update0 =
@@ -114,4 +132,9 @@ object DBSubscription {
 
   def deleteSubscriptionsQuery(chatId: Long): Update0 =
     sql"DELETE FROM subscription WHERE chat_id = $chatId".update
+
+  def deleteSubscriptionsByTypeQuery(chatId: Long, subscriptionType: SubscriptionType): Update0 = {
+    val subscriptionTypeValue = subscriptionType.asString
+    sql"DELETE FROM subscription WHERE chat_id = $chatId AND subscription_type = $subscriptionTypeValue".update
+  }
 }
