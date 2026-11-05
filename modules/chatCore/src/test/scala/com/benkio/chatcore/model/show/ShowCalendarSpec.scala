@@ -46,6 +46,25 @@ class ShowCalendarSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
     assertEquals(ShowCalendar.forDay(shows, may17).map(_.id).toSet, Set("long", "exactly"))
   }
 
+  test("the minimum duration is 5 minutes") {
+    assertEquals(ShowCalendar.minDurationSeconds, 300)
+  }
+
+  test("on a crowded day the 5 minutes boundary is hardcoded: 299s dropped, 300s and 301s kept") {
+    val shows = List(
+      show(id = "s299", duration = 299),
+      show(id = "s300", duration = 300),
+      show(id = "s301", duration = 301)
+    )
+    assertEquals(ShowCalendar.forDay(shows, may17).map(_.id).toSet, Set("s300", "s301"))
+    assertEquals(ShowCalendar.candidates(shows)(may17).map(_.id).toSet, Set("s300", "s301"))
+  }
+
+  test("a show between 5 and 10 minutes is kept on a crowded day") {
+    val shows = List(show(id = "seven", duration = 7 * 60), show(id = "long", duration = 3600))
+    assertEquals(ShowCalendar.forDay(shows, may17).map(_.id).toSet, Set("seven", "long"))
+  }
+
   test("same day of different years counts as the same day") {
     val shows = List(
       show(id = "old", uploadDate = LocalDate.of(2010, 5, 17), duration = 30),

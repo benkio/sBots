@@ -93,7 +93,7 @@ extension (show: Show) {
 object ShowCalendar {
 
   /** Shorter shows are dropped when more than one show falls on the same day. */
-  val minDurationSeconds: Int = 10 * 60
+  val minDurationSeconds: Int = 5 * 60
 
   given Ordering[MonthDay] = Ordering.by(monthDay => (monthDay.getMonthValue, monthDay.getDayOfMonth))
 
