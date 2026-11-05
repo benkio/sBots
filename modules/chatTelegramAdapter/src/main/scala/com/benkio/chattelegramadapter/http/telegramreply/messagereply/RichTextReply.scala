@@ -22,13 +22,12 @@ object RichTextReply {
       richMessage: InputRichMessage,
       msg: Message,
       replyToMessage: Boolean,
-      timeToLive: Option[FiniteDuration] = None,
-      value: String = "rich text"
+      timeToLive: Option[FiniteDuration] = None
   ): F[List[TMessage]] = {
     val chatId: ChatId            = ChatIntId(msg.chatId.value)
     val result: F[List[TMessage]] =
       for {
-        _       <- LogWriter.info(s"[TelegramMessageReply[RichText]] richMessage to message: ${msg.getContent}")
+        _       <- LogWriter.info(s"[TelegramMessageReply[RichText]] sendRichText: ${msg.getContent}")
         _       <- Methods.sendChatAction(chatId, "typing").exec
         message <-
           Methods
@@ -45,7 +44,7 @@ object RichTextReply {
                 chatId = message.chat.id,
                 messageId = message.messageId,
                 ttl = ttl,
-                value = value
+                value = richMessage.toString
               )
             )
             .void

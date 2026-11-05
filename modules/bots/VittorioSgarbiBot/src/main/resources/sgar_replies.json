@@ -4,6 +4,125 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\balito\\b",
+              "regexLength" : 5
+            }
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bsventura\\b",
+              "regexLength" : 8
+            }
+          },
+          {
+            "StringTextTriggerValue" : "uno schifo"
+          },
+          {
+            "StringTextTriggerValue" : "di scoparti"
+          },
+          {
+            "StringTextTriggerValue" : "morticino"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(500|cinquecento)[\\.\\-']?(000|mila)",
+              "regexLength" : 6
+            }
+          },
+          {
+            "StringTextTriggerValue" : "faccia di nulla"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "sgar_CinquecentoMilaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "sgar_CinquecentoMila.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "sgar_CinquecentoMila.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "MarkdownFile" : {
+              "filepath" : "sgar_CinquecentoMila.md",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "resiliente"
+          },
+          {
+            "StringTextTriggerValue" : "nel culo"
+          },
+          {
+            "StringTextTriggerValue" : "facce di stronzi"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "sgar_ResilienteGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "sgar_Resiliente.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "sgar_Resiliente.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "MarkdownFile" : {
+              "filepath" : "sgar_Resiliente.md",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "bugiardo"
           }
         ]
@@ -888,13 +1007,35 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "puzzolente"
-          },
-          {
             "StringTextTriggerValue" : "sei sporco"
           },
           {
             "StringTextTriggerValue" : "deficiente"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "Mp3File" : {
+              "filepath" : "sgar_VaffanculoDeficiente.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "puzzolente"
           }
         ]
       }
@@ -909,14 +1050,38 @@
             }
           },
           {
-            "VideoFile" : {
-              "filepath" : "sgar_VaffanculoDeficiente.mp4",
+            "Mp3File" : {
+              "filepath" : "sgar_VaffanculoDeficiente.mp3",
               "replyToMessage" : false
             }
           },
           {
             "Mp3File" : {
-              "filepath" : "sgar_VaffanculoDeficiente.mp3",
+              "filepath" : "sgar_CinquecentoMila.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "MarkdownFile" : {
+              "filepath" : "sgar_CinquecentoMila.md",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "sgar_CinquecentoMila.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "sgar_CinquecentoMilaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "sgar_VaffanculoDeficiente.mp4",
               "replyToMessage" : false
             }
           }
@@ -3703,8 +3868,20 @@
       "MediaReply" : {
         "mediaFiles" : [
           {
+            "GifFile" : {
+              "filepath" : "sgar_CinquecentoMilaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "Mp3File" : {
               "filepath" : "sgar_NoIoTiDenuncio.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "sgar_CinquecentoMila.mp3",
               "replyToMessage" : false
             }
           },
@@ -3735,6 +3912,18 @@
           {
             "VideoFile" : {
               "filepath" : "sgar_NoIoTiDenuncio.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "MarkdownFile" : {
+              "filepath" : "sgar_CinquecentoMila.md",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "sgar_CinquecentoMila.mp4",
               "replyToMessage" : false
             }
           },

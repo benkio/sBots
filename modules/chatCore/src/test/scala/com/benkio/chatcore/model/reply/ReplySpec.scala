@@ -1,10 +1,15 @@
 package com.benkio.chatcore.model.reply
 
+import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.model.SBotInfo.SBotName
 import io.circe.parser.decode
 import io.circe.syntax.*
-import munit.FunSuite
+import munit.ScalaCheckSuite
+import org.scalacheck.Gen
+import org.scalacheck.Prop.forAll
 
-class ReplySpec extends FunSuite {
+class ReplySpec extends ScalaCheckSuite {
 
   test("Mp3File case class should accept only .mp3 extension when filename created") {
     val _ = Mp3File("test.mp3") // This shouldn't throw an exception
@@ -80,6 +85,36 @@ class ReplySpec extends FunSuite {
         e => fail("failed in parsing the input string as Reply", e),
         ms => assertEquals(ms.asJson.toString, inputString)
       )
+    }
+  }
+
+  property("Reply.prettyPrint should format TextReply, MediaReply and EffectfulReply") {
+    val nonEmptyAlpha = Gen.alphaStr.suchThat(_.nonEmpty)
+    forAll(nonEmptyAlpha, nonEmptyAlpha, nonEmptyAlpha, nonEmptyAlpha) {
+      (a: String, b: String, botIdValue: String, botNameValue: String) =>
+        val textReply      = TextReply.fromList(b, a)(false)
+        val mediaReply     = MediaReply.fromList(List(Mp3File("track.mp3"), VideoFile("video.mp4")))
+        val sBotInfo       = SBotInfo(SBotId(botIdValue), SBotName(botNameValue))
+        val effectfulReply = EffectfulReply(EffectfulKey.Random(sBotInfo))
+
+        assertEquals(textReply.prettyPrint, List(a, b).distinct.sorted)
+        assertEquals(mediaReply.prettyPrint, List("track.mp3", "video.mp4"))
+        assertEquals(effectfulReply.prettyPrint, List(s"Reply for `${EffectfulKey.Random(sBotInfo)}`"))
+    }
+  }
+
+  property("Reply.replyValues should expose values for text/media and be empty for effectful replies") {
+    val nonEmptyAlpha = Gen.alphaStr.suchThat(_.nonEmpty)
+    forAll(nonEmptyAlpha, nonEmptyAlpha, nonEmptyAlpha) {
+      (textValue: String, botIdValue: String, botNameValue: String) =>
+        val textReply      = TextReply.fromList(textValue)(false)
+        val mediaReply     = MediaReply.fromList(List(Mp3File("track.mp3")))
+        val sBotInfo       = SBotInfo(SBotId(botIdValue), SBotName(botNameValue))
+        val effectfulReply = EffectfulReply(EffectfulKey.Random(sBotInfo))
+
+        assertEquals(textReply.replyValues, Set[ReplyValue](Text(textValue)))
+        assertEquals(mediaReply.replyValues, Set[ReplyValue](Mp3File("track.mp3")))
+        assertEquals(effectfulReply.replyValues, Set.empty)
     }
   }
 }

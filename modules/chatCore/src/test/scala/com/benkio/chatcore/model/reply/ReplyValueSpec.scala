@@ -8,15 +8,14 @@ import com.benkio.chatcore.model.SBotInfo.SBotName
 import com.benkio.chatcore.Arbitraries.given
 import io.circe.parser.decode
 import io.circe.syntax.*
-import munit.FunSuite
-import munit.ScalaCheckEffectSuite
+import munit.ScalaCheckSuite
 import org.http4s.syntax.all.uri
 import org.scalacheck.Gen
 import org.scalacheck.Prop.forAll
 
 import java.time.Instant
 
-class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
+class ReplyValueSpec extends ScalaCheckSuite {
 
   test("ReplyValue JSON decode/encode should work as expected") {
     val jsonInputs = List(
@@ -65,82 +64,175 @@ class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
     }
   }
 
-  test("MediaFile.fromMimeType should return the expected MediaFile from Media") {
-    val actual = Media(
-      mediaName = "botid_mediaName.mp4",
-      botId = SBotId("botid"),
-      kinds = List("kind"),
-      mimeType = MimeType.MP4,
-      mediaSources = List(Right(uri"http://something.com")),
-      mediaCount = 0,
-      createdAt = Instant.now()
-    )
-    val expected = VideoFile("botid_mediaName.mp4", false)
-    assertEquals(MediaFile.fromMimeType(actual), expected)
+  property("MediaFile.fromMimeType should return the expected MediaFile from Media") {
+    val mediaNameGen = Gen.alphaNumStr.suchThat(_.nonEmpty)
+    forAll(mediaNameGen) { (mediaNamePrefix: String) =>
+      val mediaName = s"${mediaNamePrefix}.mp4"
+      val actual    = Media(
+        mediaName = mediaName,
+        botId = SBotId("botid"),
+        kinds = List("kind"),
+        mimeType = MimeType.MP4,
+        mediaSources = List(Right(uri"http://something.com")),
+        mediaCount = 0,
+        createdAt = Instant.now()
+      )
+      val expected = VideoFile(mediaName, false)
+      assertEquals(MediaFile.fromMimeType(actual), expected)
+    }
   }
 
-  test("EffectfulKey.overridePage should update page on supported keys") {
-    val sBotInfo      = SBotInfo(SBotId("botid"), SBotName("bot"))
-    val searchShow    = EffectfulKey.SearchShow(sBotInfo, page = 0)
-    val triggerSearch = EffectfulKey.TriggerSearch(
-      sBotInfo = sBotInfo,
-      replyBundleMessage = List.empty,
-      ignoreMessagePrefix = None,
-      page = 1
-    )
-    assertEquals(searchShow.overridePage(Some(4)), EffectfulKey.SearchShow(sBotInfo, page = 4))
-    assertEquals(
-      triggerSearch.overridePage(Some(3)),
-      EffectfulKey.TriggerSearch(
+  property("EffectfulKey.overridePage should update page on supported keys") {
+    val pageGen = Gen.choose(0, 1000)
+    forAll(pageGen, pageGen) { (initialPage: Int, newPage: Int) =>
+      val sBotInfo      = SBotInfo(SBotId("botid"), SBotName("bot"))
+      val searchShow    = EffectfulKey.SearchShow(sBotInfo, page = initialPage)
+      val triggerSearch = EffectfulKey.TriggerSearch(
         sBotInfo = sBotInfo,
         replyBundleMessage = List.empty,
         ignoreMessagePrefix = None,
-        page = 3
+        page = initialPage
       )
-    )
+      val topTwenty = EffectfulKey.TopTwenty(sBotInfo, page = initialPage)
 
-    val topTwenty = EffectfulKey.TopTwenty(sBotInfo, page = 2)
-    assertEquals(topTwenty.overridePage(Some(6)), EffectfulKey.TopTwenty(sBotInfo, page = 6))
+      assertEquals(searchShow.overridePage(Some(newPage)), EffectfulKey.SearchShow(sBotInfo, page = newPage))
+      assertEquals(
+        triggerSearch.overridePage(Some(newPage)),
+        EffectfulKey.TriggerSearch(
+          sBotInfo = sBotInfo,
+          replyBundleMessage = List.empty,
+          ignoreMessagePrefix = None,
+          page = newPage
+        )
+      )
+      assertEquals(topTwenty.overridePage(Some(newPage)), EffectfulKey.TopTwenty(sBotInfo, page = newPage))
+    }
   }
 
-  test("EffectfulKey.overridePage should keep page unchanged on unsupported keys") {
-    val sBotInfo = SBotInfo(SBotId("botid"), SBotName("bot"))
-    val random   = EffectfulKey.Random(sBotInfo)
-    assertEquals(random.overridePage(Some(10)), random)
+  property("EffectfulKey.overridePage should keep page unchanged on unsupported keys") {
+    forAll(Gen.choose(0, 1000)) { (newPage: Int) =>
+      val sBotInfo = SBotInfo(SBotId("botid"), SBotName("bot"))
+      val random   = EffectfulKey.Random(sBotInfo)
+      assertEquals(random.overridePage(Some(newPage)), random)
+    }
   }
 
-  test("EffectfulKey decoder should decode JSON with page field") {
-    val searchShowJson =
-      """{
-        |  "SearchShow": {
-        |    "sBotInfo": {
-        |      "botId": "botid",
-        |      "botName": "bot"
-        |    },
-        |    "page": 0
-        |  }
-        |}""".stripMargin
-    val topTwentyJson =
-      """{
-        |  "TopTwenty": {
-        |    "sBotInfo": {
-        |      "botId": "botid",
-        |      "botName": "bot"
-        |    },
-        |    "page": 0
-        |  }
-        |}""".stripMargin
+  property("EffectfulKey.overridePage should keep page unchanged when no new page is provided") {
+    forAll(Gen.choose(0, 1000)) { (page: Int) =>
+      val sBotInfo = SBotInfo(SBotId("botid"), SBotName("bot"))
 
-    val expectedSBotInfo = SBotInfo(SBotId("botid"), SBotName("bot"))
+      val searchShow    = EffectfulKey.SearchShow(sBotInfo, page = page)
+      val topTwenty     = EffectfulKey.TopTwenty(sBotInfo, page = page)
+      val triggerSearch = EffectfulKey.TriggerSearch(
+        sBotInfo = sBotInfo,
+        replyBundleMessage = List.empty,
+        ignoreMessagePrefix = None,
+        page = page
+      )
 
-    assertEquals(
-      decode[EffectfulKey](searchShowJson),
-      Right(EffectfulKey.SearchShow(expectedSBotInfo, page = 0))
+      assertEquals(searchShow.overridePage(None), searchShow)
+      assertEquals(topTwenty.overridePage(None), topTwenty)
+      assertEquals(triggerSearch.overridePage(None), triggerSearch)
+    }
+  }
+
+  property("EffectfulKey decoder should decode JSON with page field") {
+    forAll(Gen.choose(0, 1000)) { (page: Int) =>
+      val searchShowJson =
+        s"""{
+           |  "SearchShow": {
+           |    "sBotInfo": {
+           |      "botId": "botid",
+           |      "botName": "bot"
+           |    },
+           |    "page": $page
+           |  }
+           |}""".stripMargin
+      val topTwentyJson =
+        s"""{
+           |  "TopTwenty": {
+           |    "sBotInfo": {
+           |      "botId": "botid",
+           |      "botName": "bot"
+           |    },
+           |    "page": $page
+           |  }
+           |}""".stripMargin
+
+      val expectedSBotInfo = SBotInfo(SBotId("botid"), SBotName("bot"))
+
+      assertEquals(
+        decode[EffectfulKey](searchShowJson),
+        Right(EffectfulKey.SearchShow(expectedSBotInfo, page = page))
+      )
+      assertEquals(
+        decode[EffectfulKey](topTwentyJson),
+        Right(EffectfulKey.TopTwenty(expectedSBotInfo, page = page))
+      )
+    }
+  }
+
+  test("EffectfulKey decoder should round-trip all variants with minimal payloads") {
+    val sBotInfo                    = SBotInfo(SBotId("botid"), SBotName("bot"))
+    val allKeys: List[EffectfulKey] = List(
+      EffectfulKey.Random(sBotInfo),
+      EffectfulKey.SearchShow(sBotInfo, page = 2),
+      EffectfulKey.TriggerSearch(sBotInfo, replyBundleMessage = List.empty, ignoreMessagePrefix = None, page = 4),
+      EffectfulKey.Instructions(sBotInfo, ignoreMessagePrefix = Some("!"), commands = List.empty),
+      EffectfulKey.Subscribe(sBotInfo),
+      EffectfulKey.Unsubscribe(sBotInfo),
+      EffectfulKey.Subscriptions(sBotInfo),
+      EffectfulKey.TopTwenty(sBotInfo, page = 6),
+      EffectfulKey.SetTimeout(sBotInfo),
+      EffectfulKey.GetTimeout(sBotInfo),
+      EffectfulKey.MediaByKind("metal", sBotInfo),
+      EffectfulKey.Callback("bensonify", sBotInfo)
     )
-    assertEquals(
-      decode[EffectfulKey](topTwentyJson),
-      Right(EffectfulKey.TopTwenty(expectedSBotInfo, page = 0))
-    )
+
+    allKeys.foreach { key =>
+      val encoded = key.asJson.noSpaces
+      assertEquals(decode[EffectfulKey](encoded), Right(key))
+    }
+  }
+
+  test("EffectfulKey decoder should round-trip callback and mediaByKind keys with ScalaCheck samples") {
+    val sBotInfo    = SBotInfo(SBotId("botid"), SBotName("bot"))
+    val nonEmptyKey = Gen.alphaNumStr.suchThat(_.nonEmpty)
+    forAll(nonEmptyKey) { (value: String) =>
+      val mediaByKind = EffectfulKey.MediaByKind(value, sBotInfo)
+      val callback    = EffectfulKey.Callback(value, sBotInfo)
+
+      assertEquals(decode[EffectfulKey](mediaByKind.asJson.noSpaces), Right(mediaByKind))
+      assertEquals(decode[EffectfulKey](callback.asJson.noSpaces), Right(callback))
+    }
+  }
+
+  property("EffectfulKey decoder should fail when JSON does not contain a supported key") {
+    forAll(Gen.alphaNumStr.suchThat(_.nonEmpty)) { (unknownKey: String) =>
+      val invalidJson =
+        s"""{
+           |  "$unknownKey": {
+           |    "value": "x"
+           |  }
+           |}""".stripMargin
+
+      val isKnown = Set(
+        "Random",
+        "SearchShow",
+        "TriggerSearch",
+        "Instructions",
+        "Subscribe",
+        "Unsubscribe",
+        "Subscriptions",
+        "TopTwenty",
+        "SetTimeout",
+        "GetTimeout",
+        "MediaByKind",
+        "Callback"
+      ).contains(unknownKey)
+
+      if !isKnown then assert(decode[EffectfulKey](invalidJson).isLeft)
+    }
   }
 
   test("MediaFile.fromString should infer media type from filename") {
@@ -232,7 +324,7 @@ class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
     }
   }
 
-  test("MediaFile.fromString maps known extensions to the expected ADT") {
+  property("MediaFile.fromString maps known extensions to the expected ADT") {
     forAll(Gen.alphaNumStr) { (prefix: String) =>
       assert(MediaFile.fromString(s"$prefix.mp3").isInstanceOf[Mp3File])
       assert(MediaFile.fromString(s"$prefix.jpg").isInstanceOf[PhotoFile])
@@ -246,10 +338,31 @@ class ReplyValueSpec extends FunSuite with ScalaCheckEffectSuite {
     }
   }
 
-  test("Markdown codec should round-trip string payloads with ScalaCheck samples") {
+  property("Markdown codec should round-trip string payloads with ScalaCheck samples") {
     forAll(Gen.alphaStr) { (value: String) =>
       val encoded = Markdown(value).asJson.noSpaces
       assertEquals(decode[Markdown](encoded), Right(Markdown(value)))
+    }
+  }
+
+  property("ReplyValue encoder should fail on non-core adapter values") {
+    final case class AdapterReplyValue(label: String) extends ReplyValue
+
+    forAll(Gen.alphaNumStr.suchThat(_.nonEmpty)) { (label: String) =>
+      val replyValue: ReplyValue = AdapterReplyValue(label)
+      val _                      = intercept[UnsupportedOperationException] {
+        replyValue.asJson.noSpaces
+      }
+      assert(true)
+    }
+  }
+
+  property("ReplyValue show should fallback to toString for non-core adapter values") {
+    final case class AdapterReplyValue(label: String) extends ReplyValue
+
+    forAll(Gen.alphaNumStr.suchThat(_.nonEmpty)) { (label: String) =>
+      val replyValue: ReplyValue = AdapterReplyValue(label)
+      assertEquals(summon[cats.Show[ReplyValue]].show(replyValue), replyValue.toString)
     }
   }
 }

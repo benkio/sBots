@@ -114,7 +114,35 @@ enum EffectfulKey(val sBotInfo: SBotInfo) {
 }
 
 object EffectfulKey {
-  given replyDecoder: Decoder[EffectfulKey] = deriveDecoder[EffectfulKey]
+  private given randomDecoder: Decoder[EffectfulKey.Random]               = deriveDecoder[EffectfulKey.Random]
+  private given searchShowDecoder: Decoder[EffectfulKey.SearchShow]       = deriveDecoder[EffectfulKey.SearchShow]
+  private given triggerSearchDecoder: Decoder[EffectfulKey.TriggerSearch] = deriveDecoder[EffectfulKey.TriggerSearch]
+  private given instructionsDecoder: Decoder[EffectfulKey.Instructions]   = deriveDecoder[EffectfulKey.Instructions]
+  private given subscribeDecoder: Decoder[EffectfulKey.Subscribe]         = deriveDecoder[EffectfulKey.Subscribe]
+  private given unsubscribeDecoder: Decoder[EffectfulKey.Unsubscribe]     = deriveDecoder[EffectfulKey.Unsubscribe]
+  private given subscriptionsDecoder: Decoder[EffectfulKey.Subscriptions] = deriveDecoder[EffectfulKey.Subscriptions]
+  private given topTwentyDecoder: Decoder[EffectfulKey.TopTwenty]         = deriveDecoder[EffectfulKey.TopTwenty]
+  private given setTimeoutDecoder: Decoder[EffectfulKey.SetTimeout]       = deriveDecoder[EffectfulKey.SetTimeout]
+  private given getTimeoutDecoder: Decoder[EffectfulKey.GetTimeout]       = deriveDecoder[EffectfulKey.GetTimeout]
+  private given mediaByKindDecoder: Decoder[EffectfulKey.MediaByKind]     = deriveDecoder[EffectfulKey.MediaByKind]
+  private given callbackDecoder: Decoder[EffectfulKey.Callback]           = deriveDecoder[EffectfulKey.Callback]
+
+  given replyDecoder: Decoder[EffectfulKey] = Decoder.instance(c =>
+    c.downField("Random")
+      .as[EffectfulKey.Random]
+      .orElse(c.downField("SearchShow").as[EffectfulKey.SearchShow])
+      .orElse(c.downField("TriggerSearch").as[EffectfulKey.TriggerSearch])
+      .orElse(c.downField("Instructions").as[EffectfulKey.Instructions])
+      .orElse(c.downField("Subscribe").as[EffectfulKey.Subscribe])
+      .orElse(c.downField("Unsubscribe").as[EffectfulKey.Unsubscribe])
+      .orElse(c.downField("Subscriptions").as[EffectfulKey.Subscriptions])
+      .orElse(c.downField("TopTwenty").as[EffectfulKey.TopTwenty])
+      .orElse(c.downField("SetTimeout").as[EffectfulKey.SetTimeout])
+      .orElse(c.downField("GetTimeout").as[EffectfulKey.GetTimeout])
+      .orElse(c.downField("MediaByKind").as[EffectfulKey.MediaByKind])
+      .orElse(c.downField("Callback").as[EffectfulKey.Callback])
+      .map(identity)
+  )
 
   given replyEncoder: Encoder[EffectfulKey] = deriveEncoder[EffectfulKey]
 

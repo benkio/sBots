@@ -4,6 +4,58 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "dove metterlo"
+          },
+          {
+            "StringTextTriggerValue" : "che c'è da aggiungere"
+          },
+          {
+            "StringTextTriggerValue" : "sono soldi"
+          },
+          {
+            "StringTextTriggerValue" : "denaro"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_SonoSoldiCashGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_SonoSoldiCash.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_SonoSoldiCash.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "MarkdownFile" : {
+              "filepath" : "orl_SonoSoldiCash.md",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "RegexTextTriggerValue" : {
               "trigger" : "(la|una) scopa\\b",
               "regexLength" : 8
@@ -1293,12 +1345,6 @@
             }
           },
           {
-            "RegexTextTriggerValue" : {
-              "trigger" : "\\bcash\\b",
-              "regexLength" : 4
-            }
-          },
-          {
             "StringTextTriggerValue" : "mi devi dare"
           },
           {
@@ -1325,6 +1371,82 @@
           {
             "Mp3File" : {
               "filepath" : "orl_DueMilioniDiEuro.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_DueMilioniDiEuro.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Sticker" : {
+              "filepath" : "orl_Cash.sticker",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bcash\\b",
+              "regexLength" : 4
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "orl_DueMilioniDiEuroGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "MarkdownFile" : {
+              "filepath" : "orl_SonoSoldiCash.md",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Sticker" : {
+              "filepath" : "orl_DueMilioni.sticker",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "orl_SonoSoldiCashGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_SonoSoldiCash.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_DueMilioniDiEuro.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "orl_SonoSoldiCash.mp4",
               "replyToMessage" : false
             }
           },
