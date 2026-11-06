@@ -25,10 +25,13 @@ enum SubscriptionType(val asString: String) {
 }
 
 object SubscriptionType {
+
+  final case class UnknownSubscriptionType(value: String) extends Throwable(s"Unknown subscription type: $value")
+
   def fromString(value: String): Either[Throwable, SubscriptionType] =
     SubscriptionType.values
       .find(_.asString == value.trim.toLowerCase)
-      .toRight(new IllegalArgumentException(s"Unknown subscription type: $value"))
+      .toRight(UnknownSubscriptionType(value))
 }
 
 final case class Subscription(
