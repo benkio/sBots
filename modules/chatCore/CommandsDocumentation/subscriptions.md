@@ -14,7 +14,7 @@ Mostra le sottoscrizioni della chat corrente e il loro stato.
 
 - Sottoscrizioni salvate nel database
 - Sottoscrizioni attualmente schedulate in memoria
-- ID sottoscrizione e valore cron
+- ID sottoscrizione, tipo, valore cron e target (se presente)
 
 ## EN
 
@@ -30,4 +30,4 @@ Show subscriptions for the current chat and their status.
 
 - Subscriptions stored in database
 - Subscriptions currently scheduled in memory
-- Subscription ID and cron value
+- Subscription ID, type, cron value and target (if any)

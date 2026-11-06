@@ -2,9 +2,13 @@ package com.benkio.integration.integrationmunit.chatcore
 
 import cats.effect.IO
 import cats.effect.Resource
+import cats.syntax.all.*
 import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionId
+import com.benkio.chatcore.model.SubscriptionRules
+import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.repository.db.DBSubscriptionData
 import com.benkio.chatcore.SubscriptionKey
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
@@ -80,7 +84,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       assert(
         backgroundJobManager
           .getScheduledSubscriptions()
-          .find { case SubscriptionKey(sId, _) =>
+          .find { case SubscriptionKey(sId, _, _) =>
             sId == testSubscriptionId
           }
           .isDefined
@@ -88,8 +92,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       assertEquals(
         backgroundJobManager
           .getScheduledSubscriptions()
-          .find { case SubscriptionKey(sId, _) => sId == testSubscriptionId },
-        Some(SubscriptionKey(testSubscriptionId, ChatId(0L)))
+          .find { case SubscriptionKey(sId, _, _) => sId == testSubscriptionId },
+        Some(SubscriptionKey(testSubscriptionId, ChatId(0L), SubscriptionType.Show))
       )
     }
 
@@ -117,7 +121,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       assert(
         backgroundJobManager
           .getScheduledSubscriptions()
-          .find { case SubscriptionKey(sId, _) =>
+          .find { case SubscriptionKey(sId, _, _) =>
             sId == testSubscriptionId
           }
           .isDefined
@@ -125,8 +129,8 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       assertEquals(
         backgroundJobManager
           .getScheduledSubscriptions()
-          .find { case SubscriptionKey(sId, _) => sId == testSubscriptionId },
-        Some(SubscriptionKey(testSubscriptionId, ChatId(0L)))
+          .find { case SubscriptionKey(sId, _, _) => sId == testSubscriptionId },
+        Some(SubscriptionKey(testSubscriptionId, ChatId(0L), SubscriptionType.Show))
       )
       assertEquals(subscriptions.length, 1)
       assertEquals(Subscription(subscriptions.head), Right(testSubscription))
@@ -231,4 +235,142 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
     )
   }
 
+  // A cron that never fires during a test, to keep the scheduled subscriptions quiet
+  private val quietCron = Cron.unsafeParse("0 0 0 1 1 ?")
+
+  private def quietSubscription(
+      chatId: Long,
+      subscriptionType: SubscriptionType = SubscriptionType.Show
+  ): Subscription =
+    testSubscription.copy(
+      id = SubscriptionId(UUID.randomUUID()),
+      chatId = ChatId(chatId),
+      subscriptionType = subscriptionType,
+      cron = quietCron
+    )
+
+  private def dbDataOf(subscription: Subscription, botId: SBotId): DBSubscriptionData =
+    DBSubscriptionData(subscription).copy(bot_id = botId.value)
+
+  databaseFixture.test(
+    "BackgroundJobManager.cancelSubscriptionByType should cancel only the subscriptions of that type for that chat and bot, in memory and in the db"
+  ) { fixture =>
+    val show         = quietSubscription(0L)
+    val calendar     = quietSubscription(0L, SubscriptionType.Calendar)
+    val otherChatCal = quietSubscription(1L, SubscriptionType.Calendar)
+    val otherBotCal  = dbDataOf(quietSubscription(0L, SubscriptionType.Calendar), SBotId("anotherbot"))
+    val result       = for {
+      dbLayer              <- fixture.resourceDBLayer
+      repository           <- fixture.repositoryResource
+      backgroundJobManager <- Resource.eval(
+        TelegramBackgroundJobManager(
+          repository = repository,
+          dbLayer = dbLayer,
+          sBotInfo = sBotInfo,
+          ttl = sBotConfig.messageTimeToLive
+        )
+      )
+      _      <- Resource.eval(List(show, calendar, otherChatCal).traverse_(backgroundJobManager.scheduleSubscription))
+      _      <- Resource.eval(dbLayer.dbSubscription.insertSubscription(otherBotCal))
+      _      <- Resource.eval(backgroundJobManager.cancelSubscriptionByType(ChatId(0L), SubscriptionType.Calendar))
+      stored <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId))
+      storedOther <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(SBotId("anotherbot")))
+    } yield {
+      assertEquals(
+        backgroundJobManager.getScheduledSubscriptions().map(_.subscriptionId).toSet,
+        Set(show.id, otherChatCal.id)
+      )
+      assertEquals(stored.map(_.id).toSet, Set(show.id, otherChatCal.id).map(_.value.toString))
+      assertEquals(storedOther, List(otherBotCal))
+    }
+    result.use_
+  }
+
+  databaseFixture.test(
+    "BackgroundJobManager.cancelSubscriptionByType should do nothing when the chat has no subscription of that type"
+  ) { fixture =>
+    val show   = quietSubscription(0L)
+    val result = for {
+      dbLayer              <- fixture.resourceDBLayer
+      repository           <- fixture.repositoryResource
+      backgroundJobManager <- Resource.eval(
+        TelegramBackgroundJobManager(
+          repository = repository,
+          dbLayer = dbLayer,
+          sBotInfo = sBotInfo,
+          ttl = sBotConfig.messageTimeToLive
+        )
+      )
+      _       <- Resource.eval(backgroundJobManager.scheduleSubscription(show))
+      outcome <- Resource.eval(
+        backgroundJobManager.cancelSubscriptionByType(ChatId(0L), SubscriptionType.Calendar).attempt
+      )
+      stored <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId))
+    } yield {
+      assertEquals(outcome, Right(()))
+      assertEquals(backgroundJobManager.getScheduledSubscriptions().map(_.subscriptionId), List(show.id))
+      assertEquals(stored.map(_.id), List(show.id.value.toString))
+    }
+    result.use_
+  }
+
+  databaseFixture.test(
+    "BackgroundJobManager.scheduleSubscription should reject the subscription over the per chat limit, counting every type"
+  ) { fixture =>
+    val limit    = SubscriptionRules.maxSubscriptionsPerChat
+    val existing = (1 to limit).toList.map(i =>
+      quietSubscription(7L, if i == 1 then SubscriptionType.Calendar else SubscriptionType.Show)
+    )
+    val result = for {
+      dbLayer              <- fixture.resourceDBLayer
+      repository           <- fixture.repositoryResource
+      backgroundJobManager <- Resource.eval(
+        TelegramBackgroundJobManager(
+          repository = repository,
+          dbLayer = dbLayer,
+          sBotInfo = sBotInfo,
+          ttl = sBotConfig.messageTimeToLive
+        )
+      )
+      _ <- Resource.eval(
+        existing.init.traverse_(s => dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(s)))
+      )
+      lastAllowed <- Resource.eval(backgroundJobManager.scheduleSubscription(existing.last).attempt)
+      overLimit   <- Resource.eval(backgroundJobManager.scheduleSubscription(quietSubscription(7L)).attempt)
+      otherChat   <- Resource.eval(backgroundJobManager.scheduleSubscription(quietSubscription(8L)).attempt)
+      stored      <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId, Some(7L)))
+    } yield {
+      assertEquals(lastAllowed, Right(()), "the subscription number 50 should be allowed")
+      assertEquals(
+        overLimit.left.map(_.getClass),
+        Left(classOf[SubscriptionRules.SubscriptionLimitReached]),
+        "the subscription number 51 should be rejected"
+      )
+      assertEquals(otherChat, Right(()), "the limit is per chat")
+      assertEquals(stored.size, limit, "the rejected subscription should not be stored")
+    }
+    result.use_
+  }
+
+  databaseFixture.test(
+    "BackgroundJobManager creation should skip the stored subscriptions that cannot be decoded and load the others"
+  ) { fixture =>
+    val valid   = quietSubscription(0L)
+    val invalid = DBSubscriptionData(quietSubscription(0L)).copy(cron = "not a cron")
+    val result  = for {
+      dbLayer              <- fixture.resourceDBLayer
+      repository           <- fixture.repositoryResource
+      _                    <- Resource.eval(dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(valid)))
+      _                    <- Resource.eval(dbLayer.dbSubscription.insertSubscription(invalid))
+      backgroundJobManager <- Resource.eval(
+        TelegramBackgroundJobManager(
+          repository = repository,
+          dbLayer = dbLayer,
+          sBotInfo = sBotInfo,
+          ttl = sBotConfig.messageTimeToLive
+        )
+      )
+    } yield assertEquals(backgroundJobManager.getScheduledSubscriptions().map(_.subscriptionId), List(valid.id))
+    result.use_
+  }
 }

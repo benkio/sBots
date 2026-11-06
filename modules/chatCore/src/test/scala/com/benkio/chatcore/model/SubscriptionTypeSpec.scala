@@ -17,6 +17,8 @@ class SubscriptionTypeSpec extends FunSuite {
   }
 
   test("fromString should fail for unknown values") {
-    List("", "shows", "unknown", "Show Trigger").foreach(v => assert(SubscriptionType.fromString(v).isLeft, v))
+    List("", "shows", "unknown", "Show Trigger").foreach(v =>
+      assertEquals(SubscriptionType.fromString(v), Left(SubscriptionType.UnknownSubscriptionType(v)))
+    )
   }
 }

@@ -45,7 +45,7 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
     check(DBSubscription.getSubscriptionQuery(testSubscriptionId))
     check(DBSubscription.getRandomSubscriptionQuery())
     check(DBSubscription.deleteSubscriptionsQuery(2L))
-    check(DBSubscription.deleteSubscriptionsByTypeQuery(2L, SubscriptionType.Calendar))
+    check(DBSubscription.deleteSubscriptionsByTypeQuery(2L, botId, SubscriptionType.Calendar))
   }
 
   databaseFixture.test(
@@ -212,9 +212,10 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
   }
 
   databaseFixture.test(
-    "DBSubscription.deleteSubscriptionsByType should delete only the subscriptions of that type for that chat"
+    "DBSubscription.deleteSubscriptionsByType should delete only the subscriptions of that type for that chat and bot"
   ) { fixture =>
-    val calendar =
+    val anotherBot = "anotherbot"
+    val calendar   =
       subscriptionOf(id = UUID.randomUUID().toString, chatId = 16L, subscriptionType = SubscriptionType.Calendar)
     val show    = subscriptionOf(id = UUID.randomUUID().toString, chatId = 16L)
     val trigger = subscriptionOf(
@@ -225,17 +226,27 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
     )
     val otherChatCal =
       subscriptionOf(id = UUID.randomUUID().toString, chatId = 17L, subscriptionType = SubscriptionType.Calendar)
+    val otherBotCal = subscriptionOf(
+      id = UUID.randomUUID().toString,
+      chatId = 16L,
+      botIdValue = anotherBot,
+      subscriptionType = SubscriptionType.Calendar
+    )
     val resourceAssert = for {
       dbSubscription <- fixture.resourceDBLayer.map(_.dbSubscription)
-      _      <- Resource.eval(List(calendar, show, trigger, otherChatCal).traverse_(dbSubscription.insertSubscription))
-      _      <- Resource.eval(dbSubscription.deleteSubscriptionsByType(16L, SubscriptionType.Calendar))
-      chat16 <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(16L)))
-      chat17 <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(17L)))
-    } yield (chat16, chat17)
-    resourceAssert.use { case (chat16, chat17) =>
+      _              <- Resource.eval(
+        List(calendar, show, trigger, otherChatCal, otherBotCal).traverse_(dbSubscription.insertSubscription)
+      )
+      _          <- Resource.eval(dbSubscription.deleteSubscriptionsByType(16L, botId, SubscriptionType.Calendar))
+      chat16     <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(16L)))
+      chat17     <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(17L)))
+      otherBot16 <- Resource.eval(dbSubscription.getSubscriptions(SBotId(anotherBot), Some(16L)))
+    } yield (chat16, chat17, otherBot16)
+    resourceAssert.use { case (chat16, chat17, otherBot16) =>
       IO {
         assertEquals(chat16.map(_.id).toSet, Set(show.id, trigger.id))
         assertEquals(chat17, List(otherChatCal))
+        assertEquals(otherBot16, List(otherBotCal))
       }
     }
   }
