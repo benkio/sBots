@@ -48,6 +48,7 @@ trait DBSubscription[F[_]] {
   ): F[Unit]
   def deleteSubscriptionsByType(
       chatId: Long,
+      botId: SBotId,
       subscriptionType: SubscriptionType
   ): F[Unit]
 }
@@ -88,10 +89,13 @@ object DBSubscription {
 
     override def deleteSubscriptionsByType(
         chatId: Long,
+        botId: SBotId,
         subscriptionType: SubscriptionType
     ): F[Unit] =
-      deleteSubscriptionsByTypeQuery(chatId, subscriptionType).run.transact(transactor).void <* log.debug(
-        s"delete subscriptions for chat id $chatId and type ${subscriptionType.asString}"
+      deleteSubscriptionsByTypeQuery(chatId = chatId, botId = botId, subscriptionType = subscriptionType).run
+        .transact(transactor)
+        .void <* log.debug(
+        s"delete subscriptions for chat id $chatId, bot id ${botId.value} and type ${subscriptionType.asString}"
       )
 
     override def getSubscriptions(botId: SBotId, chatId: Option[Long]): F[List[DBSubscriptionData]] =
@@ -133,8 +137,8 @@ object DBSubscription {
   def deleteSubscriptionsQuery(chatId: Long): Update0 =
     sql"DELETE FROM subscription WHERE chat_id = $chatId".update
 
-  def deleteSubscriptionsByTypeQuery(chatId: Long, subscriptionType: SubscriptionType): Update0 = {
+  def deleteSubscriptionsByTypeQuery(chatId: Long, botId: SBotId, subscriptionType: SubscriptionType): Update0 = {
     val subscriptionTypeValue = subscriptionType.asString
-    sql"DELETE FROM subscription WHERE chat_id = $chatId AND subscription_type = $subscriptionTypeValue".update
+    sql"DELETE FROM subscription WHERE chat_id = $chatId AND bot_id = ${botId.value} AND subscription_type = $subscriptionTypeValue".update
   }
 }

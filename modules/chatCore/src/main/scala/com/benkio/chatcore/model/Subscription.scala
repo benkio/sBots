@@ -79,6 +79,9 @@ object Subscription {
   )).toEither
 
   given showInstance: Show[Subscription] =
-    Show.show(s => s"Subscription Id: ${s.id} - Type: ${s.subscriptionType} - Cron: ${s.cron}")
+    Show.show(s =>
+      s"Subscription Id: ${s.id} - Type: ${s.subscriptionType} - Cron: ${s.cron}" ++
+        s.target.fold("")(target => s" - Target: $target")
+    )
 
 }

@@ -102,4 +102,44 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
     resourceAssert.use_
   }
 
+  databaseFixture.test(
+    "Subscriptions Command should show the type and the target of the subscriptions"
+  ) { fixture =>
+    val withTarget = DBSubscriptionData(
+      id = "5c1b3a62-7d3c-4a44-9b0e-2f0e3a6e1c11",
+      chat_id = chatIdValue,
+      bot_id = botId.value,
+      subscription_type = "show",
+      target = Some("pino scotto"),
+      cron = "0 0 0 1 1 ?",
+      subscribed_at = "1746195008"
+    )
+    val resourceAssert = for {
+      dbLayer              <- fixture.resourceDBLayer
+      repository           <- fixture.repositoryResource
+      _                    <- Resource.eval(dbLayer.dbSubscription.insertSubscription(withTarget))
+      backgroundJobManager <- Resource.eval(
+        TelegramBackgroundJobManager(
+          repository = repository,
+          dbLayer = dbLayer,
+          sBotInfo = sBotConfig.sBotInfo,
+          ttl = sBotConfig.messageTimeToLive
+        )
+      )
+      result <- Resource.eval(
+        SubscribeUnsubscribeCommand.subscriptionsCommandLogic(
+          dbSubscription = dbLayer.dbSubscription,
+          backgroundJobManager = backgroundJobManager,
+          sBotInfo = sBotConfig.sBotInfo,
+          m = msg
+        )
+      )
+    } yield {
+      val text = result.show
+      assert(text.contains("There are 1 stored subscriptions for this chat:"), text)
+      assert(text.contains(" - Type: Show - Cron: "), text)
+      assert(text.contains(" - Target: pino scotto"), text)
+    }
+    resourceAssert.use_
+  }
 }

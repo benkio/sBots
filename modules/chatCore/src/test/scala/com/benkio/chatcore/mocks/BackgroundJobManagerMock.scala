@@ -5,6 +5,7 @@ import cats.syntax.all.*
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionId
+import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chatcore.SubscriptionKey
 import fs2.concurrent.SignallingRef
@@ -26,7 +27,7 @@ object BackgroundJobManagerMock {
 
     override def scheduleSubscription(subscription: Subscription): IO[Unit] =
       for {
-        key <- IO.pure(SubscriptionKey(subscription.id, subscription.chatId))
+        key <- IO.pure(SubscriptionKey(subscription.id, subscription.chatId, subscription.subscriptionType))
         _   <- IO.raiseWhen(scheduleReferences.contains(key))(
           new RuntimeException(s"Subscription already exists: $subscription")
         )
@@ -66,6 +67,18 @@ object BackgroundJobManagerMock {
               scheduleReferences -= key
             }
           } yield ()
+        }
+      } yield ()
+
+    override def cancelSubscriptionByType(chatId: ChatId, subscriptionType: SubscriptionType): IO[Unit] =
+      for {
+        keysToCancel <- IO(
+          scheduleReferences.keys.filter(k => k.chatId == chatId && k.subscriptionType == subscriptionType).toList
+        )
+        _ <- keysToCancel.traverse_ { key =>
+          scheduleReferences(key).set(true) >> IO {
+            scheduleReferences -= key
+          }
         }
       } yield ()
 
