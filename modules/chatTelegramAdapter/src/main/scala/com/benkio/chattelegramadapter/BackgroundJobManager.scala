@@ -2,6 +2,7 @@ package com.benkio.chattelegramadapter
 
 import cats.*
 import cats.effect.*
+import cats.effect.std.Random
 import cats.implicits.*
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.ChatId
@@ -43,7 +44,7 @@ object TelegramBackgroundJobManager {
         s"Subscription already exists: already present in memory while subscribing to it. id: ${subscription.id.value} - ${subscription.chatId.value}"
       )
 
-  def apply[F[_]: Async: Api](
+  def apply[F[_]: Async: Api: Random](
       repository: Repository[F],
       dbLayer: DBLayer[F],
       sBotInfo: SBotInfo,
@@ -61,7 +62,7 @@ object TelegramBackgroundJobManager {
       _ <- backgroundJobManager.loadSubscriptions()
     } yield backgroundJobManager
 
-  final class BackgroundJobManagerImpl[F[_]: Async: Api](
+  final class BackgroundJobManagerImpl[F[_]: Async: Api: Random](
       repository: Repository[F],
       dbLayer: DBLayer[F],
       sBotInfo: SBotInfo,

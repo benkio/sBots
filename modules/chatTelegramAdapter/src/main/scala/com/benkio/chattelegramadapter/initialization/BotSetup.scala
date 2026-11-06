@@ -1,5 +1,6 @@
 package com.benkio.chattelegramadapter.initialization
 
+import cats.effect.std.Random
 import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits.*
@@ -103,7 +104,7 @@ object BotSetup {
       )
     )
 
-  def apply[F[_]: Async](
+  def apply[F[_]: Async: Random](
       httpClient: Client[F],
       sBotConfig: SBotConfig,
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
@@ -153,7 +154,7 @@ object BotSetup {
           dbLayer = dbLayer,
           sBotInfo = sBotConfig.sBotInfo,
           ttl = sBotConfig.messageTimeToLive
-        )(using Async[F], api, log)
+        )(using Async[F], api, Random[F], log)
       )
       path           <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/$tk")))
       webhookBaseUri <- Resource.eval(Async[F].fromEither(Uri.fromString(webhookBaseUrl + path)))
