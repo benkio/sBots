@@ -1,6 +1,7 @@
 package com.benkio.chatcore.patterns
 
 import cats.data.NonEmptyList
+import cats.effect.std.Random
 import cats.effect.Async
 import cats.implicits.*
 import cats.ApplicativeThrow
@@ -128,12 +129,12 @@ object CommandPatterns {
     private[patterns] val searchShowCommandEng: String =
       s"'/searchshow': Documentation: ${chatCoreCommandDocLink("searchshow", "en")}"
 
-    def searchShowCommandLogic[F[_]: Async: LogWriter](
+    def searchShowCommandLogic[F[_]: MonadThrow: LogWriter](
         msg: Message,
         dbLayer: DBLayer[F],
         sBotInfo: SBotInfo,
         ttl: Option[FiniteDuration],
-        showTransformation: String => NonEmptyList[Show] => ReplyValue
+        showTransformation: String => NonEmptyList[Show] => F[ReplyValue]
     ): F[ReplyValue] =
       handleCommandWithInput[F](
         msg = msg,
@@ -168,12 +169,15 @@ object CommandPatterns {
         )
       )
 
-    def selectLinkByKeyword[F[_]: Async](
+    def defaultShowTransformation[F[_]: MonadThrow: Random](shows: NonEmptyList[Show]): F[ReplyValue] =
+      Random[F].elementOf(shows.toList).map(show => Text(show.show): ReplyValue)
+
+    def selectLinkByKeyword[F[_]: MonadThrow](
         keywords: String,
         dbShow: DBShow[F],
         sBotInfo: SBotInfo,
         ttl: Option[FiniteDuration],
-        showTransformation: NonEmptyList[Show] => ReplyValue = shows => Text(shows.head.show)
+        showTransformation: NonEmptyList[Show] => F[ReplyValue]
     )(using log: LogWriter[F]): F[ReplyValue] = {
       val query: ShowQuery            = ShowQuery(keywords)
       val dbCall: F[List[DBShowData]] = query match {
@@ -186,20 +190,23 @@ object CommandPatterns {
         _           <- log.info(s"Select random Show: ${sBotInfo.botId} - $keywords - $query")
         dbResults   <- dbCall
         showResults <- dbResults.traverse(Show.apply[F](_).map(_.addTimestamp(query)))
-      } yield NonEmptyList
-        .fromList(showResults)
-        .fold(
-          Text(
-            value = s"Nessuna puntata/show contenente '$keywords' è stata trovata",
-            timeToLive = ttl
-          )
-        )(showTransformation(_))
+        output      <- NonEmptyList
+          .fromList(showResults)
+          .fold(
+            MonadThrow[F].pure(
+              Text(
+                value = s"Nessuna puntata/show contenente '$keywords' è stata trovata",
+                timeToLive = ttl
+              )
+            )
+          )(showTransformation(_))
+      } yield output
     }
 
     /** The show of the bot with the given id, otherwise the result of the keyword search (a random show when the target
       * is empty).
       */
-    def selectShowByIdOrKeyword[F[_]: Async](
+    def selectShowByIdOrKeyword[F[_]: MonadThrow: Random](
         target: String,
         dbShow: DBShow[F],
         sBotInfo: SBotInfo,
@@ -211,9 +218,13 @@ object CommandPatterns {
         // a show id of another bot is not a match
         ownShow = byId.filter(_.bot_id == sBotInfo.botId.value)
         reply <- ownShow.fold(
-          selectLinkByKeyword[F](keywords = trimmedTarget, dbShow = dbShow, sBotInfo = sBotInfo, ttl = ttl): F[
-            ReplyValue
-          ]
+          selectLinkByKeyword[F](
+            keywords = trimmedTarget,
+            dbShow = dbShow,
+            sBotInfo = sBotInfo,
+            ttl = ttl,
+            showTransformation = defaultShowTransformation[F]
+          ): F[ReplyValue]
         )(dbShowData => Show.apply[F](dbShowData).map(show => Text(show.show): ReplyValue))
       } yield reply
     }

@@ -57,18 +57,20 @@ object EffectfulKeyRunner {
           ttl = ttl,
           showTransformation = keywords =>
             shows =>
-              TelegramInlineKeyboard(
-                keyboardTitle = SearchCommandTelegramKeyboardTitle
-                  .build(
-                    m = msg,
-                    input = keywords,
-                    valuesCount = shows.length
+              Async[F].pure(
+                TelegramInlineKeyboard(
+                  keyboardTitle = SearchCommandTelegramKeyboardTitle
+                    .build(
+                      m = msg,
+                      input = keywords,
+                      valuesCount = shows.length
+                    )
+                    .value,
+                  inlineKeyboard = buildInlineKeyboard(
+                    data = shows.toList,
+                    page = page,
+                    commandKey = CommandKey.SearchShow
                   )
-                  .value,
-                inlineKeyboard = buildInlineKeyboard(
-                  data = shows.toList,
-                  page = page,
-                  commandKey = CommandKey.SearchShow
                 )
               )
         )

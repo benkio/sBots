@@ -1,5 +1,6 @@
 package com.benkio.integration
 
+import cats.effect.std.Random
 import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.chatcore.config.SBotConfig
@@ -89,7 +90,7 @@ object BotSetupFixture {
           dbLayer = dbLayer,
           sBotInfo = sBotConfig.sBotInfo,
           ttl = sBotConfig.messageTimeToLive
-        )(using IO.asyncForIO, api, log)
+        )(using IO.asyncForIO, api, summon[Random[IO]], log)
       )
       webhookPath = uri"/test"
       webhookUri  = uri"https://localhost/test"

@@ -1,5 +1,6 @@
 package com.benkio.chattelegramadapter
 
+import cats.effect.std.Random
 import cats.effect.Async
 import cats.effect.Resource
 import cats.Parallel
@@ -52,7 +53,7 @@ object SBot {
       token = s"${sBotInfo.botId}_${sBotInfo.botName}.token"
     )
 
-  def buildPollingBot[F[_]: Parallel: Async: Network, A](
+  def buildPollingBot[F[_]: Parallel: Async: Network: Random, A](
       action: SBotPolling[F] => F[A],
       sBotInfo: SBotInfo,
       commandEffectfulCallback: Map[String, Message => F[ReplyValue]] = Map.empty
@@ -82,7 +83,7 @@ object SBot {
       )
   }
 
-  def buildWebhookBot[F[_]: Async](
+  def buildWebhookBot[F[_]: Async: Random](
       httpClient: Client[F],
       sBotInfo: SBotInfo,
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
