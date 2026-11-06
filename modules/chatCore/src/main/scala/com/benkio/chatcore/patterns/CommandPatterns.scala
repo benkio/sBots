@@ -129,7 +129,7 @@ object CommandPatterns {
     private[patterns] val searchShowCommandEng: String =
       s"'/searchshow': Documentation: ${chatCoreCommandDocLink("searchshow", "en")}"
 
-    def searchShowCommandLogic[F[_]: Async: LogWriter](
+    def searchShowCommandLogic[F[_]: MonadThrow: LogWriter](
         msg: Message,
         dbLayer: DBLayer[F],
         sBotInfo: SBotInfo,
@@ -169,10 +169,10 @@ object CommandPatterns {
         )
       )
 
-    def defaultShowTransformation[F[_]: Random: MonadThrow](shows: NonEmptyList[Show]): F[ReplyValue] =
+    def defaultShowTransformation[F[_]: MonadThrow: Random](shows: NonEmptyList[Show]): F[ReplyValue] =
       Random[F].elementOf(shows.toList).map(show => Text(show.show): ReplyValue)
 
-    def selectLinkByKeyword[F[_]: Async](
+    def selectLinkByKeyword[F[_]: MonadThrow](
         keywords: String,
         dbShow: DBShow[F],
         sBotInfo: SBotInfo,
@@ -193,7 +193,7 @@ object CommandPatterns {
         output      <- NonEmptyList
           .fromList(showResults)
           .fold(
-            Async[F].pure(
+            MonadThrow[F].pure(
               Text(
                 value = s"Nessuna puntata/show contenente '$keywords' è stata trovata",
                 timeToLive = ttl
@@ -206,7 +206,7 @@ object CommandPatterns {
     /** The show of the bot with the given id, otherwise the result of the keyword search (a random show when the target
       * is empty).
       */
-    def selectShowByIdOrKeyword[F[_]: Async: Random](
+    def selectShowByIdOrKeyword[F[_]: MonadThrow: Random](
         target: String,
         dbShow: DBShow[F],
         sBotInfo: SBotInfo,
