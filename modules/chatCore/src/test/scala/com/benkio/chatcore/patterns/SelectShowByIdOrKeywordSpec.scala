@@ -37,16 +37,16 @@ class SelectShowByIdOrKeywordSpec extends CatsEffectSuite {
 
   // the mock leaves the keyword searches unimplemented: they find nothing here
   private val dbShow: DBShow[IO] = new DBShow[IO] {
-    private val underlying                                         = DBLayerMock.mock(sBotInfo.botId, shows = List(ownShow, otherShow)).dbShow
-    override def getShows(botId: SBotInfo.SBotId)                  = underlying.getShows(botId)
-    override def getShowById(showId: String)                       = underlying.getShowById(showId)
-    override def getRandomShow(botId: SBotInfo.SBotId)             = underlying.getRandomShow(botId)
+    private val underlying = DBLayerMock.mock(sBotInfo.botId, shows = List(ownShow, otherShow)).dbShow
+    override def getShows(botId: SBotInfo.SBotId)                             = underlying.getShows(botId)
+    override def getShowById(showId: String)                                  = underlying.getShowById(showId)
+    override def getRandomShow(botId: SBotInfo.SBotId)                        = underlying.getRandomShow(botId)
     override def getShowByShowQuery(query: ShowQuery, botId: SBotInfo.SBotId) =
       List.empty[DBShowData].pure[IO]
     override def getShowBySimpleShowQuery(query: SimpleShowQuery, botId: SBotInfo.SBotId) =
       List.empty[DBShowData].pure[IO]
-    override def insertShow(dbShowData: DBShowData)                = underlying.insertShow(dbShowData)
-    override def deleteShow(dbShowData: DBShowData)                = underlying.deleteShow(dbShowData)
+    override def insertShow(dbShowData: DBShowData) = underlying.insertShow(dbShowData)
+    override def deleteShow(dbShowData: DBShowData) = underlying.deleteShow(dbShowData)
   }
 
   private def select(target: String): IO[ReplyValue] =
