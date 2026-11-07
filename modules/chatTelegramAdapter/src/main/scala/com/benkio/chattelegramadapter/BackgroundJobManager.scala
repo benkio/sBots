@@ -2,12 +2,16 @@ package com.benkio.chattelegramadapter
 
 import cats.*
 import cats.effect.*
+import cats.effect.std.Random
 import cats.implicits.*
+import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionId
+import com.benkio.chatcore.model.SubscriptionRules
+import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.patterns.CommandPatterns
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBSubscriptionData
@@ -40,7 +44,7 @@ object TelegramBackgroundJobManager {
         s"Subscription already exists: already present in memory while subscribing to it. id: ${subscription.id.value} - ${subscription.chatId.value}"
       )
 
-  def apply[F[_]: Async: Api](
+  def apply[F[_]: Async: Api: Random](
       repository: Repository[F],
       dbLayer: DBLayer[F],
       sBotInfo: SBotInfo,
@@ -58,7 +62,7 @@ object TelegramBackgroundJobManager {
       _ <- backgroundJobManager.loadSubscriptions()
     } yield backgroundJobManager
 
-  final class BackgroundJobManagerImpl[F[_]: Async: Api](
+  final class BackgroundJobManagerImpl[F[_]: Async: Api: Random](
       repository: Repository[F],
       dbLayer: DBLayer[F],
       sBotInfo: SBotInfo,
@@ -72,10 +76,22 @@ object TelegramBackgroundJobManager {
     def loadSubscriptions(): F[Unit] =
       for {
         subscriptionsData <- dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId)
-        subscriptions     <- subscriptionsData.traverse(s => MonadThrow[F].fromEither(Subscription(s)))
-        cancelSignal      <- subscriptions.traverse(subscription =>
+        // A stored row that cannot be decoded must not prevent the bot from starting: log and skip it
+        subscriptions <- subscriptionsData.flatTraverse(s =>
+          Subscription(s).fold(
+            e =>
+              log
+                .error(s"[BackgroundJobManager] Skipping invalid stored subscription ${s.id}: ${e.getMessage}")
+                .as(List.empty[Subscription]),
+            subscription => List(subscription).pure[F]
+          )
+        )
+        cancelSignal <- subscriptions.traverse(subscription =>
           runSubscription(subscription).map { case (stream, cancel) =>
-            ((SubscriptionKey(subscription.id, subscription.chatId), cancel), (subscription.cron, stream))
+            (
+              (SubscriptionKey(subscription.id, subscription.chatId, subscription.subscriptionType), cancel),
+              (subscription.cron, stream)
+            )
           }
         )
         _ <- Async[F]
@@ -95,17 +111,25 @@ object TelegramBackgroundJobManager {
         _ <- log.info(s"[BackgroundJobManager] Schedule subscription: $subscription")
         _ <- Async[F]
           .raiseError(SubscriptionAlreadyExists(subscription))
-          .whenA(scheduleReferences.contains(SubscriptionKey(subscription.id, subscription.chatId)))
+          .whenA(scheduleReferences.keys.exists(_.subscriptionId == subscription.id))
+        chatSubscriptions <- dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId, Some(subscription.chatId.value))
+        _                 <- Async[F]
+          .raiseError(SubscriptionRules.SubscriptionLimitReached(subscription.chatId.value))
+          .whenA(chatSubscriptions.size >= SubscriptionRules.maxSubscriptionsPerChat)
         _               <- dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(subscription))
         streamAndCancel <- runSubscription(subscription)
         (stream, cancel) = streamAndCancel
         cronStream       = cronScheduler.awakeEvery(subscription.cron) >> stream
         _ <- Async[F].start(cronStream.interruptWhen(cancel).compile.drain).void
-      } yield scheduleReferences += SubscriptionKey(subscription.id, subscription.chatId) -> cancel
+      } yield scheduleReferences += SubscriptionKey(
+        subscription.id,
+        subscription.chatId,
+        subscription.subscriptionType
+      ) -> cancel
 
     override def cancelSubscription(subscriptionId: SubscriptionId): F[Unit] = {
       val (optCancellingBoolean, onGoingScheduleReferences) = scheduleReferences.partition {
-        case (SubscriptionKey(sId, _), _) => sId == subscriptionId
+        case (SubscriptionKey(sId, _, _), _) => sId == subscriptionId
       }
       for {
         _ <-
@@ -118,7 +142,7 @@ object TelegramBackgroundJobManager {
 
     override def cancelSubscriptions(chatId: ChatId): F[Unit] = {
       val (optCancellingBooleans, onGoingScheduleReferences) = scheduleReferences.partition {
-        case (SubscriptionKey(_, cId), _) => cId == chatId
+        case (SubscriptionKey(_, cId, _), _) => cId == chatId
       }
       for {
         _ <- log.info(s"[BackgroundJobManager] Cancel subscriptions for: $chatId")
@@ -126,6 +150,32 @@ object TelegramBackgroundJobManager {
         _ <- optCancellingBooleans.values.toList.traverse_(cancelSignal => cancelSignal.set(true))
       } yield scheduleReferences = onGoingScheduleReferences
     }
+
+    override def cancelSubscriptionByType(chatId: ChatId, subscriptionType: SubscriptionType): F[Unit] = {
+      val (optCancellingBooleans, onGoingScheduleReferences) = scheduleReferences.partition {
+        case (SubscriptionKey(_, cId, sType), _) => cId == chatId && sType == subscriptionType
+      }
+      for {
+        _ <- log.info(
+          s"[BackgroundJobManager] Cancel ${subscriptionType.asString} subscriptions for: $chatId"
+        )
+        _ <- dbLayer.dbSubscription.deleteSubscriptionsByType(chatId.value, sBotInfo.botId, subscriptionType)
+        _ <- optCancellingBooleans.values.toList.traverse_(cancelSignal => cancelSignal.set(true))
+      } yield scheduleReferences = onGoingScheduleReferences
+    }
+
+    // The reply a subscription sends when it fires, if any
+    private def subscriptionReply(subscription: Subscription): F[Option[ReplyValue]] =
+      subscription.subscriptionType match {
+        case SubscriptionType.Show =>
+          CommandPatterns.SearchShowCommand
+            .selectShowByIdOrKeyword[F](subscription.target.getOrElse(""), dbLayer.dbShow, sBotInfo, ttl)
+            .map(Some(_))
+        case other =>
+          log
+            .warn(s"[BackgroundJobManager] ${other.asString} subscriptions are not supported yet: $subscription")
+            .as(None)
+      }
 
     override def runSubscription(
         subscription: Subscription
@@ -141,16 +191,20 @@ object TelegramBackgroundJobManager {
       val cancelF = SignallingRef[F, Boolean](false)
 
       val action: F[Instant] = for {
-        now   <- Async[F].realTimeInstant
-        _     <- log.info(s"[BackgroundJobManager] $now - fire subscription: $subscription")
-        reply <- CommandPatterns.SearchShowCommand.selectLinkByKeyword[F]("", dbLayer.dbShow, sBotInfo, ttl)
-        _     <- log.info(s"[BackgroundJobManager] reply: $reply")
-        _     <- TelegramMessageReply.sendReplyValue[F](
-          replyValue = reply,
-          msg = message,
-          repository = repository,
-          replyToMessage = true
-        )
+        now      <- Async[F].realTimeInstant
+        _        <- log.info(s"[BackgroundJobManager] $now - fire subscription: $subscription")
+        replyOpt <- subscriptionReply(subscription)
+        _        <- replyOpt.traverse_ { reply =>
+          log.info(s"[BackgroundJobManager] reply: $reply") *>
+            TelegramMessageReply
+              .sendReplyValue[F](
+                replyValue = reply,
+                msg = message,
+                repository = repository,
+                replyToMessage = true
+              )
+              .void
+        }
       } yield now // For testing purposes
 
       for cancel <- cancelF

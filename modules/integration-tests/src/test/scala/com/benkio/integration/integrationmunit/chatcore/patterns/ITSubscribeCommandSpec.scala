@@ -7,11 +7,15 @@ import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionId
+import com.benkio.chatcore.model.SubscriptionRules
+import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.patterns.CommandPatterns.SubscribeUnsubscribeCommand
+import com.benkio.chatcore.repository.db.DBSubscriptionData
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chattelegramadapter.SBot
 import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
 import com.benkio.integration.DBFixture
+import com.benkio.integration.DBFixtureResources
 import com.benkio.integration.Logger.given
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import cron4s.Cron
@@ -28,7 +32,7 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
   val sBotInfo                           = sBotConfig.sBotInfo
   val chatIdValue                        = 0L
   val chatId                             = ChatId(chatIdValue)
-  val cronValue                          = "* * * ? * *"
+  val cronValue                          = "0 * * ? * *"
   val cron                               = Cron.unsafeParse(cronValue)
 
   val testSubscription: Subscription = Subscription(
@@ -80,6 +84,111 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
         result
       }
       assert(testCheck.forall(_ == true))
+    }
+    result.use_
+  }
+
+  private def subscribeResource(fixture: DBFixtureResources, text: String) = for {
+    dbLayer              <- fixture.resourceDBLayer
+    repository           <- fixture.repositoryResource
+    backgroundJobManager <- Resource.eval(
+      TelegramBackgroundJobManager(
+        repository = repository,
+        dbLayer = dbLayer,
+        sBotInfo = sBotConfig.sBotInfo,
+        ttl = sBotConfig.messageTimeToLive
+      )
+    )
+    reply <- Resource.eval(
+      SubscribeUnsubscribeCommand.subscribeCommandLogic(
+        backgroundJobManager = backgroundJobManager,
+        m = msg.copy(text = Some(text)),
+        sBotInfo = sBotConfig.sBotInfo,
+        ttl = sBotConfig.messageTimeToLive
+      )
+    )
+    stored <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(sBotConfig.sBotInfo.botId))
+  } yield (reply, stored, backgroundJobManager.getScheduledSubscriptions())
+
+  databaseFixture.test(
+    "Subscribe Command without type should store a show subscription without target"
+  ) { fixture =>
+    subscribeResource(fixture, s"/subscribe $cronValue").use { case (_, stored, scheduled) =>
+      IO {
+        assertEquals(stored.map(s => (s.subscription_type, s.target)), List(("show", None)))
+        assertEquals(scheduled.map(_.subscriptionType), List(SubscriptionType.Show))
+      }
+    }
+  }
+
+  databaseFixture.test(
+    "Subscribe Command with the show type and a target should store the type and the target"
+  ) { fixture =>
+    subscribeResource(fixture, s"/subscribe $cronValue show pino scotto live").use { case (reply, stored, scheduled) =>
+      IO {
+        assert(reply.show.startsWith("Subscription successfully scheduled."), reply.show)
+        assertEquals(stored.map(s => (s.subscription_type, s.target)), List(("show", Some("pino scotto live"))))
+        assertEquals(scheduled.map(_.subscriptionType), List(SubscriptionType.Show))
+      }
+    }
+  }
+
+  databaseFixture.test(
+    "Subscribe Command should not store a subscription firing more often than once a minute"
+  ) { fixture =>
+    subscribeResource(fixture, "/subscribe * * * ? * *").use { case (reply, stored, scheduled) =>
+      IO {
+        assert(reply.show.contains("The subscription interval is too short"), reply.show)
+        assertEquals(stored, List.empty)
+        assertEquals(scheduled, List.empty)
+      }
+    }
+  }
+
+  databaseFixture.test(
+    "Subscribe Command should not store a subscription with an unsupported type"
+  ) { fixture =>
+    subscribeResource(fixture, s"/subscribe $cronValue calendar").use { case (reply, stored, scheduled) =>
+      IO {
+        assert(reply.show.contains("Unsupported subscription type 'calendar'"), reply.show)
+        assertEquals(stored, List.empty)
+        assertEquals(scheduled, List.empty)
+      }
+    }
+  }
+
+  databaseFixture.test(
+    "Subscribe Command should refuse the subscription over the per chat limit"
+  ) { fixture =>
+    val existing = (1 until SubscriptionRules.maxSubscriptionsPerChat).toList.map(_ =>
+      DBSubscriptionData(testSubscription.copy(id = SubscriptionId(UUID.randomUUID())))
+    )
+    val result = for {
+      dbLayer              <- fixture.resourceDBLayer
+      repository           <- fixture.repositoryResource
+      _                    <- Resource.eval(existing.traverse_(dbLayer.dbSubscription.insertSubscription))
+      backgroundJobManager <- Resource.eval(
+        TelegramBackgroundJobManager(
+          repository = repository,
+          dbLayer = dbLayer,
+          sBotInfo = sBotConfig.sBotInfo,
+          ttl = sBotConfig.messageTimeToLive
+        )
+      )
+      subscribe = (text: String) =>
+        SubscribeUnsubscribeCommand.subscribeCommandLogic(
+          backgroundJobManager = backgroundJobManager,
+          m = msg.copy(text = Some(text)),
+          sBotInfo = sBotConfig.sBotInfo,
+          ttl = sBotConfig.messageTimeToLive
+        )
+      lastAllowed <- Resource.eval(subscribe(s"/subscribe $cronValue"))
+      overLimit   <- Resource.eval(subscribe(s"/subscribe $cronValue"))
+      stored <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(sBotConfig.sBotInfo.botId, Some(chatIdValue)))
+    } yield {
+      assert(lastAllowed.show.startsWith("Subscription successfully scheduled."), lastAllowed.show)
+      assert(overLimit.show.contains("Subscription limit reached"), overLimit.show)
+      assertEquals(stored.size, SubscriptionRules.maxSubscriptionsPerChat)
     }
     result.use_
   }

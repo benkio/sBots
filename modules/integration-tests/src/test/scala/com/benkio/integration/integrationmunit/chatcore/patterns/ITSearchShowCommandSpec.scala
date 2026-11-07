@@ -2,6 +2,7 @@ package com.benkio.integration.integrationmunit.chatcore.patterns
 
 import cats.effect.IO
 import cats.implicits.*
+import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.SBotInfo.SBotName
@@ -19,7 +20,8 @@ class ITSearchShowCommandSpec extends CatsEffectSuite with DBFixture {
         keywords = input,
         dbShow = dbShow,
         sBotInfo = SBotInfo(botId, SBotName("testBot")),
-        ttl = None
+        ttl = None,
+        showTransformation = shows => Text(shows.head.show).pure[IO]
       )
       .map(result => {
         val check = optExpected.fold(

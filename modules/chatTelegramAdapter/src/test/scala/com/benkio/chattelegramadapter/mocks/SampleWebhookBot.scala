@@ -1,5 +1,6 @@
 package com.benkio.chattelegramadapter.mocks
 
+import cats.effect.std.Random
 import cats.effect.Async
 import cats.effect.IO
 import com.benkio.chatcore.config.SBotConfig
@@ -73,7 +74,7 @@ object SampleWebhookBot {
         dbLayer = dbLayerMock,
         sBotInfo = sBotInfo,
         ttl = None
-      )(using Async[IO], summon[Api[IO]], log)
+      )(using Async[IO], summon[Api[IO]], summon[Random[IO]], log)
       botSetup = BotSetup(
         token = "test",
         httpClient = stubClient,

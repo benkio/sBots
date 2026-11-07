@@ -1,6 +1,7 @@
 package com.benkio.chatcore.patterns
 
 import cats.data.NonEmptyList
+import cats.effect.std.Random
 import cats.effect.Async
 import cats.implicits.*
 import cats.ApplicativeThrow
@@ -30,10 +31,12 @@ import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chatcore.model.SubscribeArguments
 import com.benkio.chatcore.model.Subscription
-import com.benkio.chatcore.model.SubscriptionId
+import com.benkio.chatcore.model.SubscriptionRules
 import com.benkio.chatcore.model.Timeout
 import com.benkio.chatcore.model.Trigger
+import com.benkio.chatcore.model.UnsubscribeArguments
 import com.benkio.chatcore.repository.db.*
 import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chatcore.SubscriptionKey
@@ -43,9 +46,7 @@ import log.effect.LogWriter
 import org.http4s.Uri
 
 import java.time.LocalDateTime
-import java.util.UUID
 import scala.concurrent.duration.*
-import scala.util.Try
 
 object CommandPatterns {
   private val commandsDocsBaseUrl                                = "https://github.com/benkio/sBots/blob/main/"
@@ -128,12 +129,12 @@ object CommandPatterns {
     private[patterns] val searchShowCommandEng: String =
       s"'/searchshow': Documentation: ${chatCoreCommandDocLink("searchshow", "en")}"
 
-    def searchShowCommandLogic[F[_]: Async: LogWriter](
+    def searchShowCommandLogic[F[_]: MonadThrow: LogWriter](
         msg: Message,
         dbLayer: DBLayer[F],
         sBotInfo: SBotInfo,
         ttl: Option[FiniteDuration],
-        showTransformation: String => NonEmptyList[Show] => ReplyValue
+        showTransformation: String => NonEmptyList[Show] => F[ReplyValue]
     ): F[ReplyValue] =
       handleCommandWithInput[F](
         msg = msg,
@@ -168,12 +169,15 @@ object CommandPatterns {
         )
       )
 
-    def selectLinkByKeyword[F[_]: Async](
+    def defaultShowTransformation[F[_]: MonadThrow: Random](shows: NonEmptyList[Show]): F[ReplyValue] =
+      Random[F].elementOf(shows.toList).map(show => Text(show.show): ReplyValue)
+
+    def selectLinkByKeyword[F[_]: MonadThrow](
         keywords: String,
         dbShow: DBShow[F],
         sBotInfo: SBotInfo,
         ttl: Option[FiniteDuration],
-        showTransformation: NonEmptyList[Show] => ReplyValue = shows => Text(shows.head.show)
+        showTransformation: NonEmptyList[Show] => F[ReplyValue]
     )(using log: LogWriter[F]): F[ReplyValue] = {
       val query: ShowQuery            = ShowQuery(keywords)
       val dbCall: F[List[DBShowData]] = query match {
@@ -186,14 +190,43 @@ object CommandPatterns {
         _           <- log.info(s"Select random Show: ${sBotInfo.botId} - $keywords - $query")
         dbResults   <- dbCall
         showResults <- dbResults.traverse(Show.apply[F](_).map(_.addTimestamp(query)))
-      } yield NonEmptyList
-        .fromList(showResults)
-        .fold(
-          Text(
-            value = s"Nessuna puntata/show contenente '$keywords' è stata trovata",
-            timeToLive = ttl
-          )
-        )(showTransformation(_))
+        output      <- NonEmptyList
+          .fromList(showResults)
+          .fold(
+            MonadThrow[F].pure(
+              Text(
+                value = s"Nessuna puntata/show contenente '$keywords' è stata trovata",
+                timeToLive = ttl
+              )
+            )
+          )(showTransformation(_))
+      } yield output
+    }
+
+    /** The show of the bot with the given id, otherwise the result of the keyword search (a random show when the target
+      * is empty).
+      */
+    def selectShowByIdOrKeyword[F[_]: MonadThrow: Random](
+        target: String,
+        dbShow: DBShow[F],
+        sBotInfo: SBotInfo,
+        ttl: Option[FiniteDuration]
+    )(using log: LogWriter[F]): F[ReplyValue] = {
+      val trimmedTarget = target.trim
+      for {
+        byId <- Option.when(trimmedTarget.nonEmpty)(trimmedTarget).flatTraverse(dbShow.getShowById)
+        // a show id of another bot is not a match
+        ownShow = byId.filter(_.bot_id == sBotInfo.botId.value)
+        reply <- ownShow.fold(
+          selectLinkByKeyword[F](
+            keywords = trimmedTarget,
+            dbShow = dbShow,
+            sBotInfo = sBotInfo,
+            ttl = ttl,
+            showTransformation = defaultShowTransformation[F]
+          ): F[ReplyValue]
+        )(dbShowData => Show.apply[F](dbShowData).map(show => Text(show.show): ReplyValue))
+      } yield reply
     }
   }
 
@@ -396,9 +429,17 @@ ${ignoreMessagePrefix
         sBotInfo: SBotInfo,
         ttl: Option[FiniteDuration]
     ): F[ReplyValue] = {
-      val computation: String => F[ReplyValue] = (cronInput: String) =>
+      val computation: String => F[ReplyValue] = (input: String) =>
         for {
-          subscription <- Subscription(m.chatId.value, sBotInfo.botId, cronInput)
+          arguments    <- Async[F].fromEither(SubscribeArguments.parse(input))
+          subscription <- Subscription(
+            m.chatId.value,
+            sBotInfo.botId,
+            arguments.cron,
+            arguments.subscriptionType,
+            arguments.target
+          )
+          _ <- Async[F].fromEither(SubscriptionRules.validateInterval(subscription.cron, LocalDateTime.now))
           nextOccurrence = subscription.cron
             .next(LocalDateTime.now)
             .fold("`Unknown next occurrence`")(date => s"`${date.toString}`")
@@ -436,16 +477,26 @@ ${ignoreMessagePrefix
         sBotInfo: SBotInfo,
         ttl: Option[FiniteDuration]
     ): F[ReplyValue] = {
-      val computation: String => F[ReplyValue] = (subscriptionIdInput: String) => {
-        if subscriptionIdInput.isEmpty then for {
-          _ <- backgroundJobManager.cancelSubscriptions(m.chatId)
-        } yield Text(value = "All Subscriptions for current chat successfully cancelled", timeToLive = ttl)
-        else
-          for {
-            subscriptionId <- Async[F].fromTry(Try(UUID.fromString(subscriptionIdInput))).map(SubscriptionId(_))
-            _              <- backgroundJobManager.cancelSubscription(subscriptionId)
-          } yield Text(value = "Subscription successfully cancelled", timeToLive = ttl)
-      }
+      val computation: String => F[ReplyValue] = (input: String) =>
+        Async[F].fromEither(UnsubscribeArguments.parse(input)).flatMap {
+          case UnsubscribeArguments.All =>
+            backgroundJobManager
+              .cancelSubscriptions(m.chatId)
+              .as(Text(value = "All Subscriptions for current chat successfully cancelled", timeToLive = ttl))
+          case UnsubscribeArguments.ById(subscriptionId) =>
+            backgroundJobManager
+              .cancelSubscription(subscriptionId)
+              .as(Text(value = "Subscription successfully cancelled", timeToLive = ttl))
+          case UnsubscribeArguments.ByType(subscriptionType) =>
+            backgroundJobManager
+              .cancelSubscriptionByType(m.chatId, subscriptionType)
+              .as(
+                Text(
+                  value = s"All ${subscriptionType.asString} subscriptions for current chat successfully cancelled",
+                  timeToLive = ttl
+                )
+              )
+        }
       handleCommandWithInput[F](
         msg = m,
         command = CommandKey.Unsubscribe.asString,
@@ -453,7 +504,7 @@ ${ignoreMessagePrefix
         computation = computation,
         ttl = ttl,
         defaultReply =
-          "Input Required: insert a valid 〈UUID〉or no input to unsubscribe completely for this chat. Check the instructions",
+          "Input Required: insert a valid 〈UUID〉, a subscription type (show, trigger, calendar) or no input to unsubscribe completely for this chat. Check the instructions",
         allowEmptyString = true
       )
     }
@@ -481,7 +532,7 @@ ${ignoreMessagePrefix
       subscriptionsData <- dbSubscription.getSubscriptions(sBotInfo.botId, Some(m.chatId.value))
       subscriptions     <- subscriptionsData.traverse(sd => Async[F].fromEither(Subscription(sd)))
       memSubscriptions     = backgroundJobManager.getScheduledSubscriptions()
-      memChatSubscriptions = memSubscriptions.filter { case SubscriptionKey(_, cid) => cid.value == m.chatId.value }
+      memChatSubscriptions = memSubscriptions.filter { case SubscriptionKey(_, cid, _) => cid.value == m.chatId.value }
     } yield Text(
       s"There are ${subscriptions.length} stored subscriptions for this chat:\n" ++ subscriptions
         .map(_.show)

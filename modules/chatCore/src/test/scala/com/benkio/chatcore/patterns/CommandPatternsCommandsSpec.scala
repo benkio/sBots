@@ -1,7 +1,7 @@
 package com.benkio.chatcore.patterns
 
 import cats.effect.IO
-import cats.syntax.show.*
+import cats.syntax.all.*
 import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.model.reply.Text
@@ -10,6 +10,7 @@ import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionId
+import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.model.Timeout
 import com.benkio.chatcore.repository.db.DBTimeoutData
 import com.benkio.chatcore.Logger.given
@@ -98,14 +99,14 @@ class CommandPatternsCommandsSpec extends CatsEffectSuite {
       id = SubscriptionId(UUID.fromString("B674CCE0-9684-4D31-8CC7-9E2A41EA0878")),
       chatId = chatId,
       botId = sBotInfo.botId,
-      cron = Cron.unsafeParse("* * * ? * *"),
+      cron = Cron.unsafeParse("0 * * ? * *"),
       subscribedAt = Instant.now()
     )
 
     val result = for {
       subscribeReply <- CommandPatterns.SubscribeUnsubscribeCommand.subscribeCommandLogic[IO](
         backgroundJobManager = manager,
-        m = msg.copy(text = Some("/subscribe * * * ? * *")),
+        m = msg.copy(text = Some("/subscribe 0 * * ? * *")),
         sBotInfo = sBotInfo,
         ttl = None
       )
@@ -125,6 +126,137 @@ class CommandPatternsCommandsSpec extends CatsEffectSuite {
       assertEquals(scheduledAfterSubscribe.size, 1)
       assertEquals(unsubscribeReply, Text("Subscription successfully cancelled"))
       assertEquals(scheduledAfterUnsubscribe.count(_.subscriptionId == existingSubscription.id), 0)
+    }
+  }
+
+  private def subscribe(manager: com.benkio.chatcore.BackgroundJobManager[IO], text: String, chat: ChatId = chatId) =
+    CommandPatterns.SubscribeUnsubscribeCommand.subscribeCommandLogic[IO](
+      backgroundJobManager = manager,
+      m = msg.copy(chatId = chat, text = Some(text)),
+      sBotInfo = sBotInfo,
+      ttl = None
+    )
+
+  private def unsubscribe(manager: com.benkio.chatcore.BackgroundJobManager[IO], text: String, chat: ChatId = chatId) =
+    CommandPatterns.SubscribeUnsubscribeCommand.unsubcribeCommandLogic[IO](
+      backgroundJobManager = manager,
+      m = msg.copy(chatId = chat, text = Some(text)),
+      sBotInfo = sBotInfo,
+      ttl = None
+    )
+
+  private def subscriptionOf(
+      subscriptionType: SubscriptionType,
+      chat: ChatId = chatId,
+      target: Option[String] = None
+  ): Subscription =
+    Subscription(
+      id = SubscriptionId(UUID.randomUUID()),
+      chatId = chat,
+      botId = sBotInfo.botId,
+      subscriptionType = subscriptionType,
+      target = target,
+      cron = Cron.unsafeParse("0 * * ? * *"),
+      subscribedAt = Instant.now()
+    )
+
+  test("Subscribe command should accept the show type with and without target") {
+    val manager = BackgroundJobManagerMock.mock()
+    for {
+      plain      <- subscribe(manager = manager, text = "/subscribe 0 * * ? * *")
+      showOnly   <- subscribe(manager = manager, text = "/subscribe 0 * * ? * * show")
+      withTarget <- subscribe(manager = manager, text = "/subscribe 0 * * ? * * show pino scotto")
+    } yield {
+      List(plain, showOnly, withTarget).foreach(reply =>
+        assert(reply.show.startsWith("Subscription successfully scheduled."), reply.show)
+      )
+      assertEquals(manager.getScheduledSubscriptions().map(_.subscriptionType), List.fill(3)(SubscriptionType.Show))
+    }
+  }
+
+  test("Subscribe command should reject a cron that fires more often than once a minute") {
+    val manager = BackgroundJobManagerMock.mock()
+    List("* * * ? * *", "*/30 * * ? * *", "0,59 * * ? * *").traverse { cron =>
+      subscribe(manager = manager, text = s"/subscribe $cron").map(reply =>
+        assert(reply.show.contains("The subscription interval is too short"), reply.show)
+      )
+    } *> IO(assertEquals(manager.getScheduledSubscriptions(), List.empty))
+  }
+
+  test("Subscribe command should reject unsupported types and schedule nothing") {
+    val manager = BackgroundJobManagerMock.mock()
+    List("calendar", "trigger", "hello").traverse { token =>
+      subscribe(manager = manager, text = s"/subscribe 0 * * ? * * $token something").map(reply =>
+        assert(reply.show.contains(s"Unsupported subscription type '$token'"), reply.show)
+      )
+    } *> IO(assertEquals(manager.getScheduledSubscriptions(), List.empty))
+  }
+
+  test("Subscribe command should reject a too long target") {
+    val manager = BackgroundJobManagerMock.mock()
+    subscribe(manager = manager, text = s"/subscribe 0 * * ? * * show ${"a" * 201}").map { reply =>
+      assert(reply.show.contains("The subscription target is too long"), reply.show)
+      assertEquals(manager.getScheduledSubscriptions(), List.empty)
+    }
+  }
+
+  test("Subscribe command should reject an invalid cron") {
+    val manager = BackgroundJobManagerMock.mock()
+    subscribe(manager = manager, text = "/subscribe not a cron at all really").map { reply =>
+      assert(reply.show.startsWith("An error occurred processing the command: subscribe"), reply.show)
+      assertEquals(manager.getScheduledSubscriptions(), List.empty)
+    }
+  }
+
+  test("Unsubscribe command with a type should cancel only the subscriptions of that type for that chat") {
+    val manager      = BackgroundJobManagerMock.mock()
+    val otherChat    = ChatId(999L)
+    val show         = subscriptionOf(subscriptionType = SubscriptionType.Show)
+    val calendar     = subscriptionOf(subscriptionType = SubscriptionType.Calendar)
+    val otherChatCal = subscriptionOf(subscriptionType = SubscriptionType.Calendar, chat = otherChat)
+    for {
+      _     <- List(show, calendar, otherChatCal).traverse_(manager.scheduleSubscription)
+      reply <- unsubscribe(manager = manager, text = "/unsubscribe calendar")
+    } yield {
+      assertEquals(reply, Text("All calendar subscriptions for current chat successfully cancelled"))
+      assertEquals(manager.getScheduledSubscriptions().map(_.subscriptionId).toSet, Set(show.id, otherChatCal.id))
+    }
+  }
+
+  test("Unsubscribe command with a type should do nothing when there is none") {
+    val manager = BackgroundJobManagerMock.mock()
+    val show    = subscriptionOf(subscriptionType = SubscriptionType.Show)
+    for {
+      _     <- manager.scheduleSubscription(show)
+      reply <- unsubscribe(manager = manager, text = "/unsubscribe trigger")
+    } yield {
+      assertEquals(reply, Text("All trigger subscriptions for current chat successfully cancelled"))
+      assertEquals(manager.getScheduledSubscriptions().map(_.subscriptionId), List(show.id))
+    }
+  }
+
+  test("Unsubscribe command without input should cancel everything of the chat") {
+    val manager   = BackgroundJobManagerMock.mock()
+    val otherChat = subscriptionOf(subscriptionType = SubscriptionType.Show, chat = ChatId(999L))
+    for {
+      _ <- List(
+        subscriptionOf(subscriptionType = SubscriptionType.Show),
+        subscriptionOf(subscriptionType = SubscriptionType.Calendar),
+        otherChat
+      )
+        .traverse_(manager.scheduleSubscription)
+      reply <- unsubscribe(manager = manager, text = "/unsubscribe")
+    } yield {
+      assertEquals(reply, Text("All Subscriptions for current chat successfully cancelled"))
+      assertEquals(manager.getScheduledSubscriptions().map(_.subscriptionId), List(otherChat.id))
+    }
+  }
+
+  test("Unsubscribe command should explain the accepted inputs when the input is invalid") {
+    val manager = BackgroundJobManagerMock.mock()
+    unsubscribe(manager = manager, text = "/unsubscribe foo").map { reply =>
+      assert(reply.show.contains("Invalid input 'foo'"), reply.show)
+      assert(reply.show.contains("show, trigger, calendar"), reply.show)
     }
   }
 }

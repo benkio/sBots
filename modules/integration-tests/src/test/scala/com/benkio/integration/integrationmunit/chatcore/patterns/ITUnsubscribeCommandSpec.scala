@@ -6,8 +6,10 @@ import cats.syntax.all.*
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionId
+import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.patterns.CommandPatterns.SubscribeUnsubscribeCommand
 import com.benkio.chatcore.repository.db.DBSubscriptionData
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
@@ -146,6 +148,50 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
     } yield {
       assert(subscription.isEmpty)
       assertEquals(reply.map(_.show), Right("All Subscriptions for current chat successfully cancelled"))
+    }
+    result.use_
+  }
+
+  databaseFixture.test(
+    "Unsubscribe Command with a type should remove only the subscriptions of that type of this chat and bot, from memory and db"
+  ) { fixture =>
+    val quietCron    = Cron.unsafeParse("0 0 0 1 1 ?")
+    val show         = testSubscription.copy(id = SubscriptionId(UUID.randomUUID()), cron = quietCron)
+    val calendar     = show.copy(id = SubscriptionId(UUID.randomUUID()), subscriptionType = SubscriptionType.Calendar)
+    val otherChatCal = calendar.copy(id = SubscriptionId(UUID.randomUUID()), chatId = ChatId(1L))
+    val otherBotCal  = DBSubscriptionData(calendar.copy(id = SubscriptionId(UUID.randomUUID())))
+      .copy(bot_id = "anotherbot")
+    val result = for {
+      dbLayer              <- fixture.resourceDBLayer
+      repository           <- fixture.repositoryResource
+      backgroundJobManager <- Resource.eval(
+        TelegramBackgroundJobManager(
+          repository = repository,
+          dbLayer = dbLayer,
+          sBotInfo = sBotConfig.sBotInfo,
+          ttl = sBotConfig.messageTimeToLive
+        )
+      )
+      _     <- Resource.eval(List(show, calendar, otherChatCal).traverse_(backgroundJobManager.scheduleSubscription))
+      _     <- Resource.eval(dbLayer.dbSubscription.insertSubscription(otherBotCal))
+      reply <- Resource.eval(
+        SubscribeUnsubscribeCommand.unsubcribeCommandLogic(
+          backgroundJobManager,
+          msg.copy(text = Some("/unsubscribe calendar")),
+          sBotInfo = sBotConfig.sBotInfo,
+          ttl = sBotConfig.messageTimeToLive
+        )
+      )
+      stored      <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botId))
+      storedOther <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(SBotId("anotherbot")))
+    } yield {
+      assertEquals(reply.show, "All calendar subscriptions for current chat successfully cancelled")
+      assertEquals(
+        backgroundJobManager.getScheduledSubscriptions().map(_.subscriptionId).toSet,
+        Set(show.id, otherChatCal.id)
+      )
+      assertEquals(stored.map(_.id).toSet, Set(show.id, otherChatCal.id).map(_.value.toString))
+      assertEquals(storedOther, List(otherBotCal))
     }
     result.use_
   }
