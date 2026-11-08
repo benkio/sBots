@@ -59,5 +59,5 @@ export const bots: Bot[] = [
     artist: 'Pino Scotto',
     filePath: '/Dropbox/sBots/PinoScottoBot/src/main/resources',
     jsonFilePath: '../modules/bots/PinoScottoBot/pino_list.json',
-  }
+  },
 ];
