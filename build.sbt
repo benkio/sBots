@@ -64,7 +64,7 @@ addCommandAlias("generateTriggerDocumentation", "main/runMain com.benkio.main.Ge
 addCommandAlias("generateCalendar", "main/runMain com.benkio.main.GenerateCalendar")
 addCommandAlias(
   "validate",
-  "fix; dbSetup; jacocoAggregate; integration/mUnitTests; assembly"
+  "fix; dbSetup; coverage; test; integration/mUnitTests; coverageAggregate; coverageOff; assembly"
 )
 // Data Entry Aliases
 addCommandAlias("abarAddData", "ABarberoBot/runMain com.benkio.ABarberoBot.ABarberoBotMainDataEntry")
@@ -99,8 +99,8 @@ lazy val botProjects: Seq[sbt.ProjectReference] = Seq(
 
 lazy val sBots =
   Project("sBots", file("."))
-    // The root project has no sources of its own to instrument/test.
-    .disablePlugins(com.github.sbt.jacoco.JacocoPlugin)
+    // The root project has no Scala sources of its own to instrument.
+    .settings(coverageEnabled := false)
     .settings(Settings.settings *)
     .aggregate(main, botDB, chatCore, chatTelegramAdapter, repliesEditorServer, repliesEditorUI)
     .aggregate(botProjects *)
@@ -205,8 +205,8 @@ lazy val repliesEditorServer =
     .dependsOn(chatCore % "compile->compile;test->test", main % "compile->compile")
 
 lazy val integration = (project in file("modules/integration-tests"))
-  // This project has only src/test, no src/main; jacoco has nothing to instrument there.
-  .disablePlugins(com.github.sbt.jacoco.JacocoPlugin)
+  // This project has only src/test, no src/main; disable coverage instrumentation.
+  .settings(coverageEnabled := false)
   .dependsOn(
     chatCore            % "compile->compile;test->test",
     chatTelegramAdapter % "compile->compile;test->test",

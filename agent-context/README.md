@@ -11,6 +11,8 @@ This folder contains persistent context for AI agents across sessions and tools.
 ## Files
 
 - `tasks/`: folder containing recurring activities, checklists, and useful commands.
+- `tools/`: reusable helper scripts referenced by the task files (for example
+  `tools/conflict-resolution/`).
 
 ## Maintenance Rules
 

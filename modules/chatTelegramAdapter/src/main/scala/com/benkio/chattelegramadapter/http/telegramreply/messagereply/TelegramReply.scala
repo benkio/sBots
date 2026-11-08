@@ -26,6 +26,7 @@ import telegramium.bots.Message as TMessage
 import telegramium.bots.ReplyParameters
 
 object TelegramMessageReply {
+  final case class EmptyMarkdownValue() extends Throwable("[TelegramReply] the value of the input markdown is empty")
 
   def telegramFileReplyPattern[F[_]: Async: LogWriter: Api](
       msg: TMessage,
@@ -100,13 +101,14 @@ object TelegramMessageReply {
             replyToMessage = replyToMessage
           )
         case markdown: Markdown =>
-          RichTextReply.sendRichText(
-            richMessage = InputRichMessage(markdown = markdown.value.some),
-            msg = msg,
-            replyToMessage = replyToMessage,
-            timeToLive = markdown.timeToLive,
-            value = markdown.value
-          )
+          Async[F]
+            .raiseWhen(markdown.value.trim.isEmpty)(EmptyMarkdownValue()) >>
+            RichTextReply.sendRichText(
+              richMessage = InputRichMessage(markdown = markdown.value.some),
+              msg = msg,
+              replyToMessage = replyToMessage,
+              timeToLive = markdown.timeToLive
+            )
       }
     case telegramInlineKeyboard: TelegramInlineKeyboard =>
       KeyboardReply.sendKeyboard(

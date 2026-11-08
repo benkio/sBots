@@ -4,6 +4,116 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "grazie pino"
+          },
+          {
+            "StringTextTriggerValue" : "non lamentiamoci noi"
+          },
+          {
+            "StringTextTriggerValue" : "fatto godere"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "pino_PapaDiJimFattoGodere.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_PapaDiJimFattoGodere.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "MarkdownFile" : {
+              "filepath" : "pino_PapaDiJimFattoGodere.md",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_PapaDiJimFattoGodereGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "farei santo"
+          },
+          {
+            "StringTextTriggerValue" : "piscerei in faccia"
+          },
+          {
+            "StringTextTriggerValue" : "mangiare merda"
+          },
+          {
+            "StringTextTriggerValue" : "macchine abbandonate"
+          },
+          {
+            "StringTextTriggerValue" : "casa della mamma"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(17|diciassette) anni",
+              "regexLength" : 7
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "pino_PisciereiInFaccia.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_PisciereiInFaccia.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "MarkdownFile" : {
+              "filepath" : "pino_PisciereiInFaccia.md",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_PisciereiInFacciaGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "al posto del"
           },
           {
@@ -363,12 +473,6 @@
           },
           {
             "RegexTextTriggerValue" : {
-              "trigger" : "mitolo[g]+ico",
-              "regexLength" : 10
-            }
-          },
-          {
-            "RegexTextTriggerValue" : {
               "trigger" : "sputar[tm]i in faccia",
               "regexLength" : 18
             }
@@ -397,6 +501,70 @@
           {
             "Mp3File" : {
               "filepath" : "pino_ColeotteroSputarsiInFaccia.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "mitolo[g]+ico",
+              "regexLength" : 10
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "pino_PapaDiJimFattoGodere.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_ColeotteroSputarsiInFacciaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_ColeotteroSputarsiInFaccia.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_PapaDiJimFattoGodereGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_ColeotteroSputarsiInFaccia.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "MarkdownFile" : {
+              "filepath" : "pino_PapaDiJimFattoGodere.md",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_PapaDiJimFattoGodere.mp3",
               "replyToMessage" : false
             }
           }
@@ -2678,9 +2846,6 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "vita di merda"
-          },
-          {
             "StringTextTriggerValue" : "voi coglioni"
           },
           {
@@ -2716,6 +2881,67 @@
           {
             "Mp3File" : {
               "filepath" : "pino_MessaggiSentireMeglio.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "vita di merda"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "pino_PapaDiJimFattoGodere.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_MessaggiSentireMeglio.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_PapaDiJimFattoGodereGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_MessaggiSentireMeglioGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_PapaDiJimFattoGodere.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_MessaggiSentireMeglio.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "MarkdownFile" : {
+              "filepath" : "pino_PapaDiJimFattoGodere.md",
               "replyToMessage" : false
             }
           }
@@ -2899,9 +3125,6 @@
           },
           {
             "StringTextTriggerValue" : "ti sputeresti in faccia"
-          },
-          {
-            "StringTextTriggerValue" : "uomo di merda"
           }
         ]
       }
@@ -2924,6 +3147,67 @@
           {
             "Mp3File" : {
               "filepath" : "pino_UomoDiMerda.mp3",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "uomo di merda"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "pino_UomoDiMerda.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_PisciereiInFaccia.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_UomoDiMerdaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_PisciereiInFaccia.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_PisciereiInFacciaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_UomoDiMerda.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "MarkdownFile" : {
+              "filepath" : "pino_PisciereiInFaccia.md",
               "replyToMessage" : false
             }
           }
@@ -7427,12 +7711,6 @@
             }
           },
           {
-            "VideoFile" : {
-              "filepath" : "pino_VincenzoCapaDiBomba.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
             "Mp3File" : {
               "filepath" : "pino_AmoreMioVaffanculo.mp3",
               "replyToMessage" : false
@@ -7565,6 +7843,18 @@
             }
           },
           {
+            "VideoFile" : {
+              "filepath" : "pino_PapaDiJimFattoGodere.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_VincenzoCapaDiBomba.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "Mp3File" : {
               "filepath" : "pino_OmerLeroy.mp3",
               "replyToMessage" : false
@@ -7667,6 +7957,12 @@
             }
           },
           {
+            "GifFile" : {
+              "filepath" : "pino_PapaDiJimFattoGodereGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
             "VideoFile" : {
               "filepath" : "pino_PaceColCervelloColeottero.mp4",
               "replyToMessage" : false
@@ -7687,6 +7983,12 @@
           {
             "GifFile" : {
               "filepath" : "pino_NonCHaiVergognaGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "MarkdownFile" : {
+              "filepath" : "pino_PapaDiJimFattoGodere.md",
               "replyToMessage" : false
             }
           },
@@ -7741,6 +8043,12 @@
           {
             "VideoFile" : {
               "filepath" : "pino_BarbaraDUrsoDeFilippiAmiciAFareInCulo.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_PapaDiJimFattoGodere.mp3",
               "replyToMessage" : false
             }
           },
@@ -8493,6 +8801,12 @@
           },
           {
             "VideoFile" : {
+              "filepath" : "pino_PisciereiInFaccia.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
               "filepath" : "pino_NonTiPermettere.mp4",
               "replyToMessage" : false
             }
@@ -8510,6 +8824,12 @@
             }
           },
           {
+            "Mp3File" : {
+              "filepath" : "pino_PisciereiInFaccia.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
             "GifFile" : {
               "filepath" : "pino_ScurrileEsagitatoGif.mp4",
               "replyToMessage" : false
@@ -8518,6 +8838,12 @@
           {
             "VideoFile" : {
               "filepath" : "pino_ScurrileEsagitato.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_PisciereiInFacciaGif.mp4",
               "replyToMessage" : false
             }
           },
@@ -8656,6 +8982,12 @@
           {
             "GifFile" : {
               "filepath" : "pino_MessaggioRollingStonesGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "MarkdownFile" : {
+              "filepath" : "pino_PisciereiInFaccia.md",
               "replyToMessage" : false
             }
           },
@@ -10622,12 +10954,6 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "RegexTextTriggerValue" : {
-              "trigger" : "pap[àa] di jim",
-              "regexLength" : 11
-            }
-          },
-          {
             "StringTextTriggerValue" : "innanzitutto ti dico"
           }
         ]
@@ -10651,6 +10977,70 @@
           {
             "VideoFile" : {
               "filepath" : "pino_PapaDiJim.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "pap[àa] di jim",
+              "regexLength" : 11
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "GifFile" : {
+              "filepath" : "pino_PapaDiJimGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_PapaDiJimFattoGodere.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_PapaDiJimFattoGodereGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "MarkdownFile" : {
+              "filepath" : "pino_PapaDiJimFattoGodere.md",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_PapaDiJimFattoGodere.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "VideoFile" : {
+              "filepath" : "pino_PapaDiJim.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_PapaDiJim.mp3",
               "replyToMessage" : false
             }
           }
