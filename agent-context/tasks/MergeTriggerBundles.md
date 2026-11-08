@@ -14,6 +14,11 @@ Use this task when developers request operations like:
 - "create a new bundle with trigger X and union of both old bundles",
 - "remove old trigger values from existing bundles after merge".
 
+For collisions between a new bundle and existing triggers, follow the dedicated
+[ResolveTriggerConflicts.md](ResolveTriggerConflicts.md) rule instead: merge A
+into B when B has only the conflicting trigger, otherwise create C with the
+conflicting trigger and the union of both media lists.
+
 ## Required Inputs (ask developer if missing)
 
 - bot/module name (or bot id),

@@ -34,6 +34,10 @@ If any of these are unclear, pause and ask before editing.
   many near-duplicate strings.
 - Any extension must preserve previous behavior: inputs that matched before must
   still match after the change, and unrelated inputs must not start matching.
+- All triggers must be lowercase.
+- If the adjustment collides with a trigger in another bundle, resolve it with
+  [ResolveTriggerConflicts.md](ResolveTriggerConflicts.md) instead of leaving the
+  same trigger active in two bundles.
 
 ### 3) Update regression input tests (when needed)
 

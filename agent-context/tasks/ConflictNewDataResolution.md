@@ -71,6 +71,18 @@ When the same base is referenced by several existing bundles:
   a clear reason to add the full set everywhere,
 - record the choice in the report as a judgment call.
 
+### Trigger collisions
+
+After the replacement/new-data merge, a genuinely new bundle may still share a
+trigger (or a matching regex) with an existing bundle. Resolve every collision
+using [ResolveTriggerConflicts.md](ResolveTriggerConflicts.md):
+
+- if the existing bundle B has only the conflicting trigger X, merge A's media
+  into B and remove X from A;
+- if B has other triggers, create a new bundle C with X and the union of A's and
+  B's media, then remove X from both A and B;
+- normalize all triggers to lowercase.
+
 ## Required Edits
 
 ### 1) Clean `<bot_id>_list.json`
