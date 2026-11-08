@@ -4,6 +4,64 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "RegexTextTriggerValue" : {
+              "trigger" : "candel(e|a|abr[io])",
+              "regexLength" : 7
+            }
+          },
+          {
+            "StringTextTriggerValue" : "sciccheria"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "t[eê]te[- ]?[àa][- ]?t[eê]te",
+              "regexLength" : 11
+            }
+          },
+          {
+            "StringTextTriggerValue" : "punto di colore"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "orl_Candela.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "orl_Candela.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "MarkdownFile" : {
+              "filepath" : "orl_Candela.md",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "orl_CandelaGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "dove metterlo"
           },
           {

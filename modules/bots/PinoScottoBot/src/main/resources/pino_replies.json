@@ -4,6 +4,140 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bjack\\b",
+              "regexLength" : 4
+            }
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "pap[àa] di jim",
+              "regexLength" : 11
+            }
+          },
+          {
+            "StringTextTriggerValue" : "Grazifatto goderee, Pino"
+          },
+          {
+            "StringTextTriggerValue" : "vita di merda"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "mitolo[g]+ico",
+              "regexLength" : 10
+            }
+          },
+          {
+            "StringTextTriggerValue" : "non lamentiamoci noi"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "pino_PapaDiJimFattoGodere.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_PapaDiJimFattoGodere.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "MarkdownFile" : {
+              "filepath" : "pino_PapaDiJimFattoGodere.md",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_PapaDiJimFattoGodereGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
+            "StringTextTriggerValue" : "farei santo"
+          },
+          {
+            "StringTextTriggerValue" : "piscerei in faccia"
+          },
+          {
+            "StringTextTriggerValue" : "uomo di merda"
+          },
+          {
+            "StringTextTriggerValue" : "testa di cazzo"
+          },
+          {
+            "StringTextTriggerValue" : "mangiare merda"
+          },
+          {
+            "StringTextTriggerValue" : "macchine abbandonate"
+          },
+          {
+            "StringTextTriggerValue" : "casa della mamma"
+          },
+          {
+            "RegexTextTriggerValue" : {
+              "trigger" : "(17|diciassette) anni",
+              "regexLength" : 7
+            }
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "pino_PisciereiInFaccia.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "pino_PisciereiInFaccia.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "MarkdownFile" : {
+              "filepath" : "pino_PisciereiInFaccia.md",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "pino_PisciereiInFacciaGif.mp4",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "StringTextTriggerValue" : "al posto del"
           },
           {
