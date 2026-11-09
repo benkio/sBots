@@ -93,15 +93,20 @@ class SubscriptionSpec extends FunSuite {
     val subscription = Subscription(validDBSubscriptionData).toOption.get
     assertEquals(
       subscription.show,
-      s"Subscription Id: ${subscription.id} - Type: Show - Cron: ${subscription.cron}"
+      s"Subscription Id: `${subscription.id}` - Type: Show - Cron: `${subscription.cron}`"
     )
+  }
+
+  test("Show instance should escape the markdown specials of the target") {
+    val subscription = Subscription(validDBSubscriptionData.copy(target = Some("a_b *c*"))).toOption.get
+    assert(subscription.show.endsWith(" - Target: a\\_b \\*c\\*"), subscription.show)
   }
 
   test("Show instance should append the target when present") {
     val subscription = Subscription(validDBSubscriptionData.copy(target = Some("some query"))).toOption.get
     assertEquals(
       subscription.show,
-      s"Subscription Id: ${subscription.id} - Type: Show - Cron: ${subscription.cron} - Target: some query"
+      s"Subscription Id: `${subscription.id}` - Type: Show - Cron: `${subscription.cron}` - Target: some query"
     )
   }
 }

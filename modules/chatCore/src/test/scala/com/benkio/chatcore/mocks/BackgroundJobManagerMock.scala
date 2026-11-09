@@ -5,6 +5,7 @@ import cats.syntax.all.*
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionId
+import com.benkio.chatcore.model.SubscriptionRules
 import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chatcore.SubscriptionKey
@@ -31,6 +32,12 @@ object BackgroundJobManagerMock {
         _   <- IO.raiseWhen(scheduleReferences.contains(key))(
           new RuntimeException(s"Subscription already exists: $subscription")
         )
+        _ <- IO.raiseWhen(
+          subscription.subscriptionType == SubscriptionType.Calendar &&
+            scheduleReferences.keys.exists(k =>
+              k.chatId == subscription.chatId && k.subscriptionType == SubscriptionType.Calendar
+            )
+        )(SubscriptionRules.CalendarAlreadyActive)
         cancel <- SignallingRef[IO, Boolean](false)
         _      <- IO {
           scheduleReferences += key -> cancel

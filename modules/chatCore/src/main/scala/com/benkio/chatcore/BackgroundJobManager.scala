@@ -32,5 +32,5 @@ final case class SubscriptionKey(
 )
 object SubscriptionKey {
   given showInstance: Show[SubscriptionKey] =
-    Show.show(s => s"Subscription Id: ${s.subscriptionId} - chat id: ${s.chatId}")
+    Show.show(s => s"Subscription Id: `${s.subscriptionId}` - chat id: ${s.chatId}")
 }

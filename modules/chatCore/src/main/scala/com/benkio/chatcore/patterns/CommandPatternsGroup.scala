@@ -19,7 +19,9 @@ object CommandPatternsGroup {
         ),
         SubscribeUnsubscribeCommand.subscribeReplyBundleCommand(sBotInfo = sBotInfo),
         SubscribeUnsubscribeCommand.unsubscribeReplyBundleCommand(sBotInfo = sBotInfo),
-        SubscribeUnsubscribeCommand.subscriptionsReplyBundleCommand(sBotInfo = sBotInfo)
+        SubscribeUnsubscribeCommand.subscriptionsReplyBundleCommand(sBotInfo = sBotInfo),
+        CalendarCommands.loadCalendarReplyBundleCommand(sBotInfo = sBotInfo),
+        CalendarCommands.showCalendarReplyBundleCommand(sBotInfo = sBotInfo)
       )
   }
 

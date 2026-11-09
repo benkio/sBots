@@ -130,7 +130,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
   )
 
   test("RichardPHJBensonBot should contain the expected number of commands") {
-    assertIO(commandRepliesData.map(_.length), 12)
+    assertIO(commandRepliesData.map(_.length), 14)
   }
 
   botJsonsAreValid(rphjbSBotConfig)
@@ -159,6 +159,8 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
         |- '/subscribe': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/subscribe.md#it
         |- '/unsubscribe': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/unsubscribe.md#it
         |- '/subscriptions': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/subscriptions.md#it
+        |- '/loadcalendar': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/loadcalendar.md#it
+        |- '/showcalendar': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/showcalendar.md#it
         |- '/random': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/random.md#it
         |- '/bensonify': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/RichardPHJBensonBot/CommandsDocumentation/bensonify.md#it
         |- '/triggerlist': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/triggerlist.md#it
@@ -185,6 +187,8 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
         |- '/subscribe': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/subscribe.md#en
         |- '/unsubscribe': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/unsubscribe.md#en
         |- '/subscriptions': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/subscriptions.md#en
+        |- '/loadcalendar': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/loadcalendar.md#en
+        |- '/showcalendar': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/showcalendar.md#en
         |- '/random': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/random.md#en
         |- '/bensonify': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/RichardPHJBensonBot/CommandsDocumentation/bensonify.md#en
         |- '/triggerlist': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/triggerlist.md#en

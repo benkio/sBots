@@ -12,6 +12,7 @@ import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionId
 import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.model.Timeout
+import com.benkio.chatcore.repository.db.DBShowData
 import com.benkio.chatcore.repository.db.DBTimeoutData
 import com.benkio.chatcore.Logger.given
 import cron4s.Cron
@@ -257,6 +258,104 @@ class CommandPatternsCommandsSpec extends CatsEffectSuite {
     unsubscribe(manager = manager, text = "/unsubscribe foo").map { reply =>
       assert(reply.show.contains("Invalid input 'foo'"), reply.show)
       assert(reply.show.contains("show, trigger, calendar"), reply.show)
+    }
+  }
+  private def calendarShows: List[DBShowData] =
+    List(
+      DBShowData(
+        show_id = "abc",
+        bot_id = sBotInfo.botId.value,
+        show_title = "A show 17 maggio 2019",
+        show_upload_date = "2019-05-17T00:00:00.000Z",
+        show_duration = 3600,
+        show_description = None,
+        show_is_live = false,
+        show_origin_automatic_caption = None,
+        show_origin_automatic_caption_srt = ""
+      )
+    )
+
+  private def dbLayerWith(shows: List[DBShowData]) = DBLayerMock.mock(botId = sBotInfo.botId, shows = shows)
+
+  private def loadCalendar(
+      manager: com.benkio.chatcore.BackgroundJobManager[IO],
+      shows: List[DBShowData] = calendarShows,
+      chat: ChatId = chatId
+  ) =
+    CommandPatterns.CalendarCommands.loadCalendarCommandLogic[IO](
+      backgroundJobManager = manager,
+      dbShow = dbLayerWith(shows).dbShow,
+      m = msg.copy(chatId = chat, text = Some("/loadcalendar")),
+      sBotInfo = sBotInfo,
+      ttl = None
+    )
+
+  test(
+    "LoadCalendar command should schedule one calendar subscription and reply with the id and the unsubscribe hint"
+  ) {
+    val manager = BackgroundJobManagerMock.mock()
+    loadCalendar(manager = manager).map { reply =>
+      val scheduled = manager.getScheduledSubscriptions()
+      assertEquals(scheduled.map(_.subscriptionType), List(SubscriptionType.Calendar))
+      assert(reply.show.contains(scheduled.head.subscriptionId.value.toString), reply.show)
+      assert(reply.show.contains(s"/unsubscribe ${scheduled.head.subscriptionId.value}"), reply.show)
+    }
+  }
+
+  test("LoadCalendar command should reject a second calendar for the same chat and keep the first") {
+    val manager = BackgroundJobManagerMock.mock()
+    for {
+      _      <- loadCalendar(manager = manager)
+      first  <- IO(manager.getScheduledSubscriptions())
+      second <- loadCalendar(manager = manager)
+      after  <- IO(manager.getScheduledSubscriptions())
+    } yield {
+      assert(second.show.contains("calendar subscription already active"), second.show)
+      assertEquals(after, first)
+    }
+  }
+
+  test("LoadCalendar command should allow another chat and, after /unsubscribe <uuid>, the same chat again") {
+    val manager = BackgroundJobManagerMock.mock()
+    for {
+      _        <- loadCalendar(manager = manager)
+      other    <- loadCalendar(manager = manager, chat = ChatId(456L))
+      id       <- IO(manager.getScheduledSubscriptions().find(_.chatId == chatId).get.subscriptionId)
+      _        <- unsubscribe(manager = manager, text = s"/unsubscribe ${id.value}")
+      reloaded <- loadCalendar(manager = manager)
+    } yield {
+      assert(other.show.startsWith("Calendar successfully scheduled"), other.show)
+      assert(reloaded.show.startsWith("Calendar successfully scheduled"), reloaded.show)
+      assertEquals(manager.getScheduledSubscriptions().size, 2)
+    }
+  }
+
+  test("LoadCalendar command should schedule nothing for a bot without shows") {
+    val manager = BackgroundJobManagerMock.mock()
+    loadCalendar(manager = manager, shows = List.empty).map { reply =>
+      assertEquals(reply, Text("no calendar"))
+      assertEquals(manager.getScheduledSubscriptions(), List.empty)
+    }
+  }
+
+  test("ShowCalendar command should link the committed calendar file or say there is no calendar") {
+    for {
+      withShows <- CommandPatterns.CalendarCommands.showCalendarCommandLogic[IO](
+        dbShow = dbLayerWith(calendarShows).dbShow,
+        sBotInfo = sBotInfo,
+        ttl = None
+      )
+      empty <- CommandPatterns.CalendarCommands.showCalendarCommandLogic[IO](
+        dbShow = dbLayerWith(List.empty).dbShow,
+        sBotInfo = sBotInfo,
+        ttl = None
+      )
+    } yield {
+      assertEquals(
+        withShows,
+        Text("https://github.com/benkio/sBots/blob/main/modules/bots/SampleWebhookBot/sbot_calendar.ics")
+      )
+      assertEquals(empty, Text("no calendar"))
     }
   }
 }

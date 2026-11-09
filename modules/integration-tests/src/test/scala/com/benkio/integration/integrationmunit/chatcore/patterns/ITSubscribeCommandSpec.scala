@@ -79,7 +79,7 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
       val testCheck = subscriptions.map { s =>
         val result =
           reply.show.startsWith("Subscription successfully scheduled. Next occurrence of subscription is ") &&
-            reply.show.endsWith(s"Refer to this subscription with the ID: ${s.id.value.toString}")
+            reply.show.endsWith(s"Refer to this subscription with the ID: `${s.id.value.toString}`")
         if !result then println(s"[ITSubscribeCommandSpec] Failed test with $reply and $s") else ()
         result
       }

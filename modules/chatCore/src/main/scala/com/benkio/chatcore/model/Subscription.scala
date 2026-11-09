@@ -3,6 +3,7 @@ package com.benkio.chatcore.model
 import cats.syntax.all.*
 import cats.ApplicativeThrow
 import cats.Show
+import com.benkio.chatcore.model.reply.Markdown
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBSubscriptionData
 import cron4s.*
@@ -83,8 +84,8 @@ object Subscription {
 
   given showInstance: Show[Subscription] =
     Show.show(s =>
-      s"Subscription Id: ${s.id} - Type: ${s.subscriptionType} - Cron: ${s.cron}" ++
-        s.target.fold("")(target => s" - Target: $target")
+      s"Subscription Id: `${s.id}` - Type: ${s.subscriptionType} - Cron: `${s.cron}`" ++
+        s.target.fold("")(target => s" - Target: ${Markdown.escape(target)}")
     )
 
 }

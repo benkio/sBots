@@ -28,6 +28,7 @@ object SubscriptionRules {
       extends Throwable(
         s"Subscription limit reached: a chat can have at most $maxSubscriptionsPerChat subscriptions (chat id: $chatId)"
       )
+  case object CalendarAlreadyActive extends Throwable("calendar subscription already active")
 
   /** The cron must never fire more often than [[minInterval]]. */
   def validateInterval(cron: CronExpr, from: LocalDateTime): Either[Throwable, Unit] = {

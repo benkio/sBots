@@ -98,6 +98,54 @@
   },
   {
     "trigger" : {
+      "command" : "loadcalendar"
+    },
+    "reply" : {
+      "EffectfulReply" : {
+        "key" : {
+          "LoadCalendar" : {
+            "sBotInfo" : {
+              "botId" : "sbot",
+              "botName" : "SampleWebhookBot"
+            }
+          }
+        },
+        "replyToMessage" : true
+      }
+    },
+    "instruction" : {
+      "Instructions" : {
+        "ita" : "'/loadcalendar': Restituisce la lista delle iscrizioni correnti per la chat corrente",
+        "eng" : "'/loadcalendar': Return the amout of subscriptions for the current chat"
+      }
+    }
+  },
+  {
+    "trigger" : {
+      "command" : "showcalendar"
+    },
+    "reply" : {
+      "EffectfulReply" : {
+        "key" : {
+          "ShowCalendar" : {
+            "sBotInfo" : {
+              "botId" : "sbot",
+              "botName" : "SampleWebhookBot"
+            }
+          }
+        },
+        "replyToMessage" : true
+      }
+    },
+    "instruction" : {
+      "Instructions" : {
+        "ita" : "'/showcalendar': Restituisce la lista delle iscrizioni correnti per la chat corrente",
+        "eng" : "'/showcalendar': Return the amout of subscriptions for the current chat"
+      }
+    }
+  },
+  {
+    "trigger" : {
       "command" : "random"
     },
     "reply" : {

@@ -85,6 +85,13 @@ final case class Markdown(
 ) extends ReplyValueCore
 
 object Markdown {
+
+  private val markdownSpecials: Set[Char] = "_*[]()~`>#+-=|{}.!\\".toSet
+
+  /** Escapes the markdown specials of a text that has to be shown literally (e.g. user input). */
+  def escape(text: String): String =
+    text.flatMap(c => if markdownSpecials.contains(c) then s"\\$c" else c.toString)
+
   given Decoder[Markdown] = Decoder[String].map(Markdown(_))
   given Encoder[Markdown] = Encoder[String].contramap(_.value)
 }
@@ -106,6 +113,8 @@ enum EffectfulKey(val sBotInfo: SBotInfo) {
   case Subscribe(override val sBotInfo: SBotInfo)                extends EffectfulKey(sBotInfo)
   case Unsubscribe(override val sBotInfo: SBotInfo)              extends EffectfulKey(sBotInfo)
   case Subscriptions(override val sBotInfo: SBotInfo)            extends EffectfulKey(sBotInfo)
+  case LoadCalendar(override val sBotInfo: SBotInfo)             extends EffectfulKey(sBotInfo)
+  case ShowCalendar(override val sBotInfo: SBotInfo)             extends EffectfulKey(sBotInfo)
   case TopTwenty(override val sBotInfo: SBotInfo, page: Int = 0) extends EffectfulKey(sBotInfo)
   case SetTimeout(override val sBotInfo: SBotInfo)               extends EffectfulKey(sBotInfo)
   case GetTimeout(override val sBotInfo: SBotInfo)               extends EffectfulKey(sBotInfo)
@@ -121,6 +130,8 @@ object EffectfulKey {
   private given subscribeDecoder: Decoder[EffectfulKey.Subscribe]         = deriveDecoder[EffectfulKey.Subscribe]
   private given unsubscribeDecoder: Decoder[EffectfulKey.Unsubscribe]     = deriveDecoder[EffectfulKey.Unsubscribe]
   private given subscriptionsDecoder: Decoder[EffectfulKey.Subscriptions] = deriveDecoder[EffectfulKey.Subscriptions]
+  private given loadCalendarDecoder: Decoder[EffectfulKey.LoadCalendar]   = deriveDecoder[EffectfulKey.LoadCalendar]
+  private given showCalendarDecoder: Decoder[EffectfulKey.ShowCalendar]   = deriveDecoder[EffectfulKey.ShowCalendar]
   private given topTwentyDecoder: Decoder[EffectfulKey.TopTwenty]         = deriveDecoder[EffectfulKey.TopTwenty]
   private given setTimeoutDecoder: Decoder[EffectfulKey.SetTimeout]       = deriveDecoder[EffectfulKey.SetTimeout]
   private given getTimeoutDecoder: Decoder[EffectfulKey.GetTimeout]       = deriveDecoder[EffectfulKey.GetTimeout]
@@ -136,6 +147,8 @@ object EffectfulKey {
       .orElse(c.downField("Subscribe").as[EffectfulKey.Subscribe])
       .orElse(c.downField("Unsubscribe").as[EffectfulKey.Unsubscribe])
       .orElse(c.downField("Subscriptions").as[EffectfulKey.Subscriptions])
+      .orElse(c.downField("LoadCalendar").as[EffectfulKey.LoadCalendar])
+      .orElse(c.downField("ShowCalendar").as[EffectfulKey.ShowCalendar])
       .orElse(c.downField("TopTwenty").as[EffectfulKey.TopTwenty])
       .orElse(c.downField("SetTimeout").as[EffectfulKey.SetTimeout])
       .orElse(c.downField("GetTimeout").as[EffectfulKey.GetTimeout])
@@ -144,7 +157,38 @@ object EffectfulKey {
       .map(identity)
   )
 
-  given replyEncoder: Encoder[EffectfulKey] = deriveEncoder[EffectfulKey]
+  // Mirrors the decoder: one small encoder per key keeps every initializer under the coverage instrumentation limit
+  private given randomEncoder: Encoder[EffectfulKey.Random]               = deriveEncoder[EffectfulKey.Random]
+  private given searchShowEncoder: Encoder[EffectfulKey.SearchShow]       = deriveEncoder[EffectfulKey.SearchShow]
+  private given triggerSearchEncoder: Encoder[EffectfulKey.TriggerSearch] = deriveEncoder[EffectfulKey.TriggerSearch]
+  private given instructionsEncoder: Encoder[EffectfulKey.Instructions]   = deriveEncoder[EffectfulKey.Instructions]
+  private given subscribeEncoder: Encoder[EffectfulKey.Subscribe]         = deriveEncoder[EffectfulKey.Subscribe]
+  private given unsubscribeEncoder: Encoder[EffectfulKey.Unsubscribe]     = deriveEncoder[EffectfulKey.Unsubscribe]
+  private given subscriptionsEncoder: Encoder[EffectfulKey.Subscriptions] = deriveEncoder[EffectfulKey.Subscriptions]
+  private given loadCalendarEncoder: Encoder[EffectfulKey.LoadCalendar]   = deriveEncoder[EffectfulKey.LoadCalendar]
+  private given showCalendarEncoder: Encoder[EffectfulKey.ShowCalendar]   = deriveEncoder[EffectfulKey.ShowCalendar]
+  private given topTwentyEncoder: Encoder[EffectfulKey.TopTwenty]         = deriveEncoder[EffectfulKey.TopTwenty]
+  private given setTimeoutEncoder: Encoder[EffectfulKey.SetTimeout]       = deriveEncoder[EffectfulKey.SetTimeout]
+  private given getTimeoutEncoder: Encoder[EffectfulKey.GetTimeout]       = deriveEncoder[EffectfulKey.GetTimeout]
+  private given mediaByKindEncoder: Encoder[EffectfulKey.MediaByKind]     = deriveEncoder[EffectfulKey.MediaByKind]
+  private given callbackEncoder: Encoder[EffectfulKey.Callback]           = deriveEncoder[EffectfulKey.Callback]
+
+  given replyEncoder: Encoder[EffectfulKey] = Encoder.instance {
+    case k: EffectfulKey.Random        => Json.obj("Random" -> k.asJson)
+    case k: EffectfulKey.SearchShow    => Json.obj("SearchShow" -> k.asJson)
+    case k: EffectfulKey.TriggerSearch => Json.obj("TriggerSearch" -> k.asJson)
+    case k: EffectfulKey.Instructions  => Json.obj("Instructions" -> k.asJson)
+    case k: EffectfulKey.Subscribe     => Json.obj("Subscribe" -> k.asJson)
+    case k: EffectfulKey.Unsubscribe   => Json.obj("Unsubscribe" -> k.asJson)
+    case k: EffectfulKey.Subscriptions => Json.obj("Subscriptions" -> k.asJson)
+    case k: EffectfulKey.LoadCalendar  => Json.obj("LoadCalendar" -> k.asJson)
+    case k: EffectfulKey.ShowCalendar  => Json.obj("ShowCalendar" -> k.asJson)
+    case k: EffectfulKey.TopTwenty     => Json.obj("TopTwenty" -> k.asJson)
+    case k: EffectfulKey.SetTimeout    => Json.obj("SetTimeout" -> k.asJson)
+    case k: EffectfulKey.GetTimeout    => Json.obj("GetTimeout" -> k.asJson)
+    case k: EffectfulKey.MediaByKind   => Json.obj("MediaByKind" -> k.asJson)
+    case k: EffectfulKey.Callback      => Json.obj("Callback" -> k.asJson)
+  }
 
   extension (k: EffectfulKey) {
     def overridePage(mayPage: Option[Int]): EffectfulKey = k match {

@@ -76,6 +76,8 @@ class XahLeeBotSpec extends BaseBotSpec {
         |- '/subscribe': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/subscribe.md#it
         |- '/unsubscribe': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/unsubscribe.md#it
         |- '/subscriptions': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/subscriptions.md#it
+        |- '/loadcalendar': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/loadcalendar.md#it
+        |- '/showcalendar': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/showcalendar.md#it
         |- '/random': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/random.md#it
         |- '/alanmackenzie': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/alanmackenzie.md#it
         |- '/apple': Documentazione: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/apple.md#it
@@ -126,6 +128,8 @@ class XahLeeBotSpec extends BaseBotSpec {
         |- '/subscribe': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/subscribe.md#en
         |- '/unsubscribe': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/unsubscribe.md#en
         |- '/subscriptions': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/subscriptions.md#en
+        |- '/loadcalendar': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/loadcalendar.md#en
+        |- '/showcalendar': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/showcalendar.md#en
         |- '/random': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/random.md#en
         |- '/alanmackenzie': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/alanmackenzie.md#en
         |- '/apple': Documentation: https://github.com/benkio/sBots/blob/main/modules/bots/XahLeeBot/CommandsDocumentation/apple.md#en

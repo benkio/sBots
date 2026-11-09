@@ -9,6 +9,7 @@ import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Trigger
+import com.benkio.chatcore.patterns.CommandPatterns.CalendarCommands
 import com.benkio.chatcore.patterns.CommandPatterns.GetTimeoutCommand
 import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.chatcore.patterns.CommandPatterns.MediaByKindCommand
@@ -135,6 +136,24 @@ object EffectfulKeyRunner {
           backgroundJobManager = backgroundJobManager,
           sBotInfo = sBotInfo,
           m = msg
+        )
+      )
+    case EffectfulKey.LoadCalendar(sBotInfo) =>
+      toReplyValue(
+        CalendarCommands.loadCalendarCommandLogic(
+          backgroundJobManager = backgroundJobManager,
+          dbShow = dbLayer.dbShow,
+          m = msg,
+          sBotInfo = sBotInfo,
+          ttl = ttl
+        )
+      )
+    case EffectfulKey.ShowCalendar(sBotInfo) =>
+      toReplyValue(
+        CalendarCommands.showCalendarCommandLogic(
+          dbShow = dbLayer.dbShow,
+          sBotInfo = sBotInfo,
+          ttl = ttl
         )
       )
     case EffectfulKey.TopTwenty(sBotInfo, page) =>
