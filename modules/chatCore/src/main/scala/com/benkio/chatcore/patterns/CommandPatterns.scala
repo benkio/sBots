@@ -11,6 +11,7 @@ import com.benkio.chatcore.messagefiltering.RandomSelection
 import com.benkio.chatcore.model.media.Media
 import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.EffectfulReply
+import com.benkio.chatcore.model.reply.Markdown
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
@@ -98,8 +99,8 @@ object CommandPatterns {
             None
           )
           _ <- backgroundJobManager.scheduleSubscription(subscription)
-        } yield Text(
-          s"Calendar successfully scheduled: every day at 09:00 (server time). Refer to this subscription with the ID: ${subscription.id}. Use `/unsubscribe ${subscription.id}` to remove it",
+        } yield Markdown(
+          s"Calendar successfully scheduled: every day at 09:00 (server time). Refer to this subscription with the ID: `${subscription.id}`. Use `/unsubscribe ${subscription.id}` to remove it",
           ttl
         )
       val computation: String => F[ReplyValue] = (_: String) =>
@@ -544,8 +545,8 @@ ${ignoreMessagePrefix
             .next(LocalDateTime.now)
             .fold("`Unknown next occurrence`")(date => s"`${date.toString}`")
           _ <- backgroundJobManager.scheduleSubscription(subscription)
-        } yield Text(
-          s"Subscription successfully scheduled. Next occurrence of subscription is $nextOccurrence. Refer to this subscription with the ID: ${subscription.id}"
+        } yield Markdown(
+          s"Subscription successfully scheduled. Next occurrence of subscription is $nextOccurrence. Refer to this subscription with the ID: `${subscription.id}`"
         )
       handleCommandWithInput[F](
         msg = m,
@@ -633,7 +634,7 @@ ${ignoreMessagePrefix
       subscriptions     <- subscriptionsData.traverse(sd => Async[F].fromEither(Subscription(sd)))
       memSubscriptions     = backgroundJobManager.getScheduledSubscriptions()
       memChatSubscriptions = memSubscriptions.filter { case SubscriptionKey(_, cid, _) => cid.value == m.chatId.value }
-    } yield Text(
+    } yield Markdown(
       s"There are ${subscriptions.length} stored subscriptions for this chat:\n" ++ subscriptions
         .map(_.show)
         .mkString("\n") ++

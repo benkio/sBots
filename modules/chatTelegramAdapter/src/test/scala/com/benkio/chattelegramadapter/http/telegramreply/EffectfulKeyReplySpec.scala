@@ -173,7 +173,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
       )
       .map(messages => messages.map(_.text))
 
-    assertIO(result, List(Some("[apiMock] sendMessage reply")))
+    assertIO(result, List(Some("[apiMock] sendRichMessage reply")))
   }
 
   test("EffectfulKeyReply.sendEffectfulKey should work for Unsubscribe") {
@@ -211,7 +211,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
       )
       .map(messages => messages.map(_.text))
 
-    assertIO(result, List(Some("[apiMock] sendMessage reply")))
+    assertIO(result, List(Some("[apiMock] sendRichMessage reply")))
   }
 
   test("EffectfulKeyReply.sendEffectfulKey should work for TopTwenty") {

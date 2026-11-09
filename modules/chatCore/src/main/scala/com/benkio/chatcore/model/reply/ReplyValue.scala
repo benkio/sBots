@@ -85,6 +85,13 @@ final case class Markdown(
 ) extends ReplyValueCore
 
 object Markdown {
+
+  private val markdownSpecials: Set[Char] = "_*[]()~`>#+-=|{}.!\\".toSet
+
+  /** Escapes the markdown specials of a text that has to be shown literally (e.g. user input). */
+  def escape(text: String): String =
+    text.flatMap(c => if markdownSpecials.contains(c) then s"\\$c" else c.toString)
+
   given Decoder[Markdown] = Decoder[String].map(Markdown(_))
   given Encoder[Markdown] = Encoder[String].contramap(_.value)
 }

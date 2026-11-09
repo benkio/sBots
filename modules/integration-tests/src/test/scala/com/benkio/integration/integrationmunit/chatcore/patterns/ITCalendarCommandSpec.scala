@@ -25,12 +25,12 @@ import munit.CatsEffectSuite
 
 class ITCalendarCommandSpec extends CatsEffectSuite with DBFixture {
 
-  val sBotConfig              = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
-  val sBotInfo                = sBotConfig.sBotInfo
-  val otherBotInfo: SBotInfo  = sBotInfo.copy(botId = SBotInfo.SBotId("otherbot"))
-  val chatId                  = ChatId(1L)
-  val msg: Message            = Message(messageId = 0, date = 0, chatId = chatId, chatType = "private")
-  val alreadyActive           = "calendar subscription already active"
+  val sBotConfig             = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
+  val sBotInfo               = sBotConfig.sBotInfo
+  val otherBotInfo: SBotInfo = sBotInfo.copy(botId = SBotInfo.SBotId("otherbot"))
+  val chatId                 = ChatId(1L)
+  val msg: Message           = Message(messageId = 0, date = 0, chatId = chatId, chatType = "private")
+  val alreadyActive          = "calendar subscription already active"
 
   private def show(botInfo: SBotInfo): DBShowData = DBShowData(
     show_id = s"show-${botInfo.botId.value}",
@@ -140,15 +140,15 @@ class ITCalendarCommandSpec extends CatsEffectSuite with DBFixture {
     fixture =>
       setup(fixture).use { case (dbLayer, jobManager) =>
         for {
-          _        <- loadCalendar(jobManager = jobManager, dbLayer = dbLayer)
-          id       <- calendars(dbLayer).map(_.head.id)
-          _        <- SubscribeUnsubscribeCommand.unsubcribeCommandLogic[IO](
+          _  <- loadCalendar(jobManager = jobManager, dbLayer = dbLayer)
+          id <- calendars(dbLayer).map(_.head.id)
+          _  <- SubscribeUnsubscribeCommand.unsubcribeCommandLogic[IO](
             backgroundJobManager = jobManager,
             m = msg.copy(text = Some(s"/unsubscribe $id")),
             sBotInfo = sBotInfo,
             ttl = None
           )
-          afterDb  <- calendars(dbLayer)
+          afterDb <- calendars(dbLayer)
           afterMem = jobManager.getScheduledSubscriptions()
           reloaded <- loadCalendar(jobManager = jobManager, dbLayer = dbLayer)
           stored   <- calendars(dbLayer)
