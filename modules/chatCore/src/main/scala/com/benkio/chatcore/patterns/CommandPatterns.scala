@@ -20,6 +20,7 @@ import com.benkio.chatcore.model.reply.TextReply
 import com.benkio.chatcore.model.show.addTimestamp
 import com.benkio.chatcore.model.show.RandomQuery
 import com.benkio.chatcore.model.show.Show
+import com.benkio.chatcore.model.show.ShowCalendar
 import com.benkio.chatcore.model.show.ShowQuery
 import com.benkio.chatcore.model.show.ShowQueryKeyword
 import com.benkio.chatcore.model.show.SimpleShowQuery
@@ -34,6 +35,7 @@ import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.model.SubscribeArguments
 import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionRules
+import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.model.Timeout
 import com.benkio.chatcore.model.Trigger
 import com.benkio.chatcore.model.UnsubscribeArguments
@@ -54,6 +56,104 @@ object CommandPatterns {
     s"$commandsDocsBaseUrl$path#$lang"
   private def chatCoreCommandDocLink(command: String, lang: String): String =
     commandDocLink(s"modules/chatCore/CommandsDocumentation/$command.md", lang)
+
+  object CalendarCommands {
+    // Every day at 09:00, server time
+    val calendarCron: String = "0 0 9 * * ?"
+
+    private[patterns] val loadCalendarCommandDescriptionIta: String =
+      s"'/loadcalendar': Documentazione: ${chatCoreCommandDocLink("loadcalendar", "it")}"
+    private[patterns] val loadCalendarCommandDescriptionEng: String =
+      s"'/loadcalendar': Documentation: ${chatCoreCommandDocLink("loadcalendar", "en")}"
+    private[patterns] val showCalendarCommandDescriptionIta: String =
+      s"'/showcalendar': Documentazione: ${chatCoreCommandDocLink("showcalendar", "it")}"
+    private[patterns] val showCalendarCommandDescriptionEng: String =
+      s"'/showcalendar': Documentation: ${chatCoreCommandDocLink("showcalendar", "en")}"
+
+    val noCalendarMessage: String = "no calendar"
+
+    private def botShows[F[_]: MonadThrow](dbShow: DBShow[F], sBotInfo: SBotInfo): F[List[Show]] =
+      dbShow.getShows(sBotInfo.botId).flatMap(_.traverse(Show[F](_)))
+
+    // The calendar of a bot is empty when no show is a candidate for any day
+    private def hasCalendar(shows: List[Show]): Boolean = ShowCalendar.orderedCandidates(shows).nonEmpty
+
+    def calendarFileLink(sBotInfo: SBotInfo): String =
+      s"${commandsDocsBaseUrl}modules/bots/${sBotInfo.botName.value}/${sBotInfo.botId.value}_calendar.ics"
+
+    def loadCalendarCommandLogic[F[_]: Async](
+        backgroundJobManager: BackgroundJobManager[F],
+        dbShow: DBShow[F],
+        m: Message,
+        sBotInfo: SBotInfo,
+        ttl: Option[FiniteDuration]
+    ): F[ReplyValue] = {
+      val scheduleCalendar: F[ReplyValue] =
+        for {
+          subscription <- Subscription(
+            m.chatId.value,
+            sBotInfo.botId,
+            calendarCron,
+            SubscriptionType.Calendar,
+            None
+          )
+          _ <- backgroundJobManager.scheduleSubscription(subscription)
+        } yield Text(
+          s"Calendar successfully scheduled: every day at 09:00 (server time). Refer to this subscription with the ID: ${subscription.id}. Use `/unsubscribe ${subscription.id}` to remove it",
+          ttl
+        )
+      val computation: String => F[ReplyValue] = (_: String) =>
+        botShows(dbShow, sBotInfo).flatMap(shows =>
+          Option
+            .when(hasCalendar(shows))(scheduleCalendar)
+            .getOrElse(Text(noCalendarMessage, ttl).pure[F])
+        )
+      handleCommandWithInput[F](
+        msg = m,
+        command = CommandKey.LoadCalendar.asString,
+        sBotInfo = sBotInfo,
+        computation = computation,
+        ttl = ttl,
+        defaultReply = "",
+        allowEmptyString = true
+      )
+    }
+
+    private[patterns] def loadCalendarReplyBundleCommand(sBotInfo: SBotInfo): ReplyBundleCommand =
+      ReplyBundleCommand(
+        trigger = CommandKey.LoadCalendar.trigger,
+        reply = EffectfulReply(
+          key = EffectfulKey.LoadCalendar(sBotInfo),
+          replyToMessage = true
+        ),
+        instruction = CommandInstructionData.Instructions(
+          ita = loadCalendarCommandDescriptionIta,
+          eng = loadCalendarCommandDescriptionEng
+        )
+      )
+
+    def showCalendarCommandLogic[F[_]: MonadThrow](
+        dbShow: DBShow[F],
+        sBotInfo: SBotInfo,
+        ttl: Option[FiniteDuration]
+    ): F[ReplyValue] =
+      botShows(dbShow, sBotInfo).map(shows =>
+        Text(Option.when(hasCalendar(shows))(calendarFileLink(sBotInfo)).getOrElse(noCalendarMessage), ttl)
+      )
+
+    private[patterns] def showCalendarReplyBundleCommand(sBotInfo: SBotInfo): ReplyBundleCommand =
+      ReplyBundleCommand(
+        trigger = CommandKey.ShowCalendar.trigger,
+        reply = EffectfulReply(
+          key = EffectfulKey.ShowCalendar(sBotInfo),
+          replyToMessage = true
+        ),
+        instruction = CommandInstructionData.Instructions(
+          ita = showCalendarCommandDescriptionIta,
+          eng = showCalendarCommandDescriptionEng
+        )
+      )
+  }
 
   object MediaByKindCommand {
 

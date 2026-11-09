@@ -5,6 +5,8 @@ import cats.effect.*
 import cats.effect.std.Random
 import cats.implicits.*
 import com.benkio.chatcore.model.reply.ReplyValue
+import com.benkio.chatcore.model.show.Show
+import com.benkio.chatcore.model.show.ShowCalendar
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
@@ -19,6 +21,7 @@ import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chatcore.SubscriptionKey
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.TelegramMessageReply
+import com.benkio.chattelegramadapter.model.TelegramCalendarMessage
 import eu.timepit.fs2cron.cron4s.Cron4sScheduler
 import fs2.concurrent.SignallingRef
 import fs2.Stream
@@ -26,6 +29,7 @@ import log.effect.LogWriter
 import telegramium.bots.high.Api
 
 import java.time.Instant
+import java.time.MonthDay
 import scala.collection.mutable.Map as MMap
 import scala.concurrent.duration.FiniteDuration
 
@@ -116,7 +120,21 @@ object TelegramBackgroundJobManager {
         _                 <- Async[F]
           .raiseError(SubscriptionRules.SubscriptionLimitReached(subscription.chatId.value))
           .whenA(chatSubscriptions.size >= SubscriptionRules.maxSubscriptionsPerChat)
-        _               <- dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(subscription))
+        _ <- Async[F]
+          .raiseError(SubscriptionRules.CalendarAlreadyActive)
+          .whenA(
+            subscription.subscriptionType == SubscriptionType.Calendar &&
+              chatSubscriptions.exists(_.subscription_type == SubscriptionType.Calendar.asString)
+          )
+        // The partial unique index is the safety net for concurrent loads of the calendar
+        _ <- dbLayer.dbSubscription
+          .insertSubscription(DBSubscriptionData(subscription))
+          .adaptError {
+            case e: java.sql.SQLException
+                if subscription.subscriptionType == SubscriptionType.Calendar &&
+                  Option(e.getMessage).exists(_.contains("UNIQUE constraint failed")) =>
+              SubscriptionRules.CalendarAlreadyActive
+          }
         streamAndCancel <- runSubscription(subscription)
         (stream, cancel) = streamAndCancel
         cronStream       = cronScheduler.awakeEvery(subscription.cron) >> stream
@@ -171,6 +189,11 @@ object TelegramBackgroundJobManager {
           CommandPatterns.SearchShowCommand
             .selectShowByIdOrKeyword[F](subscription.target.getOrElse(""), dbLayer.dbShow, sBotInfo, ttl)
             .map(Some(_))
+        case SubscriptionType.Calendar =>
+          for {
+            shows <- dbLayer.dbShow.getShows(sBotInfo.botId).flatMap(_.traverse(Show[F](_)))
+            today <- Async[F].delay(MonthDay.now())
+          } yield TelegramCalendarMessage.render(sBotInfo.botName.value, ShowCalendar.forDay(shows, today))
         case other =>
           log
             .warn(s"[BackgroundJobManager] ${other.asString} subscriptions are not supported yet: $subscription")

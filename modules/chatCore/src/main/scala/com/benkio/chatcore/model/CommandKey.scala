@@ -13,6 +13,8 @@ enum CommandKey(val asString: String) {
   case Subscribe     extends CommandKey("subscribe")
   case Unsubscribe   extends CommandKey("unsubscribe")
   case Subscriptions extends CommandKey("subscriptions")
+  case LoadCalendar  extends CommandKey("loadcalendar")
+  case ShowCalendar  extends CommandKey("showcalendar")
   case TopTwenty     extends CommandKey("toptwenty")
   case SetTimeout    extends CommandKey("settimeout")
   case GetTimeout    extends CommandKey("gettimeout")
