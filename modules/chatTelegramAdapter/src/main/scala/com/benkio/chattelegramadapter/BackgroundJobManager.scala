@@ -55,12 +55,14 @@ object TelegramBackgroundJobManager {
       ttl: Option[FiniteDuration]
   )(using log: LogWriter[F]): F[BackgroundJobManager[F]] =
     for {
+      triggerHandler       <- Ref.of[F, Option[Message => F[Unit]]](None)
       backgroundJobManager <- Async[F].pure(
         new BackgroundJobManagerImpl(
           repository = repository,
           dbLayer = dbLayer,
           sBotInfo = sBotInfo,
-          ttl = ttl
+          ttl = ttl,
+          triggerHandler = triggerHandler
         )
       )
       _ <- backgroundJobManager.loadSubscriptions()
@@ -70,7 +72,8 @@ object TelegramBackgroundJobManager {
       repository: Repository[F],
       dbLayer: DBLayer[F],
       sBotInfo: SBotInfo,
-      ttl: Option[FiniteDuration]
+      ttl: Option[FiniteDuration],
+      triggerHandler: Ref[F, Option[Message => F[Unit]]]
   )(using log: LogWriter[F])
       extends BackgroundJobManager[F] {
 
@@ -182,6 +185,42 @@ object TelegramBackgroundJobManager {
       } yield scheduleReferences = onGoingScheduleReferences
     }
 
+    override def setTriggerHandler(handler: Message => F[Unit]): F[Unit] =
+      triggerHandler.set(Some(handler))
+
+    // A trigger subscription fires as if the chat had sent its target: the late-bound handler (the bot) replies.
+    // The message is dated now, so it passes the `FilteringOlder` filter of the reply selection.
+    private def fireTrigger(subscription: Subscription): F[Unit] =
+      triggerHandler.get
+        .flatMap(
+          _.fold(
+            log.error(
+              s"[BackgroundJobManager] no trigger handler set: the trigger subscription ${subscription.id.value} cannot fire"
+            )
+          )(handler =>
+            subscription.target.map(_.trim).filter(_.nonEmpty) match {
+              case None =>
+                log.warn(s"[BackgroundJobManager] trigger subscription without text, nothing to fire: $subscription")
+              case Some(text) =>
+                Async[F].realTimeInstant.flatMap(now =>
+                  handler(
+                    Message(
+                      messageId = 0,
+                      date = now.getEpochSecond,
+                      chatId = subscription.chatId,
+                      chatType = "private",
+                      text = Some(text)
+                    )
+                  )
+                )
+            }
+          )
+        )
+        // a failing trigger must not stop the schedule of the subscription
+        .handleErrorWith(e =>
+          log.error(s"[BackgroundJobManager] trigger subscription failed: $subscription. Error: $e")
+        )
+
     // The reply a subscription sends when it fires, if any
     private def subscriptionReply(subscription: Subscription): F[Option[ReplyValue]] =
       subscription.subscriptionType match {
@@ -194,10 +233,8 @@ object TelegramBackgroundJobManager {
             shows <- dbLayer.dbShow.getShows(sBotInfo.botId).flatMap(_.traverse(Show[F](_)))
             today <- Async[F].delay(MonthDay.now())
           } yield TelegramCalendarMessage.render(sBotInfo.botName.value, ShowCalendar.forDay(shows, today))
-        case other =>
-          log
-            .warn(s"[BackgroundJobManager] ${other.asString} subscriptions are not supported yet: $subscription")
-            .as(None)
+        case SubscriptionType.Trigger =>
+          Async[F].pure(None) // fired through the trigger handler, see `fireTrigger`
       }
 
     override def runSubscription(
@@ -216,8 +253,10 @@ object TelegramBackgroundJobManager {
       val action: F[Instant] = for {
         now      <- Async[F].realTimeInstant
         _        <- log.info(s"[BackgroundJobManager] $now - fire subscription: $subscription")
-        replyOpt <- subscriptionReply(subscription)
-        _        <- replyOpt.traverse_ { reply =>
+        replyOpt <-
+          if subscription.subscriptionType == SubscriptionType.Trigger then fireTrigger(subscription).as(None)
+          else subscriptionReply(subscription)
+        _ <- replyOpt.traverse_ { reply =>
           log.info(s"[BackgroundJobManager] reply: $reply") *>
             TelegramMessageReply
               .sendReplyValue[F](

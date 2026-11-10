@@ -15,7 +15,10 @@ object SubscribeArguments {
       )
 
   /** The types a user can create with `/subscribe`. */
-  val supportedTypes: List[SubscriptionType] = List(SubscriptionType.Show)
+  val supportedTypes: List[SubscriptionType] = List(SubscriptionType.Show, SubscriptionType.Trigger)
+
+  final case class TriggerTextRequired()
+      extends Throwable("A trigger subscription needs the text that triggers the bot: /subscribe <cron> trigger <text>")
 
   private val cronFields = 6
 
@@ -34,6 +37,7 @@ object SubscribeArguments {
             .map(_ => UnsupportedSubscriptionType(typeToken, supportedTypes))
           target = targetTokens.headOption.map(_.trim).filter(_.nonEmpty)
           _ <- SubscriptionRules.validateTarget(target)
+          _ <- Either.cond(subscriptionType != SubscriptionType.Trigger || target.nonEmpty, (), TriggerTextRequired())
         } yield SubscribeArguments(cron, subscriptionType, target)
     }
   }

@@ -46,7 +46,7 @@ class SubscribeArgumentsSpec extends FunSuite {
     )
   }
 
-  List("calendar", "trigger", "hello", "shows").foreach { token =>
+  List("calendar", "hello", "shows").foreach { token =>
     test(s"'$token' is not a supported type") {
       val result = SubscribeArguments.parse(s"$cron $token something")
       assertEquals(
@@ -54,8 +54,26 @@ class SubscribeArgumentsSpec extends FunSuite {
         Left(SubscribeArguments.UnsupportedSubscriptionType(token, SubscribeArguments.supportedTypes))
       )
       assert(result.left.exists(_.getMessage.contains(s"Unsupported subscription type '$token'")), result.toString)
-      assert(result.left.exists(_.getMessage.contains("Supported types: show")), result.toString)
+      assert(result.left.exists(_.getMessage.contains("Supported types: show, trigger")), result.toString)
     }
+  }
+
+  test("a trigger subscription: everything after the type is the text, with its inner spaces") {
+    assertEquals(
+      SubscribeArguments.parse(s"$cron trigger  buongiorno   a tutti "),
+      Right(SubscribeArguments(cron, SubscriptionType.Trigger, Some("buongiorno   a tutti")))
+    )
+  }
+
+  test("a trigger subscription without text is rejected") {
+    List(s"$cron trigger", s"$cron trigger   ").foreach(input =>
+      assertEquals(SubscribeArguments.parse(input), Left(SubscribeArguments.TriggerTextRequired()))
+    )
+  }
+
+  test("a trigger text longer than the maximum is rejected") {
+    val result = SubscribeArguments.parse(s"$cron trigger ${"a" * (SubscriptionRules.maxTargetLength + 1)}")
+    assertEquals(result.left.map(_.getClass), Left(classOf[SubscriptionRules.TargetTooLong]))
   }
 
   test("a target longer than the maximum is rejected") {

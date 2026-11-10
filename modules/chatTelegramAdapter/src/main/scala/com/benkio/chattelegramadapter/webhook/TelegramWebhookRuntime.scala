@@ -54,15 +54,17 @@ object TelegramWebhookRuntime {
       commandRepliesData <- Resource.eval(
         sBotSetup.jsonDataRepository.loadData[ReplyBundleCommand](sBotConfig.commandsJsonFilename)
       )
-    } yield {
-      given Api[F] = sBotSetup.api
-      new SBotWebhook[F](
-        sBotSetup = sBotSetup,
-        messageRepliesData = messageRepliesData,
-        commandRepliesData = commandRepliesData,
-        webhookCertificate = webhookCertificate,
-        commandEffectfulCallback = commandEffectfulCallback
-      )
-    }
+      sBot = {
+        given Api[F] = sBotSetup.api
+        new SBotWebhook[F](
+          sBotSetup = sBotSetup,
+          messageRepliesData = messageRepliesData,
+          commandRepliesData = commandRepliesData,
+          webhookCertificate = webhookCertificate,
+          commandEffectfulCallback = commandEffectfulCallback
+        )
+      }
+      _ <- Resource.eval(sBot.registerTriggerHandler()(using sBotSetup.api))
+    } yield sBot
   }
 }

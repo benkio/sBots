@@ -132,6 +132,47 @@ trait ISBot[F[_]: Async: LogWriter] {
         } yield ()
       )
 
+  /** The reply to a fired trigger subscription: the message is handled as a live one, without the timeout filter and
+    * without the post computation. The replies are not attached to the (synthetic) message.
+    */
+  def scheduledTriggerLogic(
+      msg: ModelMessage
+  )(using api: Api[F]): F[Unit] =
+    ReplyBundleMessage
+      .selectReplyBundle(
+        msg = msg,
+        messageRepliesData = messageRepliesData,
+        ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix,
+        disableForward = sBotConfig.disableForward
+      )
+      .fold(
+        LogWriter.info(
+          s"${sBotConfig.sBotInfo.botName}: scheduled trigger `${msg.text.getOrElse("")}` matches no reply bundle, nothing sent"
+        )
+      )(replyBundle =>
+        LogWriter.info(
+          s"${sBotConfig.sBotInfo.botName}: computing scheduled trigger ${msg.text} matching ${replyBundle.trigger}"
+        ) *>
+          ComputeReply
+            .execute[F](
+              replyBundle = replyBundle,
+              message = msg,
+              repository = repository,
+              backgroundJobManager = backgroundJobManager,
+              effectfulCallbacks = commandEffectfulCallback,
+              dbLayer = dbLayer,
+              ttl = sBotConfig.messageTimeToLive,
+              replyToMessageOverride = Some(false)
+            )
+            .void
+      )
+
+  /** Binds this bot to the trigger subscriptions of its background job manager (late-bound: the manager is built before
+    * the bot). To be called once, right after the bot is built.
+    */
+  def registerTriggerHandler()(using api: Api[F]): F[Unit] =
+    backgroundJobManager.setTriggerHandler(scheduledTriggerLogic)
+
   def commandLogic(
       msg: ModelMessage
   )(using api: Api[F]): F[Unit] =

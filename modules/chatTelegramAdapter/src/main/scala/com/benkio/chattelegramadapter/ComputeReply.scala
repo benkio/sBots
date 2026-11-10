@@ -31,7 +31,8 @@ object ComputeReply {
       backgroundJobManager: BackgroundJobManager[F],
       effectfulCallbacks: Map[String, Message => F[ReplyValue]],
       dbLayer: DBLayer[F],
-      ttl: Option[FiniteDuration]
+      ttl: Option[FiniteDuration],
+      replyToMessageOverride: Option[Boolean] = None
   ): F[List[TMessage]] = for {
     replyValue <- runReply(
       reply = replyBundle.reply,
@@ -46,7 +47,7 @@ object ComputeReply {
         replyValue = replyValue,
         msg = message,
         repository = repository,
-        replyToMessage = replyBundle.reply.replyToMessage
+        replyToMessage = replyToMessageOverride.getOrElse(replyBundle.reply.replyToMessage)
       )
   } yield result
 

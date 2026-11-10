@@ -3,6 +3,7 @@ package com.benkio.chattelegramadapter
 import cats.effect.std.Random
 import cats.effect.Async
 import cats.effect.Resource
+import cats.syntax.apply.*
 import cats.Parallel
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
@@ -73,14 +74,13 @@ object SBot {
   } yield (sBotSetup, messageRepliesData, commandRepliesData)).use {
     case (sBotSetup, messageRepliesData, commandRepliesData) =>
       given Api[F] = sBotSetup.api
-      action(
-        new SBotPolling[F](
-          sBotSetup = sBotSetup,
-          messageRepliesData = messageRepliesData,
-          commandRepliesData = commandRepliesData,
-          commandEffectfulCallback = commandEffectfulCallback
-        )
+      val sBot     = new SBotPolling[F](
+        sBotSetup = sBotSetup,
+        messageRepliesData = messageRepliesData,
+        commandRepliesData = commandRepliesData,
+        commandEffectfulCallback = commandEffectfulCallback
       )
+      sBot.registerTriggerHandler() *> action(sBot)
   }
 
   def buildWebhookBot[F[_]: Async: Random](
@@ -104,15 +104,17 @@ object SBot {
       commandRepliesData <- Resource.eval(
         sBotSetup.jsonDataRepository.loadData[ReplyBundleCommand](sBotConfig.commandsJsonFilename)
       )
-    } yield {
-      given Api[F] = sBotSetup.api
-      new SBotWebhook[F](
-        sBotSetup = sBotSetup,
-        messageRepliesData = messageRepliesData,
-        commandRepliesData = commandRepliesData,
-        webhookCertificate = webhookCertificate,
-        commandEffectfulCallback = commandEffectfulCallback
-      )
-    }
+      sBot = {
+        given Api[F] = sBotSetup.api
+        new SBotWebhook[F](
+          sBotSetup = sBotSetup,
+          messageRepliesData = messageRepliesData,
+          commandRepliesData = commandRepliesData,
+          webhookCertificate = webhookCertificate,
+          commandEffectfulCallback = commandEffectfulCallback
+        )
+      }
+      _ <- Resource.eval(sBot.registerTriggerHandler()(using sBotSetup.api))
+    } yield sBot
   }
 }

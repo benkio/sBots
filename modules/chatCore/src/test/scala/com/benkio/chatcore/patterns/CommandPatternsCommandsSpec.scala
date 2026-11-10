@@ -175,6 +175,22 @@ class CommandPatternsCommandsSpec extends CatsEffectSuite {
     }
   }
 
+  test("Subscribe command should schedule a trigger subscription with its text as target") {
+    val manager = BackgroundJobManagerMock.mock()
+    subscribe(manager = manager, text = "/subscribe 0 0 9 * * ? trigger buongiorno a tutti").map { reply =>
+      assert(reply.show.startsWith("Subscription successfully scheduled."), reply.show)
+      assertEquals(manager.getScheduledSubscriptions().map(_.subscriptionType), List(SubscriptionType.Trigger))
+    }
+  }
+
+  test("Subscribe command should reject a trigger subscription without text and schedule nothing") {
+    val manager = BackgroundJobManagerMock.mock()
+    subscribe(manager = manager, text = "/subscribe 0 0 9 * * ? trigger").map { reply =>
+      assert(reply.show.contains("A trigger subscription needs the text"), reply.show)
+      assertEquals(manager.getScheduledSubscriptions(), List.empty)
+    }
+  }
+
   test("Subscribe command should reject a cron that fires more often than once a minute") {
     val manager = BackgroundJobManagerMock.mock()
     List("* * * ? * *", "*/30 * * ? * *", "0,59 * * ? * *").traverse { cron =>
@@ -186,7 +202,7 @@ class CommandPatternsCommandsSpec extends CatsEffectSuite {
 
   test("Subscribe command should reject unsupported types and schedule nothing") {
     val manager = BackgroundJobManagerMock.mock()
-    List("calendar", "trigger", "hello").traverse { token =>
+    List("calendar", "hello").traverse { token =>
       subscribe(manager = manager, text = s"/subscribe 0 * * ? * * $token something").map(reply =>
         assert(reply.show.contains(s"Unsupported subscription type '$token'"), reply.show)
       )

@@ -1,9 +1,11 @@
 package com.benkio.integration.integrationmunit.chatcore
 
+import cats.effect.kernel.Ref
 import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionId
@@ -371,6 +373,69 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
         )
       )
     } yield assertEquals(backgroundJobManager.getScheduledSubscriptions().map(_.subscriptionId), List(valid.id))
+    result.use_
+  }
+
+  private def triggerSubscription(target: Option[String]): Subscription =
+    quietSubscription(0L).copy(
+      id = SubscriptionId(UUID.randomUUID()),
+      subscriptionType = SubscriptionType.Trigger,
+      target = target
+    )
+
+  databaseFixture.test(
+    "A stored trigger subscription is loaded on restart and fires the late-bound handler with a fresh message"
+  ) { fixture =>
+    val trigger = triggerSubscription(Some("buongiorno a tutti"))
+    val result  = for {
+      dbLayer              <- fixture.resourceDBLayer
+      repository           <- fixture.repositoryResource
+      _                    <- Resource.eval(dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(trigger)))
+      backgroundJobManager <- Resource.eval(
+        TelegramBackgroundJobManager(
+          repository = repository,
+          dbLayer = dbLayer,
+          sBotInfo = sBotInfo,
+          ttl = sBotConfig.messageTimeToLive
+        )
+      )
+      received <- Resource.eval(Ref.of[IO, List[Message]](List.empty))
+      before   <- Resource.eval(IO(Instant.now.getEpochSecond))
+      _        <- Resource.eval(backgroundJobManager.setTriggerHandler(m => received.update(_ :+ m)))
+      fired    <- Resource.eval(backgroundJobManager.runSubscription(trigger))
+      _        <- Resource.eval(fired._1.compile.drain)
+      messages <- Resource.eval(received.get)
+      _        <- Resource.eval(dbLayer.dbSubscription.deleteSubscription(trigger.id.value))
+    } yield {
+      assertEquals(
+        backgroundJobManager.getScheduledSubscriptions().map(_.subscriptionType),
+        List(SubscriptionType.Trigger)
+      )
+      assertEquals(messages.map(_.text), List(Some("buongiorno a tutti")))
+      assertEquals(messages.map(_.chatId), List(trigger.chatId))
+      assert(messages.head.date >= before, messages.toString)
+    }
+    result.use_
+  }
+
+  databaseFixture.test(
+    "A trigger subscription firing with no handler set does not fail and fires nothing"
+  ) { fixture =>
+    val trigger = triggerSubscription(Some("buongiorno"))
+    val result  = for {
+      dbLayer              <- fixture.resourceDBLayer
+      repository           <- fixture.repositoryResource
+      backgroundJobManager <- Resource.eval(
+        TelegramBackgroundJobManager(
+          repository = repository,
+          dbLayer = dbLayer,
+          sBotInfo = sBotInfo,
+          ttl = sBotConfig.messageTimeToLive
+        )
+      )
+      fired <- Resource.eval(backgroundJobManager.runSubscription(trigger))
+      now   <- Resource.eval(fired._1.compile.toList)
+    } yield assertEquals(now.size, 1)
     result.use_
   }
 }

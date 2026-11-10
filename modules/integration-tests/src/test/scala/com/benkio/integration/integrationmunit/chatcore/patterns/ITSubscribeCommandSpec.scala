@@ -158,6 +158,32 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test(
+    "Subscribe Command should store and schedule a trigger subscription with its text as target"
+  ) { fixture =>
+    subscribeResource(fixture, s"/subscribe $cronValue trigger buongiorno a tutti").use {
+      case (reply, stored, scheduled) =>
+        IO {
+          assert(reply.show.startsWith("Subscription successfully scheduled."), reply.show)
+          assertEquals(stored.map(_.subscription_type), List("trigger"))
+          assertEquals(stored.map(_.target), List(Some("buongiorno a tutti")))
+          assertEquals(scheduled.map(_.subscriptionType), List(SubscriptionType.Trigger))
+        }
+    }
+  }
+
+  databaseFixture.test(
+    "Subscribe Command should not store a trigger subscription without text"
+  ) { fixture =>
+    subscribeResource(fixture, s"/subscribe $cronValue trigger").use { case (reply, stored, scheduled) =>
+      IO {
+        assert(reply.show.contains("A trigger subscription needs the text"), reply.show)
+        assertEquals(stored, List.empty)
+        assertEquals(scheduled, List.empty)
+      }
+    }
+  }
+
+  databaseFixture.test(
     "Subscribe Command should refuse the subscription over the per chat limit"
   ) { fixture =>
     val existing = (1 until SubscriptionRules.maxSubscriptionsPerChat).toList.map(_ =>
