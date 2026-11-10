@@ -29,6 +29,14 @@ class CalendarMessageSpec extends FunSuite {
     assertEquals(message.value.split("\n").count(_.startsWith("• [")), 5)
   }
 
+  test("the header and every show are separate blocks divided by a blank line") {
+    val shows   = (1 to 3).toList.map(i => show(id = s"id$i", title = s"Title $i"))
+    val message = CalendarMessage.render("MyBot", shows).get
+    val blocks  = message.value.split("\n\n").toList
+    assertEquals(blocks.size, 4)
+    assert(blocks.tail.forall(block => block.startsWith("• [") && !block.contains("\n")), message.value)
+  }
+
   test("shows are ordered by upload date and then id") {
     val shows = List(
       show(id = "b", title = "B", uploadDate = LocalDate.of(2020, 1, 1)),

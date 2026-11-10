@@ -634,13 +634,20 @@ ${ignoreMessagePrefix
       subscriptions     <- subscriptionsData.traverse(sd => Async[F].fromEither(Subscription(sd)))
       memSubscriptions     = backgroundJobManager.getScheduledSubscriptions()
       memChatSubscriptions = memSubscriptions.filter { case SubscriptionKey(_, cid, _) => cid.value == m.chatId.value }
-    } yield Markdown(
-      s"There are ${subscriptions.length} stored subscriptions for this chat:\n" ++ subscriptions
-        .map(_.show)
-        .mkString("\n") ++
-        s"\nThere are ${memChatSubscriptions.size}/${memSubscriptions.size} scheduled subscriptions for this chat:\n" ++
-        memChatSubscriptions.map(_.show).mkString("\n")
-    )
+    } yield {
+      // blank lines and list items: a single newline is only a soft break in markdown
+      def section(title: String, lines: List[String]): String =
+        (title :: lines.map(line => s"- $line")).mkString("\n\n")
+      Markdown(
+        section(
+          s"There are ${subscriptions.length} stored subscriptions for this chat:",
+          subscriptions.map(_.show)
+        ) ++ "\n\n" ++ section(
+          s"There are ${memChatSubscriptions.size}/${memSubscriptions.size} scheduled subscriptions for this chat:",
+          memChatSubscriptions.map(_.show)
+        )
+      )
+    }
 
     private[patterns] def subscriptionsReplyBundleCommand(
         sBotInfo: SBotInfo

@@ -94,9 +94,12 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
       assertEquals(
         subscriptionsFromCommandResult.show,
         """There are 1 stored subscriptions for this chat:
-          |Subscription Id: `b674cce0-9684-4d31-8cc7-9e2a41ea0878` - Type: Show - Cron: `* * * ? * *`
+          |
+          |- Subscription Id: `b674cce0-9684-4d31-8cc7-9e2a41ea0878` - Type: Show - Cron: `* * * ? * *`
+          |
           |There are 1/2 scheduled subscriptions for this chat:
-          |Subscription Id: `b674cce0-9684-4d31-8cc7-9e2a41ea0878` - chat id: 0""".stripMargin
+          |
+          |- Subscription Id: `b674cce0-9684-4d31-8cc7-9e2a41ea0878` - chat id: 0""".stripMargin
       )
     }
     resourceAssert.use_
