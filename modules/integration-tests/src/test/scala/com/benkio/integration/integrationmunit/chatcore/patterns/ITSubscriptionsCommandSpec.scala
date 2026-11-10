@@ -91,16 +91,17 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
         )
       )
     } yield {
-      assertEquals(
-        subscriptionsFromCommandResult.show,
-        """There are 1 stored subscriptions for this chat:
-          |
-          |- Subscription Id: `b674cce0-9684-4d31-8cc7-9e2a41ea0878` - Type: Show - Cron: `* * * ? * *`
-          |
-          |There are 1/2 scheduled subscriptions for this chat:
-          |
-          |- Subscription Id: `b674cce0-9684-4d31-8cc7-9e2a41ea0878` - chat id: 0""".stripMargin
+      val text = subscriptionsFromCommandResult.show
+      assert(text.startsWith("Subscriptions of this chat (1), times are server time:"), text)
+      assert(text.contains("| Type | Query | Next trigger | Cron | ID |"), text)
+      // a random show every second: the next trigger is a time, the subscription is scheduled
+      assert(
+        text.matches(
+          "(?s).*\\| show \\| _random_ \\| \\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2} \\| `\\* \\* \\* \\? \\* \\*` \\| `b674cce0-9684-4d31-8cc7-9e2a41ea0878` \\|.*"
+        ),
+        text
       )
+      assert(!text.contains("not scheduled"), text)
     }
     resourceAssert.use_
   }
@@ -139,9 +140,10 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
       )
     } yield {
       val text = result.show
-      assert(text.contains("There are 1 stored subscriptions for this chat:"), text)
-      assert(text.contains(" - Type: Show - Cron: "), text)
-      assert(text.contains(" - Target: pino scotto"), text)
+      assert(text.contains("Subscriptions of this chat (1)"), text)
+      assert(text.contains("| show | pino scotto | "), text)
+      // the next 1st of January at midnight
+      assert(text.contains("-01-01 00:00 | `0 0 0 1 1 ?` | `5c1b3a62-7d3c-4a44-9b0e-2f0e3a6e1c11` |"), text)
     }
     resourceAssert.use_
   }
