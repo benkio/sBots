@@ -83,7 +83,12 @@ class ITCalendarCommandSpec extends CatsEffectSuite with DBFixture {
       // the DB is shared with the other specs: leave it as it was found
       _ <- Resource.make(List(sBotInfo, otherBotInfo).traverse_(b => dbLayer.dbShow.insertShow(show(b))))(_ =>
         List(sBotInfo, otherBotInfo).traverse_(b => dbLayer.dbShow.deleteShow(show(b))) *>
-          List(chatId, ChatId(2L)).traverse_(c => dbLayer.dbSubscription.deleteSubscriptions(c.value))
+          (for {
+            c <- List(chatId, ChatId(2L))
+            b <- List(sBotInfo, otherBotInfo)
+          } yield (c, b)).traverse_ { case (c, b) =>
+            dbLayer.dbSubscription.deleteSubscriptions(c.value, b.botId)
+          }
       )
       jobManager <- manager(fixture = fixture, dbLayer = dbLayer)
     } yield (dbLayer, jobManager)

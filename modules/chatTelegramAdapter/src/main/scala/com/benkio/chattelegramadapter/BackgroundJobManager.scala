@@ -165,7 +165,7 @@ object TelegramBackgroundJobManager {
       }
       for {
         _ <- log.info(s"[BackgroundJobManager] Cancel subscriptions for: $chatId")
-        _ <- dbLayer.dbSubscription.deleteSubscriptions(chatId.value)
+        _ <- dbLayer.dbSubscription.deleteSubscriptions(chatId.value, sBotInfo.botId)
         _ <- optCancellingBooleans.values.toList.traverse_(cancelSignal => cancelSignal.set(true))
       } yield scheduleReferences = onGoingScheduleReferences
     }

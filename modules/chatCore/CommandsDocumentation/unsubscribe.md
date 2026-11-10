@@ -22,6 +22,7 @@ Rimuove sottoscrizioni della chat corrente.
 
 - L'ID di una sottoscrizione si trova nella risposta di `/subscribe` e in `/subscriptions`.
 - Se non esiste nessuna sottoscrizione del tipo indicato, il comando non fa nulla.
+- Il comando agisce solo sulle sottoscrizioni di questo bot nella chat corrente: le sottoscrizioni degli altri bot della stessa chat non vengono toccate.
 
 ## EN
 
@@ -45,3 +46,4 @@ Remove subscriptions for the current chat.
 
 - The ID of a subscription is in the reply of `/subscribe` and in `/subscriptions`.
 - If there is no subscription of the given type, the command does nothing.
+- The command only affects the subscriptions of this bot in the current chat: the subscriptions of the other bots of the same chat are left untouched.

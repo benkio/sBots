@@ -43,8 +43,11 @@ trait DBSubscription[F[_]] {
   def deleteSubscription(
       subscriptionId: UUID
   ): F[Unit]
+
+  /** All the subscriptions of the chat for the given bot: the table is shared by all the bots. */
   def deleteSubscriptions(
-      chatId: Long
+      chatId: Long,
+      botId: SBotId
   ): F[Unit]
   def deleteSubscriptionsByType(
       chatId: Long,
@@ -81,10 +84,11 @@ object DBSubscription {
       )
 
     override def deleteSubscriptions(
-        chatId: Long
+        chatId: Long,
+        botId: SBotId
     ): F[Unit] =
-      deleteSubscriptionsQuery(chatId).run.transact(transactor).void <* log.debug(
-        s"delete subscriptions for chat id $chatId"
+      deleteSubscriptionsQuery(chatId, botId).run.transact(transactor).void <* log.debug(
+        s"delete subscriptions for chat id $chatId and bot id ${botId.value}"
       )
 
     override def deleteSubscriptionsByType(
@@ -134,8 +138,8 @@ object DBSubscription {
   def deleteSubscriptionQuery(subscriptionId: String): Update0 =
     sql"DELETE FROM subscription WHERE subscription_id = $subscriptionId".update
 
-  def deleteSubscriptionsQuery(chatId: Long): Update0 =
-    sql"DELETE FROM subscription WHERE chat_id = $chatId".update
+  def deleteSubscriptionsQuery(chatId: Long, botId: SBotId): Update0 =
+    sql"DELETE FROM subscription WHERE chat_id = $chatId AND bot_id = ${botId.value}".update
 
   def deleteSubscriptionsByTypeQuery(chatId: Long, botId: SBotId, subscriptionType: SubscriptionType): Update0 = {
     val subscriptionTypeValue = subscriptionType.asString

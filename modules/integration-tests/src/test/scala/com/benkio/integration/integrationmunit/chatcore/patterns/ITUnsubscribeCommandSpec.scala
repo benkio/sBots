@@ -153,6 +153,59 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test(
+    "Unsubscribe Command with an empty input should remove only the subscriptions of this chat and bot, leaving the ones of the other bots of the chat"
+  ) { fixture =>
+    val quietCron     = Cron.unsafeParse("0 0 0 1 1 ?")
+    val show          = testSubscription.copy(id = SubscriptionId(UUID.randomUUID()), cron = quietCron)
+    val calendar      = show.copy(id = SubscriptionId(UUID.randomUUID()), subscriptionType = SubscriptionType.Calendar)
+    val otherChatShow = show.copy(id = SubscriptionId(UUID.randomUUID()), chatId = ChatId(1L))
+    // another bot in the very same chat
+    val otherBotShow = DBSubscriptionData(show.copy(id = SubscriptionId(UUID.randomUUID())))
+      .copy(bot_id = "anotherbot")
+    val otherBotCalendar = DBSubscriptionData(calendar.copy(id = SubscriptionId(UUID.randomUUID())))
+      .copy(bot_id = "anotherbot")
+    val result = for {
+      dbLayer              <- fixture.resourceDBLayer
+      repository           <- fixture.repositoryResource
+      backgroundJobManager <- Resource.eval(
+        TelegramBackgroundJobManager(
+          repository = repository,
+          dbLayer = dbLayer,
+          sBotInfo = sBotConfig.sBotInfo,
+          ttl = sBotConfig.messageTimeToLive
+        )
+      )
+      _ <- Resource.eval(List(show, calendar, otherChatShow).traverse_(backgroundJobManager.scheduleSubscription))
+      // the DB is shared with the other specs: leave it as it was found
+      _ <- Resource.make(List(otherBotShow, otherBotCalendar).traverse_(dbLayer.dbSubscription.insertSubscription))(_ =>
+        List(otherBotShow, otherBotCalendar).traverse_(s =>
+          dbLayer.dbSubscription.deleteSubscription(UUID.fromString(s.id))
+        ) *> dbLayer.dbSubscription.deleteSubscriptions(1L, botId)
+      )
+      reply <- Resource.eval(
+        SubscribeUnsubscribeCommand.unsubcribeCommandLogic(
+          backgroundJobManager,
+          msg.copy(text = Some("/unsubscribe")),
+          sBotInfo = sBotConfig.sBotInfo,
+          ttl = sBotConfig.messageTimeToLive
+        )
+      )
+      stored      <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(botId))
+      storedOther <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(SBotId("anotherbot")))
+    } yield {
+      assertEquals(reply.show, "All Subscriptions for current chat successfully cancelled")
+      assertEquals(backgroundJobManager.getScheduledSubscriptions().map(_.subscriptionId), List(otherChatShow.id))
+      assertEquals(stored.map(_.id), List(otherChatShow.id.value.toString), "only this chat and bot are removed")
+      assertEquals(
+        storedOther.map(_.id).toSet,
+        Set(otherBotShow.id, otherBotCalendar.id),
+        "the subscriptions of the other bots of the chat are untouched"
+      )
+    }
+    result.use_
+  }
+
+  databaseFixture.test(
     "Unsubscribe Command with a type should remove only the subscriptions of that type of this chat and bot, from memory and db"
   ) { fixture =>
     val quietCron    = Cron.unsafeParse("0 0 0 1 1 ?")

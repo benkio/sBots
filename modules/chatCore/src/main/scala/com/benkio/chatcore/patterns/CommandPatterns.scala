@@ -37,6 +37,7 @@ import com.benkio.chatcore.model.SubscribeArguments
 import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionRules
 import com.benkio.chatcore.model.SubscriptionType
+import com.benkio.chatcore.model.SubscriptionsTable
 import com.benkio.chatcore.model.Timeout
 import com.benkio.chatcore.model.Trigger
 import com.benkio.chatcore.model.UnsubscribeArguments
@@ -661,22 +662,19 @@ ${ignoreMessagePrefix
     ): F[ReplyValue] = for {
       subscriptionsData <- dbSubscription.getSubscriptions(sBotInfo.botId, Some(m.chatId.value))
       subscriptions     <- subscriptionsData.traverse(sd => Async[F].fromEither(Subscription(sd)))
-      memSubscriptions     = backgroundJobManager.getScheduledSubscriptions()
-      memChatSubscriptions = memSubscriptions.filter { case SubscriptionKey(_, cid, _) => cid.value == m.chatId.value }
-    } yield {
-      // blank lines and list items: a single newline is only a soft break in markdown
-      def section(title: String, lines: List[String]): String =
-        (title :: lines.map(line => s"- $line")).mkString("\n\n")
-      Markdown(
-        section(
-          s"There are ${subscriptions.length} stored subscriptions for this chat:",
-          subscriptions.map(_.show)
-        ) ++ "\n\n" ++ section(
-          s"There are ${memChatSubscriptions.size}/${memSubscriptions.size} scheduled subscriptions for this chat:",
-          memChatSubscriptions.map(_.show)
-        )
+      now               <- Async[F].delay(LocalDateTime.now())
+      scheduledIds = backgroundJobManager
+        .getScheduledSubscriptions()
+        .collect { case SubscriptionKey(subscriptionId, cid, _) if cid.value == m.chatId.value => subscriptionId }
+      storedIds = subscriptions.map(_.id).toSet
+    } yield Markdown(
+      SubscriptionsTable.render(
+        subscriptions = subscriptions,
+        scheduled = scheduledIds.toSet,
+        now = now,
+        scheduledOnly = scheduledIds.filterNot(storedIds.contains)
       )
-    }
+    )
 
     private[patterns] def subscriptionsReplyBundleCommand(
         sBotInfo: SBotInfo

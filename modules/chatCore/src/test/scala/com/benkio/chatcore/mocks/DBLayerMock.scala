@@ -139,8 +139,8 @@ object DBLayerMock {
     override def deleteSubscription(subscriptionId: UUID): IO[Unit] =
       db.update(_.filterNot(_.id == subscriptionId.toString))
 
-    override def deleteSubscriptions(chatId: Long): IO[Unit] =
-      db.update(_.filterNot(_.chat_id == chatId))
+    override def deleteSubscriptions(chatId: Long, botId: SBotId): IO[Unit] =
+      db.update(_.filterNot(s => s.chat_id == chatId && s.bot_id == botId.value))
 
     override def deleteSubscriptionsByType(chatId: Long, botId: SBotId, subscriptionType: SubscriptionType): IO[Unit] =
       db.update(

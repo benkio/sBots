@@ -44,7 +44,7 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
     check(DBSubscription.deleteSubscriptionQuery(testSubscriptionId))
     check(DBSubscription.getSubscriptionQuery(testSubscriptionId))
     check(DBSubscription.getRandomSubscriptionQuery())
-    check(DBSubscription.deleteSubscriptionsQuery(2L))
+    check(DBSubscription.deleteSubscriptionsQuery(2L, botId))
     check(DBSubscription.deleteSubscriptionsByTypeQuery(2L, botId, SubscriptionType.Calendar))
   }
 
