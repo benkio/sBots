@@ -21,11 +21,11 @@ jobs:
 
       - name: Download SQLite DB Prod from VM
         run: |
-          rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=no' ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/botDB.sqlite3 /home/runner/work/botDB.sqlite3
+          rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10' ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/botDB.sqlite3 /home/runner/work/botDB.sqlite3
 
       - name: Download log file from VM
         run: |
-          rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=no' ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/log.txt /home/runner/work/log.txt
+          rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10' ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/log.txt /home/runner/work/log.txt
       - name: Upload DB as artifact
         uses: actions/upload-artifact@v4
         with:
