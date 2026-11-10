@@ -3,8 +3,6 @@ package com.benkio.chattelegramadapter
 import cats.effect.kernel.Ref
 import cats.effect.IO
 import com.benkio.chatcore.messagefiltering.FilteringOlder
-import com.benkio.chatcore.model.reply.EffectfulKey
-import com.benkio.chatcore.model.reply.EffectfulReply
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.TextReply
 import com.benkio.chatcore.model.ChatId
@@ -48,8 +46,8 @@ class ScheduledTriggerSpec extends CatsEffectSuite {
       customize: SampleWebhookBot => SampleWebhookBot = identity
   )(test: (SampleWebhookBot, PayloadRecordingApi, IO[List[(String, io.circe.Json)]]) => IO[A]): IO[A] =
     for {
-      base            <- SampleWebhookBot()
-      bot             = customize(new SampleWebhookBot(base.sBotSetup, messageReplies, List.empty))
+      base <- SampleWebhookBot()
+      bot = customize(new SampleWebhookBot(base.sBotSetup, messageReplies, List.empty))
       apiAndRecording <- PayloadRecordingApi()
       (api, recorded) = apiAndRecording
       result <- test(bot, api, recorded)
@@ -65,16 +63,17 @@ class ScheduledTriggerSpec extends CatsEffectSuite {
   }
 
   test("a matching text gets the reply a live message would get, not attached to the synthetic message") {
-    withBot(List(replyingBundle(trigger = "hello", reply = "hi there", replyToMessage = true))) { (bot, api, recorded) =>
-      for {
-        _     <- bot.scheduledTriggerLogic(message("hello"))(using api)
-        calls <- recorded
-      } yield {
-        assertEquals(calls.map(_._1), List("sendChatAction", "sendMessage"))
-        val payload = calls.last._2
-        assertEquals(payload.hcursor.get[String]("text"), Right("hi there"))
-        assert(payload.hcursor.downField("reply_parameters").failed, payload.noSpaces)
-      }
+    withBot(List(replyingBundle(trigger = "hello", reply = "hi there", replyToMessage = true))) {
+      (bot, api, recorded) =>
+        for {
+          _     <- bot.scheduledTriggerLogic(message("hello"))(using api)
+          calls <- recorded
+        } yield {
+          assertEquals(calls.map(_._1), List("sendChatAction", "sendMessage"))
+          val payload = calls.last._2
+          assertEquals(payload.hcursor.get[String]("text"), Right("hi there"))
+          assert(payload.hcursor.downField("reply_parameters").failed, payload.noSpaces)
+        }
     }
   }
 
@@ -83,23 +82,6 @@ class ScheduledTriggerSpec extends CatsEffectSuite {
       bot.scheduledTriggerLogic(message("something else"))(using api) *> recorded.map(calls =>
         assertEquals(calls, List.empty)
       )
-    }
-  }
-
-  test("a text matching an effectful reply runs the effectful key") {
-    val effectful = ReplyBundleMessage(
-      trigger = replyingBundle(trigger = "subs", reply = "unused", replyToMessage = false).trigger,
-      reply = EffectfulReply(key = EffectfulKey.Subscriptions(SampleWebhookBot.sBotInfo)),
-      matcher = replyingBundle(trigger = "subs", reply = "unused", replyToMessage = false).matcher
-    )
-    withBot(List(effectful)) { (bot, api, recorded) =>
-      for {
-        _     <- bot.scheduledTriggerLogic(message("subs"))(using api)
-        calls <- recorded
-      } yield {
-        assertEquals(calls.map(_._1), List("sendChatAction", "sendRichMessage"))
-        assert(calls.last._2.hcursor.downField("reply_parameters").failed, calls.last._2.noSpaces)
-      }
     }
   }
 

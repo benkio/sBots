@@ -118,14 +118,10 @@ trait ISBot[F[_]: Async: LogWriter] {
           filter <- filteringMatchesMessages(replyBundle, msg)
           _      <-
             if filter then ComputeReply
-              .execute[F](
-                replyBundle = replyBundle,
+              .executePlain[F](
+                reply = replyBundle.reply,
                 message = msg,
-                repository = repository,
-                backgroundJobManager = backgroundJobManager,
-                effectfulCallbacks = commandEffectfulCallback,
-                dbLayer = dbLayer,
-                ttl = sBotConfig.messageTimeToLive
+                repository = repository
               )
               .void
             else Async[F].unit
@@ -154,15 +150,11 @@ trait ISBot[F[_]: Async: LogWriter] {
           s"${sBotConfig.sBotInfo.botName}: computing scheduled trigger ${msg.text} matching ${replyBundle.trigger}"
         ) *>
           ComputeReply
-            .execute[F](
-              replyBundle = replyBundle,
+            .executePlain[F](
+              reply = replyBundle.reply,
               message = msg,
               repository = repository,
-              backgroundJobManager = backgroundJobManager,
-              effectfulCallbacks = commandEffectfulCallback,
-              dbLayer = dbLayer,
-              ttl = sBotConfig.messageTimeToLive,
-              replyToMessageOverride = Some(false)
+              replyToMessage = Some(false)
             )
             .void
       )
