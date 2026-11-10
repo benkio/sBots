@@ -52,27 +52,29 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
       sBotConfig: SBotConfig,
       ttl: Option[FiniteDuration]
   )(using Api[IO], LogWriter[IO]): IO[BotSetup[IO]] =
-    TelegramBackgroundJobManager[IO](
-      repository = repository,
-      dbLayer = dbLayer,
-      sBotInfo = sBotConfig.sBotInfo,
-      ttl = ttl
-    ).map { bjm =>
-      val stubClient = Client.fromHttpApp(HttpApp[IO](_ => IO.pure(Response[IO](Status.Ok))))
-      BotSetup(
-        token = "test",
-        httpClient = stubClient,
+    for {
+      // like in production: the replies are loaded once, with the setup, and served by the DBLayer
+      dbLayerWithReplies <- BotSetup.loadReplies[IO](dbLayer, JsonDataRepository[IO](), sBotConfig)
+      bjm                <- TelegramBackgroundJobManager[IO](
         repository = repository,
-        jsonDataRepository = JsonDataRepository[IO]( // repository
-        ),
-        dbLayer = dbLayer,
-        backgroundJobManager = bjm,
-        api = summon[Api[IO]],
-        webhookUri = uri"https://localhost",
-        webhookPath = uri"/",
-        sBotConfig = sBotConfig
+        dbLayer = dbLayerWithReplies,
+        sBotInfo = sBotConfig.sBotInfo,
+        ttl = ttl
       )
-    }
+      stubClient = Client.fromHttpApp(HttpApp[IO](_ => IO.pure(Response[IO](Status.Ok))))
+    } yield BotSetup(
+      token = "test",
+      httpClient = stubClient,
+      repository = repository,
+      jsonDataRepository = JsonDataRepository[IO]( // repository
+      ),
+      dbLayer = dbLayerWithReplies,
+      backgroundJobManager = bjm,
+      api = summon[Api[IO]],
+      webhookUri = uri"https://localhost",
+      webhookPath = uri"/",
+      sBotConfig = sBotConfig
+    )
 
   private def triggerFileContentForSearch(triggerContent: String): String =
     triggerContent.replace("""\|""", "|")

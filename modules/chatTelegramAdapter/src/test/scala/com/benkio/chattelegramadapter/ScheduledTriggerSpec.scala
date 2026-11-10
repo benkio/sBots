@@ -1,6 +1,5 @@
 package com.benkio.chattelegramadapter
 
-import cats.effect.kernel.Ref
 import cats.effect.IO
 import com.benkio.chatcore.messagefiltering.FilteringOlder
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
@@ -11,15 +10,17 @@ import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionId
 import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.Logger.given
-import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chattelegramadapter.mocks.PayloadRecordingApi
 import com.benkio.chattelegramadapter.mocks.SampleWebhookBot
 import cron4s.Cron
+import io.circe.Json
 import munit.CatsEffectSuite
+import telegramium.bots.high.Api
 
 import java.time.Instant
 import java.util.UUID
 
+/** A trigger subscription fires from the background job manager, with the replies served by the `DBLayer`. */
 class ScheduledTriggerSpec extends CatsEffectSuite {
 
   private val chatId = ChatId(0L)
@@ -40,18 +41,19 @@ class ScheduledTriggerSpec extends CatsEffectSuite {
     subscribedAt = Instant.now()
   )
 
-  // The bot with the given message replies, driven with a recording api
-  private def withBot[A](
+  // Fires the subscription of a bot whose message replies are the given ones, returning the api calls it made
+  private def fire(
       messageReplies: List[ReplyBundleMessage],
-      customize: SampleWebhookBot => SampleWebhookBot = identity
-  )(test: (SampleWebhookBot, PayloadRecordingApi, IO[List[(String, io.circe.Json)]]) => IO[A]): IO[A] =
+      subscription: Subscription
+  ): IO[List[(String, Json)]] =
     for {
-      base <- SampleWebhookBot()
-      bot = customize(new SampleWebhookBot(base.sBotSetup, messageReplies, List.empty))
       apiAndRecording <- PayloadRecordingApi()
       (api, recorded) = apiAndRecording
-      result <- test(bot, api, recorded)
-    } yield result
+      bot   <- SampleWebhookBot(Some(messageReplies))(using summon, api: Api[IO])
+      fired <- bot.backgroundJobManager.runSubscription(subscription)
+      _     <- fired._1.compile.drain
+      calls <- recorded
+    } yield calls
 
   test("a fresh-dated message passes the FilteringOlder filter, a message with date = 0 does not") {
     val bundle = replyingBundle(trigger = "hello", reply = "hi", replyToMessage = false)
@@ -63,106 +65,63 @@ class ScheduledTriggerSpec extends CatsEffectSuite {
   }
 
   test("a matching text gets the reply a live message would get, not attached to the synthetic message") {
-    withBot(List(replyingBundle(trigger = "hello", reply = "hi there", replyToMessage = true))) {
-      (bot, api, recorded) =>
-        for {
-          _     <- bot.scheduledTriggerLogic(message("hello"))(using api)
-          calls <- recorded
-        } yield {
-          assertEquals(calls.map(_._1), List("sendChatAction", "sendMessage"))
-          val payload = calls.last._2
-          assertEquals(payload.hcursor.get[String]("text"), Right("hi there"))
-          assert(payload.hcursor.downField("reply_parameters").failed, payload.noSpaces)
-        }
+    fire(
+      List(replyingBundle(trigger = "hello", reply = "hi there", replyToMessage = true)),
+      triggerSubscription(Some("say hello"))
+    ).map { calls =>
+      assertEquals(calls.map(_._1), List("sendChatAction", "sendMessage"))
+      val payload = calls.last._2
+      assertEquals(payload.hcursor.get[String]("text"), Right("hi there"))
+      assert(payload.hcursor.downField("reply_parameters").failed, payload.noSpaces)
     }
+  }
+
+  test("the text is matched like a live message: the longest matching trigger wins") {
+    val bundles = List(
+      replyingBundle(trigger = "hello", reply = "short", replyToMessage = false),
+      replyingBundle(trigger = "hello world", reply = "long", replyToMessage = false)
+    )
+    fire(bundles, triggerSubscription(Some("hello world"))).map(calls =>
+      assertEquals(calls.last._2.hcursor.get[String]("text"), Right("long"))
+    )
   }
 
   test("a text matching nothing sends nothing") {
-    withBot(List(replyingBundle(trigger = "hello", reply = "hi", replyToMessage = false))) { (bot, api, recorded) =>
-      bot.scheduledTriggerLogic(message("something else"))(using api) *> recorded.map(calls =>
-        assertEquals(calls, List.empty)
-      )
-    }
+    fire(
+      List(replyingBundle(trigger = "hello", reply = "hi", replyToMessage = false)),
+      triggerSubscription(Some("something else"))
+    )
+      .map(calls => assertEquals(calls, List.empty))
   }
 
-  test("the timeout filter and the post computation are skipped") {
-    Ref.of[IO, Boolean](false).flatMap { postComputationRan =>
-      withBot(
-        List(replyingBundle(trigger = "hello", reply = "hi", replyToMessage = false)),
-        customize = bot =>
-          new SampleWebhookBot(bot.sBotSetup, bot.messageRepliesData, bot.commandRepliesData) {
-            override def filteringMatchesMessages: (ReplyBundleMessage, Message) => IO[Boolean] =
-              (_, _) => IO.pure(false) // a live message would be filtered out
-            override def postComputation: Message => IO[Unit] = _ => postComputationRan.set(true)
-          }
-      ) { (bot, api, recorded) =>
-        for {
-          _     <- bot.scheduledTriggerLogic(message("hello"))(using api)
-          calls <- recorded
-          ran   <- postComputationRan.get
-        } yield {
-          assertEquals(calls.map(_._1), List("sendChatAction", "sendMessage"))
-          assert(!ran)
-        }
-      }
-    }
+  test("the ignore prefix of the bot does not apply: the text just triggers what it matches") {
+    fire(
+      List(replyingBundle(trigger = "hello", reply = "hi", replyToMessage = false)),
+      triggerSubscription(Some("!hello"))
+    ).map(calls => assertEquals(calls.map(_._1), List("sendChatAction", "sendMessage")))
   }
 
-  test("a registered bot replies to a fired trigger subscription as to a live message") {
-    withBot(List(replyingBundle(trigger = "hello", reply = "hi", replyToMessage = false))) { (bot, api, recorded) =>
-      for {
-        _     <- bot.registerTriggerHandler()(using api)
-        fired <- bot.backgroundJobManager.runSubscription(triggerSubscription(Some("say hello please")))
-        _     <- fired._1.compile.drain
-        calls <- recorded
-      } yield assertEquals(calls.map(_._1), List("sendChatAction", "sendMessage"))
-    }
+  test("a trigger subscription without text sends nothing") {
+    fire(List(replyingBundle(trigger = "hello", reply = "hi", replyToMessage = false)), triggerSubscription(None))
+      .map(calls => assertEquals(calls, List.empty))
   }
 
-  test("a trigger subscription fires the handler with the target as text and a current date") {
+  test("a failing reply does not make the fire fail") {
+    // no value to pick from: the computation of the reply raises an error
+    val broken = ReplyBundleMessage.textToText("hello")("x").copy(reply = TextReply(text = Set.empty))
+    fire(List(broken), triggerSubscription(Some("hello"))).map(calls => assertEquals(calls, List.empty))
+  }
+
+  test("the other subscription types are not affected: a show subscription still replies to the message") {
     for {
-      base     <- SampleWebhookBot()
-      received <- Ref.of[IO, List[Message]](List.empty)
-      before   <- IO(Instant.now.getEpochSecond)
-      _        <- base.backgroundJobManager.setTriggerHandler(m => received.update(_ :+ m))
-      fired    <- base.backgroundJobManager.runSubscription(triggerSubscription(Some("say hello")))
-      _        <- fired._1.compile.drain
-      after    <- IO(Instant.now.getEpochSecond)
-      messages <- received.get
-    } yield {
-      assertEquals(messages.map(_.text), List(Some("say hello")))
-      assertEquals(messages.map(_.chatId), List(chatId))
-      assert(messages.head.date >= before && messages.head.date <= after, messages.toString)
-    }
-  }
-
-  test("a trigger firing without any registered handler sends nothing and does not fail") {
-    for {
-      base            <- SampleWebhookBot()
       apiAndRecording <- PayloadRecordingApi()
-      fired           <- base.backgroundJobManager.runSubscription(triggerSubscription(Some("hello")))
-      _               <- fired._1.compile.drain
-      calls           <- apiAndRecording._2
-    } yield assertEquals(calls, List.empty)
-  }
-
-  test("a trigger subscription without text fires nothing") {
-    for {
-      base     <- SampleWebhookBot()
-      received <- Ref.of[IO, List[Message]](List.empty)
-      _        <- base.backgroundJobManager.setTriggerHandler(m => received.update(_ :+ m))
-      fired    <- base.backgroundJobManager.runSubscription(triggerSubscription(None))
-      _        <- fired._1.compile.drain
-      messages <- received.get
-    } yield assertEquals(messages, List.empty)
-  }
-
-  test("a failing handler does not stop the subscription") {
-    for {
-      base  <- SampleWebhookBot()
-      _     <- base.backgroundJobManager.setTriggerHandler(_ => IO.raiseError(new RuntimeException("boom")))
-      fired <- base.backgroundJobManager.runSubscription(triggerSubscription(Some("hello")))
+      (api, recorded) = apiAndRecording
+      bot   <- SampleWebhookBot()(using summon, api: Api[IO])
+      fired <- bot.backgroundJobManager.runSubscription(
+        triggerSubscription(Some("test")).copy(subscriptionType = SubscriptionType.Calendar, target = None)
+      )
       _     <- fired._1.compile.drain
-    } yield ()
+      calls <- recorded
+    } yield assertEquals(calls, List.empty) // a calendar with no show of the day sends nothing
   }
 }

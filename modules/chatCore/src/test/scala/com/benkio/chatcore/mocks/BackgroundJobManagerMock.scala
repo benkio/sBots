@@ -3,7 +3,6 @@ package com.benkio.chatcore.mocks
 import cats.effect.IO
 import cats.syntax.all.*
 import com.benkio.chatcore.model.ChatId
-import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionId
 import com.benkio.chatcore.model.SubscriptionRules
@@ -44,8 +43,6 @@ object BackgroundJobManagerMock {
           scheduleReferences += key -> cancel
         }
       } yield ()
-
-    override def setTriggerHandler(handler: Message => IO[Unit]): IO[Unit] = IO.unit
 
     override def getScheduledSubscriptions(): List[SubscriptionKey] =
       scheduleReferences.keys.toList

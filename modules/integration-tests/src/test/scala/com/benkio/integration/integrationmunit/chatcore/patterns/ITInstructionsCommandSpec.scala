@@ -3,8 +3,6 @@ package com.benkio.integration.integrationmunit.chatcore.patterns
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.model.reply.ReplyBundleCommand
-import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
@@ -67,17 +65,9 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with BotSetupFixture {
     "Instruction Command should return a TextReply with the input instructions"
   ) { fixture =>
     val resourceAssert = for {
-      botSetup           <- fixture.botSetupResource
-      messageRepliesData <- Resource.eval(
-        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](botSetup.sBotConfig.repliesJsonFilename)
-      )
-      commandRepliesData <- Resource.eval(
-        botSetup.jsonDataRepository.loadData[ReplyBundleCommand](botSetup.sBotConfig.commandsJsonFilename)
-      )
+      botSetup <- fixture.botSetupResource
       richardBot = new SBotPolling[IO](
         botSetup,
-        messageRepliesData,
-        commandRepliesData,
         RichardPHJBensonBot.commandEffectfulCallback[IO]
       )
       allCommandRepliesData = richardBot.allCommandRepliesData

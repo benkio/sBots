@@ -53,13 +53,7 @@ class Alessandro0rlandoBotSpec extends BaseBotSpec {
       sBotConfig = orlSBotConfig,
       ttl = orlSBotConfig.messageTimeToLive
     )
-    messageRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleMessage](
-      orlSBotConfig.repliesJsonFilename
-    )
-    commandRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleCommand](
-      orlSBotConfig.commandsJsonFilename
-    )
-  } yield new SBotPolling[IO](botSetup, messageRepliesData, commandRepliesData)(using
+  } yield new SBotPolling[IO](botSetup)(using
     Parallel[IO],
     botSetup.api,
     Async[IO],

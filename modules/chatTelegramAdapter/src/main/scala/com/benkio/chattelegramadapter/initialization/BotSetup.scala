@@ -13,7 +13,11 @@ import com.benkio.chatcore.initialization.Config
 import com.benkio.chatcore.initialization.DBConfig
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceFile
 import com.benkio.chatcore.model.reply.Document
+import com.benkio.chatcore.model.reply.ReplyBundleCommand
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.repository.db.DBCommandReplies
 import com.benkio.chatcore.repository.db.DBLayer
+import com.benkio.chatcore.repository.db.DBMessageReplies
 import com.benkio.chatcore.repository.db.DBRepository
 import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.repository.Repository
@@ -104,6 +108,21 @@ object BotSetup {
       )
     )
 
+  /** The replies and the commands of the bot are loaded once, here, and served from memory by the `DBLayer` to the
+    * background job manager and to the bot.
+    */
+  def loadReplies[F[_]: Async](
+      dbLayer: DBLayer[F],
+      jsonDataRepository: JsonDataRepository[F],
+      sBotConfig: SBotConfig
+  ): F[DBLayer[F]] = for {
+    messageReplies <- jsonDataRepository.loadData[ReplyBundleMessage](sBotConfig.repliesJsonFilename)
+    commandReplies <- jsonDataRepository.loadData[ReplyBundleCommand](sBotConfig.commandsJsonFilename)
+  } yield dbLayer.copy(
+    dbMessageReplies = DBMessageReplies(messageReplies),
+    dbCommandReplies = DBCommandReplies(commandReplies)
+  )
+
   def apply[F[_]: Async: Random](
       httpClient: Client[F],
       sBotConfig: SBotConfig,
@@ -131,7 +150,8 @@ object BotSetup {
         dropboxClient = dropboxClient,
         megaClient = megaClient
       )
-      dbLayer <- loadDB[F](config.db)
+      jsonDataRepository = JsonDataRepository[F]()
+      dbLayer <- loadDB[F](config.db).evalMap(loadReplies[F](_, jsonDataRepository, sBotConfig))
       repository = DBRepository.dbResources[F](dbLayer.dbMedia, clients)
       _                     <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Delete webook..."))
       deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
@@ -162,8 +182,7 @@ object BotSetup {
       token = tk,
       httpClient = httpClient,
       repository = repository,
-      jsonDataRepository = JsonDataRepository[F]( // resourceRepository
-      ),
+      jsonDataRepository = jsonDataRepository,
       dbLayer = dbLayer,
       backgroundJobManager = backgroundJobManager,
       api = api,

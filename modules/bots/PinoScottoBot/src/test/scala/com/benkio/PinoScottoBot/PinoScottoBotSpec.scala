@@ -53,13 +53,7 @@ class PinoScottoBotSpec extends BaseBotSpec {
       sBotConfig = pinoSBotConfig,
       ttl = pinoSBotConfig.messageTimeToLive
     )
-    messageRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleMessage](
-      pinoSBotConfig.repliesJsonFilename
-    )
-    commandRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleCommand](
-      pinoSBotConfig.commandsJsonFilename
-    )
-  } yield new SBotPolling[IO](botSetup, messageRepliesData, commandRepliesData)(using
+  } yield new SBotPolling[IO](botSetup)(using
     Parallel[IO],
     botSetup.api,
     Async[IO],

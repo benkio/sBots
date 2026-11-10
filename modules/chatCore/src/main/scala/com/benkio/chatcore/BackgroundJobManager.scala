@@ -2,7 +2,6 @@ package com.benkio.chatcore
 
 import cats.Show
 import com.benkio.chatcore.model.ChatId
-import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionId
 import com.benkio.chatcore.model.SubscriptionType
@@ -19,12 +18,6 @@ trait BackgroundJobManager[F[_]] {
   def cancelSubscriptions(chatId: ChatId): F[Unit]
   // No-op when the chat has no subscription of the given type
   def cancelSubscriptionByType(chatId: ChatId, subscriptionType: SubscriptionType): F[Unit]
-
-  /** Late-bound: the bot that handles the fired trigger subscriptions exists only after the manager. A trigger that
-    * fires while no handler is set is logged as an error and dropped. The handler receives a synthetic message (fresh
-    * date, the subscription target as text) and replies to it as if the chat had sent it.
-    */
-  def setTriggerHandler(handler: Message => F[Unit]): F[Unit]
 
   // For Testing Purposes
   def runSubscription(

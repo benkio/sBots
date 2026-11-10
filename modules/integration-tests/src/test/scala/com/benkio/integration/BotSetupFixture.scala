@@ -69,7 +69,8 @@ object BotSetupFixture {
       sBotConfig: SBotConfig
   )(using log: LogWriter[IO]): Resource[IO, BotSetup[IO]] =
     for {
-      dbLayer       <- dbRes.resourceDBLayer
+      dbLayerBase   <- dbRes.resourceDBLayer
+      dbLayer       <- Resource.eval(BotSetup.loadReplies[IO](dbLayerBase, JsonDataRepository[IO](), sBotConfig))
       httpClient    <- EmberClientBuilder.default[IO].withMaxResponseHeaderSize(8192).build
       dropboxClient <- Resource.eval(DropboxClient[IO](httpClient))
       megaClient    <- Resource.eval(MegaClient[IO](httpClient))

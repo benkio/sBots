@@ -4,8 +4,6 @@ import cats.effect.std.Random
 import cats.effect.Async
 import cats.effect.Resource
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.model.reply.ReplyBundleCommand
-import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
@@ -40,31 +38,17 @@ object TelegramWebhookRuntime {
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       webhookCertificate: Option[Path] = None,
       commandEffectfulCallback: Map[String, Message => F[ReplyValue]] = Map.empty
-  )(using log: LogWriter[F]): Resource[F, SBotWebhook[F]] = {
-    val sBotConfig = buildSBotConfig(sBotInfo)
-    for {
-      sBotSetup <- BotSetup(
-        httpClient = httpClient,
-        sBotConfig = sBotConfig,
-        webhookBaseUrl = webhookBaseUrl
+  )(using log: LogWriter[F]): Resource[F, SBotWebhook[F]] =
+    BotSetup(
+      httpClient = httpClient,
+      sBotConfig = buildSBotConfig(sBotInfo),
+      webhookBaseUrl = webhookBaseUrl
+    ).map { sBotSetup =>
+      given Api[F] = sBotSetup.api
+      new SBotWebhook[F](
+        sBotSetup = sBotSetup,
+        webhookCertificate = webhookCertificate,
+        commandEffectfulCallback = commandEffectfulCallback
       )
-      messageRepliesData <- Resource.eval(
-        sBotSetup.jsonDataRepository.loadData[ReplyBundleMessage](sBotConfig.repliesJsonFilename)
-      )
-      commandRepliesData <- Resource.eval(
-        sBotSetup.jsonDataRepository.loadData[ReplyBundleCommand](sBotConfig.commandsJsonFilename)
-      )
-      sBot = {
-        given Api[F] = sBotSetup.api
-        new SBotWebhook[F](
-          sBotSetup = sBotSetup,
-          messageRepliesData = messageRepliesData,
-          commandRepliesData = commandRepliesData,
-          webhookCertificate = webhookCertificate,
-          commandEffectfulCallback = commandEffectfulCallback
-        )
-      }
-      _ <- Resource.eval(sBot.registerTriggerHandler()(using sBotSetup.api))
-    } yield sBot
-  }
+    }
 }

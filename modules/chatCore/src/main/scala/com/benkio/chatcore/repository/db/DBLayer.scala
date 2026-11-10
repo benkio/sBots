@@ -10,7 +10,9 @@ final case class DBLayer[F[_]](
     dbMedia: DBMedia[F],
     dbSubscription: DBSubscription[F],
     dbLog: DBLog[F],
-    dbShow: DBShow[F]
+    dbShow: DBShow[F],
+    dbMessageReplies: DBMessageReplies = DBMessageReplies.empty,
+    dbCommandReplies: DBCommandReplies = DBCommandReplies.empty
 )
 
 object DBLayer {

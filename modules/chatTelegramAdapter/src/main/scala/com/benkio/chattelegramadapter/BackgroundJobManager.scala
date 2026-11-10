@@ -4,6 +4,7 @@ import cats.*
 import cats.effect.*
 import cats.effect.std.Random
 import cats.implicits.*
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.show.Show
 import com.benkio.chatcore.model.show.ShowCalendar
@@ -55,14 +56,12 @@ object TelegramBackgroundJobManager {
       ttl: Option[FiniteDuration]
   )(using log: LogWriter[F]): F[BackgroundJobManager[F]] =
     for {
-      triggerHandler       <- Ref.of[F, Option[Message => F[Unit]]](None)
       backgroundJobManager <- Async[F].pure(
         new BackgroundJobManagerImpl(
           repository = repository,
           dbLayer = dbLayer,
           sBotInfo = sBotInfo,
-          ttl = ttl,
-          triggerHandler = triggerHandler
+          ttl = ttl
         )
       )
       _ <- backgroundJobManager.loadSubscriptions()
@@ -72,8 +71,7 @@ object TelegramBackgroundJobManager {
       repository: Repository[F],
       dbLayer: DBLayer[F],
       sBotInfo: SBotInfo,
-      ttl: Option[FiniteDuration],
-      triggerHandler: Ref[F, Option[Message => F[Unit]]]
+      ttl: Option[FiniteDuration]
   )(using log: LogWriter[F])
       extends BackgroundJobManager[F] {
 
@@ -185,56 +183,62 @@ object TelegramBackgroundJobManager {
       } yield scheduleReferences = onGoingScheduleReferences
     }
 
-    override def setTriggerHandler(handler: Message => F[Unit]): F[Unit] =
-      triggerHandler.set(Some(handler))
+    // What a fired subscription sends: the value and whether it is attached to the (synthetic) message of the chat
+    private final case class ScheduledReply(value: ReplyValue, replyToMessage: Boolean)
 
-    // A trigger subscription fires as if the chat had sent its target: the late-bound handler (the bot) replies.
-    // The message is dated now, so it passes the `FilteringOlder` filter of the reply selection.
-    private def fireTrigger(subscription: Subscription): F[Unit] =
-      triggerHandler.get
-        .flatMap(
-          _.fold(
-            log.error(
-              s"[BackgroundJobManager] no trigger handler set: the trigger subscription ${subscription.id.value} cannot fire"
+    // The reply a trigger subscription sends: the one a live message with the text of the target would get. Only the
+    // matching is applied: no timeout filter, no post computation, and neither the ignore prefix nor the forward filter
+    // of the bot, as the text is not a message of the chat. The message is dated now, so it passes `FilteringOlder`.
+    private def triggerReply(subscription: Subscription): F[Option[ReplyValue]] =
+      subscription.target.map(_.trim).filter(_.nonEmpty) match {
+        case None =>
+          log
+            .warn(s"[BackgroundJobManager] trigger subscription without text, nothing to fire: $subscription")
+            .as(None)
+        case Some(text) =>
+          for {
+            now <- Async[F].realTimeInstant
+            triggerMessage = Message(
+              messageId = 0,
+              date = now.getEpochSecond,
+              chatId = subscription.chatId,
+              chatType = "private",
+              text = Some(text)
             )
-          )(handler =>
-            subscription.target.map(_.trim).filter(_.nonEmpty) match {
-              case None =>
-                log.warn(s"[BackgroundJobManager] trigger subscription without text, nothing to fire: $subscription")
-              case Some(text) =>
-                Async[F].realTimeInstant.flatMap(now =>
-                  handler(
-                    Message(
-                      messageId = 0,
-                      date = now.getEpochSecond,
-                      chatId = subscription.chatId,
-                      chatType = "private",
-                      text = Some(text)
-                    )
-                  )
-                )
-            }
-          )
-        )
-        // a failing trigger must not stop the schedule of the subscription
-        .handleErrorWith(e =>
-          log.error(s"[BackgroundJobManager] trigger subscription failed: $subscription. Error: $e")
-        )
+            replyBundle = ReplyBundleMessage.selectReplyBundle(
+              msg = triggerMessage,
+              messageRepliesData = dbLayer.dbMessageReplies.messageReplies,
+              ignoreMessagePrefix = None,
+              disableForward = false
+            )
+            replyValue <- replyBundle.traverse(bundle => ComputeReply.runPlainReply[F](bundle.reply))
+            _          <- Async[F].whenA(replyValue.isEmpty)(
+              log.info(s"[BackgroundJobManager] trigger `$text` matches no reply bundle, nothing sent")
+            )
+          } yield replyValue
+      }
 
     // The reply a subscription sends when it fires, if any
-    private def subscriptionReply(subscription: Subscription): F[Option[ReplyValue]] =
+    private def subscriptionReply(subscription: Subscription): F[Option[ScheduledReply]] =
       subscription.subscriptionType match {
         case SubscriptionType.Show =>
           CommandPatterns.SearchShowCommand
             .selectShowByIdOrKeyword[F](subscription.target.getOrElse(""), dbLayer.dbShow, sBotInfo, ttl)
-            .map(Some(_))
+            .map(show => Some(ScheduledReply(show, replyToMessage = true)))
         case SubscriptionType.Calendar =>
           for {
             shows <- dbLayer.dbShow.getShows(sBotInfo.botId).flatMap(_.traverse(Show[F](_)))
             today <- Async[F].delay(MonthDay.now())
-          } yield TelegramCalendarMessage.render(sBotInfo.botName.value, ShowCalendar.forDay(shows, today))
+          } yield TelegramCalendarMessage
+            .render(sBotInfo.botName.value, ShowCalendar.forDay(shows, today))
+            .map(calendar => ScheduledReply(calendar, replyToMessage = true))
         case SubscriptionType.Trigger =>
-          Async[F].pure(None) // fired through the trigger handler, see `fireTrigger`
+          triggerReply(subscription)
+            .map(_.map(reply => ScheduledReply(reply, replyToMessage = false)))
+            // a failing trigger must not stop the schedule of the subscription
+            .handleErrorWith(e =>
+              log.error(s"[BackgroundJobManager] trigger subscription failed: $subscription. Error: $e").as(None)
+            )
       }
 
     override def runSubscription(
@@ -253,17 +257,15 @@ object TelegramBackgroundJobManager {
       val action: F[Instant] = for {
         now      <- Async[F].realTimeInstant
         _        <- log.info(s"[BackgroundJobManager] $now - fire subscription: $subscription")
-        replyOpt <-
-          if subscription.subscriptionType == SubscriptionType.Trigger then fireTrigger(subscription).as(None)
-          else subscriptionReply(subscription)
-        _ <- replyOpt.traverse_ { reply =>
+        replyOpt <- subscriptionReply(subscription)
+        _        <- replyOpt.traverse_ { case ScheduledReply(reply, replyToMessage) =>
           log.info(s"[BackgroundJobManager] reply: $reply") *>
             TelegramMessageReply
               .sendReplyValue[F](
                 replyValue = reply,
                 msg = message,
                 repository = repository,
-                replyToMessage = true
+                replyToMessage = replyToMessage
               )
               .void
         }

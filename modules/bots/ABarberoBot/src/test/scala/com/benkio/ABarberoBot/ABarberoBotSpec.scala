@@ -52,13 +52,7 @@ class ABarberoBotSpec extends BaseBotSpec {
       sBotConfig = abarSBotConfig,
       ttl = abarSBotConfig.messageTimeToLive
     )
-    messageRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleMessage](
-      abarSBotConfig.repliesJsonFilename
-    )
-    messageCommandData <- botSetup.jsonDataRepository.loadData[ReplyBundleCommand](
-      abarSBotConfig.commandsJsonFilename
-    )
-  } yield new SBotPolling[IO](botSetup, messageRepliesData, messageCommandData)(using
+  } yield new SBotPolling[IO](botSetup)(using
     Parallel[IO],
     botSetup.api,
     Async[IO],

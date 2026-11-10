@@ -8,7 +8,6 @@ import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.RepositoryMock
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceIFile
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
-import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.Logger.given
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
@@ -38,13 +37,7 @@ class XahLeeBotSpec extends BaseBotSpec {
       sBotConfig = xahSBotConfig,
       ttl = xahSBotConfig.messageTimeToLive
     )
-    messageRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleMessage](
-      xahSBotConfig.repliesJsonFilename
-    )
-    commandRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleCommand](
-      xahSBotConfig.commandsJsonFilename
-    )
-  } yield new SBotPolling[IO](botSetup, messageRepliesData, commandRepliesData)(using
+  } yield new SBotPolling[IO](botSetup)(using
     Parallel[IO],
     botSetup.api,
     Async[IO],

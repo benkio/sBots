@@ -3,11 +3,8 @@ package com.benkio.chattelegramadapter
 import cats.effect.std.Random
 import cats.effect.Async
 import cats.effect.Resource
-import cats.syntax.apply.*
 import cats.Parallel
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.model.reply.ReplyBundleCommand
-import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
@@ -23,16 +20,12 @@ import java.nio.file.Path
 
 class SBotPolling[F[_]: Parallel: Api](
     override val sBotSetup: BotSetup[F],
-    override val messageRepliesData: List[ReplyBundleMessage],
-    override val commandRepliesData: List[ReplyBundleCommand],
     override val commandEffectfulCallback: Map[String, Message => F[ReplyValue]] = Map.empty
 )(using Async[F], LogWriter[F])
     extends ISBotPolling[F](sBotSetup)
 
 class SBotWebhook[F[_]: Api](
     override val sBotSetup: BotSetup[F],
-    override val messageRepliesData: List[ReplyBundleMessage],
-    override val commandRepliesData: List[ReplyBundleCommand],
     webhookCertificate: Option[Path] = None,
     override val commandEffectfulCallback: Map[String, Message => F[ReplyValue]] = Map.empty
 )(using Async[F], LogWriter[F])
@@ -60,27 +53,18 @@ object SBot {
       commandEffectfulCallback: Map[String, Message => F[ReplyValue]] = Map.empty
   )(using log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
-    sBotConfig = buildSBotConfig(sBotInfo)
-    sBotSetup <- BotSetup(
+    sBotSetup  <- BotSetup(
       httpClient = httpClient,
-      sBotConfig = sBotConfig
+      sBotConfig = buildSBotConfig(sBotInfo)
     )
-    messageRepliesData <- Resource.eval(
-      sBotSetup.jsonDataRepository.loadData[ReplyBundleMessage](sBotConfig.repliesJsonFilename)
-    )
-    commandRepliesData <- Resource.eval(
-      sBotSetup.jsonDataRepository.loadData[ReplyBundleCommand](sBotConfig.commandsJsonFilename)
-    )
-  } yield (sBotSetup, messageRepliesData, commandRepliesData)).use {
-    case (sBotSetup, messageRepliesData, commandRepliesData) =>
-      given Api[F] = sBotSetup.api
-      val sBot     = new SBotPolling[F](
+  } yield sBotSetup).use { sBotSetup =>
+    given Api[F] = sBotSetup.api
+    action(
+      new SBotPolling[F](
         sBotSetup = sBotSetup,
-        messageRepliesData = messageRepliesData,
-        commandRepliesData = commandRepliesData,
         commandEffectfulCallback = commandEffectfulCallback
       )
-      sBot.registerTriggerHandler() *> action(sBot)
+    )
   }
 
   def buildWebhookBot[F[_]: Async: Random](
@@ -89,32 +73,17 @@ object SBot {
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       webhookCertificate: Option[Path] = None,
       commandEffectfulCallback: Map[String, Message => F[ReplyValue]] = Map.empty
-  )(using log: LogWriter[F]): Resource[F, SBotWebhook[F]] = {
-
-    val sBotConfig = buildSBotConfig(sBotInfo)
-    for {
-      sBotSetup <- BotSetup(
-        httpClient = httpClient,
-        sBotConfig = sBotConfig,
-        webhookBaseUrl = webhookBaseUrl
+  )(using log: LogWriter[F]): Resource[F, SBotWebhook[F]] =
+    BotSetup(
+      httpClient = httpClient,
+      sBotConfig = buildSBotConfig(sBotInfo),
+      webhookBaseUrl = webhookBaseUrl
+    ).map { sBotSetup =>
+      given Api[F] = sBotSetup.api
+      new SBotWebhook[F](
+        sBotSetup = sBotSetup,
+        webhookCertificate = webhookCertificate,
+        commandEffectfulCallback = commandEffectfulCallback
       )
-      messageRepliesData <- Resource.eval(
-        sBotSetup.jsonDataRepository.loadData[ReplyBundleMessage](sBotConfig.repliesJsonFilename)
-      )
-      commandRepliesData <- Resource.eval(
-        sBotSetup.jsonDataRepository.loadData[ReplyBundleCommand](sBotConfig.commandsJsonFilename)
-      )
-      sBot = {
-        given Api[F] = sBotSetup.api
-        new SBotWebhook[F](
-          sBotSetup = sBotSetup,
-          messageRepliesData = messageRepliesData,
-          commandRepliesData = commandRepliesData,
-          webhookCertificate = webhookCertificate,
-          commandEffectfulCallback = commandEffectfulCallback
-        )
-      }
-      _ <- Resource.eval(sBot.registerTriggerHandler()(using sBotSetup.api))
-    } yield sBot
-  }
+    }
 }
