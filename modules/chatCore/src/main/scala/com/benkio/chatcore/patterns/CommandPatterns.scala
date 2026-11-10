@@ -524,16 +524,19 @@ ${ignoreMessagePrefix
     private[patterns] val subscriptionsCommandDescriptionEng: String =
       s"'/subscriptions': Documentation: ${chatCoreCommandDocLink("subscriptions", "en")}"
 
-    // A trigger subscription is accepted only if its text selects a reply of the bot, as a live message would: otherwise
-    // it would be scheduled to send nothing.
-    private def validateTriggerText[F[_]: Async](
+    // A trigger subscription is accepted only if it would send something: its text selects a reply of the bot, as a live
+    // message would, or, with no text (a random reply), the bot has at least one reply.
+    private def validateTrigger[F[_]: Async](
         arguments: SubscribeArguments,
         dbMessageReplies: DBMessageReplies,
         m: Message
     ): F[Unit] =
-      arguments.target
-        .filter(_ => arguments.subscriptionType == SubscriptionType.Trigger)
-        .traverse_(text =>
+      if arguments.subscriptionType != SubscriptionType.Trigger then Async[F].unit
+      else
+        arguments.target.fold(
+          Async[F]
+            .raiseWhen(dbMessageReplies.messageReplies.isEmpty)(SubscribeArguments.NoReplyToTrigger(trigger = None))
+        )(text =>
           Async[F].realTimeInstant.flatMap(now =>
             Async[F].raiseUnless(
               ReplyBundleMessage
@@ -544,7 +547,7 @@ ${ignoreMessagePrefix
                   disableForward = false
                 )
                 .isDefined
-            )(SubscribeArguments.TriggerMatchesNothing(text))
+            )(SubscribeArguments.NoReplyToTrigger(trigger = Some(text)))
           )
         )
 
@@ -558,7 +561,7 @@ ${ignoreMessagePrefix
       val computation: String => F[ReplyValue] = (input: String) =>
         for {
           arguments    <- Async[F].fromEither(SubscribeArguments.parse(input))
-          _            <- validateTriggerText[F](arguments = arguments, dbMessageReplies = dbMessageReplies, m = m)
+          _            <- validateTrigger[F](arguments = arguments, dbMessageReplies = dbMessageReplies, m = m)
           subscription <- Subscription(
             m.chatId.value,
             sBotInfo.botId,

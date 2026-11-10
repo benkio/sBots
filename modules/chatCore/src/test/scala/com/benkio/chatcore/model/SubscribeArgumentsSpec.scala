@@ -65,9 +65,9 @@ class SubscribeArgumentsSpec extends FunSuite {
     )
   }
 
-  test("a trigger subscription without text is rejected") {
+  test("a trigger subscription without text is accepted: a random reply, as a show with no target") {
     List(s"$cron trigger", s"$cron trigger   ").foreach(input =>
-      assertEquals(SubscribeArguments.parse(input), Left(SubscribeArguments.TriggerTextRequired()))
+      assertEquals(SubscribeArguments.parse(input), Right(SubscribeArguments(cron, SubscriptionType.Trigger, None)))
     )
   }
 
@@ -87,5 +87,17 @@ class SubscribeArgumentsSpec extends FunSuite {
       SubscribeArguments.parse(s"$cron show $target"),
       Right(SubscribeArguments(cron, SubscriptionType.Show, Some(target)))
     )
+  }
+
+  test("NoReplyToTrigger carries the text that triggers nothing and says it in its message") {
+    val withText = SubscribeArguments.NoReplyToTrigger(trigger = Some("arrivederci"))
+    assertEquals(withText.trigger, Some("arrivederci"))
+    assert(withText.getMessage.contains("The text `arrivederci` triggers no reply of the bot"), withText.getMessage)
+  }
+
+  test("NoReplyToTrigger without a trigger says the bot has no replies to trigger") {
+    val noText = SubscribeArguments.NoReplyToTrigger(trigger = None)
+    assertEquals(noText.trigger, None)
+    assert(noText.getMessage.contains("The bot has no replies to trigger"), noText.getMessage)
   }
 }

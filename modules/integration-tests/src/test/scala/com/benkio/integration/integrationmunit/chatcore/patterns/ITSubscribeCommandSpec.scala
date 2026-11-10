@@ -192,13 +192,14 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test(
-    "Subscribe Command should not store a trigger subscription without text"
+    "Subscribe Command should store and schedule a trigger subscription without text: a random reply of the bot"
   ) { fixture =>
     subscribeResource(fixture, s"/subscribe $cronValue trigger").use { case (reply, stored, scheduled) =>
       IO {
-        assert(reply.show.contains("A trigger subscription needs the text"), reply.show)
-        assertEquals(stored, List.empty)
-        assertEquals(scheduled, List.empty)
+        assert(reply.show.startsWith("Subscription successfully scheduled."), reply.show)
+        assertEquals(stored.map(_.subscription_type), List("trigger"))
+        assertEquals(stored.map(_.target), List(None))
+        assertEquals(scheduled.map(_.subscriptionType), List(SubscriptionType.Trigger))
       }
     }
   }

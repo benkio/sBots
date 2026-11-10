@@ -186,37 +186,40 @@ object TelegramBackgroundJobManager {
     // What a fired subscription sends: the value and whether it is attached to the (synthetic) message of the chat
     private final case class ScheduledReply(value: ReplyValue, replyToMessage: Boolean)
 
-    // The reply a trigger subscription sends: the one a live message with the text of the target would get. Only the
-    // matching is applied: no timeout filter, no post computation, and neither the ignore prefix nor the forward filter
-    // of the bot, as the text is not a message of the chat. The message is dated now, so it passes `FilteringOlder`.
-    private def triggerReply(subscription: Subscription): F[Option[ReplyValue]] =
-      subscription.target.map(_.trim).filter(_.nonEmpty) match {
-        case None =>
-          log
-            .warn(s"[BackgroundJobManager] trigger subscription without text, nothing to fire: $subscription")
-            .as(None)
-        case Some(text) =>
-          for {
-            now <- Async[F].realTimeInstant
-            triggerMessage = Message(
-              messageId = 0,
-              date = now.getEpochSecond,
-              chatId = subscription.chatId,
-              chatType = "private",
-              text = Some(text)
+    // The reply a trigger subscription sends: the one a live message with the text of the target would get, or, with no
+    // text, a random reply of the bot (as a show subscription with no target sends a random show). Only the matching is
+    // applied: no timeout filter, no post computation, and neither the ignore prefix nor the forward filter of the bot,
+    // as the text is not a message of the chat. The message is dated now, so it passes `FilteringOlder`.
+    private def triggerReply(subscription: Subscription): F[Option[ReplyValue]] = {
+      val replies                               = dbLayer.dbMessageReplies.messageReplies
+      val bundle: F[Option[ReplyBundleMessage]] =
+        subscription.target.map(_.trim).filter(_.nonEmpty) match {
+          case None =>
+            Random[F].shuffleList(replies).map(_.headOption)
+          case Some(text) =>
+            Async[F].realTimeInstant.map(now =>
+              ReplyBundleMessage.selectReplyBundle(
+                msg = Message(
+                  messageId = 0,
+                  date = now.getEpochSecond,
+                  chatId = subscription.chatId,
+                  chatType = "private",
+                  text = Some(text)
+                ),
+                messageRepliesData = replies,
+                ignoreMessagePrefix = None,
+                disableForward = false
+              )
             )
-            replyBundle = ReplyBundleMessage.selectReplyBundle(
-              msg = triggerMessage,
-              messageRepliesData = dbLayer.dbMessageReplies.messageReplies,
-              ignoreMessagePrefix = None,
-              disableForward = false
-            )
-            replyValue <- replyBundle.traverse(bundle => ComputeReply.runPlainReply[F](bundle.reply))
-            _          <- Async[F].whenA(replyValue.isEmpty)(
-              log.info(s"[BackgroundJobManager] trigger `$text` matches no reply bundle, nothing sent")
-            )
-          } yield replyValue
-      }
+        }
+      for {
+        replyBundle <- bundle
+        replyValue  <- replyBundle.traverse(selected => ComputeReply.runPlainReply[F](selected.reply))
+        _           <- Async[F].whenA(replyValue.isEmpty)(
+          log.info(s"[BackgroundJobManager] trigger subscription ${subscription.id.value} has no reply to send")
+        )
+      } yield replyValue
+    }
 
     // The reply a subscription sends when it fires, if any
     private def subscriptionReply(subscription: Subscription): F[Option[ScheduledReply]] =

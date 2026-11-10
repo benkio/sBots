@@ -223,11 +223,20 @@ class CommandPatternsCommandsSpec extends CatsEffectSuite {
       }
   }
 
-  test("Subscribe command should reject a trigger subscription without text and schedule nothing") {
+  test("Subscribe command should schedule a trigger subscription without text: a random reply of the bot") {
     val manager = BackgroundJobManagerMock.mock()
     subscribe(manager = manager, text = "/subscribe 0 0 9 * * ? trigger").map { reply =>
-      assert(reply.show.contains("A trigger subscription needs the text"), reply.show)
-      assertEquals(manager.getScheduledSubscriptions(), List.empty)
+      assert(reply.show.startsWith("Subscription successfully scheduled."), reply.show)
+      assertEquals(manager.getScheduledSubscriptions().map(_.subscriptionType), List(SubscriptionType.Trigger))
+    }
+  }
+
+  test("Subscribe command should reject a trigger subscription without text when the bot has no replies") {
+    val manager = BackgroundJobManagerMock.mock()
+    subscribe(manager = manager, text = "/subscribe 0 0 9 * * ? trigger", replies = DBMessageReplies.empty).map {
+      reply =>
+        assert(reply.show.contains("The bot has no replies to trigger"), reply.show)
+        assertEquals(manager.getScheduledSubscriptions(), List.empty)
     }
   }
 

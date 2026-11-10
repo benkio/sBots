@@ -101,9 +101,21 @@ class ScheduledTriggerSpec extends CatsEffectSuite {
     ).map(calls => assertEquals(calls.map(_._1), List("sendChatAction", "sendMessage")))
   }
 
-  test("a trigger subscription without text sends nothing") {
-    fire(List(replyingBundle(trigger = "hello", reply = "hi", replyToMessage = false)), triggerSubscription(None))
-      .map(calls => assertEquals(calls, List.empty))
+  test("a trigger subscription without text sends a random reply of the bot") {
+    val replies = List(
+      replyingBundle(trigger = "hello", reply = "hi", replyToMessage = true),
+      replyingBundle(trigger = "bye", reply = "ciao", replyToMessage = true)
+    )
+    fire(replies, triggerSubscription(None)).map { calls =>
+      assertEquals(calls.map(_._1), List("sendChatAction", "sendMessage"))
+      val payload = calls.last._2
+      assert(Set("hi", "ciao").contains(payload.hcursor.get[String]("text").getOrElse("")), payload.noSpaces)
+      assert(payload.hcursor.downField("reply_parameters").failed, payload.noSpaces)
+    }
+  }
+
+  test("a trigger subscription without text sends nothing when the bot has no replies") {
+    fire(List.empty, triggerSubscription(None)).map(calls => assertEquals(calls, List.empty))
   }
 
   test("a failing reply does not make the fire fail") {
