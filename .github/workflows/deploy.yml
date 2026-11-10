@@ -16,6 +16,10 @@ on:
       - main
   workflow_dispatch:
 
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -66,8 +70,9 @@ jobs:
       - name: Ensure Deploy Directory
         run: |
           ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=no -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -c 'mkdir -p ${{ env.DEPLOY_DIR }}'"
-      - name: Kill Current bots
-        run: ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=no -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -c 'java --version; killall java || true'"
+      - name: Stop Current bots
+        # The service is supervised (respawn): stop it first, a plain killall would be undone after respawn_delay.
+        run: ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=no -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'java --version; echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-service sbots stop || true; killall java || true'"
       - name: Replace Bot's Jar
         run: |
           JAR_CANDIDATES=(/home/runner/work/sBots/sBots/target/out/jvm/scala-*/main/main.jar)
@@ -76,12 +81,14 @@ jobs:
             exit 1
           fi
           rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=no' "${JAR_CANDIDATES[0]}" ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/main.jar
-      - name: Replace Migration DB Script
-        run: rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/DBMigration.sql ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/DBMigration.sql
+      - name: Replace Migration DB Scripts
+        run: |
+          rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/DBMigration.sql /home/runner/work/sBots/sBots/scripts/updateProdDB.sh ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/
       - name: Update DB
+        # updateProdDB.sh migrates the production data and restores the production DB if the migration fails
         run: |
           rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=no' /home/runner/work/sBots/sBots/botDB.sqlite3 ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/botDBBase.sqlite3
-          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=no -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -c 'cd ${{ env.DEPLOY_DIR }}; mv botDB.sqlite3 botDBProdOld.sqlite3; sqlite3 botDBBase.sqlite3 < DBMigration.sql; mv botDBBase.sqlite3 botDB.sqlite3; rm botDBProdOld.sqlite3'"
+          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=no -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh ${{ env.DEPLOY_DIR }}/updateProdDB.sh ${{ env.DEPLOY_DIR }}"
       - name: Install & Enable Bots Service
         run: |
           cat > /tmp/sbots-openrc <<EOF

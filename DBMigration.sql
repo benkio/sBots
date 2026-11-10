@@ -23,8 +23,9 @@ INSERT OR REPLACE INTO chat(chat_id, chat_name, chat_url)
 SELECT chat_id, chat_name, chat_url
 FROM prodDB.chat;
 
-INSERT OR REPLACE INTO subscription(subscription_id, chat_id, bot_id, cron, subscribed_at)
-SELECT subscription_id, chat_id, bot_id, cron, subscribed_at
+-- subscription_type and target must be copied: without them every subscription falls back to the default type `show`.
+INSERT OR REPLACE INTO subscription(subscription_id, chat_id, bot_id, subscription_type, target, cron, subscribed_at)
+SELECT subscription_id, chat_id, bot_id, subscription_type, target, cron, subscribed_at
 FROM prodDB.subscription;
 
 INSERT OR REPLACE INTO log(log_time, message)

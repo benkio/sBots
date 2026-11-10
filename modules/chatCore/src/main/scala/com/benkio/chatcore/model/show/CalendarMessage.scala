@@ -14,12 +14,13 @@ object CalendarMessage {
   private def item(show: Show): String =
     s"• [${Markdown.escape(show.title)}](${escapeUrl(Show.youtubeUrl(show))})"
 
-  /** `None` when there are no shows. Shows are ordered by upload date and then id. The whole message is returned: the
-    * adapter of the platform it is sent to applies its own limits.
+  /** `None` when there are no shows. Shows are ordered by upload date and then id. Blocks (the header and every show)
+    * are separated by blank lines: a single newline is only a soft break in markdown. The whole message is returned:
+    * the adapter of the platform it is sent to applies its own limits.
     */
   def render(botName: String, shows: List[Show]): Option[Markdown] =
     Option.when(shows.nonEmpty) {
       val items = shows.sortBy(show => (show.uploadDate.toEpochDay, show.id)).map(item)
-      Markdown(value = (header(botName) :: "" :: items).mkString("\n"))
+      Markdown(value = (header(botName) :: items).mkString("\n\n"))
     }
 }

@@ -11,9 +11,10 @@
   *   - DEPLOY_SERVER_IP: target server IP / hostname
   *
   * Optional environment variables:
-  *   - DEPLOY_SERVER_USER (default: ubuntu)
-  *   - DEPLOY_REMOTE_DIR (default: /home/ubuntu/bots)
-  *   - SSH_KEY_PATH (default: ~/.ssh/id_rsa)
+  *   - DEPLOY_SERVER_USER (default: benkio)
+  *   - DEPLOY_REMOTE_DIR (default: /home/benkio/sBots)
+  *   - SSH_KEY_PATH (default: ~/.ssh/sbots)
+  *   - SSH_PORT (default: 2222)
   */
 object UploadProdDB:
 
@@ -40,16 +41,21 @@ object UploadProdDB:
     if !os.exists(dbPath) || !os.isFile(dbPath) then fail(s"DB file not found: $dbPath")
 
     val serverIp   = sys.env.getOrElse("DEPLOY_SERVER_IP", fail("DEPLOY_SERVER_IP is required"))
-    val serverUser = envOrDefault("DEPLOY_SERVER_USER", "ubuntu")
-    val remoteDir  = envOrDefault("DEPLOY_REMOTE_DIR", "/home/ubuntu/bots")
-    val sshKeyPath = envOrDefault("SSH_KEY_PATH", s"${sys.props("user.home")}/.ssh/id_rsa")
+    val serverUser = envOrDefault("DEPLOY_SERVER_USER", "benkio")
+    val remoteDir  = envOrDefault("DEPLOY_REMOTE_DIR", "/home/benkio/sBots")
+    val sshKeyPath = envOrDefault("SSH_KEY_PATH", s"${sys.props("user.home")}/.ssh/sbots")
+    val sshPort = envOrDefault("SSH_PORT", s"2222")
 
     val sshBase = Seq(
       "ssh",
-      "-o",
-      "StrictHostKeyChecking=no",
       "-i",
       sshKeyPath,
+      "-o",
+      "StrictHostKeyChecking=accept-new",
+      "-o",
+      "ConnectTimeout=10",
+      "-p",
+      sshPort,
       s"$serverUser@$serverIp"
     )
 
@@ -57,7 +63,7 @@ object UploadProdDB:
       "rsync",
       "-av",
       "-e",
-      s"ssh -o StrictHostKeyChecking=no -i $sshKeyPath",
+      s"ssh -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -p $sshPort -i $sshKeyPath",
       dbPath.toString,
       s"$serverUser@$serverIp:$remoteDir/botDB.sqlite3"
     )
@@ -66,11 +72,11 @@ object UploadProdDB:
     println(s"Target: $serverUser@$serverIp:$remoteDir/botDB.sqlite3")
 
     // Stop running bots before replacing DB file.
-    runOrFail(sshBase ++ Seq("sh", "-c", "killall java || true"))
+    runOrFail(sshBase ++ Seq("sh", "-c", "'killall java || true'"))
 
     // Keep a timestamped backup on server for rollback.
     val backupCmd =
-      s"""cd "$remoteDir" && cp botDB.sqlite3 "botDB.sqlite3.backup.$$(date +%Y%m%d%H%M%S)" """
+      s"""'cd "$remoteDir" && cp botDB.sqlite3 "botDB.sqlite3.backup.$$(date +%Y%m%d%H%M%S)" '"""
     runOrFail(sshBase ++ Seq("sh", "-c", backupCmd))
 
     // Upload replacement DB from local machine.
@@ -78,7 +84,7 @@ object UploadProdDB:
 
     // Restart bot process.
     val restartCmd =
-      s"""cd "$remoteDir" && nohup java -cp main.jar com.benkio.main.MainWebhook > /dev/null 2>&1 &"""
+      s"""'cd "$remoteDir" && nohup java -cp main.jar com.benkio.main.MainWebhook > /dev/null 2>&1 &'"""
     runOrFail(sshBase ++ Seq("sh", "-c", restartCmd))
 
     println("\nProd DB replaced and bots restarted successfully.")

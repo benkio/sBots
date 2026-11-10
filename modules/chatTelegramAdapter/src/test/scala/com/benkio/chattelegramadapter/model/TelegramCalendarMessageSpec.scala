@@ -35,15 +35,14 @@ class TelegramCalendarMessageSpec extends FunSuite {
     assertEquals(TelegramCalendarMessage.limit(message), message)
   }
 
-  test("the header is kept and the cut is made on whole list lines") {
+  test("the header is kept and the cut is made on whole list blocks") {
     val shows   = (1 to 20).toList.map(i => show(id = f"id$i%02d", title = s"Title $i"))
     val message = CalendarMessage.render("MyBot", shows).get
     val limited = TelegramCalendarMessage.limit(message, maxLength = 300)
-    val lines   = limited.value.split("\n").toList
+    val blocks  = limited.value.split("\n\n").toList
     assert(limited.value.length <= 300, limited.value.length)
-    assertEquals(lines.head, message.value.split("\n").head)
-    assertEquals(lines.tail.head, "")
-    assert(lines.init.drop(2).forall(_.startsWith("• [")))
-    assertEquals(lines.last, s"\\.\\.\\.and ${20 - lines.drop(2).size + 1} more")
+    assertEquals(blocks.head, message.value.split("\n\n").head)
+    assert(blocks.tail.init.forall(_.startsWith("• [")))
+    assertEquals(blocks.last, s"\\.\\.\\.and ${20 - (blocks.size - 2)} more")
   }
 }
