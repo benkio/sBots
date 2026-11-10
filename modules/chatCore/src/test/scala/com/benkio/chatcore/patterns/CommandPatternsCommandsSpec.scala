@@ -4,6 +4,7 @@ import cats.effect.IO
 import cats.syntax.all.*
 import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.mocks.DBLayerMock
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
@@ -12,6 +13,7 @@ import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionId
 import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.model.Timeout
+import com.benkio.chatcore.repository.db.DBMessageReplies
 import com.benkio.chatcore.repository.db.DBShowData
 import com.benkio.chatcore.repository.db.DBTimeoutData
 import com.benkio.chatcore.Logger.given
@@ -107,6 +109,7 @@ class CommandPatternsCommandsSpec extends CatsEffectSuite {
     val result = for {
       subscribeReply <- CommandPatterns.SubscribeUnsubscribeCommand.subscribeCommandLogic[IO](
         backgroundJobManager = manager,
+        dbMessageReplies = messageReplies,
         m = msg.copy(text = Some("/subscribe 0 * * ? * *")),
         sBotInfo = sBotInfo,
         ttl = None
@@ -130,9 +133,19 @@ class CommandPatternsCommandsSpec extends CatsEffectSuite {
     }
   }
 
-  private def subscribe(manager: com.benkio.chatcore.BackgroundJobManager[IO], text: String, chat: ChatId = chatId) =
+  // The only message reply of the bot: the text of a trigger subscription must select it
+  private val messageReplies: DBMessageReplies =
+    DBMessageReplies(List(ReplyBundleMessage.textToText("buongiorno")("ciao")))
+
+  private def subscribe(
+      manager: com.benkio.chatcore.BackgroundJobManager[IO],
+      text: String,
+      chat: ChatId = chatId,
+      replies: DBMessageReplies = messageReplies
+  ) =
     CommandPatterns.SubscribeUnsubscribeCommand.subscribeCommandLogic[IO](
       backgroundJobManager = manager,
+      dbMessageReplies = replies,
       m = msg.copy(chatId = chat, text = Some(text)),
       sBotInfo = sBotInfo,
       ttl = None
@@ -181,6 +194,33 @@ class CommandPatternsCommandsSpec extends CatsEffectSuite {
       assert(reply.show.startsWith("Subscription successfully scheduled."), reply.show)
       assertEquals(manager.getScheduledSubscriptions().map(_.subscriptionType), List(SubscriptionType.Trigger))
     }
+  }
+
+  test("Subscribe command should reject a trigger subscription whose text selects no reply and schedule nothing") {
+    val manager = BackgroundJobManagerMock.mock()
+    List("arrivederci", "buon giorno").traverse { text =>
+      subscribe(manager = manager, text = s"/subscribe 0 0 9 * * ? trigger $text").map(reply =>
+        assert(reply.show.contains(s"The text `$text` triggers no reply of the bot"), reply.show)
+      )
+    } *> IO(assertEquals(manager.getScheduledSubscriptions(), List.empty))
+  }
+
+  test("Subscribe command should reject a trigger subscription when the bot has no replies at all") {
+    val manager = BackgroundJobManagerMock.mock()
+    subscribe(manager = manager, text = "/subscribe 0 0 9 * * ? trigger buongiorno", replies = DBMessageReplies.empty)
+      .map { reply =>
+        assert(reply.show.contains("triggers no reply of the bot"), reply.show)
+        assertEquals(manager.getScheduledSubscriptions(), List.empty)
+      }
+  }
+
+  test("Subscribe command should not look at the replies of the bot for a show subscription") {
+    val manager = BackgroundJobManagerMock.mock()
+    subscribe(manager = manager, text = "/subscribe 0 0 9 * * ? show anything", replies = DBMessageReplies.empty)
+      .map { reply =>
+        assert(reply.show.startsWith("Subscription successfully scheduled."), reply.show)
+        assertEquals(manager.getScheduledSubscriptions().map(_.subscriptionType), List(SubscriptionType.Show))
+      }
   }
 
   test("Subscribe command should reject a trigger subscription without text and schedule nothing") {

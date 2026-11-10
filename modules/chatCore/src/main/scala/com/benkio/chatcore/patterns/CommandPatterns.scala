@@ -524,8 +524,33 @@ ${ignoreMessagePrefix
     private[patterns] val subscriptionsCommandDescriptionEng: String =
       s"'/subscriptions': Documentation: ${chatCoreCommandDocLink("subscriptions", "en")}"
 
+    // A trigger subscription is accepted only if its text selects a reply of the bot, as a live message would: otherwise
+    // it would be scheduled to send nothing.
+    private def validateTriggerText[F[_]: Async](
+        arguments: SubscribeArguments,
+        dbMessageReplies: DBMessageReplies,
+        m: Message
+    ): F[Unit] =
+      arguments.target
+        .filter(_ => arguments.subscriptionType == SubscriptionType.Trigger)
+        .traverse_(text =>
+          Async[F].realTimeInstant.flatMap(now =>
+            Async[F].raiseUnless(
+              ReplyBundleMessage
+                .selectReplyBundle(
+                  msg = m.copy(date = now.getEpochSecond, text = Some(text), caption = None, isForward = false),
+                  messageRepliesData = dbMessageReplies.messageReplies,
+                  ignoreMessagePrefix = None,
+                  disableForward = false
+                )
+                .isDefined
+            )(SubscribeArguments.TriggerMatchesNothing(text))
+          )
+        )
+
     def subscribeCommandLogic[F[_]: Async](
         backgroundJobManager: BackgroundJobManager[F],
+        dbMessageReplies: DBMessageReplies,
         m: Message,
         sBotInfo: SBotInfo,
         ttl: Option[FiniteDuration]
@@ -533,6 +558,7 @@ ${ignoreMessagePrefix
       val computation: String => F[ReplyValue] = (input: String) =>
         for {
           arguments    <- Async[F].fromEither(SubscribeArguments.parse(input))
+          _            <- validateTriggerText[F](arguments = arguments, dbMessageReplies = dbMessageReplies, m = m)
           subscription <- Subscription(
             m.chatId.value,
             sBotInfo.botId,

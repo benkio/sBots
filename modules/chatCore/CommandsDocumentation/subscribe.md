@@ -13,7 +13,7 @@ Crea una sottoscrizione periodica per la chat corrente. A ogni esecuzione pianif
 - Regola importante: tra `giorno-del-mese` e `giorno-della-settimana` uno dei due deve essere `?`
 - Tipo: `show` (se omesso) oppure `trigger`
 - Target (opzionale, solo per `show`): l'ID di uno show oppure una ricerca, come per `/searchshow`. Senza target viene inviato uno show casuale.
-- Testo (obbligatorio, `trigger` solo): a ogni esecuzione il bot risponde come se la chat avesse scritto `<testo>`: viene inviata la risposta del trigger corrispondente, come per un messaggio normale. Se il testo non corrisponde a nessun trigger non viene inviato nulla. Il bot non risponde al messaggio (non esiste) e non applica il timeout della chat.
+- Testo (obbligatorio, `trigger` solo): a ogni esecuzione il bot risponde come se la chat avesse scritto `<testo>`: viene inviata la risposta del trigger corrispondente, come per un messaggio normale. Il testo deve corrispondere a un trigger del bot, come per un messaggio normale (vedi `/triggerlist` e `/triggersearch`): altrimenti il comando viene rifiutato e non viene pianificato nulla. Il bot non risponde al messaggio (non esiste) e non applica il timeout della chat.
 
 ### Esempi
 
@@ -50,7 +50,7 @@ Create a periodic subscription for the current chat. On each scheduled execution
 - Important rule: between `day-of-month` and `day-of-week`, one must be `?`
 - Type: `show` (when omitted) or `trigger`
 - Target (optional, `show` only): a show ID or a search query, as for `/searchshow`. Without a target a random show is sent.
-- Text (required, `trigger` only): on each execution the bot replies as if the chat had written `<text>`: the reply of the matching trigger is sent, as for a normal message. If the text matches no trigger nothing is sent. The bot does not reply to the message (there is none) and does not apply the chat timeout.
+- Text (required, `trigger` only): on each execution the bot replies as if the chat had written `<text>`: the reply of the matching trigger is sent, as for a normal message. The text must match a trigger of the bot, as for a normal message (see `/triggerlist` and `/triggersearch`): otherwise the command is rejected and nothing is scheduled. The bot does not reply to the message (there is none) and does not apply the chat timeout.
 
 ### Examples
 
