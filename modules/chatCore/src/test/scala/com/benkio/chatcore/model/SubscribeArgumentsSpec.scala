@@ -46,7 +46,7 @@ class SubscribeArgumentsSpec extends FunSuite {
     )
   }
 
-  List("calendar", "trigger", "hello", "shows").foreach { token =>
+  List("calendar", "hello", "shows").foreach { token =>
     test(s"'$token' is not a supported type") {
       val result = SubscribeArguments.parse(s"$cron $token something")
       assertEquals(
@@ -54,8 +54,26 @@ class SubscribeArgumentsSpec extends FunSuite {
         Left(SubscribeArguments.UnsupportedSubscriptionType(token, SubscribeArguments.supportedTypes))
       )
       assert(result.left.exists(_.getMessage.contains(s"Unsupported subscription type '$token'")), result.toString)
-      assert(result.left.exists(_.getMessage.contains("Supported types: show")), result.toString)
+      assert(result.left.exists(_.getMessage.contains("Supported types: show, trigger")), result.toString)
     }
+  }
+
+  test("a trigger subscription: everything after the type is the text, with its inner spaces") {
+    assertEquals(
+      SubscribeArguments.parse(s"$cron trigger  buongiorno   a tutti "),
+      Right(SubscribeArguments(cron, SubscriptionType.Trigger, Some("buongiorno   a tutti")))
+    )
+  }
+
+  test("a trigger subscription without text is accepted: a random reply, as a show with no target") {
+    List(s"$cron trigger", s"$cron trigger   ").foreach(input =>
+      assertEquals(SubscribeArguments.parse(input), Right(SubscribeArguments(cron, SubscriptionType.Trigger, None)))
+    )
+  }
+
+  test("a trigger text longer than the maximum is rejected") {
+    val result = SubscribeArguments.parse(s"$cron trigger ${"a" * (SubscriptionRules.maxTargetLength + 1)}")
+    assertEquals(result.left.map(_.getClass), Left(classOf[SubscriptionRules.TargetTooLong]))
   }
 
   test("a target longer than the maximum is rejected") {
@@ -69,5 +87,17 @@ class SubscribeArgumentsSpec extends FunSuite {
       SubscribeArguments.parse(s"$cron show $target"),
       Right(SubscribeArguments(cron, SubscriptionType.Show, Some(target)))
     )
+  }
+
+  test("NoReplyToTrigger carries the text that triggers nothing and says it in its message") {
+    val withText = SubscribeArguments.NoReplyToTrigger(trigger = Some("arrivederci"))
+    assertEquals(withText.trigger, Some("arrivederci"))
+    assert(withText.getMessage.contains("The text `arrivederci` triggers no reply of the bot"), withText.getMessage)
+  }
+
+  test("NoReplyToTrigger without a trigger says the bot has no replies to trigger") {
+    val noText = SubscribeArguments.NoReplyToTrigger(trigger = None)
+    assertEquals(noText.trigger, None)
+    assert(noText.getMessage.contains("The bot has no replies to trigger"), noText.getMessage)
   }
 }

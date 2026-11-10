@@ -115,6 +115,7 @@ object EffectfulKeyRunner {
       toReplyValue(
         SubscribeUnsubscribeCommand.subscribeCommandLogic(
           backgroundJobManager = backgroundJobManager,
+          dbMessageReplies = dbLayer.dbMessageReplies,
           m = msg,
           sBotInfo = sBotInfo,
           ttl = ttl

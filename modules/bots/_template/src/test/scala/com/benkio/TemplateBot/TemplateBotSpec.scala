@@ -53,13 +53,7 @@ class TemplateBotSpec extends BaseBotSpec {
       sBotConfig = tplSBotConfig,
       ttl = tplSBotConfig.messageTimeToLive
     )
-    messageRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleMessage](
-      tplSBotConfig.repliesJsonFilename
-    )
-    commandRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleCommand](
-      tplSBotConfig.commandsJsonFilename
-    )
-  } yield new SBotPolling[IO](botSetup, messageRepliesData, commandRepliesData)(using
+  } yield new SBotPolling[IO](botSetup)(using
     Parallel[IO],
     botSetup.api,
     Async[IO],

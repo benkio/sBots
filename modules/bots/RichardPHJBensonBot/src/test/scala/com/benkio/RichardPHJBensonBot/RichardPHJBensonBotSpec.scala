@@ -65,16 +65,8 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
       sBotConfig = rphjbSBotConfig,
       ttl = None
     )
-    messageRepliesData <- sBotSetup.jsonDataRepository.loadData[ReplyBundleMessage](
-      rphjbSBotConfig.repliesJsonFilename
-    )
-    commandRepliesData <- sBotSetup.jsonDataRepository.loadData[ReplyBundleCommand](
-      rphjbSBotConfig.commandsJsonFilename
-    )
   } yield new SBotPolling[IO](
     sBotSetup = sBotSetup,
-    messageRepliesData = messageRepliesData,
-    commandRepliesData = commandRepliesData,
     commandEffectfulCallback = commandEffectfulCallback[IO]
   )(using
     Parallel[IO],

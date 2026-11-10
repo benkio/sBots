@@ -6,11 +6,11 @@ import cats.effect.IO
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.RepositoryMock
-import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.patterns.PostComputationPatterns
+import com.benkio.chatcore.repository.db.DBMessageReplies
 import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.Logger.given
 import com.benkio.chattelegramadapter.initialization.BotSetup
@@ -26,9 +26,7 @@ import org.http4s.Uri
 import telegramium.bots.high.Api
 
 class SampleWebhookBot(
-    override val sBotSetup: BotSetup[IO],
-    override val messageRepliesData: List[ReplyBundleMessage],
-    override val commandRepliesData: List[ReplyBundleCommand]
+    override val sBotSetup: BotSetup[IO]
 ) extends ISBotWebhook[IO](sBotSetup) {
   override def postComputation: Message => IO[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
@@ -63,24 +61,36 @@ object SampleWebhookBot {
     token = SampleWebhookBot.token
   )
 
-  def apply()(using Async[IO], Api[IO]): IO[SampleWebhookBot] = {
+  /** The replies come from the sbot_replies.json and sbot_commands.json, loaded in the DBLayer as BotSetup does:
+    * `messageReplies` replaces the ones of the messages.
+    */
+  def apply(
+      messageReplies: Option[List[ReplyBundleMessage]] = None
+  )(using Async[IO], Api[IO]): IO[SampleWebhookBot] = {
     val repositoryMock = new RepositoryMock()
-    val dbLayerMock    = DBLayerMock.mock(sBotInfo.botId)
     val stubHttpApp    = HttpApp[IO](_ => IO.pure(Response[IO](Status.Ok)))
     val stubClient     = Client.fromHttpApp(stubHttpApp)
     for {
+      dbLayerWithJsonReplies <- BotSetup.loadReplies[IO](
+        DBLayerMock.mock(sBotInfo.botId),
+        JsonDataRepository[IO](),
+        sBotConfig
+      )
+      dbLayerMock = messageReplies.fold(dbLayerWithJsonReplies)(replies =>
+        dbLayerWithJsonReplies.copy(dbMessageReplies = DBMessageReplies(replies))
+      )
       backgroundJobManager <- TelegramBackgroundJobManager[IO](
         repository = repositoryMock,
         dbLayer = dbLayerMock,
         sBotInfo = sBotInfo,
         ttl = None
       )(using Async[IO], summon[Api[IO]], summon[Random[IO]], log)
-      botSetup = BotSetup(
+    } yield new SampleWebhookBot(
+      BotSetup(
         token = "test",
         httpClient = stubClient,
         repository = repositoryMock,
-        jsonDataRepository = JsonDataRepository[IO]( // repositoryMock
-        ),
+        jsonDataRepository = JsonDataRepository[IO](),
         dbLayer = dbLayerMock,
         backgroundJobManager = backgroundJobManager,
         api = summon[Api[IO]],
@@ -88,13 +98,6 @@ object SampleWebhookBot {
         webhookPath = uri"/",
         sBotConfig = sBotConfig
       )
-      // not memoized or resourced as it's just a test bot. other bot should be under Resource
-      messageRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleMessage](
-        SampleWebhookBot.sBotConfig.repliesJsonFilename
-      )
-      messageCommandData <- botSetup.jsonDataRepository.loadData[ReplyBundleCommand](
-        SampleWebhookBot.sBotConfig.commandsJsonFilename
-      )
-    } yield new SampleWebhookBot(botSetup, messageRepliesData, messageCommandData)
+    )
   }
 }

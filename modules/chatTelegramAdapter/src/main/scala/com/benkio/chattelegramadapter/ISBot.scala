@@ -72,10 +72,9 @@ trait ISBot[F[_]: Async: LogWriter] {
 
   // Reply to Messages ////////////////////////////////////////////////////////
 
-  val messageRepliesData: List[ReplyBundleMessage] =
-    List.empty[ReplyBundleMessage]
-  val commandRepliesData: List[ReplyBundleCommand] =
-    List.empty[ReplyBundleCommand]
+  // Loaded once with the setup of the bot (BotSetup) and served from memory by the DBLayer
+  def messageRepliesData: List[ReplyBundleMessage] = dbLayer.dbMessageReplies.messageReplies
+  def commandRepliesData: List[ReplyBundleCommand] = dbLayer.dbCommandReplies.commandReplies
 
   // Commands //////////////////////////////////////////////////////////////////////////////
 
@@ -118,14 +117,10 @@ trait ISBot[F[_]: Async: LogWriter] {
           filter <- filteringMatchesMessages(replyBundle, msg)
           _      <-
             if filter then ComputeReply
-              .execute[F](
-                replyBundle = replyBundle,
+              .executePlain[F](
+                reply = replyBundle.reply,
                 message = msg,
-                repository = repository,
-                backgroundJobManager = backgroundJobManager,
-                effectfulCallbacks = commandEffectfulCallback,
-                dbLayer = dbLayer,
-                ttl = sBotConfig.messageTimeToLive
+                repository = repository
               )
               .void
             else Async[F].unit

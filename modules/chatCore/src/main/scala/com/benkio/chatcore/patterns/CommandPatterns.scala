@@ -524,8 +524,36 @@ ${ignoreMessagePrefix
     private[patterns] val subscriptionsCommandDescriptionEng: String =
       s"'/subscriptions': Documentation: ${chatCoreCommandDocLink("subscriptions", "en")}"
 
+    // A trigger subscription is accepted only if it would send something: its text selects a reply of the bot, as a live
+    // message would, or, with no text (a random reply), the bot has at least one reply.
+    private def validateTrigger[F[_]: Async](
+        arguments: SubscribeArguments,
+        dbMessageReplies: DBMessageReplies,
+        m: Message
+    ): F[Unit] =
+      if arguments.subscriptionType != SubscriptionType.Trigger then Async[F].unit
+      else
+        arguments.target.fold(
+          Async[F]
+            .raiseWhen(dbMessageReplies.messageReplies.isEmpty)(SubscribeArguments.NoReplyToTrigger(trigger = None))
+        )(text =>
+          Async[F].realTimeInstant.flatMap(now =>
+            Async[F].raiseUnless(
+              ReplyBundleMessage
+                .selectReplyBundle(
+                  msg = m.copy(date = now.getEpochSecond, text = Some(text), caption = None, isForward = false),
+                  messageRepliesData = dbMessageReplies.messageReplies,
+                  ignoreMessagePrefix = None,
+                  disableForward = false
+                )
+                .isDefined
+            )(SubscribeArguments.NoReplyToTrigger(trigger = Some(text)))
+          )
+        )
+
     def subscribeCommandLogic[F[_]: Async](
         backgroundJobManager: BackgroundJobManager[F],
+        dbMessageReplies: DBMessageReplies,
         m: Message,
         sBotInfo: SBotInfo,
         ttl: Option[FiniteDuration]
@@ -533,6 +561,7 @@ ${ignoreMessagePrefix
       val computation: String => F[ReplyValue] = (input: String) =>
         for {
           arguments    <- Async[F].fromEither(SubscribeArguments.parse(input))
+          _            <- validateTrigger[F](arguments = arguments, dbMessageReplies = dbMessageReplies, m = m)
           subscription <- Subscription(
             m.chatId.value,
             sBotInfo.botId,

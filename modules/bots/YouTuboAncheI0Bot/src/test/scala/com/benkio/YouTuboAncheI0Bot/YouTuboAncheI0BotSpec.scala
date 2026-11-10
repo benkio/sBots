@@ -53,13 +53,7 @@ class YouTuboAncheI0BotSpec extends BaseBotSpec {
       sBotConfig = ytaiSBotConfig,
       ttl = ytaiSBotConfig.messageTimeToLive
     )
-    messageRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleMessage](
-      ytaiSBotConfig.repliesJsonFilename
-    )
-    commandRepliesData <- botSetup.jsonDataRepository.loadData[ReplyBundleCommand](
-      ytaiSBotConfig.commandsJsonFilename
-    )
-  } yield new SBotPolling[IO](botSetup, messageRepliesData, commandRepliesData)(using
+  } yield new SBotPolling[IO](botSetup)(using
     Parallel[IO],
     botSetup.api,
     Async[IO],

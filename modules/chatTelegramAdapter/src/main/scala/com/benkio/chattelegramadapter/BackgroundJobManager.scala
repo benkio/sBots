@@ -4,6 +4,7 @@ import cats.*
 import cats.effect.*
 import cats.effect.std.Random
 import cats.implicits.*
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.show.Show
 import com.benkio.chatcore.model.show.ShowCalendar
@@ -182,22 +183,65 @@ object TelegramBackgroundJobManager {
       } yield scheduleReferences = onGoingScheduleReferences
     }
 
+    // What a fired subscription sends: the value and whether it is attached to the (synthetic) message of the chat
+    private final case class ScheduledReply(value: ReplyValue, replyToMessage: Boolean)
+
+    // The reply a trigger subscription sends: the one a live message with the text of the target would get, or, with no
+    // text, a random reply of the bot (as a show subscription with no target sends a random show). Only the matching is
+    // applied: no timeout filter, no post computation, and neither the ignore prefix nor the forward filter of the bot,
+    // as the text is not a message of the chat. The message is dated now, so it passes `FilteringOlder`.
+    private def triggerReply(subscription: Subscription): F[Option[ReplyValue]] = {
+      val replies                               = dbLayer.dbMessageReplies.messageReplies
+      val bundle: F[Option[ReplyBundleMessage]] =
+        subscription.target.map(_.trim).filter(_.nonEmpty) match {
+          case None =>
+            Random[F].shuffleList(replies).map(_.headOption)
+          case Some(text) =>
+            Async[F].realTimeInstant.map(now =>
+              ReplyBundleMessage.selectReplyBundle(
+                msg = Message(
+                  messageId = 0,
+                  date = now.getEpochSecond,
+                  chatId = subscription.chatId,
+                  chatType = "private",
+                  text = Some(text)
+                ),
+                messageRepliesData = replies,
+                ignoreMessagePrefix = None,
+                disableForward = false
+              )
+            )
+        }
+      for {
+        replyBundle <- bundle
+        replyValue  <- replyBundle.traverse(selected => ComputeReply.runPlainReply[F](selected.reply))
+        _           <- Async[F].whenA(replyValue.isEmpty)(
+          log.info(s"[BackgroundJobManager] trigger subscription ${subscription.id.value} has no reply to send")
+        )
+      } yield replyValue
+    }
+
     // The reply a subscription sends when it fires, if any
-    private def subscriptionReply(subscription: Subscription): F[Option[ReplyValue]] =
+    private def subscriptionReply(subscription: Subscription): F[Option[ScheduledReply]] =
       subscription.subscriptionType match {
         case SubscriptionType.Show =>
           CommandPatterns.SearchShowCommand
             .selectShowByIdOrKeyword[F](subscription.target.getOrElse(""), dbLayer.dbShow, sBotInfo, ttl)
-            .map(Some(_))
+            .map(show => Some(ScheduledReply(show, replyToMessage = true)))
         case SubscriptionType.Calendar =>
           for {
             shows <- dbLayer.dbShow.getShows(sBotInfo.botId).flatMap(_.traverse(Show[F](_)))
             today <- Async[F].delay(MonthDay.now())
-          } yield TelegramCalendarMessage.render(sBotInfo.botName.value, ShowCalendar.forDay(shows, today))
-        case other =>
-          log
-            .warn(s"[BackgroundJobManager] ${other.asString} subscriptions are not supported yet: $subscription")
-            .as(None)
+          } yield TelegramCalendarMessage
+            .render(sBotInfo.botName.value, ShowCalendar.forDay(shows, today))
+            .map(calendar => ScheduledReply(calendar, replyToMessage = true))
+        case SubscriptionType.Trigger =>
+          triggerReply(subscription)
+            .map(_.map(reply => ScheduledReply(reply, replyToMessage = false)))
+            // a failing trigger must not stop the schedule of the subscription
+            .handleErrorWith(e =>
+              log.error(s"[BackgroundJobManager] trigger subscription failed: $subscription. Error: $e").as(None)
+            )
       }
 
     override def runSubscription(
@@ -217,14 +261,14 @@ object TelegramBackgroundJobManager {
         now      <- Async[F].realTimeInstant
         _        <- log.info(s"[BackgroundJobManager] $now - fire subscription: $subscription")
         replyOpt <- subscriptionReply(subscription)
-        _        <- replyOpt.traverse_ { reply =>
+        _        <- replyOpt.traverse_ { case ScheduledReply(reply, replyToMessage) =>
           log.info(s"[BackgroundJobManager] reply: $reply") *>
             TelegramMessageReply
               .sendReplyValue[F](
                 replyValue = reply,
                 msg = message,
                 repository = repository,
-                replyToMessage = true
+                replyToMessage = replyToMessage
               )
               .void
         }

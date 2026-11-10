@@ -1,32 +1,41 @@
 package com.benkio.integration.integrationmunit.chatcore
 
+import cats.effect.std.Random
 import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionId
 import com.benkio.chatcore.model.SubscriptionRules
 import com.benkio.chatcore.model.SubscriptionType
+import com.benkio.chatcore.repository.db.DBMessageReplies
 import com.benkio.chatcore.repository.db.DBSubscriptionData
+import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chatcore.SubscriptionKey
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
+import com.benkio.chattelegramadapter.mocks.PayloadRecordingApi
 import com.benkio.chattelegramadapter.SBot
 import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
 import com.benkio.integration.DBFixture
+import com.benkio.integration.DBFixtureResources
 import com.benkio.integration.Logger.given
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import cron4s.*
 import eu.timepit.fs2cron.cron4s.Cron4sScheduler
 import fs2.concurrent.SignallingRef
 import fs2.Stream
+import io.circe.Json
 import munit.CatsEffectSuite
 
 import java.time.temporal.ChronoUnit
 import java.time.Instant
 import java.util.UUID
 import scala.concurrent.duration.*
+
+import _root_.log.effect.LogWriter
 
 class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
 
@@ -371,6 +380,75 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
         )
       )
     } yield assertEquals(backgroundJobManager.getScheduledSubscriptions().map(_.subscriptionId), List(valid.id))
+    result.use_
+  }
+
+  private def triggerSubscription(target: Option[String]): Subscription =
+    quietSubscription(0L).copy(
+      id = SubscriptionId(UUID.randomUUID()),
+      subscriptionType = SubscriptionType.Trigger,
+      target = target
+    )
+
+  private val triggerBundle: ReplyBundleMessage =
+    ReplyBundleMessage.textToText("buongiorno")("Buongiorno a te!")
+
+  // A manager over the real DB whose replies are served by the DBLayer, recording what it sends
+  private def triggerManager(
+      fixture: DBFixtureResources,
+      trigger: Subscription
+  ): Resource[IO, (BackgroundJobManager[IO], IO[List[(String, Json)]])] =
+    for {
+      dbLayerBase <- fixture.resourceDBLayer
+      dbLayer = dbLayerBase.copy(dbMessageReplies = DBMessageReplies(List(triggerBundle)))
+      repository      <- fixture.repositoryResource
+      _               <- Resource.eval(dbLayer.dbSubscription.insertSubscription(DBSubscriptionData(trigger)))
+      apiAndRecording <- Resource.eval(PayloadRecordingApi())
+      (api, recorded) = apiAndRecording
+      manager <- Resource.eval(
+        TelegramBackgroundJobManager[IO](
+          repository = repository,
+          dbLayer = dbLayer,
+          sBotInfo = sBotInfo,
+          ttl = sBotConfig.messageTimeToLive
+        )(using IO.asyncForIO, api, summon[Random[IO]], summon[LogWriter[IO]])
+      )
+      _ <- Resource.make(IO.unit)(_ => dbLayer.dbSubscription.deleteSubscription(trigger.id.value))
+    } yield (manager, recorded)
+
+  databaseFixture.test(
+    "A stored trigger subscription is loaded on restart and fires the reply of the matching message bundle"
+  ) { fixture =>
+    val trigger = triggerSubscription(Some("buongiorno a tutti"))
+    val result  = for {
+      managerAndCalls <- triggerManager(fixture, trigger)
+      (manager, calls) = managerAndCalls
+      fired <- Resource.eval(manager.runSubscription(trigger))
+      _     <- Resource.eval(fired._1.compile.drain)
+      sent  <- Resource.eval(calls)
+    } yield {
+      assertEquals(manager.getScheduledSubscriptions().map(_.subscriptionType), List(SubscriptionType.Trigger))
+      assertEquals(sent.map(_._1), List("sendChatAction", "sendMessage"))
+      assertEquals(sent.last._2.hcursor.get[String]("text"), Right("Buongiorno a te!"))
+      assert(sent.last._2.hcursor.downField("reply_parameters").failed, sent.last._2.noSpaces)
+    }
+    result.use_
+  }
+
+  databaseFixture.test(
+    "A trigger subscription whose text matches no message bundle fires and sends nothing"
+  ) { fixture =>
+    val trigger = triggerSubscription(Some("arrivederci"))
+    val result  = for {
+      managerAndCalls <- triggerManager(fixture, trigger)
+      (manager, calls) = managerAndCalls
+      fired   <- Resource.eval(manager.runSubscription(trigger))
+      emitted <- Resource.eval(fired._1.compile.toList)
+      sent    <- Resource.eval(calls)
+    } yield {
+      assertEquals(emitted.size, 1)
+      assertEquals(sent, List.empty)
+    }
     result.use_
   }
 }

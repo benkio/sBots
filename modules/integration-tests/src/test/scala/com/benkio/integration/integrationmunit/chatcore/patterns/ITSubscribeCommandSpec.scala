@@ -3,6 +3,7 @@ package com.benkio.integration.integrationmunit.chatcore.patterns
 import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Subscription
@@ -10,6 +11,7 @@ import com.benkio.chatcore.model.SubscriptionId
 import com.benkio.chatcore.model.SubscriptionRules
 import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.patterns.CommandPatterns.SubscribeUnsubscribeCommand
+import com.benkio.chatcore.repository.db.DBMessageReplies
 import com.benkio.chatcore.repository.db.DBSubscriptionData
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chattelegramadapter.SBot
@@ -63,6 +65,7 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
         SubscribeUnsubscribeCommand
           .subscribeCommandLogic(
             backgroundJobManager = backgroundJobManager,
+            dbMessageReplies = dbLayer.dbMessageReplies,
             m = msg.copy(text = Some(s"/subscribe $cronValue")),
             sBotInfo = sBotConfig.sBotInfo,
             ttl = sBotConfig.messageTimeToLive
@@ -88,8 +91,12 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
     result.use_
   }
 
+  // The only message reply of the bot: the text of a trigger subscription must select it
+  private val triggerBundle: ReplyBundleMessage = ReplyBundleMessage.textToText("buongiorno")("Buongiorno a te!")
+
   private def subscribeResource(fixture: DBFixtureResources, text: String) = for {
-    dbLayer              <- fixture.resourceDBLayer
+    dbLayerBase <- fixture.resourceDBLayer
+    dbLayer = dbLayerBase.copy(dbMessageReplies = DBMessageReplies(List(triggerBundle)))
     repository           <- fixture.repositoryResource
     backgroundJobManager <- Resource.eval(
       TelegramBackgroundJobManager(
@@ -102,6 +109,7 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
     reply <- Resource.eval(
       SubscribeUnsubscribeCommand.subscribeCommandLogic(
         backgroundJobManager = backgroundJobManager,
+        dbMessageReplies = dbLayer.dbMessageReplies,
         m = msg.copy(text = Some(text)),
         sBotInfo = sBotConfig.sBotInfo,
         ttl = sBotConfig.messageTimeToLive
@@ -158,6 +166,45 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
   }
 
   databaseFixture.test(
+    "Subscribe Command should store and schedule a trigger subscription whose text selects a reply"
+  ) { fixture =>
+    subscribeResource(fixture, s"/subscribe $cronValue trigger buongiorno a tutti").use {
+      case (reply, stored, scheduled) =>
+        IO {
+          assert(reply.show.startsWith("Subscription successfully scheduled."), reply.show)
+          assertEquals(stored.map(_.subscription_type), List("trigger"))
+          assertEquals(stored.map(_.target), List(Some("buongiorno a tutti")))
+          assertEquals(scheduled.map(_.subscriptionType), List(SubscriptionType.Trigger))
+        }
+    }
+  }
+
+  databaseFixture.test(
+    "Subscribe Command should reject a trigger subscription whose text selects no reply, storing and scheduling nothing"
+  ) { fixture =>
+    subscribeResource(fixture, s"/subscribe $cronValue trigger arrivederci").use { case (reply, stored, scheduled) =>
+      IO {
+        assert(reply.show.contains("The text `arrivederci` triggers no reply of the bot"), reply.show)
+        assertEquals(stored, List.empty)
+        assertEquals(scheduled, List.empty)
+      }
+    }
+  }
+
+  databaseFixture.test(
+    "Subscribe Command should store and schedule a trigger subscription without text: a random reply of the bot"
+  ) { fixture =>
+    subscribeResource(fixture, s"/subscribe $cronValue trigger").use { case (reply, stored, scheduled) =>
+      IO {
+        assert(reply.show.startsWith("Subscription successfully scheduled."), reply.show)
+        assertEquals(stored.map(_.subscription_type), List("trigger"))
+        assertEquals(stored.map(_.target), List(None))
+        assertEquals(scheduled.map(_.subscriptionType), List(SubscriptionType.Trigger))
+      }
+    }
+  }
+
+  databaseFixture.test(
     "Subscribe Command should refuse the subscription over the per chat limit"
   ) { fixture =>
     val existing = (1 until SubscriptionRules.maxSubscriptionsPerChat).toList.map(_ =>
@@ -178,6 +225,7 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
       subscribe = (text: String) =>
         SubscribeUnsubscribeCommand.subscribeCommandLogic(
           backgroundJobManager = backgroundJobManager,
+          dbMessageReplies = dbLayer.dbMessageReplies,
           m = msg.copy(text = Some(text)),
           sBotInfo = sBotConfig.sBotInfo,
           ttl = sBotConfig.messageTimeToLive

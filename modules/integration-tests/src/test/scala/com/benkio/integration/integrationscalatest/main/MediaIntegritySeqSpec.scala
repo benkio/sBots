@@ -8,7 +8,6 @@ import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.model.media.getMediaResourceFile
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyBundle
-import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chattelegramadapter.initialization.BotSetup
 import com.benkio.chattelegramadapter.ISBot
@@ -36,19 +35,18 @@ class MediaIntegritySeqSpec extends FixtureAnyFunSuite {
 
   def mediaFilesFromBot(
       config: SBotConfig,
-      mkBot: (BotSetup[IO], List[ReplyBundleMessage], List[ReplyBundleCommand]) => ISBot[IO]
+      mkBot: BotSetup[IO] => ISBot[IO]
   ): IO[List[MediaFile]] =
     BotSetupFixture
       .botSetupResource(initialFixture, config)
       .use { setup =>
-        val messageRepliesData =
-          if config.sBotInfo.botId == XahLeeBot.sBotInfo.botId then IO.pure(List.empty[ReplyBundleMessage])
-          else
-            setup.jsonDataRepository.loadData[ReplyBundleMessage](config.repliesJsonFilename)
-        val commandRepliesData = setup.jsonDataRepository.loadData[ReplyBundleCommand](config.commandsJsonFilename)
-        (messageRepliesData, commandRepliesData).tupled.map { case (msgData, cmdData) =>
-          val bot = mkBot(setup, msgData, cmdData)
-          (bot.messageRepliesData ++ bot.allCommandRepliesData).flatMap(r => r.getMediaFiles)
+        IO {
+          val bot = mkBot(setup)
+          // the XahLeeBot message replies are not checked
+          val messageReplies =
+            if config.sBotInfo.botId == XahLeeBot.sBotInfo.botId then List.empty[ReplyBundleMessage]
+            else bot.messageRepliesData
+          (messageReplies ++ bot.allCommandRepliesData).flatMap(r => r.getMediaFiles)
         }
       }
 
@@ -59,12 +57,10 @@ class MediaIntegritySeqSpec extends FixtureAnyFunSuite {
       richardFiles <- Resource.eval(
         mediaFilesFromBot(
           SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo),
-          (setup, msgData, cmdData) => {
+          setup => {
             given telegramium.bots.high.Api[IO] = setup.api
             new SBotPolling[IO](
               setup,
-              msgData,
-              cmdData,
               RichardPHJBensonBot.commandEffectfulCallback[IO]
             )
           }
@@ -73,18 +69,18 @@ class MediaIntegritySeqSpec extends FixtureAnyFunSuite {
       alessandro0rlandoFiles <- Resource.eval(
         mediaFilesFromBot(
           SBot.buildSBotConfig(Alessandro0rlandoBot.sBotInfo),
-          (setup, msgData, cmdData) => {
+          setup => {
             given telegramium.bots.high.Api[IO] = setup.api
-            new SBotPolling[IO](setup, msgData, cmdData)
+            new SBotPolling[IO](setup)
           }
         )
       )
       vittorioSgarbiFiles <- Resource.eval(
         mediaFilesFromBot(
           SBot.buildSBotConfig(VittorioSgarbiBot.sBotInfo),
-          (setup, msgData, cmdData) => {
+          setup => {
             given telegramium.bots.high.Api[IO] = setup.api
-            new SBotPolling[IO](setup, msgData, cmdData)
+            new SBotPolling[IO](setup)
           }
         )
       )

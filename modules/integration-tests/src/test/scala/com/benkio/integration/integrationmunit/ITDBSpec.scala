@@ -7,8 +7,6 @@ import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.conversions.JsonConversions.decodeStringToJson
 import com.benkio.chatcore.model.media.MediaFileSource
 import com.benkio.chatcore.model.reply.MediaFile
-import com.benkio.chatcore.model.reply.ReplyBundleCommand
-import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.repository.db.DBMedia
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chattelegramadapter.SBotPolling
@@ -81,17 +79,9 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   ): Resource[IO, Boolean] = {
     val sBotConfig = entry.sBotConfig
     for {
-      botSetup           <- BotSetupFixture.botSetupResource(dbRes, sBotConfig)(using log)
-      messageRepliesData <- Resource.eval(
-        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](botSetup.sBotConfig.repliesJsonFilename)
-      )
-      commandRepliesData <- Resource.eval(
-        botSetup.jsonDataRepository.loadData[ReplyBundleCommand](botSetup.sBotConfig.commandsJsonFilename)
-      )
+      botSetup <- BotSetupFixture.botSetupResource(dbRes, sBotConfig)(using log)
       sBot = new SBotPolling[IO](
         botSetup,
-        messageRepliesData,
-        commandRepliesData,
         entry.commandEffectfulCallback
       )
       files = sBot.messageRepliesData.flatMap(r => r.getMediaFiles)
@@ -116,17 +106,9 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
   ): Resource[IO, Boolean] = {
     val sBotConfig = entry.sBotConfig
     for {
-      botSetup           <- BotSetupFixture.botSetupResource(dbRes, sBotConfig)(using log)
-      messageRepliesData <- Resource.eval(
-        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](botSetup.sBotConfig.repliesJsonFilename)
-      )
-      commandRepliesData <- Resource.eval(
-        botSetup.jsonDataRepository.loadData[ReplyBundleCommand](botSetup.sBotConfig.commandsJsonFilename)
-      )
+      botSetup <- BotSetupFixture.botSetupResource(dbRes, sBotConfig)(using log)
       sBot = new SBotPolling[IO](
         botSetup,
-        messageRepliesData,
-        commandRepliesData,
         entry.commandEffectfulCallback
       )
       files = sBot.commandRepliesData.flatMap(r => r.getMediaFiles)
@@ -172,17 +154,9 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     val sBotConfig = entry.sBotConfig
     val json       = getBotListContent(sBotConfig)
     for {
-      botSetup           <- BotSetupFixture.botSetupResource(dbRes, sBotConfig)(using log)
-      messageRepliesData <- Resource.eval(
-        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](botSetup.sBotConfig.repliesJsonFilename)
-      )
-      commandRepliesData <- Resource.eval(
-        botSetup.jsonDataRepository.loadData[ReplyBundleCommand](botSetup.sBotConfig.commandsJsonFilename)
-      )
+      botSetup <- BotSetupFixture.botSetupResource(dbRes, sBotConfig)(using log)
       sBot = new SBotPolling[IO](
         botSetup,
-        messageRepliesData,
-        commandRepliesData,
         entry.commandEffectfulCallback
       )
       mediaFiles = sBot.commandRepliesData.flatMap(r => r.getMediaFiles)
@@ -206,17 +180,9 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     val sBotConfig = entry.sBotConfig
     val json       = getBotListContent(sBotConfig)
     for {
-      botSetup           <- BotSetupFixture.botSetupResource(dbRes, sBotConfig)(using log)
-      messageRepliesData <- Resource.eval(
-        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](botSetup.sBotConfig.repliesJsonFilename)
-      )
-      commandRepliesData <- Resource.eval(
-        botSetup.jsonDataRepository.loadData[ReplyBundleCommand](botSetup.sBotConfig.commandsJsonFilename)
-      )
+      botSetup <- BotSetupFixture.botSetupResource(dbRes, sBotConfig)(using log)
       sBot = new SBotPolling[IO](
         botSetup,
-        messageRepliesData,
-        commandRepliesData,
         entry.commandEffectfulCallback
       )
       mediaFiles = sBot.messageRepliesData.flatMap(r => r.getMediaFiles)
@@ -240,17 +206,9 @@ class ITDBSpec extends CatsEffectSuite with DBFixture {
     val sBotConfig  = entry.sBotConfig
     val listEntries = getBotListEntries(sBotConfig)
     for {
-      botSetup           <- BotSetupFixture.botSetupResource(dbRes, sBotConfig)(using log)
-      messageRepliesData <- Resource.eval(
-        botSetup.jsonDataRepository.loadData[ReplyBundleMessage](botSetup.sBotConfig.repliesJsonFilename)
-      )
-      commandRepliesData <- Resource.eval(
-        botSetup.jsonDataRepository.loadData[ReplyBundleCommand](botSetup.sBotConfig.commandsJsonFilename)
-      )
+      botSetup <- BotSetupFixture.botSetupResource(dbRes, sBotConfig)(using log)
       sBot = new SBotPolling[IO](
         botSetup,
-        messageRepliesData,
-        commandRepliesData,
         entry.commandEffectfulCallback
       )
       replyMediaFiles     = sBot.messageRepliesData.flatMap(_.getMediaFiles).map(_.filename).toSet

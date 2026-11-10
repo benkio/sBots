@@ -15,7 +15,17 @@ object SubscribeArguments {
       )
 
   /** The types a user can create with `/subscribe`. */
-  val supportedTypes: List[SubscriptionType] = List(SubscriptionType.Show)
+  val supportedTypes: List[SubscriptionType] = List(SubscriptionType.Show, SubscriptionType.Trigger)
+
+  /** The trigger subscription would send nothing: `trigger` is the text that selects no reply of the bot, or `None`
+    * when there is no text (a random reply) and the bot has no reply at all.
+    */
+  final case class NoReplyToTrigger(trigger: Option[String])
+      extends Throwable(
+        trigger.fold("The bot has no replies to trigger: a trigger subscription would send nothing")(text =>
+          s"The text `$text` triggers no reply of the bot: nothing would be sent. Check the triggers with /triggerlist or /triggersearch"
+        )
+      )
 
   private val cronFields = 6
 
