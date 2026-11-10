@@ -43,7 +43,12 @@ class SubscriptionsTableSpec extends FunSuite {
   test("one row per subscription with type, query, next trigger, cron and the copyable id") {
     val shows = List(
       subscription(id = idA, subscriptionType = SubscriptionType.Show, target = Some("pino scotto")),
-      subscription(id = idB, subscriptionType = SubscriptionType.Trigger, target = Some("buongiorno"), cron = "0 30 18 ? * MON"),
+      subscription(
+        id = idB,
+        subscriptionType = SubscriptionType.Trigger,
+        target = Some("buongiorno"),
+        cron = "0 30 18 ? * MON"
+      ),
       subscription(id = idC, subscriptionType = SubscriptionType.Calendar)
     )
     val expected = List(
@@ -90,11 +95,18 @@ class SubscriptionsTableSpec extends FunSuite {
 
   test("the rows are ordered by type (show, trigger, calendar) and then by subscription time") {
     val calendar = subscription(id = idA, subscriptionType = SubscriptionType.Calendar, subscribedAt = 1L)
-    val trigger  = subscription(id = idB, subscriptionType = SubscriptionType.Trigger, target = Some("x"), subscribedAt = 2L)
-    val showLate = subscription(id = idC, subscriptionType = SubscriptionType.Show, target = Some("late"), subscribedAt = 9L)
+    val trigger  =
+      subscription(id = idB, subscriptionType = SubscriptionType.Trigger, target = Some("x"), subscribedAt = 2L)
+    val showLate =
+      subscription(id = idC, subscriptionType = SubscriptionType.Show, target = Some("late"), subscribedAt = 9L)
     val showEarly =
-      subscription(id = "44444444-4444-4444-4444-444444444444", subscriptionType = SubscriptionType.Show, target = Some("early"), subscribedAt = 3L)
-    val all      = List(calendar, trigger, showLate, showEarly)
+      subscription(
+        id = "44444444-4444-4444-4444-444444444444",
+        subscriptionType = SubscriptionType.Show,
+        target = Some("early"),
+        subscribedAt = 3L
+      )
+    val all  = List(calendar, trigger, showLate, showEarly)
     val rows = SubscriptionsTable
       .render(all, all.map(_.id).toSet, now)
       .split("\n")
