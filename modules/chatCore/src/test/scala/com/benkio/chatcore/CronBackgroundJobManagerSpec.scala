@@ -33,7 +33,7 @@ class CronBackgroundJobManagerSpec extends CatsEffectSuite {
   private val sBotInfo: SBotInfo = SBotInfo(botId = SBotInfo.SBotId("eng"), botName = SBotInfo.SBotName("EngineBot"))
   private val ircChat: ChatId    = ChatId(Platform.Irc, "#sbots")
 
-  private val textOnly: PlatformCapabilities = FakePlatformAdapter.textOnlyCapabilities
+  private val textOnly: PlatformCapabilities   = FakePlatformAdapter.textOnlyCapabilities
   private val everything: PlatformCapabilities = textOnly.copy(
     platform = Platform.Telegram,
     supportedMedia = MediaKind.values.toSet,
@@ -71,8 +71,8 @@ class CronBackgroundJobManagerSpec extends CatsEffectSuite {
       messageReplies: List[ReplyBundleMessage] = List.empty,
       calendar: Markdown = Markdown("**calendar**")
   ): IO[List[Sent]] = for {
-    sent   <- Ref.of[IO, List[Sent]](List.empty)
-    random <- Random.scalaUtilRandom[IO]
+    sent    <- Ref.of[IO, List[Sent]](List.empty)
+    random  <- Random.scalaUtilRandom[IO]
     manager <- {
       given Random[IO] = random
       CronBackgroundJobManager[IO](
@@ -91,61 +91,62 @@ class CronBackgroundJobManagerSpec extends CatsEffectSuite {
 
   test("a trigger subscription sends the reply of the target to the chat, whatever the platform of the chat") {
     fire(
-      subscription(SubscriptionType.Trigger, Some("ciao")),
-      textOnly,
+      subscription = subscription(SubscriptionType.Trigger, Some("ciao")),
+      capabilities = textOnly,
       messageReplies = List(ReplyBundleMessage.textToText("ciao")("hello"))
     ).map(sent => assertEquals(sent, List(Sent(ircChat, Text("hello"), replyToMessage = false))))
   }
 
   test("a trigger subscription whose target matches nothing sends nothing") {
     fire(
-      subscription(SubscriptionType.Trigger, Some("something else")),
-      textOnly,
+      subscription = subscription(SubscriptionType.Trigger, Some("something else")),
+      capabilities = textOnly,
       messageReplies = List(ReplyBundleMessage.textToText("ciao")("hello"))
     ).map(sent => assertEquals(sent, List.empty))
   }
 
   test("a media the platform cannot send is sent as its link") {
     fire(
-      subscription(SubscriptionType.Trigger, Some("song")),
-      textOnly,
+      subscription = subscription(SubscriptionType.Trigger, Some("song")),
+      capabilities = textOnly,
       messageReplies = List(ReplyBundleMessage.textToMp3("song")(Mp3File("a.mp3")))
     ).map(sent => assertEquals(sent.map(_.value), List(Text("https://example.com/a.mp3"))))
   }
 
   test("a media the platform cannot send and the DB does not know is dropped") {
     fire(
-      subscription(SubscriptionType.Trigger, Some("clip")),
-      textOnly,
+      subscription = subscription(SubscriptionType.Trigger, Some("clip")),
+      capabilities = textOnly,
       messageReplies = List(ReplyBundleMessage.textToGif("clip")(GifFile("unknownGif.mp4")))
     ).map(sent => assertEquals(sent, List.empty))
   }
 
   test("a media the platform can send is sent as it is") {
     fire(
-      subscription(SubscriptionType.Trigger, Some("song")),
-      everything,
+      subscription = subscription(SubscriptionType.Trigger, Some("song")),
+      capabilities = everything,
       messageReplies = List(ReplyBundleMessage.textToMp3("song")(Mp3File("a.mp3")))
     ).map(sent => assertEquals(sent.map(_.value), List(Mp3File("a.mp3"))))
   }
 
   test("the calendar goes through the transformer: plain text on a platform without markdown") {
-    fire(subscription(SubscriptionType.Calendar, None), textOnly).map(sent =>
+    fire(subscription = subscription(SubscriptionType.Calendar, None), capabilities = textOnly).map(sent =>
       assertEquals(sent, List(Sent(ircChat, Text("calendar"), replyToMessage = true)))
     )
   }
 
   test("the calendar is left as it is on a platform with markdown") {
-    fire(subscription(SubscriptionType.Calendar, None), everything).map(sent =>
+    fire(subscription = subscription(SubscriptionType.Calendar, None), capabilities = everything).map(sent =>
       assertEquals(sent.map(_.value), List(Markdown("**calendar**")))
     )
   }
 
   test("a calendar over the text limit of the platform is sent in more messages") {
     val longCalendar = Markdown(List.fill(10)("a" * 90).mkString("\n"))
-    fire(subscription(SubscriptionType.Calendar, None), textOnly, calendar = longCalendar).map { sent =>
-      assert(sent.size > 1, sent.toString)
-      assert(sent.forall(_.value.show.length <= textOnly.maxTextLength), sent.toString)
-    }
+    fire(subscription = subscription(SubscriptionType.Calendar, None), capabilities = textOnly, calendar = longCalendar)
+      .map { sent =>
+        assert(sent.size > 1, sent.toString)
+        assert(sent.forall(_.value.show.length <= textOnly.maxTextLength), sent.toString)
+      }
   }
 }

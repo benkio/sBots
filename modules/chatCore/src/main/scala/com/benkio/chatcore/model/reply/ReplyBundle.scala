@@ -46,7 +46,7 @@ object ReplyBundleMessage {
   ): Option[ReplyBundleMessage] =
     if !FilteringForward.filter(msg, disableForward) || !FilteringOlder.filter(msg)
     then None
-    else bestMatch(msg, messageRepliesData, ignoreMessagePrefix)
+    else bestMatch(msg = msg, messageRepliesData = messageRepliesData, ignoreMessagePrefix = ignoreMessagePrefix)
 
   /** The reply bundle a message with the given text would get, with none of the filtering of a live message: the text
     * is not a message of the chat (e.g. the target of a trigger subscription), so there is neither the ignore prefix

@@ -5,8 +5,8 @@ import cats.effect.*
 import cats.effect.std.Random
 import cats.implicits.*
 import com.benkio.chatcore.model.media.Media
-import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.Markdown
+import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.ReplyTransformer
 import com.benkio.chatcore.model.reply.ReplyValue
@@ -33,8 +33,8 @@ import java.time.MonthDay
 import scala.collection.mutable.Map as MMap
 import scala.concurrent.duration.FiniteDuration
 
-/** The [[BackgroundJobManager]] that fires the subscriptions of a bot on a cron schedule, whatever the platform: what is
-  * sent goes through the injected `send`, adapted to the `capabilities` of the platform.
+/** The [[BackgroundJobManager]] that fires the subscriptions of a bot on a cron schedule, whatever the platform: what
+  * is sent goes through the injected `send`, adapted to the `capabilities` of the platform.
   */
 object CronBackgroundJobManager {
 
