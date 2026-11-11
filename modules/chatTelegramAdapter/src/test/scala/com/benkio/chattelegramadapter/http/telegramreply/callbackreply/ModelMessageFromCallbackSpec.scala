@@ -13,7 +13,7 @@ class ModelMessageFromCallbackSpec extends ScalaCheckSuite {
       val ids    = TelegramMessageIds.getIds(msg)
       val result = ModelMessageFromCallback.build(msg)
       assertEquals(result.messageId, ids.messageId)
-      assertEquals(result.chatId.value, ids.chatId)
+      assertEquals(result.chatId.telegramId, ids.chatId)
       assertEquals(result.chatType, ids.chatType)
       assertEquals(result.date, 0L)
     }

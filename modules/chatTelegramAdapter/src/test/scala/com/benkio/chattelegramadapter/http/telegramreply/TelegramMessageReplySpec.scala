@@ -28,7 +28,7 @@ import scala.concurrent.duration.*
 class TelegramMessageReplySpec extends CatsEffectSuite {
 
   private val testMessage: Message =
-    Message(0, date = 0, chatId = ChatId(0), chatType = "private", text = Some("test message"))
+    Message(0, date = 0, chatId = ChatId.telegram(0), chatType = "private", text = Some("test message"))
 
   private def iFileRepositoryMock(expectedFilepath: String): RepositoryMock =
     RepositoryMock(
@@ -42,7 +42,7 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
     val message: Message = Message(
       messageId = 0,
       date = 0L,
-      chatId = ChatId(0L),
+      chatId = ChatId.telegram(0L),
       chatType = "private",
       text = Some("test message"),
       caption = None

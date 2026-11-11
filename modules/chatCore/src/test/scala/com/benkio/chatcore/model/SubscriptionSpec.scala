@@ -68,14 +68,20 @@ class SubscriptionSpec extends FunSuite {
   }
 
   test("Subscription.apply[F] should keep a show subscription without target") {
-    val result = Subscription[Either[Throwable, *]](0L, SBotId("rphjb"), "0 0 0 * * ?", SubscriptionType.Show, None)
+    val result = Subscription[Either[Throwable, *]](
+      ChatId.telegram(0L),
+      SBotId("rphjb"),
+      "0 0 0 * * ?",
+      SubscriptionType.Show,
+      None
+    )
     assertEquals(result.map(_.subscriptionType), Right(SubscriptionType.Show))
     assertEquals(result.map(_.target), Right(None))
   }
 
   test("Subscription.apply[F] should keep the given type and target") {
     val result = Subscription[Either[Throwable, *]](
-      0L,
+      ChatId.telegram(0L),
       SBotId("rphjb"),
       "0 0 0 * * ?",
       SubscriptionType.Trigger,
@@ -86,7 +92,15 @@ class SubscriptionSpec extends FunSuite {
   }
 
   test("Subscription.apply[F] should fail for an invalid cron") {
-    assert(Subscription[Either[Throwable, *]](0L, SBotId("rphjb"), "not a cron", SubscriptionType.Show, None).isLeft)
+    assert(
+      Subscription[Either[Throwable, *]](
+        ChatId.telegram(0L),
+        SBotId("rphjb"),
+        "not a cron",
+        SubscriptionType.Show,
+        None
+      ).isLeft
+    )
   }
 
   test("Show instance should keep the original rendering") {

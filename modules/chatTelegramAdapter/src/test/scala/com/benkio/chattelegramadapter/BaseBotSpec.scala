@@ -208,7 +208,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
         val exactStringMessage = ModelMessage(
           messageId = 0,
           date = 0L,
-          chatId = ChatId(0L),
+          chatId = ChatId.telegram(0L),
           chatType = "test",
           text = Some(input)
         )
@@ -249,7 +249,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
       ModelMessage(
         messageId = 0,
         date = 0L,
-        chatId = ChatId(0L),
+        chatId = ChatId.telegram(0L),
         chatType = "test",
         text = Some(s"/instructions $value")
       )
@@ -347,7 +347,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
             val exactStringMessage = ModelMessage(
               messageId = 0,
               date = 0L,
-              chatId = ChatId(0L),
+              chatId = ChatId.telegram(0L),
               chatType = "test",
               text = Some(stringTrigger.show)
             )
@@ -370,7 +370,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
                 val exactStringMessage = ModelMessage(
                   messageId = 0,
                   date = 0L,
-                  chatId = ChatId(0L),
+                  chatId = ChatId.telegram(0L),
                   chatType = "test",
                   text = Some(regexMatchString)
                 )

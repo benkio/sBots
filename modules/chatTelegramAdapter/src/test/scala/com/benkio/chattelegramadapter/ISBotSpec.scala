@@ -21,7 +21,7 @@ class ISBotSpec extends CatsEffectSuite {
     val inputMessage: Message = Message(
       messageId = 0,
       date = Instant.now.getEpochSecond(),
-      chatId = ChatId(0L),
+      chatId = ChatId.telegram(0L),
       chatType = "test",
       text = Some("test")
     )
@@ -48,7 +48,7 @@ class ISBotSpec extends CatsEffectSuite {
     val inputMessage: Message = Message(
       messageId = 0,
       date = Instant.now.getEpochSecond(),
-      chatId = ChatId(0L),
+      chatId = ChatId.telegram(0L),
       chatType = "test",
       text = Some("/testcommand")
     )

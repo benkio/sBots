@@ -12,7 +12,7 @@ object ModelMessageFromCallback {
     ModelMessage(
       messageId = telegramMessageIds.messageId,
       date = 0L,
-      chatId = ModelChatId(telegramMessageIds.chatId),
+      chatId = ModelChatId.telegram(telegramMessageIds.chatId),
       chatType = telegramMessageIds.chatType
     )
   }

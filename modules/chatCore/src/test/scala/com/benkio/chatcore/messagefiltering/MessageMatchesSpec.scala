@@ -45,7 +45,7 @@ class MessageMatchesSpec extends ScalaCheckSuite {
   property("MessageLengthTrigger matches iff content length >= threshold") {
     forAll(Gen.choose(0, 50), Gen.alphaStr) { (threshold: Int, content: String) =>
       val b   = bundle(MessageLengthTrigger(threshold))
-      val msg = Message(0, 0L, ChatId(0L), "private", text = Some(content))
+      val msg = Message(0, 0L, ChatId.telegram(0L), "private", text = Some(content))
       val got = MessageMatches.doesMatch(b, msg, None)
       if content.size >= threshold then assert(got.isDefined)
       else assert(got.isEmpty)
@@ -72,8 +72,8 @@ class MessageMatchesSpec extends ScalaCheckSuite {
     forAll { (trigger: StringTextTriggerValue) =>
       val b        = bundle(TextTrigger(trigger), MessageMatches.ContainsOnce)
       val matching =
-        Message(0, 0L, ChatId(0L), "private", text = Some(s"xx${trigger.trigger}yy"))
-      val missing = Message(0, 0L, ChatId(0L), "private", text = Some("000000000000"))
+        Message(0, 0L, ChatId.telegram(0L), "private", text = Some(s"xx${trigger.trigger}yy"))
+      val missing = Message(0, 0L, ChatId.telegram(0L), "private", text = Some("000000000000"))
       assert(MessageMatches.doesMatch(b, matching, None).isDefined)
       assert(MessageMatches.doesMatch(b, missing, None).isEmpty)
     }
@@ -86,7 +86,7 @@ class MessageMatchesSpec extends ScalaCheckSuite {
       val msg     = Message(
         0,
         0L,
-        ChatId(0L),
+        ChatId.telegram(0L),
         "private",
         text = None,
         caption = Some(s"caption with $needle")
@@ -101,7 +101,7 @@ class MessageMatchesSpec extends ScalaCheckSuite {
       val msg = Message(
         0,
         0L,
-        ChatId(0L),
+        ChatId.telegram(0L),
         "private",
         text = None,
         caption = None
@@ -124,11 +124,11 @@ class MessageMatchesSpec extends ScalaCheckSuite {
       val triggers = needles.map(StringTextTriggerValue.apply)
       val b        = bundle(TextTrigger(triggers*), MessageMatches.ContainsAll)
       val matching =
-        Message(0, 0L, ChatId(0L), "private", text = Some(needles.mkString(" ")))
+        Message(0, 0L, ChatId.telegram(0L), "private", text = Some(needles.mkString(" ")))
       assert(MessageMatches.doesMatch(b, matching, None).isDefined)
       if needles.size > 1 then {
         val missingOne =
-          Message(0, 0L, ChatId(0L), "private", text = Some(needles.dropRight(1).mkString(" ")))
+          Message(0, 0L, ChatId.telegram(0L), "private", text = Some(needles.dropRight(1).mkString(" ")))
         assert(MessageMatches.doesMatch(b, missingOne, None).isEmpty)
       }
     }
@@ -147,7 +147,7 @@ class MessageMatchesSpec extends ScalaCheckSuite {
       val msg = Message(
         0,
         0L,
-        ChatId(0L),
+        ChatId.telegram(0L),
         "private",
         text = Some(s"message containing $shortWord and also $longTrigger")
       )

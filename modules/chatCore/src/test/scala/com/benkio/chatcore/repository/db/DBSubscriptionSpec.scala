@@ -16,7 +16,7 @@ class DBSubscriptionSpec extends FunSuite {
     val now    = Instant.now
     val actual = Subscription(
       id = SubscriptionId(UUID.randomUUID),
-      chatId = ChatId(0),
+      chatId = ChatId.telegram(0),
       botId = SBotId("botId"),
       cron = Cron.unsafeParse("30 * * * * ?"),
       subscribedAt = now
@@ -47,7 +47,7 @@ class DBSubscriptionSpec extends FunSuite {
     SubscriptionType.values.foreach { subscriptionType =>
       val subscription = Subscription(
         id = SubscriptionId(UUID.randomUUID),
-        chatId = ChatId(7),
+        chatId = ChatId.telegram(7),
         botId = SBotId("botId"),
         subscriptionType = subscriptionType,
         target = Some("a target"),

@@ -51,21 +51,21 @@ object DBLayerMock {
     )
 
   final class DBTimeoutMock(db: Ref[IO, List[DBTimeoutData]], botIdI: SBotId) extends DBTimeout[IO] {
-    override def getOrDefault(chatId: Long, botId: SBotId): IO[DBTimeoutData] =
+    override def getOrDefault(chatId: ChatId, botId: SBotId): IO[DBTimeoutData] =
       if botId == botIdI then db.get.map(
-        _.find(t => t.chat_id == chatId).getOrElse(DBTimeoutData(Timeout(ChatId(chatId), botId)))
+        _.find(t => t.chat_id == chatId.telegramId).getOrElse(DBTimeoutData(Timeout(chatId, botId)))
       )
       else IO.raiseError(new Throwable(s"Unexpected botId, actual: $botId - expected: $botIdI"))
 
     override def setTimeout(timeout: DBTimeoutData): IO[Unit] =
       db.update(ts => ts.filterNot(t => t.chat_id == timeout.chat_id) :+ timeout)
 
-    override def removeTimeout(chatId: Long, botId: SBotId): IO[Unit] =
-      db.update(ts => ts.filterNot(t => t.chat_id == chatId && t.bot_id == botId.value))
+    override def removeTimeout(chatId: ChatId, botId: SBotId): IO[Unit] =
+      db.update(ts => ts.filterNot(t => t.chat_id == chatId.telegramId && t.bot_id == botId.value))
 
-    override def logLastInteraction(chatId: Long, botId: SBotId): IO[Unit] =
+    override def logLastInteraction(chatId: ChatId, botId: SBotId): IO[Unit] =
       if botId == botIdI then db.update(ts =>
-        ts.find(t => t.chat_id == chatId)
+        ts.find(t => t.chat_id == chatId.telegramId)
           .fold(ts)(oldValue =>
             ts.filterNot(_ == oldValue) :+ oldValue.copy(last_interaction = Instant.now().getEpochSecond.toString)
           )
@@ -125,8 +125,8 @@ object DBLayerMock {
   }
 
   final class DBSubscriptionMock(db: Ref[IO, List[DBSubscriptionData]]) extends DBSubscription[IO] {
-    override def getSubscriptions(botId: SBotId, chatId: Option[Long] = None): IO[List[DBSubscriptionData]] =
-      db.get.map(_.filter(subs => subs.bot_id == botId.value && chatId.fold(true)(_ == subs.chat_id)))
+    override def getSubscriptions(botId: SBotId, chatId: Option[ChatId] = None): IO[List[DBSubscriptionData]] =
+      db.get.map(_.filter(subs => subs.bot_id == botId.value && chatId.fold(true)(_.telegramId == subs.chat_id)))
 
     override def insertSubscription(subscription: DBSubscriptionData): IO[Unit] =
       db.update(subs =>
@@ -139,13 +139,17 @@ object DBLayerMock {
     override def deleteSubscription(subscriptionId: UUID): IO[Unit] =
       db.update(_.filterNot(_.id == subscriptionId.toString))
 
-    override def deleteSubscriptions(chatId: Long, botId: SBotId): IO[Unit] =
-      db.update(_.filterNot(s => s.chat_id == chatId && s.bot_id == botId.value))
+    override def deleteSubscriptions(chatId: ChatId, botId: SBotId): IO[Unit] =
+      db.update(_.filterNot(s => s.chat_id == chatId.telegramId && s.bot_id == botId.value))
 
-    override def deleteSubscriptionsByType(chatId: Long, botId: SBotId, subscriptionType: SubscriptionType): IO[Unit] =
+    override def deleteSubscriptionsByType(
+        chatId: ChatId,
+        botId: SBotId,
+        subscriptionType: SubscriptionType
+    ): IO[Unit] =
       db.update(
         _.filterNot(s =>
-          s.chat_id == chatId && s.bot_id == botId.value && s.subscription_type == subscriptionType.asString
+          s.chat_id == chatId.telegramId && s.bot_id == botId.value && s.subscription_type == subscriptionType.asString
         )
       )
 

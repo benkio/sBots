@@ -140,7 +140,7 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
       val msg = ModelMessage(
         messageId = 0,
         date = Instant.now.getEpochSecond(),
-        chatId = ChatId(0L),
+        chatId = ChatId.telegram(0L),
         chatType = "test",
         text = Some(s"/triggersearch $query")
       )

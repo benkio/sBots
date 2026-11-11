@@ -22,7 +22,7 @@ object TextReply {
       msg: Message,
       replyToMessage: Boolean
   ): F[List[TMessage]] = {
-    val chatId: ChatId            = ChatIntId(msg.chatId.value)
+    val chatId: ChatId            = ChatIntId(msg.chatId.telegramId)
     val result: F[List[TMessage]] =
       for {
         _       <- LogWriter.info(s"[TelegramMessageReply[Text]] reply to message: ${msg.getContent}")

@@ -133,7 +133,7 @@ trait Generators {
   } yield Message(
     messageId = messageId,
     date = date,
-    chatId = ChatId(chatId),
+    chatId = ChatId.telegram(chatId),
     chatType = chatType,
     text = text,
     caption = caption,

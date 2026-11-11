@@ -65,7 +65,7 @@ class ComputeReplySpec extends CatsEffectSuite {
     val message: Message = Message(
       messageId = 0,
       date = 0L,
-      chatId = ChatId(0L),
+      chatId = ChatId.telegram(0L),
       chatType = "test"
     )
 
@@ -90,7 +90,7 @@ class ComputeReplySpec extends CatsEffectSuite {
     })
   }
 
-  private val message: Message = Message(messageId = 0, date = 0L, chatId = ChatId(0L), chatType = "test")
+  private val message: Message = Message(messageId = 0, date = 0L, chatId = ChatId.telegram(0L), chatType = "test")
   private val repository       =
     RepositoryMock((_, _) => NonEmptyList.one(NonEmptyList.one(MediaResourceIFile("not used"))).pure[IO])
   private val dbLayer = DBLayerMock.mock(SampleWebhookBot.sBotInfo.botId)

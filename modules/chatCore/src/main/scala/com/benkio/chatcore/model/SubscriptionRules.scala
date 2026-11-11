@@ -24,7 +24,7 @@ object SubscriptionRules {
       )
   final case class TargetTooLong(length: Int)
       extends Throwable(s"The subscription target is too long: $length characters, the maximum is $maxTargetLength")
-  final case class SubscriptionLimitReached(chatId: Long)
+  final case class SubscriptionLimitReached(chatId: ChatId)
       extends Throwable(
         s"Subscription limit reached: a chat can have at most $maxSubscriptionsPerChat subscriptions (chat id: $chatId)"
       )

@@ -208,7 +208,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
         testMessage = Message(
           messageId = 0,
           date = 0,
-          chatId = ChatId(0),
+          chatId = ChatId.telegram(0),
           chatType = "private",
           text = Some(s"/bensonify $input")
         )

@@ -12,7 +12,7 @@ object FilteringTimeout {
   def filter[F[_]: MonadThrow](dbLayer: DBLayer[F], sBotId: SBotId): (ReplyBundleMessage, Message) => F[Boolean] =
     (_: ReplyBundleMessage, msg: Message) =>
       for {
-        dbTimeout <- dbLayer.dbTimeout.getOrDefault(msg.chatId.value, sBotId)
+        dbTimeout <- dbLayer.dbTimeout.getOrDefault(msg.chatId, sBotId)
         timeout   <- MonadThrow[F].fromEither(Timeout(dbTimeout))
       } yield Timeout.isExpired(timeout)
 }

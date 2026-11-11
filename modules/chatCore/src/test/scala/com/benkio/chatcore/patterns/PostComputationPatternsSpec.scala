@@ -11,7 +11,7 @@ import munit.CatsEffectSuite
 class PostComputationPatternsSpec extends CatsEffectSuite {
 
   val sBotId: SBotId   = SBotId("testbot")
-  val message: Message = Message(messageId = 0, date = 0L, chatId = ChatId(123L), chatType = "private")
+  val message: Message = Message(messageId = 0, date = 0L, chatId = ChatId.telegram(123L), chatType = "private")
   val existingTimeout  = DBTimeoutData(
     chat_id = 123L,
     bot_id = sBotId.value,
@@ -24,9 +24,9 @@ class PostComputationPatternsSpec extends CatsEffectSuite {
     val postComputation = PostComputationPatterns.timeoutPostComputation[IO](dbLayer.dbTimeout, sBotId)
 
     val check = for {
-      before <- dbLayer.dbTimeout.getOrDefault(message.chatId.value, sBotId).map(_.last_interaction.toLong)
+      before <- dbLayer.dbTimeout.getOrDefault(message.chatId, sBotId).map(_.last_interaction.toLong)
       _      <- postComputation(message)
-      after  <- dbLayer.dbTimeout.getOrDefault(message.chatId.value, sBotId).map(_.last_interaction.toLong)
+      after  <- dbLayer.dbTimeout.getOrDefault(message.chatId, sBotId).map(_.last_interaction.toLong)
     } yield after > before
 
     assertIO(check, true)
@@ -52,9 +52,9 @@ class PostComputationPatternsSpec extends CatsEffectSuite {
     val postComputation = PostComputationPatterns.timeoutPostComputation[IO](dbLayer.dbTimeout, sBotId)
 
     val check = for {
-      beforeUnrelated <- dbLayer.dbTimeout.getOrDefault(124L, sBotId).map(_.last_interaction.toLong)
-      _               <- postComputation(message.copy(chatId = ChatId(999L)))
-      afterUnrelated  <- dbLayer.dbTimeout.getOrDefault(124L, sBotId).map(_.last_interaction.toLong)
+      beforeUnrelated <- dbLayer.dbTimeout.getOrDefault(ChatId.telegram(124L), sBotId).map(_.last_interaction.toLong)
+      _               <- postComputation(message.copy(chatId = ChatId.telegram(999L)))
+      afterUnrelated  <- dbLayer.dbTimeout.getOrDefault(ChatId.telegram(124L), sBotId).map(_.last_interaction.toLong)
     } yield beforeUnrelated == afterUnrelated
 
     assertIO(check, true)

@@ -10,7 +10,7 @@ class MessageSpec extends FunSuite {
     val inputMessage: Message = Message(
       messageId = 0,
       date = 0L,
-      chatId = ChatId(0L),
+      chatId = ChatId.telegram(0L),
       chatType = "test",
       text = Some("/testCommand")
     )
@@ -21,7 +21,7 @@ class MessageSpec extends FunSuite {
     val inputMessage: Message = Message(
       messageId = 0,
       date = 0L,
-      chatId = ChatId(0L),
+      chatId = ChatId.telegram(0L),
       chatType = "test",
       text = Some("simple message")
     )
@@ -33,7 +33,7 @@ class MessageSpec extends FunSuite {
     val inputMessage: Message = Message(
       messageId = 0,
       date = 0L,
-      chatId = ChatId(0L),
+      chatId = ChatId.telegram(0L),
       chatType = "test",
       text = Some("rphjb_Schifosi.mp4")
     )

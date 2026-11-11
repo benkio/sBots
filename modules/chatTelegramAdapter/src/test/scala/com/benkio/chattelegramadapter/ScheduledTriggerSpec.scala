@@ -23,7 +23,7 @@ import java.util.UUID
 /** A trigger subscription fires from the background job manager, with the replies served by the `DBLayer`. */
 class ScheduledTriggerSpec extends CatsEffectSuite {
 
-  private val chatId = ChatId(0L)
+  private val chatId = ChatId.telegram(0L)
 
   private def message(text: String, date: Long = Instant.now.getEpochSecond): Message =
     Message(messageId = 0, date = date, chatId = chatId, chatType = "private", text = Some(text))

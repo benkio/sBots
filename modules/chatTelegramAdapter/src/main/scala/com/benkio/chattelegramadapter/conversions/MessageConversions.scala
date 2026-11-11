@@ -16,7 +16,7 @@ object MessageConversions {
       TelegramMessage(
         messageId = m.messageId,
         date = m.date.toInt,
-        chat = TelegramChat(id = m.chatId.value, `type` = m.chatType),
+        chat = TelegramChat(id = m.chatId.telegramId, `type` = m.chatType),
         text = m.text,
         caption = m.caption
       )
@@ -27,7 +27,7 @@ object MessageConversions {
       Message(
         messageId = m.messageId,
         date = m.date.toLong,
-        chatId = ChatId(m.chat.id),
+        chatId = ChatId.telegram(m.chat.id),
         chatType = m.chat.`type`,
         text = m.text,
         caption = m.caption,
@@ -47,7 +47,7 @@ object MessageConversions {
           Message(
             messageId = i.messageId,
             date = 0L,
-            chatId = ChatId(i.chat.id),
+            chatId = ChatId.telegram(i.chat.id),
             chatType = i.chat.`type`
           )
         )

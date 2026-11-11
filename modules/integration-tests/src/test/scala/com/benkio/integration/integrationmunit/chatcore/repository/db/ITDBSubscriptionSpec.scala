@@ -3,6 +3,7 @@ package com.benkio.integration.integrationmunit.chatcore.repository.db
 import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits.*
+import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.repository.db.DBSubscription
@@ -44,8 +45,8 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
     check(DBSubscription.deleteSubscriptionQuery(testSubscriptionId))
     check(DBSubscription.getSubscriptionQuery(testSubscriptionId))
     check(DBSubscription.getRandomSubscriptionQuery())
-    check(DBSubscription.deleteSubscriptionsQuery(2L, botId))
-    check(DBSubscription.deleteSubscriptionsByTypeQuery(2L, botId, SubscriptionType.Calendar))
+    check(DBSubscription.deleteSubscriptionsQuery(ChatId.telegram(2L), botId))
+    check(DBSubscription.deleteSubscriptionsByTypeQuery(ChatId.telegram(2L), botId, SubscriptionType.Calendar))
   }
 
   databaseFixture.test(
@@ -145,7 +146,7 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
       dbSubscription <- fixture.resourceDBLayer.map(_.dbSubscription)
       _              <- Resource.eval(dbSubscription.insertSubscription(first))
       rejected       <- Resource.eval(dbSubscription.insertSubscription(second).attempt)
-      stored         <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(11L)))
+      stored         <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(ChatId.telegram(11L))))
     } yield (rejected, stored)
     resourceAssert.use { case (rejected, stored) =>
       IO {
@@ -237,10 +238,12 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
       _              <- Resource.eval(
         List(calendar, show, trigger, otherChatCal, otherBotCal).traverse_(dbSubscription.insertSubscription)
       )
-      _          <- Resource.eval(dbSubscription.deleteSubscriptionsByType(16L, botId, SubscriptionType.Calendar))
-      chat16     <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(16L)))
-      chat17     <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(17L)))
-      otherBot16 <- Resource.eval(dbSubscription.getSubscriptions(SBotId(anotherBot), Some(16L)))
+      _ <- Resource.eval(
+        dbSubscription.deleteSubscriptionsByType(ChatId.telegram(16L), botId, SubscriptionType.Calendar)
+      )
+      chat16     <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(ChatId.telegram(16L))))
+      chat17     <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(ChatId.telegram(17L))))
+      otherBot16 <- Resource.eval(dbSubscription.getSubscriptions(SBotId(anotherBot), Some(ChatId.telegram(16L))))
     } yield (chat16, chat17, otherBot16)
     resourceAssert.use { case (chat16, chat17, otherBot16) =>
       IO {

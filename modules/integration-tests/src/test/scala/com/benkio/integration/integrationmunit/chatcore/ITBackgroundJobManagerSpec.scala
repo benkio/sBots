@@ -47,7 +47,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
 
   val testSubscription: Subscription = Subscription(
     id = testSubscriptionId,
-    chatId = ChatId(0L),
+    chatId = ChatId.telegram(0L),
     botId = sBotInfo.botId,
     cron = Cron.unsafeParse("* * * ? * *"),
     subscribedAt = Instant.now().truncatedTo(ChronoUnit.SECONDS)
@@ -102,7 +102,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
         backgroundJobManager
           .getScheduledSubscriptions()
           .find { case SubscriptionKey(sId, _, _) => sId == testSubscriptionId },
-        Some(SubscriptionKey(testSubscriptionId, ChatId(0L), SubscriptionType.Show))
+        Some(SubscriptionKey(testSubscriptionId, ChatId.telegram(0L), SubscriptionType.Show))
       )
     }
 
@@ -139,7 +139,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
         backgroundJobManager
           .getScheduledSubscriptions()
           .find { case SubscriptionKey(sId, _, _) => sId == testSubscriptionId },
-        Some(SubscriptionKey(testSubscriptionId, ChatId(0L), SubscriptionType.Show))
+        Some(SubscriptionKey(testSubscriptionId, ChatId.telegram(0L), SubscriptionType.Show))
       )
       assertEquals(subscriptions.length, 1)
       assertEquals(Subscription(subscriptions.head), Right(testSubscription))
@@ -253,7 +253,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
   ): Subscription =
     testSubscription.copy(
       id = SubscriptionId(UUID.randomUUID()),
-      chatId = ChatId(chatId),
+      chatId = ChatId.telegram(chatId),
       subscriptionType = subscriptionType,
       cron = quietCron
     )
@@ -279,10 +279,10 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
           ttl = sBotConfig.messageTimeToLive
         )
       )
-      _      <- Resource.eval(List(show, calendar, otherChatCal).traverse_(backgroundJobManager.scheduleSubscription))
-      _      <- Resource.eval(dbLayer.dbSubscription.insertSubscription(otherBotCal))
-      _      <- Resource.eval(backgroundJobManager.cancelSubscriptionByType(ChatId(0L), SubscriptionType.Calendar))
-      stored <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId))
+      _ <- Resource.eval(List(show, calendar, otherChatCal).traverse_(backgroundJobManager.scheduleSubscription))
+      _ <- Resource.eval(dbLayer.dbSubscription.insertSubscription(otherBotCal))
+      _ <- Resource.eval(backgroundJobManager.cancelSubscriptionByType(ChatId.telegram(0L), SubscriptionType.Calendar))
+      stored      <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId))
       storedOther <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(SBotId("anotherbot")))
     } yield {
       assertEquals(
@@ -312,7 +312,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       )
       _       <- Resource.eval(backgroundJobManager.scheduleSubscription(show))
       outcome <- Resource.eval(
-        backgroundJobManager.cancelSubscriptionByType(ChatId(0L), SubscriptionType.Calendar).attempt
+        backgroundJobManager.cancelSubscriptionByType(ChatId.telegram(0L), SubscriptionType.Calendar).attempt
       )
       stored <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId))
     } yield {
@@ -347,7 +347,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       lastAllowed <- Resource.eval(backgroundJobManager.scheduleSubscription(existing.last).attempt)
       overLimit   <- Resource.eval(backgroundJobManager.scheduleSubscription(quietSubscription(7L)).attempt)
       otherChat   <- Resource.eval(backgroundJobManager.scheduleSubscription(quietSubscription(8L)).attempt)
-      stored      <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId, Some(7L)))
+      stored      <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId, Some(ChatId.telegram(7L))))
     } yield {
       assertEquals(lastAllowed, Right(()), "the subscription number 50 should be allowed")
       assertEquals(

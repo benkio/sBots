@@ -39,7 +39,7 @@ object Timeout {
     timeoutValue    <- Try(dbTimeoutData.timeout_value.toLong.millis).toEither
     lastInteraction <- Try(dbTimeoutData.last_interaction.toLong).toEither
   } yield Timeout(
-    chatId = ChatId(dbTimeoutData.chat_id),
+    chatId = ChatId.telegram(dbTimeoutData.chat_id),
     botId = SBotId(dbTimeoutData.bot_id),
     timeoutValue = timeoutValue,
     lastInteraction = Instant.ofEpochSecond(lastInteraction)
