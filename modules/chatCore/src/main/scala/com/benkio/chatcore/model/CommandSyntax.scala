@@ -43,7 +43,8 @@ final case class CommandSyntax(
       || text == invocation(command)
       || mention(command, botName).exists(text.startsWith)
 
-  /** Whether the first word of a message, the command typed by the user, is this command, addressed to the bot or not. */
+  /** Whether the first word of a message, the command typed by the user, is this command, addressed to the bot or not.
+    */
   def isCommandWord(word: String, command: String, botName: SBotName): Boolean =
     word == invocation(command) || mention(command, botName).contains(word)
 
