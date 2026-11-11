@@ -32,7 +32,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
   val botName                            = sBotConfig.sBotInfo.botName
   val botId                              = sBotConfig.sBotInfo.botId
   val chatIdValue                        = 0L
-  val chatId                             = ChatId(chatIdValue)
+  val chatId                             = ChatId.telegram(chatIdValue)
 
   val testSubscription: Subscription = Subscription(
     id = testSubscriptionId,
@@ -158,7 +158,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
     val quietCron     = Cron.unsafeParse("0 0 0 1 1 ?")
     val show          = testSubscription.copy(id = SubscriptionId(UUID.randomUUID()), cron = quietCron)
     val calendar      = show.copy(id = SubscriptionId(UUID.randomUUID()), subscriptionType = SubscriptionType.Calendar)
-    val otherChatShow = show.copy(id = SubscriptionId(UUID.randomUUID()), chatId = ChatId(1L))
+    val otherChatShow = show.copy(id = SubscriptionId(UUID.randomUUID()), chatId = ChatId.telegram(1L))
     // another bot in the very same chat
     val otherBotShow = DBSubscriptionData(show.copy(id = SubscriptionId(UUID.randomUUID())))
       .copy(bot_id = "anotherbot")
@@ -180,7 +180,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
       _ <- Resource.make(List(otherBotShow, otherBotCalendar).traverse_(dbLayer.dbSubscription.insertSubscription))(_ =>
         List(otherBotShow, otherBotCalendar).traverse_(s =>
           dbLayer.dbSubscription.deleteSubscription(UUID.fromString(s.id))
-        ) *> dbLayer.dbSubscription.deleteSubscriptions(1L, botId)
+        ) *> dbLayer.dbSubscription.deleteSubscriptions(ChatId.telegram(1L), botId)
       )
       reply <- Resource.eval(
         SubscribeUnsubscribeCommand.unsubcribeCommandLogic(
@@ -211,7 +211,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
     val quietCron    = Cron.unsafeParse("0 0 0 1 1 ?")
     val show         = testSubscription.copy(id = SubscriptionId(UUID.randomUUID()), cron = quietCron)
     val calendar     = show.copy(id = SubscriptionId(UUID.randomUUID()), subscriptionType = SubscriptionType.Calendar)
-    val otherChatCal = calendar.copy(id = SubscriptionId(UUID.randomUUID()), chatId = ChatId(1L))
+    val otherChatCal = calendar.copy(id = SubscriptionId(UUID.randomUUID()), chatId = ChatId.telegram(1L))
     val otherBotCal  = DBSubscriptionData(calendar.copy(id = SubscriptionId(UUID.randomUUID())))
       .copy(bot_id = "anotherbot")
     val result = for {

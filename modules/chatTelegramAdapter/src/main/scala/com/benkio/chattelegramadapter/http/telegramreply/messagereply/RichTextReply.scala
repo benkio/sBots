@@ -24,7 +24,7 @@ object RichTextReply {
       replyToMessage: Boolean,
       timeToLive: Option[FiniteDuration] = None
   ): F[List[TMessage]] = {
-    val chatId: ChatId            = ChatIntId(msg.chatId.value)
+    val chatId: ChatId            = ChatIntId(msg.chatId.telegramId)
     val result: F[List[TMessage]] =
       for {
         _       <- LogWriter.info(s"[TelegramMessageReply[RichText]] sendRichText: ${msg.getContent}")

@@ -163,23 +163,23 @@ class DBRepositoriesCoverageSpec extends CatsEffectSuite {
   test("DBTimeout getOrDefault/set/remove/logLastInteraction paths execute") {
     tempDb.use { xa =>
       val botId  = SBotId("test")
-      val chatId = ChatId(1L)
+      val chatId = ChatId.telegram(1L)
       val impl   = new DBTimeout.DBTimeoutImpl[IO](xa, summon)
       val t0     = Timeout(chatId, botId)
       val row    = DBTimeoutData(t0)
 
       for {
         _  <- setupSchema(xa)
-        d0 <- impl.getOrDefault(chatId.value, botId)
+        d0 <- impl.getOrDefault(chatId, botId)
         _  <- impl.setTimeout(row)
-        d1 <- impl.getOrDefault(chatId.value, botId)
-        _  <- impl.logLastInteraction(chatId.value, botId)
-        _  <- impl.removeTimeout(chatId.value, botId)
-        d2 <- impl.getOrDefault(chatId.value, botId)
+        d1 <- impl.getOrDefault(chatId, botId)
+        _  <- impl.logLastInteraction(chatId, botId)
+        _  <- impl.removeTimeout(chatId, botId)
+        d2 <- impl.getOrDefault(chatId, botId)
       } yield {
-        assertEquals(d0.chat_id, chatId.value)
-        assertEquals(d1.chat_id, chatId.value)
-        assertEquals(d2.chat_id, chatId.value)
+        assertEquals(d0.chat_id, chatId.telegramId)
+        assertEquals(d1.chat_id, chatId.telegramId)
+        assertEquals(d2.chat_id, chatId.telegramId)
       }
     }
   }

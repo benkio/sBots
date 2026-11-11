@@ -27,7 +27,6 @@ import com.benkio.chatcore.model.show.ShowQueryKeyword
 import com.benkio.chatcore.model.show.SimpleShowQuery
 import com.benkio.chatcore.model.toEng
 import com.benkio.chatcore.model.toIta
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandInstructionData
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.CommandTrigger
@@ -93,7 +92,7 @@ object CommandPatterns {
       val scheduleCalendar: F[ReplyValue] =
         for {
           subscription <- Subscription(
-            m.chatId.value,
+            m.chatId,
             sBotInfo.botId,
             calendarCron,
             SubscriptionType.Calendar,
@@ -564,7 +563,7 @@ ${ignoreMessagePrefix
           arguments    <- Async[F].fromEither(SubscribeArguments.parse(input))
           _            <- validateTrigger[F](arguments = arguments, dbMessageReplies = dbMessageReplies, m = m)
           subscription <- Subscription(
-            m.chatId.value,
+            m.chatId,
             sBotInfo.botId,
             arguments.cron,
             arguments.subscriptionType,
@@ -660,12 +659,12 @@ ${ignoreMessagePrefix
         sBotInfo: SBotInfo,
         m: Message
     ): F[ReplyValue] = for {
-      subscriptionsData <- dbSubscription.getSubscriptions(sBotInfo.botId, Some(m.chatId.value))
+      subscriptionsData <- dbSubscription.getSubscriptions(sBotInfo.botId, Some(m.chatId))
       subscriptions     <- subscriptionsData.traverse(sd => Async[F].fromEither(Subscription(sd)))
       now               <- Async[F].delay(LocalDateTime.now())
       scheduledIds = backgroundJobManager
         .getScheduledSubscriptions()
-        .collect { case SubscriptionKey(subscriptionId, cid, _) if cid.value == m.chatId.value => subscriptionId }
+        .collect { case SubscriptionKey(subscriptionId, cid, _) if cid == m.chatId => subscriptionId }
       storedIds = subscriptions.map(_.id).toSet
     } yield Markdown(
       SubscriptionsTable.render(
@@ -736,7 +735,7 @@ ${ignoreMessagePrefix
     ): F[ReplyValue] = {
       val computation: String => F[ReplyValue] = (input: String) => {
         if input.isEmpty
-        then dbTimeout.removeTimeout(chatId = msg.chatId.value, botId = sBotInfo.botId) *>
+        then dbTimeout.removeTimeout(chatId = msg.chatId, botId = sBotInfo.botId) *>
           Text(value = "Timeout removed", timeToLive = ttl).pure[F]
         else
           Timeout(msg.chatId, sBotInfo.botId, input)
@@ -803,7 +802,7 @@ ${ignoreMessagePrefix
     ): F[ReplyValue] = {
       dbTimeout
         .getOrDefault(
-          chatId = msg.chatId.value,
+          chatId = msg.chatId,
           botId = sBotInfo.botId
         )
         .flatMap((dbTimeoutData: DBTimeoutData) => MonadThrow[F].fromEither(Timeout(dbTimeoutData)))

@@ -33,7 +33,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
   val message: Message = Message(
     messageId = 0,
     date = 0L,
-    chatId = ChatId(0L),
+    chatId = ChatId.telegram(0L),
     chatType = "private",
     text = Some("test message"),
     caption = None

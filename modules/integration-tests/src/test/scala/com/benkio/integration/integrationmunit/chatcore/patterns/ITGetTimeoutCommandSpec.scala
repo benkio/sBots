@@ -19,7 +19,7 @@ class ITGetTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
   val botName     = sBotConfig.sBotInfo.botName
   val botId       = sBotConfig.sBotInfo.botId
   val chatIdValue = 0L
-  val chatId      = ChatId(chatIdValue)
+  val chatId      = ChatId.telegram(chatIdValue)
 
   val msg: Message = Message(messageId = 0, date = 0, chatId = chatId, chatType = "private")
 

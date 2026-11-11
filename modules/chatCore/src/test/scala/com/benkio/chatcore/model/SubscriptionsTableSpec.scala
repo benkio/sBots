@@ -20,7 +20,7 @@ class SubscriptionsTableSpec extends FunSuite {
       subscribedAt: Long = 1L
   ): Subscription = Subscription(
     id = SubscriptionId(UUID.fromString(id)),
-    chatId = ChatId(1L),
+    chatId = ChatId.telegram(1L),
     botId = SBotId("sbot"),
     subscriptionType = subscriptionType,
     target = target,

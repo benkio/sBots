@@ -33,7 +33,7 @@ class FilteringTimeoutSpec extends CatsEffectSuite {
     val msg: Message = Message(
       messageId = 0,
       date = 0L,
-      chatId = ChatId(chatId),
+      chatId = ChatId.telegram(chatId),
       chatType = "private"
     )
     val filter = FilteringTimeout.filter[IO](dbLayer, botId)
@@ -63,7 +63,7 @@ class FilteringTimeoutSpec extends CatsEffectSuite {
     val msg: Message = Message(
       messageId = 0,
       date = 0L,
-      chatId = ChatId(chatId),
+      chatId = ChatId.telegram(chatId),
       chatType = "private"
     )
     val filter = FilteringTimeout.filter[IO](dbLayer, botId)

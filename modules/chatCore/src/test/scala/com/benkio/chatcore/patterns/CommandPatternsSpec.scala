@@ -11,7 +11,7 @@ import munit.*
 
 class CommandPatternsSpec extends CatsEffectSuite {
 
-  val msg: Message         = Message(messageId = 0, date = 0L, chatId = ChatId(123L), chatType = "private")
+  val msg: Message         = Message(messageId = 0, date = 0L, chatId = ChatId.telegram(123L), chatType = "private")
   val command: String      = "command"
   val defaultReply: String = "defaultReply"
   val sBotInfo: SBotInfo   = SBotInfo(

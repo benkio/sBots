@@ -38,7 +38,7 @@ object TelegramBackgroundJobManager {
 
   final case class SubscriptionIdNotFound(subscriptionId: SubscriptionId)
       extends Throwable(s"Subscription Id is not found: $subscriptionId")
-  final case class SubscriptionChatIdNotFound(chatId: Long)
+  final case class SubscriptionChatIdNotFound(chatId: ChatId)
       extends Throwable(s"Subscription chat Id is not found: $chatId")
   final case class StaleSubscription(subscription: Subscription)
       extends Throwable(
@@ -46,7 +46,7 @@ object TelegramBackgroundJobManager {
       )
   final case class SubscriptionAlreadyExists(subscription: Subscription)
       extends Throwable(
-        s"Subscription already exists: already present in memory while subscribing to it. id: ${subscription.id.value} - ${subscription.chatId.value}"
+        s"Subscription already exists: already present in memory while subscribing to it. id: ${subscription.id.value} - ${subscription.chatId}"
       )
 
   def apply[F[_]: Async: Api: Random](
@@ -117,9 +117,9 @@ object TelegramBackgroundJobManager {
         _ <- Async[F]
           .raiseError(SubscriptionAlreadyExists(subscription))
           .whenA(scheduleReferences.keys.exists(_.subscriptionId == subscription.id))
-        chatSubscriptions <- dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId, Some(subscription.chatId.value))
+        chatSubscriptions <- dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId, Some(subscription.chatId))
         _                 <- Async[F]
-          .raiseError(SubscriptionRules.SubscriptionLimitReached(subscription.chatId.value))
+          .raiseError(SubscriptionRules.SubscriptionLimitReached(subscription.chatId))
           .whenA(chatSubscriptions.size >= SubscriptionRules.maxSubscriptionsPerChat)
         _ <- Async[F]
           .raiseError(SubscriptionRules.CalendarAlreadyActive)
@@ -165,7 +165,7 @@ object TelegramBackgroundJobManager {
       }
       for {
         _ <- log.info(s"[BackgroundJobManager] Cancel subscriptions for: $chatId")
-        _ <- dbLayer.dbSubscription.deleteSubscriptions(chatId.value, sBotInfo.botId)
+        _ <- dbLayer.dbSubscription.deleteSubscriptions(chatId, sBotInfo.botId)
         _ <- optCancellingBooleans.values.toList.traverse_(cancelSignal => cancelSignal.set(true))
       } yield scheduleReferences = onGoingScheduleReferences
     }
@@ -178,7 +178,7 @@ object TelegramBackgroundJobManager {
         _ <- log.info(
           s"[BackgroundJobManager] Cancel ${subscriptionType.asString} subscriptions for: $chatId"
         )
-        _ <- dbLayer.dbSubscription.deleteSubscriptionsByType(chatId.value, sBotInfo.botId, subscriptionType)
+        _ <- dbLayer.dbSubscription.deleteSubscriptionsByType(chatId, sBotInfo.botId, subscriptionType)
         _ <- optCancellingBooleans.values.toList.traverse_(cancelSignal => cancelSignal.set(true))
       } yield scheduleReferences = onGoingScheduleReferences
     }

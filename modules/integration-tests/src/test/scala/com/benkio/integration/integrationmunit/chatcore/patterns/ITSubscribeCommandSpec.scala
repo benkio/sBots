@@ -33,7 +33,7 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
   val testSubscriptionId: SubscriptionId = SubscriptionId(UUID.fromString("B674CCE0-9684-4D31-8CC7-9E2A41EA0878"))
   val sBotInfo                           = sBotConfig.sBotInfo
   val chatIdValue                        = 0L
-  val chatId                             = ChatId(chatIdValue)
+  val chatId                             = ChatId.telegram(chatIdValue)
   val cronValue                          = "0 * * ? * *"
   val cron                               = Cron.unsafeParse(cronValue)
 
@@ -232,7 +232,9 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
         )
       lastAllowed <- Resource.eval(subscribe(s"/subscribe $cronValue"))
       overLimit   <- Resource.eval(subscribe(s"/subscribe $cronValue"))
-      stored <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(sBotConfig.sBotInfo.botId, Some(chatIdValue)))
+      stored      <- Resource.eval(
+        dbLayer.dbSubscription.getSubscriptions(sBotConfig.sBotInfo.botId, Some(ChatId.telegram(chatIdValue)))
+      )
     } yield {
       assert(lastAllowed.show.startsWith("Subscription successfully scheduled."), lastAllowed.show)
       assert(overLimit.show.contains("Subscription limit reached"), overLimit.show)

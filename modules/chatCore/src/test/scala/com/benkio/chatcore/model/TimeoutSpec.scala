@@ -21,23 +21,23 @@ class TimeoutSpec extends ScalaCheckSuite {
 
   property("Timeout.apply(chatId, botId, string) succeeds for valid HH:MM:SS") {
     forAll(timeoutHhMmSsGen, arbitrary[SBotId]) { case ((formatted, expected), botId) =>
-      val actual = Timeout(ChatId(1L), botId, formatted)
+      val actual = Timeout(ChatId.telegram(1L), botId, formatted)
       assert(actual.isRight)
       assertEquals(actual.toOption.get.timeoutValue, expected)
-      assertEquals(actual.toOption.get.chatId.value, 1L)
+      assertEquals(actual.toOption.get.chatId, ChatId.telegram(1L))
       assertEquals(actual.toOption.get.botId, botId)
     }
   }
 
   property("Timeout.apply(chatId, botId, string) fails for invalid input") {
     forAll(Gen.alphaStr.suchThat(s => s.isEmpty || !s.matches("\\d{2}:\\d{2}:\\d{2}"))) { (invalid: String) =>
-      assert(Timeout(ChatId(1L), SBotId("botId"), invalid).isLeft)
+      assert(Timeout(ChatId.telegram(1L), SBotId("botId"), invalid).isLeft)
     }
   }
 
   property("default Timeout has zero duration") {
     forAll { (botId: SBotId) =>
-      val actual = Timeout(ChatId(1L), botId)
+      val actual = Timeout(ChatId.telegram(1L), botId)
       assertEquals(actual.timeoutValue, 0.millis)
       assertEquals(actual.botId, botId)
     }
@@ -46,7 +46,7 @@ class TimeoutSpec extends ScalaCheckSuite {
   property("isExpired is true when lastInteraction is older than timeoutValue") {
     forAll(Gen.choose(1L, 10_000L)) { (timeoutMs: Long) =>
       val timeout = Timeout(
-        ChatId(1L),
+        ChatId.telegram(1L),
         SBotId("botId"),
         timeoutMs.millis,
         Instant.now().minusMillis(timeoutMs + 50)
@@ -57,7 +57,7 @@ class TimeoutSpec extends ScalaCheckSuite {
 
   property("isExpired is false when lastInteraction is recent relative to timeoutValue") {
     forAll(Gen.choose(1_000L, 60_000L)) { (timeoutMs: Long) =>
-      val timeout = Timeout(ChatId(1L), SBotId("botId"), timeoutMs.millis, Instant.now())
+      val timeout = Timeout(ChatId.telegram(1L), SBotId("botId"), timeoutMs.millis, Instant.now())
       assert(!Timeout.isExpired(timeout))
     }
   }

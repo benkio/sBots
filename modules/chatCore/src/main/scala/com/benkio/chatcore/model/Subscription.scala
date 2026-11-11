@@ -47,7 +47,7 @@ final case class Subscription(
 
 object Subscription {
   def apply[F[_]: ApplicativeThrow](
-      chatId: Long,
+      chatId: ChatId,
       botId: SBotId,
       inputCron: String,
       subscriptionType: SubscriptionType,
@@ -58,7 +58,7 @@ object Subscription {
       .map(cronExpr =>
         Subscription(
           id = SubscriptionId(UUID.randomUUID),
-          chatId = ChatId(chatId),
+          chatId = chatId,
           botId = botId,
           subscriptionType = subscriptionType,
           target = target,
@@ -74,7 +74,7 @@ object Subscription {
     cronExpr         <- Cron(dbSubscriptionData.cron).toTry
   } yield Subscription(
     id = SubscriptionId(id),
-    chatId = ChatId(dbSubscriptionData.chat_id.toLong),
+    chatId = ChatId.telegram(dbSubscriptionData.chat_id),
     botId = SBotId(dbSubscriptionData.bot_id),
     subscriptionType = subscriptionType,
     target = dbSubscriptionData.target,

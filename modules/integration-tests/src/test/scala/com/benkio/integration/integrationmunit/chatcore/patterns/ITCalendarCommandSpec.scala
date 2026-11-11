@@ -28,7 +28,7 @@ class ITCalendarCommandSpec extends CatsEffectSuite with DBFixture {
   val sBotConfig             = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
   val sBotInfo               = sBotConfig.sBotInfo
   val otherBotInfo: SBotInfo = sBotInfo.copy(botId = SBotInfo.SBotId("otherbot"))
-  val chatId                 = ChatId(1L)
+  val chatId                 = ChatId.telegram(1L)
   val msg: Message           = Message(messageId = 0, date = 0, chatId = chatId, chatType = "private")
   val alreadyActive          = "calendar subscription already active"
 
@@ -84,10 +84,10 @@ class ITCalendarCommandSpec extends CatsEffectSuite with DBFixture {
       _ <- Resource.make(List(sBotInfo, otherBotInfo).traverse_(b => dbLayer.dbShow.insertShow(show(b))))(_ =>
         List(sBotInfo, otherBotInfo).traverse_(b => dbLayer.dbShow.deleteShow(show(b))) *>
           (for {
-            c <- List(chatId, ChatId(2L))
+            c <- List(chatId, ChatId.telegram(2L))
             b <- List(sBotInfo, otherBotInfo)
           } yield (c, b)).traverse_ { case (c, b) =>
-            dbLayer.dbSubscription.deleteSubscriptions(c.value, b.botId)
+            dbLayer.dbSubscription.deleteSubscriptions(c, b.botId)
           }
       )
       jobManager <- manager(fixture = fixture, dbLayer = dbLayer)
@@ -127,7 +127,7 @@ class ITCalendarCommandSpec extends CatsEffectSuite with DBFixture {
       manager(fixture = fixture, dbLayer = dbLayer, botInfo = otherBotInfo).use { otherManager =>
         for {
           _           <- loadCalendar(jobManager = jobManager, dbLayer = dbLayer)
-          otherChat   <- loadCalendar(jobManager = jobManager, dbLayer = dbLayer, chat = ChatId(2L))
+          otherChat   <- loadCalendar(jobManager = jobManager, dbLayer = dbLayer, chat = ChatId.telegram(2L))
           otherBot    <- loadCalendar(jobManager = otherManager, dbLayer = dbLayer, botInfo = otherBotInfo)
           stored      <- calendars(dbLayer)
           storedOther <- calendars(dbLayer, otherBotInfo)
