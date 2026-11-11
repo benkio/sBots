@@ -7,6 +7,7 @@ import cats.implicits.*
 import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.reply.Markdown
 import com.benkio.chatcore.model.reply.MediaFile
+import com.benkio.chatcore.model.reply.PagedList
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.ReplyValueCore
 import com.benkio.chatcore.model.reply.Text
@@ -110,6 +111,12 @@ object TelegramMessageReply {
               timeToLive = markdown.timeToLive
             )
       }
+    case pagedList: PagedList =>
+      KeyboardReply.sendKeyboard(
+        reply = KeyboardReply.toKeyboard(pagedList),
+        msg = msg,
+        replyToMessage = replyToMessage
+      )
     case telegramInlineKeyboard: TelegramInlineKeyboard =>
       KeyboardReply.sendKeyboard(
         reply = telegramInlineKeyboard,

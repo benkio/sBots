@@ -4,6 +4,7 @@ import cats.syntax.all.*
 import com.benkio.chatcore.conversions.YouTubeTimestamp.finiteDurationToYoutubeTimestamp
 import com.benkio.chatcore.model.reply.Markdown
 import com.benkio.chatcore.model.reply.MediaFile
+import com.benkio.chatcore.model.reply.PagedItem
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.ReplyValueCore
 import com.benkio.chatcore.model.reply.Text
@@ -28,6 +29,14 @@ object ToInlineButton {
             case mediaFile: MediaFile => mediaFileToInlineButton.toInlineKeyboardButton(mediaFile)
           }
         case _ => None
+      }
+  }
+
+  given pagedItemToInlineButton: ToInlineButton[PagedItem] with {
+    extension (item: PagedItem) def toInlineKeyboardButton: Option[InlineKeyboardButton] =
+      item match {
+        case PagedItem.ShowItem(show)   => showToInlineButton.toInlineKeyboardButton(show)
+        case PagedItem.ValueItem(value) => summon[ToInlineButton[ReplyValue]].toInlineKeyboardButton(value)
       }
   }
 

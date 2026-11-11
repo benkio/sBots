@@ -18,6 +18,7 @@ import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandInstructionData
 import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.CommandTrigger
+import com.benkio.chatcore.model.MediaKind
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.PlatformCapabilities
 import com.benkio.chatcore.model.SBotInfo
@@ -80,6 +81,9 @@ class BotEngineSpec extends CatsEffectSuite {
   private val slashCommands: PlatformCapabilities =
     FakePlatformAdapter.textOnlyCapabilities.copy(commandSyntax = CommandSyntax.Telegram)
 
+  // The same, able to send audio files
+  private val audioCapable: PlatformCapabilities = slashCommands.copy(supportedMedia = Set(MediaKind.Audio))
+
   /** Runs the engine on the message and gives back what is sent and how many times the post computation ran. */
   private def run(
       text: String,
@@ -126,7 +130,7 @@ class BotEngineSpec extends CatsEffectSuite {
   }
 
   test("a file request sends the media file, replying to the message") {
-    run(text = "eng_file.mp3").map { case (sent, _) =>
+    run(text = "eng_file.mp3", capabilities = audioCapable).map { case (sent, _) =>
       assertEquals(sent.map(s => (s.replyValue, s.replyToMessage)), List((Mp3File("eng_file.mp3"), true)))
     }
   }
@@ -185,9 +189,7 @@ class BotEngineSpec extends CatsEffectSuite {
   }
 
   test("a file request starts with the marker of the platform") {
-    val withMarker = FakePlatformAdapter.textOnlyCapabilities.copy(
-      commandSyntax = CommandSyntax(prefix = "!", fileRequestMarker = "+")
-    )
+    val withMarker = audioCapable.copy(commandSyntax = CommandSyntax(prefix = "!", fileRequestMarker = "+"))
     for {
       marked <- run(text = "+eng_file.mp3", capabilities = withMarker)
       plain  <- run(text = "eng_file.mp3", capabilities = withMarker)

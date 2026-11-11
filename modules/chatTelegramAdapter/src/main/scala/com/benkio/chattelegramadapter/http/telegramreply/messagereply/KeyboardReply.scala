@@ -3,6 +3,8 @@ package com.benkio.chattelegramadapter.http.telegramreply.messagereply
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.chatcore.messagefiltering.getContent
+import com.benkio.chatcore.model.reply.PagedList
+import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
 import com.benkio.chattelegramadapter.conversions.ToInlineButton
@@ -50,12 +52,32 @@ object KeyboardReply {
       )
   }
 
+  /** The paged list as the inline keyboard of Telegram: a button for every item of the page and the ones to move across
+    * the pages.
+    */
+  def toKeyboard(pagedList: PagedList): TelegramInlineKeyboard =
+    TelegramInlineKeyboard(
+      keyboardTitle = pagedList.title,
+      inlineKeyboard = buildInlineKeyboard(
+        data = pagedList.items,
+        page = pagedList.page,
+        commandKey = pagedList.commandKey,
+        perPage = pagedList.pageSize
+      )
+    )
+
+  /** The keyboard to send for a reply value: the keyboard itself or the one of a paged list. */
+  def keyboardOf(replyValue: ReplyValue): Option[TelegramInlineKeyboard] =
+    TelegramInlineKeyboard
+      .from(replyValue)
+      .orElse(ReplyValue.from[PagedList](replyValue).map(toKeyboard))
+
   def buildInlineKeyboard[A: ToInlineButton](
       data: List[A],
       page: Int,
-      commandKey: CommandKey
+      commandKey: CommandKey,
+      perPage: Int = PagedList.defaultPageSize
   ): InlineKeyboardMarkup = {
-    val perPage: Int = 5
     val selectedData = data.slice(page * perPage, (page + 1) * perPage)
     InlineKeyboardMarkup(
       selectedData.map(d => d.toInlineKeyboardButton.toList) :+ paginationButtons(

@@ -15,12 +15,14 @@ import com.benkio.chatcore.model.PlatformCapabilities
 import com.benkio.chatcore.PlatformAdapter
 
 /** A platform without a network: [[run]] delivers the `inbound` messages to the handler set with [[onInbound]], what is
-  * sent is recorded in `sent` and every effectful reply is computed as `Text("effectful")`.
+  * sent is recorded in `sent` and every effectful reply is computed as `effectfulValue`, by default
+  * `Text("effectful")`.
   */
 final class FakePlatformAdapter private (
     override val capabilities: PlatformCapabilities,
     inbound: List[Message],
     handler: Ref[IO, Option[Message => IO[Unit]]],
+    effectfulValue: ReplyValue,
     val sent: Ref[IO, List[FakePlatformAdapter.Sent]]
 ) extends PlatformAdapter[IO] {
 
@@ -37,7 +39,7 @@ final class FakePlatformAdapter private (
     sent.update(_ :+ FakePlatformAdapter.Sent(replyValue, message, replyToMessage))
 
   override def runEffectful(reply: EffectfulReply, message: Message): IO[ReplyValue] =
-    IO.pure(Text("effectful"))
+    IO.pure(effectfulValue)
 }
 
 object FakePlatformAdapter {
@@ -59,9 +61,10 @@ object FakePlatformAdapter {
 
   def apply(
       inbound: List[Message] = List.empty,
-      capabilities: PlatformCapabilities = textOnlyCapabilities
+      capabilities: PlatformCapabilities = textOnlyCapabilities,
+      effectfulValue: ReplyValue = Text("effectful")
   ): IO[FakePlatformAdapter] = for {
     handler <- Ref.of[IO, Option[Message => IO[Unit]]](None)
     sent    <- Ref.of[IO, List[Sent]](List.empty)
-  } yield new FakePlatformAdapter(capabilities, inbound, handler, sent)
+  } yield new FakePlatformAdapter(capabilities, inbound, handler, effectfulValue, sent)
 }

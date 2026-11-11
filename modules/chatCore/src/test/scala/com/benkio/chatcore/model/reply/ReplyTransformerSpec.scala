@@ -161,4 +161,28 @@ class ReplyTransformerSpec extends ScalaCheckSuite {
     assertEquals(ReplyTransformer.usableSources(textOnly)(sources), List(Right(mp3Link)))
     assertEquals(ReplyTransformer.usableSources(everything)(sources), sources)
   }
+
+  private val pagedList: PagedList = PagedList(
+    title = "Headline\nechoed",
+    items = List.tabulate(7)(n => PagedItem.ValueItem(Text(s"item ${n + 1}"))),
+    page = 0,
+    commandKey = com.benkio.chatcore.model.CommandKey.TriggerSearch
+  )
+
+  test("a paged list is left as it is on a platform with buttons") {
+    assertEquals(ReplyTransformer.transform(everything)(pagedList), List(pagedList))
+  }
+
+  test("a paged list becomes a numbered text on a platform without buttons") {
+    assertEquals(
+      ReplyTransformer.transform(textOnly)(pagedList),
+      List(Text("Headline\n1. item 1\n2. item 2\n3. item 3\n4. item 4\n5. item 5\npage 1 of 2"))
+    )
+  }
+
+  test("the text of a paged list is split when it is over the limit of the platform") {
+    val result = ReplyTransformer.transform(textOnly.copy(maxTextLength = 20))(pagedList)
+    assert(result.size > 1, result.toString)
+    assert(result.forall(_.asInstanceOf[Text].value.length <= 20), result.toString)
+  }
 }
