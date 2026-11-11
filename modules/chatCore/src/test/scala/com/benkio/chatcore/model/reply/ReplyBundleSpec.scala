@@ -447,4 +447,17 @@ class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
       }
     }
   }
+
+  test("selectReplyBundleByText should select the bundle of a text with none of the filtering of a live message") {
+    val bundles = List(
+      ReplyBundleMessage.textToText("ciao")("hello"),
+      ReplyBundleMessage.textToText("bye")("goodbye")
+    )
+    val chat = ChatId.telegram(1L)
+    assertEquals(
+      ReplyBundleMessage.selectReplyBundleByText("say ciao to everybody", chat, bundles).map(_.prettyPrint()),
+      Some(bundles.head.prettyPrint())
+    )
+    assertEquals(ReplyBundleMessage.selectReplyBundleByText("nothing", chat, bundles), None)
+  }
 }
