@@ -5,6 +5,7 @@ import cats.syntax.all.*
 import com.benkio.chatcore.messagefiltering.FilteringForward
 import com.benkio.chatcore.messagefiltering.FilteringOlder
 import com.benkio.chatcore.messagefiltering.MessageMatches
+import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandInstructionData
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.CommandTrigger
@@ -45,15 +46,36 @@ object ReplyBundleMessage {
   ): Option[ReplyBundleMessage] =
     if !FilteringForward.filter(msg, disableForward) || !FilteringOlder.filter(msg)
     then None
-    else
-      messageRepliesData
-        .mapFilter(messageReplyBundle =>
-          MessageMatches
-            .doesMatch(messageReplyBundle, msg, ignoreMessagePrefix)
-        )
-        .sortBy(_._1)(using Trigger.orderingInstance.reverse)
-        .headOption
-        .map(_._2)
+    else bestMatch(msg = msg, messageRepliesData = messageRepliesData, ignoreMessagePrefix = ignoreMessagePrefix)
+
+  /** The reply bundle a message with the given text would get, with none of the filtering of a live message: the text
+    * is not a message of the chat (e.g. the target of a trigger subscription), so there is neither the ignore prefix
+    * nor the forward and age filters.
+    */
+  def selectReplyBundleByText(
+      text: String,
+      chatId: ChatId,
+      messageRepliesData: List[ReplyBundleMessage]
+  ): Option[ReplyBundleMessage] =
+    bestMatch(
+      msg = Message(messageId = 0, date = 0L, chatId = chatId, chatType = "", text = Some(text)),
+      messageRepliesData = messageRepliesData,
+      ignoreMessagePrefix = None
+    )
+
+  private def bestMatch(
+      msg: Message,
+      messageRepliesData: List[ReplyBundleMessage],
+      ignoreMessagePrefix: Option[String]
+  ): Option[ReplyBundleMessage] =
+    messageRepliesData
+      .mapFilter(messageReplyBundle =>
+        MessageMatches
+          .doesMatch(messageReplyBundle, msg, ignoreMessagePrefix)
+      )
+      .sortBy(_._1)(using Trigger.orderingInstance.reverse)
+      .headOption
+      .map(_._2)
 
   def textToMedia(
       triggers: (String | RegexTextTriggerValue)*
