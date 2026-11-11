@@ -28,4 +28,12 @@ class CommandKeySpec extends ScalaCheckSuite {
   property("commandTriggers lists a trigger for every command key") {
     assertEquals(CommandKey.commandTriggers, CommandKey.values.toList.map(_.trigger))
   }
+
+  property("fromString reads the commands of a platform with another syntax") {
+    val irc = CommandSyntax(prefix = "!")
+    forAll { (key: CommandKey) =>
+      assertEquals(CommandKey.fromString(s"!${key.asString} some input", irc), Some(key))
+      assertEquals(CommandKey.fromString(s"/${key.asString}", irc), None)
+    }
+  }
 }

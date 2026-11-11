@@ -29,6 +29,7 @@ import com.benkio.chatcore.model.toEng
 import com.benkio.chatcore.model.toIta
 import com.benkio.chatcore.model.CommandInstructionData
 import com.benkio.chatcore.model.CommandKey
+import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
@@ -87,7 +88,8 @@ object CommandPatterns {
         dbShow: DBShow[F],
         m: Message,
         sBotInfo: SBotInfo,
-        ttl: Option[FiniteDuration]
+        ttl: Option[FiniteDuration],
+        commandSyntax: CommandSyntax = CommandSyntax.Telegram
     ): F[ReplyValue] = {
       val scheduleCalendar: F[ReplyValue] =
         for {
@@ -110,6 +112,7 @@ object CommandPatterns {
             .getOrElse(Text(noCalendarMessage, ttl).pure[F])
         )
       handleCommandWithInput[F](
+        commandSyntax = commandSyntax,
         msg = m,
         command = CommandKey.LoadCalendar.asString,
         sBotInfo = sBotInfo,
@@ -235,9 +238,11 @@ object CommandPatterns {
         dbLayer: DBLayer[F],
         sBotInfo: SBotInfo,
         ttl: Option[FiniteDuration],
-        showTransformation: String => NonEmptyList[Show] => F[ReplyValue]
+        showTransformation: String => NonEmptyList[Show] => F[ReplyValue],
+        commandSyntax: CommandSyntax = CommandSyntax.Telegram
     ): F[ReplyValue] =
       handleCommandWithInput[F](
+        commandSyntax = commandSyntax,
         msg = msg,
         command = CommandKey.SearchShow.asString,
         sBotInfo = sBotInfo,
@@ -368,10 +373,12 @@ object CommandPatterns {
         sBotInfo: SBotInfo,
         ttl: Option[FiniteDuration],
         replyBundleTransformation: ReplyBundleMessage => ReplyValue = replyBundleMessage =>
-          Text(replyBundleMessage.prettyPrint())
+          Text(replyBundleMessage.prettyPrint()),
+        commandSyntax: CommandSyntax = CommandSyntax.Telegram
     ): F[ReplyValue] = {
 
       handleCommandWithInput[F](
+        commandSyntax = commandSyntax,
         msg = m,
         command = CommandKey.TriggerSearch.asString,
         sBotInfo = sBotInfo,
@@ -453,7 +460,8 @@ ${ignoreMessagePrefix
         sBotInfo: SBotInfo,
         ignoreMessagePrefix: Option[String],
         commands: List[ReplyBundleCommand],
-        ttl: Option[FiniteDuration]
+        ttl: Option[FiniteDuration],
+        commandSyntax: CommandSyntax = CommandSyntax.Telegram
     ): F[ReplyValue] = {
       val computation: String => F[ReplyValue] = (input: String) => {
         val itaMatches = List("it", "ita", "italian", "🇮🇹")
@@ -485,6 +493,7 @@ ${ignoreMessagePrefix
         }
       }
       handleCommandWithInput[F](
+        commandSyntax = commandSyntax,
         msg = msg,
         command = CommandKey.Instructions.asString,
         sBotInfo = sBotInfo,
@@ -556,7 +565,8 @@ ${ignoreMessagePrefix
         dbMessageReplies: DBMessageReplies,
         m: Message,
         sBotInfo: SBotInfo,
-        ttl: Option[FiniteDuration]
+        ttl: Option[FiniteDuration],
+        commandSyntax: CommandSyntax = CommandSyntax.Telegram
     ): F[ReplyValue] = {
       val computation: String => F[ReplyValue] = (input: String) =>
         for {
@@ -578,6 +588,7 @@ ${ignoreMessagePrefix
           s"Subscription successfully scheduled. Next occurrence of subscription is $nextOccurrence. Refer to this subscription with the ID: `${subscription.id}`"
         )
       handleCommandWithInput[F](
+        commandSyntax = commandSyntax,
         msg = m,
         command = CommandKey.Subscribe.asString,
         sBotInfo = sBotInfo,
@@ -605,7 +616,8 @@ ${ignoreMessagePrefix
         backgroundJobManager: BackgroundJobManager[F],
         m: Message,
         sBotInfo: SBotInfo,
-        ttl: Option[FiniteDuration]
+        ttl: Option[FiniteDuration],
+        commandSyntax: CommandSyntax = CommandSyntax.Telegram
     ): F[ReplyValue] = {
       val computation: String => F[ReplyValue] = (input: String) =>
         Async[F].fromEither(UnsubscribeArguments.parse(input)).flatMap {
@@ -628,6 +640,7 @@ ${ignoreMessagePrefix
               )
         }
       handleCommandWithInput[F](
+        commandSyntax = commandSyntax,
         msg = m,
         command = CommandKey.Unsubscribe.asString,
         sBotInfo = sBotInfo,
@@ -731,7 +744,8 @@ ${ignoreMessagePrefix
         msg: Message,
         dbTimeout: DBTimeout[F],
         sBotInfo: SBotInfo,
-        ttl: Option[FiniteDuration]
+        ttl: Option[FiniteDuration],
+        commandSyntax: CommandSyntax = CommandSyntax.Telegram
     ): F[ReplyValue] = {
       val computation: String => F[ReplyValue] = (input: String) => {
         if input.isEmpty
@@ -761,6 +775,7 @@ ${ignoreMessagePrefix
             )
       }
       handleCommandWithInput[F](
+        commandSyntax = commandSyntax,
         msg = msg,
         command = CommandKey.SetTimeout.asString,
         sBotInfo = sBotInfo,
@@ -845,13 +860,14 @@ ${ignoreMessagePrefix
       computation: String => F[ReplyValue],
       defaultReply: String,
       allowEmptyString: Boolean = false,
-      ttl: Option[FiniteDuration]
+      ttl: Option[FiniteDuration],
+      commandSyntax: CommandSyntax = CommandSyntax.Telegram
   ): F[ReplyValue] =
     msg.text
       .filter(t => {
         val (inputCommand, rest) = t.trim.span(_ != ' ')
         val restCheck            = allowEmptyString || (rest.trim.nonEmpty && !allowEmptyString)
-        val commandCheck         = inputCommand == s"/$command" || inputCommand == s"/$command@${sBotInfo.botName}"
+        val commandCheck         = commandSyntax.isCommandWord(inputCommand, command, sBotInfo.botName)
         commandCheck && restCheck
       })
       .map(t => computation(t.dropWhile(_ != ' ').drop(1).trim))

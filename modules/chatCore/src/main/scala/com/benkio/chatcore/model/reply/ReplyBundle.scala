@@ -8,6 +8,7 @@ import com.benkio.chatcore.messagefiltering.MessageMatches
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandInstructionData
 import com.benkio.chatcore.model.CommandKey
+import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageTrigger
@@ -134,17 +135,17 @@ object ReplyBundleCommand {
   given replyBundleCommandEncoder: Encoder[ReplyBundleCommand] =
     deriveEncoder[ReplyBundleCommand]
 
+  /** The command the message invokes, written with the command syntax of the platform it comes from (Telegram unless
+    * said otherwise).
+    */
   def selectCommandReplyBundle(
       msg: Message,
       allCommandRepliesData: List[ReplyBundleCommand],
-      botName: SBotName
+      botName: SBotName,
+      syntax: CommandSyntax = CommandSyntax.Telegram
   ): Option[ReplyBundleCommand] =
     msg.text.flatMap(text =>
-      allCommandRepliesData.find(rbc =>
-        text.startsWith(s"/${rbc.trigger.command} ")
-          || text == s"/${rbc.trigger.command}"
-          || text.startsWith(s"/${rbc.trigger.command}@$botName")
-      )
+      allCommandRepliesData.find(rbc => syntax.isInvocationOf(text, rbc.trigger.command, botName))
     )
 
   def selectCommandReplyBundle(

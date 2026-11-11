@@ -25,7 +25,9 @@ object CallbackData {
       build: (Int, CommandKey) => CallbackData
   ): Option[CallbackData] =
     for {
-      commandKey  <- callbackDataSplit.lift(1).flatMap(CommandKey.fromString)
+      commandKey <- callbackDataSplit
+        .lift(1)
+        .flatMap(CommandKey.fromString(_, TelegramCapabilities.value.commandSyntax))
       currentPage <- callbackDataSplit.lift(2).flatMap(_.toIntOption)
     } yield build(currentPage, commandKey)
 

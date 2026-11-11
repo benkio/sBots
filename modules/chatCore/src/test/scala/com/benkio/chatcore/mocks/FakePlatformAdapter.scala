@@ -6,6 +6,7 @@ import cats.syntax.all.*
 import com.benkio.chatcore.model.reply.EffectfulReply
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.Text
+import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.MarkdownSupport
 import com.benkio.chatcore.model.MediaKind
 import com.benkio.chatcore.model.Message
@@ -53,7 +54,7 @@ object FakePlatformAdapter {
     supportsEdit = false,
     supportsButtons = false,
     acceptsFileIds = false,
-    commandPrefix = "!"
+    commandSyntax = CommandSyntax(prefix = "!")
   )
 
   def apply(

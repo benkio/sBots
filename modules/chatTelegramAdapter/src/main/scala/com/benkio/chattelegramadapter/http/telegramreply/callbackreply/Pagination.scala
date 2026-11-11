@@ -11,6 +11,7 @@ import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chattelegramadapter.conversions.MessageConversions.*
 import com.benkio.chattelegramadapter.model.extractInput
+import com.benkio.chattelegramadapter.model.TelegramCapabilities
 import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
 import com.benkio.chattelegramadapter.model.TelegramKeyboardTitle
 import com.benkio.chattelegramadapter.model.TelegramMessageIds
@@ -81,6 +82,7 @@ object Pagination {
         dbLayer = dbLayer,
         effectfulCallbacks = effectfulCallbacks,
         ttl = ttl,
+        commandSyntax = TelegramCapabilities.value.commandSyntax,
         overridePage = Some(newPage)
       )
       telegramReplyValue <- MonadThrow[F].fromOption(

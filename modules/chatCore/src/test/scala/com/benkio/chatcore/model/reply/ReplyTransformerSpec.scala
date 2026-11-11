@@ -1,5 +1,6 @@
 package com.benkio.chatcore.model.reply
 
+import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.MarkdownSupport
 import com.benkio.chatcore.model.MediaKind
 import com.benkio.chatcore.model.Platform
@@ -23,7 +24,7 @@ class ReplyTransformerSpec extends ScalaCheckSuite {
     supportsEdit = true,
     supportsButtons = true,
     acceptsFileIds = true,
-    commandPrefix = "/"
+    commandSyntax = CommandSyntax.Telegram
   )
 
   private val textOnly: PlatformCapabilities = everything.copy(
@@ -35,7 +36,7 @@ class ReplyTransformerSpec extends ScalaCheckSuite {
     supportsEdit = false,
     supportsButtons = false,
     acceptsFileIds = false,
-    commandPrefix = "!"
+    commandSyntax = CommandSyntax(prefix = "!")
   )
 
   private val mp3Link: Uri = uri"https://example.com/a.mp3"
