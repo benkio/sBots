@@ -57,7 +57,7 @@ class DBSpec extends CatsEffectSuite with Constants {
     val resultSet =
       connection
         .createStatement()
-        .executeQuery("SELECT chat_id, bot_id, timeout_value, last_interaction FROM timeout")
+        .executeQuery("SELECT platform, chat_id, bot_id, timeout_value, last_interaction FROM timeout")
     resultSet.next()
     val actualChatId                 = resultSet.getString("chat_id")
     val actualBotId                  = resultSet.getString("bot_id")
@@ -87,6 +87,6 @@ INSERT INTO media (media_name, bot_id, kinds, mime_type, media_sources, created_
 """
 
   val timeoutSQL = """
-INSERT INTO timeout (chat_id, bot_id, timeout_value, last_interaction) VALUES (123456789, 'botid', 1000 ,'2008-01-01 00:00:01');
+INSERT INTO timeout (platform, chat_id, bot_id, timeout_value, last_interaction) VALUES ('telegram', '123456789', 'botid', 1000 ,'2008-01-01 00:00:01');
 """
 }

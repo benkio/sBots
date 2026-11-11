@@ -4,6 +4,7 @@ import cats.effect.IO
 import cats.effect.Resource
 import cats.implicits.*
 import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.repository.db.DBSubscription
@@ -23,7 +24,8 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
 
   val testSubscription: DBSubscriptionData = DBSubscriptionData(
     id = testSubscriptionId,
-    chat_id = 2L,
+    platform = "telegram",
+    chat_id = "2",
     bot_id = botId.value,
     cron = "0 0 0 12 4 *",
     subscribed_at = "2022-11-06T19:54:46Z"
@@ -89,7 +91,8 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
   ): DBSubscriptionData =
     testSubscription.copy(
       id = id,
-      chat_id = chatId,
+      platform = "telegram",
+      chat_id = chatId.toString,
       bot_id = botIdValue,
       subscription_type = subscriptionType.asString,
       target = target
@@ -122,7 +125,7 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
       fixture.connection
         .createStatement()
         .executeUpdate(
-          s"INSERT INTO subscription (subscription_id, chat_id, bot_id, cron, subscribed_at) VALUES ('$id', 3, '${botId.value}', '0 0 0 12 4 *', '1')"
+          s"INSERT INTO subscription (subscription_id, platform, chat_id, bot_id, cron, subscribed_at) VALUES ('$id', 'telegram', '3', '${botId.value}', '0 0 0 12 4 *', '1')"
         )
     } *> fixture.resourceDBLayer
       .map(_.dbSubscription)
@@ -205,7 +208,12 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
   databaseFixture.test(
     "DBSubscription: an unknown subscription type should be rejected by the database"
   ) { fixture =>
-    val invalid = testSubscription.copy(id = UUID.randomUUID().toString, chat_id = 15L, subscription_type = "weird")
+    val invalid = testSubscription.copy(
+      id = UUID.randomUUID().toString,
+      platform = "telegram",
+      chat_id = "15",
+      subscription_type = "weird"
+    )
     fixture.resourceDBLayer
       .map(_.dbSubscription)
       .use(_.insertSubscription(invalid).attempt)
@@ -254,4 +262,28 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
     }
   }
 
+  databaseFixture.test(
+    "DBSubscription: the same chat id on two platforms should be two different chats"
+  ) { fixture =>
+    val telegramCalendar =
+      subscriptionOf(id = UUID.randomUUID().toString, chatId = 31L, subscriptionType = SubscriptionType.Calendar)
+    val ircCalendar    = telegramCalendar.copy(id = UUID.randomUUID().toString, platform = Platform.Irc.id)
+    val resourceAssert = for {
+      dbSubscription <- fixture.resourceDBLayer.map(_.dbSubscription)
+      // one calendar per chat and bot: the same chat id on another platform is another chat
+      _              <- Resource.eval(dbSubscription.insertSubscription(telegramCalendar))
+      _              <- Resource.eval(dbSubscription.insertSubscription(ircCalendar))
+      telegramStored <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(ChatId.telegram(31L))))
+      ircStored      <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(ChatId(Platform.Irc, "31"))))
+      _              <- Resource.eval(dbSubscription.deleteSubscriptions(ChatId.telegram(31L), botId))
+      ircAfter       <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(ChatId(Platform.Irc, "31"))))
+    } yield (telegramStored, ircStored, ircAfter)
+    resourceAssert.use { case (telegramStored, ircStored, ircAfter) =>
+      IO {
+        assertEquals(telegramStored, List(telegramCalendar))
+        assertEquals(ircStored, List(ircCalendar))
+        assertEquals(ircAfter, List(ircCalendar))
+      }
+    }
+  }
 }

@@ -1,6 +1,7 @@
 package com.benkio.chatcore.model
 
 import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.repository.db.DBTimeoutData
 import com.benkio.chatcore.Arbitraries.given
 import com.benkio.chatcore.Generators.timeoutHhMmSsGen
 import munit.ScalaCheckSuite
@@ -60,5 +61,19 @@ class TimeoutSpec extends ScalaCheckSuite {
       val timeout = Timeout(ChatId.telegram(1L), SBotId("botId"), timeoutMs.millis, Instant.now())
       assert(!Timeout.isExpired(timeout))
     }
+  }
+
+  test("Timeout should round-trip through DBTimeoutData on every platform") {
+    Platform.values.foreach { platform =>
+      val timeout = Timeout(ChatId(platform, "#chat-1"), SBotId("botId"), 10.seconds, Instant.ofEpochSecond(1))
+      val data    = DBTimeoutData(timeout)
+      assertEquals(data.platform, platform.id)
+      assertEquals(data.chat_id, "#chat-1")
+      assertEquals(Timeout(data), Right(timeout))
+    }
+  }
+
+  test("Timeout should not be built from DBTimeoutData of an unknown platform") {
+    assert(Timeout(DBTimeoutData("matrix", "1", "botId", "1000", "1")).isLeft)
   }
 }

@@ -15,17 +15,17 @@ WHERE EXISTS (
 );
 
 -- Preserve runtime/operational tables from old prod.
-INSERT OR REPLACE INTO timeout(chat_id, bot_id, timeout_value, last_interaction)
-SELECT chat_id, bot_id, timeout_value, last_interaction
+INSERT OR REPLACE INTO timeout(platform, chat_id, bot_id, timeout_value, last_interaction)
+SELECT platform, chat_id, bot_id, timeout_value, last_interaction
 FROM prodDB.timeout;
 
-INSERT OR REPLACE INTO chat(chat_id, chat_name, chat_url)
-SELECT chat_id, chat_name, chat_url
+INSERT OR REPLACE INTO chat(platform, chat_id, chat_name, chat_url)
+SELECT platform, chat_id, chat_name, chat_url
 FROM prodDB.chat;
 
 -- subscription_type and target must be copied: without them every subscription falls back to the default type `show`.
-INSERT OR REPLACE INTO subscription(subscription_id, chat_id, bot_id, subscription_type, target, cron, subscribed_at)
-SELECT subscription_id, chat_id, bot_id, subscription_type, target, cron, subscribed_at
+INSERT OR REPLACE INTO subscription(subscription_id, platform, chat_id, bot_id, subscription_type, target, cron, subscribed_at)
+SELECT subscription_id, platform, chat_id, bot_id, subscription_type, target, cron, subscribed_at
 FROM prodDB.subscription;
 
 INSERT OR REPLACE INTO log(log_time, message)

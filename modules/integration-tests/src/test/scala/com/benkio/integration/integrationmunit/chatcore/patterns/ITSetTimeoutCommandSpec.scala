@@ -83,7 +83,8 @@ class ITSetTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
       assertEquals(
         beforeTimeout,
         DBTimeoutData(
-          chat_id = chatIdValue,
+          platform = "telegram",
+          chat_id = chatIdValue.toString,
           bot_id = botId.value,
           timeout_value = "0",
           last_interaction = beforeTimeout.last_interaction
@@ -92,7 +93,8 @@ class ITSetTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
       assertEquals(
         afterTimeout,
         DBTimeoutData(
-          chat_id = chatIdValue,
+          platform = "telegram",
+          chat_id = chatIdValue.toString,
           bot_id = botId.value,
           timeout_value = "10000",
           last_interaction = afterTimeout.last_interaction

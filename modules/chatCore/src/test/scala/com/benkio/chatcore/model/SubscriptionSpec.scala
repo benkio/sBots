@@ -10,7 +10,8 @@ class SubscriptionSpec extends FunSuite {
   def buildDBSubscriptionData(cron: String): DBSubscriptionData =
     DBSubscriptionData(
       id = "232d1421-ad61-4835-b755-f09b07bc34c3",
-      chat_id = 0L,
+      platform = "telegram",
+      chat_id = "0",
       bot_id = "rphjb",
       cron = cron,
       subscribed_at = "1662126018293"
