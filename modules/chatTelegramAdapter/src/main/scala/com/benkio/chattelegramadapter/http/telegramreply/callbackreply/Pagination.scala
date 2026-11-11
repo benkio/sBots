@@ -10,9 +10,9 @@ import com.benkio.chatcore.model.Message as ModelMessage
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chattelegramadapter.conversions.MessageConversions.*
+import com.benkio.chattelegramadapter.http.telegramreply.messagereply.KeyboardReply
 import com.benkio.chattelegramadapter.model.extractInput
 import com.benkio.chattelegramadapter.model.TelegramCapabilities
-import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
 import com.benkio.chattelegramadapter.model.TelegramKeyboardTitle
 import com.benkio.chattelegramadapter.model.TelegramMessageIds
 import com.benkio.chattelegramadapter.ComputeReply
@@ -86,7 +86,7 @@ object Pagination {
         overridePage = Some(newPage)
       )
       telegramReplyValue <- MonadThrow[F].fromOption(
-        TelegramInlineKeyboard.from(replyValue),
+        KeyboardReply.keyboardOf(replyValue),
         new Throwable(s"[Pagination.reply] Expected TelegramInlineKeyboard reply value, got: $replyValue")
       )
       _ <- LogWriter.info("[Pagination.reply] Edit Markup Message")

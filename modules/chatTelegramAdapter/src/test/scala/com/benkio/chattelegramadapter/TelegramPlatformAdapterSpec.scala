@@ -10,14 +10,20 @@ import com.benkio.chatcore.model.media.MediaResource.MediaResourceIFile
 import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.EffectfulReply
 import com.benkio.chatcore.model.reply.Markdown
+import com.benkio.chatcore.model.reply.MediaFile
+import com.benkio.chatcore.model.reply.Mp3File
+import com.benkio.chatcore.model.reply.PagedList
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.Logger.given
+import com.benkio.chattelegramadapter.http.telegramreply.messagereply.KeyboardReply
 import com.benkio.chattelegramadapter.mocks.PayloadRecordingApi
 import com.benkio.chattelegramadapter.mocks.SampleWebhookBot
 import com.benkio.chattelegramadapter.model.TelegramCapabilities
+import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
 import io.circe.Json
 import munit.CatsEffectSuite
 import telegramium.bots.high.Api
@@ -100,6 +106,42 @@ class TelegramPlatformAdapterSpec extends CatsEffectSuite {
     } yield {
       assert(value.isInstanceOf[Markdown], value.toString)
       assertEquals(callsOf("sendRichMessage", calls).size, 1)
+    }
+  }
+
+  test("send should send a paged list as the keyboard Telegram always sent for it") {
+    val medias: List[MediaFile] = (1 to 7).toList.map(n => Mp3File(s"m$n.mp3"))
+    val pagedList               = PagedList.topTwenty(medias, page = 1)
+    val keyboard                = TelegramInlineKeyboard(
+      keyboardTitle = "-----Top 20 Triggers-----",
+      inlineKeyboard = KeyboardReply.buildInlineKeyboard(data = medias, page = 1, commandKey = CommandKey.TopTwenty)
+    )
+    for {
+      apiAndRecording <- PayloadRecordingApi()
+      (api, recorded) = apiAndRecording
+      _     <- adapter(api).send(pagedList, message, replyToMessage = false)
+      _     <- adapter(api).send(keyboard, message, replyToMessage = false)
+      calls <- recorded
+    } yield {
+      val sendMessages = callsOf("sendMessage", calls)
+      assertEquals(sendMessages.size, 2)
+      assertEquals(sendMessages.head, sendMessages.last)
+      assert(sendMessages.head.hcursor.downField("reply_markup").succeeded, sendMessages.head.noSpaces)
+    }
+  }
+
+  test("runEffectful of the commands that list gives a paged list, which send delivers") {
+    val topTwenty = EffectfulReply(EffectfulKey.TopTwenty(SampleWebhookBot.sBotInfo))
+    for {
+      apiAndRecording <- PayloadRecordingApi()
+      (api, recorded) = apiAndRecording
+      value <- adapter(api).runEffectful(topTwenty, message)
+      _     <- adapter(api).send(value, message, replyToMessage = false)
+      calls <- recorded
+    } yield {
+      assert(value.isInstanceOf[PagedList], value.toString)
+      assertEquals(value.asInstanceOf[PagedList].commandKey, CommandKey.TopTwenty)
+      assertEquals(callsOf("sendMessage", calls).size, 1)
     }
   }
 }

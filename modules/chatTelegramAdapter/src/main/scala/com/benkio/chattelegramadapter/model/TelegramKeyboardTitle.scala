@@ -1,8 +1,8 @@
 package com.benkio.chattelegramadapter.model
 
-import cats.syntax.all.*
 import cats.Show
 import com.benkio.chatcore.messagefiltering.getContent
+import com.benkio.chatcore.model.reply.PagedList
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
 
@@ -35,10 +35,7 @@ extension (telegramKeyboardTitle: TelegramKeyboardTitle) {
 object SearchCommandTelegramKeyboardTitle {
 
   def build[A: Show](m: Message, input: A, valuesCount: Int): SearchCommandTelegramKeyboardTitle =
-    SearchCommandTelegramKeyboardTitle(s"""Input ($valuesCount):
-                                          |${m.getContent.getOrElse("")}
-                                          |
-                                          |${input.show}""".stripMargin)
+    SearchCommandTelegramKeyboardTitle(PagedList.searchTitle(m, input, valuesCount))
 
 }
 

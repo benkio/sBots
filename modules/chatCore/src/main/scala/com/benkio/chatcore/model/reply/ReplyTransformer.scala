@@ -21,6 +21,7 @@ object ReplyTransformer {
     *   - markdown becomes plain text when the platform has no markdown
     *   - the time to live of a text is dropped when the platform cannot delete messages
     *   - a media that the platform cannot send becomes its link as a text, or it is dropped when it has none
+    *   - a paged list becomes a numbered text on a platform without buttons
     *   - everything else, e.g. the adapter specific values, is left as it is
     */
   def transform(capabilities: PlatformCapabilities, mediaLink: MediaLink = _ => None)(
@@ -36,6 +37,9 @@ object ReplyTransformer {
     case mediaFile: MediaFile =>
       if capabilities.supports(mediaFile) then List(mediaFile)
       else mediaLink(mediaFile).toList.flatMap(uri => textValues(capabilities, Text(uri.renderString)))
+    case pagedList: PagedList =>
+      if capabilities.supportsButtons then List(pagedList)
+      else textValues(capabilities, Text(PagedList.toPlainText(pagedList)))
     case other => List(other)
   }
 

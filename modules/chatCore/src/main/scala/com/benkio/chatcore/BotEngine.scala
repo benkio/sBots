@@ -97,9 +97,9 @@ class BotEngine[F[_]: Async: LogWriter](
 
   def fileRequestLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] =
     msg.getContent.traverse_(content =>
-      platform.send(
+      deliver(
         replyValue = MediaFile.fromString(platform.capabilities.commandSyntax.fileRequestContent(content)),
-        message = msg,
+        msg = msg,
         replyToMessage = true
       )
     )
@@ -128,8 +128,16 @@ class BotEngine[F[_]: Async: LogWriter](
         case plainReply: PlainReply         => BotEngine.runPlainReply[F](plainReply)
         case effectfulReply: EffectfulReply => platform.runEffectful(effectfulReply, msg)
       }
-      _ <- platform.send(replyValue = replyValue, message = msg, replyToMessage = reply.replyToMessage)
+      _ <- deliver(replyValue = replyValue, msg = msg, replyToMessage = reply.replyToMessage)
     } yield ()
+
+  // What the platform can send: what is not supported is adapted to it, see the ReplyTransformer
+  private def deliver(replyValue: ReplyValue, msg: Message, replyToMessage: Boolean)(using
+      platform: PlatformAdapter[F]
+  ): F[Unit] =
+    ReplyAdaptation
+      .adaptToPlatform(dbLayer, platform.capabilities)(replyValue)
+      .flatMap(_.traverse_(platform.send(_, msg, replyToMessage)))
 }
 
 object BotEngine {

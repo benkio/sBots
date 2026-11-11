@@ -4,11 +4,8 @@ import cats.*
 import cats.effect.*
 import cats.effect.std.Random
 import cats.implicits.*
-import com.benkio.chatcore.model.media.Media
 import com.benkio.chatcore.model.reply.Markdown
-import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
-import com.benkio.chatcore.model.reply.ReplyTransformer
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.show.CalendarMessage
 import com.benkio.chatcore.model.show.Show
@@ -247,16 +244,6 @@ object CronBackgroundJobManager {
             )
       }
 
-    // What the platform can send: a media it cannot send becomes the link of the media, when it has one
-    private def adaptToPlatform(value: ReplyValue): F[List[ReplyValue]] = value match {
-      case mediaFile: MediaFile if !capabilities.supports(mediaFile) =>
-        dbLayer.dbMedia
-          .getMedia(mediaFile.filepath)
-          .map(_.flatMap(data => Media(data).toOption).flatMap(_.getLink))
-          .map(link => ReplyTransformer.transform(capabilities, _ => link)(mediaFile))
-      case other => ReplyTransformer.transform(capabilities)(other).pure[F]
-    }
-
     override def runSubscription(
         subscription: Subscription
     )(using
@@ -270,7 +257,9 @@ object CronBackgroundJobManager {
         replyOpt <- subscriptionReply(subscription)
         _        <- replyOpt.traverse_ { case ScheduledReply(reply, replyToMessage) =>
           log.info(s"[BackgroundJobManager] reply: $reply") *>
-            adaptToPlatform(reply).flatMap(_.traverse_(send(subscription.chatId, _, replyToMessage)))
+            ReplyAdaptation
+              .adaptToPlatform(dbLayer, capabilities)(reply)
+              .flatMap(_.traverse_(send(subscription.chatId, _, replyToMessage)))
         }
       } yield now // For testing purposes
 
