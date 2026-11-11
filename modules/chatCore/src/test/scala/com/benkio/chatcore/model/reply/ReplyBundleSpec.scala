@@ -6,8 +6,10 @@ import com.benkio.chatcore.messagefiltering.MessageMatches
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandInstructionData
 import com.benkio.chatcore.model.CommandKey
+import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.RegexTextTriggerValue
 import com.benkio.chatcore.model.SBotInfo.SBotName
 import com.benkio.chatcore.model.StringTextTriggerValue
@@ -459,5 +461,23 @@ class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
       Some(bundles.head.prettyPrint())
     )
     assertEquals(ReplyBundleMessage.selectReplyBundleByText("nothing", chat, bundles), None)
+  }
+
+  test("selectCommandReplyBundle should follow the command syntax of the platform") {
+    val command = ReplyBundleCommand(
+      trigger = CommandTrigger("hello"),
+      reply = TextReply.fromList("hi")(false),
+      instruction = CommandInstructionData.NoInstructions
+    )
+    def message(text: String): Message =
+      Message(0, Instant.now.getEpochSecond, ChatId(Platform.Irc, "#c"), "test", text = Some(text))
+    val irc                                              = CommandSyntax(prefix = "!")
+    def select(text: String): Option[ReplyBundleCommand] =
+      ReplyBundleCommand.selectCommandReplyBundle(message(text), List(command), SBotName("MyBot"), irc)
+
+    assertEquals(select("!hello").map(_.trigger.command), Some("hello"))
+    assertEquals(select("!hello with input").map(_.trigger.command), Some("hello"))
+    assertEquals(select("/hello"), None)
+    assertEquals(select("!hello@MyBot"), None)
   }
 }

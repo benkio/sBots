@@ -9,6 +9,7 @@ import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
+import com.benkio.chattelegramadapter.model.TelegramCapabilities
 import com.benkio.chattelegramadapter.EffectfulKeyRunner
 import log.effect.LogWriter
 import telegramium.bots.high.Api
@@ -35,7 +36,8 @@ object EffectfulKeyReply {
         dbLayer,
         backgroundJobManager,
         effectfulCallbacks,
-        ttl
+        ttl,
+        TelegramCapabilities.value.commandSyntax
       )
       replyValue <- RandomSelection.select[F](replyValues)
       result     <- TelegramMessageReply.sendReplyValue(

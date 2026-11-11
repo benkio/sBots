@@ -1,5 +1,6 @@
 package com.benkio.chattelegramadapter.model
 
+import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.MarkdownSupport
 import com.benkio.chatcore.model.MediaKind
 import com.benkio.chatcore.model.Platform
@@ -18,6 +19,6 @@ object TelegramCapabilities {
     supportsEdit = true,
     supportsButtons = true,
     acceptsFileIds = true,
-    commandPrefix = "/"
+    commandSyntax = CommandSyntax.Telegram
   )
 }

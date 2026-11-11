@@ -9,6 +9,7 @@ import com.benkio.chatcore.model.reply.EffectfulReply
 import com.benkio.chatcore.model.reply.PlainReply
 import com.benkio.chatcore.model.reply.Reply
 import com.benkio.chatcore.model.reply.ReplyValue
+import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.BackgroundJobManager
@@ -30,6 +31,7 @@ object ComputeReply {
       dbLayer: DBLayer[F],
       effectfulCallbacks: Map[String, Message => F[ReplyValue]],
       ttl: Option[FiniteDuration],
+      commandSyntax: CommandSyntax,
       overridePage: Option[Int] = None
   ): F[ReplyValue] =
     EffectfulKeyRunner
@@ -39,7 +41,8 @@ object ComputeReply {
         dbLayer = dbLayer,
         backgroundJobManager = backgroundJobManager,
         effectfulCallbacks = effectfulCallbacks,
-        ttl = ttl
+        ttl = ttl,
+        commandSyntax = commandSyntax
       )
       .flatMap(RandomSelection.select)
 
@@ -50,6 +53,7 @@ object ComputeReply {
       dbLayer: DBLayer[F],
       effectfulCallbacks: Map[String, Message => F[ReplyValue]],
       ttl: Option[FiniteDuration],
+      commandSyntax: CommandSyntax,
       overridePage: Option[Int] = None
   ): F[ReplyValue] = reply match {
     case plainReply: PlainReply         => runPlainReply[F](plainReply)
@@ -61,6 +65,7 @@ object ComputeReply {
         dbLayer = dbLayer,
         effectfulCallbacks = effectfulCallbacks,
         ttl = ttl,
+        commandSyntax = commandSyntax,
         overridePage = overridePage
       )
   }

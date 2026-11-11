@@ -44,8 +44,8 @@ enum MarkdownSupport {
   *   the maximum number of characters of a text message; longer texts are split
   * @param acceptsFileIds
   *   whether the media sources that are not an url (`Left`, Telegram file ids) can be used
-  * @param commandPrefix
-  *   what a command message starts with, e.g. `/` or `!`
+  * @param commandSyntax
+  *   how the commands and the file requests are written, e.g. `/command@BotName` or `!command`
   */
 final case class PlatformCapabilities(
     platform: Platform,
@@ -56,9 +56,12 @@ final case class PlatformCapabilities(
     supportsEdit: Boolean,
     supportsButtons: Boolean,
     acceptsFileIds: Boolean,
-    commandPrefix: String
+    commandSyntax: CommandSyntax
 ) {
   require(maxTextLength > 0, s"maxTextLength must be positive: $maxTextLength")
+
+  /** What a command message starts with, e.g. `/` or `!`. */
+  def commandPrefix: String = commandSyntax.prefix
 
   def supports(mediaFile: MediaFile): Boolean = supportedMedia.contains(MediaKind.of(mediaFile))
 }

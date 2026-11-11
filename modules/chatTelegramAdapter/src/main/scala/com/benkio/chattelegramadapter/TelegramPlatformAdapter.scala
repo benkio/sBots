@@ -53,6 +53,7 @@ class TelegramPlatformAdapter[F[_]: Async: LogWriter: Api](
       backgroundJobManager = backgroundJobManager,
       dbLayer = dbLayer,
       effectfulCallbacks = effectfulCallbacks,
-      ttl = ttl
+      ttl = ttl,
+      commandSyntax = capabilities.commandSyntax
     )
 }

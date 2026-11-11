@@ -7,6 +7,7 @@ import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.Reply.replyValues
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.CommandKey
+import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Trigger
 import com.benkio.chatcore.patterns.CommandPatterns.CalendarCommands
@@ -40,7 +41,8 @@ object EffectfulKeyRunner {
       dbLayer: DBLayer[F],
       backgroundJobManager: BackgroundJobManager[F],
       effectfulCallbacks: Map[String, Message => F[ReplyValue]],
-      ttl: Option[FiniteDuration]
+      ttl: Option[FiniteDuration],
+      commandSyntax: CommandSyntax
   ): F[List[ReplyValue]] = effectfulKey match {
     case EffectfulKey.Random(sBotInfo) =>
       toReplyValue(
@@ -52,6 +54,7 @@ object EffectfulKeyRunner {
     case EffectfulKey.SearchShow(sBotInfo, page) =>
       toReplyValue(
         SearchShowCommand.searchShowCommandLogic(
+          commandSyntax = commandSyntax,
           msg = msg,
           dbLayer = dbLayer,
           sBotInfo = sBotInfo,
@@ -79,6 +82,7 @@ object EffectfulKeyRunner {
     case EffectfulKey.TriggerSearch(sBotInfo, replyBundleMessage, ignoreMessagePrefix, page) =>
       toReplyValue(
         TriggerSearchCommand.searchTriggerLogic(
+          commandSyntax = commandSyntax,
           mdr = replyBundleMessage,
           m = msg,
           ignoreMessagePrefix = ignoreMessagePrefix,
@@ -104,6 +108,7 @@ object EffectfulKeyRunner {
     case EffectfulKey.Instructions(sBotInfo, ignoreMessagePrefix, commands) =>
       toReplyValue(
         InstructionsCommand.instructionCommandLogic(
+          commandSyntax = commandSyntax,
           msg = msg,
           sBotInfo = sBotInfo,
           ignoreMessagePrefix = ignoreMessagePrefix,
@@ -114,6 +119,7 @@ object EffectfulKeyRunner {
     case EffectfulKey.Subscribe(sBotInfo) =>
       toReplyValue(
         SubscribeUnsubscribeCommand.subscribeCommandLogic(
+          commandSyntax = commandSyntax,
           backgroundJobManager = backgroundJobManager,
           dbMessageReplies = dbLayer.dbMessageReplies,
           m = msg,
@@ -124,6 +130,7 @@ object EffectfulKeyRunner {
     case EffectfulKey.Unsubscribe(sBotInfo) =>
       toReplyValue(
         SubscribeUnsubscribeCommand.unsubcribeCommandLogic(
+          commandSyntax = commandSyntax,
           backgroundJobManager = backgroundJobManager,
           m = msg,
           sBotInfo = sBotInfo,
@@ -142,6 +149,7 @@ object EffectfulKeyRunner {
     case EffectfulKey.LoadCalendar(sBotInfo) =>
       toReplyValue(
         CalendarCommands.loadCalendarCommandLogic(
+          commandSyntax = commandSyntax,
           backgroundJobManager = backgroundJobManager,
           dbShow = dbLayer.dbShow,
           m = msg,
@@ -178,6 +186,7 @@ object EffectfulKeyRunner {
     case EffectfulKey.SetTimeout(sBotInfo) =>
       toReplyValue(
         SetTimeoutCommand.setTimeoutLogic(
+          commandSyntax = commandSyntax,
           msg = msg,
           dbTimeout = dbLayer.dbTimeout,
           sBotInfo = sBotInfo,

@@ -5,6 +5,7 @@ import cats.syntax.all.*
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
 import munit.*
@@ -74,5 +75,20 @@ class CommandPatternsSpec extends CatsEffectSuite {
          | bot: SampleWebhookBot
          | error: [CommandPatternsSpec] this should trigger the error handling of the handleCommandWithInput""".stripMargin
     assertIO(result, Text(expectedError))
+  }
+
+  test("handleCommandWithInput should follow the command syntax of the platform") {
+    val irc                                   = CommandSyntax(prefix = "!")
+    def result(input: String): IO[ReplyValue] = CommandPatterns.handleCommandWithInput(
+      msg = msg.copy(text = Some(input)),
+      command = command,
+      sBotInfo = sBotInfo,
+      defaultReply = defaultReply,
+      computation = input => Text(s"success: $input").pure[IO],
+      ttl = None,
+      commandSyntax = irc
+    )
+    result("!command some input").map(r => assertEquals(r, Text("success: some input"))) *>
+      result("/command some input").map(r => assertEquals(r, Text(defaultReply)))
   }
 }

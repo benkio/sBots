@@ -23,7 +23,8 @@ import com.benkio.chatcore.repository.db.DBLayer
 import log.effect.LogWriter
 
 /** The logic of a bot, whatever the platform: what to reply to a message, a command or a file request. The platform is
-  * reached through [[PlatformReplies]] only.
+  * reached through the [[PlatformAdapter]] only: to send and compute the replies, and for the way it writes the
+  * commands (see [[com.benkio.chatcore.model.CommandSyntax]]).
   *
   * @param filteringMatchesMessages
   *   whether the reply bundle selected for a message can be used, e.g. not while the chat is in timeout
@@ -63,7 +64,7 @@ class BotEngine[F[_]: Async: LogWriter](
 
   // Bot logic ////////////////////////////////////////////////////////////
 
-  def messageLogic(msg: Message)(using platform: PlatformReplies[F]): F[Unit] =
+  def messageLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] =
     ReplyBundleMessage
       .selectReplyBundle(
         msg = msg,
@@ -80,12 +81,13 @@ class BotEngine[F[_]: Async: LogWriter](
         } yield ()
       )
 
-  def commandLogic(msg: Message)(using platform: PlatformReplies[F]): F[Unit] =
+  def commandLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] =
     ReplyBundleCommand
       .selectCommandReplyBundle(
         msg = msg,
         allCommandRepliesData = allCommandRepliesData,
-        botName = sBotConfig.sBotInfo.botName
+        botName = sBotConfig.sBotInfo.botName,
+        syntax = platform.capabilities.commandSyntax
       )
       .traverse_(commandReply =>
         LogWriter.info(
@@ -93,13 +95,17 @@ class BotEngine[F[_]: Async: LogWriter](
         ) *> reply(commandReply.reply, msg)
       )
 
-  def fileRequestLogic(msg: Message)(using platform: PlatformReplies[F]): F[Unit] =
+  def fileRequestLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] =
     msg.getContent.traverse_(content =>
-      platform.send(replyValue = MediaFile.fromString(content), message = msg, replyToMessage = true)
+      platform.send(
+        replyValue = MediaFile.fromString(platform.capabilities.commandSyntax.fileRequestContent(content)),
+        message = msg,
+        replyToMessage = true
+      )
     )
 
-  def botLogic(msg: Message)(using platform: PlatformReplies[F]): F[Unit] =
-    msg.messageType(sBotConfig.sBotInfo.botId) match {
+  def botLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] =
+    msg.messageType(sBotConfig.sBotInfo.botId, platform.capabilities.commandSyntax) match {
       case MessageType.Message =>
         LogWriter.trace("Message Type: Message") >> messageLogic(msg)
       case MessageType.Command =>
@@ -109,14 +115,14 @@ class BotEngine[F[_]: Async: LogWriter](
     }
 
   /** The entry point: a message arrived. */
-  def onMessage(msg: Message)(using platform: PlatformReplies[F]): F[Unit] = for {
+  def onMessage(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = for {
     _ <- LogWriter.trace(s"${sBotConfig.sBotInfo.botName}: A message arrived: $msg")
     _ <- LogWriter.info(s"${sBotConfig.sBotInfo.botName}: A message arrived with content: ${msg.text}")
     _ <- botLogic(msg)
     _ <- postComputation(msg)
   } yield ()
 
-  private def reply(reply: Reply, msg: Message)(using platform: PlatformReplies[F]): F[Unit] =
+  private def reply(reply: Reply, msg: Message)(using platform: PlatformAdapter[F]): F[Unit] =
     for {
       replyValue <- reply match {
         case plainReply: PlainReply         => BotEngine.runPlainReply[F](plainReply)

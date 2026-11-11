@@ -1,8 +1,10 @@
 package com.benkio.chatcore.messagefiltering
 
 import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageType
+import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.Arbitraries.given
 import munit.ScalaCheckSuite
@@ -38,6 +40,26 @@ class MessageOpsSpec extends ScalaCheckSuite {
       val noText   = Message(0, 0L, ChatId.telegram(0L), "test", text = None)
       assertEquals(withText.messageType(botId), MessageType.Message)
       assertEquals(noText.messageType(botId), MessageType.Message)
+    }
+  }
+
+  property("messageType follows the command syntax of the platform") {
+    val irc = CommandSyntax(prefix = "!")
+    forAll(arbitrary[SBotId], Gen.alphaNumStr) { (botId, rest) =>
+      val command = Message(0, 0L, ChatId(Platform.Irc, "#c"), "test", text = Some("!" + rest))
+      val slash   = Message(0, 0L, ChatId(Platform.Irc, "#c"), "test", text = Some("/" + rest))
+      assertEquals(command.messageType(botId, irc), MessageType.Command)
+      assertNotEquals(slash.messageType(botId, irc), MessageType.Command)
+    }
+  }
+
+  property("messageType takes the file requests with the marker of the platform") {
+    val syntax = CommandSyntax(prefix = "!", fileRequestMarker = "+")
+    forAll(arbitrary[SBotId], Gen.alphaNumStr) { (botId, suffix) =>
+      val request = Message(0, 0L, ChatId(Platform.Irc, "#c"), "test", text = Some("+" + botId.value + suffix))
+      val plain   = Message(0, 0L, ChatId(Platform.Irc, "#c"), "test", text = Some(botId.value + suffix))
+      assertEquals(request.messageType(botId, syntax), MessageType.FileRequest)
+      assertEquals(plain.messageType(botId, syntax), MessageType.Message)
     }
   }
 }
