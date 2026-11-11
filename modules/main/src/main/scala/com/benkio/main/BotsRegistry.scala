@@ -7,17 +7,12 @@ package com.benkio.main
  * future bots continues to work. See docs/adding-a-bot.md.
  */
 
-import cats.effect.ExitCode
 import cats.effect.IO
-import cats.effect.Resource
-import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo
-import com.benkio.chattelegramadapter.polling.TelegramPollingRuntime
-import com.benkio.chattelegramadapter.webhook.TelegramWebhookRuntime
-import com.benkio.chattelegramadapter.SBotWebhook
 import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.Alessandro0rlandoBot.Alessandro0rlandoBot
 import com.benkio.CalandroBot.CalandroBot
@@ -27,36 +22,27 @@ import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import com.benkio.VittorioSgarbiBot.VittorioSgarbiBot
 import com.benkio.XahLeeBot.XahLeeBot
 import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
-import log.effect.LogWriter
 
+/** A bot of the registry and the platforms it runs on, by default Telegram only. Adding a platform to a bot is adding
+  * it to `platforms`, as long as the platform has a [[runner.PlatformRuntime]].
+  */
 final case class BotRegistryEntry[F[_]](
     sBotInfo: SBotInfo,
-    commandEffectfulCallback: Map[String, Message => F[ReplyValue]] = Map.empty
+    commandEffectfulCallback: Map[String, Message => F[ReplyValue]] = Map.empty,
+    platforms: List[Platform] = List(Platform.Telegram)
 )
 
 extension (botRegistryEntry: BotRegistryEntry[IO]) {
-  def sBotWebhookResource(mainSetup: MainSetup[IO])(using log: LogWriter[IO]): Resource[IO, SBotWebhook[IO]] = {
-    TelegramWebhookRuntime.buildWebhookBot[IO](
-      httpClient = mainSetup.httpClient,
-      sBotInfo = botRegistryEntry.sBotInfo,
-      webhookBaseUrl = mainSetup.webhookBaseUrl,
-      webhookCertificate = mainSetup.webhookCertificate,
-      commandEffectfulCallback = botRegistryEntry.commandEffectfulCallback
-    )
-  }
   def sBotConfig: SBotConfig = SBotConfig.fromSBotInfo(botRegistryEntry.sBotInfo)
 }
 
 opaque type BotRegistry[F[_]] = List[BotRegistryEntry[F]]
 
 extension (botRegistry: BotRegistry[IO]) {
-  def runPolling(): IO[ExitCode] =
-    botRegistry
-      .map(botRegistryEntry => TelegramPollingRuntime.run(sBotInfo = botRegistryEntry.sBotInfo))
-      .reduce(op = (botA, botB) => botA &> botB)
-  def webhookBots(mainSetup: MainSetup[IO])(using log: LogWriter[IO]): Resource[IO, List[SBotWebhook[IO]]] =
-    botRegistry
-      .traverse(_.sBotWebhookResource(mainSetup))
+
+  /** The bots that run on the platform. */
+  def entriesOn(platform: Platform): List[BotRegistryEntry[IO]] =
+    BotRegistry.toList(botRegistry).filter(_.platforms.contains(platform))
 }
 
 object BotRegistry {

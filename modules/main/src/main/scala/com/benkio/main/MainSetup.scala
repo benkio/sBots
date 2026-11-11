@@ -14,15 +14,18 @@ import org.http4s.Uri
 import java.nio.file.Path
 import java.nio.file.Paths
 
+/** What the Telegram bots need from the main setup. */
+final case class TelegramSetup(
+    webhookBaseUrl: String,
+    webhookCertificate: Option[Path],
+    opsChatId: Long
+)
+
 final case class MainSetup[F[_]](
     httpClient: Client[F],
     dbLayer: DBLayer[F],
-    webhookBaseUrl: String,
-    host: String,
-    port: Int,
-    webhookCertificate: Option[Path],
-    keystorePath: Option[String],
-    keystorePassword: Option[String],
+    http: HttpServerConfig,
+    telegram: TelegramSetup,
     healthcheckEndpoint: Uri,
     healthcheckCron: CronExpr
 )
@@ -47,18 +50,18 @@ object MainSetup {
     )
     _           <- Resource.eval(log.info("[Main] dbLayer"))
     certificate <- Resource.eval(
-      Async[F].pure(config.webhookCertificate.map(fp => Paths.get(fp)))
+      Async[F].pure(config.telegram.webhookCertificate.map(fp => Paths.get(fp)))
     )
     _ <- Resource.eval(log.info("[Main] webhook certificate"))
   } yield MainSetup(
     httpClient = httpClient,
     dbLayer = dbLayer,
-    webhookBaseUrl = config.webhookBaseUrl,
-    host = config.hostUrl,
-    port = config.port,
-    webhookCertificate = certificate,
-    keystorePath = config.keystorePath,
-    keystorePassword = config.keystorePassword,
+    http = config.http,
+    telegram = TelegramSetup(
+      webhookBaseUrl = config.telegram.webhookBaseUrl,
+      webhookCertificate = certificate,
+      opsChatId = config.telegram.opsChatId
+    ),
     healthcheckEndpoint = config.healthcheckPing.endpoint,
     healthcheckCron = config.healthcheckPing.cron
   )

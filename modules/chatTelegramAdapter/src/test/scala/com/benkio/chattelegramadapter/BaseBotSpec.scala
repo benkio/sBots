@@ -4,6 +4,7 @@ import cats.effect.IO
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.messagefiltering.MessageMatches
+import com.benkio.chatcore.mocks.NotifierMock.given
 import com.benkio.chatcore.model.media.MediaFileSource
 import com.benkio.chatcore.model.reply.*
 import com.benkio.chatcore.model.ChatId
@@ -20,6 +21,7 @@ import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.repository.Repository
+import com.benkio.chatcore.Notifier
 import com.benkio.chattelegramadapter.initialization.BotSetup
 import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
 import io.circe.*
@@ -71,6 +73,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
       dbLayer = dbLayerWithReplies,
       backgroundJobManager = bjm,
       api = summon[Api[IO]],
+      notifier = Notifier.noop[IO],
       webhookUri = uri"https://localhost",
       webhookPath = uri"/",
       sBotConfig = sBotConfig

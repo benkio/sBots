@@ -98,13 +98,17 @@ if registryContent.contains(s"$pkg.$botName") then {
 } else {
   var newRegistry = registryContent
 
-  // Add import (after last bot import)
+  // Add import (after the last bot import, i.e. `import com.benkio.<Bot>.<Bot>`)
   val importLine = s"import $pkg.$botName"
   if !newRegistry.contains(importLine) then {
-    newRegistry = newRegistry.replace(
-      "import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot\nimport log.effect",
-      s"import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot\nimport $pkg.$botName\nimport log.effect"
-    )
+    val botImport = """(?m)^import com\.benkio\.([A-Z][A-Za-z0-9]*)\.\1$""".r
+    botImport.findAllMatchIn(newRegistry).toList.lastOption match {
+      case Some(lastBotImport) =>
+        newRegistry = newRegistry.patch(lastBotImport.end, s"\n$importLine", 0)
+      case None =>
+        println("Could not find the bot imports in BotsRegistry.scala")
+        sys.exit(1)
+    }
   }
 
   // Add BotRegistryEntry at end of list (simple entry, no commandEffectfulCallback)

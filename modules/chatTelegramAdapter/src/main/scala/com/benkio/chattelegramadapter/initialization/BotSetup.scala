@@ -23,6 +23,8 @@ import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.repository.ResourcesRepository
 import com.benkio.chatcore.BackgroundJobManager
+import com.benkio.chatcore.Notifier
+import com.benkio.chattelegramadapter.http.TelegramNotifier
 import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
 import doobie.Transactor
 import log.effect.LogWriter
@@ -41,6 +43,7 @@ final case class BotSetup[F[_]](
     dbLayer: DBLayer[F],
     backgroundJobManager: BackgroundJobManager[F],
     api: Api[F],
+    notifier: Notifier[F],
     webhookUri: Uri,
     webhookPath: Uri,
     sBotConfig: SBotConfig
@@ -126,7 +129,8 @@ object BotSetup {
   def apply[F[_]: Async: Random](
       httpClient: Client[F],
       sBotConfig: SBotConfig,
-      webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host
+      webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
+      opsChatId: Long = TelegramNotifier.defaultOpsChatId
   )(using log: LogWriter[F]): Resource[F, BotSetup[F]] = {
 
     val resourceRepository = ResourcesRepository.fromResources[F]()
@@ -168,13 +172,14 @@ object BotSetup {
         httpClient,
         baseUrl = baseUrl.renderString
       )
+      notifier = new TelegramNotifier[F](opsChatId)(using Async[F], api)
       backgroundJobManager <- Resource.eval(
         TelegramBackgroundJobManager[F](
           repository = repository,
           dbLayer = dbLayer,
           sBotInfo = sBotConfig.sBotInfo,
           ttl = sBotConfig.messageTimeToLive
-        )(using Async[F], api, Random[F], log)
+        )(using Async[F], api, Random[F], notifier, log)
       )
       path           <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/$tk")))
       webhookBaseUri <- Resource.eval(Async[F].fromEither(Uri.fromString(webhookBaseUrl + path)))
@@ -186,6 +191,7 @@ object BotSetup {
       dbLayer = dbLayer,
       backgroundJobManager = backgroundJobManager,
       api = api,
+      notifier = notifier,
       webhookUri = webhookBaseUri,
       webhookPath = path,
       sBotConfig = sBotConfig

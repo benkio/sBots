@@ -3,10 +3,8 @@ package com.benkio.chattelegramadapter.webhook
 import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits.*
-import com.benkio.chattelegramadapter.http.LogTelegramChat
 import com.benkio.chattelegramadapter.SBotWebhook
 import org.http4s.server.Server
-import telegramium.bots.high.Api
 import telegramium.bots.high.WebhookBot
 
 object TelegramWebhookServer {
@@ -27,10 +25,9 @@ object TelegramWebhookServer {
       )
       _ <- Resource.eval(
         bots.traverse { bot =>
-          given Api[F] = bot.sBotSetup.api
-          LogTelegramChat.sendText[F](
-            msg = "Start Webook Bot Successful ✅",
-            sBotInfo = bot.sBotSetup.sBotConfig.sBotInfo
+          bot.sBotSetup.notifier.info(
+            sBotInfo = bot.sBotSetup.sBotConfig.sBotInfo,
+            message = "Start Webook Bot Successful ✅"
           )
         }
       )

@@ -8,13 +8,28 @@ import pureconfig.*
 import pureconfig.module.cron4s.*
 import pureconfig.module.http4s.*
 
-final case class Config(
-    webhookBaseUrl: String,
+/** The HTTP server of the platforms that receive their messages through it, e.g. the Telegram webhook. */
+final case class HttpServerConfig(
     hostUrl: String,
     port: Int,
-    webhookCertificate: Option[String],
     keystorePath: Option[String],
-    keystorePassword: Option[String],
+    keystorePassword: Option[String]
+) derives ConfigReader
+
+/** What is Telegram specific. Every platform has a block like this one (`main.<platform>`): see [[Config]].
+  *
+  * @param opsChatId
+  *   the chat that gets the notifications of the operators
+  */
+final case class TelegramConfig(
+    webhookBaseUrl: String,
+    webhookCertificate: Option[String],
+    opsChatId: Long
+) derives ConfigReader
+
+final case class Config(
+    http: HttpServerConfig,
+    telegram: TelegramConfig,
     mainDB: DBConfig,
     healthcheckPing: HealthcheckPingConfig
 ) derives ConfigReader

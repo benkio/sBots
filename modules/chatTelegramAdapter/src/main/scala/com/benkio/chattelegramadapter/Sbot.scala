@@ -7,6 +7,7 @@ import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chattelegramadapter.http.TelegramNotifier
 import com.benkio.chattelegramadapter.initialization.BotSetup
 import fs2.io.net.Network
 import log.effect.LogWriter
@@ -36,12 +37,14 @@ object SBot {
   def buildPollingBot[F[_]: Parallel: Async: Network: Random, A](
       action: SBotPolling[F] => F[A],
       sBotInfo: SBotInfo,
-      commandEffectfulCallback: Map[String, Message => F[ReplyValue]] = Map.empty
+      commandEffectfulCallback: Map[String, Message => F[ReplyValue]] = Map.empty,
+      opsChatId: Long = TelegramNotifier.defaultOpsChatId
   )(using log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
     sBotSetup  <- BotSetup(
       httpClient = httpClient,
-      sBotConfig = buildSBotConfig(sBotInfo)
+      sBotConfig = buildSBotConfig(sBotInfo),
+      opsChatId = opsChatId
     )
   } yield sBotSetup).use { sBotSetup =>
     given Api[F] = sBotSetup.api
