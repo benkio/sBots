@@ -44,7 +44,7 @@ extension (botRegistryEntry: BotRegistryEntry[IO]) {
       commandEffectfulCallback = botRegistryEntry.commandEffectfulCallback
     )
   }
-  def sBotConfig: SBotConfig = TelegramWebhookRuntime.buildSBotConfig(botRegistryEntry.sBotInfo)
+  def sBotConfig: SBotConfig = SBotConfig.fromSBotInfo(botRegistryEntry.sBotInfo)
 }
 
 opaque type BotRegistry[F[_]] = List[BotRegistryEntry[F]]

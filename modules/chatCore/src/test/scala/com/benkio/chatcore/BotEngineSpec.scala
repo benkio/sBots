@@ -5,12 +5,13 @@ import cats.effect.IO
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.mocks.DBLayerMock
+import com.benkio.chatcore.mocks.FakePlatformAdapter
+import com.benkio.chatcore.mocks.FakePlatformAdapter.Sent
 import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.EffectfulReply
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
-import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.TextReply
 import com.benkio.chatcore.model.ChatId
@@ -63,28 +64,23 @@ class BotEngineSpec extends CatsEffectSuite {
     text = Some(text)
   )
 
-  private final case class Sent(replyValue: ReplyValue, message: Message, replyToMessage: Boolean)
-
-  /** A platform that records what is sent and computes every effectful reply as `Text("effectful")`. */
-  private final class RecordingPlatform(sent: Ref[IO, List[Sent]]) extends PlatformReplies[IO] {
-    override def send(replyValue: ReplyValue, message: Message, replyToMessage: Boolean): IO[Unit] =
-      sent.update(_ :+ Sent(replyValue, message, replyToMessage))
-    override def runEffectful(reply: EffectfulReply, message: Message): IO[ReplyValue] =
-      IO.pure(Text("effectful"))
-  }
+  private def engineWith(
+      filter: Boolean = true,
+      postComputation: Message => IO[Unit] = _ => IO.unit
+  ): BotEngine[IO] = new BotEngine[IO](
+    sBotConfig = sBotConfig,
+    dbLayer = DBLayerMock.mock(sBotInfo.botId, messageReplies = messageReplies, commandReplies = commandReplies),
+    filteringMatchesMessages = (_, _) => IO.pure(filter),
+    postComputation = postComputation
+  )
 
   /** Runs the engine on the message and gives back what is sent and how many times the post computation ran. */
   private def run(text: String, filter: Boolean = true): IO[(List[Sent], Int)] = for {
-    sent         <- Ref.of[IO, List[Sent]](List.empty)
+    adapter      <- FakePlatformAdapter()
     postComputed <- Ref.of[IO, Int](0)
-    engine = new BotEngine[IO](
-      sBotConfig = sBotConfig,
-      dbLayer = DBLayerMock.mock(sBotInfo.botId, messageReplies = messageReplies, commandReplies = commandReplies),
-      filteringMatchesMessages = (_, _) => IO.pure(filter),
-      postComputation = _ => postComputed.update(_ + 1)
-    )
-    _      <- engine.onMessage(message(text))(using new RecordingPlatform(sent))
-    result <- sent.get
+    engine = engineWith(filter, _ => postComputed.update(_ + 1))
+    _      <- engine.onMessage(message(text))(using adapter)
+    result <- adapter.sent.get
     count  <- postComputed.get
   } yield (result, count)
 
@@ -132,14 +128,27 @@ class BotEngineSpec extends CatsEffectSuite {
   }
 
   test("the commands of the bot include the fixed ones: the bundles and the instructions") {
-    val engine = new BotEngine[IO](
-      sBotConfig = sBotConfig,
-      dbLayer = DBLayerMock.mock(sBotInfo.botId, messageReplies = messageReplies, commandReplies = commandReplies),
-      filteringMatchesMessages = (_, _) => IO.pure(true),
-      postComputation = _ => IO.unit
-    )
+    val engine = engineWith()
     assertEquals(engine.commandRepliesData, commandReplies)
     assertEquals(engine.allCommandRepliesData, commandReplies ++ engine.fixedCommands)
     assert(engine.fixedCommands.exists(_.trigger.command == "instructions"))
+  }
+
+  test("the messages the platform delivers when it runs are handled by the engine and answered through the platform") {
+    for {
+      adapter <- FakePlatformAdapter(inbound = List(message("ciao"), message("/hi"), message("something else")))
+      engine = engineWith()
+      _    <- adapter.onInbound(msg => engine.onMessage(msg)(using adapter))
+      _    <- adapter.run
+      sent <- adapter.sent.get
+    } yield assertEquals(sent.map(_.replyValue), List(Text("hello"), Text("command reply")))
+  }
+
+  test("a platform that runs without an engine fails") {
+    FakePlatformAdapter().flatMap(_.run).intercept[IllegalStateException]
+  }
+
+  test("the platform of the adapter is the one of its capabilities") {
+    FakePlatformAdapter().map(adapter => assertEquals(adapter.platform, adapter.capabilities.platform))
   }
 }
