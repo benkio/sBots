@@ -29,28 +29,32 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
   val testSubscriptions: List[DBSubscriptionData] = List(
     DBSubscriptionData(
       id = testSubscriptionId,
-      chat_id = chatIdValue,
+      platform = "telegram",
+      chat_id = chatIdValue.toString,
       bot_id = botId.value,
       cron = "* * * ? * *",
       subscribed_at = "1746195008"
     ),
     DBSubscriptionData(
       id = "3c301111-ca9c-4909-8281-c9d171e9bf7d",
-      chat_id = chatIdValue,
+      platform = "telegram",
+      chat_id = chatIdValue.toString,
       bot_id = "anotherbot",
       cron = "* * * ? * *",
       subscribed_at = "1746195008"
     ),
     DBSubscriptionData(
       id = "0be5a0f9-ce63-4a78-a972-5f40758f2275",
-      chat_id = 1L,
+      platform = "telegram",
+      chat_id = "1",
       bot_id = botId.value,
       cron = "* * * ? * *",
       subscribed_at = "1746195008"
     ),
     DBSubscriptionData(
       id = "94dc19a7-fde7-49eb-af02-1de51c44b8b1",
-      chat_id = 1L,
+      platform = "telegram",
+      chat_id = "1",
       bot_id = "anotherbot",
       cron = "* * * ? * *",
       subscribed_at = "1746195008"
@@ -111,7 +115,8 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
   ) { fixture =>
     val withTarget = DBSubscriptionData(
       id = "5c1b3a62-7d3c-4a44-9b0e-2f0e3a6e1c11",
-      chat_id = chatIdValue,
+      platform = "telegram",
+      chat_id = chatIdValue.toString,
       bot_id = botId.value,
       subscription_type = "show",
       target = Some("pino scotto"),

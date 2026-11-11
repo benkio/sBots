@@ -1,6 +1,7 @@
 package com.benkio.chatcore.repository.db
 
 import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionId
@@ -23,7 +24,8 @@ class DBSubscriptionSpec extends FunSuite {
     )
     val expected = DBSubscriptionData(
       id = actual.id.value.toString,
-      chat_id = 0,
+      platform = "telegram",
+      chat_id = "0",
       bot_id = "botId",
       cron = actual.cron.toString,
       subscribed_at = now.getEpochSecond.toString
@@ -34,7 +36,8 @@ class DBSubscriptionSpec extends FunSuite {
   test("DBSubscriptionData should default to a show subscription without target") {
     val data = DBSubscriptionData(
       id = "232d1421-ad61-4835-b755-f09b07bc34c3",
-      chat_id = 0L,
+      platform = "telegram",
+      chat_id = "0",
       bot_id = "botId",
       cron = "30 * * * * ?",
       subscribed_at = "1662126018293"
@@ -58,5 +61,33 @@ class DBSubscriptionSpec extends FunSuite {
       assertEquals(data.subscription_type, subscriptionType.asString)
       assertEquals(data.target, Some("a target"))
     }
+  }
+
+  test("Subscription should round-trip through DBSubscriptionData on every platform") {
+    Platform.values.foreach { platform =>
+      val subscription = Subscription(
+        id = SubscriptionId(UUID.randomUUID),
+        chatId = ChatId(platform, "#chat-1"),
+        botId = SBotId("botId"),
+        cron = Cron.unsafeParse("30 * * * * ?"),
+        subscribedAt = Instant.ofEpochSecond(1)
+      )
+      val data = DBSubscriptionData(subscription)
+      assertEquals(data.platform, platform.id)
+      assertEquals(data.chat_id, "#chat-1")
+      assertEquals(Subscription(data).map(_.chatId), Right(subscription.chatId))
+    }
+  }
+
+  test("Subscription should not be built from DBSubscriptionData of an unknown platform") {
+    val data = DBSubscriptionData(
+      id = "232d1421-ad61-4835-b755-f09b07bc34c3",
+      platform = "matrix",
+      chat_id = "0",
+      bot_id = "botId",
+      cron = "30 * * * * ?",
+      subscribed_at = "1"
+    )
+    assert(Subscription(data).isLeft)
   }
 }

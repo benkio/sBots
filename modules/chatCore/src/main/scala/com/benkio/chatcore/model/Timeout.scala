@@ -36,10 +36,11 @@ object Timeout {
   )
 
   def apply(dbTimeoutData: DBTimeoutData): Either[Throwable, Timeout] = for {
+    chatId          <- ChatId.fromIds(dbTimeoutData.platform, dbTimeoutData.chat_id)
     timeoutValue    <- Try(dbTimeoutData.timeout_value.toLong.millis).toEither
     lastInteraction <- Try(dbTimeoutData.last_interaction.toLong).toEither
   } yield Timeout(
-    chatId = ChatId.telegram(dbTimeoutData.chat_id),
+    chatId = chatId,
     botId = SBotId(dbTimeoutData.bot_id),
     timeoutValue = timeoutValue,
     lastInteraction = Instant.ofEpochSecond(lastInteraction)

@@ -23,7 +23,8 @@ class FilteringTimeoutSpec extends CatsEffectSuite {
         botId,
         timeouts = List(
           DBTimeoutData(
-            chat_id = chatId,
+            platform = "telegram",
+            chat_id = chatId.toString,
             bot_id = botId.value,
             timeout_value = 800.millis.toMillis.toString,
             last_interaction = Instant.now.getEpochSecond.toString
@@ -53,7 +54,8 @@ class FilteringTimeoutSpec extends CatsEffectSuite {
         botId,
         timeouts = List(
           DBTimeoutData(
-            chat_id = chatId,
+            platform = "telegram",
+            chat_id = chatId.toString,
             bot_id = botId.value,
             timeout_value = 30.seconds.toMillis.toString,
             last_interaction = Instant.now.getEpochSecond.toString

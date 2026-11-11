@@ -69,12 +69,13 @@ object Subscription {
 
   def apply(dbSubscriptionData: DBSubscriptionData): Either[Throwable, Subscription] = (for {
     id               <- Try(UUID.fromString(dbSubscriptionData.id))
+    chatId           <- ChatId.fromIds(dbSubscriptionData.platform, dbSubscriptionData.chat_id).toTry
     subscribedAt     <- Try(Instant.ofEpochSecond(dbSubscriptionData.subscribed_at.toLong))
     subscriptionType <- SubscriptionType.fromString(dbSubscriptionData.subscription_type).toTry
     cronExpr         <- Cron(dbSubscriptionData.cron).toTry
   } yield Subscription(
     id = SubscriptionId(id),
-    chatId = ChatId.telegram(dbSubscriptionData.chat_id),
+    chatId = chatId,
     botId = SBotId(dbSubscriptionData.bot_id),
     subscriptionType = subscriptionType,
     target = dbSubscriptionData.target,

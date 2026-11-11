@@ -13,7 +13,8 @@ class PostComputationPatternsSpec extends CatsEffectSuite {
   val sBotId: SBotId   = SBotId("testbot")
   val message: Message = Message(messageId = 0, date = 0L, chatId = ChatId.telegram(123L), chatType = "private")
   val existingTimeout  = DBTimeoutData(
-    chat_id = 123L,
+    platform = "telegram",
+    chat_id = "123",
     bot_id = sBotId.value,
     timeout_value = "0",
     last_interaction = "1"
@@ -43,7 +44,8 @@ class PostComputationPatternsSpec extends CatsEffectSuite {
 
   test("timeoutPostComputation should leave unrelated timeout rows unchanged") {
     val unrelatedTimeout = DBTimeoutData(
-      chat_id = 124L,
+      platform = "telegram",
+      chat_id = "124",
       bot_id = sBotId.value,
       timeout_value = "0",
       last_interaction = "7"

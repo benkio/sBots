@@ -72,7 +72,7 @@ class DBRepositoriesCoverageSpec extends CatsEffectSuite {
           .toArray
           .map(_.asInstanceOf[Path])
           .toList
-          .sortBy(_.getFileName.toString)
+          .sortBy(_.getFileName.toString.stripPrefix("V").takeWhile(_.isDigit).toInt)
       }
     }
 
@@ -177,9 +177,9 @@ class DBRepositoriesCoverageSpec extends CatsEffectSuite {
         _  <- impl.removeTimeout(chatId, botId)
         d2 <- impl.getOrDefault(chatId, botId)
       } yield {
-        assertEquals(d0.chat_id, chatId.telegramId)
-        assertEquals(d1.chat_id, chatId.telegramId)
-        assertEquals(d2.chat_id, chatId.telegramId)
+        assertEquals(d0.chat_id, chatId.id)
+        assertEquals(d1.chat_id, chatId.id)
+        assertEquals(d2.chat_id, chatId.id)
       }
     }
   }

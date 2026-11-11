@@ -15,7 +15,8 @@ import java.util.UUID
 
 final case class DBSubscriptionData(
     id: String,
-    chat_id: Long,
+    platform: String,
+    chat_id: String,
     bot_id: String,
     subscription_type: String = SubscriptionType.Show.asString,
     target: Option[String] = None,
@@ -27,7 +28,8 @@ object DBSubscriptionData {
   def apply(subscription: Subscription): DBSubscriptionData =
     DBSubscriptionData(
       id = subscription.id.value.toString,
-      chat_id = subscription.chatId.telegramId,
+      platform = subscription.chatId.platform.id,
+      chat_id = subscription.chatId.id,
       bot_id = subscription.botId.value,
       subscription_type = subscription.subscriptionType.asString,
       target = subscription.target,
@@ -117,33 +119,33 @@ object DBSubscription {
   }
 
   def getSubscriptionQuery(id: String): Query0[DBSubscriptionData] =
-    sql"SELECT subscription_id, chat_id, bot_id, subscription_type, target, cron, subscribed_at FROM subscription WHERE subscription_id = $id"
+    sql"SELECT subscription_id, platform, chat_id, bot_id, subscription_type, target, cron, subscribed_at FROM subscription WHERE subscription_id = $id"
       .query[DBSubscriptionData]
 
   def getRandomSubscriptionQuery(): Query0[DBSubscriptionData] =
-    sql"SELECT subscription_id, chat_id, bot_id, subscription_type, target, cron, subscribed_at FROM subscription ORDER BY RANDOM() LIMIT 1"
+    sql"SELECT subscription_id, platform, chat_id, bot_id, subscription_type, target, cron, subscribed_at FROM subscription ORDER BY RANDOM() LIMIT 1"
       .query[DBSubscriptionData]
 
   def getSubscriptionsQuery(botId: SBotId, chatId: Option[ChatId] = None): Query0[DBSubscriptionData] =
-    (sql"SELECT subscription_id, chat_id, bot_id, subscription_type, target, cron, subscribed_at FROM subscription " ++ Fragments
+    (sql"SELECT subscription_id, platform, chat_id, bot_id, subscription_type, target, cron, subscribed_at FROM subscription " ++ Fragments
       .whereAndOpt(
         fr"bot_id = ${botId.value}".some,
-        chatId.map(cid => fr"chat_id = ${cid.telegramId}")
+        chatId.map(cid => fr"platform = ${cid.platform.id} AND chat_id = ${cid.id}")
       ))
       .query[DBSubscriptionData]
 
   def insertSubscriptionQuery(subscription: DBSubscriptionData): Update0 =
-    sql"INSERT INTO subscription (subscription_id, chat_id, bot_id, subscription_type, target, cron, subscribed_at) VALUES ${fragments
+    sql"INSERT INTO subscription (subscription_id, platform, chat_id, bot_id, subscription_type, target, cron, subscribed_at) VALUES ${fragments
         .parentheses(fragments.values(subscription))}".update
 
   def deleteSubscriptionQuery(subscriptionId: String): Update0 =
     sql"DELETE FROM subscription WHERE subscription_id = $subscriptionId".update
 
   def deleteSubscriptionsQuery(chatId: ChatId, botId: SBotId): Update0 =
-    sql"DELETE FROM subscription WHERE chat_id = ${chatId.telegramId} AND bot_id = ${botId.value}".update
+    sql"DELETE FROM subscription WHERE platform = ${chatId.platform.id} AND chat_id = ${chatId.id} AND bot_id = ${botId.value}".update
 
   def deleteSubscriptionsByTypeQuery(chatId: ChatId, botId: SBotId, subscriptionType: SubscriptionType): Update0 = {
     val subscriptionTypeValue = subscriptionType.asString
-    sql"DELETE FROM subscription WHERE chat_id = ${chatId.telegramId} AND bot_id = ${botId.value} AND subscription_type = $subscriptionTypeValue".update
+    sql"DELETE FROM subscription WHERE platform = ${chatId.platform.id} AND chat_id = ${chatId.id} AND bot_id = ${botId.value} AND subscription_type = $subscriptionTypeValue".update
   }
 }
