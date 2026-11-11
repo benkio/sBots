@@ -1,0 +1,145 @@
+package com.benkio.chatcore
+
+import cats.effect.kernel.Ref
+import cats.effect.IO
+import cats.syntax.all.*
+import com.benkio.chatcore.config.SBotConfig
+import com.benkio.chatcore.mocks.DBLayerMock
+import com.benkio.chatcore.model.reply.EffectfulKey
+import com.benkio.chatcore.model.reply.EffectfulReply
+import com.benkio.chatcore.model.reply.Mp3File
+import com.benkio.chatcore.model.reply.ReplyBundleCommand
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.model.reply.ReplyValue
+import com.benkio.chatcore.model.reply.Text
+import com.benkio.chatcore.model.reply.TextReply
+import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.CommandInstructionData
+import com.benkio.chatcore.model.CommandTrigger
+import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chatcore.Logger.given
+import munit.CatsEffectSuite
+import org.http4s.syntax.literals.*
+import org.http4s.Uri
+
+import java.time.Instant
+
+class BotEngineSpec extends CatsEffectSuite {
+
+  private val sBotInfo: SBotInfo = SBotInfo(botId = SBotInfo.SBotId("eng"), botName = SBotInfo.SBotName("EngineBot"))
+
+  private val sBotConfig: SBotConfig = SBotConfig(
+    sBotInfo = sBotInfo,
+    triggerFilename = "eng_triggers.md",
+    triggerListUri = uri"https://example.com/eng_triggers.md",
+    token = "eng.token",
+    listJsonFilename = "eng_list.json",
+    repliesJsonFilename = "eng_replies.json",
+    commandsJsonFilename = "eng_commands.json",
+    showFilename = "eng_shows.json"
+  )
+
+  private val messageReplies: List[ReplyBundleMessage] = List(ReplyBundleMessage.textToText("ciao")("hello"))
+
+  private val commandReplies: List[ReplyBundleCommand] = List(
+    ReplyBundleCommand(
+      trigger = CommandTrigger("hi"),
+      reply = TextReply.fromList("command reply")(true),
+      instruction = CommandInstructionData.NoInstructions
+    ),
+    ReplyBundleCommand(
+      trigger = CommandTrigger("effect"),
+      reply = EffectfulReply(EffectfulKey.GetTimeout(sBotInfo), replyToMessage = true),
+      instruction = CommandInstructionData.NoInstructions
+    )
+  )
+
+  private def message(text: String): Message = Message(
+    messageId = 0,
+    date = Instant.now.getEpochSecond,
+    chatId = ChatId.telegram(1L),
+    chatType = "private",
+    text = Some(text)
+  )
+
+  private final case class Sent(replyValue: ReplyValue, message: Message, replyToMessage: Boolean)
+
+  /** A platform that records what is sent and computes every effectful reply as `Text("effectful")`. */
+  private final class RecordingPlatform(sent: Ref[IO, List[Sent]]) extends PlatformReplies[IO] {
+    override def send(replyValue: ReplyValue, message: Message, replyToMessage: Boolean): IO[Unit] =
+      sent.update(_ :+ Sent(replyValue, message, replyToMessage))
+    override def runEffectful(reply: EffectfulReply, message: Message): IO[ReplyValue] =
+      IO.pure(Text("effectful"))
+  }
+
+  /** Runs the engine on the message and gives back what is sent and how many times the post computation ran. */
+  private def run(text: String, filter: Boolean = true): IO[(List[Sent], Int)] = for {
+    sent         <- Ref.of[IO, List[Sent]](List.empty)
+    postComputed <- Ref.of[IO, Int](0)
+    engine = new BotEngine[IO](
+      sBotConfig = sBotConfig,
+      dbLayer = DBLayerMock.mock(sBotInfo.botId, messageReplies = messageReplies, commandReplies = commandReplies),
+      filteringMatchesMessages = (_, _) => IO.pure(filter),
+      postComputation = _ => postComputed.update(_ + 1)
+    )
+    _      <- engine.onMessage(message(text))(using new RecordingPlatform(sent))
+    result <- sent.get
+    count  <- postComputed.get
+  } yield (result, count)
+
+  test("a message that matches a trigger gets the reply of the bundle") {
+    run("ciao").map { case (sent, _) =>
+      assertEquals(sent.map(s => (s.replyValue, s.replyToMessage)), List((Text("hello"), false)))
+      assertEquals(sent.map(_.message.text), List(Some("ciao")))
+    }
+  }
+
+  test("a message that matches no trigger gets no reply") {
+    run("something else").map { case (sent, _) => assertEquals(sent, List.empty) }
+  }
+
+  test("a reply bundle that is filtered out gets no reply") {
+    run("ciao", filter = false).map { case (sent, _) => assertEquals(sent, List.empty) }
+  }
+
+  test("a command gets the reply of the command bundle, replying to the message when asked") {
+    run("/hi").map { case (sent, _) =>
+      assertEquals(sent.map(s => (s.replyValue, s.replyToMessage)), List((Text("command reply"), true)))
+    }
+  }
+
+  test("an unknown command gets no reply") {
+    run("/unknown").map { case (sent, _) => assertEquals(sent, List.empty) }
+  }
+
+  test("an effectful command is computed by the platform and its value is sent") {
+    run("/effect").map { case (sent, _) =>
+      assertEquals(sent.map(s => (s.replyValue, s.replyToMessage)), List((Text("effectful"), true)))
+    }
+  }
+
+  test("a file request sends the media file, replying to the message") {
+    run("eng_file.mp3").map { case (sent, _) =>
+      assertEquals(sent.map(s => (s.replyValue, s.replyToMessage)), List((Mp3File("eng_file.mp3"), true)))
+    }
+  }
+
+  test("the post computation runs once for every message, whether it got a reply or not") {
+    List("ciao", "something else", "/hi", "/unknown", "eng_file.mp3").traverse(run(_)).map { results =>
+      assertEquals(results.map(_._2), List.fill(5)(1))
+    }
+  }
+
+  test("the commands of the bot include the fixed ones: the bundles and the instructions") {
+    val engine = new BotEngine[IO](
+      sBotConfig = sBotConfig,
+      dbLayer = DBLayerMock.mock(sBotInfo.botId, messageReplies = messageReplies, commandReplies = commandReplies),
+      filteringMatchesMessages = (_, _) => IO.pure(true),
+      postComputation = _ => IO.unit
+    )
+    assertEquals(engine.commandRepliesData, commandReplies)
+    assertEquals(engine.allCommandRepliesData, commandReplies ++ engine.fixedCommands)
+    assert(engine.fixedCommands.exists(_.trigger.command == "instructions"))
+  }
+}

@@ -6,16 +6,15 @@ import cats.implicits.*
 import com.benkio.chatcore.messagefiltering.RandomSelection
 import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.EffectfulReply
-import com.benkio.chatcore.model.reply.MediaReply
 import com.benkio.chatcore.model.reply.PlainReply
 import com.benkio.chatcore.model.reply.Reply
 import com.benkio.chatcore.model.reply.ReplyBundle
 import com.benkio.chatcore.model.reply.ReplyValue
-import com.benkio.chatcore.model.reply.TextReply
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
+import com.benkio.chatcore.BotEngine
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.TelegramMessageReply
 import log.effect.LogWriter
 import telegramium.bots.high.Api
@@ -116,10 +115,7 @@ object ComputeReply {
 
   // Computations ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-  def runPlainReply[F[_]: Sync](reply: PlainReply): F[ReplyValue] = reply match {
-    case textReply: TextReply   => RandomSelection.select(textReply.text)
-    case mediaReply: MediaReply => RandomSelection.select(mediaReply.mediaFiles)
-  }
+  def runPlainReply[F[_]: Sync](reply: PlainReply): F[ReplyValue] = BotEngine.runPlainReply[F](reply)
 
   def runEffectfulReply[F[_]: Async: LogWriter](
       reply: EffectfulReply,

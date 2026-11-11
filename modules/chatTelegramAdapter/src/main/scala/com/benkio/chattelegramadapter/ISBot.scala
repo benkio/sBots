@@ -6,21 +6,18 @@ import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.messagefiltering.*
-import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.Message as ModelMessage
-import com.benkio.chatcore.model.MessageType
-import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
-import com.benkio.chatcore.patterns.CommandPatternsGroup
 import com.benkio.chatcore.patterns.PostComputationPatterns
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
+import com.benkio.chatcore.BotEngine
+import com.benkio.chatcore.PlatformReplies
 import com.benkio.chattelegramadapter.conversions.MessageConversions.*
 import com.benkio.chattelegramadapter.http.telegramreply.callbackreply.TelegramCallbackReply
-import com.benkio.chattelegramadapter.http.telegramreply.messagereply.MediaFileReply
 import com.benkio.chattelegramadapter.initialization.BotSetup
 import com.benkio.chattelegramadapter.model.CallbackData
 import log.effect.LogWriter
@@ -70,121 +67,40 @@ trait ISBot[F[_]: Async: LogWriter] {
   def postComputation: ModelMessage => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
 
-  // Reply to Messages ////////////////////////////////////////////////////////
-
-  // Loaded once with the setup of the bot (BotSetup) and served from memory by the DBLayer
-  def messageRepliesData: List[ReplyBundleMessage] = dbLayer.dbMessageReplies.messageReplies
-  def commandRepliesData: List[ReplyBundleCommand] = dbLayer.dbCommandReplies.commandReplies
-
-  // Commands //////////////////////////////////////////////////////////////////////////////
-
   val commandEffectfulCallback: Map[String, ModelMessage => F[ReplyValue]] = Map.empty
 
-  lazy val fixedCommands: List[ReplyBundleCommand] = {
-    val commandsPattersGroup =
-      CommandPatternsGroup.TriggerGroup.group(
-        triggerFileUri = sBotConfig.triggerListUri,
-        sBotInfo = sBotConfig.sBotInfo,
-        messageRepliesData = messageRepliesData,
-        ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
-      )
-    commandsPattersGroup :+ InstructionsCommand.instructionsReplyBundleCommand(
-      sBotInfo = sBotConfig.sBotInfo,
-      commands = commandRepliesData ++ commandsPattersGroup,
-      ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
+  // The logic of the bot is platform agnostic: this is only the Telegram shell around it ////////////////////////
+
+  lazy val engine: BotEngine[F] = new BotEngine[F](
+    sBotConfig = sBotConfig,
+    dbLayer = dbLayer,
+    filteringMatchesMessages = filteringMatchesMessages,
+    postComputation = postComputation
+  )
+
+  def messageRepliesData: List[ReplyBundleMessage]    = engine.messageRepliesData
+  def commandRepliesData: List[ReplyBundleCommand]    = engine.commandRepliesData
+  def allCommandRepliesData: List[ReplyBundleCommand] = engine.allCommandRepliesData
+
+  private def telegramReplies(using api: Api[F]): PlatformReplies[F] =
+    new TelegramPlatformReplies[F](
+      repository = repository,
+      backgroundJobManager = backgroundJobManager,
+      effectfulCallbacks = commandEffectfulCallback,
+      dbLayer = dbLayer,
+      ttl = sBotConfig.messageTimeToLive
     )
-  }
 
-  lazy val allCommandRepliesData: List[ReplyBundleCommand] =
-    commandRepliesData ++ fixedCommands
+  def messageLogic(msg: ModelMessage)(using api: Api[F]): F[Unit] =
+    engine.messageLogic(msg)(using telegramReplies)
 
-  // Bot logic //////////////////////////////////////////////////////////////////////////////
+  def commandLogic(msg: ModelMessage)(using api: Api[F]): F[Unit] =
+    engine.commandLogic(msg)(using telegramReplies)
 
-  def messageLogic(
-      msg: ModelMessage
-  )(using api: Api[F]): F[Unit] =
-    ReplyBundleMessage
-      .selectReplyBundle(
-        msg = msg,
-        messageRepliesData = messageRepliesData,
-        ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix,
-        disableForward = sBotConfig.disableForward
-      )
-      .traverse_(replyBundle =>
-        for {
-          _ <- LogWriter
-            .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ")
-          filter <- filteringMatchesMessages(replyBundle, msg)
-          _      <-
-            if filter then ComputeReply
-              .executePlain[F](
-                reply = replyBundle.reply,
-                message = msg,
-                repository = repository
-              )
-              .void
-            else Async[F].unit
-        } yield ()
-      )
+  def onMessageLogic(msg: ModelMessage)(using api: Api[F]): F[Unit] =
+    engine.onMessage(msg)(using telegramReplies)
 
-  def commandLogic(
-      msg: ModelMessage
-  )(using api: Api[F]): F[Unit] =
-    ReplyBundleCommand
-      .selectCommandReplyBundle(
-        msg = msg,
-        allCommandRepliesData = allCommandRepliesData,
-        botName = sBotConfig.sBotInfo.botName
-      )
-      .traverse_(commandReply =>
-        LogWriter.info(
-          s"${sBotConfig.sBotInfo.botName}: Computing command ${msg.text} matching command reply bundle"
-        ) *>
-          ComputeReply
-            .execute[F](
-              replyBundle = commandReply,
-              message = msg,
-              repository = repository,
-              backgroundJobManager = backgroundJobManager,
-              effectfulCallbacks = commandEffectfulCallback,
-              dbLayer = dbLayer,
-              ttl = sBotConfig.messageTimeToLive
-            )
-            .void
-      )
-
-  private def fileRequestLogic(
-      msg: ModelMessage
-  )(using api: Api[F]): F[Unit] =
-    msg.getContent
-      .fold(Async[F].pure(List.empty))(content =>
-        MediaFileReply.sendMediaFile(
-          reply = MediaFile.fromString(content),
-          msg = msg,
-          repository = repository,
-          replyToMessage = true
-        )
-      )
-      .void
-
-  private def botLogic(
-      msg: ModelMessage
-  )(using api: Api[F]): F[Unit] =
-    msg.messageType(sBotConfig.sBotInfo.botId) match {
-      case MessageType.Message =>
-        LogWriter.trace("Message Type: Message") >> messageLogic(msg)
-      case MessageType.Command =>
-        LogWriter.trace("Message Type: Command") >> commandLogic(msg)
-      case MessageType.FileRequest =>
-        LogWriter.trace("Message Type: File Request") >> fileRequestLogic(msg)
-    }
-
-  def onMessageLogic(msg: ModelMessage)(using api: Api[F]): F[Unit] = for {
-    _ <- LogWriter.trace(s"${sBotConfig.sBotInfo.botName}: A message arrived: $msg")
-    _ <- LogWriter.info(s"${sBotConfig.sBotInfo.botName}: A message arrived with content: ${msg.text}")
-    _ <- botLogic(msg)
-    _ <- postComputation(msg)
-  } yield ()
+  // Telegram only: the callbacks of the inline keyboards ////////////////////////////////////////////////////////
 
   def onCallbackLogic(query: CallbackQuery)(using api: Api[F]): F[Unit] = (for {
     callbackDataString <- OptionT.fromOption(query.data)
