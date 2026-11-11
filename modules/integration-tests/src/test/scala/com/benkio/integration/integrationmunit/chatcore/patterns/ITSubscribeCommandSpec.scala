@@ -3,6 +3,7 @@ package com.benkio.integration.integrationmunit.chatcore.patterns
 import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
+import com.benkio.chatcore.mocks.NotifierMock.given
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message

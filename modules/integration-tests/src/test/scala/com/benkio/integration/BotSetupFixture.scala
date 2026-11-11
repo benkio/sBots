@@ -9,6 +9,7 @@ import com.benkio.chatcore.http.HttpClients
 import com.benkio.chatcore.http.MegaClient
 import com.benkio.chatcore.repository.db.DBRepository
 import com.benkio.chatcore.repository.JsonDataRepository
+import com.benkio.chatcore.Notifier
 import com.benkio.chattelegramadapter.initialization.BotSetup
 import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
 import com.benkio.integration.Logger.given
@@ -91,7 +92,7 @@ object BotSetupFixture {
           dbLayer = dbLayer,
           sBotInfo = sBotConfig.sBotInfo,
           ttl = sBotConfig.messageTimeToLive
-        )(using IO.asyncForIO, api, summon[Random[IO]], log)
+        )(using IO.asyncForIO, api, summon[Random[IO]], Notifier.noop[IO], log)
       )
       webhookPath = uri"/test"
       webhookUri  = uri"https://localhost/test"
@@ -103,6 +104,7 @@ object BotSetupFixture {
       dbLayer = dbLayer,
       backgroundJobManager = backgroundJobManager,
       api = api,
+      notifier = Notifier.noop[IO],
       webhookUri = webhookUri,
       webhookPath = webhookPath,
       sBotConfig = sBotConfig

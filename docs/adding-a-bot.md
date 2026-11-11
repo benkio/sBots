@@ -98,6 +98,11 @@ If your bot needs `commandEffectfulCallback` (like RichardPHJBensonBot), add it 
    )
    ```
 
+By default a bot runs on Telegram, the only platform with a runtime so far. A bot is bound to its platforms with the
+`platforms` field of the entry (`platforms = List(Platform.Telegram)` is the default): a platform without a
+`PlatformRuntime` (see `modules/main/.../runner`) makes the application fail at startup with the name of the bot and of the
+platform.
+
 Aggregate and `main.dependsOn` will then include your bot automatically.
 
 ## Manual steps after registration

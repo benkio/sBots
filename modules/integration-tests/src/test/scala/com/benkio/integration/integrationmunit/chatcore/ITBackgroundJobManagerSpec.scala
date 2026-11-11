@@ -4,6 +4,7 @@ import cats.effect.std.Random
 import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
+import com.benkio.chatcore.mocks.NotifierMock.given
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.SBotInfo.SBotId
@@ -14,6 +15,7 @@ import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.repository.db.DBMessageReplies
 import com.benkio.chatcore.repository.db.DBSubscriptionData
 import com.benkio.chatcore.BackgroundJobManager
+import com.benkio.chatcore.Notifier
 import com.benkio.chatcore.SubscriptionKey
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chattelegramadapter.mocks.PayloadRecordingApi
@@ -411,7 +413,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
           dbLayer = dbLayer,
           sBotInfo = sBotInfo,
           ttl = sBotConfig.messageTimeToLive
-        )(using IO.asyncForIO, api, summon[Random[IO]], summon[LogWriter[IO]])
+        )(using IO.asyncForIO, api, summon[Random[IO]], Notifier.noop[IO], summon[LogWriter[IO]])
       )
       _ <- Resource.make(IO.unit)(_ => dbLayer.dbSubscription.deleteSubscription(trigger.id.value))
     } yield (manager, recorded)

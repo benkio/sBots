@@ -9,6 +9,7 @@ import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
+import com.benkio.chatcore.Notifier
 import com.benkio.chattelegramadapter.model.TelegramCapabilities
 import com.benkio.chattelegramadapter.EffectfulKeyRunner
 import log.effect.LogWriter
@@ -19,7 +20,7 @@ import scala.concurrent.duration.FiniteDuration
 
 object EffectfulKeyReply {
 
-  def sendEffectfulKey[F[_]: Async: LogWriter: Api](
+  def sendEffectfulKey[F[_]: Async: LogWriter: Api: Notifier](
       reply: EffectfulKey,
       msg: Message,
       repository: Repository[F],

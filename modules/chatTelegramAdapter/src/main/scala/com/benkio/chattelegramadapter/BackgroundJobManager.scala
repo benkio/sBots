@@ -11,6 +11,7 @@ import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chatcore.CronBackgroundJobManager
+import com.benkio.chatcore.Notifier
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.TelegramMessageReply
 import com.benkio.chattelegramadapter.model.TelegramCalendarMessage
 import com.benkio.chattelegramadapter.model.TelegramCapabilities
@@ -24,7 +25,7 @@ import scala.concurrent.duration.FiniteDuration
   */
 object TelegramBackgroundJobManager {
 
-  def apply[F[_]: Async: Api: Random](
+  def apply[F[_]: Async: Api: Random: Notifier](
       repository: Repository[F],
       dbLayer: DBLayer[F],
       sBotInfo: SBotInfo,
@@ -42,7 +43,7 @@ object TelegramBackgroundJobManager {
   /** The Telegram methods that send a reply need a message: the chat id and the message to reply to, when asked. A
     * subscription has no message, only the chat id of the message matters here.
     */
-  private def sendToChat[F[_]: Async: LogWriter: Api](
+  private def sendToChat[F[_]: Async: LogWriter: Api: Notifier](
       repository: Repository[F]
   )(chatId: ChatId, replyValue: ReplyValue, replyToMessage: Boolean): F[Unit] =
     TelegramMessageReply

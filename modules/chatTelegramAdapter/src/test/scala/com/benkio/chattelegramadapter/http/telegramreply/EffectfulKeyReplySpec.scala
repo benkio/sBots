@@ -5,6 +5,7 @@ import cats.effect.IO
 import com.benkio.chatcore.messagefiltering.getContent
 import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.mocks.DBLayerMock
+import com.benkio.chatcore.mocks.NotifierMock.given
 import com.benkio.chatcore.mocks.RepositoryMock
 import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.reply.EffectfulKey

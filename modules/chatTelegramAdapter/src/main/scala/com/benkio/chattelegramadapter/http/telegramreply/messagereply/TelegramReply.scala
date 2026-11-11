@@ -13,8 +13,9 @@ import com.benkio.chatcore.model.reply.ReplyValueCore
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.Repository
+import com.benkio.chatcore.Notifier
 import com.benkio.chattelegramadapter.conversions.MediaResourceConversions.*
-import com.benkio.chattelegramadapter.http.LogTelegramChat
+import com.benkio.chattelegramadapter.conversions.MessageConversions.toModel
 import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
 import log.effect.LogWriter
 import telegramium.bots.high.*
@@ -29,7 +30,7 @@ import telegramium.bots.ReplyParameters
 object TelegramMessageReply {
   final case class EmptyMarkdownValue() extends Throwable("[TelegramReply] the value of the input markdown is empty")
 
-  def telegramFileReplyPattern[F[_]: Async: LogWriter: Api](
+  def telegramFileReplyPattern[F[_]: Async: LogWriter: Api: Notifier](
       msg: TMessage,
       repository: Repository[F],
       chatAction: String,
@@ -73,14 +74,14 @@ object TelegramMessageReply {
           .onError(e =>
             LogWriter.error(
               s"[TelegramMessageReply] ERROR when replying to $chatId with $mediaFile: $e"
-            ) >> LogTelegramChat.sendError[F](msg, mediaFile, e)
+            ) >> summon[Notifier[F]].mediaError(msg.toModel, mediaFile, e)
           )
           .attemptT
     } yield message
     result.getOrElse(List.empty)
   }
 
-  def sendReplyValue[F[_]: Async: LogWriter: Api](
+  def sendReplyValue[F[_]: Async: LogWriter: Api: Notifier](
       replyValue: ReplyValue,
       msg: Message,
       repository: Repository[F],

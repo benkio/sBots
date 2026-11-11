@@ -7,6 +7,7 @@ import com.benkio.chatcore.model.Message as ModelMessage
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
+import com.benkio.chatcore.Notifier
 import com.benkio.chattelegramadapter.model.CallbackData
 import log.effect.LogWriter
 import telegramium.bots.high.Api
@@ -20,7 +21,7 @@ object TelegramCallbackReply {
 
   private[callbackreply] def previousPage(currentPage: Int): Int = (currentPage - 1).max(0)
 
-  def reply[F[_]: Async: LogWriter: Api](
+  def reply[F[_]: Async: LogWriter: Api: Notifier](
       msg: MaybeInaccessibleMessage,
       callbackData: CallbackData,
       repository: Repository[F],

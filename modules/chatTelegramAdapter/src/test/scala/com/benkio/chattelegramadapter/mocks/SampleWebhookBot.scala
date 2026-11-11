@@ -13,6 +13,7 @@ import com.benkio.chatcore.patterns.PostComputationPatterns
 import com.benkio.chatcore.repository.db.DBMessageReplies
 import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.Logger.given
+import com.benkio.chatcore.Notifier
 import com.benkio.chattelegramadapter.initialization.BotSetup
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chattelegramadapter.ISBotWebhook
@@ -84,7 +85,7 @@ object SampleWebhookBot {
         dbLayer = dbLayerMock,
         sBotInfo = sBotInfo,
         ttl = None
-      )(using Async[IO], summon[Api[IO]], summon[Random[IO]], log)
+      )(using Async[IO], summon[Api[IO]], summon[Random[IO]], Notifier.noop[IO], log)
     } yield new SampleWebhookBot(
       BotSetup(
         token = "test",
@@ -94,6 +95,7 @@ object SampleWebhookBot {
         dbLayer = dbLayerMock,
         backgroundJobManager = backgroundJobManager,
         api = summon[Api[IO]],
+        notifier = Notifier.noop[IO],
         webhookUri = uri"https://localhost",
         webhookPath = uri"/",
         sBotConfig = sBotConfig

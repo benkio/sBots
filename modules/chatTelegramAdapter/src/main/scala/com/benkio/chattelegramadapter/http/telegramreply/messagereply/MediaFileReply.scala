@@ -12,6 +12,7 @@ import com.benkio.chatcore.model.reply.Sticker
 import com.benkio.chatcore.model.reply.VideoFile
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.Repository
+import com.benkio.chatcore.Notifier
 import com.benkio.chattelegramadapter.conversions.MessageConversions.*
 import log.effect.LogWriter
 import telegramium.bots.high.*
@@ -29,7 +30,7 @@ object MediaFileReply {
       markdownFile: MarkdownFile
   ) extends Throwable(s"The Markdown File: $markdownFile returned empty content")
 
-  def sendMediaFile[F[_]: Async: LogWriter: Api](
+  def sendMediaFile[F[_]: Async: LogWriter: Api: Notifier](
       reply: MediaFile,
       msg: Message,
       repository: Repository[F],
@@ -93,7 +94,7 @@ object MediaFileReply {
         )
   }
 
-  def sendMarkdown[F[_]: Async: LogWriter: Api](
+  def sendMarkdown[F[_]: Async: LogWriter: Api: Notifier](
       reply: MarkdownFile,
       msg: TMessage,
       repository: Repository[F],
@@ -138,7 +139,7 @@ object MediaFileReply {
     )
   }
 
-  def sendMp3[F[_]: Async: LogWriter: Api](
+  def sendMp3[F[_]: Async: LogWriter: Api: Notifier](
       reply: Mp3File,
       msg: TMessage,
       repository: Repository[F],
@@ -161,7 +162,7 @@ object MediaFileReply {
     )
   }
 
-  def sendGif[F[_]: Async: LogWriter: Api](
+  def sendGif[F[_]: Async: LogWriter: Api: Notifier](
       reply: GifFile,
       msg: TMessage,
       repository: Repository[F],
@@ -184,7 +185,7 @@ object MediaFileReply {
     )
   }
 
-  def sendPhoto[F[_]: Async: LogWriter: Api](
+  def sendPhoto[F[_]: Async: LogWriter: Api: Notifier](
       reply: PhotoFile,
       msg: TMessage,
       repository: Repository[F],
@@ -207,7 +208,7 @@ object MediaFileReply {
     )
   }
 
-  def sendVideo[F[_]: Async: LogWriter: Api](
+  def sendVideo[F[_]: Async: LogWriter: Api: Notifier](
       reply: VideoFile,
       msg: TMessage,
       repository: Repository[F],
@@ -230,7 +231,7 @@ object MediaFileReply {
     )
   }
 
-  def sendDocument[F[_]: Async: LogWriter: Api](
+  def sendDocument[F[_]: Async: LogWriter: Api: Notifier](
       reply: Document,
       msg: TMessage,
       repository: Repository[F],
@@ -253,7 +254,7 @@ object MediaFileReply {
     )
   }
 
-  def sendSticker[F[_]: Async: LogWriter: Api](
+  def sendSticker[F[_]: Async: LogWriter: Api: Notifier](
       reply: Sticker,
       msg: TMessage,
       repository: Repository[F],

@@ -4,6 +4,7 @@ import cats.effect.Async
 import cats.syntax.all.*
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.repository.Repository
+import com.benkio.chatcore.Notifier
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.MediaFileReply
 import com.benkio.chattelegramadapter.model.TelegramMessageIds
 import log.effect.LogWriter
@@ -15,7 +16,7 @@ import telegramium.bots.MaybeInaccessibleMessage
 
 object Media {
 
-  def reply[F[_]: Async: LogWriter: Api](
+  def reply[F[_]: Async: LogWriter: Api: Notifier](
       msg: MaybeInaccessibleMessage,
       mediaName: String,
       repository: Repository[F]

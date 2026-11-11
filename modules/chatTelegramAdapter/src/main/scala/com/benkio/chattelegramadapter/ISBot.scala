@@ -15,6 +15,7 @@ import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chatcore.BotEngine
+import com.benkio.chatcore.Notifier
 import com.benkio.chatcore.PlatformAdapter
 import com.benkio.chattelegramadapter.conversions.MessageConversions.*
 import com.benkio.chattelegramadapter.http.telegramreply.callbackreply.TelegramCallbackReply
@@ -104,7 +105,7 @@ trait ISBot[F[_]: Async: LogWriter] {
       dbLayer = dbLayer,
       ttl = sBotConfig.messageTimeToLive,
       startUpdates = startUpdates
-    )(using summon[Async[F]], summon[LogWriter[F]], api)
+    )(using summon[Async[F]], summon[LogWriter[F]], api, sBotSetup.notifier)
 
   def messageLogic(msg: ModelMessage): F[Unit] =
     engine.messageLogic(msg)(using platformAdapter)
@@ -118,7 +119,8 @@ trait ISBot[F[_]: Async: LogWriter] {
   // Telegram only: the callbacks of the inline keyboards ////////////////////////////////////////////////////////
 
   def onCallbackLogic(query: CallbackQuery): F[Unit] = {
-    given Api[F] = api
+    given Api[F]      = api
+    given Notifier[F] = sBotSetup.notifier
     (for {
       callbackDataString <- OptionT.fromOption(query.data)
       callbackData = CallbackData(callbackDataString)

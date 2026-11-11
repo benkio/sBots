@@ -9,6 +9,7 @@ import com.benkio.chatcore.model.PlatformCapabilities
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
+import com.benkio.chatcore.Notifier
 import com.benkio.chatcore.PlatformAdapter
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.TelegramMessageReply
 import com.benkio.chattelegramadapter.model.TelegramCapabilities
@@ -23,7 +24,7 @@ import scala.concurrent.duration.FiniteDuration
   *   how Telegram delivers the updates of the bot: the long polling, or nothing to start for a webhook bot (the updates
   *   arrive on the HTTP server that composes the webhook bots)
   */
-class TelegramPlatformAdapter[F[_]: Async: LogWriter: Api](
+class TelegramPlatformAdapter[F[_]: Async: LogWriter: Api: Notifier](
     repository: Repository[F],
     backgroundJobManager: BackgroundJobManager[F],
     effectfulCallbacks: Map[String, Message => F[ReplyValue]],
