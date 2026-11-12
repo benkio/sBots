@@ -31,7 +31,7 @@ class CommandPatternsCommandsSpec extends CatsEffectSuite {
   )
   private val chatId = ChatId.telegram(123L)
   private val msg    = Message(
-    messageId = 0,
+    messageId = None,
     date = 0L,
     chatId = chatId,
     chatType = "private"

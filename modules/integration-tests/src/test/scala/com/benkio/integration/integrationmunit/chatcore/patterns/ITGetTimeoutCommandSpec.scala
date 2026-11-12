@@ -21,7 +21,7 @@ class ITGetTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
   val chatIdValue = 0L
   val chatId      = ChatId.telegram(chatIdValue)
 
-  val msg: Message = Message(messageId = 0, date = 0, chatId = chatId, chatType = "private")
+  val msg: Message = Message(messageId = None, date = 0, chatId = chatId, chatType = "private")
 
   databaseFixture.test(
     "GetTimeoutLogic Command should return the current chat timeout"

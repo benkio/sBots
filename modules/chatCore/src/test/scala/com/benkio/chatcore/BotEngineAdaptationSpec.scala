@@ -64,7 +64,7 @@ class BotEngineAdaptationSpec extends CatsEffectSuite {
     textOnly.copy(supportsButtons = true, supportedMedia = Set(MediaKind.Audio))
 
   private def message(text: String): Message =
-    Message(0, Instant.now.getEpochSecond, ChatId.telegram(1L), "private", text = Some(text))
+    Message(None, Instant.now.getEpochSecond, ChatId.telegram(1L), "private", text = Some(text))
 
   /** What the platform receives when the engine handles the text. */
   private def received(

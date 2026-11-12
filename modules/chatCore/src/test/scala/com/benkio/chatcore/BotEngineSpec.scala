@@ -60,7 +60,7 @@ class BotEngineSpec extends CatsEffectSuite {
   )
 
   private def message(text: String): Message = Message(
-    messageId = 0,
+    messageId = None,
     date = Instant.now.getEpochSecond,
     chatId = ChatId.telegram(1L),
     chatType = "private",

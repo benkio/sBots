@@ -3,6 +3,7 @@ package com.benkio.chattelegramadapter.http
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.MessageId
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.repository.Repository.RepositoryError
 import com.benkio.chatcore.Notifier
@@ -13,9 +14,9 @@ import munit.CatsEffectSuite
 class TelegramNotifierSpec extends CatsEffectSuite {
 
   private val opsChatId: Long = -1001L
-  private val message         = Message(1, 0L, ChatId.telegram(5L), "private", text = Some("hello"))
-  private val mediaFile       = Mp3File("audio.mp3")
-  private val botInfo         = SBotInfo(SBotInfo.SBotId("bot"), SBotInfo.SBotName("BotName"))
+  private val message   = Message(Some(MessageId.telegram(1)), 0L, ChatId.telegram(5L), "private", text = Some("hello"))
+  private val mediaFile = Mp3File("audio.mp3")
+  private val botInfo   = SBotInfo(SBotInfo.SBotId("bot"), SBotInfo.SBotName("BotName"))
 
   private def sentMessages(calls: List[(String, Json)]): List[Json] =
     calls.collect { case ("sendMessage", payload) => payload }

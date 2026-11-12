@@ -4,6 +4,7 @@ import cats.effect.IO
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.MessageId
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.repository.Repository.RepositoryError
 import munit.CatsEffectSuite
@@ -14,7 +15,14 @@ import org.scalacheck.Prop.*
 class NotifierSpec extends ScalaCheckSuite {
 
   private val message: Message =
-    Message(1, 0L, ChatId.telegram(1L), "private", text = Some("hello"), caption = Some("caption"))
+    Message(
+      Some(MessageId.telegram(1)),
+      0L,
+      ChatId.telegram(1L),
+      "private",
+      text = Some("hello"),
+      caption = Some("caption")
+    )
   private val mediaFile = Mp3File("audio.mp3")
   private val botInfo   = SBotInfo(SBotInfo.SBotId("bot"), SBotInfo.SBotName("BotName"))
 
@@ -44,7 +52,7 @@ class NotifierNoopSpec extends CatsEffectSuite {
 
   test("the noop notifier does nothing and does not fail") {
     val notifier = Notifier.noop[IO]
-    val message  = Message(1, 0L, ChatId.telegram(1L), "private")
+    val message  = Message(Some(MessageId.telegram(1)), 0L, ChatId.telegram(1L), "private")
     notifier.info(SBotInfo(SBotInfo.SBotId("bot"), SBotInfo.SBotName("BotName")), "started") *>
       notifier.mediaError(message, Mp3File("a.mp3"), new RuntimeException("boom"))
   }

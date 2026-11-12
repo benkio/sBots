@@ -175,7 +175,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
         .toList
       val matchingFilenames: List[Set[MediaFile]] = inputTextTxtContent.map { case (input, expectedMatch) =>
         val exactStringMessage = ModelMessage(
-          messageId = 0,
+          messageId = None,
           date = 0L,
           chatId = ChatId.telegram(0L),
           chatType = "test",
@@ -216,7 +216,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
   ): Unit = {
     def instructionMessage(value: String): ModelMessage =
       ModelMessage(
-        messageId = 0,
+        messageId = None,
         date = 0L,
         chatId = ChatId.telegram(0L),
         chatType = "test",
@@ -314,7 +314,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
         case (stringTrigger: StringTextTriggerValue, replyBundle) =>
           test(s"""🔎 Only one reply bundle replies to: "${stringTrigger.show}"""") {
             val exactStringMessage = ModelMessage(
-              messageId = 0,
+              messageId = None,
               date = 0L,
               chatId = ChatId.telegram(0L),
               chatType = "test",
@@ -337,7 +337,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
             forAll(RegexpGen.from(regexTrigger.trigger.toString)) {
               case regexMatchString: String if regexTrigger.trigger.findFirstMatchIn(regexMatchString).isDefined =>
                 val exactStringMessage = ModelMessage(
-                  messageId = 0,
+                  messageId = None,
                   date = 0L,
                   chatId = ChatId.telegram(0L),
                   chatType = "test",

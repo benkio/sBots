@@ -62,7 +62,7 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
     )
   )
 
-  val msg: Message = Message(messageId = 0, date = 0, chatId = ChatId.telegram(chatIdValue), chatType = "private")
+  val msg: Message = Message(messageId = None, date = 0, chatId = ChatId.telegram(chatIdValue), chatType = "private")
 
   databaseFixture.test(
     "Subscriptions Command should return all the subscription by bot and chat"

@@ -9,6 +9,7 @@ import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.MessageId
 import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.RegexTextTriggerValue
 import com.benkio.chatcore.model.SBotInfo.SBotName
@@ -173,7 +174,7 @@ class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
     forAll(shortWordGen, suffixGen) { (shortWord: String, suffix: String) =>
       val longWord         = s"$shortWord $suffix"
       val message: Message = Message(
-        messageId = 1,
+        messageId = Some(MessageId.telegram(1)),
         date = Instant.now.getEpochSecond(),
         chatId = ChatId.telegram(1L),
         chatType = "private",
@@ -209,7 +210,7 @@ class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
       )
 
       val matchingMessage: Message = Message(
-        messageId = 2,
+        messageId = Some(MessageId.telegram(2)),
         date = Instant.now.getEpochSecond(),
         chatId = ChatId.telegram(1L),
         chatType = "private",
@@ -217,7 +218,7 @@ class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
         caption = None
       )
       val nonMatchingMessage: Message = Message(
-        messageId = 3,
+        messageId = Some(MessageId.telegram(3)),
         date = Instant.now.getEpochSecond(),
         chatId = ChatId.telegram(1L),
         chatType = "private",
@@ -250,7 +251,7 @@ class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
         instruction = CommandInstructionData.NoInstructions
       )
       val messageWithoutText = Message(
-        messageId = 7,
+        messageId = Some(MessageId.telegram(7)),
         date = Instant.now.getEpochSecond(),
         chatId = ChatId.telegram(1L),
         chatType = "private",
@@ -278,7 +279,7 @@ class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
         instruction = CommandInstructionData.NoInstructions
       )
       val exactMessage = Message(
-        messageId = 9,
+        messageId = Some(MessageId.telegram(9)),
         date = Instant.now.getEpochSecond(),
         chatId = ChatId.telegram(1L),
         chatType = "private",
@@ -286,7 +287,7 @@ class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
         caption = None
       )
       val withArgsMessage = Message(
-        messageId = 10,
+        messageId = Some(MessageId.telegram(10)),
         date = Instant.now.getEpochSecond(),
         chatId = ChatId.telegram(1L),
         chatType = "private",
@@ -355,7 +356,7 @@ class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
     forAll(triggerGen) { (triggerText: String) =>
       val now              = Instant.now.getEpochSecond()
       val forwardedMessage = Message(
-        messageId = 8,
+        messageId = Some(MessageId.telegram(8)),
         date = now,
         chatId = ChatId.telegram(1L),
         chatType = "private",
@@ -380,7 +381,7 @@ class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
     forAll(triggerGen) { (triggerText: String) =>
       val now              = Instant.now.getEpochSecond()
       val forwardedMessage = Message(
-        messageId = 11,
+        messageId = Some(MessageId.telegram(11)),
         date = now,
         chatId = ChatId.telegram(1L),
         chatType = "private",
@@ -405,7 +406,7 @@ class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
     forAll(triggerGen) { (triggerText: String) =>
       val now        = Instant.now.getEpochSecond()
       val oldMessage = Message(
-        messageId = 12,
+        messageId = Some(MessageId.telegram(12)),
         date = now - FilteringOlder.olderThreshold.toSeconds - 1,
         chatId = ChatId.telegram(1L),
         chatType = "private",
@@ -470,7 +471,7 @@ class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
       instruction = CommandInstructionData.NoInstructions
     )
     def message(text: String): Message =
-      Message(0, Instant.now.getEpochSecond, ChatId(Platform.Irc, "#c"), "test", text = Some(text))
+      Message(None, Instant.now.getEpochSecond, ChatId(Platform.Irc, "#c"), "test", text = Some(text))
     val irc                                              = CommandSyntax(prefix = "!")
     def select(text: String): Option[ReplyBundleCommand] =
       ReplyBundleCommand.selectCommandReplyBundle(message(text), List(command), SBotName("MyBot"), irc)

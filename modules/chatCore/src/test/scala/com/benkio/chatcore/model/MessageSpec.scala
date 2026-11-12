@@ -8,7 +8,7 @@ class MessageSpec extends FunSuite {
 
   test("Message.messageType should return MessageType.Command if the message is a command") {
     val inputMessage: Message = Message(
-      messageId = 0,
+      messageId = None,
       date = 0L,
       chatId = ChatId.telegram(0L),
       chatType = "test",
@@ -19,7 +19,7 @@ class MessageSpec extends FunSuite {
 
   test("Message.messageType should return MessageType.Message if the message is not a command") {
     val inputMessage: Message = Message(
-      messageId = 0,
+      messageId = None,
       date = 0L,
       chatId = ChatId.telegram(0L),
       chatType = "test",
@@ -31,7 +31,7 @@ class MessageSpec extends FunSuite {
 
   test("Message.messageType should return MessageType.FileRequest if message starts with bot id") {
     val inputMessage: Message = Message(
-      messageId = 0,
+      messageId = None,
       date = 0L,
       chatId = ChatId.telegram(0L),
       chatType = "test",

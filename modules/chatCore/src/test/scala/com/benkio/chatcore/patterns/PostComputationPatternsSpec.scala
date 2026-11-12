@@ -11,7 +11,7 @@ import munit.CatsEffectSuite
 class PostComputationPatternsSpec extends CatsEffectSuite {
 
   val sBotId: SBotId   = SBotId("testbot")
-  val message: Message = Message(messageId = 0, date = 0L, chatId = ChatId.telegram(123L), chatType = "private")
+  val message: Message = Message(messageId = None, date = 0L, chatId = ChatId.telegram(123L), chatType = "private")
   val existingTimeout  = DBTimeoutData(
     platform = "telegram",
     chat_id = "123",

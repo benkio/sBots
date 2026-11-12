@@ -32,7 +32,7 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
 
   val sBotInfo         = SampleWebhookBot.sBotInfo
   val message: Message = Message(
-    messageId = 0,
+    messageId = None,
     date = 0L,
     chatId = ChatId.telegram(0L),
     chatType = "private",

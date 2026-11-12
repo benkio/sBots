@@ -13,9 +13,9 @@ class FilteringOlderSpec extends ScalaCheckSuite {
   property("filter accepts messages within olderThreshold and rejects older ones") {
     forAll(Gen.choose(0L, FilteringOlder.olderThreshold.toSeconds - 1)) { (ageSeconds: Long) =>
       val now     = Instant.now.getEpochSecond
-      val within  = Message(0, now - ageSeconds, ChatId.telegram(0L), "test")
+      val within  = Message(None, now - ageSeconds, ChatId.telegram(0L), "test")
       val outside =
-        Message(0, now - FilteringOlder.olderThreshold.toSeconds - 10, ChatId.telegram(0L), "test")
+        Message(None, now - FilteringOlder.olderThreshold.toSeconds - 10, ChatId.telegram(0L), "test")
       assert(FilteringOlder.filter(within))
       assert(!FilteringOlder.filter(outside))
     }

@@ -1,5 +1,6 @@
 package com.benkio.chattelegramadapter.http.telegramreply.callbackreply
 
+import com.benkio.chatcore.model.MessageId
 import com.benkio.chattelegramadapter.model.TelegramMessageIds
 import com.benkio.chattelegramadapter.Arbitraries.given
 import munit.ScalaCheckSuite
@@ -12,7 +13,7 @@ class ModelMessageFromCallbackSpec extends ScalaCheckSuite {
     forAll { (msg: MaybeInaccessibleMessage) =>
       val ids    = TelegramMessageIds.getIds(msg)
       val result = ModelMessageFromCallback.build(msg)
-      assertEquals(result.messageId, ids.messageId)
+      assertEquals(result.messageId, Some(MessageId.telegram(ids.messageId)))
       assertEquals(result.chatId.telegramId, ids.chatId)
       assertEquals(result.chatType, ids.chatType)
       assertEquals(result.date, 0L)

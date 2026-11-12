@@ -7,6 +7,7 @@ import com.benkio.chatcore.model.reply.PagedList
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
+import com.benkio.chattelegramadapter.conversions.MessageConversions.replyParameters
 import com.benkio.chattelegramadapter.conversions.ToInlineButton
 import com.benkio.chattelegramadapter.model.toCallbackKey
 import com.benkio.chattelegramadapter.model.CallbackData
@@ -19,7 +20,6 @@ import telegramium.bots.ChatIntId
 import telegramium.bots.InlineKeyboardButton
 import telegramium.bots.InlineKeyboardMarkup
 import telegramium.bots.Message as TMessage
-import telegramium.bots.ReplyParameters
 
 object KeyboardReply {
   def sendKeyboard[F[_]: Async: LogWriter: Api](
@@ -37,7 +37,7 @@ object KeyboardReply {
             .sendMessage(
               chatId = chatId,
               text = reply.keyboardTitle,
-              replyParameters = Option.when(replyToMessage)(ReplyParameters(Some(msg.messageId))),
+              replyParameters = msg.replyParameters(replyToMessage),
               replyMarkup = Some(
                 reply.inlineKeyboard
               )

@@ -42,7 +42,7 @@ object MediaFileReply {
           reply = mp3,
           msg = msg.toTelegramium,
           repository = repository,
-          replyToMessage = replyToMessage
+          replyToMessage = replyToMessage && msg.messageId.nonEmpty
         )
     case gif: GifFile =>
       LogWriter.trace(s"Send Gif: $gif") >>
@@ -50,7 +50,7 @@ object MediaFileReply {
           reply = gif,
           msg = msg.toTelegramium,
           repository = repository,
-          replyToMessage = replyToMessage
+          replyToMessage = replyToMessage && msg.messageId.nonEmpty
         )
     case photo: PhotoFile =>
       LogWriter.trace(s"Send Photo: $photo") >>
@@ -58,7 +58,7 @@ object MediaFileReply {
           reply = photo,
           msg = msg.toTelegramium,
           repository = repository,
-          replyToMessage = replyToMessage
+          replyToMessage = replyToMessage && msg.messageId.nonEmpty
         )
     case video: VideoFile =>
       LogWriter.trace(s"Send Video: $video") >>
@@ -66,7 +66,7 @@ object MediaFileReply {
           reply = video,
           msg = msg.toTelegramium,
           repository = repository,
-          replyToMessage = replyToMessage
+          replyToMessage = replyToMessage && msg.messageId.nonEmpty
         )
     case document: Document =>
       LogWriter.trace(s"Send document: $document") >>
@@ -74,7 +74,7 @@ object MediaFileReply {
           reply = document,
           msg = msg.toTelegramium,
           repository = repository,
-          replyToMessage = replyToMessage
+          replyToMessage = replyToMessage && msg.messageId.nonEmpty
         )
     case sticker: Sticker =>
       LogWriter.trace(s"Send sticker: $sticker") >>
@@ -82,7 +82,7 @@ object MediaFileReply {
           reply = sticker,
           msg = msg.toTelegramium,
           repository = repository,
-          replyToMessage = replyToMessage
+          replyToMessage = replyToMessage && msg.messageId.nonEmpty
         )
     case markdown: MarkdownFile =>
       LogWriter.trace(s"Send Markdown: $markdown") >>
@@ -90,7 +90,7 @@ object MediaFileReply {
           reply = markdown,
           msg = msg.toTelegramium,
           repository = repository,
-          replyToMessage = replyToMessage
+          replyToMessage = replyToMessage && msg.messageId.nonEmpty
         )
   }
 

@@ -138,7 +138,7 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
   test("searchTriggerLogic should return the expected result when a trigger is found") {
     expectedSearchTriggerResponse.traverse_ { case ((mdr, query), expectedResponse) =>
       val msg = ModelMessage(
-        messageId = 0,
+        messageId = None,
         date = Instant.now.getEpochSecond(),
         chatId = ChatId.telegram(0L),
         chatType = "test",

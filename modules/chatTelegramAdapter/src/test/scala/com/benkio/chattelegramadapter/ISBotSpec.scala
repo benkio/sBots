@@ -19,7 +19,7 @@ class ISBotSpec extends CatsEffectSuite {
 
   test("selectReplyBundle should return all the expected `ReplyBundleMessage` respecting the trigger ordering") {
     val inputMessage: Message = Message(
-      messageId = 0,
+      messageId = None,
       date = Instant.now.getEpochSecond(),
       chatId = ChatId.telegram(0L),
       chatType = "test",
@@ -46,7 +46,7 @@ class ISBotSpec extends CatsEffectSuite {
 
   test("selectCommandReplyBundle should return all the expected `ReplyBundleCommand`") {
     val inputMessage: Message = Message(
-      messageId = 0,
+      messageId = None,
       date = Instant.now.getEpochSecond(),
       chatId = ChatId.telegram(0L),
       chatType = "test",

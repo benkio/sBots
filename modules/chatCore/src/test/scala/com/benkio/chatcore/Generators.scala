@@ -21,6 +21,7 @@ import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.LeftMemberTrigger
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.MessageId
 import com.benkio.chatcore.model.MessageLengthTrigger
 import com.benkio.chatcore.model.MessageTrigger
 import com.benkio.chatcore.model.MimeType
@@ -121,7 +122,7 @@ trait Generators {
   )
 
   val messageGen: Gen[Message] = for {
-    messageId      <- Gen.choose(Int.MinValue, Int.MaxValue)
+    messageId      <- Gen.option(Gen.alphaNumStr.map(MessageId(_)))
     date           <- Gen.long
     chatId         <- Gen.long
     chatType       <- Gen.alphaStr

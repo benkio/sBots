@@ -32,7 +32,7 @@ class FilteringTimeoutSpec extends CatsEffectSuite {
         )
       )
     val msg: Message = Message(
-      messageId = 0,
+      messageId = None,
       date = 0L,
       chatId = ChatId.telegram(chatId),
       chatType = "private"
@@ -63,7 +63,7 @@ class FilteringTimeoutSpec extends CatsEffectSuite {
         )
       )
     val msg: Message = Message(
-      messageId = 0,
+      messageId = None,
       date = 0L,
       chatId = ChatId.telegram(chatId),
       chatType = "private"

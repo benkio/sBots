@@ -62,7 +62,7 @@ class KeyboardReplySpec extends FunSuite {
     )
   }
 
-  private val message: Message = Message(0, 0L, ChatId.telegram(1L), "private", text = Some("/cmd words"))
+  private val message: Message = Message(None, 0L, ChatId.telegram(1L), "private", text = Some("/cmd words"))
 
   private def show(n: Int): Show = Show(
     id = s"id$n",

@@ -161,7 +161,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
         )
         // Create a test message with the command format
         testMessage = Message(
-          messageId = 0,
+          messageId = None,
           date = 0,
           chatId = ChatId.telegram(0),
           chatType = "private",

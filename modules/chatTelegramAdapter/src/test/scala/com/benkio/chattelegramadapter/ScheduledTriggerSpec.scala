@@ -26,7 +26,7 @@ class ScheduledTriggerSpec extends CatsEffectSuite {
   private val chatId = ChatId.telegram(0L)
 
   private def message(text: String, date: Long = Instant.now.getEpochSecond): Message =
-    Message(messageId = 0, date = date, chatId = chatId, chatType = "private", text = Some(text))
+    Message(messageId = None, date = date, chatId = chatId, chatType = "private", text = Some(text))
 
   private def replyingBundle(trigger: String, reply: String, replyToMessage: Boolean): ReplyBundleMessage =
     ReplyBundleMessage.textToText(trigger)(reply).copy(reply = TextReply.fromList(reply)(replyToMessage))

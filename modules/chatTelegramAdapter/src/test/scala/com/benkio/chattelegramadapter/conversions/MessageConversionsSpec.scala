@@ -1,5 +1,6 @@
 package com.benkio.chattelegramadapter.conversions
 
+import com.benkio.chatcore.model.MessageId
 import com.benkio.chattelegramadapter.conversions.MessageConversions.toModelMessage
 import com.benkio.chattelegramadapter.Arbitraries.given
 import munit.FunSuite
@@ -18,8 +19,8 @@ class MessageConversionsSpec extends ScalaCheckSuite {
         assertEquals(
           message.get.messageId,
           maybeInaccessibleMessage match {
-            case msg: TelegramMessage     => msg.messageId
-            case msg: InaccessibleMessage => msg.messageId
+            case msg: TelegramMessage     => Some(MessageId.telegram(msg.messageId))
+            case msg: InaccessibleMessage => Some(MessageId.telegram(msg.messageId))
           }
         )
       }

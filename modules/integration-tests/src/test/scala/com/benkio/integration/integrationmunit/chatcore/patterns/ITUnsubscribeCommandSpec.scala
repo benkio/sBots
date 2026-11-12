@@ -43,7 +43,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
     subscribedAt = Instant.now().truncatedTo(ChronoUnit.SECONDS)
   )
 
-  val msg: Message = Message(messageId = 0, date = 0, chatId = chatId, chatType = "private")
+  val msg: Message = Message(messageId = None, date = 0, chatId = chatId, chatType = "private")
 
   databaseFixture.test(
     "Unsubscribe Command should fail if the subscription is not found"

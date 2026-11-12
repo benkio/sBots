@@ -76,7 +76,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with BotSetupFixture {
           .traverse(input =>
             InstructionsCommand.instructionCommandLogic[IO](
               msg = Message(
-                messageId = 0,
+                messageId = None,
                 date = 0,
                 chatId = ChatId.telegram(0L),
                 chatType = "private",
@@ -101,7 +101,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with BotSetupFixture {
           .traverse(input =>
             InstructionsCommand.instructionCommandLogic[IO](
               msg = Message(
-                messageId = 0,
+                messageId = None,
                 date = 0,
                 chatId = ChatId.telegram(0L),
                 chatType = "private",

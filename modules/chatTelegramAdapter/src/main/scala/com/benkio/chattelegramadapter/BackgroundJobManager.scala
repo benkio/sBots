@@ -49,7 +49,7 @@ object TelegramBackgroundJobManager {
     TelegramMessageReply
       .sendReplyValue[F](
         replyValue = replyValue,
-        msg = Message(messageId = 0, date = 0L, chatId = chatId, chatType = "private"),
+        msg = Message(messageId = None, date = 0L, chatId = chatId, chatType = "private"),
         repository = repository,
         replyToMessage = replyToMessage
       )

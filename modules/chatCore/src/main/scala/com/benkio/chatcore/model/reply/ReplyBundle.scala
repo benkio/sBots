@@ -59,7 +59,7 @@ object ReplyBundleMessage {
       messageRepliesData: List[ReplyBundleMessage]
   ): Option[ReplyBundleMessage] =
     bestMatch(
-      msg = Message(messageId = 0, date = 0L, chatId = chatId, chatType = "", text = Some(text)),
+      msg = Message(messageId = None, date = 0L, chatId = chatId, chatType = "", text = Some(text)),
       messageRepliesData = messageRepliesData,
       ignoreMessagePrefix = None
     )

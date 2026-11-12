@@ -6,13 +6,13 @@ import cats.implicits.*
 import com.benkio.chatcore.messagefiltering.*
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
+import com.benkio.chattelegramadapter.conversions.MessageConversions.replyParameters
 import log.effect.LogWriter
 import telegramium.bots.high.*
 import telegramium.bots.high.implicits.*
 import telegramium.bots.ChatId
 import telegramium.bots.ChatIntId
 import telegramium.bots.Message as TMessage
-import telegramium.bots.ReplyParameters
 
 import scala.concurrent.duration.FiniteDuration
 
@@ -32,7 +32,7 @@ object TextReply {
             .sendMessage(
               chatId = chatId,
               text = reply.value,
-              replyParameters = Option.when(replyToMessage)(ReplyParameters(Some(msg.messageId)))
+              replyParameters = msg.replyParameters(replyToMessage)
             )
             .exec
         _ <- reply.timeToLive.fold(Async[F].unit)(ttl => {

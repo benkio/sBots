@@ -30,7 +30,7 @@ class ITCalendarCommandSpec extends CatsEffectSuite with DBFixture {
   val sBotInfo               = sBotConfig.sBotInfo
   val otherBotInfo: SBotInfo = sBotInfo.copy(botId = SBotInfo.SBotId("otherbot"))
   val chatId                 = ChatId.telegram(1L)
-  val msg: Message           = Message(messageId = 0, date = 0, chatId = chatId, chatType = "private")
+  val msg: Message           = Message(messageId = None, date = 0, chatId = chatId, chatType = "private")
   val alreadyActive          = "calendar subscription already active"
 
   private def show(botInfo: SBotInfo): DBShowData = DBShowData(
