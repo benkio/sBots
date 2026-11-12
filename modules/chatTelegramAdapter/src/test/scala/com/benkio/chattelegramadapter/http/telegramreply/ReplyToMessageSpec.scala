@@ -37,10 +37,10 @@ class ReplyToMessageSpec extends CatsEffectSuite {
   )
 
   private val values: List[(String, ReplyValue)] = List(
-    "a text"          -> Text("text"),
-    "a markdown"      -> Markdown("**markdown**"),
-    "a paged list"    -> PagedList.topTwenty(List(Mp3File("a.mp3")), page = 0),
-    "a media file"    -> Mp3File("a.mp3")
+    "a text"       -> Text("text"),
+    "a markdown"   -> Markdown("**markdown**"),
+    "a paged list" -> PagedList.topTwenty(List(Mp3File("a.mp3")), page = 0),
+    "a media file" -> Mp3File("a.mp3")
   )
 
   /** Whether what was sent to the chat (not the chat actions) is a reply to a message. */
@@ -48,7 +48,8 @@ class ReplyToMessageSpec extends CatsEffectSuite {
     for {
       apiAndRecording <- PayloadRecordingApi()
       (api, recorded) = apiAndRecording
-      _     <- TelegramMessageReply.sendReplyValue[IO](value, msg, repository, replyToMessage)(using summon, summon, api, summon)
+      _ <- TelegramMessageReply
+        .sendReplyValue[IO](value, msg, repository, replyToMessage)(using summon, summon, api, summon)
       calls <- recorded
     } yield calls.collect {
       case (name, payload: Json) if name.startsWith("send") && name != "sendChatAction" =>

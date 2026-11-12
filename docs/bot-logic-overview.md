@@ -115,7 +115,7 @@ flowchart TD
 
 | Where | What |
 |---|---|
-| `chatCore` | `Platform`, `ChatId(platform, id)`, `Message`; `PlatformCapabilities` (media kinds, text limit, markdown support, delete/edit/buttons, whether it accepts the media sources that are not an url, `CommandSyntax`); `BotEngine`; `PlatformAdapter` / `PlatformReplies`; `ReplyTransformer` and `ReplyAdaptation`; `PagedList`; `CronBackgroundJobManager` (the subscriptions of the bot on the platform of the manager); `Notifier`; the commands (`CommandPatterns`) and `EffectfulKeyRunner` / `ComputeReply`, which compute the commands that need the database |
+| `chatCore` | `Platform`, `ChatId(platform, id)`, `Message` (its `messageId` is an optional `MessageId`, a string: Telegram numbers, Slack timestamps, nothing where there is no message, e.g. what a subscription sends); `PlatformCapabilities` (media kinds, text limit, markdown support, delete/edit/buttons, whether it accepts the media sources that are not an url, `CommandSyntax`); `BotEngine`; `PlatformAdapter` / `PlatformReplies`; `ReplyTransformer` and `ReplyAdaptation`; `PagedList`; `CronBackgroundJobManager` (the subscriptions of the bot on the platform of the manager); `Notifier`; the commands (`CommandPatterns`) and `EffectfulKeyRunner` / `ComputeReply`, which compute the commands that need the database |
 | `chatTelegramAdapter` | `ISBot` (the Telegram shell around the engine), `ISBotPolling` / `ISBotWebhook`, `TelegramPlatformAdapter`, `TelegramCapabilities`, `TelegramNotifier`, `TelegramBackgroundJobManager`, `BotSetup`, the send chain (`TelegramMessageReply`, `MediaFileReply`, ...), the callbacks of the keyboards |
 | `main` | `BotRegistry` / `BotRegistryEntry.platforms`, the config blocks, `Runner`, `PlatformRuntime` and the Telegram runtimes |
 
@@ -144,7 +144,9 @@ nothing but the texts over the Telegram limit.
 - The sources that are not an url are plain strings in the DB and do not say which platform they belong to: today they are
   all Telegram's file references. A platform that declares it accepts them would be handed Telegram's, so before a second
   platform keeps its own, they have to be tagged with the platform they belong to (and the capability, a plain
-  `acceptsFileIds`, would become "accepts the ones of its platform").
+  `acceptsFileIds`, would become "accepts the ones of its platform"). Discord and Slack start with it off and the filter
+  applied; tagging the references, converting the data and the DB, and letting them reuse their own uploads is the milestone
+  "M4 - Platform-tagged file references" (epic #1387).
 - A platform without buttons shows only the requested page of a `PagedList`: there is no page argument yet.
 - The help texts of the commands write `/command`, whatever the syntax of the platform.
 
