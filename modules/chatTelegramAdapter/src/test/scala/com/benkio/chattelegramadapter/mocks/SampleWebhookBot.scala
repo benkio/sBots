@@ -10,6 +10,7 @@ import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.patterns.PostComputationPatterns
+import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBMessageReplies
 import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.Logger.given
@@ -72,7 +73,7 @@ object SampleWebhookBot {
     val stubHttpApp    = HttpApp[IO](_ => IO.pure(Response[IO](Status.Ok)))
     val stubClient     = Client.fromHttpApp(stubHttpApp)
     for {
-      dbLayerWithJsonReplies <- BotSetup.loadReplies[IO](
+      dbLayerWithJsonReplies <- DBLayer.loadReplies[IO](
         DBLayerMock.mock(sBotInfo.botId),
         JsonDataRepository[IO](),
         sBotConfig

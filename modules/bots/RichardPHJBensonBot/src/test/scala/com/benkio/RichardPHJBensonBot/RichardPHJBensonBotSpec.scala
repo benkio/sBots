@@ -1,16 +1,8 @@
 package com.benkio.RichardPHJBensonBot
 
-import cats.data.NonEmptyList
-import cats.effect.Async
 import cats.effect.IO
-import cats.syntax.all.*
-import cats.Parallel
 import cats.Show
 import com.benkio.chatcore.mocks.DBLayerMock
-import com.benkio.chatcore.mocks.RepositoryMock
-import com.benkio.chatcore.model.media.MediaResource.MediaResourceIFile
-import com.benkio.chatcore.model.reply.Document
-import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.Text
@@ -20,13 +12,10 @@ import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.NewMemberTrigger
 import com.benkio.chatcore.model.Trigger
 import com.benkio.chatcore.repository.db.DBLayer
-import com.benkio.chatcore.repository.Repository.RepositoryError
-import com.benkio.chatcore.repository.ResourcesRepository
+import com.benkio.chatcore.BaseBotSpec
+import com.benkio.chatcore.BotEngine
+import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.Logger.given
-import com.benkio.chattelegramadapter.mocks.ApiMock.given
-import com.benkio.chattelegramadapter.BaseBotSpec
-import com.benkio.chattelegramadapter.SBot
-import com.benkio.chattelegramadapter.SBotPolling
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot.commandEffectfulCallback
 import org.scalacheck.effect.PropF
 import org.scalacheck.Gen
@@ -37,43 +26,10 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
 
   override val munitIOTimeout = Duration(1, "m")
 
-  val rphjbSBotConfig                       = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
+  val rphjbSBotConfig                       = SBotConfig.fromSBotInfo(RichardPHJBensonBot.sBotInfo)
   val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(rphjbSBotConfig.sBotInfo.botId)
-  val mediaResource: MediaResourceIFile[IO] =
-    MediaResourceIFile(
-      "test mediafile"
-    )
-  val repositoryMock = new RepositoryMock(
-    getResourceByKindHandler = (_, inputBotId) =>
-      IO.raiseUnless(inputBotId == rphjbSBotConfig.sBotInfo.botId)(
-        Throwable(s"[RichardPHJBensonBotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
-      ).as(NonEmptyList.one(NonEmptyList.one(mediaResource))),
-    getResourceFileHandler = (mediaFile: MediaFile) =>
-      mediaFile match {
-        case Document(v, _) if v == rphjbSBotConfig.repliesJsonFilename =>
-          ResourcesRepository.fromResources[IO]().getResourceFile(mediaFile).use(IO.pure)
-        case Document(v, _) if v == rphjbSBotConfig.commandsJsonFilename =>
-          ResourcesRepository.fromResources[IO]().getResourceFile(mediaFile).use(IO.pure)
-        case _ => Left(RepositoryError.NoResourcesFoundFile(mediaFile)).pure[IO]
-      }
-  )
 
-  val richardPHJBensonBot: IO[SBotPolling[IO]] = for {
-    sBotSetup <- buildTestBotSetup(
-      repository = repositoryMock,
-      dbLayer = emptyDBLayer,
-      sBotConfig = rphjbSBotConfig,
-      ttl = None
-    )
-  } yield new SBotPolling[IO](
-    sBotSetup = sBotSetup,
-    commandEffectfulCallback = commandEffectfulCallback[IO]
-  )(using
-    Parallel[IO],
-    sBotSetup.api,
-    Async[IO],
-    log
-  )
+  val richardPHJBensonBot: IO[BotEngine[IO]] = buildTestEngine(dbLayer = emptyDBLayer, sBotConfig = rphjbSBotConfig)
 
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
     richardPHJBensonBot.map(_.allCommandRepliesData)
@@ -199,9 +155,8 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
   test("Bensonify command callback should return the expected result") {
     PropF.forAllF(Gen.alphaNumStr.suchThat(_.nonEmpty)) { (input: String) =>
       for {
-        bot <- richardPHJBensonBot
         // Check that the callback exists with the bensonify key
-        callback <- IO.fromOption(bot.commandEffectfulCallback.get(RichardPHJBensonBot.bensonifyKey))(
+        callback <- IO.fromOption(commandEffectfulCallback[IO].get(RichardPHJBensonBot.bensonifyKey))(
           Throwable(s"Callback with key '${RichardPHJBensonBot.bensonifyKey}' not found")
         )
         // Create a test message with the command format

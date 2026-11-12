@@ -1,64 +1,23 @@
 package com.benkio.YouTuboAncheI0Bot
 
-import cats.data.NonEmptyList
-import cats.effect.Async
 import cats.effect.IO
-import cats.syntax.all.*
-import cats.Parallel
 import cats.Show
 import com.benkio.chatcore.mocks.DBLayerMock
-import com.benkio.chatcore.mocks.RepositoryMock
-import com.benkio.chatcore.model.media.MediaResource.MediaResourceIFile
-import com.benkio.chatcore.model.reply.Document
-import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.Trigger
 import com.benkio.chatcore.repository.db.DBLayer
-import com.benkio.chatcore.repository.Repository.RepositoryError
-import com.benkio.chatcore.repository.ResourcesRepository
+import com.benkio.chatcore.BaseBotSpec
+import com.benkio.chatcore.BotEngine
+import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.Logger.given
-import com.benkio.chattelegramadapter.mocks.ApiMock.given
-import com.benkio.chattelegramadapter.BaseBotSpec
-import com.benkio.chattelegramadapter.SBot
-import com.benkio.chattelegramadapter.SBotPolling
 
 class YouTuboAncheI0BotSpec extends BaseBotSpec {
 
-  val ytaiSBotConfig                        = SBot.buildSBotConfig(YouTuboAncheI0Bot.sBotInfo)
+  val ytaiSBotConfig                        = SBotConfig.fromSBotInfo(YouTuboAncheI0Bot.sBotInfo)
   val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(ytaiSBotConfig.sBotInfo.botId)
-  val mediaResource: MediaResourceIFile[IO] =
-    MediaResourceIFile(
-      "test mediafile"
-    )
-  val repositoryMock = new RepositoryMock(
-    getResourceByKindHandler = (_, inputBotId) =>
-      IO.raiseUnless(inputBotId == ytaiSBotConfig.sBotInfo.botId)(
-        Throwable(s"[YouTuboAncheI0BotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
-      ).as(NonEmptyList.one(NonEmptyList.one(mediaResource))),
-    getResourceFileHandler = (mediaFile: MediaFile) =>
-      mediaFile match {
-        case Document(v, _) if v == ytaiSBotConfig.repliesJsonFilename =>
-          ResourcesRepository.fromResources[IO]().getResourceFile(mediaFile).use(IO.pure)
-        case Document(v, _) if v == ytaiSBotConfig.commandsJsonFilename =>
-          ResourcesRepository.fromResources[IO]().getResourceFile(mediaFile).use(IO.pure)
-        case _ => Left(RepositoryError.NoResourcesFoundFile(mediaFile)).pure[IO]
-      }
-  )
 
-  val youTuboAncheI0Bot: IO[SBotPolling[IO]] = for {
-    botSetup <- buildTestBotSetup(
-      repository = repositoryMock,
-      dbLayer = emptyDBLayer,
-      sBotConfig = ytaiSBotConfig,
-      ttl = ytaiSBotConfig.messageTimeToLive
-    )
-  } yield new SBotPolling[IO](botSetup)(using
-    Parallel[IO],
-    botSetup.api,
-    Async[IO],
-    log
-  )
+  val youTuboAncheI0Bot: IO[BotEngine[IO]] = buildTestEngine(dbLayer = emptyDBLayer, sBotConfig = ytaiSBotConfig)
 
   val messageRepliesData: IO[List[ReplyBundleMessage]] =
     youTuboAncheI0Bot.map(_.messageRepliesData)

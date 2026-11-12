@@ -2,13 +2,13 @@ package com.benkio.YouTuboAncheI0Bot
 
 import cats.effect.*
 import com.benkio.chatcore.SBotDataEntry
-import com.benkio.chattelegramadapter.SBot
+import com.benkio.chatcore.config.SBotConfig
 
 object YouTuboAncheI0BotMainDataEntry extends IOApp {
 
   def run(args: List[String]): IO[ExitCode] =
     SBotDataEntry
-      .run(args, SBot.buildSBotConfig(YouTuboAncheI0Bot.sBotInfo))
+      .run(args, SBotConfig.fromSBotInfo(YouTuboAncheI0Bot.sBotInfo))
       .flatMap(IO.println(_))
       .as(ExitCode.Success)
 }

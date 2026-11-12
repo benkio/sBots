@@ -40,6 +40,25 @@ opaque type BotRegistry[F[_]] = List[BotRegistryEntry[F]]
 
 extension (botRegistry: BotRegistry[IO]) {
 
+  /** Only the bots with the given ids or names (e.g. `rphjb` or `RichardPHJBensonBot`), an error naming the unknown
+    * ones and the available ids otherwise.
+    */
+  def select(botIdsOrNames: List[String]): Either[String, BotRegistry[IO]] = {
+    val entries = BotRegistry.toList(botRegistry)
+    val unknown = botIdsOrNames.filterNot(name =>
+      entries.exists(entry => entry.sBotInfo.botId.value == name || entry.sBotInfo.botName.value == name)
+    )
+    Either.cond(
+      unknown.isEmpty,
+      BotRegistry(
+        entries.filter(entry =>
+          botIdsOrNames.contains(entry.sBotInfo.botId.value) || botIdsOrNames.contains(entry.sBotInfo.botName.value)
+        )
+      ),
+      s"Unknown bots: ${unknown.mkString(", ")}. Available: ${entries.map(_.sBotInfo.botId.value).mkString(", ")}"
+    )
+  }
+
   /** The bots that run on the platform. */
   def entriesOn(platform: Platform): List[BotRegistryEntry[IO]] =
     BotRegistry.toList(botRegistry).filter(_.platforms.contains(platform))

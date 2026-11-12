@@ -13,7 +13,7 @@ This guide walks you through adding a new bot to the sBots project. After the im
 1. Copy the folder `modules/bots/_template` to `modules/bots/YourBotName` (e.g. `modules/bots/MyNewBot`).
 2. Rename and replace:
    - Directory: `src/main/scala/com/benkio/TemplateBot/` → `src/main/scala/com/benkio/MyNewBot/`
-   - Files: `TemplateBot.scala` → `MyNewBot.scala`, `TemplateBotMainPolling.scala` → `MyNewBotMainPolling.scala`
+   - Files: `TemplateBot.scala` → `MyNewBot.scala`, `TemplateBotMainDataEntry.scala` → `MyNewBotMainDataEntry.scala`
    - Files: `tpl_replies.json` → `mynew_replies.json`, `tpl_commands.json` → `mynew_commands.json`, `tpl_list.json` → `mynew_list.json`, `tpl_shows.json` → `mynew_shows.json`, `tpl_triggers.md` → `mynew_triggers.md`
    - In **all** Scala and JSON/txt files: replace `TemplateBot` with `MyNewBot` and `tpl` with `mynew`.
 
@@ -69,7 +69,7 @@ If your bot needs `commandEffectfulCallback` (like RichardPHJBensonBot), add it 
        Project("MyNewBot", file("modules/bots/MyNewBot"))
          .settings(Settings.settings *)
          .settings(Settings.botProjectSettings("MyNewBot")*)
-         .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
+         .dependsOn(chatCore % "compile->compile;test->test")
      ```
    - Add it to the `botProjects` seq:
      ```scala

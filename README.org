@@ -313,7 +313,7 @@ SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' A
  - OPTIONAL: be sure to have the right environment variables. IT'S RECOMMENDED TO
    CHANGE the ~application.conf~ (point 1) before running the ~assembly~. The environment variables could lose their value somehow.
  - Run the bots.
-   - Polling: ~java -Xmx512m -Xms512m -cp main.jar com.benkio.main.MainPolling~
+   - Polling: ~java -Xmx512m -Xms512m -cp main.jar com.benkio.main.MainPolling~ (all the bots) or ~... com.benkio.main.MainPolling rphjb XahLeeBot~ (only the bots named, by id or name; from sbt: ~sbt "main/runMain com.benkio.main.MainPolling rphjb"~)
    - Webhook: ~java -Xmx512m -Xms512m -cp main.jar com.benkio.main.MainWebhook~
  - press ~Ctrl+Z~, run ~bg~ and ~disown~ in order to let previous command run in background
  - close your terminal and enjoy

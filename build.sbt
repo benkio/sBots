@@ -122,55 +122,55 @@ lazy val CalandroBot =
   Project("CalandroBot", file("modules/bots/CalandroBot"))
     .settings(Settings.settings *)
     .settings(Settings.botProjectSettings("CalandroBot", lineCoverage = 20) *)
-    .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
+    .dependsOn(chatCore % "compile->compile;test->test")
 
 lazy val ABarberoBot =
   Project("ABarberoBot", file("modules/bots/ABarberoBot"))
     .settings(Settings.settings *)
     .settings(Settings.botProjectSettings("ABarberoBot") *)
-    .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
+    .dependsOn(chatCore % "compile->compile;test->test")
 
 lazy val RichardPHJBensonBot =
   Project("RichardPHJBensonBot", file("modules/bots/RichardPHJBensonBot"))
     .settings(Settings.settings *)
     .settings(Settings.botProjectSettings("RichardPHJBensonBot", lineCoverage = 56) *)
-    .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
+    .dependsOn(chatCore % "compile->compile;test->test")
 
 lazy val XahLeeBot =
   Project("XahLeeBot", file("modules/bots/XahLeeBot"))
     .settings(Settings.settings *)
     .settings(Settings.botProjectSettings("XahLeeBot") *)
-    .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
+    .dependsOn(chatCore % "compile->compile;test->test")
 
 lazy val YouTuboAncheI0Bot =
   Project("YouTuboAncheI0Bot", file("modules/bots/YouTuboAncheI0Bot"))
     .settings(Settings.settings *)
     .settings(Settings.botProjectSettings("YouTuboAncheI0Bot") *)
-    .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
+    .dependsOn(chatCore % "compile->compile;test->test")
 
 lazy val M0sconiBot =
   Project("M0sconiBot", file("modules/bots/M0sconiBot"))
     .settings(Settings.settings *)
     .settings(Settings.botProjectSettings("M0sconiBot") *)
-    .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
+    .dependsOn(chatCore % "compile->compile;test->test")
 
 lazy val PinoScottoBot =
   Project("PinoScottoBot", file("modules/bots/PinoScottoBot"))
     .settings(Settings.settings *)
     .settings(Settings.botProjectSettings("PinoScottoBot") *)
-    .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
+    .dependsOn(chatCore % "compile->compile;test->test")
 
 lazy val Alessandro0rlandoBot =
   Project("Alessandro0rlandoBot", file("modules/bots/Alessandro0rlandoBot"))
     .settings(Settings.settings *)
     .settings(Settings.botProjectSettings("Alessandro0rlandoBot") *)
-    .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
+    .dependsOn(chatCore % "compile->compile;test->test")
 
 lazy val VittorioSgarbiBot =
   Project("VittorioSgarbiBot", file("modules/bots/VittorioSgarbiBot"))
     .settings(Settings.settings *)
     .settings(Settings.botProjectSettings("VittorioSgarbiBot") *)
-    .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
+    .dependsOn(chatCore % "compile->compile;test->test")
 
 lazy val main = project
   .in(file("modules/main"))

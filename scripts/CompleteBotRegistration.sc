@@ -77,7 +77,7 @@ lazy val $botName =
 Project("$botName", file("modules/bots/$botName"))
   .settings(Settings.settings *)
   .settings(Settings.botProjectSettings("$botName") *)
-  .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
+  .dependsOn(chatCore % "compile->compile;test->test")
 """
   val mainAnchor = "\nlazy val main = project"
   val idx        = newBuild.indexOf(mainAnchor)

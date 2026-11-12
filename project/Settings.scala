@@ -85,7 +85,6 @@ object Settings {
   def botProjectSettings(projectName: String, lineCoverage: Double = 10): Seq[Def.SettingsDefinition] = Seq(
     name                     := projectName,
     libraryDependencies      := BotDependencies,
-    mainClass                := Some(s"com.benkio.$projectName.${projectName}MainPolling"),
     Test / resourceDirectory := (Compile / resourceDirectory).value
   ) ++ lineCoverageThreshold(lineCoverage) ++ assemblySettings
 

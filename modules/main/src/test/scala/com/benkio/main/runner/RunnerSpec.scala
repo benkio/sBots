@@ -97,4 +97,31 @@ class RunnerSpec extends CatsEffectSuite {
   test("the real registry is bound to Telegram only, as the deployments always were") {
     assert(BotRegistry.toList(BotRegistry.value).forall(_.platforms == List(Platform.Telegram)))
   }
+
+  test("select keeps the bots with the given ids or names") {
+    import com.benkio.main.select
+    def names(selected: Either[String, BotRegistry[IO]]): Either[String, List[String]] =
+      selected.map(r => BotRegistry.toList(r).map(_.sBotInfo.botName.value))
+    assertEquals(names(registry.select(List("onboth"))), Right(List("OnBoth")))
+    assertEquals(names(registry.select(List("OnTelegram"))), Right(List("OnTelegram")))
+    assertEquals(names(registry.select(List("OnBoth", "ontelegram"))), Right(List("OnTelegram", "OnBoth")))
+  }
+
+  test("select names the unknown bots and the available ids") {
+    import com.benkio.main.select
+    assertEquals(
+      registry.select(List("onboth", "nope")).map(_ => ()),
+      Left("Unknown bots: nope. Available: ontelegram, onboth")
+    )
+  }
+
+  test("every bot of the real registry can be selected by its id and by its name") {
+    import com.benkio.main.select
+    BotRegistry.toList(BotRegistry.value).foreach { entry =>
+      val byId   = BotRegistry.value.select(List(entry.sBotInfo.botId.value)).map(BotRegistry.toList)
+      val byName = BotRegistry.value.select(List(entry.sBotInfo.botName.value)).map(BotRegistry.toList)
+      assertEquals(byId.map(_.map(_.sBotInfo)), Right(List(entry.sBotInfo)))
+      assertEquals(byName.map(_.map(_.sBotInfo)), Right(List(entry.sBotInfo)))
+    }
+  }
 }
