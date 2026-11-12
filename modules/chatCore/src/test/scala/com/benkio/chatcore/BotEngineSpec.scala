@@ -14,7 +14,6 @@ import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.TextReply
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandInstructionData
 import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.CommandTrigger
@@ -23,6 +22,7 @@ import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.PlatformCapabilities
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.Logger.given
+import com.benkio.chatcore.TestIds
 import munit.CatsEffectSuite
 import org.http4s.syntax.literals.*
 import org.http4s.Uri
@@ -60,9 +60,9 @@ class BotEngineSpec extends CatsEffectSuite {
   )
 
   private def message(text: String): Message = Message(
-    messageId = 0,
+    messageId = None,
     date = Instant.now.getEpochSecond,
-    chatId = ChatId.telegram(1L),
+    chatId = TestIds.chatId(1L),
     chatType = "private",
     text = Some(text)
   )
@@ -79,7 +79,7 @@ class BotEngineSpec extends CatsEffectSuite {
 
   // A text only platform that writes the commands like Telegram, as `/command`
   private val slashCommands: PlatformCapabilities =
-    FakePlatformAdapter.textOnlyCapabilities.copy(commandSyntax = CommandSyntax.Telegram)
+    FakePlatformAdapter.textOnlyCapabilities.copy(commandSyntax = CommandSyntax.Slash)
 
   // The same, able to send audio files
   private val audioCapable: PlatformCapabilities = slashCommands.copy(supportedMedia = Set(MediaKind.Audio))

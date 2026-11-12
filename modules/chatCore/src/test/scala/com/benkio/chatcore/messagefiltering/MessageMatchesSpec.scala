@@ -3,7 +3,6 @@ package com.benkio.chatcore.messagefiltering
 import com.benkio.chatcore.model.reply.MediaReply
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.LeftMemberTrigger
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageLengthTrigger
@@ -11,6 +10,7 @@ import com.benkio.chatcore.model.NewMemberTrigger
 import com.benkio.chatcore.model.StringTextTriggerValue
 import com.benkio.chatcore.model.TextTrigger
 import com.benkio.chatcore.Arbitraries.given
+import com.benkio.chatcore.TestIds
 import io.circe.parser.decode
 import io.circe.syntax.*
 import munit.ScalaCheckSuite
@@ -45,7 +45,7 @@ class MessageMatchesSpec extends ScalaCheckSuite {
   property("MessageLengthTrigger matches iff content length >= threshold") {
     forAll(Gen.choose(0, 50), Gen.alphaStr) { (threshold: Int, content: String) =>
       val b   = bundle(MessageLengthTrigger(threshold))
-      val msg = Message(0, 0L, ChatId.telegram(0L), "private", text = Some(content))
+      val msg = Message(None, 0L, TestIds.chatId(0L), "private", text = Some(content))
       val got = MessageMatches.doesMatch(b, msg, None)
       if content.size >= threshold then assert(got.isDefined)
       else assert(got.isEmpty)
@@ -72,8 +72,8 @@ class MessageMatchesSpec extends ScalaCheckSuite {
     forAll { (trigger: StringTextTriggerValue) =>
       val b        = bundle(TextTrigger(trigger), MessageMatches.ContainsOnce)
       val matching =
-        Message(0, 0L, ChatId.telegram(0L), "private", text = Some(s"xx${trigger.trigger}yy"))
-      val missing = Message(0, 0L, ChatId.telegram(0L), "private", text = Some("000000000000"))
+        Message(None, 0L, TestIds.chatId(0L), "private", text = Some(s"xx${trigger.trigger}yy"))
+      val missing = Message(None, 0L, TestIds.chatId(0L), "private", text = Some("000000000000"))
       assert(MessageMatches.doesMatch(b, matching, None).isDefined)
       assert(MessageMatches.doesMatch(b, missing, None).isEmpty)
     }
@@ -84,9 +84,9 @@ class MessageMatchesSpec extends ScalaCheckSuite {
       val trigger = StringTextTriggerValue(needle)
       val b       = bundle(TextTrigger(trigger), MessageMatches.ContainsOnce)
       val msg     = Message(
-        0,
+        None,
         0L,
-        ChatId.telegram(0L),
+        TestIds.chatId(0L),
         "private",
         text = None,
         caption = Some(s"caption with $needle")
@@ -99,9 +99,9 @@ class MessageMatchesSpec extends ScalaCheckSuite {
     forAll(Gen.alphaNumStr.suchThat(_.nonEmpty)) { (needle: String) =>
       val b   = bundle(TextTrigger(StringTextTriggerValue(needle)), MessageMatches.ContainsOnce)
       val msg = Message(
-        0,
+        None,
         0L,
-        ChatId.telegram(0L),
+        TestIds.chatId(0L),
         "private",
         text = None,
         caption = None
@@ -124,11 +124,11 @@ class MessageMatchesSpec extends ScalaCheckSuite {
       val triggers = needles.map(StringTextTriggerValue.apply)
       val b        = bundle(TextTrigger(triggers*), MessageMatches.ContainsAll)
       val matching =
-        Message(0, 0L, ChatId.telegram(0L), "private", text = Some(needles.mkString(" ")))
+        Message(None, 0L, TestIds.chatId(0L), "private", text = Some(needles.mkString(" ")))
       assert(MessageMatches.doesMatch(b, matching, None).isDefined)
       if needles.size > 1 then {
         val missingOne =
-          Message(0, 0L, ChatId.telegram(0L), "private", text = Some(needles.dropRight(1).mkString(" ")))
+          Message(None, 0L, TestIds.chatId(0L), "private", text = Some(needles.dropRight(1).mkString(" ")))
         assert(MessageMatches.doesMatch(b, missingOne, None).isEmpty)
       }
     }
@@ -145,9 +145,9 @@ class MessageMatchesSpec extends ScalaCheckSuite {
         )
       )
       val msg = Message(
-        0,
+        None,
         0L,
-        ChatId.telegram(0L),
+        TestIds.chatId(0L),
         "private",
         text = Some(s"message containing $shortWord and also $longTrigger")
       )

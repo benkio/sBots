@@ -2,11 +2,11 @@ package com.benkio.chatcore.messagefiltering
 
 import cats.effect.IO
 import com.benkio.chatcore.mocks.DBLayerMock
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBTimeoutData
+import com.benkio.chatcore.TestIds
 import munit.*
 
 import java.time.Instant
@@ -32,9 +32,9 @@ class FilteringTimeoutSpec extends CatsEffectSuite {
         )
       )
     val msg: Message = Message(
-      messageId = 0,
+      messageId = None,
       date = 0L,
-      chatId = ChatId.telegram(chatId),
+      chatId = TestIds.chatId(chatId),
       chatType = "private"
     )
     val filter = FilteringTimeout.filter[IO](dbLayer, botId)
@@ -63,9 +63,9 @@ class FilteringTimeoutSpec extends CatsEffectSuite {
         )
       )
     val msg: Message = Message(
-      messageId = 0,
+      messageId = None,
       date = 0L,
-      chatId = ChatId.telegram(chatId),
+      chatId = TestIds.chatId(chatId),
       chatType = "private"
     )
     val filter = FilteringTimeout.filter[IO](dbLayer, botId)

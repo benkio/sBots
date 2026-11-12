@@ -89,7 +89,7 @@ object CommandPatterns {
         m: Message,
         sBotInfo: SBotInfo,
         ttl: Option[FiniteDuration],
-        commandSyntax: CommandSyntax = CommandSyntax.Telegram
+        commandSyntax: CommandSyntax = CommandSyntax.Slash
     ): F[ReplyValue] = {
       val scheduleCalendar: F[ReplyValue] =
         for {
@@ -239,7 +239,7 @@ object CommandPatterns {
         sBotInfo: SBotInfo,
         ttl: Option[FiniteDuration],
         showTransformation: String => NonEmptyList[Show] => F[ReplyValue],
-        commandSyntax: CommandSyntax = CommandSyntax.Telegram
+        commandSyntax: CommandSyntax = CommandSyntax.Slash
     ): F[ReplyValue] =
       handleCommandWithInput[F](
         commandSyntax = commandSyntax,
@@ -374,7 +374,7 @@ object CommandPatterns {
         ttl: Option[FiniteDuration],
         replyBundleTransformation: ReplyBundleMessage => ReplyValue = replyBundleMessage =>
           Text(replyBundleMessage.prettyPrint()),
-        commandSyntax: CommandSyntax = CommandSyntax.Telegram
+        commandSyntax: CommandSyntax = CommandSyntax.Slash
     ): F[ReplyValue] = {
 
       handleCommandWithInput[F](
@@ -461,7 +461,7 @@ ${ignoreMessagePrefix
         ignoreMessagePrefix: Option[String],
         commands: List[ReplyBundleCommand],
         ttl: Option[FiniteDuration],
-        commandSyntax: CommandSyntax = CommandSyntax.Telegram
+        commandSyntax: CommandSyntax = CommandSyntax.Slash
     ): F[ReplyValue] = {
       val computation: String => F[ReplyValue] = (input: String) => {
         val itaMatches = List("it", "ita", "italian", "🇮🇹")
@@ -566,7 +566,7 @@ ${ignoreMessagePrefix
         m: Message,
         sBotInfo: SBotInfo,
         ttl: Option[FiniteDuration],
-        commandSyntax: CommandSyntax = CommandSyntax.Telegram
+        commandSyntax: CommandSyntax = CommandSyntax.Slash
     ): F[ReplyValue] = {
       val computation: String => F[ReplyValue] = (input: String) =>
         for {
@@ -617,7 +617,7 @@ ${ignoreMessagePrefix
         m: Message,
         sBotInfo: SBotInfo,
         ttl: Option[FiniteDuration],
-        commandSyntax: CommandSyntax = CommandSyntax.Telegram
+        commandSyntax: CommandSyntax = CommandSyntax.Slash
     ): F[ReplyValue] = {
       val computation: String => F[ReplyValue] = (input: String) =>
         Async[F].fromEither(UnsubscribeArguments.parse(input)).flatMap {
@@ -745,7 +745,7 @@ ${ignoreMessagePrefix
         dbTimeout: DBTimeout[F],
         sBotInfo: SBotInfo,
         ttl: Option[FiniteDuration],
-        commandSyntax: CommandSyntax = CommandSyntax.Telegram
+        commandSyntax: CommandSyntax = CommandSyntax.Slash
     ): F[ReplyValue] = {
       val computation: String => F[ReplyValue] = (input: String) => {
         if input.isEmpty
@@ -861,7 +861,7 @@ ${ignoreMessagePrefix
       defaultReply: String,
       allowEmptyString: Boolean = false,
       ttl: Option[FiniteDuration],
-      commandSyntax: CommandSyntax = CommandSyntax.Telegram
+      commandSyntax: CommandSyntax = CommandSyntax.Slash
   ): F[ReplyValue] =
     msg.text
       .filter(t => {

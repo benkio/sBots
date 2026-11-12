@@ -11,7 +11,6 @@ import com.benkio.chatcore.model.reply.PagedList
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.Text
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.MediaKind
@@ -20,6 +19,7 @@ import com.benkio.chatcore.model.PlatformCapabilities
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.repository.db.DBMediaData
 import com.benkio.chatcore.Logger.given
+import com.benkio.chatcore.TestIds
 import munit.CatsEffectSuite
 import org.http4s.syntax.literals.*
 import org.http4s.Uri
@@ -58,13 +58,13 @@ class BotEngineAdaptationSpec extends CatsEffectSuite {
   )
 
   private val textOnly: PlatformCapabilities = FakePlatformAdapter.textOnlyCapabilities.copy(
-    commandSyntax = CommandSyntax.Telegram
+    commandSyntax = CommandSyntax.Slash
   )
   private val withButtonsAndAudio: PlatformCapabilities =
     textOnly.copy(supportsButtons = true, supportedMedia = Set(MediaKind.Audio))
 
   private def message(text: String): Message =
-    Message(0, Instant.now.getEpochSecond, ChatId.telegram(1L), "private", text = Some(text))
+    Message(None, Instant.now.getEpochSecond, TestIds.chatId(1L), "private", text = Some(text))
 
   /** What the platform receives when the engine handles the text. */
   private def received(

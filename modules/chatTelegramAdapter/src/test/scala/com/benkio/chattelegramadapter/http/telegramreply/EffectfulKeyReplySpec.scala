@@ -15,7 +15,6 @@ import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.TextReply
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandInstructionData
 import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.Message
@@ -26,15 +25,16 @@ import com.benkio.chatcore.Logger.given
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.EffectfulKeyReply
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chattelegramadapter.mocks.SampleWebhookBot
+import com.benkio.chattelegramadapter.model.TelegramIds
 import munit.*
 
 class EffectfulKeyReplySpec extends CatsEffectSuite {
 
   val sBotInfo         = SampleWebhookBot.sBotInfo
   val message: Message = Message(
-    messageId = 0,
+    messageId = None,
     date = 0L,
-    chatId = ChatId.telegram(0L),
+    chatId = TelegramIds.chatId(0L),
     chatType = "private",
     text = Some("test message"),
     caption = None

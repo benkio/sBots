@@ -1,6 +1,7 @@
 package com.benkio.chatcore.model
 
 import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.TestIds
 import cron4s.Cron
 import munit.FunSuite
 
@@ -20,7 +21,7 @@ class SubscriptionsTableSpec extends FunSuite {
       subscribedAt: Long = 1L
   ): Subscription = Subscription(
     id = SubscriptionId(UUID.fromString(id)),
-    chatId = ChatId.telegram(1L),
+    chatId = TestIds.chatId(1L),
     botId = SBotId("sbot"),
     subscriptionType = subscriptionType,
     target = target,

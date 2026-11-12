@@ -9,6 +9,7 @@ import com.benkio.chatcore.model.PlatformCapabilities
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
+import com.benkio.chatcore.ComputeReply
 import com.benkio.chatcore.Notifier
 import com.benkio.chatcore.PlatformAdapter
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.TelegramMessageReply
@@ -35,6 +36,8 @@ class TelegramPlatformAdapter[F[_]: Async: LogWriter: Api: Notifier](
 
   override val capabilities: PlatformCapabilities = TelegramCapabilities.value
 
+  private val usableRepository: Repository[F] = repository.usableFor(capabilities)
+
   override def run: F[Unit] = startUpdates
 
   override def send(replyValue: ReplyValue, message: Message, replyToMessage: Boolean): F[Unit] =
@@ -42,7 +45,7 @@ class TelegramPlatformAdapter[F[_]: Async: LogWriter: Api: Notifier](
       .sendReplyValue[F](
         replyValue = replyValue,
         msg = message,
-        repository = repository,
+        repository = usableRepository,
         replyToMessage = replyToMessage
       )
       .void

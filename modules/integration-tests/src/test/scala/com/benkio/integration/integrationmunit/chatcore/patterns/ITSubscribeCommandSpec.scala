@@ -5,7 +5,6 @@ import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.chatcore.mocks.NotifierMock.given
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionId
@@ -14,6 +13,7 @@ import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.patterns.CommandPatterns.SubscribeUnsubscribeCommand
 import com.benkio.chatcore.repository.db.DBMessageReplies
 import com.benkio.chatcore.repository.db.DBSubscriptionData
+import com.benkio.chatcore.TestIds
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chattelegramadapter.SBot
 import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
@@ -34,7 +34,7 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
   val testSubscriptionId: SubscriptionId = SubscriptionId(UUID.fromString("B674CCE0-9684-4D31-8CC7-9E2A41EA0878"))
   val sBotInfo                           = sBotConfig.sBotInfo
   val chatIdValue                        = 0L
-  val chatId                             = ChatId.telegram(chatIdValue)
+  val chatId                             = TestIds.chatId(chatIdValue)
   val cronValue                          = "0 * * ? * *"
   val cron                               = Cron.unsafeParse(cronValue)
 
@@ -46,7 +46,7 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
     subscribedAt = Instant.now().truncatedTo(ChronoUnit.SECONDS)
   )
 
-  val msg: Message = Message(messageId = 0, date = 0, chatId = chatId, chatType = "private")
+  val msg: Message = Message(messageId = None, date = 0, chatId = chatId, chatType = "private")
 
   databaseFixture.test(
     "Subscribe Command should add a new subscription"
@@ -234,7 +234,7 @@ class ITSubscribeCommandSpec extends CatsEffectSuite with DBFixture {
       lastAllowed <- Resource.eval(subscribe(s"/subscribe $cronValue"))
       overLimit   <- Resource.eval(subscribe(s"/subscribe $cronValue"))
       stored      <- Resource.eval(
-        dbLayer.dbSubscription.getSubscriptions(sBotConfig.sBotInfo.botId, Some(ChatId.telegram(chatIdValue)))
+        dbLayer.dbSubscription.getSubscriptions(sBotConfig.sBotInfo.botId, Some(TestIds.chatId(chatIdValue)))
       )
     } yield {
       assert(lastAllowed.show.startsWith("Subscription successfully scheduled."), lastAllowed.show)

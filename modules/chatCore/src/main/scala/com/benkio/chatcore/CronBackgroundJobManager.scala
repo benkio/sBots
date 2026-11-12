@@ -94,7 +94,11 @@ object CronBackgroundJobManager {
 
     def loadSubscriptions(): F[Unit] =
       for {
-        subscriptionsData <- dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId)
+        // Only the subscriptions of the platform of this manager: the bot can run on others, with a manager each
+        subscriptionsData <- dbLayer.dbSubscription.getSubscriptions(
+          botId = sBotInfo.botId,
+          platform = Some(capabilities.platform)
+        )
         // A stored row that cannot be decoded must not prevent the bot from starting: log and skip it
         subscriptions <- subscriptionsData.flatTraverse(s =>
           Subscription(s).fold(

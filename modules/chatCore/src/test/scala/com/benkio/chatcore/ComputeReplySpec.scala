@@ -1,9 +1,8 @@
-package com.benkio.chattelegramadapter.model.reply
+package com.benkio.chatcore
 
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.chatcore.model.reply.TextReply
-import com.benkio.chattelegramadapter.ComputeReply
 import munit.CatsEffectSuite
 
 class ComputeReplySpec extends CatsEffectSuite {

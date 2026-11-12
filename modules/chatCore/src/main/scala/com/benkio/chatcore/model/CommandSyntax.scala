@@ -64,6 +64,6 @@ final case class CommandSyntax(
 
 object CommandSyntax {
 
-  /** `/command`, `/command@BotName`, and `botid_file.mp3` for the file requests. */
-  val Telegram: CommandSyntax = CommandSyntax(prefix = "/", mentionSeparator = Some("@"))
+  /** `/command`, `/command@BotName`, and `botid_file.mp3` for the file requests. The default of the parsing. */
+  val Slash: CommandSyntax = CommandSyntax(prefix = "/", mentionSeparator = Some("@"))
 }

@@ -6,7 +6,6 @@ import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.messagefiltering.MessageMatches
 import com.benkio.chatcore.model.media.MediaFileSource
 import com.benkio.chatcore.model.reply.*
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.LeftMemberTrigger
 import com.benkio.chatcore.model.Message as ModelMessage
 import com.benkio.chatcore.model.MessageLengthTrigger
@@ -19,6 +18,7 @@ import com.benkio.chatcore.model.Trigger
 import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.JsonDataRepository
+import com.benkio.chatcore.TestIds
 import io.circe.*
 import io.circe.parser.*
 import io.circe.parser.decode
@@ -175,9 +175,9 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
         .toList
       val matchingFilenames: List[Set[MediaFile]] = inputTextTxtContent.map { case (input, expectedMatch) =>
         val exactStringMessage = ModelMessage(
-          messageId = 0,
+          messageId = None,
           date = 0L,
-          chatId = ChatId.telegram(0L),
+          chatId = TestIds.chatId(0L),
           chatType = "test",
           text = Some(input)
         )
@@ -216,9 +216,9 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
   ): Unit = {
     def instructionMessage(value: String): ModelMessage =
       ModelMessage(
-        messageId = 0,
+        messageId = None,
         date = 0L,
-        chatId = ChatId.telegram(0L),
+        chatId = TestIds.chatId(0L),
         chatType = "test",
         text = Some(s"/instructions $value")
       )
@@ -314,9 +314,9 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
         case (stringTrigger: StringTextTriggerValue, replyBundle) =>
           test(s"""🔎 Only one reply bundle replies to: "${stringTrigger.show}"""") {
             val exactStringMessage = ModelMessage(
-              messageId = 0,
+              messageId = None,
               date = 0L,
-              chatId = ChatId.telegram(0L),
+              chatId = TestIds.chatId(0L),
               chatType = "test",
               text = Some(stringTrigger.show)
             )
@@ -337,9 +337,9 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
             forAll(RegexpGen.from(regexTrigger.trigger.toString)) {
               case regexMatchString: String if regexTrigger.trigger.findFirstMatchIn(regexMatchString).isDefined =>
                 val exactStringMessage = ModelMessage(
-                  messageId = 0,
+                  messageId = None,
                   date = 0L,
-                  chatId = ChatId.telegram(0L),
+                  chatId = TestIds.chatId(0L),
                   chatType = "test",
                   text = Some(regexMatchString)
                 )

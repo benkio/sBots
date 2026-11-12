@@ -7,6 +7,7 @@ import com.benkio.chatcore.model.MessageType
 import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.Arbitraries.given
+import com.benkio.chatcore.TestIds
 import munit.ScalaCheckSuite
 import org.scalacheck.Arbitrary.arbitrary
 import org.scalacheck.Gen
@@ -16,7 +17,7 @@ class MessageOpsSpec extends ScalaCheckSuite {
 
   property("messageType is Command when text starts with '/'") {
     forAll(arbitrary[SBotId], Gen.alphaNumStr) { (botId, rest) =>
-      val msg = Message(0, 0L, ChatId.telegram(0L), "test", text = Some("/" + rest))
+      val msg = Message(None, 0L, TestIds.chatId(0L), "test", text = Some("/" + rest))
       assertEquals(msg.messageType(botId), MessageType.Command)
     }
   }
@@ -24,7 +25,7 @@ class MessageOpsSpec extends ScalaCheckSuite {
   property("messageType is FileRequest when text starts with botId but not '/'") {
     forAll(arbitrary[SBotId], Gen.alphaNumStr) { (botId, suffix) =>
       val content = botId.value + suffix
-      val msg     = Message(0, 0L, ChatId.telegram(0L), "test", text = Some(content))
+      val msg     = Message(None, 0L, TestIds.chatId(0L), "test", text = Some(content))
       assertEquals(msg.messageType(botId), MessageType.FileRequest)
     }
   }
@@ -36,8 +37,8 @@ class MessageOpsSpec extends ScalaCheckSuite {
     ) { (botId, text) =>
       val safeText =
         if text.startsWith(botId.value) then s"x$text" else text
-      val withText = Message(0, 0L, ChatId.telegram(0L), "test", text = Some(safeText))
-      val noText   = Message(0, 0L, ChatId.telegram(0L), "test", text = None)
+      val withText = Message(None, 0L, TestIds.chatId(0L), "test", text = Some(safeText))
+      val noText   = Message(None, 0L, TestIds.chatId(0L), "test", text = None)
       assertEquals(withText.messageType(botId), MessageType.Message)
       assertEquals(noText.messageType(botId), MessageType.Message)
     }
@@ -46,8 +47,8 @@ class MessageOpsSpec extends ScalaCheckSuite {
   property("messageType follows the command syntax of the platform") {
     val irc = CommandSyntax(prefix = "!")
     forAll(arbitrary[SBotId], Gen.alphaNumStr) { (botId, rest) =>
-      val command = Message(0, 0L, ChatId(Platform.Irc, "#c"), "test", text = Some("!" + rest))
-      val slash   = Message(0, 0L, ChatId(Platform.Irc, "#c"), "test", text = Some("/" + rest))
+      val command = Message(None, 0L, ChatId(Platform.Irc, "#c"), "test", text = Some("!" + rest))
+      val slash   = Message(None, 0L, ChatId(Platform.Irc, "#c"), "test", text = Some("/" + rest))
       assertEquals(command.messageType(botId, irc), MessageType.Command)
       assertNotEquals(slash.messageType(botId, irc), MessageType.Command)
     }
@@ -56,8 +57,8 @@ class MessageOpsSpec extends ScalaCheckSuite {
   property("messageType takes the file requests with the marker of the platform") {
     val syntax = CommandSyntax(prefix = "!", fileRequestMarker = "+")
     forAll(arbitrary[SBotId], Gen.alphaNumStr) { (botId, suffix) =>
-      val request = Message(0, 0L, ChatId(Platform.Irc, "#c"), "test", text = Some("+" + botId.value + suffix))
-      val plain   = Message(0, 0L, ChatId(Platform.Irc, "#c"), "test", text = Some(botId.value + suffix))
+      val request = Message(None, 0L, ChatId(Platform.Irc, "#c"), "test", text = Some("+" + botId.value + suffix))
+      val plain   = Message(None, 0L, ChatId(Platform.Irc, "#c"), "test", text = Some(botId.value + suffix))
       assertEquals(request.messageType(botId, syntax), MessageType.FileRequest)
       assertEquals(plain.messageType(botId, syntax), MessageType.Message)
     }

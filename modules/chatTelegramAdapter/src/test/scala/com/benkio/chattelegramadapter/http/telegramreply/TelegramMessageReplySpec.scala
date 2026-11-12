@@ -13,7 +13,6 @@ import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.PhotoFile
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.VideoFile
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.Logger.given
@@ -22,6 +21,7 @@ import com.benkio.chattelegramadapter.http.telegramreply.messagereply.MediaFileR
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.TelegramMessageReply
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.TextReply
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
+import com.benkio.chattelegramadapter.model.TelegramIds
 import munit.*
 
 import scala.concurrent.duration.*
@@ -29,7 +29,7 @@ import scala.concurrent.duration.*
 class TelegramMessageReplySpec extends CatsEffectSuite {
 
   private val testMessage: Message =
-    Message(0, date = 0, chatId = ChatId.telegram(0), chatType = "private", text = Some("test message"))
+    Message(None, date = 0, chatId = TelegramIds.chatId(0), chatType = "private", text = Some("test message"))
 
   private def iFileRepositoryMock(expectedFilepath: String): RepositoryMock =
     RepositoryMock(
@@ -41,9 +41,9 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
 
   test("TextReply.sendText reply should work as expected") {
     val message: Message = Message(
-      messageId = 0,
+      messageId = None,
       date = 0L,
-      chatId = ChatId.telegram(0L),
+      chatId = TelegramIds.chatId(0L),
       chatType = "private",
       text = Some("test message"),
       caption = None

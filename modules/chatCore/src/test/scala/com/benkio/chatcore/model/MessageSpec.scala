@@ -2,15 +2,16 @@ package com.benkio.chatcore.model
 
 import com.benkio.chatcore.messagefiltering.*
 import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.TestIds
 import munit.*
 
 class MessageSpec extends FunSuite {
 
   test("Message.messageType should return MessageType.Command if the message is a command") {
     val inputMessage: Message = Message(
-      messageId = 0,
+      messageId = None,
       date = 0L,
-      chatId = ChatId.telegram(0L),
+      chatId = TestIds.chatId(0L),
       chatType = "test",
       text = Some("/testCommand")
     )
@@ -19,9 +20,9 @@ class MessageSpec extends FunSuite {
 
   test("Message.messageType should return MessageType.Message if the message is not a command") {
     val inputMessage: Message = Message(
-      messageId = 0,
+      messageId = None,
       date = 0L,
-      chatId = ChatId.telegram(0L),
+      chatId = TestIds.chatId(0L),
       chatType = "test",
       text = Some("simple message")
     )
@@ -31,9 +32,9 @@ class MessageSpec extends FunSuite {
 
   test("Message.messageType should return MessageType.FileRequest if message starts with bot id") {
     val inputMessage: Message = Message(
-      messageId = 0,
+      messageId = None,
       date = 0L,
-      chatId = ChatId.telegram(0L),
+      chatId = TestIds.chatId(0L),
       chatType = "test",
       text = Some("rphjb_Schifosi.mp4")
     )

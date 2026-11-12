@@ -25,10 +25,10 @@ enum CommandKey(val asString: String) {
 object CommandKey {
   val commandTriggers: List[CommandTrigger] = CommandKey.values.toList.map(_.trigger)
 
-  /** The key of the command written in the input, with the command syntax of the platform (Telegram unless said
+  /** The key of the command written in the input, with the command syntax of the platform (`/command` unless said
     * otherwise).
     */
-  def fromString(input: String, syntax: CommandSyntax = CommandSyntax.Telegram): Option[CommandKey] = {
+  def fromString(input: String, syntax: CommandSyntax = CommandSyntax.Slash): Option[CommandKey] = {
     val normalized = syntax.commandName(input).toLowerCase(java.util.Locale.ROOT)
     CommandKey.values.find(_.asString == normalized)
   }

@@ -6,11 +6,11 @@ import com.benkio.chatcore.model.reply.gif
 import com.benkio.chatcore.model.reply.mp3
 import com.benkio.chatcore.model.reply.vid
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message as ModelMessage
 import com.benkio.chatcore.model.RegexTextTriggerValue
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.patterns.CommandPatterns.TriggerSearchCommand
+import com.benkio.chatcore.TestIds
 import munit.*
 
 import java.time.Instant
@@ -138,9 +138,9 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
   test("searchTriggerLogic should return the expected result when a trigger is found") {
     expectedSearchTriggerResponse.traverse_ { case ((mdr, query), expectedResponse) =>
       val msg = ModelMessage(
-        messageId = 0,
+        messageId = None,
         date = Instant.now.getEpochSecond(),
-        chatId = ChatId.telegram(0L),
+        chatId = TestIds.chatId(0L),
         chatType = "test",
         text = Some(s"/triggersearch $query")
       )

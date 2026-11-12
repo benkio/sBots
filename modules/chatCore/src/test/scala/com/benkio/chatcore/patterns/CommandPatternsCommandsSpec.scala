@@ -17,6 +17,7 @@ import com.benkio.chatcore.repository.db.DBMessageReplies
 import com.benkio.chatcore.repository.db.DBShowData
 import com.benkio.chatcore.repository.db.DBTimeoutData
 import com.benkio.chatcore.Logger.given
+import com.benkio.chatcore.TestIds
 import cron4s.Cron
 import munit.CatsEffectSuite
 
@@ -29,9 +30,9 @@ class CommandPatternsCommandsSpec extends CatsEffectSuite {
     botName = SBotInfo.SBotName("SampleWebhookBot"),
     botId = SBotInfo.SBotId("sbot")
   )
-  private val chatId = ChatId.telegram(123L)
+  private val chatId = TestIds.chatId(123L)
   private val msg    = Message(
-    messageId = 0,
+    messageId = None,
     date = 0L,
     chatId = chatId,
     chatType = "private"
@@ -276,7 +277,7 @@ class CommandPatternsCommandsSpec extends CatsEffectSuite {
 
   test("Unsubscribe command with a type should cancel only the subscriptions of that type for that chat") {
     val manager      = BackgroundJobManagerMock.mock()
-    val otherChat    = ChatId.telegram(999L)
+    val otherChat    = TestIds.chatId(999L)
     val show         = subscriptionOf(subscriptionType = SubscriptionType.Show)
     val calendar     = subscriptionOf(subscriptionType = SubscriptionType.Calendar)
     val otherChatCal = subscriptionOf(subscriptionType = SubscriptionType.Calendar, chat = otherChat)
@@ -303,7 +304,7 @@ class CommandPatternsCommandsSpec extends CatsEffectSuite {
 
   test("Unsubscribe command without input should cancel everything of the chat") {
     val manager   = BackgroundJobManagerMock.mock()
-    val otherChat = subscriptionOf(subscriptionType = SubscriptionType.Show, chat = ChatId.telegram(999L))
+    val otherChat = subscriptionOf(subscriptionType = SubscriptionType.Show, chat = TestIds.chatId(999L))
     for {
       _ <- List(
         subscriptionOf(subscriptionType = SubscriptionType.Show),
@@ -384,7 +385,7 @@ class CommandPatternsCommandsSpec extends CatsEffectSuite {
     val manager = BackgroundJobManagerMock.mock()
     for {
       _        <- loadCalendar(manager = manager)
-      other    <- loadCalendar(manager = manager, chat = ChatId.telegram(456L))
+      other    <- loadCalendar(manager = manager, chat = TestIds.chatId(456L))
       id       <- IO(manager.getScheduledSubscriptions().find(_.chatId == chatId).get.subscriptionId)
       _        <- unsubscribe(manager = manager, text = s"/unsubscribe ${id.value}")
       reloaded <- loadCalendar(manager = manager)

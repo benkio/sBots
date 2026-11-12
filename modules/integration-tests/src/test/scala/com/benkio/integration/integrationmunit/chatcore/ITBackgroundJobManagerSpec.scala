@@ -6,7 +6,6 @@ import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.chatcore.mocks.NotifierMock.given
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionId
@@ -17,6 +16,7 @@ import com.benkio.chatcore.repository.db.DBSubscriptionData
 import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chatcore.Notifier
 import com.benkio.chatcore.SubscriptionKey
+import com.benkio.chatcore.TestIds
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chattelegramadapter.mocks.PayloadRecordingApi
 import com.benkio.chattelegramadapter.SBot
@@ -49,7 +49,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
 
   val testSubscription: Subscription = Subscription(
     id = testSubscriptionId,
-    chatId = ChatId.telegram(0L),
+    chatId = TestIds.chatId(0L),
     botId = sBotInfo.botId,
     cron = Cron.unsafeParse("* * * ? * *"),
     subscribedAt = Instant.now().truncatedTo(ChronoUnit.SECONDS)
@@ -104,7 +104,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
         backgroundJobManager
           .getScheduledSubscriptions()
           .find { case SubscriptionKey(sId, _, _) => sId == testSubscriptionId },
-        Some(SubscriptionKey(testSubscriptionId, ChatId.telegram(0L), SubscriptionType.Show))
+        Some(SubscriptionKey(testSubscriptionId, TestIds.chatId(0L), SubscriptionType.Show))
       )
     }
 
@@ -141,7 +141,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
         backgroundJobManager
           .getScheduledSubscriptions()
           .find { case SubscriptionKey(sId, _, _) => sId == testSubscriptionId },
-        Some(SubscriptionKey(testSubscriptionId, ChatId.telegram(0L), SubscriptionType.Show))
+        Some(SubscriptionKey(testSubscriptionId, TestIds.chatId(0L), SubscriptionType.Show))
       )
       assertEquals(subscriptions.length, 1)
       assertEquals(Subscription(subscriptions.head), Right(testSubscription))
@@ -255,7 +255,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
   ): Subscription =
     testSubscription.copy(
       id = SubscriptionId(UUID.randomUUID()),
-      chatId = ChatId.telegram(chatId),
+      chatId = TestIds.chatId(chatId),
       subscriptionType = subscriptionType,
       cron = quietCron
     )
@@ -283,7 +283,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       )
       _ <- Resource.eval(List(show, calendar, otherChatCal).traverse_(backgroundJobManager.scheduleSubscription))
       _ <- Resource.eval(dbLayer.dbSubscription.insertSubscription(otherBotCal))
-      _ <- Resource.eval(backgroundJobManager.cancelSubscriptionByType(ChatId.telegram(0L), SubscriptionType.Calendar))
+      _ <- Resource.eval(backgroundJobManager.cancelSubscriptionByType(TestIds.chatId(0L), SubscriptionType.Calendar))
       stored      <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId))
       storedOther <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(SBotId("anotherbot")))
     } yield {
@@ -314,7 +314,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       )
       _       <- Resource.eval(backgroundJobManager.scheduleSubscription(show))
       outcome <- Resource.eval(
-        backgroundJobManager.cancelSubscriptionByType(ChatId.telegram(0L), SubscriptionType.Calendar).attempt
+        backgroundJobManager.cancelSubscriptionByType(TestIds.chatId(0L), SubscriptionType.Calendar).attempt
       )
       stored <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId))
     } yield {
@@ -349,7 +349,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       lastAllowed <- Resource.eval(backgroundJobManager.scheduleSubscription(existing.last).attempt)
       overLimit   <- Resource.eval(backgroundJobManager.scheduleSubscription(quietSubscription(7L)).attempt)
       otherChat   <- Resource.eval(backgroundJobManager.scheduleSubscription(quietSubscription(8L)).attempt)
-      stored      <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId, Some(ChatId.telegram(7L))))
+      stored      <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId, Some(TestIds.chatId(7L))))
     } yield {
       assertEquals(lastAllowed, Right(()), "the subscription number 50 should be allowed")
       assertEquals(

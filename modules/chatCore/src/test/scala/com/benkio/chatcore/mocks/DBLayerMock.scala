@@ -9,6 +9,7 @@ import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.show.ShowQuery
 import com.benkio.chatcore.model.show.SimpleShowQuery
 import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.model.Timeout
@@ -128,10 +129,16 @@ object DBLayerMock {
   }
 
   final class DBSubscriptionMock(db: Ref[IO, List[DBSubscriptionData]]) extends DBSubscription[IO] {
-    override def getSubscriptions(botId: SBotId, chatId: Option[ChatId] = None): IO[List[DBSubscriptionData]] =
+    override def getSubscriptions(
+        botId: SBotId,
+        chatId: Option[ChatId] = None,
+        platform: Option[Platform] = None
+    ): IO[List[DBSubscriptionData]] =
       db.get.map(
         _.filter(subs =>
-          subs.bot_id == botId.value && chatId.fold(true)(c => c.platform.id == subs.platform && c.id == subs.chat_id)
+          subs.bot_id == botId.value &&
+            chatId.fold(true)(c => c.platform.id == subs.platform && c.id == subs.chat_id) &&
+            platform.fold(true)(_.id == subs.platform)
         )
       )
 

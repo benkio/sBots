@@ -59,7 +59,7 @@ object ReplyBundleMessage {
       messageRepliesData: List[ReplyBundleMessage]
   ): Option[ReplyBundleMessage] =
     bestMatch(
-      msg = Message(messageId = 0, date = 0L, chatId = chatId, chatType = "", text = Some(text)),
+      msg = Message(messageId = None, date = 0L, chatId = chatId, chatType = "", text = Some(text)),
       messageRepliesData = messageRepliesData,
       ignoreMessagePrefix = None
     )
@@ -135,14 +135,14 @@ object ReplyBundleCommand {
   given replyBundleCommandEncoder: Encoder[ReplyBundleCommand] =
     deriveEncoder[ReplyBundleCommand]
 
-  /** The command the message invokes, written with the command syntax of the platform it comes from (Telegram unless
+  /** The command the message invokes, written with the command syntax of the platform it comes from (`/command` unless
     * said otherwise).
     */
   def selectCommandReplyBundle(
       msg: Message,
       allCommandRepliesData: List[ReplyBundleCommand],
       botName: SBotName,
-      syntax: CommandSyntax = CommandSyntax.Telegram
+      syntax: CommandSyntax = CommandSyntax.Slash
   ): Option[ReplyBundleCommand] =
     msg.text.flatMap(text =>
       allCommandRepliesData.find(rbc => syntax.isInvocationOf(text, rbc.trigger.command, botName))

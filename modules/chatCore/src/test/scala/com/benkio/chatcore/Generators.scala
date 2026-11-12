@@ -16,11 +16,11 @@ import com.benkio.chatcore.model.reply.Sticker
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.VideoFile
 import com.benkio.chatcore.model.show.Show
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.LeftMemberTrigger
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.MessageId
 import com.benkio.chatcore.model.MessageLengthTrigger
 import com.benkio.chatcore.model.MessageTrigger
 import com.benkio.chatcore.model.MimeType
@@ -32,6 +32,7 @@ import com.benkio.chatcore.model.TextTrigger
 import com.benkio.chatcore.model.TextTriggerValue
 import com.benkio.chatcore.model.Trigger
 import com.benkio.chatcore.model.User
+import com.benkio.chatcore.TestIds
 import org.scalacheck.Gen
 
 import java.time.LocalDate
@@ -121,7 +122,7 @@ trait Generators {
   )
 
   val messageGen: Gen[Message] = for {
-    messageId      <- Gen.choose(Int.MinValue, Int.MaxValue)
+    messageId      <- Gen.option(Gen.alphaNumStr.map(MessageId(_)))
     date           <- Gen.long
     chatId         <- Gen.long
     chatType       <- Gen.alphaStr
@@ -133,7 +134,7 @@ trait Generators {
   } yield Message(
     messageId = messageId,
     date = date,
-    chatId = ChatId.telegram(chatId),
+    chatId = TestIds.chatId(chatId),
     chatType = chatType,
     text = text,
     caption = caption,

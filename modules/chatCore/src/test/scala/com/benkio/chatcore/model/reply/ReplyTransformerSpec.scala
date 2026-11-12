@@ -24,7 +24,7 @@ class ReplyTransformerSpec extends ScalaCheckSuite {
     supportsEdit = true,
     supportsButtons = true,
     acceptsFileIds = true,
-    commandSyntax = CommandSyntax.Telegram
+    commandSyntax = CommandSyntax.Slash
   )
 
   private val textOnly: PlatformCapabilities = everything.copy(

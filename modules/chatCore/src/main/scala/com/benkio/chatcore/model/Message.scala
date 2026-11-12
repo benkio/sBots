@@ -1,7 +1,7 @@
 package com.benkio.chatcore.model
 
 final case class Message(
-    messageId: Int,
+    messageId: Option[MessageId],
     date: Long,
     chatId: ChatId,
     chatType: String,

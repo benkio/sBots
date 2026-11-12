@@ -1,7 +1,7 @@
 package com.benkio.chattelegramadapter.http.telegramreply.callbackreply
 
-import com.benkio.chatcore.model.ChatId as ModelChatId
 import com.benkio.chatcore.model.Message as ModelMessage
+import com.benkio.chattelegramadapter.model.TelegramIds
 import com.benkio.chattelegramadapter.model.TelegramMessageIds
 import telegramium.bots.MaybeInaccessibleMessage
 
@@ -10,9 +10,9 @@ object ModelMessageFromCallback {
   def build(msg: MaybeInaccessibleMessage): ModelMessage = {
     val telegramMessageIds = TelegramMessageIds.getIds(msg)
     ModelMessage(
-      messageId = telegramMessageIds.messageId,
+      messageId = Some(TelegramIds.messageId(telegramMessageIds.messageId)),
       date = 0L,
-      chatId = ModelChatId.telegram(telegramMessageIds.chatId),
+      chatId = TelegramIds.chatId(telegramMessageIds.chatId),
       chatType = telegramMessageIds.chatType
     )
   }
