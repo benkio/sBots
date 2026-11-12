@@ -21,6 +21,7 @@ import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionId
 import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.repository.db.DBMediaData
+import com.benkio.chatcore.repository.db.DBSubscriptionData
 import com.benkio.chatcore.Logger.given
 import cron4s.*
 import munit.CatsEffectSuite
@@ -148,5 +149,50 @@ class CronBackgroundJobManagerSpec extends CatsEffectSuite {
         assert(sent.size > 1, sent.toString)
         assert(sent.forall(_.value.show.length <= textOnly.maxTextLength), sent.toString)
       }
+  }
+
+  private def storedSubscription(platform: Platform, chatId: String): DBSubscriptionData = DBSubscriptionData(
+    id = UUID.randomUUID().toString,
+    platform = platform.id,
+    chat_id = chatId,
+    bot_id = sBotInfo.botId.value,
+    cron = "0 0 12 * * ?",
+    subscribed_at = "1"
+  )
+
+  /** The chats of the subscriptions a manager of the platform loads from the DB, where every platform has some. */
+  private def loadedChats(capabilities: PlatformCapabilities): IO[Set[ChatId]] =
+    for {
+      random  <- Random.scalaUtilRandom[IO]
+      manager <- {
+        given Random[IO] = random
+        CronBackgroundJobManager[IO](
+          dbLayer = DBLayerMock.mock(
+            sBotInfo.botId,
+            subscriptions = List(
+              storedSubscription(Platform.Telegram, "1"),
+              storedSubscription(Platform.Irc, "#sbots"),
+              storedSubscription(Platform.Irc, "#other"),
+              storedSubscription(Platform.Discord, "1")
+            )
+          ),
+          sBotInfo = sBotInfo,
+          ttl = None,
+          capabilities = capabilities,
+          send = (_, _, _) => IO.unit
+        )
+      }
+    } yield manager.getScheduledSubscriptions().map(_.chatId).toSet
+
+  test("a manager loads the subscriptions of its platform only, the bot can run on others with a manager each") {
+    for {
+      irc      <- loadedChats(textOnly)
+      telegram <- loadedChats(everything)
+      slack    <- loadedChats(textOnly.copy(platform = Platform.Slack))
+    } yield {
+      assertEquals(irc, Set(ChatId(Platform.Irc, "#sbots"), ChatId(Platform.Irc, "#other")))
+      assertEquals(telegram, Set(ChatId(Platform.Telegram, "1")))
+      assertEquals(slack, Set.empty[ChatId])
+    }
   }
 }

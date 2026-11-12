@@ -3,6 +3,7 @@ package com.benkio.chatcore.repository.db
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionType
@@ -39,7 +40,13 @@ object DBSubscriptionData {
 }
 
 trait DBSubscription[F[_]] {
-  def getSubscriptions(botId: SBotId, chatId: Option[ChatId] = None): F[List[DBSubscriptionData]]
+
+  /** The subscriptions of the bot, optionally only the ones of a chat and/or of a platform. */
+  def getSubscriptions(
+      botId: SBotId,
+      chatId: Option[ChatId] = None,
+      platform: Option[Platform] = None
+  ): F[List[DBSubscriptionData]]
   def getSubscription(id: String): F[Option[DBSubscriptionData]]
   def getRandomSubscription(): F[Option[DBSubscriptionData]]
   def insertSubscription(subscription: DBSubscriptionData): F[Unit]
@@ -105,10 +112,15 @@ object DBSubscription {
         s"delete subscriptions for chat id $chatId, bot id ${botId.value} and type ${subscriptionType.asString}"
       )
 
-    override def getSubscriptions(botId: SBotId, chatId: Option[ChatId]): F[List[DBSubscriptionData]] =
-      getSubscriptionsQuery(botId, chatId).to[List].transact(transactor) <* log.debug(
-        "Get subscriptions"
-      )
+    override def getSubscriptions(
+        botId: SBotId,
+        chatId: Option[ChatId],
+        platform: Option[Platform]
+    ): F[List[DBSubscriptionData]] =
+      getSubscriptionsQuery(botId = botId, chatId = chatId, platform = platform).to[List].transact(transactor) <* log
+        .debug(
+          "Get subscriptions"
+        )
 
     override def getRandomSubscription(): F[Option[DBSubscriptionData]] =
       getRandomSubscriptionQuery().option.transact(transactor) <* log.debug("Get random subscription")
@@ -126,11 +138,16 @@ object DBSubscription {
     sql"SELECT subscription_id, platform, chat_id, bot_id, subscription_type, target, cron, subscribed_at FROM subscription ORDER BY RANDOM() LIMIT 1"
       .query[DBSubscriptionData]
 
-  def getSubscriptionsQuery(botId: SBotId, chatId: Option[ChatId] = None): Query0[DBSubscriptionData] =
+  def getSubscriptionsQuery(
+      botId: SBotId,
+      chatId: Option[ChatId] = None,
+      platform: Option[Platform] = None
+  ): Query0[DBSubscriptionData] =
     (sql"SELECT subscription_id, platform, chat_id, bot_id, subscription_type, target, cron, subscribed_at FROM subscription " ++ Fragments
       .whereAndOpt(
         fr"bot_id = ${botId.value}".some,
-        chatId.map(cid => fr"platform = ${cid.platform.id} AND chat_id = ${cid.id}")
+        chatId.map(cid => fr"platform = ${cid.platform.id} AND chat_id = ${cid.id}"),
+        platform.map(p => fr"platform = ${p.id}")
       ))
       .query[DBSubscriptionData]
 

@@ -9,9 +9,9 @@ import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
+import com.benkio.chatcore.EffectfulKeyRunner
 import com.benkio.chatcore.Notifier
 import com.benkio.chattelegramadapter.model.TelegramCapabilities
-import com.benkio.chattelegramadapter.EffectfulKeyRunner
 import log.effect.LogWriter
 import telegramium.bots.high.Api
 import telegramium.bots.Message as TMessage

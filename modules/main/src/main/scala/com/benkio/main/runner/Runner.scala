@@ -22,8 +22,26 @@ object Runner {
         s"The bot ${entry.sBotInfo.botName} runs on $platformName, which has no runtime to run it"
       )
 
+  /** How the platforms that have a choice get their messages: Telegram, through the webhook or by asking for them. */
+  enum RunMode {
+    case Webhook, Polling
+  }
+
+  /** The runtimes of the platforms that keep their own connection open (IRC, Discord, Slack, ...): they have no webhook
+    * or polling to choose from, so they run in every mode. The place to register the runtime of a new one: none yet.
+    */
+  val connectionRuntimes: List[PlatformRuntime] = List.empty
+
+  /** The runtimes to start in a mode: the Telegram one of the mode and the ones of the platforms with a connection. */
+  def runtimes(mode: RunMode, connection: List[PlatformRuntime] = connectionRuntimes): List[PlatformRuntime] =
+    mode match {
+      case RunMode.Webhook => TelegramWebhookPlatformRuntime :: connection
+      case RunMode.Polling => TelegramPollingPlatformRuntime :: connection
+    }
+
   /** Starts the runtimes with the bots that run on their platform: the `IO` is the work of all of them to keep going. A
-    * bot on a platform with no runtime is an error.
+    * bot on a platform with no runtime is an error; a runtime whose platform has no bots is not started (e.g. no HTTP
+    * server for the Telegram webhook when no bot runs on Telegram).
     */
   def start(
       registry: BotRegistry[IO],
@@ -37,8 +55,10 @@ object Runner {
     } yield PlatformWithoutRuntime(entry, platform.id)
     for {
       _       <- Resource.eval(withoutRuntime.headOption.traverse_(IO.raiseError))
-      started <- runtimes.traverse(runtime => runtime.start(registry.entriesOn(runtime.platform), mainSetup))
-    } yield started.parSequence_
+      started <- runtimes.traverse(runtime =>
+        Option(registry.entriesOn(runtime.platform)).filter(_.nonEmpty).traverse(runtime.start(_, mainSetup))
+      )
+    } yield started.flatten.parSequence_
   }
 
   /** The bots listen to the platform through the webhook, on an HTTP server, and the health of the application is
@@ -57,7 +77,7 @@ object Runner {
       )
       running <- GeneralErrorHandling.dbLogAndDie[IO, IO[Unit]](
         mainSetup.dbLayer.dbLog,
-        start(registry = registry, runtimes = List(TelegramWebhookPlatformRuntime), mainSetup = mainSetup)
+        start(registry = registry, runtimes = runtimes(RunMode.Webhook), mainSetup = mainSetup)
       )
     } yield running).use(identity).as(ExitCode.Success)
 
@@ -66,7 +86,7 @@ object Runner {
     MainSetup[IO]().use { mainSetup =>
       GeneralErrorHandling.dbLogAndDie(
         mainSetup.dbLayer.dbLog,
-        start(registry = registry, runtimes = List(TelegramPollingPlatformRuntime), mainSetup = mainSetup)
+        start(registry = registry, runtimes = runtimes(RunMode.Polling), mainSetup = mainSetup)
           .use(identity)
           .as(ExitCode.Success)
       )

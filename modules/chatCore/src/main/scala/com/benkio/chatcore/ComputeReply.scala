@@ -1,4 +1,4 @@
-package com.benkio.chattelegramadapter
+package com.benkio.chatcore
 
 import cats.*
 import cats.effect.*
@@ -12,8 +12,6 @@ import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.db.DBLayer
-import com.benkio.chatcore.BackgroundJobManager
-import com.benkio.chatcore.BotEngine
 import log.effect.LogWriter
 
 import scala.concurrent.duration.FiniteDuration

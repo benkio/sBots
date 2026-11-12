@@ -12,6 +12,11 @@ that is most useful while implementing new behaviors (like markdown files).
 `MainWebhook` and `MainPolling` are thin entry points over the `Runner`. The `Runner` starts the *platform runtimes* for the
 bots of `BotRegistry`, in one `Resource`. Every bot of the registry runs on the platforms of its entry (`platforms`, Telegram
 by default); a bot bound to a platform that has no runtime fails the startup with the name of the bot and of the platform.
+A runtime whose platform has no bots is not started (no Telegram webhook server when no bot runs on Telegram).
+
+Which runtimes run depends on the mode, only for Telegram, the one platform that has a choice (webhook or polling). The
+platforms that keep their own connection open (IRC, Discord, Slack) have no such choice: their runtimes run in every mode
+and are registered in one place, `Runner.connectionRuntimes` (none yet).
 
 ```mermaid
 flowchart TD
@@ -71,7 +76,7 @@ flowchart TD
   E --> H["Compute the ReplyValue"]
   G --> H
   H -->|PlainReply| H1["BotEngine.runPlainReply: random value"]
-  H -->|EffectfulReply| H2["PlatformReplies.runEffectful<br/>(Telegram: ComputeReply.runEffectfulReply, EffectfulKeyRunner)"]
+  H -->|EffectfulReply| H2["PlatformReplies.runEffectful<br/>(ComputeReply.runEffectfulReply, EffectfulKeyRunner: in chatCore, any adapter can call them)"]
 
   H1 --> I["deliver: ReplyAdaptation.adaptToPlatform<br/>(ReplyTransformer, media links)"]
   H2 --> I
@@ -110,8 +115,8 @@ flowchart TD
 
 | Where | What |
 |---|---|
-| `chatCore` | `Platform`, `ChatId(platform, id)`, `Message`; `PlatformCapabilities` (media kinds, text limit, markdown support, delete/edit/buttons, whether it accepts the media sources that are not an url, `CommandSyntax`); `BotEngine`; `PlatformAdapter` / `PlatformReplies`; `ReplyTransformer` and `ReplyAdaptation`; `PagedList`; `CronBackgroundJobManager` (the subscriptions); `Notifier`; the commands (`CommandPatterns`) |
-| `chatTelegramAdapter` | `ISBot` (the Telegram shell around the engine), `ISBotPolling` / `ISBotWebhook`, `TelegramPlatformAdapter`, `TelegramCapabilities`, `TelegramNotifier`, `TelegramBackgroundJobManager`, `BotSetup`, the send chain (`TelegramMessageReply`, `MediaFileReply`, ...), the callbacks of the keyboards, `EffectfulKeyRunner` |
+| `chatCore` | `Platform`, `ChatId(platform, id)`, `Message`; `PlatformCapabilities` (media kinds, text limit, markdown support, delete/edit/buttons, whether it accepts the media sources that are not an url, `CommandSyntax`); `BotEngine`; `PlatformAdapter` / `PlatformReplies`; `ReplyTransformer` and `ReplyAdaptation`; `PagedList`; `CronBackgroundJobManager` (the subscriptions of the bot on the platform of the manager); `Notifier`; the commands (`CommandPatterns`) and `EffectfulKeyRunner` / `ComputeReply`, which compute the commands that need the database |
+| `chatTelegramAdapter` | `ISBot` (the Telegram shell around the engine), `ISBotPolling` / `ISBotWebhook`, `TelegramPlatformAdapter`, `TelegramCapabilities`, `TelegramNotifier`, `TelegramBackgroundJobManager`, `BotSetup`, the send chain (`TelegramMessageReply`, `MediaFileReply`, ...), the callbacks of the keyboards |
 | `main` | `BotRegistry` / `BotRegistryEntry.platforms`, the config blocks, `Runner`, `PlatformRuntime` and the Telegram runtimes |
 
 What a platform tells the engine is its `PlatformCapabilities`, and the `ReplyTransformer` adapts every reply to it before it
@@ -140,8 +145,6 @@ nothing but the texts over the Telegram limit.
   all Telegram's file references. A platform that declares it accepts them would be handed Telegram's, so before a second
   platform keeps its own, they have to be tagged with the platform they belong to (and the capability, a plain
   `acceptsFileIds`, would become "accepts the ones of its platform").
-- `EffectfulKeyRunner`, which computes the commands that need the database (search, subscribe, timeout, ...), lives in
-  `chatTelegramAdapter`, although it only uses `chatCore` types: another adapter would need it moved to `chatCore`.
 - A platform without buttons shows only the requested page of a `PagedList`: there is no page argument yet.
 - The help texts of the commands write `/command`, whatever the syntax of the platform.
 

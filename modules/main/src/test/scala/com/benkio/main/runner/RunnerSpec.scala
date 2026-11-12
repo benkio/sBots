@@ -124,4 +124,52 @@ class RunnerSpec extends CatsEffectSuite {
       assertEquals(byName.map(_.map(_.sBotInfo)), Right(List(entry.sBotInfo)))
     }
   }
+
+  test("the runtimes of a mode are the Telegram one of the mode and the ones of the platforms with a connection") {
+    for {
+      started <- Ref.of[IO, List[(Platform, List[String])]](List.empty)
+      ran     <- Ref.of[IO, List[Platform]](List.empty)
+    } yield {
+      val irc = new FakeRuntime(Platform.Irc, started, ran)
+      assertEquals(
+        Runner.runtimes(Runner.RunMode.Webhook, List(irc)),
+        List(TelegramWebhookPlatformRuntime, irc)
+      )
+      assertEquals(
+        Runner.runtimes(Runner.RunMode.Polling, List(irc)),
+        List(TelegramPollingPlatformRuntime, irc)
+      )
+    }
+  }
+
+  test("with no platform with a connection registered, a mode runs only its Telegram runtime") {
+    assertEquals(Runner.connectionRuntimes, List.empty)
+    assertEquals(Runner.runtimes(Runner.RunMode.Webhook), List(TelegramWebhookPlatformRuntime))
+    assertEquals(Runner.runtimes(Runner.RunMode.Polling), List(TelegramPollingPlatformRuntime))
+  }
+
+  test("a runtime whose platform has no bots is not started") {
+    for {
+      started <- Ref.of[IO, List[(Platform, List[String])]](List.empty)
+      ran     <- Ref.of[IO, List[Platform]](List.empty)
+      _       <- withMainSetup(mainSetup =>
+        Runner
+          .start(
+            registry,
+            List(
+              new FakeRuntime(Platform.Telegram, started, ran),
+              new FakeRuntime(Platform.Irc, started, ran),
+              new FakeRuntime(Platform.Slack, started, ran)
+            ),
+            mainSetup
+          )
+          .use(identity)
+      )
+      startedRuntimes <- started.get
+      ranRuntimes     <- ran.get
+    } yield {
+      assertEquals(startedRuntimes.map(_._1).toSet, Set(Platform.Telegram, Platform.Irc))
+      assertEquals(ranRuntimes.toSet, Set(Platform.Telegram, Platform.Irc))
+    }
+  }
 }

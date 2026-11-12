@@ -286,4 +286,35 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
       }
     }
   }
+
+  databaseFixture.test("DBSubscription: the subscriptions of a bot can be listed by platform") { fixture =>
+    val telegram       = subscriptionOf(id = UUID.randomUUID().toString, chatId = 41L)
+    val irc            = telegram.copy(id = UUID.randomUUID().toString, platform = Platform.Irc.id)
+    val discord        = telegram.copy(id = UUID.randomUUID().toString, platform = Platform.Discord.id)
+    val ours           = Set(telegram.id, irc.id, discord.id)
+    val resourceAssert = for {
+      dbSubscription <- fixture.resourceDBLayer.map(_.dbSubscription)
+      _              <- Resource.eval(List(telegram, irc, discord).traverse_(dbSubscription.insertSubscription))
+      onIrc          <- Resource.eval(dbSubscription.getSubscriptions(botId, platform = Some(Platform.Irc)))
+      onTelegram     <- Resource.eval(dbSubscription.getSubscriptions(botId, platform = Some(Platform.Telegram)))
+      onSlack        <- Resource.eval(dbSubscription.getSubscriptions(botId, platform = Some(Platform.Slack)))
+      onAny          <- Resource.eval(dbSubscription.getSubscriptions(botId))
+      ofChat         <- Resource.eval(
+        dbSubscription.getSubscriptions(botId, Some(ChatId(Platform.Irc, "41")), Some(Platform.Irc))
+      )
+      ofChatOtherPlatform <- Resource.eval(
+        dbSubscription.getSubscriptions(botId, Some(ChatId(Platform.Irc, "41")), Some(Platform.Telegram))
+      )
+    } yield (onIrc, onTelegram, onSlack, onAny, ofChat, ofChatOtherPlatform)
+    resourceAssert.use { case (onIrc, onTelegram, onSlack, onAny, ofChat, ofChatOtherPlatform) =>
+      IO {
+        assertEquals(onIrc.map(_.id).toSet.intersect(ours), Set(irc.id))
+        assertEquals(onTelegram.map(_.id).toSet.intersect(ours), Set(telegram.id))
+        assertEquals(onSlack.map(_.id).toSet.intersect(ours), Set.empty[String])
+        assertEquals(onAny.map(_.id).toSet.intersect(ours), ours)
+        assertEquals(ofChat.map(_.id), List(irc.id))
+        assertEquals(ofChatOtherPlatform, List.empty)
+      }
+    }
+  }
 }

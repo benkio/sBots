@@ -9,13 +9,13 @@ import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message as ModelMessage
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.BackgroundJobManager
+import com.benkio.chatcore.ComputeReply
 import com.benkio.chattelegramadapter.conversions.MessageConversions.*
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.KeyboardReply
 import com.benkio.chattelegramadapter.model.extractInput
 import com.benkio.chattelegramadapter.model.TelegramCapabilities
 import com.benkio.chattelegramadapter.model.TelegramKeyboardTitle
 import com.benkio.chattelegramadapter.model.TelegramMessageIds
-import com.benkio.chattelegramadapter.ComputeReply
 import log.effect.LogWriter
 import telegramium.bots.high.implicits.methodOps
 import telegramium.bots.high.Api
