@@ -43,7 +43,9 @@ enum MarkdownSupport {
   * @param maxTextLength
   *   the maximum number of characters of a text message; longer texts are split
   * @param acceptsFileIds
-  *   whether the media sources that are not an url (`Left`, Telegram file ids) can be used
+  *   whether the platform can use the media sources that are not an url (`Left`): the references to files that were
+  *   already uploaded to it. Each platform says it for itself; the data does not record which platform a reference
+  *   belongs to (today they are all Telegram's)
   * @param commandSyntax
   *   how the commands and the file requests are written, e.g. `/command@BotName` or `!command`
   */

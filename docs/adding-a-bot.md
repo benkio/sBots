@@ -109,7 +109,7 @@ Aggregate and `main.dependsOn` will then include your bot automatically.
 
 After Step 2 (and before or alongside the steps below), do the following as needed:
 
-- **Platforms**: a bot runs on Telegram unless its `BotRegistryEntry` says otherwise (`platforms = List(Platform.Telegram)` is the default). Add another platform only when that platform has a runtime (see `agent-context/tasks/AddPlatformAdapter.md`).
+- **Platforms**: a bot runs on Telegram unless its `BotRegistryEntry` says otherwise (`platforms = List(Platform.Telegram)` is the default). Add another platform only when that platform has a runtime.
 - **Custom command callbacks**: If your bot needs `commandEffectfulCallback` (e.g. like RichardPHJBensonBot), edit `BotsRegistry.scala` and add it to the bot’s `BotRegistryEntry` (see Option B in Step 2).
 - **Bot full name**: To set a human-readable name in the DB, edit `modules/botDB/src/main/resources/db/migrations/V1__CreateBotTable.sql` and change the `bot_full_name` value for your bot’s `INSERT`.
 - **MediaIntegrity placement**: automation adds bots to `MediaIntegrityParSpec` by default. If the bot is Mega-heavy (or you need lower bandwidth pressure), move it to `MediaIntegritySeqSpec`.

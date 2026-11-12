@@ -77,12 +77,12 @@ A platform (Telegram, IRC, Discord, Slack: the ~Platform~ enum) is identified in
 
 What the engine needs from a platform:
 - ~PlatformAdapter~ :: the capabilities, ~run~ (start receiving), ~send~ (a reply to the chat of a message) and ~runEffectful~ (compute the replies that depend on the platform)
-- ~PlatformCapabilities~ :: the kinds of media it can send (~MediaKind~), the maximum length of a text, whether it has markdown (~MarkdownSupport~), whether it can delete and edit messages, whether it has buttons, whether it accepts the Telegram file ids, and its ~CommandSyntax~
+- ~PlatformCapabilities~ :: the kinds of media it can send (~MediaKind~), the maximum length of a text, whether it has markdown (~MarkdownSupport~), whether it can delete and edit messages, whether it has buttons, whether it can use the media sources that are not an url (the references to files already uploaded to the platform), and its ~CommandSyntax~
 - ~Notifier~ :: where the critical errors and the important events go (Telegram: a chat of the operators)
 
 The ~ReplyTransformer~ adapts a reply to the capabilities of the platform: it splits the long texts, turns the markdown into plain text where there is none, drops the time to live where messages cannot be deleted, turns a media the platform cannot send into its link (the ~ReplyAdaptation~ looks it up in the database, and it is dropped when it has none), and a ~PagedList~ into a numbered text where there are no buttons. The engine and the subscriptions apply it to everything they send.
 
-The platform side of Telegram is in ~chatTelegramAdapter~; which bots run on which platforms, the configuration of each platform and the runtime that starts them are in ~main~ (see [[../../docs/bot-logic-overview.md][the logic overview]]). To add a platform see the task ~agent-context/tasks/AddPlatformAdapter.md~.
+The platform side of Telegram is in ~chatTelegramAdapter~; which bots run on which platforms, the configuration of each platform and the runtime that starts them are in ~main~ (see [[../../docs/bot-logic-overview.md][the logic overview]]).
 
 ** Bot Initialization
 

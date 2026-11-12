@@ -47,7 +47,9 @@ object ReplyTransformer {
       values: List[ReplyValue]
   ): List[ReplyValue] = values.flatMap(transform(capabilities, mediaLink))
 
-  /** The media sources that the platform can use: the ones that are not an url are Telegram file ids. */
+  /** The media sources that the platform can use: the ones that are not an url (`Left`, references to files already
+    * uploaded to a platform) only if the platform accepts them.
+    */
   def usableSources(capabilities: PlatformCapabilities)(
       sources: List[Either[String, Uri]]
   ): List[Either[String, Uri]] =

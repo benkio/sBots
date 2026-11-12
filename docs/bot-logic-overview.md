@@ -110,7 +110,7 @@ flowchart TD
 
 | Where | What |
 |---|---|
-| `chatCore` | `Platform`, `ChatId(platform, id)`, `Message`; `PlatformCapabilities` (media kinds, text limit, markdown support, delete/edit/buttons, file ids, `CommandSyntax`); `BotEngine`; `PlatformAdapter` / `PlatformReplies`; `ReplyTransformer` and `ReplyAdaptation`; `PagedList`; `CronBackgroundJobManager` (the subscriptions); `Notifier`; the commands (`CommandPatterns`) |
+| `chatCore` | `Platform`, `ChatId(platform, id)`, `Message`; `PlatformCapabilities` (media kinds, text limit, markdown support, delete/edit/buttons, whether it accepts the media sources that are not an url, `CommandSyntax`); `BotEngine`; `PlatformAdapter` / `PlatformReplies`; `ReplyTransformer` and `ReplyAdaptation`; `PagedList`; `CronBackgroundJobManager` (the subscriptions); `Notifier`; the commands (`CommandPatterns`) |
 | `chatTelegramAdapter` | `ISBot` (the Telegram shell around the engine), `ISBotPolling` / `ISBotWebhook`, `TelegramPlatformAdapter`, `TelegramCapabilities`, `TelegramNotifier`, `TelegramBackgroundJobManager`, `BotSetup`, the send chain (`TelegramMessageReply`, `MediaFileReply`, ...), the callbacks of the keyboards, `EffectfulKeyRunner` |
 | `main` | `BotRegistry` / `BotRegistryEntry.platforms`, the config blocks, `Runner`, `PlatformRuntime` and the Telegram runtimes |
 
@@ -134,8 +134,12 @@ nothing but the texts over the Telegram limit.
 
 ### Known gaps
 
-- `ReplyTransformer.usableSources` (drop the sources that are Telegram file ids, `Left`, on the platforms that do not accept
-  them) is there and tested, but nothing applies it yet: the repository tries every source.
+- `ReplyTransformer.usableSources` (drop the sources that are not an url, `Left`, on the platforms whose capabilities do not
+  accept them) is there and tested, but nothing applies it yet: the repository tries every source.
+- The sources that are not an url are plain strings in the DB and do not say which platform they belong to: today they are
+  all Telegram's file references. A platform that declares it accepts them would be handed Telegram's, so before a second
+  platform keeps its own, they have to be tagged with the platform they belong to (and the capability, a plain
+  `acceptsFileIds`, would become "accepts the ones of its platform").
 - `EffectfulKeyRunner`, which computes the commands that need the database (search, subscribe, timeout, ...), lives in
   `chatTelegramAdapter`, although it only uses `chatCore` types: another adapter would need it moved to `chatCore`.
 - A platform without buttons shows only the requested page of a `PagedList`: there is no page argument yet.
