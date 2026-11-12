@@ -137,10 +137,14 @@ is sent (the same goes for what the subscriptions fire):
 Telegram's capabilities send every kind of media and have markdown and buttons, so for Telegram the transformation changes
 nothing but the texts over the Telegram limit.
 
+### Media sources per platform
+
+A platform adapter reads the media through `repository.usableFor(capabilities)`: when `acceptsFileIds` is off the file
+references (`MediaResourceIFile`, the sources that are not an url) are left out, and a media with nothing usable is a not
+found error. Every new adapter has to do the same, as `TelegramPlatformAdapter` does.
+
 ### Known gaps
 
-- `ReplyTransformer.usableSources` (drop the sources that are not an url, `Left`, on the platforms whose capabilities do not
-  accept them) is there and tested, but nothing applies it yet: the repository tries every source.
 - The sources that are not an url are plain strings in the DB and do not say which platform they belong to: today they are
   all Telegram's file references. A platform that declares it accepts them would be handed Telegram's, so before a second
   platform keeps its own, they have to be tagged with the platform they belong to (and the capability, a plain

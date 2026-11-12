@@ -36,6 +36,8 @@ class TelegramPlatformAdapter[F[_]: Async: LogWriter: Api: Notifier](
 
   override val capabilities: PlatformCapabilities = TelegramCapabilities.value
 
+  private val usableRepository: Repository[F] = repository.usableFor(capabilities)
+
   override def run: F[Unit] = startUpdates
 
   override def send(replyValue: ReplyValue, message: Message, replyToMessage: Boolean): F[Unit] =
@@ -43,7 +45,7 @@ class TelegramPlatformAdapter[F[_]: Async: LogWriter: Api: Notifier](
       .sendReplyValue[F](
         replyValue = replyValue,
         msg = message,
-        repository = repository,
+        repository = usableRepository,
         replyToMessage = replyToMessage
       )
       .void

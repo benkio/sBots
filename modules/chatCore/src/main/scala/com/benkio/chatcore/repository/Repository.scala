@@ -6,6 +6,7 @@ import cats.effect.*
 import cats.implicits.*
 import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.reply.MediaFile
+import com.benkio.chatcore.model.PlatformCapabilities
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBMediaData
 import log.effect.LogWriter
@@ -24,6 +25,15 @@ trait Repository[F[_]] {
   def getResourceFile(
       mediaFile: MediaFile
   ): Resource[F, Either[Repository.RepositoryError, NonEmptyList[MediaResource[F]]]]
+
+  /** The same repository, that gives only the resources the platform can use: the references to files already uploaded
+    * (`MediaResourceIFile`) only if it accepts them, see
+    * [[com.benkio.chatcore.model.reply.ReplyTransformer.usableSources]]. What is left without a usable resource is a
+    * not found error, the same as a media that does not exist.
+    */
+  final def usableFor(capabilities: PlatformCapabilities): Repository[F] =
+    if capabilities.acceptsFileIds then this
+    else UsableResourcesRepository(this)
 }
 
 object Repository {

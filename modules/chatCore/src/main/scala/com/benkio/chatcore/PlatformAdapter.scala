@@ -9,6 +9,8 @@ import com.benkio.chatcore.model.PlatformCapabilities
   *     it to the engine, once it is started with [[run]]
   *   - outbound: the engine sends and computes the replies through [[PlatformReplies]]
   *   - [[capabilities]] tell what the platform can send, see [[com.benkio.chatcore.model.reply.ReplyTransformer]]
+  *   - the media resources are read through `repository.usableFor(capabilities)`, which leaves out the file references
+  *     the platform cannot use
   */
 trait PlatformAdapter[F[_]] extends PlatformReplies[F] {
 
