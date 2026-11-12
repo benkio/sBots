@@ -6,8 +6,8 @@ import cats.effect.IOApp
 import com.benkio.main.runner.Runner
 import com.benkio.main.Logger.given
 
-/** Runs the bots asking Telegram for their messages. All of them, or only the ones named in the arguments (the id or the
-  * name of the bot): `MainPolling rphjb XahLeeBot`.
+/** Runs the bots asking Telegram for their messages. All of them, or only the ones named in the arguments (the id or
+  * the name of the bot): `MainPolling rphjb XahLeeBot`.
   */
 object MainPolling extends IOApp {
 

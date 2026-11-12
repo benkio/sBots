@@ -15,8 +15,8 @@ import com.benkio.chatcore.Logger.given
 
 class CalandroBotSpec extends BaseBotSpec {
 
-  val calaSBotConfig: SBotConfig            = SBotConfig.fromSBotInfo(CalandroBot.sBotInfo)
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(calaSBotConfig.sBotInfo.botId)
+  val calaSBotConfig: SBotConfig = SBotConfig.fromSBotInfo(CalandroBot.sBotInfo)
+  val emptyDBLayer: DBLayer[IO]  = DBLayerMock.mock(calaSBotConfig.sBotInfo.botId)
 
   val Calandrobot: IO[BotEngine[IO]] = buildTestEngine(dbLayer = emptyDBLayer, sBotConfig = calaSBotConfig)
 

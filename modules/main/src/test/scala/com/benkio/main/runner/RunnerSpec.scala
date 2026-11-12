@@ -110,7 +110,7 @@ class RunnerSpec extends CatsEffectSuite {
   test("select names the unknown bots and the available ids") {
     import com.benkio.main.select
     assertEquals(
-      registry.select(List("onboth", "nope")).map(_ => ()),
+      registry.select(List("onboth", "nope")).void,
       Left("Unknown bots: nope. Available: ontelegram, onboth")
     )
   }

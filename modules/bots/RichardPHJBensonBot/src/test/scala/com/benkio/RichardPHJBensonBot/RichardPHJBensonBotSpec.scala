@@ -2,6 +2,7 @@ package com.benkio.RichardPHJBensonBot
 
 import cats.effect.IO
 import cats.Show
+import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
@@ -14,7 +15,6 @@ import com.benkio.chatcore.model.Trigger
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.BaseBotSpec
 import com.benkio.chatcore.BotEngine
-import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.Logger.given
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot.commandEffectfulCallback
 import org.scalacheck.effect.PropF
@@ -26,8 +26,8 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
 
   override val munitIOTimeout = Duration(1, "m")
 
-  val rphjbSBotConfig                       = SBotConfig.fromSBotInfo(RichardPHJBensonBot.sBotInfo)
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(rphjbSBotConfig.sBotInfo.botId)
+  val rphjbSBotConfig           = SBotConfig.fromSBotInfo(RichardPHJBensonBot.sBotInfo)
+  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(rphjbSBotConfig.sBotInfo.botId)
 
   val richardPHJBensonBot: IO[BotEngine[IO]] = buildTestEngine(dbLayer = emptyDBLayer, sBotConfig = rphjbSBotConfig)
 

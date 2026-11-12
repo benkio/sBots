@@ -2,6 +2,7 @@ package com.benkio.ABarberoBot
 
 import cats.effect.IO
 import cats.Show
+import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
@@ -9,13 +10,12 @@ import com.benkio.chatcore.model.Trigger
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.BaseBotSpec
 import com.benkio.chatcore.BotEngine
-import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.Logger.given
 
 class ABarberoBotSpec extends BaseBotSpec {
 
-  val abarSBotConfig                        = SBotConfig.fromSBotInfo(ABarberoBot.sBotInfo)
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(abarSBotConfig.sBotInfo.botId)
+  val abarSBotConfig            = SBotConfig.fromSBotInfo(ABarberoBot.sBotInfo)
+  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(abarSBotConfig.sBotInfo.botId)
 
   val aBarberoBot: IO[BotEngine[IO]] = buildTestEngine(dbLayer = emptyDBLayer, sBotConfig = abarSBotConfig)
 

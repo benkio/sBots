@@ -1,8 +1,8 @@
 package com.benkio.Alessandro0rlandoBot
 
 import cats.effect.*
-import com.benkio.chatcore.SBotDataEntry
 import com.benkio.chatcore.config.SBotConfig
+import com.benkio.chatcore.SBotDataEntry
 
 object Alessandro0rlandoBotMainDataEntry extends IOApp {
 

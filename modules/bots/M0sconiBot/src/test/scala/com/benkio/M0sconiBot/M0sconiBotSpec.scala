@@ -2,6 +2,7 @@ package com.benkio.M0sconi
 
 import cats.effect.IO
 import cats.Show
+import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
@@ -9,14 +10,13 @@ import com.benkio.chatcore.model.Trigger
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.BaseBotSpec
 import com.benkio.chatcore.BotEngine
-import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.Logger.given
 import com.benkio.M0sconiBot.M0sconiBot
 
 class M0sconiBotSpec extends BaseBotSpec {
 
-  val mosSBotConfig                         = SBotConfig.fromSBotInfo(M0sconiBot.sBotInfo)
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(mosSBotConfig.sBotInfo.botId)
+  val mosSBotConfig             = SBotConfig.fromSBotInfo(M0sconiBot.sBotInfo)
+  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(mosSBotConfig.sBotInfo.botId)
 
   val m0sconiBot: IO[BotEngine[IO]] = buildTestEngine(dbLayer = emptyDBLayer, sBotConfig = mosSBotConfig)
   val commandRepliesData: IO[List[ReplyBundleCommand]] =

@@ -36,8 +36,8 @@ import scala.io.Source
 
 trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
 
-  /** The engine of a bot with the replies loaded from its JSON files, like in production: the tests read the data of the
-    * bot from it, whatever the platform.
+  /** The engine of a bot with the replies loaded from its JSON files, like in production: the tests read the data of
+    * the bot from it, whatever the platform.
     */
   def buildTestEngine(
       dbLayer: DBLayer[IO],

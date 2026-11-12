@@ -14,8 +14,8 @@ import com.benkio.chatcore.Logger.given
 
 class PinoScottoBotSpec extends BaseBotSpec {
 
-  val pinoSBotConfig: SBotConfig            = SBotConfig.fromSBotInfo(PinoScottoBot.sBotInfo)
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(pinoSBotConfig.sBotInfo.botId)
+  val pinoSBotConfig: SBotConfig = SBotConfig.fromSBotInfo(PinoScottoBot.sBotInfo)
+  val emptyDBLayer: DBLayer[IO]  = DBLayerMock.mock(pinoSBotConfig.sBotInfo.botId)
 
   val templateBot: IO[BotEngine[IO]] = buildTestEngine(dbLayer = emptyDBLayer, sBotConfig = pinoSBotConfig)
 

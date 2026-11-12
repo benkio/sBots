@@ -14,8 +14,8 @@ import com.benkio.chatcore.Logger.given
 
 class VittorioSgarbiBotSpec extends BaseBotSpec {
 
-  val sgarSBotConfig: SBotConfig            = SBotConfig.fromSBotInfo(VittorioSgarbiBot.sBotInfo)
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(sgarSBotConfig.sBotInfo.botId)
+  val sgarSBotConfig: SBotConfig = SBotConfig.fromSBotInfo(VittorioSgarbiBot.sBotInfo)
+  val emptyDBLayer: DBLayer[IO]  = DBLayerMock.mock(sgarSBotConfig.sBotInfo.botId)
 
   val vittorioSgarbiBot: IO[BotEngine[IO]] = buildTestEngine(dbLayer = emptyDBLayer, sBotConfig = sgarSBotConfig)
 

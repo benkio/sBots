@@ -14,8 +14,8 @@ import com.benkio.chatcore.Logger.given
 
 class Alessandro0rlandoBotSpec extends BaseBotSpec {
 
-  val orlSBotConfig: SBotConfig             = SBotConfig.fromSBotInfo(Alessandro0rlandoBot.sBotInfo)
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(orlSBotConfig.sBotInfo.botId)
+  val orlSBotConfig: SBotConfig = SBotConfig.fromSBotInfo(Alessandro0rlandoBot.sBotInfo)
+  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(orlSBotConfig.sBotInfo.botId)
 
   val templateBot: IO[BotEngine[IO]] = buildTestEngine(dbLayer = emptyDBLayer, sBotConfig = orlSBotConfig)
 
