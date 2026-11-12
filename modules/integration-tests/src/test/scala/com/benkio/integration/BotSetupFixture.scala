@@ -7,6 +7,7 @@ import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.http.DropboxClient
 import com.benkio.chatcore.http.HttpClients
 import com.benkio.chatcore.http.MegaClient
+import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBRepository
 import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.Notifier
@@ -71,7 +72,7 @@ object BotSetupFixture {
   )(using log: LogWriter[IO]): Resource[IO, BotSetup[IO]] =
     for {
       dbLayerBase   <- dbRes.resourceDBLayer
-      dbLayer       <- Resource.eval(BotSetup.loadReplies[IO](dbLayerBase, JsonDataRepository[IO](), sBotConfig))
+      dbLayer       <- Resource.eval(DBLayer.loadReplies[IO](dbLayerBase, JsonDataRepository[IO](), sBotConfig))
       httpClient    <- EmberClientBuilder.default[IO].withMaxResponseHeaderSize(8192).build
       dropboxClient <- Resource.eval(DropboxClient[IO](httpClient))
       megaClient    <- Resource.eval(MegaClient[IO](httpClient))

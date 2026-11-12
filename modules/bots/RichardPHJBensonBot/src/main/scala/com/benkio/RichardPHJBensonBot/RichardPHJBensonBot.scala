@@ -2,6 +2,7 @@ package com.benkio.RichardPHJBensonBot
 
 import cats.syntax.all.*
 import cats.ApplicativeThrow
+import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
@@ -9,7 +10,6 @@ import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.SBotInfo.SBotName
 import com.benkio.chatcore.patterns.CommandPatterns
-import com.benkio.chattelegramadapter.SBot
 
 object RichardPHJBensonBot {
 
@@ -27,7 +27,7 @@ object RichardPHJBensonBot {
             sBotInfo = sBotInfo,
             computation = t => Text(Bensonify.compute(t)).pure[F],
             defaultReply = "E PARLAAAAAAA!!!!",
-            ttl = SBot.buildSBotConfig(sBotInfo).messageTimeToLive
+            ttl = SBotConfig.fromSBotInfo(sBotInfo).messageTimeToLive
           )
       )
     )

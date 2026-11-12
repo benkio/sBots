@@ -1,48 +1,20 @@
 package com.benkio.XahLeeBot
 
-import cats.data.NonEmptyList
-import cats.effect.Async
 import cats.effect.IO
-import cats.Parallel
+import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.mocks.DBLayerMock
-import com.benkio.chatcore.mocks.RepositoryMock
-import com.benkio.chatcore.model.media.MediaResource.MediaResourceIFile
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.repository.db.DBLayer
+import com.benkio.chatcore.BaseBotSpec
+import com.benkio.chatcore.BotEngine
 import com.benkio.chatcore.Logger.given
-import com.benkio.chattelegramadapter.mocks.ApiMock.given
-import com.benkio.chattelegramadapter.BaseBotSpec
-import com.benkio.chattelegramadapter.SBot
-import com.benkio.chattelegramadapter.SBotPolling
 
 class XahLeeBotSpec extends BaseBotSpec {
 
-  val xahSBotConfig                         = SBot.buildSBotConfig(XahLeeBot.sBotInfo)
-  val emptyDBLayer: DBLayer[IO]             = DBLayerMock.mock(XahLeeBot.sBotInfo.botId)
-  val mediaResource: MediaResourceIFile[IO] =
-    MediaResourceIFile(
-      "test mediafile"
-    )
-  val repositoryMock = new RepositoryMock(getResourceByKindHandler =
-    (_, inputBotId) =>
-      IO.raiseUnless(inputBotId == XahLeeBot.sBotInfo.botId)(
-        Throwable(s"[XahLeeBotSpec] getResourceByKindHandler called with unexpected botId: $inputBotId")
-      ).as(NonEmptyList.one(NonEmptyList.one(mediaResource)))
-  )
+  val xahSBotConfig             = SBotConfig.fromSBotInfo(XahLeeBot.sBotInfo)
+  val emptyDBLayer: DBLayer[IO] = DBLayerMock.mock(XahLeeBot.sBotInfo.botId)
 
-  val xahLeeBot: IO[SBotPolling[IO]] = for {
-    botSetup <- buildTestBotSetup(
-      repository = repositoryMock,
-      dbLayer = emptyDBLayer,
-      sBotConfig = xahSBotConfig,
-      ttl = xahSBotConfig.messageTimeToLive
-    )
-  } yield new SBotPolling[IO](botSetup)(using
-    Parallel[IO],
-    botSetup.api,
-    Async[IO],
-    log
-  )
+  val xahLeeBot: IO[BotEngine[IO]] = buildTestEngine(dbLayer = emptyDBLayer, sBotConfig = xahSBotConfig)
 
   val commandRepliesData: IO[List[ReplyBundleCommand]] =
     xahLeeBot.map(_.allCommandRepliesData)

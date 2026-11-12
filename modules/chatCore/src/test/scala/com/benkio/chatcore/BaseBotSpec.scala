@@ -1,10 +1,9 @@
-package com.benkio.chattelegramadapter
+package com.benkio.chatcore
 
 import cats.effect.IO
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.messagefiltering.MessageMatches
-import com.benkio.chatcore.mocks.NotifierMock.given
 import com.benkio.chatcore.model.media.MediaFileSource
 import com.benkio.chatcore.model.reply.*
 import com.benkio.chatcore.model.ChatId
@@ -20,10 +19,6 @@ import com.benkio.chatcore.model.Trigger
 import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.JsonDataRepository
-import com.benkio.chatcore.repository.Repository
-import com.benkio.chatcore.Notifier
-import com.benkio.chattelegramadapter.initialization.BotSetup
-import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
 import io.circe.*
 import io.circe.parser.*
 import io.circe.parser.decode
@@ -31,53 +26,24 @@ import log.effect.LogWriter
 import munit.*
 import munit.CatsEffectSuite
 import munit.ScalaCheckEffectSuite
-import org.http4s.client.Client
-import org.http4s.implicits.*
-import org.http4s.HttpApp
-import org.http4s.Response
-import org.http4s.Status
 import org.scalacheck.Prop.*
-import telegramium.bots.high.Api
 import wolfendale.scalacheck.regexp.RegexpGen
 
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
-import scala.concurrent.duration.FiniteDuration
 import scala.io.Source
 
 trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
 
-  def buildTestBotSetup(
-      repository: Repository[IO],
+  /** The engine of a bot with the replies loaded from its JSON files, like in production: the tests read the data of
+    * the bot from it, whatever the platform.
+    */
+  def buildTestEngine(
       dbLayer: DBLayer[IO],
-      sBotConfig: SBotConfig,
-      ttl: Option[FiniteDuration]
-  )(using Api[IO], LogWriter[IO]): IO[BotSetup[IO]] =
-    for {
-      // like in production: the replies are loaded once, with the setup, and served by the DBLayer
-      dbLayerWithReplies <- BotSetup.loadReplies[IO](dbLayer, JsonDataRepository[IO](), sBotConfig)
-      bjm                <- TelegramBackgroundJobManager[IO](
-        repository = repository,
-        dbLayer = dbLayerWithReplies,
-        sBotInfo = sBotConfig.sBotInfo,
-        ttl = ttl
-      )
-      stubClient = Client.fromHttpApp(HttpApp[IO](_ => IO.pure(Response[IO](Status.Ok))))
-    } yield BotSetup(
-      token = "test",
-      httpClient = stubClient,
-      repository = repository,
-      jsonDataRepository = JsonDataRepository[IO]( // repository
-      ),
-      dbLayer = dbLayerWithReplies,
-      backgroundJobManager = bjm,
-      api = summon[Api[IO]],
-      notifier = Notifier.noop[IO],
-      webhookUri = uri"https://localhost",
-      webhookPath = uri"/",
-      sBotConfig = sBotConfig
-    )
+      sBotConfig: SBotConfig
+  )(using LogWriter[IO]): IO[BotEngine[IO]] =
+    DBLayer.loadReplies[IO](dbLayer, JsonDataRepository[IO](), sBotConfig).map(BotEngine[IO](sBotConfig, _))
 
   private def triggerFileContentForSearch(triggerContent: String): String =
     triggerContent.replace("""\|""", "|")
