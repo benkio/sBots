@@ -11,7 +11,7 @@ class CommandSyntaxSpec extends FunSuite {
   private val irc               = CommandSyntax(prefix = "!")
 
   test("Telegram writes a command as /command, optionally addressed to the bot with @BotName") {
-    val syntax = CommandSyntax.Telegram
+    val syntax = CommandSyntax.Slash
     assertEquals(syntax.invocation("start"), "/start")
     assert(syntax.isInvocationOf("/start", "start", botName))
     assert(syntax.isInvocationOf("/start some input", "start", botName))
@@ -38,32 +38,32 @@ class CommandSyntaxSpec extends FunSuite {
   }
 
   test("isCommandWord matches the typed command, addressed to the bot or not") {
-    assert(CommandSyntax.Telegram.isCommandWord("/start", "start", botName))
-    assert(CommandSyntax.Telegram.isCommandWord("/start@MyBot", "start", botName))
-    assert(!CommandSyntax.Telegram.isCommandWord("/start@OtherBot", "start", botName))
-    assert(!CommandSyntax.Telegram.isCommandWord("/start input", "start", botName))
+    assert(CommandSyntax.Slash.isCommandWord("/start", "start", botName))
+    assert(CommandSyntax.Slash.isCommandWord("/start@MyBot", "start", botName))
+    assert(!CommandSyntax.Slash.isCommandWord("/start@OtherBot", "start", botName))
+    assert(!CommandSyntax.Slash.isCommandWord("/start input", "start", botName))
     assert(irc.isCommandWord("!start", "start", botName))
     assert(!irc.isCommandWord("/start", "start", botName))
   }
 
   test("commandName gives the name of the command whatever the syntax") {
-    assertEquals(CommandSyntax.Telegram.commandName("  /start@MyBot some input "), "start")
-    assertEquals(CommandSyntax.Telegram.commandName("/start"), "start")
+    assertEquals(CommandSyntax.Slash.commandName("  /start@MyBot some input "), "start")
+    assertEquals(CommandSyntax.Slash.commandName("/start"), "start")
     assertEquals(irc.commandName("!start some input"), "start")
     assertEquals(irc.commandName("!start@MyBot"), "start@MyBot")
   }
 
   test("isCommand checks the prefix") {
-    assert(CommandSyntax.Telegram.isCommand("/anything"))
-    assert(!CommandSyntax.Telegram.isCommand("!anything"))
+    assert(CommandSyntax.Slash.isCommand("/anything"))
+    assert(!CommandSyntax.Slash.isCommand("!anything"))
     assert(irc.isCommand("!anything"))
     assert(!irc.isCommand("/anything"))
   }
 
   test("a file request starts with the bot id, after the marker when the platform has one") {
-    assert(CommandSyntax.Telegram.isFileRequest("mb_file.mp3", botId))
-    assert(!CommandSyntax.Telegram.isFileRequest("hello mb_file.mp3", botId))
-    assertEquals(CommandSyntax.Telegram.fileRequestContent("mb_file.mp3"), "mb_file.mp3")
+    assert(CommandSyntax.Slash.isFileRequest("mb_file.mp3", botId))
+    assert(!CommandSyntax.Slash.isFileRequest("hello mb_file.mp3", botId))
+    assertEquals(CommandSyntax.Slash.fileRequestContent("mb_file.mp3"), "mb_file.mp3")
 
     val withMarker = CommandSyntax(prefix = "!", fileRequestMarker = "+")
     assert(withMarker.isFileRequest("+mb_file.mp3", botId))

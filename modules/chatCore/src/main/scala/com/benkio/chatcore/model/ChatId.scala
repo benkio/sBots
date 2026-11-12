@@ -2,13 +2,12 @@ package com.benkio.chatcore.model
 
 import cats.Show
 
-/** A chat identifier scoped to the platform it belongs to: Telegram chat ids are numbers, IRC uses channel/nick names,
-  * Discord and Slack use their own id strings.
+/** A chat identifier scoped to the platform it belongs to: Telegram's are numbers, IRC uses channel/nick names, Discord
+  * and Slack use their own id strings.
   */
 final case class ChatId(platform: Platform, id: String)
 
 object ChatId {
-  def telegram(id: Long): ChatId = ChatId(Platform.Telegram, id.toString)
 
   /** Rebuilds a chat id from the `platform` and `chat_id` columns of the DB. */
   def fromIds(platform: String, id: String): Either[Throwable, ChatId] =
@@ -16,11 +15,4 @@ object ChatId {
 
   given Show[ChatId] = Show.show(c => s"${c.platform.id}:${c.id}")
 
-  extension (chatId: ChatId) {
-
-    /** Numeric id used by Telegram. Fails for other platforms. */
-    def telegramId: Long =
-      if chatId.platform == Platform.Telegram then chatId.id.toLong
-      else throw new IllegalArgumentException(s"Not a Telegram chat id: ${chatId.platform.id}:${chatId.id}")
-  }
 }

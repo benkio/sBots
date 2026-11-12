@@ -3,9 +3,9 @@ package com.benkio.integration.integrationmunit.chatcore.patterns
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
+import com.benkio.chatcore.TestIds
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chattelegramadapter.SBot
 import com.benkio.chattelegramadapter.SBotPolling
@@ -78,7 +78,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with BotSetupFixture {
               msg = Message(
                 messageId = None,
                 date = 0,
-                chatId = ChatId.telegram(0L),
+                chatId = TestIds.chatId(0L),
                 chatType = "private",
                 text = Some(s"/instructions $input")
               ),
@@ -103,7 +103,7 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with BotSetupFixture {
               msg = Message(
                 messageId = None,
                 date = 0,
-                chatId = ChatId.telegram(0L),
+                chatId = TestIds.chatId(0L),
                 chatType = "private",
                 text = Some(s"/instructions $input")
               ),

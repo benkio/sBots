@@ -1,9 +1,9 @@
 package com.benkio.chattelegramadapter.conversions
 
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
-import com.benkio.chatcore.model.MessageId
 import com.benkio.chatcore.model.User
+import com.benkio.chattelegramadapter.model.TelegramIds
+import com.benkio.chattelegramadapter.model.TelegramIds.telegramId
 import telegramium.bots.Chat as TelegramChat
 import telegramium.bots.InaccessibleMessage
 import telegramium.bots.MaybeInaccessibleMessage
@@ -34,9 +34,9 @@ object MessageConversions {
   extension (m: TelegramMessage) {
     def toModel: Message =
       Message(
-        messageId = Some(MessageId.telegram(m.messageId)),
+        messageId = Some(TelegramIds.messageId(m.messageId)),
         date = m.date.toLong,
-        chatId = ChatId.telegram(m.chat.id),
+        chatId = TelegramIds.chatId(m.chat.id),
         chatType = m.chat.`type`,
         text = m.text,
         caption = m.caption,
@@ -54,9 +54,9 @@ object MessageConversions {
       case i: InaccessibleMessage =>
         Some(
           Message(
-            messageId = Some(MessageId.telegram(i.messageId)),
+            messageId = Some(TelegramIds.messageId(i.messageId)),
             date = 0L,
-            chatId = ChatId.telegram(i.chat.id),
+            chatId = TelegramIds.chatId(i.chat.id),
             chatType = i.chat.`type`
           )
         )

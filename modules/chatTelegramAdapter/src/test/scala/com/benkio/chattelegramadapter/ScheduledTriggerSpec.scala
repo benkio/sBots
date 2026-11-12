@@ -4,7 +4,6 @@ import cats.effect.IO
 import com.benkio.chatcore.messagefiltering.FilteringOlder
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.TextReply
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionId
@@ -12,6 +11,7 @@ import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.Logger.given
 import com.benkio.chattelegramadapter.mocks.PayloadRecordingApi
 import com.benkio.chattelegramadapter.mocks.SampleWebhookBot
+import com.benkio.chattelegramadapter.model.TelegramIds
 import cron4s.Cron
 import io.circe.Json
 import munit.CatsEffectSuite
@@ -23,7 +23,7 @@ import java.util.UUID
 /** A trigger subscription fires from the background job manager, with the replies served by the `DBLayer`. */
 class ScheduledTriggerSpec extends CatsEffectSuite {
 
-  private val chatId = ChatId.telegram(0L)
+  private val chatId = TelegramIds.chatId(0L)
 
   private def message(text: String, date: Long = Instant.now.getEpochSecond): Message =
     Message(messageId = None, date = date, chatId = chatId, chatType = "private", text = Some(text))

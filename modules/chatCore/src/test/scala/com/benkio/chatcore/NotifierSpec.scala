@@ -2,11 +2,10 @@ package com.benkio.chatcore
 
 import cats.effect.IO
 import com.benkio.chatcore.model.reply.Mp3File
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
-import com.benkio.chatcore.model.MessageId
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.repository.Repository.RepositoryError
+import com.benkio.chatcore.TestIds
 import munit.CatsEffectSuite
 import munit.ScalaCheckSuite
 import org.scalacheck.Gen
@@ -16,9 +15,9 @@ class NotifierSpec extends ScalaCheckSuite {
 
   private val message: Message =
     Message(
-      Some(MessageId.telegram(1)),
+      Some(TestIds.messageId(1)),
       0L,
-      ChatId.telegram(1L),
+      TestIds.chatId(1L),
       "private",
       text = Some("hello"),
       caption = Some("caption")
@@ -52,7 +51,7 @@ class NotifierNoopSpec extends CatsEffectSuite {
 
   test("the noop notifier does nothing and does not fail") {
     val notifier = Notifier.noop[IO]
-    val message  = Message(Some(MessageId.telegram(1)), 0L, ChatId.telegram(1L), "private")
+    val message  = Message(Some(TestIds.messageId(1)), 0L, TestIds.chatId(1L), "private")
     notifier.info(SBotInfo(SBotInfo.SBotId("bot"), SBotInfo.SBotName("BotName")), "started") *>
       notifier.mediaError(message, Mp3File("a.mp3"), new RuntimeException("boom"))
   }

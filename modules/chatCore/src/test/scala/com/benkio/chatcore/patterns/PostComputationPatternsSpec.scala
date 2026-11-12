@@ -2,16 +2,16 @@ package com.benkio.chatcore.patterns
 
 import cats.effect.IO
 import com.benkio.chatcore.mocks.DBLayerMock
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBTimeoutData
+import com.benkio.chatcore.TestIds
 import munit.CatsEffectSuite
 
 class PostComputationPatternsSpec extends CatsEffectSuite {
 
   val sBotId: SBotId   = SBotId("testbot")
-  val message: Message = Message(messageId = None, date = 0L, chatId = ChatId.telegram(123L), chatType = "private")
+  val message: Message = Message(messageId = None, date = 0L, chatId = TestIds.chatId(123L), chatType = "private")
   val existingTimeout  = DBTimeoutData(
     platform = "telegram",
     chat_id = "123",
@@ -54,9 +54,9 @@ class PostComputationPatternsSpec extends CatsEffectSuite {
     val postComputation = PostComputationPatterns.timeoutPostComputation[IO](dbLayer.dbTimeout, sBotId)
 
     val check = for {
-      beforeUnrelated <- dbLayer.dbTimeout.getOrDefault(ChatId.telegram(124L), sBotId).map(_.last_interaction.toLong)
-      _               <- postComputation(message.copy(chatId = ChatId.telegram(999L)))
-      afterUnrelated  <- dbLayer.dbTimeout.getOrDefault(ChatId.telegram(124L), sBotId).map(_.last_interaction.toLong)
+      beforeUnrelated <- dbLayer.dbTimeout.getOrDefault(TestIds.chatId(124L), sBotId).map(_.last_interaction.toLong)
+      _               <- postComputation(message.copy(chatId = TestIds.chatId(999L)))
+      afterUnrelated  <- dbLayer.dbTimeout.getOrDefault(TestIds.chatId(124L), sBotId).map(_.last_interaction.toLong)
     } yield beforeUnrelated == afterUnrelated
 
     assertIO(check, true)

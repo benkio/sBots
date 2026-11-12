@@ -3,6 +3,7 @@ package com.benkio.chatcore.model
 import cats.syntax.all.*
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBSubscriptionData
+import com.benkio.chatcore.TestIds
 import munit.*
 
 class SubscriptionSpec extends FunSuite {
@@ -70,7 +71,7 @@ class SubscriptionSpec extends FunSuite {
 
   test("Subscription.apply[F] should keep a show subscription without target") {
     val result = Subscription[Either[Throwable, *]](
-      ChatId.telegram(0L),
+      TestIds.chatId(0L),
       SBotId("rphjb"),
       "0 0 0 * * ?",
       SubscriptionType.Show,
@@ -82,7 +83,7 @@ class SubscriptionSpec extends FunSuite {
 
   test("Subscription.apply[F] should keep the given type and target") {
     val result = Subscription[Either[Throwable, *]](
-      ChatId.telegram(0L),
+      TestIds.chatId(0L),
       SBotId("rphjb"),
       "0 0 0 * * ?",
       SubscriptionType.Trigger,
@@ -95,7 +96,7 @@ class SubscriptionSpec extends FunSuite {
   test("Subscription.apply[F] should fail for an invalid cron") {
     assert(
       Subscription[Either[Throwable, *]](
-        ChatId.telegram(0L),
+        TestIds.chatId(0L),
         SBotId("rphjb"),
         "not a cron",
         SubscriptionType.Show,

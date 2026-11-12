@@ -15,6 +15,7 @@ import com.benkio.chatcore.patterns.CommandPatterns.SubscribeUnsubscribeCommand
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBShowData
 import com.benkio.chatcore.BackgroundJobManager
+import com.benkio.chatcore.TestIds
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chattelegramadapter.SBot
 import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
@@ -29,7 +30,7 @@ class ITCalendarCommandSpec extends CatsEffectSuite with DBFixture {
   val sBotConfig             = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
   val sBotInfo               = sBotConfig.sBotInfo
   val otherBotInfo: SBotInfo = sBotInfo.copy(botId = SBotInfo.SBotId("otherbot"))
-  val chatId                 = ChatId.telegram(1L)
+  val chatId                 = TestIds.chatId(1L)
   val msg: Message           = Message(messageId = None, date = 0, chatId = chatId, chatType = "private")
   val alreadyActive          = "calendar subscription already active"
 
@@ -85,7 +86,7 @@ class ITCalendarCommandSpec extends CatsEffectSuite with DBFixture {
       _ <- Resource.make(List(sBotInfo, otherBotInfo).traverse_(b => dbLayer.dbShow.insertShow(show(b))))(_ =>
         List(sBotInfo, otherBotInfo).traverse_(b => dbLayer.dbShow.deleteShow(show(b))) *>
           (for {
-            c <- List(chatId, ChatId.telegram(2L))
+            c <- List(chatId, TestIds.chatId(2L))
             b <- List(sBotInfo, otherBotInfo)
           } yield (c, b)).traverse_ { case (c, b) =>
             dbLayer.dbSubscription.deleteSubscriptions(c, b.botId)
@@ -128,7 +129,7 @@ class ITCalendarCommandSpec extends CatsEffectSuite with DBFixture {
       manager(fixture = fixture, dbLayer = dbLayer, botInfo = otherBotInfo).use { otherManager =>
         for {
           _           <- loadCalendar(jobManager = jobManager, dbLayer = dbLayer)
-          otherChat   <- loadCalendar(jobManager = jobManager, dbLayer = dbLayer, chat = ChatId.telegram(2L))
+          otherChat   <- loadCalendar(jobManager = jobManager, dbLayer = dbLayer, chat = TestIds.chatId(2L))
           otherBot    <- loadCalendar(jobManager = otherManager, dbLayer = dbLayer, botInfo = otherBotInfo)
           stored      <- calendars(dbLayer)
           storedOther <- calendars(dbLayer, otherBotInfo)

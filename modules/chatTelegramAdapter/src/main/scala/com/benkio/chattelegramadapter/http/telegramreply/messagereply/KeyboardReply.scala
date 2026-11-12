@@ -11,6 +11,7 @@ import com.benkio.chattelegramadapter.conversions.MessageConversions.replyParame
 import com.benkio.chattelegramadapter.conversions.ToInlineButton
 import com.benkio.chattelegramadapter.model.toCallbackKey
 import com.benkio.chattelegramadapter.model.CallbackData
+import com.benkio.chattelegramadapter.model.TelegramIds.telegramId
 import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
 import log.effect.LogWriter
 import telegramium.bots.high.*

@@ -6,6 +6,7 @@ import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.Subscription
 import com.benkio.chatcore.model.SubscriptionId
 import com.benkio.chatcore.model.SubscriptionType
+import com.benkio.chatcore.TestIds
 import cron4s.*
 import munit.*
 
@@ -17,7 +18,7 @@ class DBSubscriptionSpec extends FunSuite {
     val now    = Instant.now
     val actual = Subscription(
       id = SubscriptionId(UUID.randomUUID),
-      chatId = ChatId.telegram(0),
+      chatId = TestIds.chatId(0),
       botId = SBotId("botId"),
       cron = Cron.unsafeParse("30 * * * * ?"),
       subscribedAt = now
@@ -50,7 +51,7 @@ class DBSubscriptionSpec extends FunSuite {
     SubscriptionType.values.foreach { subscriptionType =>
       val subscription = Subscription(
         id = SubscriptionId(UUID.randomUUID),
-        chatId = ChatId.telegram(7),
+        chatId = TestIds.chatId(7),
         botId = SBotId("botId"),
         subscriptionType = subscriptionType,
         target = Some("a target"),

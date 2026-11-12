@@ -7,7 +7,6 @@ import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.Text
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.LeftMemberTrigger
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.NewMemberTrigger
@@ -16,6 +15,7 @@ import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.BaseBotSpec
 import com.benkio.chatcore.BotEngine
 import com.benkio.chatcore.Logger.given
+import com.benkio.chatcore.TestIds
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot.commandEffectfulCallback
 import org.scalacheck.effect.PropF
 import org.scalacheck.Gen
@@ -163,7 +163,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
         testMessage = Message(
           messageId = None,
           date = 0,
-          chatId = ChatId.telegram(0),
+          chatId = TestIds.chatId(0),
           chatType = "private",
           text = Some(s"/bensonify $input")
         )

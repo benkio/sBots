@@ -5,7 +5,6 @@ import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.chatcore.mocks.NotifierMock.given
 import com.benkio.chatcore.model.reply.ReplyValue
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.Subscription
@@ -13,6 +12,7 @@ import com.benkio.chatcore.model.SubscriptionId
 import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.patterns.CommandPatterns.SubscribeUnsubscribeCommand
 import com.benkio.chatcore.repository.db.DBSubscriptionData
+import com.benkio.chatcore.TestIds
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chattelegramadapter.SBot
 import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
@@ -33,7 +33,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
   val botName                            = sBotConfig.sBotInfo.botName
   val botId                              = sBotConfig.sBotInfo.botId
   val chatIdValue                        = 0L
-  val chatId                             = ChatId.telegram(chatIdValue)
+  val chatId                             = TestIds.chatId(chatIdValue)
 
   val testSubscription: Subscription = Subscription(
     id = testSubscriptionId,
@@ -159,7 +159,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
     val quietCron     = Cron.unsafeParse("0 0 0 1 1 ?")
     val show          = testSubscription.copy(id = SubscriptionId(UUID.randomUUID()), cron = quietCron)
     val calendar      = show.copy(id = SubscriptionId(UUID.randomUUID()), subscriptionType = SubscriptionType.Calendar)
-    val otherChatShow = show.copy(id = SubscriptionId(UUID.randomUUID()), chatId = ChatId.telegram(1L))
+    val otherChatShow = show.copy(id = SubscriptionId(UUID.randomUUID()), chatId = TestIds.chatId(1L))
     // another bot in the very same chat
     val otherBotShow = DBSubscriptionData(show.copy(id = SubscriptionId(UUID.randomUUID())))
       .copy(bot_id = "anotherbot")
@@ -181,7 +181,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
       _ <- Resource.make(List(otherBotShow, otherBotCalendar).traverse_(dbLayer.dbSubscription.insertSubscription))(_ =>
         List(otherBotShow, otherBotCalendar).traverse_(s =>
           dbLayer.dbSubscription.deleteSubscription(UUID.fromString(s.id))
-        ) *> dbLayer.dbSubscription.deleteSubscriptions(ChatId.telegram(1L), botId)
+        ) *> dbLayer.dbSubscription.deleteSubscriptions(TestIds.chatId(1L), botId)
       )
       reply <- Resource.eval(
         SubscribeUnsubscribeCommand.unsubcribeCommandLogic(
@@ -212,7 +212,7 @@ class ITUnsubscribeCommandSpec extends CatsEffectSuite with DBFixture {
     val quietCron    = Cron.unsafeParse("0 0 0 1 1 ?")
     val show         = testSubscription.copy(id = SubscriptionId(UUID.randomUUID()), cron = quietCron)
     val calendar     = show.copy(id = SubscriptionId(UUID.randomUUID()), subscriptionType = SubscriptionType.Calendar)
-    val otherChatCal = calendar.copy(id = SubscriptionId(UUID.randomUUID()), chatId = ChatId.telegram(1L))
+    val otherChatCal = calendar.copy(id = SubscriptionId(UUID.randomUUID()), chatId = TestIds.chatId(1L))
     val otherBotCal  = DBSubscriptionData(calendar.copy(id = SubscriptionId(UUID.randomUUID())))
       .copy(bot_id = "anotherbot")
     val result = for {

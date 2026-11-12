@@ -10,11 +10,11 @@ import com.benkio.chatcore.model.reply.PagedList
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.show.Show
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chattelegramadapter.model.SearchCommandTelegramKeyboardTitle
+import com.benkio.chattelegramadapter.model.TelegramIds
 import munit.FunSuite
 import telegramium.bots.InlineKeyboardButton
 
@@ -62,7 +62,7 @@ class KeyboardReplySpec extends FunSuite {
     )
   }
 
-  private val message: Message = Message(None, 0L, ChatId.telegram(1L), "private", text = Some("/cmd words"))
+  private val message: Message = Message(None, 0L, TelegramIds.chatId(1L), "private", text = Some("/cmd words"))
 
   private def show(n: Int): Show = Show(
     id = s"id$n",

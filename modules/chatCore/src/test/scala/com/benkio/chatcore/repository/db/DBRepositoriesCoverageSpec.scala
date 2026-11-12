@@ -4,10 +4,10 @@ import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.chatcore.model.show.*
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.Timeout
 import com.benkio.chatcore.Logger.given
+import com.benkio.chatcore.TestIds
 import doobie.implicits.*
 import doobie.util.fragment.Fragment
 import doobie.Transactor
@@ -163,7 +163,7 @@ class DBRepositoriesCoverageSpec extends CatsEffectSuite {
   test("DBTimeout getOrDefault/set/remove/logLastInteraction paths execute") {
     tempDb.use { xa =>
       val botId  = SBotId("test")
-      val chatId = ChatId.telegram(1L)
+      val chatId = TestIds.chatId(1L)
       val impl   = new DBTimeout.DBTimeoutImpl[IO](xa, summon)
       val t0     = Timeout(chatId, botId)
       val row    = DBTimeoutData(t0)

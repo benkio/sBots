@@ -7,8 +7,8 @@ import com.benkio.chatcore.model.SBotInfo.SBotId
 
 extension (msg: Message) {
 
-  /** What the message is, with the command syntax of the platform it comes from (Telegram unless said otherwise). */
-  def messageType(botId: SBotId, syntax: CommandSyntax = CommandSyntax.Telegram): MessageType =
+  /** What the message is, with the command syntax of the platform it comes from (`/command` unless said otherwise). */
+  def messageType(botId: SBotId, syntax: CommandSyntax = CommandSyntax.Slash): MessageType =
     msg.text.fold(MessageType.Message)(t =>
       (syntax.isCommand(t), syntax.isFileRequest(t, botId)) match {
         case (true, _) => MessageType.Command

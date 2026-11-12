@@ -45,7 +45,7 @@ enum MarkdownSupport {
   * @param acceptsFileIds
   *   whether the platform can use the media sources that are not an url (`Left`): the references to files that were
   *   already uploaded to it. Each platform says it for itself; the data does not record which platform a reference
-  *   belongs to (today they are all Telegram's)
+  *   belongs to
   * @param commandSyntax
   *   how the commands and the file requests are written, e.g. `/command@BotName` or `!command`
   */

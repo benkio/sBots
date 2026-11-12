@@ -15,16 +15,15 @@ import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.PagedList
 import com.benkio.chatcore.model.reply.Text
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
-import com.benkio.chatcore.model.MessageId
 import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.Logger.given
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.KeyboardReply
 import com.benkio.chattelegramadapter.mocks.PayloadRecordingApi
 import com.benkio.chattelegramadapter.mocks.SampleWebhookBot
 import com.benkio.chattelegramadapter.model.TelegramCapabilities
+import com.benkio.chattelegramadapter.model.TelegramIds
 import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
 import io.circe.Json
 import munit.CatsEffectSuite
@@ -33,7 +32,7 @@ import telegramium.bots.high.Api
 class TelegramPlatformAdapterSpec extends CatsEffectSuite {
 
   private val message: Message =
-    Message(messageId = Some(MessageId.telegram(7)), date = 0L, chatId = ChatId.telegram(0L), chatType = "test")
+    Message(messageId = Some(TelegramIds.messageId(7)), date = 0L, chatId = TelegramIds.chatId(0L), chatType = "test")
 
   private def adapter(api: Api[IO], startUpdates: IO[Unit] = IO.unit): TelegramPlatformAdapter[IO] =
     new TelegramPlatformAdapter[IO](

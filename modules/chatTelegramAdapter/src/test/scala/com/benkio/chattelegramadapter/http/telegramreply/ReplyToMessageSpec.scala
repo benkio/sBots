@@ -10,13 +10,13 @@ import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.PagedList
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.Text
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageId
 import com.benkio.chatcore.Logger.given
 import com.benkio.chattelegramadapter.conversions.MessageConversions.replyParameters
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.TelegramMessageReply
 import com.benkio.chattelegramadapter.mocks.PayloadRecordingApi
+import com.benkio.chattelegramadapter.model.TelegramIds
 import io.circe.Json
 import munit.CatsEffectSuite
 import telegramium.bots.ReplyParameters
@@ -27,9 +27,9 @@ import telegramium.bots.ReplyParameters
 class ReplyToMessageSpec extends CatsEffectSuite {
 
   private def message(id: Option[MessageId]): Message =
-    Message(id, 0L, ChatId.telegram(10L), "private", text = Some("hi"))
+    Message(id, 0L, TelegramIds.chatId(10L), "private", text = Some("hi"))
 
-  private val withId: Message    = message(Some(MessageId.telegram(7)))
+  private val withId: Message    = message(Some(TelegramIds.messageId(7)))
   private val withoutId: Message = message(None)
 
   private val repository = RepositoryMock(getResourceFileHandler =

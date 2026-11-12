@@ -9,6 +9,7 @@ import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.repository.db.DBSubscription
 import com.benkio.chatcore.repository.db.DBSubscriptionData
+import com.benkio.chatcore.TestIds
 import com.benkio.integration.DBFixture
 import doobie.munit.analysisspec.IOChecker
 import doobie.Transactor
@@ -47,8 +48,8 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
     check(DBSubscription.deleteSubscriptionQuery(testSubscriptionId))
     check(DBSubscription.getSubscriptionQuery(testSubscriptionId))
     check(DBSubscription.getRandomSubscriptionQuery())
-    check(DBSubscription.deleteSubscriptionsQuery(ChatId.telegram(2L), botId))
-    check(DBSubscription.deleteSubscriptionsByTypeQuery(ChatId.telegram(2L), botId, SubscriptionType.Calendar))
+    check(DBSubscription.deleteSubscriptionsQuery(TestIds.chatId(2L), botId))
+    check(DBSubscription.deleteSubscriptionsByTypeQuery(TestIds.chatId(2L), botId, SubscriptionType.Calendar))
   }
 
   databaseFixture.test(
@@ -149,7 +150,7 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
       dbSubscription <- fixture.resourceDBLayer.map(_.dbSubscription)
       _              <- Resource.eval(dbSubscription.insertSubscription(first))
       rejected       <- Resource.eval(dbSubscription.insertSubscription(second).attempt)
-      stored         <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(ChatId.telegram(11L))))
+      stored         <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(TestIds.chatId(11L))))
     } yield (rejected, stored)
     resourceAssert.use { case (rejected, stored) =>
       IO {
@@ -247,11 +248,11 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
         List(calendar, show, trigger, otherChatCal, otherBotCal).traverse_(dbSubscription.insertSubscription)
       )
       _ <- Resource.eval(
-        dbSubscription.deleteSubscriptionsByType(ChatId.telegram(16L), botId, SubscriptionType.Calendar)
+        dbSubscription.deleteSubscriptionsByType(TestIds.chatId(16L), botId, SubscriptionType.Calendar)
       )
-      chat16     <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(ChatId.telegram(16L))))
-      chat17     <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(ChatId.telegram(17L))))
-      otherBot16 <- Resource.eval(dbSubscription.getSubscriptions(SBotId(anotherBot), Some(ChatId.telegram(16L))))
+      chat16     <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(TestIds.chatId(16L))))
+      chat17     <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(TestIds.chatId(17L))))
+      otherBot16 <- Resource.eval(dbSubscription.getSubscriptions(SBotId(anotherBot), Some(TestIds.chatId(16L))))
     } yield (chat16, chat17, otherBot16)
     resourceAssert.use { case (chat16, chat17, otherBot16) =>
       IO {
@@ -273,9 +274,9 @@ class ITDBSubscriptionSpec extends CatsEffectSuite with DBFixture with IOChecker
       // one calendar per chat and bot: the same chat id on another platform is another chat
       _              <- Resource.eval(dbSubscription.insertSubscription(telegramCalendar))
       _              <- Resource.eval(dbSubscription.insertSubscription(ircCalendar))
-      telegramStored <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(ChatId.telegram(31L))))
+      telegramStored <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(TestIds.chatId(31L))))
       ircStored      <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(ChatId(Platform.Irc, "31"))))
-      _              <- Resource.eval(dbSubscription.deleteSubscriptions(ChatId.telegram(31L), botId))
+      _              <- Resource.eval(dbSubscription.deleteSubscriptions(TestIds.chatId(31L), botId))
       ircAfter       <- Resource.eval(dbSubscription.getSubscriptions(botId, Some(ChatId(Platform.Irc, "31"))))
     } yield (telegramStored, ircStored, ircAfter)
     resourceAssert.use { case (telegramStored, ircStored, ircAfter) =>

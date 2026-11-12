@@ -4,15 +4,15 @@ import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.Text
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chatcore.TestIds
 import munit.*
 
 class CommandPatternsSpec extends CatsEffectSuite {
 
-  val msg: Message         = Message(messageId = None, date = 0L, chatId = ChatId.telegram(123L), chatType = "private")
+  val msg: Message         = Message(messageId = None, date = 0L, chatId = TestIds.chatId(123L), chatType = "private")
   val command: String      = "command"
   val defaultReply: String = "defaultReply"
   val sBotInfo: SBotInfo   = SBotInfo(

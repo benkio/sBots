@@ -2,6 +2,7 @@ package com.benkio.chatcore.model
 
 import com.benkio.chatcore.messagefiltering.*
 import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.TestIds
 import munit.*
 
 class MessageSpec extends FunSuite {
@@ -10,7 +11,7 @@ class MessageSpec extends FunSuite {
     val inputMessage: Message = Message(
       messageId = None,
       date = 0L,
-      chatId = ChatId.telegram(0L),
+      chatId = TestIds.chatId(0L),
       chatType = "test",
       text = Some("/testCommand")
     )
@@ -21,7 +22,7 @@ class MessageSpec extends FunSuite {
     val inputMessage: Message = Message(
       messageId = None,
       date = 0L,
-      chatId = ChatId.telegram(0L),
+      chatId = TestIds.chatId(0L),
       chatType = "test",
       text = Some("simple message")
     )
@@ -33,7 +34,7 @@ class MessageSpec extends FunSuite {
     val inputMessage: Message = Message(
       messageId = None,
       date = 0L,
-      chatId = ChatId.telegram(0L),
+      chatId = TestIds.chatId(0L),
       chatType = "test",
       text = Some("rphjb_Schifosi.mp4")
     )

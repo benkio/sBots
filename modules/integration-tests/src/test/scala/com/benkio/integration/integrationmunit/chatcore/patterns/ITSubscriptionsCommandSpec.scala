@@ -4,11 +4,11 @@ import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.chatcore.mocks.NotifierMock.given
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.patterns.CommandPatterns.SubscribeUnsubscribeCommand
 import com.benkio.chatcore.repository.db.DBSubscriptionData
+import com.benkio.chatcore.TestIds
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chattelegramadapter.SBot
 import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
@@ -62,7 +62,7 @@ class ITSubscriptionsCommandSpec extends CatsEffectSuite with DBFixture {
     )
   )
 
-  val msg: Message = Message(messageId = None, date = 0, chatId = ChatId.telegram(chatIdValue), chatType = "private")
+  val msg: Message = Message(messageId = None, date = 0, chatId = TestIds.chatId(chatIdValue), chatType = "private")
 
   databaseFixture.test(
     "Subscriptions Command should return all the subscription by bot and chat"

@@ -8,13 +8,6 @@ import cats.Show
 final case class MessageId(value: String)
 
 object MessageId {
-  def telegram(id: Int): MessageId = MessageId(id.toString)
-
   given Show[MessageId] = Show.show(_.value)
 
-  extension (messageId: MessageId) {
-
-    /** The numeric id of Telegram. Fails for the ids of other platforms. */
-    def telegramId: Int = messageId.value.toInt
-  }
 }

@@ -3,10 +3,10 @@ package com.benkio.integration.integrationmunit.chatcore.patterns
 import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.patterns.CommandPatterns.GetTimeoutCommand
 import com.benkio.chatcore.patterns.CommandPatterns.SetTimeoutCommand
+import com.benkio.chatcore.TestIds
 import com.benkio.chattelegramadapter.SBot
 import com.benkio.integration.DBFixture
 import com.benkio.integration.Logger.given
@@ -19,7 +19,7 @@ class ITGetTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
   val botName     = sBotConfig.sBotInfo.botName
   val botId       = sBotConfig.sBotInfo.botId
   val chatIdValue = 0L
-  val chatId      = ChatId.telegram(chatIdValue)
+  val chatId      = TestIds.chatId(chatIdValue)
 
   val msg: Message = Message(messageId = None, date = 0, chatId = chatId, chatType = "private")
 

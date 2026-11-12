@@ -4,10 +4,10 @@ import cats.data.NonEmptyList
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.chatcore.mocks.RepositoryMock
-import com.benkio.chatcore.mocks.TelegramHttpRoutes
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceFile
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.Logger.given
+import com.benkio.chattelegramadapter.mocks.TelegramHttpRoutes
 import munit.*
 import org.http4s.*
 import org.http4s.client.Client
