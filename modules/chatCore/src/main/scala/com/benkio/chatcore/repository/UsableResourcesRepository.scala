@@ -7,8 +7,8 @@ import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.SBotInfo.SBotId
 
 /** Wraps a repository for a platform that cannot use the file references (`MediaResourceIFile`): it gives only the
-  * other resources, in the same order. A media left without a usable resource is a not found error, the same as a
-  * media that does not exist. See [[Repository.usableFor]].
+  * other resources, in the same order. A media left without a usable resource is a not found error, the same as a media
+  * that does not exist. See [[Repository.usableFor]].
   */
 class UsableResourcesRepository[F[_]](underlying: Repository[F]) extends Repository[F] {
 
@@ -18,11 +18,13 @@ class UsableResourcesRepository[F[_]](underlying: Repository[F]) extends Reposit
   ): Resource[F, Either[Repository.RepositoryError, NonEmptyList[NonEmptyList[MediaResource[F]]]]] =
     underlying
       .getResourcesByKind(criteria, botId)
-      .map(_.flatMap(groups =>
-        NonEmptyList
-          .fromList(groups.toList.flatMap(usable(_).toList))
-          .toRight(Repository.RepositoryError.NoResourcesFoundKind(criteria, botId))
-      ))
+      .map(
+        _.flatMap(groups =>
+          NonEmptyList
+            .fromList(groups.toList.flatMap(usable(_).toList))
+            .toRight(Repository.RepositoryError.NoResourcesFoundKind(criteria, botId))
+        )
+      )
 
   override def getResourceFile(
       mediaFile: MediaFile
