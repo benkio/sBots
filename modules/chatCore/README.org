@@ -6,35 +6,41 @@ The idea is to store here the logic and model of the computation and leave to th
 ** Main Logic
 ***  Design
 
+The logic is the *BotEngine*, whatever the platform the bot runs on: a platform adapter (see [[*Platforms]]) turns what it receives into a ~Message~ and hands it to the engine, then sends what the engine replies.
+
 #+begin_src mermaid
   flowchart TD
-      A@{ shape: lean-l, label: "Input Message" } --> B[SBot]
+      A@{ shape: lean-l, label: "Input Message" } --> B[BotEngine]
       B -- onMessage --> C{Message Type}
 
       C -->|isCommand| D[Search Command]
       D -.->|Command| G[Execute Command]
-      G -->|Reply| Z@{ shape: framed-circle, label: "Stop" }
+      G -->|Reply| R[Adapt Reply To The Platform]
 
       C -->|isFileRequest| F[Search File]
       F -.->|File| H[Fetch File]
-      H -->|Reply| Z@{ shape: framed-circle, label: "Stop" }
+      H -->|Reply| R
 
       C -->|Message| P[Filter Timeout-Forward]
       P -.->|Message| E[Search Trigger]
       E -.->|Possible Replies| I[Select Random File]
-      I -->|Fetch File| M[Post Computation]
-      M -->|Reply| Z@{ shape: framed-circle, label: "Stop" }
+      I -->|Fetch File| R
+
+      R -->|PlatformAdapter.send| M[Post Computation]
+      M --> Z@{ shape: framed-circle, label: "Stop" }
 #+end_src
 
 *** Logic Description
 
-All starts and ends with the *SBot* trait.
-It has specific modes: *SBotPolling* & *SBotWebhook*. (Mainly because of the [[https://github.com/apimorphism/telegramium][Telegramium]] dependency)
+All starts and ends with the *BotEngine* class. It does not know the platform: it uses a *PlatformAdapter* to send the replies (and to compute the ones that depend on the platform), and the capabilities of the platform to read the messages.
+The *Telegram* side is the ~ISBot~ trait in the ~chatTelegramAdapter~ module, a thin shell around the engine that has the modes *SBotPolling* & *SBotWebhook*. (Mainly because of the [[https://github.com/apimorphism/telegramium][Telegramium]] dependency)
 
-There are different logic based on the type of message:
-- Commands :: Messages that starts with `/`
-- FileRequest :: Messages that starts with the bot id
+There are different logic based on the type of message, and what a message looks like depends on the platform (its *CommandSyntax*):
+- Commands :: Messages that start with the command prefix of the platform (~/~ on Telegram, optionally addressed to the bot as ~/command@BotName~)
+- FileRequest :: Messages that start with the bot id (after the file request marker of the platform, if it has one)
 - Message :: normal logic
+
+After the reply is computed, it is adapted to what the platform can send (see [[*Platforms]]) and sent through the adapter.
 
 **** Command Logic
 
@@ -44,6 +50,9 @@ Each command has its logic and they can be found into the ~CommandPatterns~ file
 
 Some commands are grouped together as they work in tandem:
 The ~subscribe~ command will be shipped together with the ~subscriptions~ command. This way the user is able to add subscriptions and see the active ones.
+The subscriptions are fired by the ~CronBackgroundJobManager~, on a cron schedule, whatever the platform: what it fires goes through the same adaptation to the platform.
+
+The commands that list something (the search of the shows or of the triggers, the top twenty) reply with a ~PagedList~. A platform with buttons shows it with the buttons to move across the pages (Telegram: an inline keyboard), one without lists the items of the page as a numbered text.
 
 **** Message Logic
 
@@ -62,16 +71,33 @@ The logic for the file request is pretty simple:
 2. If something is found, fetch the actual content on the web using the link
 3. Return the data
 
+** Platforms
+
+A platform (Telegram, IRC, Discord, Slack: the ~Platform~ enum) is identified in a chat by the ~ChatId(platform, id)~, where the id is a string. The timeouts and the subscriptions in the database are keyed by it.
+
+What the engine needs from a platform:
+- ~PlatformAdapter~ :: the capabilities, ~run~ (start receiving), ~send~ (a reply to the chat of a message) and ~runEffectful~ (compute the replies that depend on the platform)
+- ~PlatformCapabilities~ :: the kinds of media it can send (~MediaKind~), the maximum length of a text, whether it has markdown (~MarkdownSupport~), whether it can delete and edit messages, whether it has buttons, whether it accepts the Telegram file ids, and its ~CommandSyntax~
+- ~Notifier~ :: where the critical errors and the important events go (Telegram: a chat of the operators)
+
+The ~ReplyTransformer~ adapts a reply to the capabilities of the platform: it splits the long texts, turns the markdown into plain text where there is none, drops the time to live where messages cannot be deleted, turns a media the platform cannot send into its link (the ~ReplyAdaptation~ looks it up in the database, and it is dropped when it has none), and a ~PagedList~ into a numbered text where there are no buttons. The engine and the subscriptions apply it to everything they send.
+
+The platform side of Telegram is in ~chatTelegramAdapter~; which bots run on which platforms, the configuration of each platform and the runtime that starts them are in ~main~ (see [[../../docs/bot-logic-overview.md][the logic overview]]). To add a platform see the task ~agent-context/tasks/AddPlatformAdapter.md~.
+
 ** Bot Initialization
 
-Contains the code for initializing the bots in a standard way.
-In particular:
-- Common configuration
-- DB Loading
+The common part, in this module:
+- Common configuration of a bot (~Config~: its database and the HTTP cache of the Dropbox and Mega clients) and the name of its files (~SBotConfig.fromSBotInfo~)
+- The replies and commands of the bot, loaded from its JSON files and served from memory by the database layer (~DBLayer.loadReplies~)
+- Token fetching (~TokenReader~, used for example by the database setup for the YouTube key)
+
+The platform part is in the adapter. For Telegram, ~BotSetup~ builds:
 - Token Fetching
+- DB Loading
 - Webhook management (deletion)
-- Dropbox Client
+- Dropbox and Mega Clients
 - Bot API Object
+- Notifier
 - Background Manager
 
 ** Data Entry
