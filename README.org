@@ -186,15 +186,15 @@ SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' A
   periodically pings an external healthcheck endpoint so you can
   monitor that the service is up (e.g. [[https://healthchecks.io][healthchecks.io]]).
 
-  - **Where**: The healthcheck runs in the main module; one background
+  - *Where*: The healthcheck runs in the main module; one background
     fiber pings the configured URL on a cron schedule.
-  - **Config**: In ~modules/main/src/main/resources/application.conf~
+  - *Config*: In ~modules/main/src/main/resources/application.conf~
     under ~main.healthcheck-ping~:
     - ~endpoint~ :: URL to POST (e.g. ~https://hc-ping.com/<your-check-uuid>~).
     - ~cron~ :: Cron4s expression for how often to ping (e.g. ~* */10 * ? * *~ for every 10 minutes).
-  - **Overrides**: You can override with env vars if your config
+  - *Overrides*: You can override with env vars if your config
     supports it; otherwise edit ~application.conf~ before assembly.
-  - **Note**: Only one healthcheck fiber is started per process. If you
+  - *Note*: Only one healthcheck fiber is started per process. If you
     run multiple replicas, each will ping the same endpoint on each
     tick.
 

@@ -251,9 +251,9 @@ if java.nio.file.Files.isRegularFile(mediaIntegrityParSpec) then {
       s"""      $mediaVarName <- Resource.eval(
          |        mediaFilesFromBot(
          |          SBot.buildSBotConfig($botName.sBotInfo),
-         |          (setup, msgData, cmdData) => {
+         |          setup => {
          |            given telegramium.bots.high.Api[IO] = setup.api
-         |            new SBotPolling[IO](setup, msgData, cmdData)
+         |            new SBotPolling[IO](setup)
          |          }
          |        )
          |      )

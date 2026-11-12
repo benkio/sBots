@@ -109,6 +109,7 @@ Aggregate and `main.dependsOn` will then include your bot automatically.
 
 After Step 2 (and before or alongside the steps below), do the following as needed:
 
+- **Platforms**: a bot runs on Telegram unless its `BotRegistryEntry` says otherwise (`platforms = List(Platform.Telegram)` is the default). Add another platform only when that platform has a runtime.
 - **Custom command callbacks**: If your bot needs `commandEffectfulCallback` (e.g. like RichardPHJBensonBot), edit `BotsRegistry.scala` and add it to the bot’s `BotRegistryEntry` (see Option B in Step 2).
 - **Bot full name**: To set a human-readable name in the DB, edit `modules/botDB/src/main/resources/db/migrations/V1__CreateBotTable.sql` and change the `bot_full_name` value for your bot’s `INSERT`.
 - **MediaIntegrity placement**: automation adds bots to `MediaIntegrityParSpec` by default. If the bot is Mega-heavy (or you need lower bandwidth pressure), move it to `MediaIntegritySeqSpec`.
@@ -131,7 +132,7 @@ After that, the deploy workflow will write the token into the bot’s resources 
 ## Step 4: Verify
 
 - From the project root: `sbt compile`
-- Run the bot (e.g. `sbt "MyNewBot/run"`) once you have added a token and any needed resources.
+- Run only the new bot in polling mode (e.g. `sbt "main/runMain com.benkio.main.MainPolling mynew"`: the id or the name of the bot) once you have added a token and any needed resources. The bot projects depend on `chatCore` only, so they cannot run a platform by themselves: running a bot is the job of `main`.
 
 ## Step 5: Update README
 
@@ -157,7 +158,7 @@ addCommandAlias("mynewAddData", "MyNewBot/runMain com.benkio.MyNewBot.MyNewBotMa
 | 2. Register in build & registry | Run `./scripts/CompleteBotRegistration.sc YourBotName yourid` **or** manually edit build.sbt and BotsRegistry.scala. The script updates **main** `application.conf`, **healthcheck.yml**, **deploy.yml**, **scripts/copyTokensFromDropbox.sh**, **MediaIntegrityParSpec.scala**, **filesCheck/src/Config.ts**, plus build.sbt and BotsRegistry. |
 | 2b. Manual steps after registration | As needed: add `commandEffectfulCallback` in BotsRegistry, set `bot_full_name` in V1__CreateBotTable.sql, add CI secret (Step 3), add YouTube sources in application.conf |
 | 3. CI secret | In the repo: **Settings** → **Secrets and variables** → **Actions** → New repository secret: name `YOURID_TOKEN` (uppercase), value = token from BotFather (used by deploy and healthcheck) |
-| 4. Verify | `sbt compile` and optionally run the bot |
+| 4. Verify | `sbt compile` and optionally run the bot with `main/runMain com.benkio.main.MainPolling yourid` |
 | 5. Docs | Update the README with the new bot |
 
 No changes are needed in `project/Settings.scala` or `project/Dependencies.scala`; the shared `botProjectSettings` and `BotDependencies` apply to every bot. If you add the bot manually (Option A in Step 1), remember to add it to: `modules/botDB/src/main/resources/application.conf` (`json-location` and `show-config.show-sources` with empty `youtube-sources`), `modules/main/src/main/resources/application.conf` (db block under `main.<id>.db`), `modules/botDB/src/main/resources/db/migrations/V1__CreateBotTable.sql` (e.g. `INSERT INTO bot (id, bot_name, bot_full_name) VALUES ('yourid', 'YourBotName', 'Your Bot Full Name');`), `.github/workflows/deploy.yml` (printf line for the token), `.github/workflows/healthcheck.yml` (add `${{ secrets.YOURID_TOKEN }}` to `BOT_TOKENS`), `modules/integration-tests/.../MediaIntegrityParSpec.scala` (or `MediaIntegritySeqSpec.scala` if needed), and `filesCheck/src/Config.ts`. Then run the registration script (Step 2) to update build.sbt, BotsRegistry, and `scripts/copyTokensFromDropbox.sh`; or edit those by hand.
