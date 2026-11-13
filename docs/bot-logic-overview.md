@@ -166,9 +166,16 @@ registry has `Platform.Discord` in its `platforms`) starts `DiscordBot.run` for 
 subscriptions (`CronBackgroundJobManager`, sending once the gateway is up) and the gateway connection, which registers the
 slash commands of the bot once connected (`DiscordSlashCommands`: one per command with instructions, with the free text
 option `arguments`; global commands can take up to an hour to show). To put a bot on Discord:
-1. create its Discord application and add the token as the document `<botId>_<botName>_discord.token` (like the Telegram
-   one);
-2. add `Platform.Discord` to the `platforms` of its `BotRegistryEntry`.
+1. create its application in the Discord developer portal (discord.com/developers/applications), *Bot* tab: reset the
+   token and add it as the document `<botId>_<botName>_discord.token` (like the Telegram one);
+2. invite the bot to a server with the OAuth2 URL generator: scopes `bot` and `applications.commands`, permissions *View
+   Channels*, *Send Messages*, *Read Message History*, *Attach Files* and *Manage Messages* (only to delete the messages
+   with a time to live);
+3. add `Platform.Discord` to the `platforms` of its `BotRegistryEntry`.
+
+The commands are slash commands (they are interactions, no intent is needed to read them). The privileged *Message Content
+Intent* is only for the other messages, e.g. the file requests: enable it in the portal and set `main.discord.message-content`
+(env `DISCORD_MESSAGE_CONTENT`) to true, or the connection is refused.
 
 The chats of the bot are stored with `platform = discord`. The notifications of the operators go to the log on Discord.
 
