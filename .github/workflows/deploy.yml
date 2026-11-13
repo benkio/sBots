@@ -50,6 +50,7 @@ jobs:
           printf '${{ secrets.CALA_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/CalandroBot/src/main/resources/cala_CalandroBot.token
           printf '${{ secrets.MOS_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/M0sconiBot/src/main/resources/mos_M0sconiBot.token
           printf '${{ secrets.RPHJB_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/RichardPHJBensonBot/src/main/resources/rphjb_RichardPHJBensonBot.token
+          printf '${{ secrets.RPHJB_DISCORD_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/RichardPHJBensonBot/src/main/resources/rphjb_RichardPHJBensonBot_discord.token
           printf '${{ secrets.XAH_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/XahLeeBot/src/main/resources/xah_XahLeeBot.token
           printf '${{ secrets.YTAI_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/YouTuboAncheI0Bot/src/main/resources/ytai_YouTuboAncheI0Bot.token
           printf '${{ secrets.PINO_TOKEN }}' > /home/runner/work/sBots/sBots/modules/bots/PinoScottoBot/src/main/resources/pino_PinoScottoBot.token
@@ -96,7 +97,7 @@ jobs:
           name="sBots"
           supervisor=supervise-daemon
           command="/usr/bin/java"
-          command_args="-Xms64m -Xmx256m -Xss512k -XX:MaxMetaspaceSize=96m -XX:ReservedCodeCacheSize=64m -XX:+ExitOnOutOfMemoryError -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=${{ env.DEPLOY_DIR }}/oom.hprof -cp ${{ env.DEPLOY_DIR }}/main.jar com.benkio.main.MainWebhook"
+          command_args="-Xms64m -Xmx256m -Xss512k -XX:MaxMetaspaceSize=160m -XX:ReservedCodeCacheSize=64m -XX:+ExitOnOutOfMemoryError -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=${{ env.DEPLOY_DIR }}/oom.hprof -cp ${{ env.DEPLOY_DIR }}/main.jar com.benkio.main.MainWebhook"
           directory="${{ env.DEPLOY_DIR }}"
           command_user="${{ env.DEPLOY_USER }}"
           pidfile="/run/sbots.pid"

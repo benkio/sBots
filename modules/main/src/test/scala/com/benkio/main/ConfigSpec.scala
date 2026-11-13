@@ -27,10 +27,10 @@ class ConfigSpec extends CatsEffectSuite {
     }
   }
 
-  test("Config.loadConfig should load the Discord block, without the message content intent by default") {
+  test("Config.loadConfig should load the Discord block, with the message content intent by default") {
     Config.loadConfig[IO].map { config =>
       assertEquals(config.discord.shutdownTimeout, 10.seconds)
-      assert(!config.discord.messageContent)
+      assert(config.discord.messageContent)
     }
   }
 

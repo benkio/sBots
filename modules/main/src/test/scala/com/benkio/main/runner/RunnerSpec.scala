@@ -94,8 +94,14 @@ class RunnerSpec extends CatsEffectSuite {
     assertEquals(TelegramPollingPlatformRuntime.platform, Platform.Telegram)
   }
 
-  test("the real registry is bound to Telegram only, as the deployments always were") {
-    assert(BotRegistry.toList(BotRegistry.value).forall(_.platforms == List(Platform.Telegram)))
+  test("every bot of the real registry runs on Telegram, only Richard is also on Discord") {
+    import com.benkio.main.entriesOn
+    val registry = BotRegistry.value
+    assertEquals(
+      registry.entriesOn(Platform.Telegram).size,
+      BotRegistry.toList(registry).size
+    )
+    assertEquals(registry.entriesOn(Platform.Discord).map(_.sBotInfo.botId.value), List("rphjb"))
   }
 
   test("select keeps the bots with the given ids or names") {
@@ -177,5 +183,13 @@ class RunnerSpec extends CatsEffectSuite {
       assertEquals(startedRuntimes.map(_._1).toSet, Set(Platform.Telegram, Platform.Irc))
       assertEquals(ranRuntimes.toSet, Set(Platform.Telegram, Platform.Irc))
     }
+  }
+
+  test("a bot that fails on Discord, e.g. without its token, does not fail the runtime of the other platforms") {
+    val withoutToken = BotRegistryEntry[IO](
+      sBotInfo = bot("NoDiscordToken"),
+      platforms = List(Platform.Discord)
+    )
+    withMainSetup(mainSetup => DiscordPlatformRuntime.start(List(withoutToken), mainSetup).use(identity))
   }
 }
