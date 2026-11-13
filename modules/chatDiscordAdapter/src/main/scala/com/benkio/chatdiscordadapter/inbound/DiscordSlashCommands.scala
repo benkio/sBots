@@ -19,8 +19,8 @@ final case class SlashCommandSpec(name: String, description: String)
   */
 object DiscordSlashCommands {
 
-  /** What Discord accepts: at most 100 commands, a lowercase name of 1 to 32 letters, digits, `-` and `_`, a description
-    * of 1 to 100 characters.
+  /** What Discord accepts: at most 100 commands, a lowercase name of 1 to 32 letters, digits, `-` and `_`, a
+    * description of 1 to 100 characters.
     */
   val maxCommands: Int       = 100
   val maxDescription: Int    = 100

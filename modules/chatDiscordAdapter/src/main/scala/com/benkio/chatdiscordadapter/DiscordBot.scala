@@ -38,7 +38,7 @@ object DiscordBot {
       gatewayConfig: DiscordGatewayConfig,
       notifier: Notifier[F]
   )(using log: LogWriter[F]): F[Unit] = {
-    val sBotConfig = SBotConfig.fromSBotInfo(sBotInfo)
+    val sBotConfig    = SBotConfig.fromSBotInfo(sBotInfo)
     given Notifier[F] = notifier
     (for {
       token      <- DiscordToken.read[F](sBotInfo, ResourcesRepository.fromResources[F]())
@@ -55,7 +55,11 @@ object DiscordBot {
         sendToChat = (chatId: com.benkio.chatcore.model.ChatId, replyValue: ReplyValue, replyToMessage: Boolean) =>
           apiReady.get.flatMap(api =>
             DiscordReplies[F](api, repository, core.dbLayer, capabilities)
-              .send(replyValue, Message(messageId = None, date = 0L, chatId = chatId, chatType = "private"), replyToMessage)
+              .send(
+                replyValue,
+                Message(messageId = None, date = 0L, chatId = chatId, chatType = "private"),
+                replyToMessage
+              )
           )
         backgroundJobManager <- {
           given Random[F] = random
