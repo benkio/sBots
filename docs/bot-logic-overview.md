@@ -189,6 +189,14 @@ reconnects after a delay that doubles up to `reconnect-max-delay` and starts aga
 channels are joined at every registration. The nick of a bot is its name (`IrcCredentials.nick`); with the document
 `<botId>_<botName>_irc.token` the bot identifies with SASL PLAIN as that nick, without it it connects unidentified.
 
+### IRC inbound
+
+`IrcInbound` maps a channel or private message to the engine `Message`: the chat is the channel, or the sender for a private
+message (nicks and channels are case insensitive, so the ids are lowercase), there is no message id, the formatting codes
+(colors, bold, ...) are removed, and the messages of the bot itself are ignored. `IrcInboundListener` hands them to the
+engine, dropping the ones of a sender over `main.irc.rate-limit-messages` per `rate-limit-window` (`RateLimiter`, a fixed
+window per sender). It should get a parallel dispatcher: the messages of a chat are then not handled in order.
+
 ### Known gaps
 
 - The sources that are not an url are plain strings in the DB and do not say which platform they belong to: today they are

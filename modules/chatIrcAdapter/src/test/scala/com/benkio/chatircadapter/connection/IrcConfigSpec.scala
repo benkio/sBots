@@ -15,7 +15,9 @@ class IrcConfigSpec extends FunSuite {
     readyTimeout = 60.seconds,
     shutdownTimeout = 10.seconds,
     reconnectBaseDelay = 2.seconds,
-    reconnectMaxDelay = 60.seconds
+    reconnectMaxDelay = 60.seconds,
+    rateLimitMessages = 5,
+    rateLimitWindow = 10.seconds
   )
 
   test("the reconnection delay doubles with the failed attempts, up to the maximum") {
@@ -39,6 +41,8 @@ class IrcConfigSpec extends FunSuite {
         |shutdown-timeout = 10 seconds
         |reconnect-base-delay = 2 seconds
         |reconnect-max-delay = 60 seconds
+        |rate-limit-messages = 5
+        |rate-limit-window = 10 seconds
         |""".stripMargin
     assertEquals(
       ConfigSource.string(common + """channels = ["#a", "#b"]""").load[IrcConfig].map(_.channels),
