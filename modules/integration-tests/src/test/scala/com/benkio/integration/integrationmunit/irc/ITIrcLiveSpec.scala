@@ -112,16 +112,17 @@ class ITIrcLiveSpec extends CatsEffectSuite with DBFixture {
     } yield BotCoreSetup(
       jsonDataRepository = JsonDataRepository[IO](),
       dbLayer = dbLayer,
-      repository = DBRepository.dbResources[IO](dbLayer.dbMedia, HttpClients(dropboxClient = dropbox, megaClient = mega))
+      repository =
+        DBRepository.dbResources[IO](dbLayer.dbMedia, HttpClients(dropboxClient = dropbox, megaClient = mega))
     )
 
-  /** The text that triggers a reply made only of markdown files (or of some, if no reply is made only of them), when the
-    * bot has one that a text can trigger.
+  /** The text that triggers a reply made only of markdown files (or of some, if no reply is made only of them), when
+    * the bot has one that a text can trigger.
     */
   private def markdownTrigger(replies: List[ReplyBundleMessage]): Option[String] = {
     val withMarkdown = for {
       bundle <- replies
-      files <- bundle.reply match {
+      files  <- bundle.reply match {
         case media: MediaReply => Some(media.mediaFiles)
         case _                 => None
       }
@@ -137,9 +138,9 @@ class ITIrcLiveSpec extends CatsEffectSuite with DBFixture {
 
   private def answer(t: Tester, nick: String, send: IO[Unit]): IO[List[Seen]] =
     for {
-      _ <- t.seen.set(List.empty)
-      _ <- send
-      _ <- until(s"$nick answers", answerTimeout)(t.seen.get.map(_.exists(_.sender.startsWith(nick))))
+      _       <- t.seen.set(List.empty)
+      _       <- send
+      _       <- until(s"$nick answers", answerTimeout)(t.seen.get.map(_.exists(_.sender.startsWith(nick))))
       answers <- t.seen.get.map(_.filter(_.sender.startsWith(nick)))
     } yield answers
 
@@ -158,7 +159,7 @@ class ITIrcLiveSpec extends CatsEffectSuite with DBFixture {
             .runWith[IO](core, sBotConfig, None, entry.commandEffectfulCallback, ircConfig, Notifier.logging[IO])
             .start
           result <- (for {
-            _ <- until(s"$nick joins $channel", answerTimeout)(t.nicknames.map(_.exists(_.startsWith(nick))))
+            _        <- until(s"$nick joins $channel", answerTimeout)(t.nicknames.map(_.exists(_.startsWith(nick))))
             markdown <- markdownTrigger(core.dbLayer.dbMessageReplies.messageReplies)
               .traverse(trigger => answer(t = t, nick = nick, send = t.say(trigger)))
             random <- answer(t = t, nick = nick, send = t.say("!random"))

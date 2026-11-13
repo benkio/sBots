@@ -21,18 +21,19 @@ object MarkdownFiles {
       .getResourceFile(markdownFile)
       .evalMap(Async[F].fromEither)
       .use(resources => firstThatWorks(resources, markdownFile))
-      .flatMap(text =>
-        Async[F].raiseWhen(text.trim.isEmpty)(EmptyMarkdownFile(markdownFile)).as(text)
-      )
+      .flatMap(text => Async[F].raiseWhen(text.trim.isEmpty)(EmptyMarkdownFile(markdownFile)).as(text))
 
   private def firstThatWorks[F[_]: Async: LogWriter](
       resources: NonEmptyList[MediaResource[F]],
       markdownFile: MarkdownFile
   ): F[String] = {
     def read(resource: MediaResource[F]): F[String] = resource match {
-      case MediaResource.MediaResourceFile(file) => file.use(path => Repository.fileToString[F](path).use(Async[F].pure))
+      case MediaResource.MediaResourceFile(file) =>
+        file.use(path => Repository.fileToString[F](path).use(Async[F].pure))
       case MediaResource.MediaResourceIFile(ref) =>
-        Async[F].raiseError(new UnsupportedOperationException(s"A markdown file cannot be read from the reference $ref"))
+        Async[F].raiseError(
+          new UnsupportedOperationException(s"A markdown file cannot be read from the reference $ref")
+        )
     }
     resources.reduceLeftTo(read)((previous, next) =>
       previous.handleErrorWith(e =>
