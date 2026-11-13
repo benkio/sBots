@@ -19,7 +19,9 @@ class KittehConnectionSpec extends CatsEffectSuite {
     readyTimeout = 15.seconds,
     shutdownTimeout = 5.seconds,
     reconnectBaseDelay = 100.millis,
-    reconnectMaxDelay = 500.millis
+    reconnectMaxDelay = 500.millis,
+    rateLimitMessages = 5,
+    rateLimitWindow = 10.seconds
   )
 
   private def eventually(check: => Boolean, tries: Int = 100): IO[Boolean] =

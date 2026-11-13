@@ -31,6 +31,9 @@ final class FakeIrcServer private (server: ServerSocket) {
   /** Closes the connection of the client as a network drop does. */
   def dropConnection: IO[Unit] = IO.blocking(current.get().foreach(_.close()))
 
+  /** Sends a line to the client, as the server would. */
+  def push(line: String): IO[Unit] = IO.blocking(current.get().foreach(send(_, line)))
+
   private def send(socket: Socket, line: String): Unit = {
     val out = socket.getOutputStream
     out.write((line + "\r\n").getBytes("UTF-8"))
