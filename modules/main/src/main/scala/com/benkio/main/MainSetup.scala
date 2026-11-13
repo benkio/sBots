@@ -4,6 +4,7 @@ import cats.effect.Async
 import cats.effect.Resource
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatdiscordadapter.gateway.DiscordGatewayConfig
+import com.benkio.chatircadapter.connection.IrcConfig
 import cron4s.CronExpr
 import doobie.Transactor
 import fs2.io.net.Network
@@ -28,6 +29,7 @@ final case class MainSetup[F[_]](
     http: HttpServerConfig,
     telegram: TelegramSetup,
     discord: DiscordGatewayConfig,
+    irc: IrcConfig,
     healthcheckEndpoint: Uri,
     healthcheckCron: CronExpr
 )
@@ -65,6 +67,7 @@ object MainSetup {
       opsChatId = config.telegram.opsChatId
     ),
     discord = config.discord,
+    irc = config.irc,
     healthcheckEndpoint = config.healthcheckPing.endpoint,
     healthcheckCron = config.healthcheckPing.cron
   )

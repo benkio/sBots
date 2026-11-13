@@ -180,6 +180,15 @@ connection is refused.
 
 The chats of the bot are stored with `platform = discord`. The notifications of the operators go to the log on Discord.
 
+### IRC connection
+
+`chatIrcAdapter` keeps the connection of a bot to the IRC server in `IrcConnection` (`main.irc`: host, port, TLS, channels,
+timeouts): `managed` opens it when the resource is acquired, waits for the registration (`irc.ready-timeout`, a wrong host
+is retried by the library, so it would never fail by itself) and quits on release. When the connection is lost Kitteh
+reconnects after a delay that doubles up to `reconnect-max-delay` and starts again once the bot is registered, and the
+channels are joined at every registration. The nick of a bot is its name (`IrcCredentials.nick`); with the document
+`<botId>_<botName>_irc.token` the bot identifies with SASL PLAIN as that nick, without it it connects unidentified.
+
 ### Known gaps
 
 - The sources that are not an url are plain strings in the DB and do not say which platform they belong to: today they are
