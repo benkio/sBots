@@ -24,8 +24,8 @@ object DiscordGateway {
       .make(LogWriter.info("[DiscordGateway] Connecting") >> open)(close(_, shutdownTimeout))
       .evalTap(_.awaitReady >> LogWriter.info("[DiscordGateway] Connected"))
 
-  /** The connection with the library, to the gateway with the given token and intents. The listeners receive the
-    * events of the library, see the [[net.dv8tion.jda.api.hooks.ListenerAdapter]].
+  /** The connection with the library, to the gateway with the given token and intents. The listeners receive the events
+    * of the library, see the [[net.dv8tion.jda.api.hooks.ListenerAdapter]].
     */
   def resource[F[_]: Async: LogWriter](
       token: String,
@@ -42,7 +42,9 @@ object DiscordGateway {
       config: DiscordGatewayConfig,
       listeners: List[AnyRef] = List.empty
   ): F[Unit] =
-    resource[F](token = token, config = config, listeners = listeners).use(_.closed) >> LogWriter.info("[DiscordGateway] Closed")
+    resource[F](token = token, config = config, listeners = listeners).use(_.closed) >> LogWriter.info(
+      "[DiscordGateway] Closed"
+    )
 
   private def close[F[_]: Async: LogWriter](
       client: GatewayClient[F],

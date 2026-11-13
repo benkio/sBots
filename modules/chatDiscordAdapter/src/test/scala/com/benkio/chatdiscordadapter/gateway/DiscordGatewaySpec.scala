@@ -20,9 +20,9 @@ class DiscordGatewaySpec extends CatsEffectSuite {
       ready: IO[Unit] = IO.unit,
       closesInTime: Boolean = true
   ) extends GatewayClient[IO] {
-    override def awaitReady: IO[Unit]                           = calls.update("awaitReady" :: _) >> ready
-    override def closed: IO[Unit]                               = IO.unit
-    override def shutdown: IO[Unit]                             = calls.update("shutdown" :: _)
+    override def awaitReady: IO[Unit]                                = calls.update("awaitReady" :: _) >> ready
+    override def closed: IO[Unit]                                    = IO.unit
+    override def shutdown: IO[Unit]                                  = calls.update("shutdown" :: _)
     override def awaitShutdown(timeout: FiniteDuration): IO[Boolean] =
       calls.update("awaitShutdown" :: _).as(closesInTime)
     override def shutdownNow: IO[Unit] = calls.update("shutdownNow" :: _)

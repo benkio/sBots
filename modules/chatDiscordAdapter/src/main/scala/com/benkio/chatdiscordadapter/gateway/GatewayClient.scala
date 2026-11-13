@@ -2,8 +2,8 @@ package com.benkio.chatdiscordadapter.gateway
 
 import scala.concurrent.duration.FiniteDuration
 
-/** The connection of a bot to the Discord gateway, as far as its lifecycle goes. It is the only thing [[DiscordGateway]]
-  * knows about the library ([[JdaGatewayClient]]), so the lifecycle can be tested without Discord.
+/** The connection of a bot to the Discord gateway, as far as its lifecycle goes. It is the only thing
+  * [[DiscordGateway]] knows about the library ([[JdaGatewayClient]]), so the lifecycle can be tested without Discord.
   */
 trait GatewayClient[F[_]] {
 
