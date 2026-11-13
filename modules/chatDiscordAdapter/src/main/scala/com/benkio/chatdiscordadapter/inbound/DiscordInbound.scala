@@ -67,7 +67,8 @@ object DiscordInbound {
         date = event.createdAtEpochSecond,
         chatId = chatId(event.channelId),
         chatType = chatType(event.isDirect),
-        text = Some((syntax.invocation(event.name) +: event.arguments.map(_.trim).filter(_.nonEmpty).toList).mkString(" "))
+        text =
+          Some((syntax.invocation(event.name) +: event.arguments.map(_.trim).filter(_.nonEmpty).toList).mkString(" "))
       )
     )
 

@@ -4,8 +4,8 @@ import com.benkio.chatcore.messagefiltering.messageType
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.MessageId
 import com.benkio.chatcore.model.MessageType
-import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.Platform
+import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatdiscordadapter.model.DiscordCapabilities
 import munit.FunSuite
 
@@ -69,7 +69,10 @@ class DiscordInboundSpec extends FunSuite {
       DiscordInbound.slashCommand(slash.copy(arguments = Some(" some words ")), syntax).flatMap(_.text),
       Some("/hello some words")
     )
-    assertEquals(DiscordInbound.slashCommand(slash.copy(arguments = Some("  ")), syntax).flatMap(_.text), Some("/hello"))
+    assertEquals(
+      DiscordInbound.slashCommand(slash.copy(arguments = Some("  ")), syntax).flatMap(_.text),
+      Some("/hello")
+    )
   }
 
   test("a slash command of a bot is ignored") {
@@ -78,7 +81,10 @@ class DiscordInboundSpec extends FunSuite {
 
   test("the engine takes the slash command as a command, and the other messages as messages") {
     val botId = SBotId("bot")
-    assertEquals(DiscordInbound.slashCommand(slash, syntax).map(_.messageType(botId, syntax)), Some(MessageType.Command))
+    assertEquals(
+      DiscordInbound.slashCommand(slash, syntax).map(_.messageType(botId, syntax)),
+      Some(MessageType.Command)
+    )
     assertEquals(DiscordInbound.message(written).map(_.messageType(botId, syntax)), Some(MessageType.Message))
   }
 }
