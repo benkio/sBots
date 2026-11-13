@@ -54,9 +54,9 @@ class DiscordPlatformAdapterSpec extends CatsEffectSuite {
   }
 
   test("run is the connection to the gateway") {
-    Ref.of[IO, Boolean](false).flatMap(started =>
-      adapter(IO.never, started.set(true)).run >> started.get.map(assert(_))
-    )
+    Ref
+      .of[IO, Boolean](false)
+      .flatMap(started => adapter(IO.never, started.set(true)).run >> started.get.map(assert(_)))
   }
 
   test("a reply waits for the connection, then it is sent to the channel as a reply to the message") {
