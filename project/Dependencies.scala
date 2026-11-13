@@ -39,7 +39,7 @@ object Dependencies {
     val sqlite                = "3.41.2.1"
     val telegramiumVersion    = "10.1003.2"
     val jda                   = "6.7.0"
-    val kitteh                = "8.0.0"
+    val kitteh                = "9.0.0"
     val vault                 = "3.7.0"
     val laminar               = "17.2.1"
     val tuplez                = "0.4.0"
