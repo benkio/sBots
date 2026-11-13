@@ -16,14 +16,15 @@ class IrcCredentialsSpec extends CatsEffectSuite {
 
   private def bot(name: String): SBotInfo = SBotInfo(SBotInfo.SBotId("abc"), SBotInfo.SBotName(name))
 
-  test("the nick is the name of the bot") {
-    assertEquals(IrcCredentials.nick(bot("RichardPHJBensonBot")), "RichardPHJBensonBot")
+  test("the nick is the name of the bot, cut to 16 characters") {
+    assertEquals(IrcCredentials.nick(bot("TestBot")), "TestBot")
+    assertEquals(IrcCredentials.nick(bot("RichardPHJBensonBot")), "RichardPHJBenson")
   }
 
-  test("the nick keeps only what a nick can have, does not start with a digit and is at most 30 characters") {
+  test("the nick keeps only what a nick can have, does not start with a digit and is at most 16 characters") {
     assertEquals(IrcCredentials.nick(bot("Pino Scotto!Bot")), "PinoScottoBot")
     assertEquals(IrcCredentials.nick(bot("7Bot")), "_7Bot")
-    assertEquals(IrcCredentials.nick(bot("a" * 40)).length, 30)
+    assertEquals(IrcCredentials.nick(bot("a" * 40)).length, 16)
     assertEquals(IrcCredentials.nick(bot("Zoë")), "Zo")
   }
 

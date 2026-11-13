@@ -14,12 +14,12 @@ import log.effect.LogWriter
 object IrcCredentials {
 
   /** The nick of a bot: its name restricted to what a nick can be (letters, digits and `[]\`_^{|}-`, not starting with
-    * a digit or `-`) and to the 30 characters that most servers accept.
+    * a digit or `-`) and to the 16 characters that every server accepts (Libera.Chat allows no more).
     */
   def nick(sBotInfo: SBotInfo): String = {
     val allowed = sBotInfo.botName.value.filter(c => c.isLetterOrDigit && c < 128 || "[]\\`_^{|}-".contains(c))
     val start   = if allowed.headOption.exists(c => c.isDigit || c == '-') then s"_$allowed" else allowed
-    start.take(30)
+    start.take(16)
   }
 
   def passwordFilename(sBotInfo: SBotInfo): String = s"${sBotInfo.botId}_${sBotInfo.botName}_irc.token"
