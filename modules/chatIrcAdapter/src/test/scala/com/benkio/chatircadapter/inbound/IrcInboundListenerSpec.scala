@@ -28,6 +28,7 @@ class IrcInboundListenerSpec extends CatsEffectSuite {
     shutdownTimeout = 5.seconds,
     reconnectBaseDelay = 100.millis,
     reconnectMaxDelay = 500.millis,
+    messageDelay = 50.millis,
     rateLimitMessages = 2,
     rateLimitWindow = 30.seconds
   )

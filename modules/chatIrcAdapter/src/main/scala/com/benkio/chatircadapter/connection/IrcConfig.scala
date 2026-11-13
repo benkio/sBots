@@ -20,6 +20,9 @@ import scala.concurrent.duration.FiniteDuration
   *   the delay before the first reconnection after the connection is lost, doubled at every failed attempt
   * @param reconnectMaxDelay
   *   the longest delay between two attempts
+  * @param messageDelay
+  *   the time between two messages the bot sends: the server disconnects a client that floods it, so what the bot sends
+  *   is queued and sent one message every delay
   * @param rateLimitMessages
   *   how many messages of one sender a bot handles in the rate limit window, the next ones are ignored
   * @param rateLimitWindow
@@ -34,6 +37,7 @@ final case class IrcConfig(
     shutdownTimeout: FiniteDuration,
     reconnectBaseDelay: FiniteDuration,
     reconnectMaxDelay: FiniteDuration,
+    messageDelay: FiniteDuration,
     rateLimitMessages: Int,
     rateLimitWindow: FiniteDuration
 ) derives ConfigReader {

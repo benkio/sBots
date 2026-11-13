@@ -40,6 +40,7 @@ class ConfigSpec extends CatsEffectSuite {
       assertEquals(config.irc.port, 6697)
       assertEquals(config.irc.channels, List.empty)
       assertEquals(config.irc.reconnectDelay(0), 2.seconds)
+      assertEquals(config.irc.messageDelay, 1200.millis)
     }
   }
 }
