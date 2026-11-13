@@ -68,8 +68,10 @@ object IrcBot {
       config: IrcConfig,
       notifier: Notifier[F]
   )(using log: LogWriter[F]): F[Unit] = {
-    val capabilities = IrcCapabilities.value
-    val nick         = IrcCredentials.nick(sBotConfig.sBotInfo)
+    given Notifier[F] = notifier
+    val capabilities  = IrcCapabilities.value
+    val repository    = core.repository.usableFor(capabilities)
+    val nick          = IrcCredentials.nick(sBotConfig.sBotInfo)
     (for {
       dispatcher <- Dispatcher.parallel[F]
       limiter    <- Resource.eval(RateLimiter[F](config.rateLimitMessages, config.rateLimitWindow))
@@ -81,7 +83,7 @@ object IrcBot {
         // the subscriptions send to a chat without a message to reply to, once the connection is up
         sendToChat = (chatId: ChatId, replyValue: ReplyValue, replyToMessage: Boolean) =>
           apiReady.get.flatMap(api =>
-            IrcReplies[F](api, capabilities).send(
+            IrcReplies[F](api, repository, capabilities).send(
               replyValue,
               Message(messageId = None, date = 0L, chatId = chatId, chatType = "private"),
               replyToMessage
@@ -100,6 +102,7 @@ object IrcBot {
         _ <- {
           lazy val adapter: IrcPlatformAdapter[F] = new IrcPlatformAdapter[F](
             ircApi = apiReady.get,
+            repository = core.repository,
             backgroundJobManager = backgroundJobManager,
             effectfulCallbacks = commandEffectfulCallback,
             dbLayer = core.dbLayer,

@@ -7,8 +7,10 @@ import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.PlatformCapabilities
 import com.benkio.chatcore.repository.db.DBLayer
+import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chatcore.ComputeReply
+import com.benkio.chatcore.Notifier
 import com.benkio.chatcore.PlatformAdapter
 import com.benkio.chatircadapter.model.IrcCapabilities
 import com.benkio.chatircadapter.outbound.IrcApi
@@ -25,8 +27,9 @@ import scala.concurrent.duration.FiniteDuration
   * @param startConnection
   *   connects to the server and delivers the messages to the engine, until the connection ends
   */
-class IrcPlatformAdapter[F[_]: Async: LogWriter](
+class IrcPlatformAdapter[F[_]: Async: LogWriter: Notifier](
     ircApi: F[IrcApi[F]],
+    repository: Repository[F],
     backgroundJobManager: BackgroundJobManager[F],
     effectfulCallbacks: Map[String, Message => F[ReplyValue]],
     dbLayer: DBLayer[F],
@@ -36,10 +39,12 @@ class IrcPlatformAdapter[F[_]: Async: LogWriter](
 
   override val capabilities: PlatformCapabilities = IrcCapabilities.value
 
+  private val usableRepository: Repository[F] = repository.usableFor(capabilities)
+
   override def run: F[Unit] = startConnection
 
   override def send(replyValue: ReplyValue, message: Message, replyToMessage: Boolean): F[Unit] =
-    ircApi.flatMap(api => IrcReplies[F](api, capabilities).send(replyValue, message, replyToMessage))
+    ircApi.flatMap(api => IrcReplies[F](api, usableRepository, capabilities).send(replyValue, message, replyToMessage))
 
   override def runEffectful(reply: EffectfulReply, message: Message): F[ReplyValue] =
     ComputeReply.runEffectfulReply[F](

@@ -85,9 +85,13 @@ class IrcBotSpec extends CatsEffectSuite {
         _        <- eventually(server.joined.nonEmpty)
         _        <- server.push(":alice!a@host PRIVMSG #sbots :ciao a tutti")
         _        <- server.push(":bob!b@host PRIVMSG EngineBot :!hi")
-        answered <- eventually(server.linesReceived.exists(_.startsWith("PRIVMSG bob")))
-        _        <- bot.cancel
-        quitted  <- eventually(server.linesReceived.exists(_.startsWith("QUIT")))
+        answered <- eventually(
+          server.linesReceived.exists(_.startsWith("PRIVMSG bob")) && server.linesReceived.exists(
+            _.startsWith("PRIVMSG #sbots")
+          )
+        )
+        _       <- bot.cancel
+        quitted <- eventually(server.linesReceived.exists(_.startsWith("QUIT")))
       } yield {
         assert(answered, server.linesReceived.toString)
         assert(server.linesReceived.contains("PRIVMSG #sbots :hello"), server.linesReceived.toString)
