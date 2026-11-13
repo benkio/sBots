@@ -148,15 +148,15 @@ class RunnerSpec extends CatsEffectSuite {
     }
   }
 
-  test("Discord is the platform with a connection, a mode runs its Telegram runtime and the Discord one") {
-    assertEquals(Runner.connectionRuntimes, List(DiscordPlatformRuntime))
+  test("Discord and IRC are the platforms with a connection, a mode runs its Telegram runtime and theirs") {
+    assertEquals(Runner.connectionRuntimes, List(DiscordPlatformRuntime, IrcPlatformRuntime))
     assertEquals(
       Runner.runtimes(Runner.RunMode.Webhook),
-      List(TelegramWebhookPlatformRuntime, DiscordPlatformRuntime)
+      List(TelegramWebhookPlatformRuntime, DiscordPlatformRuntime, IrcPlatformRuntime)
     )
     assertEquals(
       Runner.runtimes(Runner.RunMode.Polling),
-      List(TelegramPollingPlatformRuntime, DiscordPlatformRuntime)
+      List(TelegramPollingPlatformRuntime, DiscordPlatformRuntime, IrcPlatformRuntime)
     )
   }
 
@@ -191,5 +191,10 @@ class RunnerSpec extends CatsEffectSuite {
       platforms = List(Platform.Discord)
     )
     withMainSetup(mainSetup => DiscordPlatformRuntime.start(List(withoutToken), mainSetup).use(identity))
+  }
+
+  test("a bot that fails on IRC, e.g. without its configuration, does not fail the runtime of the other platforms") {
+    val unknown = BotRegistryEntry[IO](sBotInfo = bot("NoIrcConfig"), platforms = List(Platform.Irc))
+    withMainSetup(mainSetup => IrcPlatformRuntime.start(List(unknown), mainSetup).use(identity))
   }
 }

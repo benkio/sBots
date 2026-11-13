@@ -207,6 +207,22 @@ a line (multibyte text is longer in bytes), at most 20 lines a reply (the rest i
 left out). The flood control is the queue of Kitteh: one message every `main.irc.message-delay` (1.2 seconds). The text goes to
 the channel, or to the nick for a private message; IRC has no reply to a message.
 
+### Running a bot on IRC
+
+`IrcPlatformRuntime` (registered in `Runner.connectionRuntimes` after the Discord one, and only started when a bot of the
+registry has `Platform.Irc` in its `platforms`) starts `IrcBot.run` for each of them: the engine, the adapter, the
+subscriptions (`CronBackgroundJobManager`, sending once the connection is up) and the connection, one per bot with its name
+as the nick. A bot that fails there (no connection within `irc.ready-timeout`, ...) is logged and stops, the other bots keep
+running. To put a bot on IRC:
+1. set `main.irc` (host, port, TLS, and `channels`: the ones every bot joins; without channels the bot only answers private
+   messages), by `application.conf` or `IRC_HOST`, `IRC_PORT`, `IRC_TLS`;
+2. if its nick is registered with NickServ, add the password as the document `<botId>_<botName>_irc.token` (SASL PLAIN, the
+   nick is the account); without it the bot connects unidentified;
+3. add `Platform.Irc` to the `platforms` of its `BotRegistryEntry`.
+
+The commands are written `!command`, a trigger is any message of the channel. The paged lists are numbered texts, the media
+are their links. The chats are stored with `platform = irc`, the id being the lowercase channel or nick.
+
 ### Known gaps
 
 - The sources that are not an url are plain strings in the DB and do not say which platform they belong to: today they are
