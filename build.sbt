@@ -183,7 +183,11 @@ lazy val main = project
   .in(file("modules/main"))
   .settings(Settings.settings *)
   .settings(Settings.MainSettings)
-  .dependsOn(chatCore % "compile->compile;test->test", chatTelegramAdapter % "compile->compile;test->test")
+  .dependsOn(
+    chatCore            % "compile->compile;test->test",
+    chatTelegramAdapter % "compile->compile;test->test",
+    chatDiscordAdapter  % "compile->compile;test->test"
+  )
   .dependsOn(botProjects.map(_ % "compile->compile;test->test") *)
 
 lazy val botDB =

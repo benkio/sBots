@@ -143,6 +143,14 @@ A platform adapter reads the media through `repository.usableFor(capabilities)`:
 references (`MediaResourceIFile`, the sources that are not an url) are left out, and a media with nothing usable is a not
 found error. Every new adapter has to do the same, as `TelegramPlatformAdapter` does.
 
+### Discord gateway
+
+`chatDiscordAdapter` keeps the connection of a bot to the Discord gateway in `DiscordGateway`: `managed` opens it when the
+resource is acquired and closes it on release (shutdown, wait for `main.discord.shutdown-timeout`, then close without
+waiting), also when it never gets ready. JDA does the reconnects and the resume by itself, they are only logged. The token
+of a bot is a document named `<botId>_<botName>_discord.token`, read with `DiscordToken.read`. The privileged message
+content intent is `main.discord.message-content` (off by default; enable it in the developer portal too).
+
 ### Known gaps
 
 - The sources that are not an url are plain strings in the DB and do not say which platform they belong to: today they are
