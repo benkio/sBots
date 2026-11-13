@@ -5,6 +5,7 @@ import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.repository.Repository.RepositoryError
+import log.effect.LogWriter
 
 /** Tells the people running the bots about the critical errors and the important events, e.g. a bot that starts. Where
   * the notification goes is up to the platform: a chat for the operators, a channel, a log.
@@ -25,6 +26,13 @@ object Notifier {
     override def info(sBotInfo: SBotInfo, message: String): F[Unit]                            = Applicative[F].unit
     override def mediaError(message: Message, mediaFile: MediaFile, error: Throwable): F[Unit] =
       Applicative[F].unit
+  }
+
+  /** Writes the notifications to the log: for the platforms that have no place for the operators yet. */
+  def logging[F[_]](using log: LogWriter[F]): Notifier[F] = new Notifier[F] {
+    override def info(sBotInfo: SBotInfo, message: String): F[Unit] = log.info(formatInfo(sBotInfo, message))
+    override def mediaError(message: Message, mediaFile: MediaFile, error: Throwable): F[Unit] =
+      log.error(formatMediaError(message = message, mediaFile = mediaFile, error = error))
   }
 
   def formatInfo(sBotInfo: SBotInfo, message: String): String =

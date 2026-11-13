@@ -3,6 +3,7 @@ package com.benkio.main
 import cats.effect.Async
 import cats.effect.Resource
 import com.benkio.chatcore.repository.db.DBLayer
+import com.benkio.chatdiscordadapter.gateway.DiscordGatewayConfig
 import cron4s.CronExpr
 import doobie.Transactor
 import fs2.io.net.Network
@@ -26,6 +27,7 @@ final case class MainSetup[F[_]](
     dbLayer: DBLayer[F],
     http: HttpServerConfig,
     telegram: TelegramSetup,
+    discord: DiscordGatewayConfig,
     healthcheckEndpoint: Uri,
     healthcheckCron: CronExpr
 )
@@ -62,6 +64,7 @@ object MainSetup {
       webhookCertificate = certificate,
       opsChatId = config.telegram.opsChatId
     ),
+    discord = config.discord,
     healthcheckEndpoint = config.healthcheckPing.endpoint,
     healthcheckCron = config.healthcheckPing.cron
   )

@@ -159,6 +159,19 @@ already split them to 2000 characters and Discord reads the backslash escapes), 
 after it. A media is read from its url sources in order until one works and uploaded; above 10 MiB (`DiscordLimits`) it is
 sent as its link. A markdown file is sent as text. A failure is logged and notified like on Telegram.
 
+### Running a bot on Discord
+
+`DiscordPlatformRuntime` (registered in `Runner.connectionRuntimes`, so it runs in every mode, and only when a bot of the
+registry has `Platform.Discord` in its `platforms`) starts `DiscordBot.run` for each of them: the engine, the adapter, the
+subscriptions (`CronBackgroundJobManager`, sending once the gateway is up) and the gateway connection, which registers the
+slash commands of the bot once connected (`DiscordSlashCommands`: one per command with instructions, with the free text
+option `arguments`; global commands can take up to an hour to show). To put a bot on Discord:
+1. create its Discord application and add the token as the document `<botId>_<botName>_discord.token` (like the Telegram
+   one);
+2. add `Platform.Discord` to the `platforms` of its `BotRegistryEntry`.
+
+The chats of the bot are stored with `platform = discord`. The notifications of the operators go to the log on Discord.
+
 ### Known gaps
 
 - The sources that are not an url are plain strings in the DB and do not say which platform they belong to: today they are
