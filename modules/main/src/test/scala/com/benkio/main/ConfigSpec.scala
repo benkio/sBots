@@ -3,6 +3,8 @@ package com.benkio.main
 import cats.effect.IO
 import munit.CatsEffectSuite
 
+import scala.concurrent.duration.*
+
 class ConfigSpec extends CatsEffectSuite {
 
   test("Config.loadConfig should load the correct configuration with default values") {
@@ -22,6 +24,13 @@ class ConfigSpec extends CatsEffectSuite {
     Config.loadConfig[IO].map { config =>
       assert(config.telegram.webhookBaseUrl.startsWith("https://"), config.telegram.webhookBaseUrl)
       assertEquals(config.telegram.opsChatId, -4145546019L)
+    }
+  }
+
+  test("Config.loadConfig should load the Discord block, without the message content intent by default") {
+    Config.loadConfig[IO].map { config =>
+      assertEquals(config.discord.shutdownTimeout, 10.seconds)
+      assert(!config.discord.messageContent)
     }
   }
 }

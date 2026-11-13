@@ -2,6 +2,7 @@ package com.benkio.main
 
 import cats.effect.Async
 import com.benkio.chatcore.initialization.DBConfig
+import com.benkio.chatdiscordadapter.gateway.DiscordGatewayConfig
 import cron4s.expr.CronExpr
 import org.http4s.Uri
 import pureconfig.*
@@ -30,6 +31,7 @@ final case class TelegramConfig(
 final case class Config(
     http: HttpServerConfig,
     telegram: TelegramConfig,
+    discord: DiscordGatewayConfig,
     mainDB: DBConfig,
     healthcheckPing: HealthcheckPingConfig
 ) derives ConfigReader
