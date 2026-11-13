@@ -16,10 +16,10 @@ object DiscordGateway {
     * timeout and then closes without waiting for the pending requests. The connection is closed also if it never gets
     * ready (e.g. the library fails while it connects). A failure while closing is logged, not raised.
     */
-  def managed[F[_]: Async: LogWriter](
-      open: F[GatewayClient[F]],
+  def managed[F[_]: Async: LogWriter, C <: GatewayClient[F]](
+      open: F[C],
       shutdownTimeout: scala.concurrent.duration.FiniteDuration
-  ): Resource[F, GatewayClient[F]] =
+  ): Resource[F, C] =
     Resource
       .make(LogWriter.info("[DiscordGateway] Connecting") >> open)(close(_, shutdownTimeout))
       .evalTap(_.awaitReady >> LogWriter.info("[DiscordGateway] Connected"))
@@ -31,7 +31,7 @@ object DiscordGateway {
       token: String,
       config: DiscordGatewayConfig,
       listeners: List[AnyRef] = List.empty
-  ): Resource[F, GatewayClient[F]] =
+  ): Resource[F, JdaGatewayClient[F]] =
     Dispatcher.sequential[F].flatMap { dispatcher =>
       managed(JdaGatewayClient.open[F](dispatcher, token, config.intents, listeners), config.shutdownTimeout)
     }

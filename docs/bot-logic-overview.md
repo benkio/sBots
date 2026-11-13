@@ -151,6 +151,14 @@ waiting), also when it never gets ready. JDA does the reconnects and the resume 
 of a bot is a document named `<botId>_<botName>_discord.token`, read with `DiscordToken.read`. The privileged message
 content intent is `main.discord.message-content` (off by default; enable it in the developer portal too).
 
+### Discord replies
+
+`DiscordPlatformAdapter` sends through `DiscordReplies`, written against the small `DiscordApi` (`JdaDiscordApi` is the JDA
+one, found through `JdaGatewayClient.jda` once the gateway is up). Texts and markdown are sent as they are (the engine
+already split them to 2000 characters and Discord reads the backslash escapes), a text with a time to live is deleted
+after it. A media is read from its url sources in order until one works and uploaded; above 10 MiB (`DiscordLimits`) it is
+sent as its link. A markdown file is sent as text. A failure is logged and notified like on Telegram.
+
 ### Known gaps
 
 - The sources that are not an url are plain strings in the DB and do not say which platform they belong to: today they are

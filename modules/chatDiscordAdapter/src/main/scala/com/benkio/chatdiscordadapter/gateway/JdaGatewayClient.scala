@@ -27,7 +27,7 @@ object JdaGatewayClient {
       token: String,
       intents: Set[GatewayIntent],
       listeners: List[AnyRef]
-  ): F[GatewayClient[F]] =
+  ): F[JdaGatewayClient[F]] =
     Deferred[F, Unit].flatMap { closedSignal =>
       val lifecycle = new ListenerAdapter {
         override def onSessionDisconnect(event: SessionDisconnectEvent): Unit =
@@ -47,16 +47,16 @@ object JdaGatewayClient {
             .addEventListeners((lifecycle :: listeners)*)
             .build()
         )
-        .map(jda => client(jda, closedSignal))
+        .map(jda => new JdaGatewayClient[F](jda, closedSignal))
     }
+}
 
-  private def client[F[_]: Async](jda: JDA, closedSignal: Deferred[F, Unit]): GatewayClient[F] =
-    new GatewayClient[F] {
-      override def awaitReady: F[Unit]                                = Async[F].interruptible(jda.awaitReady()).void
-      override def closed: F[Unit]                                    = closedSignal.get
-      override def shutdown: F[Unit]                                  = Async[F].delay(jda.shutdown())
-      override def shutdownNow: F[Unit]                               = Async[F].delay(jda.shutdownNow()).void
-      override def awaitShutdown(timeout: FiniteDuration): F[Boolean] =
-        Async[F].interruptible(jda.awaitShutdown(java.time.Duration.ofMillis(timeout.toMillis)))
-    }
+/** The connection of JDA: the `jda` is what the adapter sends the replies with. */
+class JdaGatewayClient[F[_]: Async](val jda: JDA, closedSignal: Deferred[F, Unit]) extends GatewayClient[F] {
+  override def awaitReady: F[Unit]                                = Async[F].interruptible(jda.awaitReady()).void
+  override def closed: F[Unit]                                    = closedSignal.get
+  override def shutdown: F[Unit]                                  = Async[F].delay(jda.shutdown())
+  override def shutdownNow: F[Unit]                               = Async[F].delay(jda.shutdownNow()).void
+  override def awaitShutdown(timeout: FiniteDuration): F[Boolean] =
+    Async[F].interruptible(jda.awaitShutdown(java.time.Duration.ofMillis(timeout.toMillis)))
 }

@@ -31,7 +31,7 @@ class DiscordGatewaySpec extends CatsEffectSuite {
   private def run(client: Ref[IO, List[String]] => FakeClient): IO[(Either[Throwable, Unit], List[String])] =
     for {
       calls  <- Ref.of[IO, List[String]](List.empty)
-      result <- DiscordGateway.managed[IO](IO.pure(client(calls)), 1.second).use(_ => IO.unit).attempt
+      result <- DiscordGateway.managed[IO, FakeClient](IO.pure(client(calls)), 1.second).use(_ => IO.unit).attempt
       done   <- calls.get.map(_.reverse)
     } yield (result, done)
 
