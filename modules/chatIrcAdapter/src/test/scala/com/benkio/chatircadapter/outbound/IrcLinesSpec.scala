@@ -27,7 +27,7 @@ class IrcLinesSpec extends ScalaCheckSuite {
   }
 
   test("a line over the limit of bytes is cut between characters") {
-    val text = "ä" * 300 // 2 bytes each
+    val text  = "ä" * 300 // 2 bytes each
     val parts = split(text = text, maxChars = 400, maxBytes = 100)
     assertEquals(parts.map(_.length), List(50, 50, 50, 50, 50, 50))
     assertEquals(parts.mkString, text)
