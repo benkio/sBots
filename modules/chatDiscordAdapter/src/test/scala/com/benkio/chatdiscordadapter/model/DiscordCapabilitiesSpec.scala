@@ -23,25 +23,28 @@ class DiscordCapabilitiesSpec extends FunSuite {
     assertEquals(capabilities.maxTextLength, 2000)
   }
 
-  test("the uploads are files, the stickers and the markdown files are not") {
+  test("the files and the markdown files are sent, the stickers are not") {
     assert(capabilities.supports(Mp3File("a.mp3")))
     assert(capabilities.supports(GifFile("a.mp4")))
     assert(capabilities.supports(PhotoFile("a.jpg")))
     assert(capabilities.supports(VideoFile("a.mp4")))
     assert(capabilities.supports(Document("a.pdf")))
     assert(!capabilities.supports(Sticker("a.sticker")))
-    assert(!capabilities.supports(MarkdownFile("a.md")))
-    assertEquals(capabilities.supportedMedia, MediaKind.values.toSet - MediaKind.Sticker - MediaKind.MarkdownFile)
+    assert(capabilities.supports(MarkdownFile("a.md")))
+    assertEquals(capabilities.supportedMedia, MediaKind.values.toSet - MediaKind.Sticker)
   }
 
-  test("the commands are written as !command, without a mention") {
-    assertEquals(capabilities.commandSyntax.invocation("hello"), "!hello")
+  test("the commands are slash commands, without a mention") {
+    assertEquals(capabilities.commandSyntax.invocation("hello"), "/hello")
     assertEquals(capabilities.commandSyntax.mentionSeparator, None)
   }
 
   test("a text over the limit is split and keeps its time to live, markdown stays markdown") {
     val result = ReplyTransformer.transform(capabilities)(Text("a" * 2500, Some(1.minute)))
-    assertEquals(result.map { case Text(value, ttl) => (value.length, ttl); case other => fail(s"$other") }, List((2000, Some(1.minute)), (500, Some(1.minute))))
+    assertEquals(
+      result.map { case Text(value, ttl) => (value.length, ttl); case other => fail(s"$other") },
+      List((2000, Some(1.minute)), (500, Some(1.minute)))
+    )
     assertEquals(ReplyTransformer.transform(capabilities)(Markdown("**hi**")), List(Markdown("**hi**")))
   }
 
