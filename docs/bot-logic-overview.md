@@ -149,7 +149,7 @@ found error. Every new adapter has to do the same, as `TelegramPlatformAdapter` 
 resource is acquired and closes it on release (shutdown, wait for `main.discord.shutdown-timeout`, then close without
 waiting), also when it never gets ready. JDA does the reconnects and the resume by itself, they are only logged. The token
 of a bot is a document named `<botId>_<botName>_discord.token`, read with `DiscordToken.read`. The privileged message
-content intent is `main.discord.message-content` (off by default; enable it in the developer portal too).
+content intent is `main.discord.message-content` (on by default: enable it in the developer portal too, or the connection is refused).
 
 ### Discord replies
 
@@ -174,8 +174,9 @@ option `arguments`; global commands can take up to an hour to show). To put a bo
 3. add `Platform.Discord` to the `platforms` of its `BotRegistryEntry`.
 
 The commands are slash commands (they are interactions, no intent is needed to read them). The privileged *Message Content
-Intent* is only for the other messages, e.g. the file requests: enable it in the portal and set `main.discord.message-content`
-(env `DISCORD_MESSAGE_CONTENT`) to true, or the connection is refused.
+Intent* is for the other messages, the ones the bot answers as on Telegram and the file requests: it is on by default
+(`main.discord.message-content`, env `DISCORD_MESSAGE_CONTENT`), so enable it in the portal or set it to false, or the
+connection is refused.
 
 The chats of the bot are stored with `platform = discord`. The notifications of the operators go to the log on Discord.
 
