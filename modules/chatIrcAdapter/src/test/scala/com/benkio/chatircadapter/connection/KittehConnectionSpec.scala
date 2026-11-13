@@ -104,4 +104,30 @@ class KittehConnectionSpec extends CatsEffectSuite {
         )
     )
   }
+
+  test("with a password it identifies with SASL PLAIN as the nick, and registers") {
+    FakeIrcServer.resource.use(server =>
+      IrcConnection
+        .resource[IO]("TestBot", Some("secret"), config(server.port))
+        .use(_ =>
+          eventually(server.joined.size == 2).map { joined =>
+            assert(joined, server.linesReceived.toString)
+            assertEquals(server.saslCredentials, List("TestBot|TestBot|secret"), server.linesReceived.toString)
+          }
+        )
+    )
+  }
+
+  test("without a password it asks for no capability and sends no SASL") {
+    FakeIrcServer.resource.use(server =>
+      IrcConnection
+        .resource[IO]("TestBot", None, config(server.port))
+        .use(_ =>
+          eventually(server.joined.size == 2).map { _ =>
+            assertEquals(server.saslCredentials, List.empty)
+            assert(!server.linesReceived.exists(_.startsWith("CAP REQ")), server.linesReceived.toString)
+          }
+        )
+    )
+  }
 }

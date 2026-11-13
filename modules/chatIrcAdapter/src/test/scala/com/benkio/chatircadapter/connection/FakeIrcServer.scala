@@ -21,12 +21,18 @@ final class FakeIrcServer private (server: ServerSocket) {
   private val current                   = new AtomicReference[Option[Socket]](None)
   private val joinedChannels            = new CopyOnWriteArrayList[String]()
   private val received                  = new CopyOnWriteArrayList[String]()
+  private val saslDecoded               = new CopyOnWriteArrayList[String]()
   @volatile private var closed: Boolean = false
 
   def port: Int                   = server.getLocalPort
   def connections: Int            = connectionsCount.get()
   def joined: List[String]        = joinedChannels.asScala.toList
   def linesReceived: List[String] = received.asScala.toList
+
+  /** What the clients sent to identify with SASL PLAIN, decoded: `authzid NUL authcid NUL password` with the NULs as
+    * `|`.
+    */
+  def saslCredentials: List[String] = saslDecoded.asScala.toList
 
   /** Closes the connection of the client as a network drop does. */
   def dropConnection: IO[Unit] = IO.blocking(current.get().foreach(_.close()))
@@ -51,7 +57,15 @@ final class FakeIrcServer private (server: ServerSocket) {
         received.add(line)
         val parts = line.split(" ")
         parts(0) match {
-          case "CAP" if parts.lift(1).contains("LS")  => send(socket, ":fake CAP * LS :")
+          case "CAP" if parts.lift(1).contains("LS")             => send(socket, ":fake CAP * LS :sasl=PLAIN,EXTERNAL")
+          case "CAP" if parts.lift(1).contains("REQ")            => send(socket, ":fake CAP * ACK :sasl")
+          case "AUTHENTICATE" if parts.lift(1).contains("PLAIN") => send(socket, "AUTHENTICATE +")
+          case "AUTHENTICATE"                                    =>
+            val decoded = new String(java.util.Base64.getDecoder.decode(parts.lift(1).getOrElse("")), "UTF-8")
+            saslDecoded.add(decoded.replace('\u0000', '|'))
+            val n = nick.getOrElse("n")
+            send(socket, s":fake 900 $n $n!n@host $n :You are now logged in as $n")
+            send(socket, s":fake 903 $n :SASL authentication successful")
           case "CAP" if parts.lift(1).contains("END") => capEnded = true
           case "NICK"                                 => nick = parts.lift(1)
           case "USER"                                 => user = true
