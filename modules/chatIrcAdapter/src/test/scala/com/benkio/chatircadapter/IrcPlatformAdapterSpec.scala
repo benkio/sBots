@@ -5,6 +5,8 @@ import cats.effect.IO
 import cats.effect.Ref
 import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.mocks.DBLayerMock
+import com.benkio.chatcore.mocks.NotifierMock.given
+import com.benkio.chatcore.mocks.RepositoryMock
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
@@ -23,6 +25,7 @@ class IrcPlatformAdapterSpec extends CatsEffectSuite {
   private def adapter(api: IO[IrcApi[IO]], start: IO[Unit] = IO.unit): IrcPlatformAdapter[IO] =
     new IrcPlatformAdapter[IO](
       ircApi = api,
+      repository = new RepositoryMock(),
       backgroundJobManager = BackgroundJobManagerMock.mock(),
       effectfulCallbacks = Map.empty,
       dbLayer = DBLayerMock.mock(SBotId("bot")),

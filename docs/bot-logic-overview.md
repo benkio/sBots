@@ -186,7 +186,8 @@ The chats of the bot are stored with `platform = discord`. The notifications of 
 timeouts): `managed` opens it when the resource is acquired, waits for the registration (`irc.ready-timeout`, a wrong host
 is retried by the library, so it would never fail by itself) and quits on release. When the connection is lost Kitteh
 reconnects after a delay that doubles up to `reconnect-max-delay` and starts again once the bot is registered, and the
-channels are joined at every registration. The nick of a bot is its name (`IrcCredentials.nick`); with the document
+channels are joined at every registration. The nick of a bot is its name cut to 16 characters, the most that every network accepts, Libera.Chat included
+(`IrcCredentials.nick`); with the document
 `<botId>_<botName>_irc.token` the bot identifies with SASL PLAIN as that nick, without it it connects unidentified.
 
 ### IRC inbound
@@ -200,12 +201,21 @@ window per sender). It should get a parallel dispatcher: the messages of a chat 
 ### IRC outbound
 
 `IrcPlatformAdapter` sends through `IrcReplies`, written against the small `IrcApi` (`KittehIrcApi` is the Kitteh one, from
-`KittehConnection.client`). The engine has already made the reply plain: the markdown is plain text, a media is its link, the
-time to live is gone. `IrcLines` cuts a text in the lines IRC carries: one message per line (a line break or control
+`KittehConnection.client`). The engine has already made the reply plain: the markdown is plain text, a media is its link (but the
+markdown files, that are read and sent as plain text, the way Discord sends them), the time to live is gone. `IrcLines` cuts a text in the lines IRC carries: one message per line (a line break or control
 character in a message would be taken as a command by the server, so they are removed), at most 400 characters and 400 bytes
 a line (multibyte text is longer in bytes), at most 20 lines a reply (the rest is replaced by a line that says how many were
 left out). The flood control is the queue of Kitteh: one message every `main.irc.message-delay` (1.2 seconds). The text goes to
 the channel, or to the nick for a private message; IRC has no reply to a message.
+
+### IRC live test
+
+`ITIrcLiveSpec` (integration tests, so it runs with `integration/mUnitTests` in CI) puts every bot of the registry on the real
+`irc.libera.chat`, in `##sBotsTesting` (`##` is Libera's prefix for channels that are not a registered project), one bot
+after the other so a single address never holds many connections: a tester client writes to the channel a text that triggers
+a markdown file of the bot (when it has one a text can trigger) and `!random`, and checks that the bot answers both. Set
+`IRC_LIVE_TEST=false` to skip it without the network. It uses the real DB of the integration tests, and removes the timeout
+the bot may have left in the channel.
 
 ### Running a bot on IRC
 
