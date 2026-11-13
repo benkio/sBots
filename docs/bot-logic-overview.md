@@ -233,6 +233,31 @@ running. To put a bot on IRC:
 The commands are written `!command`, a trigger is any message of the channel. The paged lists are numbered texts, the media
 are their links. The chats are stored with `platform = irc`, the id being the lowercase channel or nick.
 
+### IRC: configuration and limitations
+
+`main.irc` (`application.conf`; the env var overrides are `IRC_HOST`, `IRC_PORT` and `IRC_TLS`):
+
+| key | default | what |
+|---|---|---|
+| `host`, `port`, `tls` | `irc.libera.chat`, 6697, true | the server, the port must be the TLS one when `tls` is true |
+| `channels` | none | joined by every bot at every registration; a list, no env override |
+| `ready-timeout` | 60 s | how long a bot is given to connect and register |
+| `shutdown-timeout` | 10 s | how long the connection is given to close after the quit |
+| `reconnect-base-delay`, `reconnect-max-delay` | 2 s, 60 s | the delay before a reconnection, doubled at every failed attempt |
+| `message-delay` | 1200 ms | between two messages a bot sends (flood protection of the server) |
+| `rate-limit-messages`, `rate-limit-window` | 5, 10 s | the messages of one sender a bot handles, the next ones are ignored |
+
+Limitations:
+- Text only: a media is sent as its link, the markdown as plain text, there are no buttons; a paged list is a numbered text
+  and there is no way to ask for another page.
+- A reply is at most 20 lines of 400 characters and bytes, one message every 1.2 seconds, so a long text is slow and the rest
+  is cut. IRC has no reply to a message, no message ids, no deleting (the time to live is ignored) and no editing.
+- The messages of a chat are not handled in order, and the ones over the rate limit are dropped (logged).
+- Only the configured channels are joined, the same for every bot, and a bot that is kicked is not sent back.
+- The help texts of the commands still write `/command`: on IRC it is `!command`.
+- Tested against a fake server with the real library (registration, SASL PLAIN, join, reconnection, messages), not against
+  a real network, and TLS is not covered by the tests.
+
 ### Known gaps
 
 - The sources that are not an url are plain strings in the DB and do not say which platform they belong to: today they are
