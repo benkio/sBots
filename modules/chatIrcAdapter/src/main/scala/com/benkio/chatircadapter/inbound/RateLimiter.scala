@@ -1,8 +1,8 @@
 package com.benkio.chatircadapter.inbound
 
 import cats.effect.Async
-import cats.effect.Ref
 import cats.effect.Clock
+import cats.effect.Ref
 import cats.syntax.all.*
 
 import scala.concurrent.duration.FiniteDuration
@@ -21,14 +21,16 @@ final class RateLimiter[F[_]: Async] private (
   def allow(key: String): F[Boolean] =
     Clock[F].monotonic.flatMap(now =>
       state.modify { windows =>
-        val active = windows.get(key).filter(w => now - w.start < window)
+        val active             = windows.get(key).filter(w => now - w.start < window)
         val (updated, allowed) = active match {
           case Some(w) if w.count >= maxMessages => (w, false)
           case Some(w)                           => (w.copy(count = w.count + 1), true)
           case None                              => (RateLimiter.Window(now, 1), true)
         }
         // the finished windows are dropped when the map grows, so it does not keep every sender forever
-        val kept = if windows.size > RateLimiter.cleanupThreshold then windows.filter((_, w) => now - w.start < window) else windows
+        val kept =
+          if windows.size > RateLimiter.cleanupThreshold then windows.filter((_, w) => now - w.start < window)
+          else windows
         (kept.updated(key, updated), allowed)
       }
     )

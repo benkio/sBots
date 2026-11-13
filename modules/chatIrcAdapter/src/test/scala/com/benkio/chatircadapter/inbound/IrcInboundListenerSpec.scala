@@ -34,7 +34,9 @@ class IrcInboundListenerSpec extends CatsEffectSuite {
 
   private def eventually(check: IO[Boolean], tries: Int = 100): IO[Boolean] =
     check.flatMap(ok =>
-      if ok then IO.pure(true) else if tries == 0 then IO.pure(false) else IO.sleep(100.millis) >> eventually(check, tries - 1)
+      if ok then IO.pure(true)
+      else if tries == 0 then IO.pure(false)
+      else IO.sleep(100.millis) >> eventually(check, tries - 1)
     )
 
   private def received(messages: Ref[IO, List[Message]]): IO[List[(ChatId, String)]] =
@@ -44,25 +46,29 @@ class IrcInboundListenerSpec extends CatsEffectSuite {
     for {
       messages <- Ref.of[IO, List[Message]](List.empty)
       _        <- FakeIrcServer.resource.use(server =>
-        Dispatcher.parallel[IO].use(dispatcher =>
-          for {
-            limiter <- RateLimiter[IO](2, 30.seconds)
-            listener = new IrcInboundListener[IO](dispatcher, limiter, m => messages.update(_ :+ m))
-            _ <- IrcConnection.resource[IO]("TestBot", None, config(server.port), List(listener)).use(_ =>
-              for {
-                _ <- eventually(IO(server.joined.nonEmpty))
-                _ <- server.push(":alice!a@host PRIVMSG #SBots :hello bot")
-                _ <- server.push(":bob!b@host PRIVMSG TestBot :!hi")
-                _ <- server.push(":TestBot!t@host PRIVMSG #sbots :my own message")
-                _ <- server.push(":carol!c@host PRIVMSG #sbots :one")
-                _ <- server.push(":carol!c@host PRIVMSG #sbots :two")
-                _ <- server.push(":carol!c@host PRIVMSG #sbots :three")
-                _ <- eventually(messages.get.map(_.size >= 5))
-                _ <- IO.sleep(500.millis)
-              } yield ()
-            )
-          } yield ()
-        )
+        Dispatcher
+          .parallel[IO]
+          .use(dispatcher =>
+            for {
+              limiter <- RateLimiter[IO](2, 30.seconds)
+              listener = new IrcInboundListener[IO](dispatcher, limiter, m => messages.update(_ :+ m))
+              _ <- IrcConnection
+                .resource[IO]("TestBot", None, config(server.port), List(listener))
+                .use(_ =>
+                  for {
+                    _ <- eventually(IO(server.joined.nonEmpty))
+                    _ <- server.push(":alice!a@host PRIVMSG #SBots :hello bot")
+                    _ <- server.push(":bob!b@host PRIVMSG TestBot :!hi")
+                    _ <- server.push(":TestBot!t@host PRIVMSG #sbots :my own message")
+                    _ <- server.push(":carol!c@host PRIVMSG #sbots :one")
+                    _ <- server.push(":carol!c@host PRIVMSG #sbots :two")
+                    _ <- server.push(":carol!c@host PRIVMSG #sbots :three")
+                    _ <- eventually(messages.get.map(_.size >= 5))
+                    _ <- IO.sleep(500.millis)
+                  } yield ()
+                )
+            } yield ()
+          )
       )
       result <- received(messages)
     } yield {

@@ -48,13 +48,16 @@ class IrcInboundSpec extends FunSuite {
   }
 
   test("the formatting codes are removed from the text") {
-    assertEquals(IrcInbound.stripFormatting("\u0002bold\u000f and \u000304,12colored\u0003 \u001fplain\u001f"), "bold and colored plain")
+    assertEquals(
+      IrcInbound.stripFormatting("\u0002bold\u000f and \u000304,12colored\u0003 \u001fplain\u001f"),
+      "bold and colored plain"
+    )
     assertEquals(IrcInbound.stripFormatting("\u0004FF0000red\u0004 text"), "red text")
     assertEquals(IrcInbound.stripFormatting("1,2,3 stays"), "1,2,3 stays")
   }
 
   test("the engine takes !command as a command, and the other messages as messages") {
-    val botId = SBotId("bot")
+    val botId  = SBotId("bot")
     val syntax = IrcCapabilities.value.commandSyntax
     assertEquals(
       IrcInbound.message(inChannel.copy(text = "!hello now"), ownNick).map(_.messageType(botId, syntax)),

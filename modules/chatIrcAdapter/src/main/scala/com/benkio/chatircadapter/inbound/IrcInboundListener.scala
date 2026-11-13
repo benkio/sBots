@@ -24,7 +24,12 @@ class IrcInboundListener[F[_]: Async: LogWriter](
 
   @Handler
   def onChannelMessage(event: ChannelMessageEvent): Unit =
-    deliver(sender = event.getActor.getNick, channel = Some(event.getChannel.getName), text = event.getMessage, ownNick = event.getClient.getNick)
+    deliver(
+      sender = event.getActor.getNick,
+      channel = Some(event.getChannel.getName),
+      text = event.getMessage,
+      ownNick = event.getClient.getNick
+    )
 
   @Handler
   def onPrivateMessage(event: PrivateMessageEvent): Unit =
