@@ -60,6 +60,11 @@ object Settings {
     libraryDependencies := ChatTelegramAdapterDependencies
   ) ++ lineCoverageThreshold(55)
 
+  lazy val ChatDiscordAdapterSettings = Seq(
+    name                := "chatDiscordAdapter",
+    libraryDependencies := ChatDiscordAdapterDependencies
+  )
+
   lazy val IntegrationSettings = Seq(
     name                := "Integration",
     libraryDependencies := IntegrationDependencies,
