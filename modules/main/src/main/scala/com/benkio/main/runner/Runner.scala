@@ -30,7 +30,7 @@ object Runner {
   /** The runtimes of the platforms that keep their own connection open (IRC, Discord, Slack, ...): they have no webhook
     * or polling to choose from, so they run in every mode. The place to register the runtime of a new one.
     */
-  val connectionRuntimes: List[PlatformRuntime] = List(DiscordPlatformRuntime)
+  val connectionRuntimes: List[PlatformRuntime] = List(DiscordPlatformRuntime, IrcPlatformRuntime)
 
   /** The runtimes to start in a mode: the Telegram one of the mode and the ones of the platforms with a connection. */
   def runtimes(mode: RunMode, connection: List[PlatformRuntime] = connectionRuntimes): List[PlatformRuntime] =
