@@ -21,8 +21,8 @@ import org.http4s.syntax.literals.*
 
 import scala.concurrent.duration.*
 
-/** A whole bot on IRC, with the real library against a fake server: the messages reach the engine, the replies come back
-  * to the channel and to the nick, and the bot quits when it is stopped.
+/** A whole bot on IRC, with the real library against a fake server: the messages reach the engine, the replies come
+  * back to the channel and to the nick, and the bot quits when it is stopped.
   */
 class IrcBotSpec extends CatsEffectSuite {
 
@@ -82,12 +82,12 @@ class IrcBotSpec extends CatsEffectSuite {
         bot <- IrcBot
           .runWith[IO](core, sBotConfig, None, Map.empty, config(server.port), Notifier.noop[IO])
           .start
-        _          <- eventually(server.joined.nonEmpty)
-        _          <- server.push(":alice!a@host PRIVMSG #sbots :ciao a tutti")
-        _          <- server.push(":bob!b@host PRIVMSG EngineBot :!hi")
-        answered   <- eventually(server.linesReceived.exists(_.startsWith("PRIVMSG bob")))
-        _          <- bot.cancel
-        quitted    <- eventually(server.linesReceived.exists(_.startsWith("QUIT")))
+        _        <- eventually(server.joined.nonEmpty)
+        _        <- server.push(":alice!a@host PRIVMSG #sbots :ciao a tutti")
+        _        <- server.push(":bob!b@host PRIVMSG EngineBot :!hi")
+        answered <- eventually(server.linesReceived.exists(_.startsWith("PRIVMSG bob")))
+        _        <- bot.cancel
+        quitted  <- eventually(server.linesReceived.exists(_.startsWith("QUIT")))
       } yield {
         assert(answered, server.linesReceived.toString)
         assert(server.linesReceived.contains("PRIVMSG #sbots :hello"), server.linesReceived.toString)

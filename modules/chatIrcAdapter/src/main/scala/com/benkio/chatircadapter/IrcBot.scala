@@ -48,7 +48,14 @@ object IrcBot {
       password <- IrcCredentials.password[F](sBotInfo, ResourcesRepository.fromResources[F]())
       core     <- BotCoreSetup[F](httpClient, sBotConfig)
     } yield (password, core)).use((password, core) =>
-      runWith[F](core = core, sBotConfig = sBotConfig, password = password, commandEffectfulCallback = commandEffectfulCallback, config = config, notifier = notifier)
+      runWith[F](
+        core = core,
+        sBotConfig = sBotConfig,
+        password = password,
+        commandEffectfulCallback = commandEffectfulCallback,
+        config = config,
+        notifier = notifier
+      )
     )
   }
 
@@ -101,7 +108,8 @@ object IrcBot {
           )
           // deferred: the listener needs the adapter, which needs this
           def startConnection: F[Unit] = Async[F].defer {
-            val listener = new IrcInboundListener[F](dispatcher, limiter, message => engine.onMessage(message)(using adapter))
+            val listener =
+              new IrcInboundListener[F](dispatcher, limiter, message => engine.onMessage(message)(using adapter))
             IrcConnection.resource[F](nick, password, config, List(listener)).use { connection =>
               apiReady.complete(new KittehIrcApi[F](connection.client)) >>
                 notifier.info(sBotConfig.sBotInfo, s"started on IRC as $nick") >>
