@@ -3,7 +3,8 @@ package com.benkio.chatdiscordadapter.outbound
 import java.nio.file.Path
 
 /** What the adapter does on Discord, with the ids as the strings they are in a [[com.benkio.chatcore.model.ChatId]] and
-  * a [[com.benkio.chatcore.model.MessageId]]: the replies are written against it, and [[JdaDiscordApi]] is the real one.
+  * a [[com.benkio.chatcore.model.MessageId]]: the replies are written against it, and [[JdaDiscordApi]] is the real
+  * one.
   */
 trait DiscordApi[F[_]] {
 

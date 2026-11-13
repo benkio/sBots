@@ -42,7 +42,9 @@ class DiscordRepliesSpec extends CatsEffectSuite {
   /** What is asked to Discord, in order. */
   private class RecordingApi(calls: Ref[IO, List[String]]) extends DiscordApi[IO] {
     override def sendText(channelId: String, text: String, replyToMessageId: Option[String]): IO[String] =
-      calls.update(_ :+ s"text:$channelId:${text.take(12)}:${text.length}:${replyToMessageId.getOrElse("-")}").as("sent1")
+      calls
+        .update(_ :+ s"text:$channelId:${text.take(12)}:${text.length}:${replyToMessageId.getOrElse("-")}")
+        .as("sent1")
     override def sendFile(channelId: String, fileName: String, file: Path, replyToMessageId: Option[String]) =
       calls.update(_ :+ s"file:$channelId:$fileName:${replyToMessageId.getOrElse("-")}").as("sent2")
     override def deleteMessage(channelId: String, messageId: String): IO[Unit] =
@@ -97,7 +99,9 @@ class DiscordRepliesSpec extends CatsEffectSuite {
   }
 
   test("a text is not a reply when it is not asked, or when there is no message to reply to") {
-    run(value = Text("hello"), replyToMessage = false).map((calls, _) => assertEquals(calls, List("text:999:hello:5:-"))) >>
+    run(value = Text("hello"), replyToMessage = false).map((calls, _) =>
+      assertEquals(calls, List("text:999:hello:5:-"))
+    ) >>
       run(value = Text("hello"), msg = message.copy(messageId = None)).map((calls, _) =>
         assertEquals(calls, List("text:999:hello:5:-"))
       )
@@ -109,10 +113,12 @@ class DiscordRepliesSpec extends CatsEffectSuite {
   }
 
   test("a text with a time to live is deleted after it") {
-    run(value = Text("bye", Some(50.millis))).flatMap((first, _) =>
-      // the delete runs in a fiber: the recorded calls are read again after the time to live
-      IO.sleep(200.millis).as(first)
-    ).map(first => assertEquals(first, List("text:999:bye:3:111")))
+    run(value = Text("bye", Some(50.millis)))
+      .flatMap((first, _) =>
+        // the delete runs in a fiber: the recorded calls are read again after the time to live
+        IO.sleep(200.millis).as(first)
+      )
+      .map(first => assertEquals(first, List("text:999:bye:3:111")))
   }
 
   test("a media is uploaded with its name, as a reply") {

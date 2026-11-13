@@ -21,11 +21,13 @@ class JdaDiscordApi[F[_]: Async](jda: JDA) extends DiscordApi[F] {
 
   override def sendText(channelId: String, text: String, replyToMessageId: Option[String]): F[String] =
     channel(channelId).flatMap(c =>
-      Async[F].fromCompletableFuture(
-        Async[F].delay(
-          replyToMessageId.fold(c.sendMessage(text))(c.sendMessage(text).setMessageReference(_)).submit()
+      Async[F]
+        .fromCompletableFuture(
+          Async[F].delay(
+            replyToMessageId.fold(c.sendMessage(text))(c.sendMessage(text).setMessageReference(_)).submit()
+          )
         )
-      ).map(_.getId)
+        .map(_.getId)
     )
 
   override def sendFile(
@@ -35,12 +37,14 @@ class JdaDiscordApi[F[_]: Async](jda: JDA) extends DiscordApi[F] {
       replyToMessageId: Option[String]
   ): F[String] =
     channel(channelId).flatMap(c =>
-      Async[F].fromCompletableFuture(
-        Async[F].delay {
-          val action = c.sendFiles(FileUpload.fromData(file.toFile, fileName))
-          replyToMessageId.fold(action)(action.setMessageReference(_)).submit()
-        }
-      ).map(_.getId)
+      Async[F]
+        .fromCompletableFuture(
+          Async[F].delay {
+            val action = c.sendFiles(FileUpload.fromData(file.toFile, fileName))
+            replyToMessageId.fold(action)(action.setMessageReference(_)).submit()
+          }
+        )
+        .map(_.getId)
     )
 
   override def deleteMessage(channelId: String, messageId: String): F[Unit] =

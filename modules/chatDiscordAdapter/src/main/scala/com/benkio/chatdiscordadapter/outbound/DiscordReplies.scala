@@ -43,9 +43,12 @@ class DiscordReplies[F[_]: Async: LogWriter: Notifier](
       case Text(value, ttl)     => sendText(channelId = channelId, text = value, timeToLive = ttl, replyTo = replyTo)
       case Markdown(value, ttl) => sendText(channelId = channelId, text = value, timeToLive = ttl, replyTo = replyTo)
       case markdownFile: MarkdownFile =>
-        guarded(message, markdownFile)(sendMarkdownFile(channelId = channelId, markdownFile = markdownFile, replyTo = replyTo))
-      case mediaFile: MediaFile => guarded(message, mediaFile)(sendMediaFile(channelId = channelId, mediaFile = mediaFile, replyTo = replyTo))
-      case other                =>
+        guarded(message, markdownFile)(
+          sendMarkdownFile(channelId = channelId, markdownFile = markdownFile, replyTo = replyTo)
+        )
+      case mediaFile: MediaFile =>
+        guarded(message, mediaFile)(sendMediaFile(channelId = channelId, mediaFile = mediaFile, replyTo = replyTo))
+      case other =>
         LogWriter.warn(s"[DiscordReplies] Unsupported reply value ${other.getClass.getSimpleName}; sending nothing")
     }
   }
@@ -106,9 +109,9 @@ class DiscordReplies[F[_]: Async: LogWriter: Notifier](
     resources(mediaFile).use(rs =>
       firstThatWorks(rs, mediaFile)(path =>
         Async[F].blocking(Files.size(path)).flatMap { size =>
-          if size > DiscordLimits.maxUploadBytes then
-            LogWriter.info(s"[DiscordReplies] ${mediaFile.filename} is $size bytes, sending its link") >>
-              sendLink(channelId = channelId, mediaFile = mediaFile, replyTo = replyTo)
+          if size > DiscordLimits.maxUploadBytes then LogWriter
+            .info(s"[DiscordReplies] ${mediaFile.filename} is $size bytes, sending its link") >>
+            sendLink(channelId = channelId, mediaFile = mediaFile, replyTo = replyTo)
           else api.sendFile(channelId, mediaFile.filename, path, replyTo).void
         }
       )
@@ -135,7 +138,14 @@ class DiscordReplies[F[_]: Async: LogWriter: Notifier](
             ReplyTransformer
               .splitText(content, capabilities.maxTextLength)
               .zipWithIndex
-              .traverse_((chunk, index) => sendText(channelId = channelId, text = chunk, timeToLive = None, replyTo = replyTo.filter(_ => index == 0)))
+              .traverse_((chunk, index) =>
+                sendText(
+                  channelId = channelId,
+                  text = chunk,
+                  timeToLive = None,
+                  replyTo = replyTo.filter(_ => index == 0)
+                )
+              )
         )
     )
 }
