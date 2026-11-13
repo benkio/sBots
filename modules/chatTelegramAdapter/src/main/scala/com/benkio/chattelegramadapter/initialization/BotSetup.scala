@@ -6,15 +6,11 @@ import cats.effect.Resource
 import cats.implicits.*
 import cats.MonadThrow
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.http.DropboxClient
-import com.benkio.chatcore.http.HttpClients
-import com.benkio.chatcore.http.MegaClient
-import com.benkio.chatcore.initialization.Config
+import com.benkio.chatcore.initialization.BotCoreSetup
 import com.benkio.chatcore.initialization.DBConfig
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceFile
 import com.benkio.chatcore.model.reply.Document
 import com.benkio.chatcore.repository.db.DBLayer
-import com.benkio.chatcore.repository.db.DBRepository
 import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.repository.ResourcesRepository
@@ -22,7 +18,6 @@ import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chatcore.Notifier
 import com.benkio.chattelegramadapter.http.TelegramNotifier
 import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
-import doobie.Transactor
 import log.effect.LogWriter
 import org.http4s.*
 import org.http4s.client.Client
@@ -95,17 +90,7 @@ object BotSetup {
   }
 
   def loadDB[F[_]: Async](config: DBConfig)(using log: LogWriter[F]): Resource[F, DBLayer[F]] =
-    Resource.eval(
-      DBLayer[F](
-        Transactor.fromDriverManager[F](
-          config.driver,
-          config.url,
-          "",
-          "",
-          None
-        )
-      )
-    )
+    BotCoreSetup.loadDB[F](config)
 
   def apply[F[_]: Async: Random](
       httpClient: Client[F],
@@ -116,28 +101,11 @@ object BotSetup {
 
     val resourceRepository = ResourcesRepository.fromResources[F]()
     for {
-      tk            <- token[F](sBotConfig.token, resourceRepository)
-      config        <- Resource.eval(Config.loadConfig[F](sBotConfig.sBotInfo.botId.value))
-      _             <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Configuration: $config"))
-      dropboxClient <- Resource.eval(
-        DropboxClient[F](
-          httpClient,
-          config.httpCache.dropbox
-        )
-      )
-      megaClient <- Resource.eval(
-        MegaClient[F](
-          httpClient,
-          config.httpCache.mega
-        )
-      )
-      clients = HttpClients(
-        dropboxClient = dropboxClient,
-        megaClient = megaClient
-      )
-      jsonDataRepository = JsonDataRepository[F]()
-      dbLayer <- loadDB[F](config.db).evalMap(DBLayer.loadReplies[F](_, jsonDataRepository, sBotConfig))
-      repository = DBRepository.dbResources[F](dbLayer.dbMedia, clients)
+      tk   <- token[F](sBotConfig.token, resourceRepository)
+      core <- BotCoreSetup[F](httpClient, sBotConfig)
+      jsonDataRepository = core.jsonDataRepository
+      dbLayer            = core.dbLayer
+      repository         = core.repository
       _                     <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Delete webook..."))
       deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
       _                     <- Resource.eval(

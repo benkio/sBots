@@ -142,10 +142,16 @@ class RunnerSpec extends CatsEffectSuite {
     }
   }
 
-  test("with no platform with a connection registered, a mode runs only its Telegram runtime") {
-    assertEquals(Runner.connectionRuntimes, List.empty)
-    assertEquals(Runner.runtimes(Runner.RunMode.Webhook), List(TelegramWebhookPlatformRuntime))
-    assertEquals(Runner.runtimes(Runner.RunMode.Polling), List(TelegramPollingPlatformRuntime))
+  test("Discord is the platform with a connection, a mode runs its Telegram runtime and the Discord one") {
+    assertEquals(Runner.connectionRuntimes, List(DiscordPlatformRuntime))
+    assertEquals(
+      Runner.runtimes(Runner.RunMode.Webhook),
+      List(TelegramWebhookPlatformRuntime, DiscordPlatformRuntime)
+    )
+    assertEquals(
+      Runner.runtimes(Runner.RunMode.Polling),
+      List(TelegramPollingPlatformRuntime, DiscordPlatformRuntime)
+    )
   }
 
   test("a runtime whose platform has no bots is not started") {
