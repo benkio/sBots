@@ -39,8 +39,10 @@ class IrcCapabilitiesSpec extends FunSuite {
 
   test("a text over the limit is split and loses its time to live") {
     val result = ReplyTransformer.transform(capabilities)(Text("a" * 900, Some(1.minute)))
-    assertEquals(result.map { case Text(value, ttl) => (value.length, ttl); case other => fail(s"$other") },
-                 List((400, None), (400, None), (100, None)))
+    assertEquals(
+      result.map { case Text(value, ttl) => (value.length, ttl); case other => fail(s"$other") },
+      List((400, None), (400, None), (100, None))
+    )
   }
 
   test("a markdown becomes plain text") {
