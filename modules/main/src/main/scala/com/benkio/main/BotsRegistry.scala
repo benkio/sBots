@@ -77,7 +77,8 @@ object BotRegistry {
       BotRegistryEntry[IO](sBotInfo = YouTuboAncheI0Bot.sBotInfo),
       BotRegistryEntry[IO](
         sBotInfo = RichardPHJBensonBot.sBotInfo,
-        commandEffectfulCallback = RichardPHJBensonBot.commandEffectfulCallback[IO]
+        commandEffectfulCallback = RichardPHJBensonBot.commandEffectfulCallback[IO],
+        platforms = List(Platform.Telegram, Platform.Discord)
       ),
       BotRegistryEntry[IO](sBotInfo = PinoScottoBot.sBotInfo),
       BotRegistryEntry[IO](sBotInfo = Alessandro0rlandoBot.sBotInfo),
