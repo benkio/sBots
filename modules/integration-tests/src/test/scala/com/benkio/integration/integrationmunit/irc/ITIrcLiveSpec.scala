@@ -38,7 +38,7 @@ import scala.jdk.OptionConverters.*
 
 /** The bots on a real IRC network: every bot of the registry joins the channel (one after the other, to stay under the
   * limits of connections per address of the network), answers a message that triggers one of its markdown files and the
-  * `!random` command, and quits. A second client, the tester, writes to the channel and reads the answers.
+  * `!instructions` command, and quits. A second client, the tester, writes to the channel and reads the answers.
   *
   * It needs the network: it is skipped when the environment variable `IRC_LIVE_TEST` is `false`.
   */
@@ -145,30 +145,31 @@ class ITIrcLiveSpec extends CatsEffectSuite with DBFixture {
     } yield answers
 
   private def botTest(entry: BotRegistryEntry[IO]): Unit =
-    databaseFixture.test(s"${entry.sBotInfo.botName.value} answers its markdown file and !random on IRC") { fixture =>
-      assume(!sys.env.get("IRC_LIVE_TEST").contains("false"), "IRC_LIVE_TEST=false")
-      val sBotConfig = SBotConfig.fromSBotInfo(entry.sBotInfo)
-      val nick       = IrcCredentials.nick(entry.sBotInfo)
-      val t          = tester()
-      core(fixture, sBotConfig).use { core =>
-        val chat = ChatId(Platform.Irc, channel.toLowerCase)
-        for {
-          // an earlier run could have left the bot waiting for its timeout in this chat
-          _   <- core.dbLayer.dbTimeout.removeTimeout(chat, entry.sBotInfo.botId)
-          bot <- IrcBot
-            .runWith[IO](core, sBotConfig, None, entry.commandEffectfulCallback, ircConfig, Notifier.logging[IO])
-            .start
-          result <- (for {
-            _        <- until(s"$nick joins $channel", answerTimeout)(t.nicknames.map(_.exists(_.startsWith(nick))))
-            markdown <- markdownTrigger(core.dbLayer.dbMessageReplies.messageReplies)
-              .traverse(trigger => answer(t = t, nick = nick, send = t.say(trigger)))
-            random <- answer(t = t, nick = nick, send = t.say("!random"))
-          } yield (markdown, random)).guarantee(bot.cancel >> IO.sleep(2.seconds))
-        } yield {
-          result._1.foreach(markdown => assert(markdown.exists(_.text.trim.nonEmpty), markdown.toString))
-          assert(result._2.exists(_.text.trim.nonEmpty), result._2.toString)
+    databaseFixture.test(s"${entry.sBotInfo.botName.value} answers its markdown file and !instructions on IRC") {
+      fixture =>
+        assume(!sys.env.get("IRC_LIVE_TEST").contains("false"), "IRC_LIVE_TEST=false")
+        val sBotConfig = SBotConfig.fromSBotInfo(entry.sBotInfo)
+        val nick       = IrcCredentials.nick(entry.sBotInfo)
+        val t          = tester()
+        core(fixture, sBotConfig).use { core =>
+          val chat = ChatId(Platform.Irc, channel.toLowerCase)
+          for {
+            // an earlier run could have left the bot waiting for its timeout in this chat
+            _   <- core.dbLayer.dbTimeout.removeTimeout(chat, entry.sBotInfo.botId)
+            bot <- IrcBot
+              .runWith[IO](core, sBotConfig, None, entry.commandEffectfulCallback, ircConfig, Notifier.logging[IO])
+              .start
+            result <- (for {
+              _        <- until(s"$nick joins $channel", answerTimeout)(t.nicknames.map(_.exists(_.startsWith(nick))))
+              markdown <- markdownTrigger(core.dbLayer.dbMessageReplies.messageReplies)
+                .traverse(trigger => answer(t = t, nick = nick, send = t.say(trigger)))
+              instructions <- answer(t = t, nick = nick, send = t.say("!instructions"))
+            } yield (markdown, instructions)).guarantee(bot.cancel >> IO.sleep(2.seconds))
+          } yield {
+            result._1.foreach(markdown => assert(markdown.exists(_.text.trim.nonEmpty), markdown.toString))
+            assert(result._2.exists(_.text.trim.nonEmpty), result._2.toString)
+          }
         }
-      }
     }
 
   BotRegistry.toList(BotRegistry.value).foreach(botTest)
