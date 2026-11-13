@@ -33,4 +33,13 @@ class ConfigSpec extends CatsEffectSuite {
       assert(!config.discord.messageContent)
     }
   }
+
+  test("Config.loadConfig should load the IRC block, with TLS and no channels by default") {
+    Config.loadConfig[IO].map { config =>
+      assert(config.irc.tls)
+      assertEquals(config.irc.port, 6697)
+      assertEquals(config.irc.channels, List.empty)
+      assertEquals(config.irc.reconnectDelay(0), 2.seconds)
+    }
+  }
 }

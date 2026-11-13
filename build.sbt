@@ -202,7 +202,8 @@ lazy val main = project
   .dependsOn(
     chatCore            % "compile->compile;test->test",
     chatTelegramAdapter % "compile->compile;test->test",
-    chatDiscordAdapter  % "compile->compile;test->test"
+    chatDiscordAdapter  % "compile->compile;test->test",
+    chatIrcAdapter      % "compile->compile;test->test"
   )
   .dependsOn(botProjects.map(_ % "compile->compile;test->test") *)
 
