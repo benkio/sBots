@@ -3,6 +3,7 @@ package com.benkio.chatircadapter.model
 import com.benkio.chatcore.messagefiltering.messageType
 import com.benkio.chatcore.model.reply.*
 import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.MediaKind
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageType
 import com.benkio.chatcore.model.Platform
@@ -19,7 +20,7 @@ class IrcCapabilitiesSpec extends FunSuite {
 
   test("IRC is the IRC platform: text only, without buttons, delete, edit and file references") {
     assertEquals(capabilities.platform, Platform.Irc)
-    assertEquals(capabilities.supportedMedia, Set.empty)
+    assertEquals(capabilities.supportedMedia, Set(MediaKind.MarkdownFile))
     assert(!capabilities.supportsButtons)
     assert(!capabilities.supportsDelete)
     assert(!capabilities.supportsEdit)
@@ -49,7 +50,14 @@ class IrcCapabilitiesSpec extends FunSuite {
     assertEquals(ReplyTransformer.transform(capabilities)(Markdown("**hi** \\. there")), List(Text("hi . there")))
   }
 
-  test("every media becomes its link, none if it has none") {
+  test("a markdown file is kept: the adapter sends its content as text") {
+    assertEquals(
+      ReplyTransformer.transform(capabilities)(MarkdownFile("a.md")),
+      List(MarkdownFile("a.md"))
+    )
+  }
+
+  test("every other media becomes its link, none if it has none") {
     assertEquals(
       ReplyTransformer.transform(capabilities, _ => Some(link))(Mp3File("a.mp3")),
       List(Text(link.renderString))

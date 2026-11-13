@@ -8,6 +8,7 @@ import com.benkio.chatcore.model.reply.*
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.PlatformCapabilities
 import com.benkio.chatcore.repository.db.DBLayer
+import com.benkio.chatcore.repository.MarkdownFiles
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.Notifier
 import com.benkio.chatcore.ReplyAdaptation
@@ -129,23 +130,14 @@ class DiscordReplies[F[_]: Async: LogWriter: Notifier](
       )
 
   private def sendMarkdownFile(channelId: String, markdownFile: MarkdownFile, replyTo: Option[String]): F[Unit] =
-    resources(markdownFile).use(rs =>
-      firstThatWorks(rs, markdownFile)(path => Repository.fileToString[F](path).use(Async[F].pure))
-        .flatMap(content =>
-          Async[F].raiseWhen(content.trim.isEmpty)(
-            new RuntimeException(s"[DiscordReplies] The markdown file ${markdownFile.filepath} is empty")
-          ) >>
-            ReplyTransformer
-              .splitText(content, capabilities.maxTextLength)
-              .zipWithIndex
-              .traverse_((chunk, index) =>
-                sendText(
-                  channelId = channelId,
-                  text = chunk,
-                  timeToLive = None,
-                  replyTo = replyTo.filter(_ => index == 0)
-                )
-              )
-        )
-    )
+    MarkdownFiles
+      .content(repository, markdownFile)
+      .flatMap(content =>
+        ReplyTransformer
+          .splitText(content, capabilities.maxTextLength)
+          .zipWithIndex
+          .traverse_((chunk, index) =>
+            sendText(channelId = channelId, text = chunk, timeToLive = None, replyTo = replyTo.filter(_ => index == 0))
+          )
+      )
 }
