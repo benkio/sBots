@@ -102,7 +102,16 @@ lazy val sBots =
     // The root project has no Scala sources of its own to instrument.
     .settings(coverageEnabled := false)
     .settings(Settings.settings *)
-    .aggregate(main, botDB, chatCore, chatTelegramAdapter, chatDiscordAdapter, repliesEditorServer, repliesEditorUI)
+    .aggregate(
+      main,
+      botDB,
+      chatCore,
+      chatTelegramAdapter,
+      chatDiscordAdapter,
+      chatIrcAdapter,
+      repliesEditorServer,
+      repliesEditorUI
+    )
     .aggregate(botProjects *)
 
 lazy val chatCore =
@@ -122,6 +131,13 @@ lazy val chatDiscordAdapter =
   Project("chatDiscordAdapter", file("modules/chatDiscordAdapter"))
     .settings(Settings.settings *)
     .settings(Settings.ChatDiscordAdapterSettings *)
+    .dependsOn(chatCore % "compile->compile;test->test")
+    .disablePlugins(AssemblyPlugin)
+
+lazy val chatIrcAdapter =
+  Project("chatIrcAdapter", file("modules/chatIrcAdapter"))
+    .settings(Settings.settings *)
+    .settings(Settings.ChatIrcAdapterSettings *)
     .dependsOn(chatCore % "compile->compile;test->test")
     .disablePlugins(AssemblyPlugin)
 

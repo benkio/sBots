@@ -39,6 +39,7 @@ object Dependencies {
     val sqlite                = "3.41.2.1"
     val telegramiumVersion    = "10.1003.2"
     val jda                   = "5.6.1"
+    val kitteh                = "8.0.0"
     val vault                 = "3.7.0"
     val laminar               = "17.2.1"
     val tuplez                = "0.4.0"
@@ -99,6 +100,7 @@ object Dependencies {
     val scalatest             = "org.scalatest"         %% "scalatest"               % versions.scalatest % "test"
     val sqlite                = "org.xerial"             % "sqlite-jdbc"             % versions.sqlite
     val jda                   = "net.dv8tion"            % "JDA"                     % versions.jda
+    val kitteh                = "org.kitteh.irc"         % "client-lib"              % versions.kitteh
     val telegramiumCore       = "io.github.apimorphism" %% "telegramium-core"        % versions.telegramiumVersion
     val telegramiumHigh       = "io.github.apimorphism" %% "telegramium-high"        % versions.telegramiumVersion
     val vault                 = "org.typelevel"         %% "vault"                   % versions.vault
@@ -174,6 +176,11 @@ object Dependencies {
   val ChatDiscordAdapterDependencies: Seq[ModuleID] =
     ChatCoreDependencies ++ Seq(
       libs.jda
+    )
+
+  val ChatIrcAdapterDependencies: Seq[ModuleID] =
+    ChatCoreDependencies ++ Seq(
+      libs.kitteh
     )
 
   /** Shared dependencies for all bot projects. Use this in Settings.botProjectSettings. */

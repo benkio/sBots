@@ -65,6 +65,11 @@ object Settings {
     libraryDependencies := ChatDiscordAdapterDependencies
   )
 
+  lazy val ChatIrcAdapterSettings = Seq(
+    name                := "chatIrcAdapter",
+    libraryDependencies := ChatIrcAdapterDependencies
+  )
+
   lazy val IntegrationSettings = Seq(
     name                := "Integration",
     libraryDependencies := IntegrationDependencies,
