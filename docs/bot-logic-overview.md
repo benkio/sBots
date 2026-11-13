@@ -197,6 +197,16 @@ message (nicks and channels are case insensitive, so the ids are lowercase), the
 engine, dropping the ones of a sender over `main.irc.rate-limit-messages` per `rate-limit-window` (`RateLimiter`, a fixed
 window per sender). It should get a parallel dispatcher: the messages of a chat are then not handled in order.
 
+### IRC outbound
+
+`IrcPlatformAdapter` sends through `IrcReplies`, written against the small `IrcApi` (`KittehIrcApi` is the Kitteh one, from
+`KittehConnection.client`). The engine has already made the reply plain: the markdown is plain text, a media is its link, the
+time to live is gone. `IrcLines` cuts a text in the lines IRC carries: one message per line (a line break or control
+character in a message would be taken as a command by the server, so they are removed), at most 400 characters and 400 bytes
+a line (multibyte text is longer in bytes), at most 20 lines a reply (the rest is replaced by a line that says how many were
+left out). The flood control is the queue of Kitteh: one message every `main.irc.message-delay` (1.2 seconds). The text goes to
+the channel, or to the nick for a private message; IRC has no reply to a message.
+
 ### Known gaps
 
 - The sources that are not an url are plain strings in the DB and do not say which platform they belong to: today they are

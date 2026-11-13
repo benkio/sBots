@@ -16,6 +16,7 @@ class IrcConfigSpec extends FunSuite {
     shutdownTimeout = 10.seconds,
     reconnectBaseDelay = 2.seconds,
     reconnectMaxDelay = 60.seconds,
+    messageDelay = 50.millis,
     rateLimitMessages = 5,
     rateLimitWindow = 10.seconds
   )
@@ -41,6 +42,7 @@ class IrcConfigSpec extends FunSuite {
         |shutdown-timeout = 10 seconds
         |reconnect-base-delay = 2 seconds
         |reconnect-max-delay = 60 seconds
+        |message-delay = 1200 milliseconds
         |rate-limit-messages = 5
         |rate-limit-window = 10 seconds
         |""".stripMargin

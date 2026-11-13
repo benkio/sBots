@@ -9,6 +9,7 @@ import net.engio.mbassy.listener.Handler
 import org.kitteh.irc.client.library.event.client.ClientNegotiationCompleteEvent
 import org.kitteh.irc.client.library.event.connection.ClientConnectionEndedEvent
 import org.kitteh.irc.client.library.feature.auth.SaslPlain
+import org.kitteh.irc.client.library.feature.sending.SingleDelaySender
 import org.kitteh.irc.client.library.Client
 import org.kitteh.irc.client.library.Client.Builder.Server.SecurityType
 
@@ -67,6 +68,9 @@ object KittehConnection {
           .server()
           .host(config.host)
           .port(config.port, if config.tls then SecurityType.SECURE else SecurityType.INSECURE)
+          .`then`()
+          .management()
+          .messageSendingQueueSupplier(SingleDelaySender.getSupplier(config.messageDelay.toMillis.toInt))
           .`then`()
           .build()
         client.getEventManager.registerEventListener(lifecycle)

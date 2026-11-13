@@ -20,6 +20,7 @@ class KittehConnectionSpec extends CatsEffectSuite {
     shutdownTimeout = 5.seconds,
     reconnectBaseDelay = 100.millis,
     reconnectMaxDelay = 500.millis,
+    messageDelay = 50.millis,
     rateLimitMessages = 5,
     rateLimitWindow = 10.seconds
   )
@@ -82,5 +83,25 @@ class KittehConnectionSpec extends CatsEffectSuite {
     IrcConnection.resource[IO]("TestBot", None, unreachable).use(_ => IO.unit).attempt.map { result =>
       assert(result.isLeft, result.toString)
     }
+  }
+
+  test("what the bot sends reaches the server as messages to the target, one line each") {
+    FakeIrcServer.resource.use(server =>
+      IrcConnection
+        .resource[IO]("TestBot", None, config(server.port))
+        .use(connection =>
+          for {
+            _ <- eventually(server.joined.size == 2)
+            api = new com.benkio.chatircadapter.outbound.KittehIrcApi[IO](connection.client)
+            _    <- api.sendMessage("#sbots", "first line")
+            _    <- api.sendMessage("alice", "second line")
+            sent <- eventually(server.linesReceived.exists(_.startsWith("PRIVMSG alice")))
+          } yield {
+            assert(sent, server.linesReceived.toString)
+            assert(server.linesReceived.contains("PRIVMSG #sbots :first line"), server.linesReceived.toString)
+            assert(server.linesReceived.contains("PRIVMSG alice :second line"), server.linesReceived.toString)
+          }
+        )
+    )
   }
 }
