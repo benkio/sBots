@@ -321,30 +321,26 @@ object ShowUpdater {
         index: Int
     ): F[Unit] = for {
       _ <- LogWriter.info(s"[ShowUpdater - $index] 🚀 Start fetching and saving captions")
-      _ <- youTubeBotDBShowDatas.dbShowDatas.traverse(
-        saveAndFetchCaptionDbShowData(
-          _,
-          youTubeBotDBShowDatas = youTubeBotDBShowDatas
-        )
-      )
+      missingCaptions <- youTubeBotDBShowDatas.dbShowDatas.filterA(dbShowData =>
+        captionAlreadyExists(dbShowData, youTubeBotDBShowDatas).map(!_))
+      _ <- missingCaptions.traverse(dbShowData => saveCaption(dbShowData, youTubeBotDBShowDatas))
       _ <- LogWriter.info(s"[ShowUpdater - $index] 🏁 Finish saving captions")
     } yield ()
 
-    private[show] def saveAndFetchCaptionDbShowData(
+    private def captionAlreadyExists(
         dbShowData: DBShowData,
         youTubeBotDBShowDatas: YouTubeBotDBShowDatas
-    ): F[Unit] = for {
+    ): F[Boolean] = for {
       _ <- LogWriter.info(s"[ShowUpdater - ${dbShowData.show_id}] Check caption file existance")
       captionFolderPath = youTubeBotDBShowDatas.captionFilePath(dbShowData)
       exists <- Async[F].delay(Files.exists(captionFolderPath))
-      _      <-
-        if !exists then saveCaption(dbShowData = dbShowData, youTubeBotDBShowDatas = youTubeBotDBShowDatas)
-        else LogWriter.info(s"[ShowUpdater - ${dbShowData.show_id}] Caption already exists")
-    } yield ()
+      existsString = if exists then "✅" else "❌"
+      _ <- LogWriter.info(s"[ShowUpdater - ${dbShowData.show_id}] Caption exists: " + existsString)
+    } yield exists
 
     private def saveCaption(dbShowData: DBShowData, youTubeBotDBShowDatas: YouTubeBotDBShowDatas): F[Unit] =
       for {
-        random <- Random.scalaUtilRandom[F]
+        random                       <- Random.scalaUtilRandom[F]
         randomThrottlingSleepSeconds <- random.betweenInt(5, 10)
         _ <- LogWriter.info(s"[ShowUpdater - ${dbShowData.show_id}] 💤 Throttling Sleep (prevent 429)")
         _ <- Async[F].sleep(randomThrottlingSleepSeconds.seconds)
