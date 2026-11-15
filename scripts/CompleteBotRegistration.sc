@@ -15,6 +15,7 @@
   *   - scripts/copyTokensFromDropbox.sh: adds the new bot to the list
  *   - modules/integration-tests/.../MediaIntegrityParSpec.scala: adds import + media collection block
  *   - filesCheck/src/Config.ts: adds bot metadata entry
+ *   - integration-tests performance: adds IT<BotName>PerformanceSpec with placeholder scenario
   * (newBot does not edit main application.conf or healthcheck; this script does.)
   */
 
@@ -298,11 +299,42 @@ if java.nio.file.Files.isRegularFile(filesCheckConfig) then {
   } else println(s"filesCheck/src/Config.ts already contains $botName ($id), skipping.")
 } else println(s"filesCheck config not found at $filesCheckConfig, skipping.")
 
+// 10. Performance integration spec: add per-bot spec with explicit scenario placeholder
+val perfDir = rootAbs.resolve("modules/integration-tests/src/test/scala/com/benkio/integration/integrationmunit/performance")
+val perfSpec = perfDir.resolve(s"IT${botName}PerformanceSpec.scala")
+if !java.nio.file.Files.isRegularFile(perfSpec) then {
+  java.nio.file.Files.createDirectories(perfDir)
+  val perfContent =
+    s"""package com.benkio.integration.integrationmunit.performance
+       |
+       |import cats.effect.IO
+       |import com.benkio.$botName.$botName
+       |import com.benkio.main.BotRegistryEntry
+       |
+       |class IT${botName}PerformanceSpec extends BaseBotPerformanceSpec {
+       |
+       |  override def botEntry: BotRegistryEntry[IO] =
+       |    BotRegistryEntry[IO](sBotInfo = $botName.sBotInfo)
+       |
+       |  /** Explicit, switchable performance scenario for this bot. */
+       |  override def perfCase: PerfCase = PerfCase(
+       |    inputText = "TODO-replace-with-explicit-trigger-or-command",
+       |    description = "representative request for $botName (replace with explicit, switchable scenario; note any large/heavy media case)"
+       |  )
+       |
+       |  registerPerformanceTest()
+       |}
+       |""".stripMargin
+  write(perfSpec, perfContent)
+  println(s"Created $perfSpec (set an explicit perfCase)")
+} else println(s"Performance spec already exists at $perfSpec, skipping.")
+
 println(
   """Done. Remember to:
     | - Update README.org with the new bot
     | - Add the GitHub Actions secret <ID>_TOKEN (uppercase)
     | - Review MediaIntegrity placement: this script adds to MediaIntegrityParSpec by default; move to MediaIntegritySeqSpec if needed (e.g. Mega-heavy bot)
     | - Optionally set youtube-sources/caption-language in modules/botDB/src/main/resources/application.conf
+    | - Set an explicit perfCase in modules/integration-tests/.../performance/IT<BotName>PerformanceSpec.scala
     | - Avoid committing local botDB.sqlite3 (delete/reset if modified locally)""".stripMargin
 )

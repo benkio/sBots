@@ -24,6 +24,7 @@ object NewBotTask {
     addBotToDeployWorkflow(base, botName, id)
     addBotToMediaIntegritySpec(base, botName)
     addBotToFilesCheckConfig(base, botName, id)
+    addBotToPerformanceSpec(base, botName)
     println(s"Created bot module at $targetDir")
     println(
       s"Next: git add modules/bots/$botName/src/main/resources/${id}_replies.json and modules/bots/$botName/src/main/resources/${id}_commands.json; then define the project in build.sbt, add to BotsRegistry (or run: ./scripts/CompleteBotRegistration.sc $botName $id). See docs/adding-a-bot.md"
@@ -169,6 +170,37 @@ object NewBotTask {
 
     IO.write(filesCheckConfig, content)
     println(s"Updated filesCheck config with $botName ($id)")
+  }
+
+  private def addBotToPerformanceSpec(base: File, botName: String): Unit = {
+    val perfDir =
+      base / "modules" / "integration-tests" / "src" / "test" / "scala" / "com" / "benkio" / "integration" / "integrationmunit" / "performance"
+    val perfSpec = perfDir / s"IT${botName}PerformanceSpec.scala"
+    if (perfSpec.isFile) return
+    IO.createDirectory(perfDir)
+    val content =
+      s"""package com.benkio.integration.integrationmunit.performance
+         |
+         |import cats.effect.IO
+         |import com.benkio.$botName.$botName
+         |import com.benkio.main.BotRegistryEntry
+         |
+         |class IT${botName}PerformanceSpec extends BaseBotPerformanceSpec {
+         |
+         |  override def botEntry: BotRegistryEntry[IO] =
+         |    BotRegistryEntry[IO](sBotInfo = $botName.sBotInfo)
+         |
+         |  /** Explicit, switchable performance scenario for this bot. */
+         |  override def perfCase: PerfCase = PerfCase(
+         |    inputText = "TODO-replace-with-explicit-trigger-or-command",
+         |    description = "representative request for $botName (replace with explicit, switchable scenario; note any large/heavy media case)"
+         |  )
+         |
+         |  registerPerformanceTest()
+         |}
+         |""".stripMargin
+    IO.write(perfSpec, content)
+    println(s"Created integration performance spec for $botName (set an explicit perfCase)")
   }
 
   private def copyAndSubstitute(src: File, dest: File, templateRoot: File, botName: String, id: String): Unit = {

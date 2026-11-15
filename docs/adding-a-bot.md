@@ -113,6 +113,7 @@ After Step 2 (and before or alongside the steps below), do the following as need
 - **Custom command callbacks**: If your bot needs `commandEffectfulCallback` (e.g. like RichardPHJBensonBot), edit `BotsRegistry.scala` and add it to the bot’s `BotRegistryEntry` (see Option B in Step 2).
 - **Bot full name**: To set a human-readable name in the DB, edit `modules/botDB/src/main/resources/db/migrations/V1__CreateBotTable.sql` and change the `bot_full_name` value for your bot’s `INSERT`.
 - **MediaIntegrity placement**: automation adds bots to `MediaIntegrityParSpec` by default. If the bot is Mega-heavy (or you need lower bandwidth pressure), move it to `MediaIntegritySeqSpec`.
+- **Performance integration test**: add `modules/integration-tests/src/test/scala/com/benkio/integration/integrationmunit/performance/IT<BotName>PerformanceSpec.scala` extending `BaseBotPerformanceSpec` with the bot’s `botEntry` and an explicit, switchable `perfCase` (representative request; include/note any large/heavy media case), then call `registerPerformanceTest()`. The template bot is not tested. See `docs/bot-logic-overview.md` (Performance integration tests).
 - **CI token**: Add the bot token as a repository secret so deploy works (Step 3).
 - **Shows / YouTube sources**: To enable show fetching, edit `modules/botDB/src/main/resources/application.conf` and add YouTube sources (or other settings) to your bot’s entry in `show-config.show-sources`.
 
