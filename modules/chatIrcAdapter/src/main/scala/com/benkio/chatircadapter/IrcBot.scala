@@ -70,7 +70,7 @@ object IrcBot {
       config: IrcConfig,
       notifier: Notifier[F]
   )(using log: LogWriter[F]): F[Unit] = {
-    given Notifier[F] = notifier
+    given Notifier[F]       = notifier
     val effectiveSBotConfig = core.sBotConfig
     val capabilities        = IrcCapabilities.value
     val repository          = core.repository.usableFor(capabilities)

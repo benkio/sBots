@@ -112,7 +112,8 @@ object BotSetup {
       _                     <- Resource.eval(
         Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
           new RuntimeException(
-            s"[${effectiveSBotConfig.sBotInfo.botId}] The delete webhook request failed: " + deleteWebhookResponse.as[String]
+            s"[${effectiveSBotConfig.sBotInfo.botId}] The delete webhook request failed: " + deleteWebhookResponse
+              .as[String]
           )
         )
       )

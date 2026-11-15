@@ -96,7 +96,7 @@ class BotEngineSpec extends CatsEffectSuite {
   ): IO[(List[Sent], Int)] = for {
     adapter      <- FakePlatformAdapter(capabilities = capabilities)
     postComputed <- Ref.of[IO, Int](0)
-    engine = engineWith(filter, _ => postComputed.update(_ + 1))
+    engine = engineWith(filter = filter, postComputation = _ => postComputed.update(_ + 1))
     _      <- engine.onMessage(message(text))(using adapter)
     result <- adapter.sent.get
     count  <- postComputed.get

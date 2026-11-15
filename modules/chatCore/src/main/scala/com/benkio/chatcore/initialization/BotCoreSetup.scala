@@ -43,8 +43,8 @@ object BotCoreSetup {
       log: LogWriter[F]
   ): Resource[F, BotCoreSetup[F]] =
     for {
-      config        <- Resource.eval(Config.loadConfig[F](sBotConfig.sBotInfo.botId.value))
-      _             <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Configuration: $config"))
+      config <- Resource.eval(Config.loadConfig[F](sBotConfig.sBotInfo.botId.value))
+      _      <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Configuration: $config"))
       effectiveSBotConfig = sBotConfig.copy(requestProcessingTimeout = config.requestProcessingTimeout)
       dropboxClient <- Resource.eval(DropboxClient[F](httpClient, config.httpCache.dropbox))
       megaClient    <- Resource.eval(MegaClient[F](httpClient, config.httpCache.mega))
