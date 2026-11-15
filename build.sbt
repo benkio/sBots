@@ -147,6 +147,7 @@ lazy val CalandroBot =
   Project("CalandroBot", file("modules/bots/CalandroBot"))
     .settings(Settings.settings *)
     .settings(Settings.botProjectSettings("CalandroBot", lineCoverage = 20) *)
+    .settings(libraryDependencies := Dependencies.CalandroBotDependencies)
     .dependsOn(chatCore % "compile->compile;test->test")
 
 lazy val ABarberoBot =

@@ -151,6 +151,20 @@ object Settings {
         | moduleFilter(name = "circe-parser_sjs1")
         | moduleFilter(name = "scala3-library_sjs1")
     ),
+    // Scala.js UI/link-time dependencies are required but reported as unused by
+    // sbt-explicit-dependencies' compile analysis; filter these specific false positives.
+    unusedCompileDependenciesFilter -= (
+      moduleFilter(name = "laminar")
+        | moduleFilter(name = "airstream")
+        | moduleFilter(name = "tuplez-full-light")
+        | moduleFilter(name = "scalajs-dom")
+        | moduleFilter(name = "circe-core")
+        | moduleFilter(name = "circe-generic")
+        | moduleFilter(name = "circe-parser")
+        | moduleFilter(name = "scala3-library")
+        | moduleFilter(name = "scala3-library_sjs1")
+        | moduleFilter(name = "scala3-library_sjs1_3")
+    ),
     // Disable coverage instrumentation for Scala.js modules.
     coverageEnabled := false
   )

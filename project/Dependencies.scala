@@ -94,13 +94,14 @@ object Dependencies {
     val pureConfigHttp4s = "com.github.pureconfig" %% "pureconfig-http4s"        % versions.pureConfig
     val pureConfigCron4s = "com.github.pureconfig" %% "pureconfig-cron4s"        % versions.pureConfig
     val pureConfigCore   = "com.github.pureconfig" %% "pureconfig-core"          % versions.pureConfig
-    val scalacheck       = "org.scalacheck"        %% "scalacheck"               % versions.scalacheck
-    val scalacheckEffectMunit = "org.typelevel"         %% "scalacheck-effect-munit" % versions.scalacheckEffectMunit
-    val scalacheckGenRegexp   = "io.github.wolfendale"  %% "scalacheck-gen-regexp"   % versions.scalacheckGenRegexp
+    val scalacheck       = "org.scalacheck"        %% "scalacheck"               % versions.scalacheck % Test
+    val scalacheckEffectMunit = "org.typelevel"         %% "scalacheck-effect-munit" % versions.scalacheckEffectMunit % Test
+    val scalacheckGenRegexp   = "io.github.wolfendale"  %% "scalacheck-gen-regexp"   % versions.scalacheckGenRegexp % Test
     val scalatest             = "org.scalatest"         %% "scalatest"               % versions.scalatest % "test"
-    val sqlite                = "org.xerial"             % "sqlite-jdbc"             % versions.sqlite
+    val sqlite                = "org.xerial"             % "sqlite-jdbc"             % versions.sqlite % Runtime
     val jda                   = "net.dv8tion"            % "JDA"                     % versions.jda
     val kitteh                = "org.kitteh.irc"         % "client-lib"              % versions.kitteh
+    val mbassador             = "net.engio"              % "mbassador"               % "1.3.1"
     val telegramiumCore       = "io.github.apimorphism" %% "telegramium-core"        % versions.telegramiumVersion
     val telegramiumHigh       = "io.github.apimorphism" %% "telegramium-high"        % versions.telegramiumVersion
     val vault                 = "org.typelevel"         %% "vault"                   % versions.vault
@@ -116,14 +117,134 @@ object Dependencies {
     val circeParserSjs1     = "io.circe"     %% "circe-parser"      % versions.circe
   }
 
-  private val CommonDependencies: Seq[ModuleID] = Seq(
+  val ChatCoreDependencies: Seq[ModuleID] = Seq(
     libs.catsCore,
     libs.catsEffect,
     libs.catsEffectKernel,
+    libs.catsEffectStd,
+    libs.catsFree,
+    libs.catsKernel,
+    libs.caseInsensitive,
+    libs.circeCore,
+    libs.circeGeneric,
+    libs.circeParser,
+    libs.cron4s,
+    libs.doobieCore,
+    libs.doobieFree,
+    libs.doobieMunit,
+    libs.flyway % "test",
+    libs.fs2Core,
+    libs.fs2Cron,
+    libs.fs2CronCore,
+    libs.http4sCirce,
+    libs.http4sClient,
+    libs.http4sCore,
+    libs.http4sDsl,
+    libs.http4sEmberClient % "test",
+    libs.http4sEmberServer % "test",
+    libs.logEffectsCore,
+    libs.logEffectsFs2,
+    libs.logbackClassic,
+    libs.logbackLogstash,
+    libs.mules,
+    libs.mulesCaffeine,
+    libs.mulesHttp4s,
+    libs.munit,
+    libs.munitCatsEffect,
+    libs.munitScalacheck,
+    libs.pureConfigCore,
+    libs.scalacheck,
+    libs.scalacheckEffectMunit,
+    libs.scalacheckGenRegexp,
+    libs.vault
+  )
+
+  val ChatTelegramAdapterDependencies: Seq[ModuleID] = Seq(
+    libs.catsCore,
+    libs.catsEffect,
+    libs.catsEffectKernel,
+    libs.catsEffectStd,
+    libs.circeCore,
+    libs.fs2Core,
+    libs.fs2IO,
+    libs.http4sClient,
+    libs.http4sCore,
+    libs.http4sEmberClient,
+    libs.http4sServer,
+    libs.logEffectsCore,
+    libs.logbackClassic,
+    libs.logbackLogstash,
+    libs.munit,
+    libs.munitCatsEffect,
+    libs.telegramiumCore,
+    libs.telegramiumHigh,
+    libs.vault
+  )
+
+  val ChatDiscordAdapterDependencies: Seq[ModuleID] = Seq(
+    libs.catsCore,
+    libs.catsEffect,
+    libs.catsEffectKernel,
+    libs.catsEffectStd,
+    libs.http4sClient,
+    libs.jda,
+    libs.logEffectsCore,
+    libs.logbackClassic,
+    libs.logbackLogstash,
+    libs.munit,
+    libs.munitCatsEffect,
+    libs.pureConfigCore
+  )
+
+  val ChatIrcAdapterDependencies: Seq[ModuleID] = Seq(
+    libs.catsCore,
+    libs.catsEffect,
+    libs.catsEffectKernel,
+    libs.catsEffectStd,
+    libs.http4sClient,
+    libs.kitteh,
+    libs.logEffectsCore,
+    libs.logbackClassic,
+    libs.logbackLogstash,
+    libs.mbassador,
+    libs.munit,
+    libs.munitCatsEffect,
+    libs.pureConfigCore
+  )
+
+  /** Shared dependencies for all bot projects. Use this in Settings.botProjectSettings. */
+  val BotDependencies: Seq[ModuleID] = Seq(
+    libs.catsCore,
+    libs.catsEffect,
+    libs.logbackClassic,
+    libs.logbackLogstash,
+    libs.munit,
+    libs.munitCatsEffect
+  )
+
+  /** CalandroBot only needs logging and test deps at compile time. */
+  val CalandroBotDependencies: Seq[ModuleID] = Seq(
+    libs.logbackClassic,
+    libs.logbackLogstash,
+    libs.munit,
+    libs.munitCatsEffect
+  )
+
+  val MainDependencies: Seq[ModuleID] = Seq(
+    libs.catsCore,
+    libs.catsEffect,
+    libs.catsEffectKernel,
+    libs.catsEffectStd,
     libs.circeCore,
     libs.circeParser,
+    libs.cron4s,
+    libs.doobieCore,
+    libs.doobieFree,
+    libs.doobieMunit,
+    libs.fs2Core,
+    libs.fs2Cron,
+    libs.fs2CronCore,
     libs.fs2IO,
-    libs.http4sCirce,
     libs.http4sClient,
     libs.http4sCore,
     libs.http4sEmberClient,
@@ -133,80 +254,17 @@ object Dependencies {
     libs.logbackClassic,
     libs.logbackLogstash,
     libs.munit,
-    libs.munitCatsEffect
+    libs.munitCatsEffect,
+    libs.pureConfigCore,
+    libs.pureConfigCron4s,
+    libs.pureConfigHttp4s,
+    libs.vault
   )
-
-  val ChatCoreDependencies: Seq[ModuleID] =
-    CommonDependencies ++ Seq(
-      libs.caseInsensitive,
-      libs.catsEffectTime,
-      libs.catsEffectStd,
-      libs.catsFree,
-      libs.catsKernel,
-      libs.circeGeneric,
-      libs.cron4s,
-      libs.doobieCore,
-      libs.doobieFree,
-      libs.doobieMunit,
-      libs.flyway % "test",
-      libs.fs2Core,
-      libs.fs2Cron,
-      libs.fs2CronCalev,
-      libs.fs2CronCore,
-      libs.http4sDsl,
-      libs.http4sEmberServer % "test",
-      libs.mules,
-      libs.mulesCaffeine,
-      libs.mulesHttp4s,
-      libs.munitScalacheck,
-      libs.pureConfigCore,
-      libs.scalacheck,
-      libs.scalacheckEffectMunit,
-      libs.scalacheckGenRegexp,
-      libs.sqlite,
-      libs.vault
-    )
-
-  val ChatTelegramAdapterDependencies: Seq[ModuleID] =
-    ChatCoreDependencies ++ Seq(
-      libs.telegramiumCore,
-      libs.telegramiumHigh
-    )
-
-  val ChatDiscordAdapterDependencies: Seq[ModuleID] =
-    ChatCoreDependencies ++ Seq(
-      libs.jda
-    )
-
-  val ChatIrcAdapterDependencies: Seq[ModuleID] =
-    ChatCoreDependencies ++ Seq(
-      libs.kitteh
-    )
-
-  /** Shared dependencies for all bot projects. Use this in Settings.botProjectSettings. */
-  val BotDependencies: Seq[ModuleID] = CommonDependencies
-
-  val MainDependencies: Seq[ModuleID] =
-    CommonDependencies ++
-      Seq(
-        libs.cron4s,
-        libs.doobieCore,
-        libs.doobieFree,
-        libs.doobieMunit,
-        libs.fs2Core,
-        libs.fs2Cron,
-        libs.fs2CronCore,
-        libs.pureConfigCore,
-        libs.pureConfigHttp4s,
-        libs.pureConfigCron4s,
-        libs.vault
-      )
 
   val BotDBDependencies: Seq[ModuleID] = Seq(
     libs.catsCore,
     libs.catsEffect,
     libs.catsEffectKernel,
-    libs.catsFree,
     libs.catsKernel,
     libs.circeCore,
     libs.circeParser,
@@ -216,7 +274,7 @@ object Dependencies {
     libs.googleApiClient,
     libs.googleHttpClient,
     libs.googleHttpClientGson,
-    libs.googleOauthClient,
+    libs.googleOauthClient % Runtime,
     libs.googleYouTubeApi,
     libs.http4sCore,
     libs.logEffectsCore,
@@ -227,15 +285,27 @@ object Dependencies {
     libs.pureConfigCore
   )
 
-  val RepliesEditorServerDependencies: Seq[ModuleID] =
-    CommonDependencies ++ Seq(
-      libs.catsKernel,
-      libs.caseInsensitive,
-      libs.circeGeneric,
-      libs.http4sDsl,
-      libs.http4sEmberServer,
-      libs.ip4sCore
-    )
+  val RepliesEditorServerDependencies: Seq[ModuleID] = Seq(
+    libs.caseInsensitive,
+    libs.catsCore,
+    libs.catsEffect,
+    libs.catsEffectKernel,
+    libs.catsKernel,
+    libs.circeCore,
+    libs.circeGeneric,
+    libs.circeParser,
+    libs.fs2IO,
+    libs.http4sCirce,
+    libs.http4sCore,
+    libs.http4sDsl,
+    libs.http4sEmberServer,
+    libs.http4sServer,
+    libs.ip4sCore,
+    libs.logbackClassic,
+    libs.logbackLogstash,
+    libs.munit,
+    libs.munitCatsEffect
+  )
 
   val RepliesEditorUiDependencies: Def.Initialize[Seq[ModuleID]] =
     Def.setting(
