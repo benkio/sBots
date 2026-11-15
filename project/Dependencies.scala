@@ -25,6 +25,7 @@ object Dependencies {
     val logEffects            = "0.20.0"
     val logbackClassic        = "1.6.7"
     val logbackLogstash       = "9.0"
+    val mbassador             = "1.3.1"
     val mules                 = "0.8.0"
     val mulesHttp4s           = "0.6.0"
     val munit                 = "1.3.1"
@@ -96,15 +97,15 @@ object Dependencies {
     val pureConfigCore   = "com.github.pureconfig" %% "pureconfig-core"          % versions.pureConfig
     val scalacheck       = "org.scalacheck"        %% "scalacheck"               % versions.scalacheck      % Test
     val scalacheckEffectMunit = "org.typelevel" %% "scalacheck-effect-munit" % versions.scalacheckEffectMunit % Test
-    val scalacheckGenRegexp = "io.github.wolfendale" %% "scalacheck-gen-regexp" % versions.scalacheckGenRegexp % Test
-    val scalatest           = "org.scalatest"        %% "scalatest"             % versions.scalatest           % "test"
-    val sqlite              = "org.xerial"            % "sqlite-jdbc"           % versions.sqlite              % Runtime
-    val jda                 = "net.dv8tion"           % "JDA"                   % versions.jda
-    val kitteh              = "org.kitteh.irc"        % "client-lib"            % versions.kitteh
-    val mbassador           = "net.engio"             % "mbassador"             % "1.3.1"
-    val telegramiumCore = "io.github.apimorphism" %% "telegramium-core" % versions.telegramiumVersion
-    val telegramiumHigh = "io.github.apimorphism" %% "telegramium-high" % versions.telegramiumVersion
-    val vault           = "org.typelevel"         %% "vault"            % versions.vault
+    val scalacheckGenRegexp = "io.github.wolfendale"  %% "scalacheck-gen-regexp" % versions.scalacheckGenRegexp % Test
+    val scalatest           = "org.scalatest"         %% "scalatest"             % versions.scalatest           % "test"
+    val sqlite              = "org.xerial"             % "sqlite-jdbc"           % versions.sqlite
+    val jda                 = "net.dv8tion"            % "JDA"                   % versions.jda
+    val kitteh              = "org.kitteh.irc"         % "client-lib"            % versions.kitteh
+    val mbassador           = "net.engio"              % "mbassador"             % versions.mbassador
+    val telegramiumCore     = "io.github.apimorphism" %% "telegramium-core"      % versions.telegramiumVersion
+    val telegramiumHigh     = "io.github.apimorphism" %% "telegramium-high"      % versions.telegramiumVersion
+    val vault               = "org.typelevel"         %% "vault"                 % versions.vault
 
     // ScalaJS-enabled projects already append the "_sjs1" cross-version suffix via `%%`.
     // The replies editor UI is Scala.js-only, so portability isn't needed here.
@@ -133,6 +134,7 @@ object Dependencies {
     libs.doobieFree,
     libs.doobieMunit,
     libs.flyway % "test",
+    libs.sqlite % "test",
     libs.fs2Core,
     libs.fs2Cron,
     libs.fs2CronCore,
@@ -282,7 +284,8 @@ object Dependencies {
     libs.logbackClassic,
     libs.logbackLogstash,
     libs.munit,
-    libs.pureConfigCore
+    libs.pureConfigCore,
+    libs.sqlite
   )
 
   val RepliesEditorServerDependencies: Seq[ModuleID] = Seq(

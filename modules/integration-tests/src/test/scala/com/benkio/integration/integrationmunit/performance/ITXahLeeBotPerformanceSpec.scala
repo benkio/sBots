@@ -11,7 +11,7 @@ class ITXahLeeBotPerformanceSpec extends BaseBotPerformanceSpec {
 
   /** Explicit, switchable performance scenario for this bot. */
   override def perfCase: PerfCase = PerfCase(
-    inputText = "!instructions",
+    inputText = "/instructions",
     description = "fixed instructions command (representative command path; no message replies)"
   )
 
