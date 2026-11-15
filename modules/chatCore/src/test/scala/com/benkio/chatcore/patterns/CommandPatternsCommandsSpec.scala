@@ -20,6 +20,7 @@ import com.benkio.chatcore.Logger.given
 import com.benkio.chatcore.TestIds
 import cron4s.Cron
 import munit.CatsEffectSuite
+import org.http4s.syntax.literals.*
 
 import java.time.Instant
 import java.util.UUID
@@ -39,7 +40,7 @@ class CommandPatternsCommandsSpec extends CatsEffectSuite {
   )
 
   test("InstructionsCommand should return the instructions link") {
-    val uri    = org.http4s.Uri.unsafeFromString("https://example.test/sbot_instructions.md")
+    val uri    = uri"https://example.test/sbot_instructions.md"
     val result = CommandPatterns.InstructionsCommand.instructionCommandLogic[IO](
       msg = msg.copy(text = Some("/instructions")),
       sBotInfo = sBotInfo,

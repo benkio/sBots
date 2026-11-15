@@ -17,7 +17,11 @@ import java.nio.file.Path
 
 object GenerateInstructions extends IOApp {
 
-  def render(sBotConfig: com.benkio.chatcore.config.SBotConfig, messageReplies: List[ReplyBundleMessage], commandReplies: List[ReplyBundleCommand]): String = {
+  def render(
+      sBotConfig: com.benkio.chatcore.config.SBotConfig,
+      messageReplies: List[ReplyBundleMessage],
+      commandReplies: List[ReplyBundleCommand]
+  ): String = {
     val commands = InstructionsCommand.describableCommands(
       sBotInfo = sBotConfig.sBotInfo,
       triggerListUri = sBotConfig.triggerListUri,
@@ -48,15 +52,15 @@ object GenerateInstructions extends IOApp {
     for {
       messageReplies <- jsonDataRepository.loadData[ReplyBundleMessage](sBotConfig.repliesJsonFilename)
       commandReplies <- jsonDataRepository.loadData[ReplyBundleCommand](sBotConfig.commandsJsonFilename)
-      content = render(sBotConfig, messageReplies, commandReplies)
+      content = render(sBotConfig = sBotConfig, messageReplies = messageReplies, commandReplies = commandReplies)
       path    = sBotConfig.instructionsFilePath
       _ <-
-        if check then
-          IO.blocking(if Files.exists(path) then Files.readString(path, StandardCharsets.UTF_8) else "").flatMap {
-            existing =>
-              IO.raiseUnless(existing == content)(
-                new RuntimeException(s"[GenerateInstructions] Out of date: $path. Run generateInstructions to update it.")
-              ) *> IO.println(s"[GenerateInstructions] Up to date: $path")
+        if check then IO
+          .blocking(if Files.exists(path) then Files.readString(path, StandardCharsets.UTF_8) else "")
+          .flatMap { existing =>
+            IO.raiseUnless(existing == content)(
+              new RuntimeException(s"[GenerateInstructions] Out of date: $path. Run generateInstructions to update it.")
+            ) *> IO.println(s"[GenerateInstructions] Up to date: $path")
           }
         else
           IO.println(s"[GenerateInstructions] Generate instructions file: $path") *>
@@ -66,11 +70,13 @@ object GenerateInstructions extends IOApp {
   }
 
   def run(args: List[String]): IO[ExitCode] = {
-    val check                = args.exists(a => a == "--check" || a == "check")
-    val jsonDataRepository   = JsonDataRepository[IO]()(using IO.asyncForIO, summon[LogWriter[IO]])
+    val check              = args.exists(a => a == "--check" || a == "check")
+    val jsonDataRepository = JsonDataRepository[IO]()(using IO.asyncForIO, summon[LogWriter[IO]])
     BotRegistry
       .toList(BotRegistry.value)
-      .traverse_(entry => generateForBot(jsonDataRepository, entry, check))
+      .traverse_(entry =>
+        generateForBot(jsonDataRepository = jsonDataRepository, botRegistryEntry = entry, check = check)
+      )
       .as(ExitCode.Success)
   }
 }

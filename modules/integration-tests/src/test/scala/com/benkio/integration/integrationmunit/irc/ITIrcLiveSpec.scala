@@ -142,16 +142,17 @@ class ITIrcLiveSpec extends CatsEffectSuite with DBFixture {
     def waitQuiet(previousCount: Int, stableFor: FiniteDuration): IO[Unit] =
       IO.sleep(500.millis) >> botAnswers.flatMap { answers =>
         val count = answers.length
-        if count == previousCount then
+        if count == previousCount then {
           val nextStable = stableFor + 500.millis
           if nextStable >= quietPeriod then IO.unit else waitQuiet(previousCount, nextStable)
-        else waitQuiet(count, 0.seconds)
+        } else waitQuiet(count, 0.seconds)
       }
     for {
-      _       <- t.seen.set(List.empty)
-      _       <- send
-      _       <- until(s"$nick answers", answerTimeout)(botAnswers.map(_.nonEmpty))
-      _       <- waitQuiet(0, 0.seconds).timeoutTo(answerTimeout, IO.raiseError(new AssertionError(s"Timeout after $answerTimeout: $nick goes quiet")))
+      _ <- t.seen.set(List.empty)
+      _ <- send
+      _ <- until(s"$nick answers", answerTimeout)(botAnswers.map(_.nonEmpty))
+      _ <- waitQuiet(0, 0.seconds)
+        .timeoutTo(answerTimeout, IO.raiseError(new AssertionError(s"Timeout after $answerTimeout: $nick goes quiet")))
       answers <- botAnswers
     } yield answers
   }
