@@ -1,7 +1,7 @@
 package com.benkio.botDB.show
 
-import cats.effect.implicits.*
 import cats.effect.kernel.Async
+import cats.effect.std.Random
 import cats.effect.Resource
 import cats.implicits.*
 import cats.Semigroup
@@ -21,7 +21,7 @@ import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
-import java.time.Duration
+import scala.concurrent.duration.*
 import scala.io.Source
 import scala.sys.process.*
 import scala.util.Try
@@ -249,7 +249,7 @@ object ShowUpdater {
 
     private[show] def videoToDBShowData(video: Video, botId: SBotId): F[Option[DBShowData]] = {
       def durationISO8601ToSeconds(isoDuration: String): Int = {
-        val duration = Duration.parse(isoDuration)
+        val duration = java.time.Duration.parse(isoDuration)
         duration.getSeconds.toInt
       }
       val maybeDBShowData = for {
@@ -321,7 +321,7 @@ object ShowUpdater {
         index: Int
     ): F[Unit] = for {
       _ <- LogWriter.info(s"[ShowUpdater - $index] 🚀 Start fetching and saving captions")
-      _ <- youTubeBotDBShowDatas.dbShowDatas.parTraverse(
+      _ <- youTubeBotDBShowDatas.dbShowDatas.traverse(
         saveAndFetchCaptionDbShowData(
           _,
           youTubeBotDBShowDatas = youTubeBotDBShowDatas
@@ -338,13 +338,22 @@ object ShowUpdater {
       captionFolderPath = youTubeBotDBShowDatas.captionFilePath(dbShowData)
       exists <- Async[F].delay(Files.exists(captionFolderPath))
       _      <-
-        if !exists then LogWriter
-          .info(s"[ShowUpdater - ${dbShowData.show_id}] 💾 Saving caption") >> youTubeService.saveCaption(
+        if !exists then saveCaption(dbShowData = dbShowData, youTubeBotDBShowDatas = youTubeBotDBShowDatas)
+        else LogWriter.info(s"[ShowUpdater - ${dbShowData.show_id}] Caption already exists")
+    } yield ()
+
+    private def saveCaption(dbShowData: DBShowData, youTubeBotDBShowDatas: YouTubeBotDBShowDatas): F[Unit] =
+      for {
+        random <- Random.scalaUtilRandom[F]
+        randomThrottlingSleepSeconds <- random.betweenInt(5, 10)
+        _ <- LogWriter.info(s"[ShowUpdater - ${dbShowData.show_id}] 💤 Throttling Sleep (prevent 429)")
+        _ <- Async[F].sleep(randomThrottlingSleepSeconds.seconds)
+        _ <- LogWriter.info(s"[ShowUpdater - ${dbShowData.show_id}] 💾 Saving caption")
+        _ <- youTubeService.saveCaption(
           videoId = dbShowData.show_id,
           captionFolderPath = Path.of(youTubeBotDBShowDatas.captionFolderPath),
           captionLanguage = youTubeBotDBShowDatas.captionLanguage
         )
-        else LogWriter.info(s"[ShowUpdater - ${dbShowData.show_id}] Caption already exists")
-    } yield ()
+      } yield ()
   }
 }
