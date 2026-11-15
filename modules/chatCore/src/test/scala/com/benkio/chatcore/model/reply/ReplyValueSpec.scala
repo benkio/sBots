@@ -180,7 +180,7 @@ class ReplyValueSpec extends ScalaCheckSuite {
       EffectfulKey.TriggerSearch(sBotInfo, replyBundleMessage = List.empty, ignoreMessagePrefix = None, page = 4),
       EffectfulKey.Instructions(
         sBotInfo,
-        org.http4s.Uri.unsafeFromString("https://github.com/benkio/sBots/blob/main/modules/bots/TestBot/botid_instructions.md")
+        uri"https://github.com/benkio/sBots/blob/main/modules/bots/TestBot/botid_instructions.md"
       ),
       EffectfulKey.Subscribe(sBotInfo),
       EffectfulKey.Unsubscribe(sBotInfo),

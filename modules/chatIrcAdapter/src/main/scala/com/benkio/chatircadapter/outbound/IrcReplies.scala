@@ -29,7 +29,7 @@ class IrcReplies[F[_]: Async: LogWriter: Notifier](
 ) {
 
   def send(replyValue: ReplyValue, message: Message, @unused replyToMessage: Boolean): F[Unit] =
-    sendAll(List(replyValue), message, replyToMessage)
+    sendAll(replyValues = List(replyValue), message = message, replyToMessage = replyToMessage)
 
   /** Sends all reply values as one logical reply, capping the total number of lines across the whole reply. */
   def sendAll(replyValues: List[ReplyValue], message: Message, @unused replyToMessage: Boolean): F[Unit] =

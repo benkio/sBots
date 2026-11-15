@@ -6,11 +6,8 @@ import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.chatcore.TestIds
-import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chattelegramadapter.SBot
-import com.benkio.chattelegramadapter.SBotPolling
 import com.benkio.integration.BotSetupFixture
-import com.benkio.integration.Logger.given
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import munit.CatsEffectSuite
 
@@ -25,18 +22,20 @@ class ITInstructionsCommandSpec extends CatsEffectSuite with BotSetupFixture {
       botSetup <- fixture.botSetupResource
       expected = s"Puoi trovare le istruzioni del bot al seguente URL: ${botSetup.sBotConfig.instructionsUri}"
       _ <- Resource.eval(
-        InstructionsCommand.instructionCommandLogic[IO](
-          msg = Message(
-            messageId = None,
-            date = 0,
-            chatId = TestIds.chatId(0L),
-            chatType = "private",
-            text = Some("/instructions")
-          ),
-          sBotInfo = botSetup.sBotConfig.sBotInfo,
-          instructionsUri = botSetup.sBotConfig.instructionsUri,
-          ttl = botSetup.sBotConfig.messageTimeToLive
-        ).map(text => assertEquals(text.show, expected))
+        InstructionsCommand
+          .instructionCommandLogic[IO](
+            msg = Message(
+              messageId = None,
+              date = 0,
+              chatId = TestIds.chatId(0L),
+              chatType = "private",
+              text = Some("/instructions")
+            ),
+            sBotInfo = botSetup.sBotConfig.sBotInfo,
+            instructionsUri = botSetup.sBotConfig.instructionsUri,
+            ttl = botSetup.sBotConfig.messageTimeToLive
+          )
+          .map(text => assertEquals(text.show, expected))
       )
     } yield ()
 

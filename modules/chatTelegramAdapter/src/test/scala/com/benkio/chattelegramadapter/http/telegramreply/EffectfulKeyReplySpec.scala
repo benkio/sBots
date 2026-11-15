@@ -23,6 +23,7 @@ import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chattelegramadapter.mocks.SampleWebhookBot
 import com.benkio.chattelegramadapter.model.TelegramIds
 import munit.*
+import org.http4s.syntax.literals.*
 
 class EffectfulKeyReplySpec extends CatsEffectSuite {
 
@@ -127,9 +128,8 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
   test("EffectfulKeyReply.sendEffectfulKey should work for Instructions") {
     val effectfulKey = EffectfulKey.Instructions(
       sBotInfo = sBotInfo,
-      instructionsUri = org.http4s.Uri.unsafeFromString(
-        "https://github.com/benkio/sBots/blob/main/modules/bots/RichardPHJBensonBot/rphjb_instructions.md"
-      )
+      instructionsUri =
+        uri"https://github.com/benkio/sBots/blob/main/modules/bots/RichardPHJBensonBot/rphjb_instructions.md"
     )
 
     val result = EffectfulKeyReply

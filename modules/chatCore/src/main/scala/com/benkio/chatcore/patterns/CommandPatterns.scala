@@ -451,7 +451,7 @@ object CommandPatterns {
         commands.unzip(using cmd => (cmd.instruction.toIta.toList, cmd.instruction.toEng.toList))
       val itaCommands = commandDescriptionsIta.flatten.map(d => s"- ${formatCommandDescription(d)}").mkString("\n")
       val engCommands = commandDescriptionsEng.flatten.map(d => s"- ${formatCommandDescription(d)}").mkString("\n")
-      val itaIgnore = ignoreMessagePrefix
+      val itaIgnore   = ignoreMessagePrefix
         .map(s =>
           s"\nSe vuoi disabilitare il bot per un messaggio specifico, puoi iniziare il messaggio con il carattere: `$s`\n\n`$s Messaggio`\n"
         )
@@ -462,21 +462,21 @@ object CommandPatterns {
         )
         .getOrElse("")
       s"""# Istruzioni per ${sBotInfo.botName}
-        |
-        |Per segnalare problemi, scrivere a: https://t.me/Benkio
-        |
-        |## Comandi
-        |
-        |$itaCommands
-        |$itaIgnore
-        |# Instructions for ${sBotInfo.botName}
-        |
-        |To report issues, write to: https://t.me/Benkio
-        |
-        |## Commands
-        |
-        |$engCommands
-        |$engIgnore""".stripMargin
+         |
+         |Per segnalare problemi, scrivere a: https://t.me/Benkio
+         |
+         |## Comandi
+         |
+         |$itaCommands
+         |$itaIgnore
+         |# Instructions for ${sBotInfo.botName}
+         |
+         |To report issues, write to: https://t.me/Benkio
+         |
+         |## Commands
+         |
+         |$engCommands
+         |$engIgnore""".stripMargin
     }
 
     def instructionCommandLogic[F[_]: ApplicativeThrow](

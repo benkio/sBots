@@ -31,7 +31,7 @@ object IrcLines {
 
   /** Cuts the text in lines. More than `maxLines` lines are cut, with a last line that says how many were left out. */
   def split(text: String, maxChars: Int, maxBytes: Int, maxLines: Int): List[String] =
-    capLines(toLines(text, maxChars, maxBytes), maxLines)
+    capLines(toLines(text = text, maxChars = maxChars, maxBytes = maxBytes), maxLines)
 
   /** Cuts a line in parts of at most `maxBytes` bytes in UTF-8, between characters. */
   def splitBytes(line: String, maxBytes: Int): List[String] = {
