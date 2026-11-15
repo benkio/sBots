@@ -29,27 +29,39 @@ class IrcReplies[F[_]: Async: LogWriter: Notifier](
 ) {
 
   def send(replyValue: ReplyValue, message: Message, @unused replyToMessage: Boolean): F[Unit] =
+    sendAll(List(replyValue), message, replyToMessage)
+
+  /** Sends all reply values as one logical reply, capping the total number of lines across the whole reply. */
+  def sendAll(replyValues: List[ReplyValue], message: Message, @unused replyToMessage: Boolean): F[Unit] =
+    replyValues
+      .traverse(valueLines(_, message))
+      .map(_.flatten)
+      .flatMap(lines => sendPreparedLines(message.chatId.id, IrcLines.capLines(lines, IrcLimits.maxLinesPerReply)))
+
+  private def valueLines(replyValue: ReplyValue, message: Message): F[List[String]] =
     replyValue match {
-      case Text(value, _)             => sendLines(message.chatId.id, value)
-      case Markdown(value, _)         => sendLines(message.chatId.id, MarkdownConversions.toPlainText(value))
-      case markdownFile: MarkdownFile => sendMarkdownFile(message, markdownFile)
+      case Text(value, _)             => textToLines(value).pure[F]
+      case Markdown(value, _)         => textToLines(MarkdownConversions.toPlainText(value)).pure[F]
+      case markdownFile: MarkdownFile => markdownFileLines(message, markdownFile)
       case other                      =>
-        LogWriter.warn(s"[IrcReplies] Unsupported reply value ${other.getClass.getSimpleName}; sending nothing")
+        LogWriter.warn(s"[IrcReplies] Unsupported reply value ${other.getClass.getSimpleName}; sending nothing").as(Nil)
     }
 
   /** The content of the file as plain text. A failure is logged and notified, the other replies are not affected. */
-  private def sendMarkdownFile(message: Message, markdownFile: MarkdownFile): F[Unit] =
+  private def markdownFileLines(message: Message, markdownFile: MarkdownFile): F[List[String]] =
     MarkdownFiles
       .content(repository, markdownFile)
-      .flatMap(content => sendLines(message.chatId.id, MarkdownConversions.toPlainText(content)))
+      .map(content => textToLines(MarkdownConversions.toPlainText(content)))
       .handleErrorWith(e =>
         LogWriter.error(s"[IrcReplies] Error when replying to ${message.chatId} with $markdownFile: $e") >>
-          summon[Notifier[F]].mediaError(message, markdownFile, e)
+          summon[Notifier[F]].mediaError(message, markdownFile, e).as(Nil)
       )
 
-  private def sendLines(target: String, text: String): F[Unit] =
-    IrcLines
-      .split(text, capabilities.maxTextLength, IrcLimits.maxLineBytes, IrcLimits.maxLinesPerReply)
+  private def textToLines(text: String): List[String] =
+    IrcLines.toLines(text, capabilities.maxTextLength, IrcLimits.maxLineBytes)
+
+  private def sendPreparedLines(target: String, lines: List[String]): F[Unit] =
+    lines
       .traverse_(line => api.sendMessage(target, line))
-      .handleErrorWith(e => LogWriter.error(s"[IrcReplies] Error while sending `$text` to $target: $e"))
+      .handleErrorWith(e => LogWriter.error(s"[IrcReplies] Error while sending lines to $target: $e"))
 }

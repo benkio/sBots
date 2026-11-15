@@ -59,44 +59,6 @@ class M0sconiBotSpec extends BaseBotSpec {
 
   instructionsCommandTest(
     commandRepliesDataF = commandRepliesData,
-    """
-      |---- Instruzioni Per M0sconiBot ----
-      |
-      |Per segnalare problemi, scrivere a: https://t.me/Benkio
-      |
-      |I comandi del bot sono:
-      |
-      |- '/random': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/random.md#it
-      |- '/triggerlist': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/triggerlist.md#it
-      |- '/triggersearch': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/triggersearch.md#it
-      |- '/toptwenty': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/toptwenty.md#it
-      |- '/settimeout': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/settimeout.md#it
-      |- '/gettimeout': Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/gettimeout.md#it
-      |
-      |Se si vuole disabilitare il bot per un particolare messaggio impedendo
-      |che interagisca, è possibile farlo iniziando il messaggio con il
-      |carattere: `!`
-      |
-      |! Messaggio
-      |""".stripMargin,
-    """
-      |---- Instructions for M0sconiBot ----
-      |
-      |to report issues, write to: https://t.me/Benkio
-      |
-      |Bot commands are:
-      |
-      |- '/random': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/random.md#en
-      |- '/triggerlist': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/triggerlist.md#en
-      |- '/triggersearch': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/triggersearch.md#en
-      |- '/toptwenty': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/toptwenty.md#en
-      |- '/settimeout': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/settimeout.md#en
-      |- '/gettimeout': Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/gettimeout.md#en
-      |
-      |if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix
-      |character: `!`
-      |
-      |! Message
-      |""".stripMargin
+    instructionsUri = "https://github.com/benkio/sBots/blob/main/modules/bots/M0sconiBot/mos_instructions.md"
   )
 }

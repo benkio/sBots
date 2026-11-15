@@ -107,8 +107,7 @@ enum EffectfulKey(val sBotInfo: SBotInfo) {
   ) extends EffectfulKey(sBotInfo)
   case Instructions(
       override val sBotInfo: SBotInfo,
-      ignoreMessagePrefix: Option[String],
-      commands: List[ReplyBundleCommand]
+      instructionsUri: org.http4s.Uri
   )                                                              extends EffectfulKey(sBotInfo)
   case Subscribe(override val sBotInfo: SBotInfo)                extends EffectfulKey(sBotInfo)
   case Unsubscribe(override val sBotInfo: SBotInfo)              extends EffectfulKey(sBotInfo)
@@ -126,6 +125,9 @@ object EffectfulKey {
   private given randomDecoder: Decoder[EffectfulKey.Random]               = deriveDecoder[EffectfulKey.Random]
   private given searchShowDecoder: Decoder[EffectfulKey.SearchShow]       = deriveDecoder[EffectfulKey.SearchShow]
   private given triggerSearchDecoder: Decoder[EffectfulKey.TriggerSearch] = deriveDecoder[EffectfulKey.TriggerSearch]
+  private given uriDecoder: Decoder[org.http4s.Uri] =
+    Decoder[String].emap(s => org.http4s.Uri.fromString(s).left.map(_.message))
+  private given uriEncoder: Encoder[org.http4s.Uri] = Encoder[String].contramap(_.renderString)
   private given instructionsDecoder: Decoder[EffectfulKey.Instructions]   = deriveDecoder[EffectfulKey.Instructions]
   private given subscribeDecoder: Decoder[EffectfulKey.Subscribe]         = deriveDecoder[EffectfulKey.Subscribe]
   private given unsubscribeDecoder: Decoder[EffectfulKey.Unsubscribe]     = deriveDecoder[EffectfulKey.Unsubscribe]

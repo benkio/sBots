@@ -7,14 +7,12 @@ import com.benkio.chatcore.model.reply.ReplyTransformer
   */
 object IrcLines {
 
-  /** Cuts the text in lines. The line breaks start a new line (the empty ones are dropped), the other control
-    * characters are removed (a line break or a code in a text sent as it is would be taken as a command by the server,
-    * or as formatting), a line over the limit of characters is cut on a space when it can, and then over the limit of
-    * bytes: the multibyte characters make a line longer in bytes than in characters. More than `maxLines` lines are
-    * cut, with a last line that says how many were left out.
+  /** Cuts the text in lines without applying a maximum line count. The line breaks start a new line (the empty ones are
+    * dropped), the other control characters are removed, a line over the limit of characters is cut on a space when it
+    * can, and then over the limit of bytes.
     */
-  def split(text: String, maxChars: Int, maxBytes: Int, maxLines: Int): List[String] = {
-    val lines = text
+  def toLines(text: String, maxChars: Int, maxBytes: Int): List[String] =
+    text
       .replace("\r\n", "\n")
       .replace('\r', '\n')
       .filterNot(c => (c < ' ' && c != '\n') || c == '\u007f')
@@ -25,9 +23,15 @@ object IrcLines {
       .flatMap(line => ReplyTransformer.splitText(line, maxChars))
       .flatMap(splitBytes(_, maxBytes))
       .filter(_.nonEmpty)
+
+  /** Caps `lines` at `maxLines`, adding a final line that says how many were left out when the limit is exceeded. */
+  def capLines(lines: List[String], maxLines: Int): List[String] =
     if lines.size <= maxLines then lines
     else lines.take(maxLines - 1) :+ s"(${lines.size - maxLines + 1} more lines not shown)"
-  }
+
+  /** Cuts the text in lines. More than `maxLines` lines are cut, with a last line that says how many were left out. */
+  def split(text: String, maxChars: Int, maxBytes: Int, maxLines: Int): List[String] =
+    capLines(toLines(text, maxChars, maxBytes), maxLines)
 
   /** Cuts a line in parts of at most `maxBytes` bytes in UTF-8, between characters. */
   def splitBytes(line: String, maxBytes: Int): List[String] = {

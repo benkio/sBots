@@ -66,6 +66,8 @@ class DataEntrySpec extends CatsEffectSuite {
           sBotInfo = SBotInfo(SBotId("rphjb"), SBotName("RichardPHJBensonBot")),
           triggerFilename = "x",
           triggerListUri = uri"http://example.com",
+          instructionsFilename = "x_instructions.md",
+          instructionsUri = uri"http://example.com/x_instructions.md",
           listJsonFilename = listPath.toString,
           showFilename = "x",
           repliesJsonFilename = repliesPath.toString,

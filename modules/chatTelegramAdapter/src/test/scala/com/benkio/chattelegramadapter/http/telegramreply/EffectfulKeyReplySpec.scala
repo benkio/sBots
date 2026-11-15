@@ -11,12 +11,8 @@ import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.MediaReply
 import com.benkio.chatcore.model.reply.Mp3File
-import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.Text
-import com.benkio.chatcore.model.reply.TextReply
-import com.benkio.chatcore.model.CommandInstructionData
-import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.StringTextTriggerValue
 import com.benkio.chatcore.model.TextTrigger
@@ -129,17 +125,11 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
   }
 
   test("EffectfulKeyReply.sendEffectfulKey should work for Instructions") {
-    val commands = List(
-      ReplyBundleCommand(
-        trigger = CommandTrigger("testcommand"),
-        reply = TextReply.fromList("test reply")(false),
-        instruction = CommandInstructionData.NoInstructions
-      )
-    )
     val effectfulKey = EffectfulKey.Instructions(
       sBotInfo = sBotInfo,
-      ignoreMessagePrefix = Some("!"),
-      commands = commands
+      instructionsUri = org.http4s.Uri.unsafeFromString(
+        "https://github.com/benkio/sBots/blob/main/modules/bots/RichardPHJBensonBot/rphjb_instructions.md"
+      )
     )
 
     val result = EffectfulKeyReply
