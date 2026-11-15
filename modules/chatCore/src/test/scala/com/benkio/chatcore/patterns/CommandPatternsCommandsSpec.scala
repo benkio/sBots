@@ -20,6 +20,7 @@ import com.benkio.chatcore.Logger.given
 import com.benkio.chatcore.TestIds
 import cron4s.Cron
 import munit.CatsEffectSuite
+import org.http4s.syntax.literals.*
 
 import java.time.Instant
 import java.util.UUID
@@ -38,23 +39,16 @@ class CommandPatternsCommandsSpec extends CatsEffectSuite {
     chatType = "private"
   )
 
-  test("InstructionsCommand should render italian instructions when input is 'it'") {
-    val command = CommandPatterns.RandomDataCommand.randomDataReplyBundleCommand(sBotInfo)
-    val result  = CommandPatterns.InstructionsCommand.instructionCommandLogic[IO](
-      msg = msg.copy(text = Some("/instructions it")),
+  test("InstructionsCommand should return the instructions link") {
+    val uri    = uri"https://example.test/sbot_instructions.md"
+    val result = CommandPatterns.InstructionsCommand.instructionCommandLogic[IO](
+      msg = msg.copy(text = Some("/instructions")),
       sBotInfo = sBotInfo,
-      ignoreMessagePrefix = Some("!"),
-      commands = List(command),
+      instructionsUri = uri,
       ttl = None
     )
 
-    result.map {
-      case Text(value, _) =>
-        assert(value.contains("---- Instruzioni Per SampleWebhookBot ----"))
-        assert(value.contains("Se si vuole disabilitare il bot"))
-      case other =>
-        fail(s"Expected text instructions, got: ${other.show}")
-    }
+    assertIO(result, Text(s"Puoi trovare le istruzioni del bot al seguente URL: $uri"))
   }
 
   test("SetTimeoutCommand should remove timeout when command input is empty") {

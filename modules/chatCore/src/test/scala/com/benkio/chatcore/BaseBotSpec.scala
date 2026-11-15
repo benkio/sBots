@@ -211,67 +211,39 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
 
   def instructionsCommandTest(
       commandRepliesDataF: IO[List[ReplyBundleCommand]],
-      italianInstructions: String,
-      englishInstructions: String
-  ): Unit = {
-    def instructionMessage(value: String): ModelMessage =
-      ModelMessage(
+      instructionsUri: String
+  ): Unit =
+    test("instructions command should return the expected message") {
+      val instructionMessage = ModelMessage(
         messageId = None,
         date = 0L,
         chatId = TestIds.chatId(0L),
         chatType = "test",
-        text = Some(s"/instructions $value")
+        text = Some("/instructions")
       )
-
-    test("instructions command should return the expected message") {
       for {
         commandRepliesData <- commandRepliesDataF
         instructionCommand <- IO.fromOption(commandRepliesData.find(_.trigger.command == "instructions"))(
           Throwable("[BaseBotSpec] can't find the `instruction` command")
         )
-        engInstructionInputs = List("", "en", "🇬🇧", "🇺🇸", "🏴", "eng", "english").map(instructionMessage(_))
-        itaInstructionInputs = List("it", "ita", "italian", "🇮🇹").map(instructionMessage(_))
-        botInfoAndCommands <- instructionCommand.reply match {
-          case EffectfulReply(EffectfulKey.Instructions(sBotInfo, ignoreMessagePrefix, commands), _) =>
-            IO.pure((sBotInfo, ignoreMessagePrefix, commands))
-          case _ =>
+        key <- instructionCommand.reply match {
+          case EffectfulReply(key @ EffectfulKey.Instructions(_, _), _) => IO.pure(key)
+          case _                                                        =>
             IO.raiseError(
               Throwable(
                 "[BaseBotSpec] `instruction` command should be an `EffectfulReply` with `EffectfulKey.Instructions`"
               )
             )
         }
-        (sBotInfo, ignoreMessagePrefix, commands) = botInfoAndCommands
-        engInstructionCommandResult <- engInstructionInputs.traverse(msg =>
-          InstructionsCommand.instructionCommandLogic[IO](
-            msg = msg,
-            sBotInfo = sBotInfo,
-            ignoreMessagePrefix = ignoreMessagePrefix,
-            commands = commands,
-            ttl = None
-          )
+        result <- InstructionsCommand.instructionCommandLogic[IO](
+          msg = instructionMessage,
+          sBotInfo = key.sBotInfo,
+          instructionsUri = key.instructionsUri,
+          ttl = None
         )
-        itaInstructionCommandResult <- itaInstructionInputs.traverse(msg =>
-          InstructionsCommand.instructionCommandLogic[IO](
-            msg = msg,
-            sBotInfo = sBotInfo,
-            ignoreMessagePrefix = ignoreMessagePrefix,
-            commands = commands,
-            ttl = None
-          )
-        )
-      } yield {
-        assertEquals(
-          engInstructionCommandResult.map(_.show),
-          List.fill(engInstructionCommandResult.length)(englishInstructions)
-        )
-        assertEquals(
-          itaInstructionCommandResult.map(_.show),
-          List.fill(itaInstructionCommandResult.length)(italianInstructions)
-        )
-      }
+        expected = s"Puoi trovare le istruzioni del bot al seguente URL: $instructionsUri"
+      } yield assertEquals(result.show, expected)
     }
-  }
 
   def triggerlistCommandTest(
       commandRepliesData: IO[List[ReplyBundleCommand]],

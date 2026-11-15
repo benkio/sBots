@@ -54,7 +54,7 @@ addCommandAlias("compileAll", "compile; Test/compile; integration/Test/compile")
 addCommandAlias(
   "fix",
   // Ensure SemanticDB exists for all scopes before semantic scalafix rules run.
-  "cleanFull; compileAll; scalafixAll; scalafmtAll; integration/scalafixAll; integration/scalafmtAll; scalafmtSbt; generateTriggerDocumentation; generateCalendar;"
+  "cleanFull; compileAll; scalafixAll; scalafmtAll; integration/scalafixAll; integration/scalafmtAll; scalafmtSbt; generateTriggerDocumentation; generateCalendar; generateInstructions;"
 )
 addCommandAlias(
   "check",
@@ -62,9 +62,11 @@ addCommandAlias(
 )
 addCommandAlias("generateTriggerDocumentation", "main/runMain com.benkio.main.GenerateTriggers")
 addCommandAlias("generateCalendar", "main/runMain com.benkio.main.GenerateCalendar")
+addCommandAlias("generateInstructions", "main/runMain com.benkio.main.GenerateInstructions")
+addCommandAlias("checkInstructions", "main/runMain com.benkio.main.GenerateInstructions --check")
 addCommandAlias(
   "validate",
-  "fix; dbSetup; coverage; test; integration/mUnitTests; coverageAggregate; coverageOff; assembly"
+  "fix; checkInstructions; dbSetup; coverage; test; integration/mUnitTests; coverageAggregate; coverageOff; assembly"
 )
 // Data Entry Aliases
 addCommandAlias("abarAddData", "ABarberoBot/runMain com.benkio.ABarberoBot.ABarberoBotMainDataEntry")

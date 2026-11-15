@@ -94,4 +94,19 @@ class IrcRepliesSpec extends CatsEffectSuite {
       }
     run(value = Text("hello"), api = failing).map(assertEquals(_, List.empty))
   }
+
+  test("the line limit applies to the whole reply, not to each chunk") {
+    val manyLines = (1 to 15).map(i => s"line$i").mkString("\n")
+    for {
+      sent <- Ref.of[IO, List[String]](List.empty)
+      _    <- new IrcReplies[IO](recording(sent), new RepositoryMock(), IrcCapabilities.value)
+        .sendAll(List(Text(manyLines), Text(manyLines)), message("#sbots"), replyToMessage = true)
+      done <- sent.get
+    } yield assertEquals(
+      done,
+      (1 to 15).map(i => s"#sbots:line$i").toList ++
+        (1 to 4).map(i => s"#sbots:line$i").toList ++
+        List("#sbots:(11 more lines not shown)")
+    )
+  }
 }

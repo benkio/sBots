@@ -35,6 +35,8 @@ class BotEngineAdaptationSpec extends CatsEffectSuite {
     sBotInfo = sBotInfo,
     triggerFilename = "eng_triggers.md",
     triggerListUri = uri"https://example.com/eng_triggers.md",
+    instructionsFilename = "eng_instructions.md",
+    instructionsUri = uri"https://example.com/eng_instructions.md",
     token = "eng.token",
     listJsonFilename = "eng_list.json",
     repliesJsonFilename = "eng_replies.json",

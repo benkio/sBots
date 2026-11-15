@@ -64,6 +64,7 @@ class ITIrcLiveSpec extends CatsEffectSuite with DBFixture {
   )
 
   private val answerTimeout: FiniteDuration = 90.seconds
+  private val quietPeriod: FiniteDuration   = 3.seconds
 
   /** What the tester read in the channel. */
   private final case class Seen(sender: String, text: String)
@@ -136,13 +137,25 @@ class ITIrcLiveSpec extends CatsEffectSuite with DBFixture {
     withMarkdown.sortBy(!_._1).headOption.map(_._2)
   }
 
-  private def answer(t: Tester, nick: String, send: IO[Unit]): IO[List[Seen]] =
+  private def answer(t: Tester, nick: String, send: IO[Unit]): IO[List[Seen]] = {
+    def botAnswers: IO[List[Seen]] = t.seen.get.map(_.filter(_.sender.startsWith(nick)))
+    def waitQuiet(previousCount: Int, stableFor: FiniteDuration): IO[Unit] =
+      IO.sleep(500.millis) >> botAnswers.flatMap { answers =>
+        val count = answers.length
+        if count == previousCount then {
+          val nextStable = stableFor + 500.millis
+          if nextStable >= quietPeriod then IO.unit else waitQuiet(previousCount, nextStable)
+        } else waitQuiet(count, 0.seconds)
+      }
     for {
-      _       <- t.seen.set(List.empty)
-      _       <- send
-      _       <- until(s"$nick answers", answerTimeout)(t.seen.get.map(_.exists(_.sender.startsWith(nick))))
-      answers <- t.seen.get.map(_.filter(_.sender.startsWith(nick)))
+      _ <- t.seen.set(List.empty)
+      _ <- send
+      _ <- until(s"$nick answers", answerTimeout)(botAnswers.map(_.nonEmpty))
+      _ <- waitQuiet(0, 0.seconds)
+        .timeoutTo(answerTimeout, IO.raiseError(new AssertionError(s"Timeout after $answerTimeout: $nick goes quiet")))
+      answers <- botAnswers
     } yield answers
+  }
 
   private def botTest(entry: BotRegistryEntry[IO]): Unit =
     databaseFixture.test(s"${entry.sBotInfo.botName.value} answers its markdown file and !instructions on IRC") {
