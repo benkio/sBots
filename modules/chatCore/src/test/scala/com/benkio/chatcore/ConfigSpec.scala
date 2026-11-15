@@ -5,6 +5,8 @@ import com.benkio.chatcore.initialization.Config
 import com.benkio.chatcore.Logger.given
 import munit.CatsEffectSuite
 
+import scala.concurrent.duration.*
+
 class ConfigSpec extends CatsEffectSuite {
 
   test("Config.loadConfig should load the correct configuration with default values") {
@@ -16,6 +18,7 @@ class ConfigSpec extends CatsEffectSuite {
       assertEquals(config.httpCache.dropbox.maxSize, 20)
       assertEquals(config.httpCache.mega.ttlSeconds, 21600L)
       assertEquals(config.httpCache.mega.maxSize, 20)
+      assertEquals(config.requestProcessingTimeout, Some(3.seconds))
     }
   }
 }

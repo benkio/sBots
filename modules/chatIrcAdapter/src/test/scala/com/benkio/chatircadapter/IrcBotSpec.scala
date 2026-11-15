@@ -56,7 +56,8 @@ class IrcBotSpec extends CatsEffectSuite {
         )
       )
     ),
-    repository = new RepositoryMock()
+    repository = new RepositoryMock(),
+    sBotConfig = sBotConfig
   )
 
   private def config(port: Int): IrcConfig = IrcConfig(

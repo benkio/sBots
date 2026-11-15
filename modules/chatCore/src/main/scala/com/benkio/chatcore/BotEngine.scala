@@ -22,6 +22,8 @@ import com.benkio.chatcore.patterns.PostComputationPatterns
 import com.benkio.chatcore.repository.db.DBLayer
 import log.effect.LogWriter
 
+import scala.concurrent.duration.FiniteDuration
+
 /** The logic of a bot, whatever the platform: what to reply to a message, a command or a file request. The platform is
   * reached through the [[PlatformAdapter]] only: to send and compute the replies, and for the way it writes the
   * commands (see [[com.benkio.chatcore.model.CommandSyntax]]).
@@ -114,12 +116,30 @@ class BotEngine[F[_]: Async: LogWriter](
     }
 
   /** The entry point: a message arrived. */
-  def onMessage(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = for {
-    _ <- LogWriter.trace(s"${sBotConfig.sBotInfo.botName}: A message arrived: $msg")
-    _ <- LogWriter.info(s"${sBotConfig.sBotInfo.botName}: A message arrived with content: ${msg.text}")
-    _ <- botLogic(msg)
-    _ <- postComputation(msg)
-  } yield ()
+  def onMessage(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = {
+    val process: F[Unit] = for {
+      _ <- LogWriter.trace(s"${sBotConfig.sBotInfo.botName}: A message arrived: $msg")
+      _ <- LogWriter.info(s"${sBotConfig.sBotInfo.botName}: A message arrived with content: ${msg.text}")
+      _ <- botLogic(msg)
+      _ <- postComputation(msg)
+    } yield ()
+
+    sBotConfig.requestProcessingTimeout match {
+      case Some(timeout) => withRequestTimeout(msg, timeout)(process)
+      case None          => process
+    }
+  }
+
+  private def withRequestTimeout(msg: Message, timeout: FiniteDuration)(
+      process: F[Unit]
+  )(using platform: PlatformAdapter[F]): F[Unit] = {
+    val timedOut: F[Unit] =
+      LogWriter.error(
+        s"${sBotConfig.sBotInfo.botName}: request processing timed out after $timeout and was dropped " +
+          s"(platform=${platform.capabilities.platform}, chatId=${msg.chatId.id}, messageId=${msg.messageId}, content=${msg.text})"
+      )
+    Async[F].timeoutTo(process, timeout, timedOut)
+  }
 
   private def reply(reply: Reply, msg: Message)(using platform: PlatformAdapter[F]): F[Unit] =
     for {

@@ -12,6 +12,7 @@ case class SBotConfig(
     disableForward: Boolean,
     ignoreMessagePrefix: Option[String],
     messageTimeToLive: Option[FiniteDuration],
+    requestProcessingTimeout: Option[FiniteDuration],
     sBotInfo: SBotInfo,
     triggersFilePath: Path,
     triggerListUri: Uri,
@@ -65,11 +66,13 @@ object SBotConfig {
       showFilePath: Path,
       messageTimeToLive: Option[FiniteDuration],
       ignoreMessagePrefix: Option[String],
-      disableForward: Boolean
+      disableForward: Boolean,
+      requestProcessingTimeout: Option[FiniteDuration]
   ): SBotConfig = new SBotConfig(
     disableForward = disableForward,
     ignoreMessagePrefix = ignoreMessagePrefix,
     messageTimeToLive = messageTimeToLive,
+    requestProcessingTimeout = requestProcessingTimeout,
     sBotInfo = sBotInfo,
     triggersFilePath = resolvePath(triggersFilePath),
     triggerListUri = triggerListUri,
@@ -114,26 +117,28 @@ object SBotConfig {
       showFilename: String,
       messageTimeToLive: Option[FiniteDuration] = 10.seconds.some,
       ignoreMessagePrefix: Option[String] = Some("!"),
-      disableForward: Boolean = true
+      disableForward: Boolean = true,
+      requestProcessingTimeout: Option[FiniteDuration] = Some(3.seconds)
   ): SBotConfig = {
     val botRoot = Path
       .of("modules", "bots", sBotInfo.botName.value)
     new SBotConfig(
+      disableForward = disableForward,
+      ignoreMessagePrefix = ignoreMessagePrefix,
+      messageTimeToLive = messageTimeToLive,
+      requestProcessingTimeout = requestProcessingTimeout,
       sBotInfo = sBotInfo,
       triggersFilePath = resolvePath(botRoot.resolve(triggerFilename)),
       triggerListUri = triggerListUri,
       instructionsFilePath = resolvePath(botRoot.resolve(instructionsFilename)),
       instructionsUri = instructionsUri,
-      token = token,
       listJsonFilePath = resolvePath(botRoot.resolve(listJsonFilename)),
+      showFilePath = resolvePath(botRoot.resolve(showFilename)),
       repliesJsonFilePath =
         resolvePath(botRoot.resolve("src").resolve("main").resolve("resources").resolve(repliesJsonFilename)),
       commandsJsonFilePath =
         resolvePath(botRoot.resolve("src").resolve("main").resolve("resources").resolve(commandsJsonFilename)),
-      showFilePath = resolvePath(botRoot.resolve(showFilename)),
-      messageTimeToLive = messageTimeToLive,
-      ignoreMessagePrefix = ignoreMessagePrefix,
-      disableForward = disableForward
+      token = token
     )
   }
 }

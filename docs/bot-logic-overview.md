@@ -97,6 +97,21 @@ After the reply the engine runs its post computation (the last interaction of th
 presses of the inline keyboards (pagination, a media, a show) are Telegram only: `ISBot.onCallbackLogic` handles them,
 outside of the engine.
 
+### Request processing timeout
+
+`BotEngine.onMessage` enforces a configurable per-request processing timeout (`SBotConfig.requestProcessingTimeout`,
+`Option[FiniteDuration]`, default `Some(3.seconds)`) around the full handling of an incoming interaction
+(bot logic + post computation). If the timeout is reached, in-flight processing for that request is cancelled and the
+request is dropped; the bot logs an error with actionable context (bot, platform, chat id, message id, content, and
+timeout) and remains responsive for subsequent requests. Set `requestProcessingTimeout = None` to disable the timeout
+(for example in tests or environments where long-running handling is intentional). This timeout is distinct from the
+per-chat reply cooldown managed by `/settimeout`.
+
+Per-bot runtime configuration: set `request-processing-timeout` in each bot's config block (`main.<botId>` in
+`modules/main/src/main/resources/application.conf`, or the bot module's `application.conf` when run standalone). The
+value is loaded into `chatcore.initialization.Config` and applied to the bot's effective `SBotConfig` at startup (e.g.
+`3 seconds`, or `null`/override via config as needed per environment).
+
 ### Media subtype dispatch
 
 ```mermaid

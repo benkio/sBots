@@ -103,19 +103,20 @@ object BotSetup {
     for {
       tk   <- token[F](sBotConfig.token, resourceRepository)
       core <- BotCoreSetup[F](httpClient, sBotConfig)
-      jsonDataRepository = core.jsonDataRepository
-      dbLayer            = core.dbLayer
-      repository         = core.repository
-      _                     <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Delete webook..."))
+      jsonDataRepository  = core.jsonDataRepository
+      dbLayer             = core.dbLayer
+      repository          = core.repository
+      effectiveSBotConfig = core.sBotConfig
+      _                     <- Resource.eval(log.info(s"[${effectiveSBotConfig.sBotInfo.botId}] Delete webook..."))
       deleteWebhookResponse <- deleteWebhooks[F](httpClient, tk)
       _                     <- Resource.eval(
         Async[F].raiseWhen(deleteWebhookResponse.status != Status.Ok)(
           new RuntimeException(
-            s"[${sBotConfig.sBotInfo.botId}] The delete webhook request failed: " + deleteWebhookResponse.as[String]
+            s"[${effectiveSBotConfig.sBotInfo.botId}] The delete webhook request failed: " + deleteWebhookResponse.as[String]
           )
         )
       )
-      _       <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Webhook deleted"))
+      _       <- Resource.eval(log.info(s"[${effectiveSBotConfig.sBotInfo.botId}] Webhook deleted"))
       baseUrl <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot$tk")))
       api = BotApi(
         httpClient,
@@ -126,8 +127,8 @@ object BotSetup {
         TelegramBackgroundJobManager[F](
           repository = repository,
           dbLayer = dbLayer,
-          sBotInfo = sBotConfig.sBotInfo,
-          ttl = sBotConfig.messageTimeToLive
+          sBotInfo = effectiveSBotConfig.sBotInfo,
+          ttl = effectiveSBotConfig.messageTimeToLive
         )(using Async[F], api, Random[F], notifier, log)
       )
       path           <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/$tk")))
@@ -143,7 +144,7 @@ object BotSetup {
       notifier = notifier,
       webhookUri = webhookBaseUri,
       webhookPath = path,
-      sBotConfig = sBotConfig
+      sBotConfig = effectiveSBotConfig
     )
   }
 }
