@@ -11,7 +11,7 @@ object Dependencies {
     val catsEffectVersion     = "3.7.1"
     val circe                 = "0.14.17"
     val cron4s                = "0.8.2"
-    val doobie                = "1.0.0-RC14"
+    val doobie                = "1.0.0-RC12"
     val flyway                = "13.12.2"
     val fs2Core               = "3.14.0"
     val fs2Cron               = "0.10.3"
@@ -58,9 +58,9 @@ object Dependencies {
     val circeGeneric         = "io.circe"                      %% "circe-generic"           % versions.circe
     val circeParser          = "io.circe"                      %% "circe-parser"            % versions.circe
     val cron4s               = "com.github.alonsodomin.cron4s" %% "cron4s-core"             % versions.cron4s
-    val doobieCore           = "org.typelevel"                 %% "doobie-core"             % versions.doobie
-    val doobieFree           = "org.typelevel"                 %% "doobie-free"             % versions.doobie
-    val doobieMunit          = "org.typelevel"                 %% "doobie-munit"            % versions.doobie % "test"
+    val doobieCore           = "org.tpolecat"                  %% "doobie-core"             % versions.doobie
+    val doobieFree           = "org.tpolecat"                  %% "doobie-free"             % versions.doobie
+    val doobieMunit          = "org.tpolecat"                  %% "doobie-munit"            % versions.doobie % "test"
     val flyway               = "org.flywaydb"                   % "flyway-core"             % versions.flyway
     val fs2Core              = "co.fs2"                        %% "fs2-core"                % versions.fs2Core
     val fs2Cron              = "eu.timepit"                    %% "fs2-cron-cron4s"         % versions.fs2Cron
