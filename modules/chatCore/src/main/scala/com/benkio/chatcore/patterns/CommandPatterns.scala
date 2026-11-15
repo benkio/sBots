@@ -416,103 +416,95 @@ object CommandPatterns {
   }
 
   object InstructionsCommand {
-    private def instructionMessageIta(
+
+    def instructionsUriDefault(sBotInfo: SBotInfo): org.http4s.Uri =
+      org.http4s.Uri.unsafeFromString(
+        s"https://github.com/benkio/sBots/blob/main/modules/bots/${sBotInfo.botName}/${sBotInfo.botId}_instructions.md"
+      )
+
+    def instructionsLinkReply(instructionsUri: org.http4s.Uri): Text =
+      Text(s"Puoi trovare le istruzioni del bot al seguente URL: $instructionsUri")
+
+    private def formatCommandDescription(raw: String): String =
+      raw.replaceFirst("^'?", "").replaceFirst("':\\s*", " - ")
+
+    def describableCommands(
+        sBotInfo: SBotInfo,
+        triggerListUri: org.http4s.Uri,
+        ignoreMessagePrefix: Option[String],
+        messageRepliesData: List[ReplyBundleMessage],
+        commandRepliesData: List[ReplyBundleCommand]
+    ): List[ReplyBundleCommand] =
+      commandRepliesData ++ CommandPatternsGroup.TriggerGroup.group(
+        triggerFileUri = triggerListUri,
+        sBotInfo = sBotInfo,
+        messageRepliesData = messageRepliesData,
+        ignoreMessagePrefix = ignoreMessagePrefix
+      )
+
+    def instructionsFileContent(
         sBotInfo: SBotInfo,
         ignoreMessagePrefix: Option[String],
-        commandDescriptions: List[String]
-    ) = s"""
----- Instruzioni Per ${sBotInfo.botName} ----
-
-Per segnalare problemi, scrivere a: https://t.me/Benkio
-
-I comandi del bot sono:
-
-${commandDescriptions.mkString(start = "- ", sep = "\n- ", end = "")}
-
-${ignoreMessagePrefix
+        commands: List[ReplyBundleCommand]
+    ): String = {
+      val (commandDescriptionsIta, commandDescriptionsEng) =
+        commands.unzip(using cmd => (cmd.instruction.toIta.toList, cmd.instruction.toEng.toList))
+      val itaCommands = commandDescriptionsIta.flatten.map(d => s"- ${formatCommandDescription(d)}").mkString("\n")
+      val engCommands = commandDescriptionsEng.flatten.map(d => s"- ${formatCommandDescription(d)}").mkString("\n")
+      val itaIgnore = ignoreMessagePrefix
         .map(s =>
-          s"Se si vuole disabilitare il bot per un particolare messaggio impedendo\nche interagisca, è possibile farlo iniziando il messaggio con il\ncarattere: `$s`\n\n$s Messaggio"
+          s"\nSe vuoi disabilitare il bot per un messaggio specifico, puoi iniziare il messaggio con il carattere: `$s`\n\n`$s Messaggio`\n"
         )
-        .getOrElse("")}
-"""
-
-    def instructionMessageEng(
-        sBotInfo: SBotInfo,
-        ignoreMessagePrefix: Option[String],
-        commandDescriptions: List[String]
-    ): String = s"""
----- Instructions for ${sBotInfo.botName} ----
-
-to report issues, write to: https://t.me/Benkio
-
-Bot commands are:
-
-${commandDescriptions.mkString(start = "- ", sep = "\n- ", end = "")}
-
-${ignoreMessagePrefix
+        .getOrElse("")
+      val engIgnore = ignoreMessagePrefix
         .map(s =>
-          s"if you wish to disable the bot for a specific message, blocking its reply/interaction, you can do adding the following character as prefix\ncharacter: `$s`\n\n$s Message"
+          s"\nIf you want to disable the bot for a specific message, you can start the message with the character: `$s`\n\n`$s Message`\n"
         )
-        .getOrElse("")}
-"""
+        .getOrElse("")
+      s"""# Istruzioni per ${sBotInfo.botName}
+        |
+        |Per segnalare problemi, scrivere a: https://t.me/Benkio
+        |
+        |## Comandi
+        |
+        |$itaCommands
+        |$itaIgnore
+        |# Instructions for ${sBotInfo.botName}
+        |
+        |To report issues, write to: https://t.me/Benkio
+        |
+        |## Commands
+        |
+        |$engCommands
+        |$engIgnore""".stripMargin
+    }
+
     def instructionCommandLogic[F[_]: ApplicativeThrow](
         msg: Message,
         sBotInfo: SBotInfo,
-        ignoreMessagePrefix: Option[String],
-        commands: List[ReplyBundleCommand],
+        instructionsUri: org.http4s.Uri,
         ttl: Option[FiniteDuration],
         commandSyntax: CommandSyntax = CommandSyntax.Slash
-    ): F[ReplyValue] = {
-      val computation: String => F[ReplyValue] = (input: String) => {
-        val itaMatches = List("it", "ita", "italian", "🇮🇹")
-        val engMatches = List("", "en", "🇬🇧", "🇺🇸", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "eng", "english")
-        val (commandDescriptionsIta, commandDescriptionsEng) =
-          commands
-            .unzip(using cmd => (cmd.instruction.toIta.toList, cmd.instruction.toEng.toList))
-        val instructionsIta = Text(
-          instructionMessageIta(
-            sBotInfo = sBotInfo,
-            ignoreMessagePrefix = ignoreMessagePrefix,
-            commandDescriptions = commandDescriptionsIta.flatten
-          )
-        )
-        val instructionsEng = Text(
-          instructionMessageEng(
-            sBotInfo = sBotInfo,
-            ignoreMessagePrefix = ignoreMessagePrefix,
-            commandDescriptions = commandDescriptionsEng.flatten
-          )
-        )
-        input match {
-          case v if itaMatches.contains(v) =>
-            instructionsIta.pure[F]
-          case v if engMatches.contains(v) =>
-            instructionsEng.pure[F]
-          case _ =>
-            instructionsEng.pure[F]
-        }
-      }
+    ): F[ReplyValue] =
       handleCommandWithInput[F](
         commandSyntax = commandSyntax,
         msg = msg,
         command = CommandKey.Instructions.asString,
         sBotInfo = sBotInfo,
-        computation = computation,
+        computation = _ => instructionsLinkReply(instructionsUri).pure[F],
         defaultReply = "",
         ttl = ttl,
         allowEmptyString = true
       )
-    }
 
     def instructionsReplyBundleCommand(
         sBotInfo: SBotInfo,
-        commands: List[ReplyBundleCommand],
-        ignoreMessagePrefix: Option[String]
+        instructionsUri: org.http4s.Uri
     ): ReplyBundleCommand =
       ReplyBundleCommand(
         trigger = CommandKey.Instructions.trigger,
         reply = EffectfulReply(
-          key = EffectfulKey.Instructions(sBotInfo, ignoreMessagePrefix, commands)
+          key = EffectfulKey.Instructions(sBotInfo, instructionsUri)
         ),
         instruction = CommandInstructionData.NoInstructions
       )

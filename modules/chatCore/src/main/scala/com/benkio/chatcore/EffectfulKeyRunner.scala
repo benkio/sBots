@@ -67,14 +67,13 @@ object EffectfulKeyRunner {
           replyBundleTransformation = replyBundleMessage => PagedList.triggers(msg, replyBundleMessage, page)
         )
       )
-    case EffectfulKey.Instructions(sBotInfo, ignoreMessagePrefix, commands) =>
+    case EffectfulKey.Instructions(sBotInfo, instructionsUri) =>
       toReplyValue(
         InstructionsCommand.instructionCommandLogic(
           commandSyntax = commandSyntax,
           msg = msg,
           sBotInfo = sBotInfo,
-          ignoreMessagePrefix = ignoreMessagePrefix,
-          commands = commands,
+          instructionsUri = instructionsUri,
           ttl = ttl
         )
       )

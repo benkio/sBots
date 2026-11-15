@@ -54,8 +54,7 @@ class BotEngine[F[_]: Async: LogWriter](
       )
     commandsPattersGroup :+ InstructionsCommand.instructionsReplyBundleCommand(
       sBotInfo = sBotConfig.sBotInfo,
-      commands = commandRepliesData ++ commandsPattersGroup,
-      ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
+      instructionsUri = sBotConfig.instructionsUri
     )
   }
 
@@ -137,7 +136,7 @@ class BotEngine[F[_]: Async: LogWriter](
   ): F[Unit] =
     ReplyAdaptation
       .adaptToPlatform(dbLayer, platform.capabilities)(replyValue)
-      .flatMap(_.traverse_(platform.send(_, msg, replyToMessage)))
+      .flatMap(platform.sendAll(_, msg, replyToMessage))
 }
 
 object BotEngine {

@@ -44,7 +44,12 @@ class IrcPlatformAdapter[F[_]: Async: LogWriter: Notifier](
   override def run: F[Unit] = startConnection
 
   override def send(replyValue: ReplyValue, message: Message, replyToMessage: Boolean): F[Unit] =
-    ircApi.flatMap(api => IrcReplies[F](api, usableRepository, capabilities).send(replyValue, message, replyToMessage))
+    sendAll(List(replyValue), message, replyToMessage)
+
+  override def sendAll(replyValues: List[ReplyValue], message: Message, replyToMessage: Boolean)(using
+      cats.Monad[F]
+  ): F[Unit] =
+    ircApi.flatMap(api => IrcReplies[F](api, usableRepository, capabilities).sendAll(replyValues, message, replyToMessage))
 
   override def runEffectful(reply: EffectfulReply, message: Message): F[ReplyValue] =
     ComputeReply.runEffectfulReply[F](

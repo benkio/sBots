@@ -15,6 +15,8 @@ case class SBotConfig(
     sBotInfo: SBotInfo,
     triggersFilePath: Path,
     triggerListUri: Uri,
+    instructionsFilePath: Path,
+    instructionsUri: Uri,
     listJsonFilePath: Path,
     showFilePath: Path,
     repliesJsonFilePath: Path,
@@ -22,6 +24,7 @@ case class SBotConfig(
     token: String
 ) {
   def triggerFilename: String      = triggersFilePath.getFileName.toString
+  def instructionsFilename: String = instructionsFilePath.getFileName.toString
   def listJsonFilename: String     = listJsonFilePath.getFileName.toString
   def showFilename: String         = showFilePath.getFileName.toString
   def calendarFilePath: Path       = showFilePath.resolveSibling(s"${sBotInfo.botId.value}_calendar.ics")
@@ -53,6 +56,8 @@ object SBotConfig {
       sBotInfo: SBotInfo,
       triggersFilePath: Path,
       triggerListUri: Uri,
+      instructionsFilePath: Path,
+      instructionsUri: Uri,
       token: String,
       listJsonFilePath: Path,
       repliesJsonFilePath: Path,
@@ -67,11 +72,13 @@ object SBotConfig {
     messageTimeToLive = messageTimeToLive,
     sBotInfo = sBotInfo,
     triggersFilePath = resolvePath(triggersFilePath),
+    triggerListUri = triggerListUri,
+    instructionsFilePath = resolvePath(instructionsFilePath),
+    instructionsUri = instructionsUri,
     listJsonFilePath = resolvePath(listJsonFilePath),
     showFilePath = resolvePath(showFilePath),
     repliesJsonFilePath = resolvePath(repliesJsonFilePath),
     commandsJsonFilePath = resolvePath(commandsJsonFilePath),
-    triggerListUri = triggerListUri,
     token = token
   )
 
@@ -82,6 +89,10 @@ object SBotConfig {
       triggerFilename = s"${sBotInfo.botId}_triggers.md",
       triggerListUri = Uri.unsafeFromString(
         s"https://github.com/benkio/sBots/blob/main/modules/bots/${sBotInfo.botName}/${sBotInfo.botId}_triggers.md"
+      ),
+      instructionsFilename = s"${sBotInfo.botId}_instructions.md",
+      instructionsUri = Uri.unsafeFromString(
+        s"https://github.com/benkio/sBots/blob/main/modules/bots/${sBotInfo.botName}/${sBotInfo.botId}_instructions.md"
       ),
       listJsonFilename = s"${sBotInfo.botId}_list.json",
       showFilename = s"${sBotInfo.botId}_shows.json",
@@ -94,6 +105,8 @@ object SBotConfig {
       sBotInfo: SBotInfo,
       triggerFilename: String,
       triggerListUri: Uri,
+      instructionsFilename: String,
+      instructionsUri: Uri,
       token: String,
       listJsonFilename: String,
       repliesJsonFilename: String,
@@ -109,6 +122,8 @@ object SBotConfig {
       sBotInfo = sBotInfo,
       triggersFilePath = resolvePath(botRoot.resolve(triggerFilename)),
       triggerListUri = triggerListUri,
+      instructionsFilePath = resolvePath(botRoot.resolve(instructionsFilename)),
+      instructionsUri = instructionsUri,
       token = token,
       listJsonFilePath = resolvePath(botRoot.resolve(listJsonFilename)),
       repliesJsonFilePath =
