@@ -1,8 +1,8 @@
 package com.benkio.integration.integrationmunit.performance
 
 import cats.effect.IO
-import com.benkio.Alessandro0rlandoBot.Alessandro0rlandoBot
 import com.benkio.main.BotRegistryEntry
+import com.benkio.Alessandro0rlandoBot.Alessandro0rlandoBot
 
 class ITAlessandro0rlandoBotPerformanceSpec extends BaseBotPerformanceSpec {
 
@@ -11,9 +11,9 @@ class ITAlessandro0rlandoBotPerformanceSpec extends BaseBotPerformanceSpec {
 
   /** Explicit, switchable performance scenario for this bot. */
   override def perfCase: PerfCase = PerfCase(
-      inputText = "energia",
-      description = "representative small media trigger (orl_EnergiaSchifano.sticker)"
-    )
+    inputText = "energia",
+    description = "representative small media trigger (orl_EnergiaSchifano.sticker)"
+  )
 
   registerPerformanceTest()
 }

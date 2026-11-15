@@ -1,8 +1,8 @@
 package com.benkio.integration.integrationmunit.performance
 
 import cats.effect.IO
-import com.benkio.VittorioSgarbiBot.VittorioSgarbiBot
 import com.benkio.main.BotRegistryEntry
+import com.benkio.VittorioSgarbiBot.VittorioSgarbiBot
 
 class ITVittorioSgarbiBotPerformanceSpec extends BaseBotPerformanceSpec {
 
@@ -11,9 +11,9 @@ class ITVittorioSgarbiBotPerformanceSpec extends BaseBotPerformanceSpec {
 
   /** Explicit, switchable performance scenario for this bot. */
   override def perfCase: PerfCase = PerfCase(
-      inputText = "sei sporco",
-      description = "representative small media trigger (sgar_VaffanculoDeficiente.mp3)"
-    )
+    inputText = "sei sporco",
+    description = "representative small media trigger (sgar_VaffanculoDeficiente.mp3)"
+  )
 
   registerPerformanceTest()
 }

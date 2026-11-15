@@ -1,8 +1,8 @@
 package com.benkio.integration.integrationmunit.performance
 
 import cats.effect.IO
-import com.benkio.XahLeeBot.XahLeeBot
 import com.benkio.main.BotRegistryEntry
+import com.benkio.XahLeeBot.XahLeeBot
 
 class ITXahLeeBotPerformanceSpec extends BaseBotPerformanceSpec {
 
@@ -11,9 +11,9 @@ class ITXahLeeBotPerformanceSpec extends BaseBotPerformanceSpec {
 
   /** Explicit, switchable performance scenario for this bot. */
   override def perfCase: PerfCase = PerfCase(
-      inputText = "!instructions",
-      description = "fixed instructions command (representative command path; no message replies)"
-    )
+    inputText = "!instructions",
+    description = "fixed instructions command (representative command path; no message replies)"
+  )
 
   registerPerformanceTest()
 }

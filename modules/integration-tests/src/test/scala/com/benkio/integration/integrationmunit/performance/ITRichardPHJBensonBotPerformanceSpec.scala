@@ -1,8 +1,8 @@
 package com.benkio.integration.integrationmunit.performance
 
 import cats.effect.IO
-import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import com.benkio.main.BotRegistryEntry
+import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 
 class ITRichardPHJBensonBotPerformanceSpec extends BaseBotPerformanceSpec {
 
@@ -11,9 +11,10 @@ class ITRichardPHJBensonBotPerformanceSpec extends BaseBotPerformanceSpec {
 
   /** Explicit, switchable performance scenario for this bot. */
   override def perfCase: PerfCase = PerfCase(
-      inputText = "rifiutato",
-      description = "designated large/heavy media case including rphjb_RifiutatoLavorareStoriaMusicista.mp4 (~9MB-class target)"
-    )
+    inputText = "rifiutato",
+    description =
+      "designated large/heavy media case including rphjb_RifiutatoLavorareStoriaMusicista.mp4 (~9MB-class target)"
+  )
 
   registerPerformanceTest()
 }

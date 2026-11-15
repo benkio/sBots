@@ -1,8 +1,8 @@
 package com.benkio.integration.integrationmunit.performance
 
 import cats.effect.IO
-import com.benkio.M0sconiBot.M0sconiBot
 import com.benkio.main.BotRegistryEntry
+import com.benkio.M0sconiBot.M0sconiBot
 
 class ITM0sconiBotPerformanceSpec extends BaseBotPerformanceSpec {
 
@@ -11,9 +11,9 @@ class ITM0sconiBotPerformanceSpec extends BaseBotPerformanceSpec {
 
   /** Explicit, switchable performance scenario for this bot. */
   override def perfCase: PerfCase = PerfCase(
-      inputText = "stronzi",
-      description = "representative small media trigger (mos_Stronzi.mp3)"
-    )
+    inputText = "stronzi",
+    description = "representative small media trigger (mos_Stronzi.mp3)"
+  )
 
   registerPerformanceTest()
 }

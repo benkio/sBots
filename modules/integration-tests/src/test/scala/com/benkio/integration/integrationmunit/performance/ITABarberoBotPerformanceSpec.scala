@@ -1,8 +1,8 @@
 package com.benkio.integration.integrationmunit.performance
 
 import cats.effect.IO
-import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.main.BotRegistryEntry
+import com.benkio.ABarberoBot.ABarberoBot
 
 class ITABarberoBotPerformanceSpec extends BaseBotPerformanceSpec {
 
@@ -11,9 +11,9 @@ class ITABarberoBotPerformanceSpec extends BaseBotPerformanceSpec {
 
   /** Explicit, switchable performance scenario for this bot. */
   override def perfCase: PerfCase = PerfCase(
-      inputText = "particelle cadaveriche",
-      description = "representative small media trigger (abar_ParticelleCadaveriche.mp3)"
-    )
+    inputText = "particelle cadaveriche",
+    description = "representative small media trigger (abar_ParticelleCadaveriche.mp3)"
+  )
 
   registerPerformanceTest()
 }
