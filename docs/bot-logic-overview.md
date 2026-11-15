@@ -217,6 +217,8 @@ a markdown file of the bot (when it has one a text can trigger) and `!random`, a
 `IRC_LIVE_TEST=false` to skip it without the network. It uses the real DB of the integration tests, and removes the timeout
 the bot may have left in the channel.
 
+You can join or watch the test channel directly in a browser via the [Libera.Chat web client](https://web.libera.chat/?channels=%23%23sBotsTesting).
+
 ### Running a bot on IRC
 
 `IrcPlatformRuntime` (registered in `Runner.connectionRuntimes` after the Discord one, and only started when a bot of the
