@@ -25,6 +25,7 @@ import telegramium.bots.ChatIntId
 
 import java.nio.file.Path
 import java.time.Instant
+import scala.concurrent.duration.*
 
 /** The checks of a Telegram bot when it starts: the first requests warm up the JVM, TLS and the connections, and the
   * result tells the ops chat if something is slow or broken, instead of the first user finding out.
@@ -77,7 +78,9 @@ object TelegramStartupCheck {
         )
       } yield ()
     }
-    Probe(s"Test file $fileName", send, timeout = Some(setup.sBotConfig.startupCheck.probeTimeout * 4))
+    // A stalled file send must not hold the bot's start for a minute: the probe
+    // reports the timeout and polling starts anyway.
+    Probe(s"Test file $fileName", send, timeout = Some(10.seconds))
   }
 
   /** Only after a deploy: the deploy leaves a marker file and the first start that finds it sends the test file. */
