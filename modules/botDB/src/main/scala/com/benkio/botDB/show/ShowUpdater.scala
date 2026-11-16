@@ -1,5 +1,6 @@
 package com.benkio.botDB.show
 
+import cats.effect.implicits.*
 import cats.effect.kernel.Async
 import cats.effect.std.Random
 import cats.effect.Resource
@@ -320,9 +321,13 @@ object ShowUpdater {
         youTubeBotDBShowDatas: YouTubeBotDBShowDatas,
         index: Int
     ): F[Unit] = for {
-      _ <- LogWriter.info(s"[ShowUpdater - $index] 🚀 Start fetching and saving captions")
-      missingCaptions <- youTubeBotDBShowDatas.dbShowDatas.filterA(dbShowData =>
-        captionAlreadyExists(dbShowData, youTubeBotDBShowDatas).map(!_))
+      _               <- LogWriter.info(s"[ShowUpdater - $index] 🚀 Start fetching and saving captions")
+      missingCaptions <- youTubeBotDBShowDatas.dbShowDatas.parFilterA(dbShowData =>
+        captionAlreadyExists(dbShowData, youTubeBotDBShowDatas).flatMap(captionExists =>
+          if captionExists then Async[F].pure(false)
+          else youTubeService.hasCaption(dbShowData.show_id, youTubeBotDBShowDatas.captionLanguage)
+        )
+      )
       _ <- missingCaptions.traverse(dbShowData => saveCaption(dbShowData, youTubeBotDBShowDatas))
       _ <- LogWriter.info(s"[ShowUpdater - $index] 🏁 Finish saving captions")
     } yield ()
