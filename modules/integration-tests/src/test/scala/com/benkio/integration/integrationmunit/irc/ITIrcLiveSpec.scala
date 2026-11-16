@@ -138,6 +138,9 @@ class ITIrcLiveSpec extends CatsEffectSuite with DBFixture {
     withMarkdown.sortBy(!_._1).headOption.map(_._2)
   }
 
+  /** What the answer is when the media is sent as its link. */
+  private val bareLink = "https?://\\S+".r
+
   private def answer(t: Tester, nick: String, send: IO[Unit]): IO[List[Seen]] = {
     def botAnswers: IO[List[Seen]] = t.seen.get.map(_.filter(_.sender.startsWith(nick)))
     def waitQuiet(previousCount: Int, stableFor: FiniteDuration): IO[Unit] =
@@ -180,7 +183,11 @@ class ITIrcLiveSpec extends CatsEffectSuite with DBFixture {
               instructions <- answer(t = t, nick = nick, send = t.say("!instructions"))
             } yield (markdown, instructions)).guarantee(bot.cancel >> IO.sleep(2.seconds))
           } yield {
-            result._1.foreach(markdown => assert(markdown.exists(_.text.trim.nonEmpty), markdown.toString))
+            // a set with a markdown file always gives the text of the file, never the link of one of the media
+            result._1.foreach { markdown =>
+              assert(markdown.exists(_.text.trim.nonEmpty), markdown.toString)
+              assert(!markdown.exists(answer => bareLink.matches(answer.text.trim)), markdown.toString)
+            }
             assert(result._2.exists(_.text.trim.nonEmpty), result._2.toString)
           }
         }

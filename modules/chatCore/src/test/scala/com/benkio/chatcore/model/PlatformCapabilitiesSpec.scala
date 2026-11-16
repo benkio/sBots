@@ -37,6 +37,13 @@ class PlatformCapabilitiesSpec extends FunSuite {
     assert(!textOnly.supports(PhotoFile("a.png")))
   }
 
+  test("textOnly is true only for a platform that sends the markdown files and nothing else") {
+    assert(textOnly.copy(supportedMedia = Set(MediaKind.MarkdownFile)).textOnly)
+    assert(!textOnly.textOnly)
+    assert(!textOnly.copy(supportedMedia = Set(MediaKind.MarkdownFile, MediaKind.Audio)).textOnly)
+    assert(!textOnly.copy(supportedMedia = MediaKind.values.toSet).textOnly)
+  }
+
   test("the maximum text length must be positive") {
     intercept[IllegalArgumentException](textOnly.copy(maxTextLength = 0))
   }

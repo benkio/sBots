@@ -6,6 +6,7 @@ import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.messagefiltering.*
 import com.benkio.chatcore.model.reply.EffectfulReply
+import com.benkio.chatcore.model.reply.MarkdownFile
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.MediaReply
 import com.benkio.chatcore.model.reply.PlainReply
@@ -16,6 +17,7 @@ import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.TextReply
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageType
+import com.benkio.chatcore.model.PlatformCapabilities
 import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.chatcore.patterns.CommandPatternsGroup
 import com.benkio.chatcore.patterns.PostComputationPatterns
@@ -168,7 +170,7 @@ class BotEngine[F[_]: Async: LogWriter](
   private def reply(reply: Reply, msg: Message)(using platform: PlatformAdapter[F]): F[Unit] =
     for {
       replyValue <- reply match {
-        case plainReply: PlainReply         => BotEngine.runPlainReply[F](plainReply)
+        case plainReply: PlainReply         => BotEngine.runPlainReply[F](plainReply, platform.capabilities)
         case effectfulReply: EffectfulReply => platform.runEffectful(effectfulReply, msg)
       }
       _ <- deliver(replyValue = replyValue, msg = msg, replyToMessage = reply.replyToMessage)
@@ -199,8 +201,17 @@ object BotEngine {
     )
 
   /** Picks one of the values of a reply that is just data. */
-  def runPlainReply[F[_]: Sync](reply: PlainReply): F[ReplyValue] = reply match {
+  def runPlainReply[F[_]: Sync](reply: PlainReply, capabilities: PlatformCapabilities): F[ReplyValue] = reply match {
     case textReply: TextReply   => RandomSelection.select(textReply.text)
-    case mediaReply: MediaReply => RandomSelection.select(mediaReply.mediaFiles)
+    case mediaReply: MediaReply => selectMediaFile(mediaReply.mediaFiles, capabilities)
   }
+
+  /** The file of a media reply: on a text only platform, the markdown file (the first by file name, to be always the
+    * same) when the set has one, as it is the text the platform can show; otherwise a random one.
+    */
+  def selectMediaFile[F[_]: Sync](mediaFiles: Iterable[MediaFile], capabilities: PlatformCapabilities): F[ReplyValue] =
+    Option
+      .when(capabilities.textOnly)(mediaFiles.collect { case markdown: MarkdownFile => markdown })
+      .flatMap(_.toList.minByOption(_.filename))
+      .fold(RandomSelection.select[F](mediaFiles))(markdown => (markdown: ReplyValue).pure[F])
 }

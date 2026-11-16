@@ -82,7 +82,7 @@ object Pagination {
         dbLayer = dbLayer,
         effectfulCallbacks = effectfulCallbacks,
         ttl = ttl,
-        commandSyntax = TelegramCapabilities.value.commandSyntax,
+        capabilities = TelegramCapabilities.value,
         overridePage = Some(newPage)
       )
       telegramReplyValue <- MonadThrow[F].fromOption(

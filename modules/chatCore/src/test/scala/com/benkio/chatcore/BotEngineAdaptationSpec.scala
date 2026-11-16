@@ -5,6 +5,7 @@ import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.FakePlatformAdapter
 import com.benkio.chatcore.model.reply.GifFile
+import com.benkio.chatcore.model.reply.MarkdownFile
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.PagedItem
 import com.benkio.chatcore.model.reply.PagedList
@@ -56,7 +57,8 @@ class BotEngineAdaptationSpec extends CatsEffectSuite {
 
   private val messageReplies = List(
     ReplyBundleMessage.textToMp3("song")(Mp3File("eng_song.mp3")),
-    ReplyBundleMessage.textToGif("clip")(GifFile("eng_unknownGif.mp4"))
+    ReplyBundleMessage.textToGif("clip")(GifFile("eng_unknownGif.mp4")),
+    ReplyBundleMessage.textToMedia("note")(Mp3File("eng_note.mp3"), MarkdownFile("eng_note.md"))
   )
 
   private val textOnly: PlatformCapabilities = FakePlatformAdapter.textOnlyCapabilities.copy(
@@ -115,6 +117,14 @@ class BotEngineAdaptationSpec extends CatsEffectSuite {
     received(text = "/list", capabilities = withButtonsAndAudio, effectful = items).map(sent =>
       assertEquals(sent, List(items))
     )
+  }
+
+  test("a text only platform gets the markdown file of a set of media, always") {
+    val markdownOnly = textOnly.copy(supportedMedia = Set(MediaKind.MarkdownFile))
+    List
+      .fill(20)(received(text = "note", capabilities = markdownOnly))
+      .sequence
+      .map(sent => assertEquals(sent.toSet, Set(List[ReplyValue](MarkdownFile("eng_note.md")))))
   }
 
   test("a media the platform cannot send is sent as its link") {

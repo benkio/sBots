@@ -11,6 +11,7 @@ import com.benkio.chatcore.model.reply.Reply
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.PlatformCapabilities
 import com.benkio.chatcore.repository.db.DBLayer
 import log.effect.LogWriter
 
@@ -20,7 +21,8 @@ object ComputeReply {
 
   // Computations ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-  def runPlainReply[F[_]: Sync](reply: PlainReply): F[ReplyValue] = BotEngine.runPlainReply[F](reply)
+  def runPlainReply[F[_]: Sync](reply: PlainReply, capabilities: PlatformCapabilities): F[ReplyValue] =
+    BotEngine.runPlainReply[F](reply, capabilities)
 
   def runEffectfulReply[F[_]: Async: LogWriter](
       reply: EffectfulReply,
@@ -51,10 +53,10 @@ object ComputeReply {
       dbLayer: DBLayer[F],
       effectfulCallbacks: Map[String, Message => F[ReplyValue]],
       ttl: Option[FiniteDuration],
-      commandSyntax: CommandSyntax,
+      capabilities: PlatformCapabilities,
       overridePage: Option[Int] = None
   ): F[ReplyValue] = reply match {
-    case plainReply: PlainReply         => runPlainReply[F](plainReply)
+    case plainReply: PlainReply         => runPlainReply[F](plainReply, capabilities)
     case effectfulReply: EffectfulReply =>
       runEffectfulReply(
         reply = effectfulReply,
@@ -63,7 +65,7 @@ object ComputeReply {
         dbLayer = dbLayer,
         effectfulCallbacks = effectfulCallbacks,
         ttl = ttl,
-        commandSyntax = commandSyntax,
+        commandSyntax = capabilities.commandSyntax,
         overridePage = overridePage
       )
   }

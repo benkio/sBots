@@ -217,7 +217,7 @@ object CronBackgroundJobManager {
         }
       for {
         replyBundle <- bundle
-        replyValue  <- replyBundle.traverse(selected => BotEngine.runPlainReply[F](selected.reply))
+        replyValue  <- replyBundle.traverse(selected => BotEngine.runPlainReply[F](selected.reply, capabilities))
         _           <- Async[F].whenA(replyValue.isEmpty)(
           log.info(s"[BackgroundJobManager] trigger subscription ${subscription.id.value} has no reply to send")
         )
