@@ -54,20 +54,24 @@ object GenerateInstructions extends IOApp {
       commandReplies <- jsonDataRepository.loadData[ReplyBundleCommand](sBotConfig.commandsJsonFilename)
       content = render(sBotConfig = sBotConfig, messageReplies = messageReplies, commandReplies = commandReplies)
       path    = sBotConfig.instructionsFilePath
-      _ <-
-        if check then IO
-          .blocking(if Files.exists(path) then Files.readString(path, StandardCharsets.UTF_8) else "")
-          .flatMap { existing =>
-            IO.raiseUnless(existing == content)(
-              new RuntimeException(s"[GenerateInstructions] Out of date: $path. Run generateInstructions to update it.")
-            ) *> IO.println(s"[GenerateInstructions] Up to date: $path")
-          }
-        else
-          IO.println(s"[GenerateInstructions] Generate instructions file: $path") *>
-            writeInstructionsFile(path, content) *>
-            IO.println(s"[GenerateInstructions] Generate $path done")
+      _ <- verifyInstructionsFile(path, content).whenA(check)
+      _ <- generateInstructionsFile(path, content).unlessA(check)
     } yield ()
   }
+
+  private def verifyInstructionsFile(path: Path, content: String): IO[Unit] =
+    IO
+      .blocking(if Files.exists(path) then Files.readString(path, StandardCharsets.UTF_8) else "")
+      .flatMap { existing =>
+        IO.raiseUnless(existing == content)(
+          new RuntimeException(s"[GenerateInstructions] Out of date: $path. Run generateInstructions to update it.")
+        ) *> IO.println(s"[GenerateInstructions] Up to date: $path")
+      }
+
+  private def generateInstructionsFile(path: Path, content: String): IO[Unit] =
+    IO.println(s"[GenerateInstructions] Generate instructions file: $path") *>
+      writeInstructionsFile(path, content) *>
+      IO.println(s"[GenerateInstructions] Generate $path done")
 
   def run(args: List[String]): IO[ExitCode] = {
     val check              = args.exists(a => a == "--check" || a == "check")

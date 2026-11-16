@@ -163,20 +163,18 @@ object YouTubeService {
         )
         requests <- videoIdsChucks.traverse(YouTubeRequests.createYouTubeVideoRequest(youTubeService, _, youTubeApiKey))
         _        <- LogWriter.debug(s"[YoutubeService] ${requests.length} YouTube requests")
-        videos   <- requests.foldLeft(List.empty[Video].pure[F]) { case (ioAcc, request) =>
-          for {
-            _        <- LogWriter.debug(s"[YoutubeService] Execute request $request")
-            response <- Async[F].delay(request.execute())
-            _        <- LogWriter.debug(s"[YoutubeService] request response $response")
-            videos = response.getItems().asScala.toList
-            _   <- LogWriter.debug(s"[YoutubeService] request response items $videos")
-            acc <- ioAcc
-            result = acc ++ videos
-            _ <- LogWriter.debug(s"[YoutubeService] request results ${result.length}")
-          } yield result
-        }
+        videos   <- requests.flatTraverse(executeVideosRequest)
+        _        <- LogWriter.debug(s"[YoutubeService] request results ${videos.length}")
       } yield videos
     }
+
+    private def executeVideosRequest(request: YouTube#Videos#List): F[List[Video]] = for {
+      _        <- LogWriter.debug(s"[YoutubeService] Execute request $request")
+      response <- Async[F].delay(request.execute())
+      _        <- LogWriter.debug(s"[YoutubeService] request response $response")
+      videos = response.getItems().asScala.toList
+      _ <- LogWriter.debug(s"[YoutubeService] request response items $videos")
+    } yield videos
 
     override def saveCaption(videoId: String, captionFolderPath: Path, captionLanguage: String): F[Unit] = {
       val command =

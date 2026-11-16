@@ -117,6 +117,7 @@ object DBFixture {
     connection.createStatement().executeUpdate("DELETE FROM subscription;")
     connection.createStatement().executeUpdate("DELETE FROM log;")
     connection.createStatement().executeUpdate("DELETE FROM chat;")
+    connection.createStatement().executeUpdate("DELETE FROM processed_message;")
     connection.createStatement().executeUpdate("UPDATE media SET media_count = 0;")
     ()
   }

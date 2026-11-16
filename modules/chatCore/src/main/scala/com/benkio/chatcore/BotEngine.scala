@@ -77,8 +77,7 @@ class BotEngine[F[_]: Async: LogWriter](
         for {
           _ <- LogWriter
             .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ")
-          filter <- filteringMatchesMessages(replyBundle, msg)
-          _      <- if filter then reply(replyBundle.reply, msg) else Async[F].unit
+          _ <- filteringMatchesMessages(replyBundle, msg).flatMap(reply(replyBundle.reply, msg).whenA)
         } yield ()
       )
 
@@ -119,9 +118,7 @@ class BotEngine[F[_]: Async: LogWriter](
   def onMessage(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = {
     val process: F[Unit] = for {
       _ <- LogWriter.trace(s"${sBotConfig.sBotInfo.botName}: A message arrived: $msg")
-      _ <- LogWriter.info(s"${sBotConfig.sBotInfo.botName}: A message arrived with content: ${msg.text}")
-      _ <- botLogic(msg)
-      _ <- postComputation(msg)
+      _ <- isDuplicate(msg).ifM(skipDuplicate(msg), handleMessage(msg))
     } yield ()
 
     sBotConfig.requestProcessingTimeout match {
@@ -129,6 +126,33 @@ class BotEngine[F[_]: Async: LogWriter](
       case None          => process
     }
   }
+
+  private def skipDuplicate(msg: Message): F[Unit] =
+    LogWriter.info(
+      s"${sBotConfig.sBotInfo.botName}: duplicate message skipped (chatId=${msg.chatId}, messageId=${msg.messageId})"
+    )
+
+  private def handleMessage(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = for {
+    _ <- LogWriter.info(s"${sBotConfig.sBotInfo.botName}: A message arrived with content: ${msg.text}")
+    _ <- botLogic(msg)
+    _ <- postComputation(msg)
+  } yield ()
+
+  /** Whether the message was already received: the platforms can deliver the same message more than once (e.g. Telegram
+    * retries an update that was not acknowledged in time). Without a message id (e.g. IRC) it can't be told, so the
+    * message is processed. If the check fails, the message is processed too: better a duplicate than a missing reply.
+    */
+  private def isDuplicate(msg: Message): F[Boolean] =
+    msg.messageId.fold(false.pure[F])(messageId =>
+      dbLayer.dbProcessedMessage
+        .markIfNew(msg.chatId, sBotConfig.sBotInfo.botId, messageId)
+        .map(isNew => !isNew)
+        .handleErrorWith(e =>
+          LogWriter.error(
+            s"${sBotConfig.sBotInfo.botName}: duplicate check failed, processing the message anyway: $e"
+          ) *> false.pure[F]
+        )
+    )
 
   private def withRequestTimeout(msg: Message, timeout: FiniteDuration)(
       process: F[Unit]

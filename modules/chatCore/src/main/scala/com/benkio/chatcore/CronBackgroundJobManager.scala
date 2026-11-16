@@ -169,10 +169,8 @@ object CronBackgroundJobManager {
         case (SubscriptionKey(sId, _, _), _) => sId == subscriptionId
       }
       for {
-        _ <-
-          if optCancellingBoolean.isEmpty
-          then Async[F].raiseError(SubscriptionIdNotFound(subscriptionId))
-          else optCancellingBoolean.values.toList.traverse_(cancelSignal => cancelSignal.set(true))
+        _ <- Async[F].raiseWhen(optCancellingBoolean.isEmpty)(SubscriptionIdNotFound(subscriptionId))
+        _ <- optCancellingBoolean.values.toList.traverse_(cancelSignal => cancelSignal.set(true))
         _ <- dbLayer.dbSubscription.deleteSubscription(subscriptionId.value)
       } yield scheduleReferences = onGoingScheduleReferences
     }
