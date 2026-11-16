@@ -36,7 +36,7 @@ jobs:
     - uses: actions/checkout@v5
     - uses: ./.github/actions/setup-scala
     - name: Unit tests with coverage
-      run: sbt "dbSetup; coverage; test; coverageAggregate; coverageOff"
+      run: sbt "dbSetup; generateTriggerDocumentation; generateCalendar; coverage; test; coverageAggregate; coverageOff"
   scalaIntegrationTests:
     runs-on: ubuntu-latest
     steps:
