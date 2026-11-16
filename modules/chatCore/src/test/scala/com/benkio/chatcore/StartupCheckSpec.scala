@@ -8,6 +8,7 @@ import munit.CatsEffectSuite
 import org.http4s.client.Client
 import org.http4s.implicits.*
 import org.http4s.HttpApp
+import org.http4s.Method
 import org.http4s.Response
 import org.http4s.Status
 
@@ -98,6 +99,20 @@ class StartupCheckSpec extends CatsEffectSuite {
     outcome(StartupCheck.hostReachable("Host", client, uri"https://example.com")).map(o =>
       assert(o.isInstanceOf[ProbeOutcome.Ok], o.toString)
     )
+  }
+
+  test("the host probe asks the host with the method it is given: some endpoints never answer a HEAD") {
+    // like the Mega API: a HEAD hangs, a GET answers
+    val client = Client.fromHttpApp(HttpApp[IO] { request =>
+      if request.method == Method.HEAD then IO.never else IO.pure(Response[IO](Status.Ok))
+    })
+    for {
+      head <- outcome(StartupCheck.hostReachable("Host", client, uri"https://example.com", Method.HEAD))
+      get  <- outcome(StartupCheck.hostReachable("Host", client, uri"https://example.com", Method.GET))
+    } yield {
+      assertEquals(head, ProbeOutcome.TimedOut(300.millis))
+      assert(get.isInstanceOf[ProbeOutcome.Ok], get.toString)
+    }
   }
 
   test("the host probe is failed when the host can't be reached") {

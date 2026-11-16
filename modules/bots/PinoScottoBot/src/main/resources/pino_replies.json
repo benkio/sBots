@@ -2283,7 +2283,10 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "omer frocio leroy"
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bomer[- ]+frocio[- ]+leroy",
+              "regexLength" : 16
+            }
           },
           {
             "StringTextTriggerValue" : "non rompe il cazzo"

@@ -53,6 +53,10 @@ then
         exit 1
     fi
 
+    # Like a fresh deploy, ask every bot to send its startup test file, so the
+    # probe actually runs locally and its timing can be compared.
+    touch "$SCALA_TARGET_DIR/post-deploy-test.marker"
+
     if [ "$WEBHOOK" = false ] ;
     then
         echo "-------------------------Run Polling Bots-------------------------"

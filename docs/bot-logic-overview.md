@@ -129,10 +129,10 @@ with a file does not pay for them. A probe never prevents the bot from starting.
 After a deploy the check can also send a **test file** to the ops chat through the real path of a reply (the repository
 fetches it, the Telegram adapter sends it) and report how long it took: the deploy workflow leaves a marker file
 (`post-deploy-test.marker` in the deploy directory), the first start that finds it removes it and sends the file configured as
-`startup-check.test-media` (today the heavy media of RichardPHJBensonBot), so a restart loop does not send it again.
+`startup-check.test-media` (a ~2 MB file for every bot, so the timings can be compared across providers), so a restart loop does not send it again.
 
 Per bot configuration (`main.<botId>.startup-check` in `modules/main/src/main/resources/application.conf`, see
-`StartupCheckConfig`): `enabled`, `probe-timeout` (15 seconds, four times that for the test file), `slow-threshold` (3 seconds),
+`StartupCheckConfig`): `enabled`, `probe-timeout` (15 seconds, capped at 10 seconds for the test file), `slow-threshold` (3 seconds),
 `test-media`, `marker-file`. The IRC and Discord bots do not run it yet.
 
 ### Media subtype dispatch

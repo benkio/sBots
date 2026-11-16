@@ -5,6 +5,7 @@ import cats.effect.IO
 import com.benkio.chatcore.config.StartupCheckConfig
 import com.benkio.chatcore.mocks.RepositoryMock
 import com.benkio.chatcore.model.media.MediaResource
+import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.Logger.given
 import com.benkio.chattelegramadapter.http.TelegramNotifier
 import com.benkio.chattelegramadapter.initialization.BotSetup
@@ -13,6 +14,10 @@ import com.benkio.chattelegramadapter.mocks.PayloadRecordingApi
 import com.benkio.chattelegramadapter.mocks.SampleWebhookBot
 import io.circe.Json
 import munit.CatsEffectSuite
+import org.http4s.client.Client
+import org.http4s.HttpApp
+import org.http4s.Response
+import org.http4s.Status
 
 import java.nio.file.Files
 import scala.concurrent.duration.*
@@ -94,7 +99,7 @@ class TelegramStartupCheckSpec extends CatsEffectSuite {
     }
   }
 
-  test("a test file that can't be fetched is a failed check, the start is notified anyway") {
+  test("a test file that can't be fetched is a failed check with the real reason, the start is notified anyway") {
     val missing = new RepositoryMock(getResourceFileHandler = _ => IO.raiseError(new RuntimeException("not found")))
     for {
       marker        <- IO.blocking(Files.createTempFile("post-deploy", ".marker"))
@@ -111,6 +116,44 @@ class TelegramStartupCheckSpec extends CatsEffectSuite {
       assert(text.startsWith(started), text)
       assert(text.contains("⚠️ Startup checks"), text)
       assert(text.contains(s"❌ Test file $testMedia"), text)
+      assert(text.contains("not found"), s"the reason is missing in: $text")
+    }
+  }
+
+  test("a test file that is not in the DB is a failed check with the reason, not a generic `not sent`") {
+    // the notifier does not report this error to the ops chat (a user typing a wrong name): the report is the only place
+    val notInDb = new RepositoryMock(getResourceFileHandler =
+      mediaFile => IO.pure(Left(Repository.RepositoryError.NoResourcesFoundFile(mediaFile)))
+    )
+    for {
+      marker        <- IO.blocking(Files.createTempFile("post-deploy", ".marker"))
+      setupAndCalls <- setupOver(
+        StartupCheckConfig(testMedia = Some(testMedia), markerFile = marker.toString, probeTimeout = 2.seconds),
+        repository = notInDb
+      )
+      (setup, recorded) = setupAndCalls
+      _     <- TelegramStartupCheck.run(setup, startMessage)
+      calls <- recorded
+    } yield {
+      val text = opsTexts(calls).last
+      assert(text.contains(s"❌ Test file $testMedia"), text)
+      assert(text.contains("getResourceFile returned no results"), s"the reason is missing in: $text")
+    }
+  }
+
+  test("the Mega API is asked with a GET: it never answers a HEAD") {
+    val methodsByHost = new java.util.concurrent.ConcurrentHashMap[String, String]()
+    val recording     = Client.fromHttpApp(HttpApp[IO] { request =>
+      IO(methodsByHost.put(request.uri.host.map(_.value).getOrElse("?"), request.method.name))
+        .as(Response[IO](Status.Ok))
+    })
+    for {
+      setupAndCalls <- setupOver(StartupCheckConfig())
+      (setup, _) = setupAndCalls
+      _ <- TelegramStartupCheck.run(setup.copy(httpClient = recording), startMessage)
+    } yield {
+      assertEquals(methodsByHost.get("g.api.mega.co.nz"), "GET")
+      assertEquals(methodsByHost.get("www.dropbox.com"), "HEAD")
     }
   }
 }
