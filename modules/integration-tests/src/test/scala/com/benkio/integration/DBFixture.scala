@@ -110,9 +110,13 @@ object DBFixture {
   }
 
   def cleanDB(connection: Connection): Unit = {
+    // doobie's `Transactor.fromConnection` leaves the connection with autoCommit off: without this the deletes
+    // run in teardown are rolled back when the connection is closed
+    connection.setAutoCommit(true)
     connection.createStatement().executeUpdate("DELETE FROM timeout;")
     connection.createStatement().executeUpdate("DELETE FROM subscription;")
     connection.createStatement().executeUpdate("DELETE FROM log;")
+    connection.createStatement().executeUpdate("DELETE FROM chat;")
     connection.createStatement().executeUpdate("UPDATE media SET media_count = 0;")
     ()
   }
