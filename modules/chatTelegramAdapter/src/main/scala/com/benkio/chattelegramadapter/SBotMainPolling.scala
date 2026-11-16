@@ -14,10 +14,7 @@ object SBotMainPolling {
     SBot
       .buildPollingBot(
         (cb: SBotPolling[IO]) => {
-          cb.sBotSetup.notifier.info(
-            sBotInfo = cb.sBotSetup.sBotConfig.sBotInfo,
-            message = "Start Polling Bot Successful ✅"
-          ) >>
+          TelegramStartupCheck.run(cb.sBotSetup, "Start Polling Bot Successful ✅") >>
             cb.start()
         },
         sBotInfo,

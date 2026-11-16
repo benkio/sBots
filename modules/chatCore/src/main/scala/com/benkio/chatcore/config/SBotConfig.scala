@@ -22,7 +22,8 @@ case class SBotConfig(
     showFilePath: Path,
     repliesJsonFilePath: Path,
     commandsJsonFilePath: Path,
-    token: String
+    token: String,
+    startupCheck: StartupCheckConfig
 ) {
   def triggerFilename: String      = triggersFilePath.getFileName.toString
   def instructionsFilename: String = instructionsFilePath.getFileName.toString
@@ -87,7 +88,8 @@ object SBotConfig {
     showFilePath = resolvePath(showFilePath),
     repliesJsonFilePath = resolvePath(repliesJsonFilePath),
     commandsJsonFilePath = resolvePath(commandsJsonFilePath),
-    token = token
+    token = token,
+    startupCheck = StartupCheckConfig()
   )
 
   /** The config of a bot from its info: every file is named after the bot id and the bot name. */
@@ -123,7 +125,8 @@ object SBotConfig {
       messageTimeToLive: Option[FiniteDuration] = 10.seconds.some,
       ignoreMessagePrefix: Option[String] = Some("!"),
       disableForward: Boolean = true,
-      requestProcessingTimeout: Option[FiniteDuration] = Some(defaultRequestProcessingTimeout)
+      requestProcessingTimeout: Option[FiniteDuration] = Some(defaultRequestProcessingTimeout),
+      startupCheck: StartupCheckConfig = StartupCheckConfig()
   ): SBotConfig = {
     val botRoot = Path
       .of("modules", "bots", sBotInfo.botName.value)
@@ -132,6 +135,7 @@ object SBotConfig {
       ignoreMessagePrefix = ignoreMessagePrefix,
       messageTimeToLive = messageTimeToLive,
       requestProcessingTimeout = requestProcessingTimeout,
+      startupCheck = startupCheck,
       sBotInfo = sBotInfo,
       triggersFilePath = resolvePath(botRoot.resolve(triggerFilename)),
       triggerListUri = triggerListUri,

@@ -37,7 +37,8 @@ final case class BotSetup[F[_]](
     notifier: Notifier[F],
     webhookUri: Uri,
     webhookPath: Uri,
-    sBotConfig: SBotConfig
+    sBotConfig: SBotConfig,
+    opsChatId: Long
 )
 
 object BotSetup {
@@ -145,7 +146,8 @@ object BotSetup {
       notifier = notifier,
       webhookUri = webhookBaseUri,
       webhookPath = path,
-      sBotConfig = effectiveSBotConfig
+      sBotConfig = effectiveSBotConfig,
+      opsChatId = opsChatId
     )
   }
 }

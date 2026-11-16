@@ -38,6 +38,18 @@ class DropboxClientSpec extends CatsEffectSuite {
     )
   }
 
+  test("fetch should return a large file byte for byte") {
+    // Several MB, the size of the heavy media of the bots: it is read into an Array, not into a List of bytes
+    val expected = "0123456789abcdef" * (6 * 1024 * 64) // 6 MiB
+    val result   = for {
+      server        <- DropboxServerMock.build(expected)
+      dropboxClient <- buildDropboxClient()
+      file          <- dropboxClient.fetchFile("largeTestFile", server.baseUri / "302TestFile")
+    } yield file
+
+    result.use(f => IO(assertEquals(Files.size(f), expected.length.toLong)))
+  }
+
   test("fetch should fail if the response is empty") {
 
     val filename = "emptyResponseFilename"

@@ -27,7 +27,7 @@ object DropboxServerMock {
         // Relative redirect avoids hardcoding host/port and plays nicely with dynamic test ports
         Found(Location(uri"/200TestFile"))
       case GET -> Root / "200TestFile" =>
-        println("[DropboxServerMock] 200: " + response)
+        println("[DropboxServerMock] 200: " + response.length + " chars")
         Ok(response)
     }
 

@@ -118,6 +118,23 @@ Per-bot runtime configuration: set `request-processing-timeout` in each bot's co
 value is loaded into `chatcore.initialization.Config` and applied to the bot's effective `SBotConfig` at startup (e.g.
 `10 seconds`, or `null`/override via config as needed per environment).
 
+### Startup check
+
+When a Telegram bot starts (`TelegramWebhookServer.compose`, `SBotMainPolling`) `TelegramStartupCheck.run` runs a few probes one
+after the other and puts the report in the start message of the ops chat: the DB read, Telegram `getMe`, and the hosts the
+files come from (Dropbox, the Mega API), each with its duration and a marker when it fails (❌), times out (⏱️) or is slower than
+the threshold (🐢). The first requests also warm up the JVM, the TLS handshakes and the connection pool, so the first reply
+with a file does not pay for them. A probe never prevents the bot from starting.
+
+After a deploy the check can also send a **test file** to the ops chat through the real path of a reply (the repository
+fetches it, the Telegram adapter sends it) and report how long it took: the deploy workflow leaves a marker file
+(`post-deploy-test.marker` in the deploy directory), the first start that finds it removes it and sends the file configured as
+`startup-check.test-media` (today the heavy media of RichardPHJBensonBot), so a restart loop does not send it again.
+
+Per bot configuration (`main.<botId>.startup-check` in `modules/main/src/main/resources/application.conf`, see
+`StartupCheckConfig`): `enabled`, `probe-timeout` (15 seconds, four times that for the test file), `slow-threshold` (3 seconds),
+`test-media`, `marker-file`. The IRC and Discord bots do not run it yet.
+
 ### Media subtype dispatch
 
 ```mermaid
