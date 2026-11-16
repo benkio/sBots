@@ -31,10 +31,10 @@ class ResourceRepository[F[_]: Async: LogWriter](stage: Option[String] = None) e
       jarPath <- Resource.eval(
         Async[F].blocking(Paths.get(getClass().getProtectionDomain().getCodeSource().getLocation().toURI()))
       )
-      entries <-
-        if !Files.isRegularFile(jarPath) then Resource.pure[F, List[String]](List.empty)
-        else
-          Resource
+      entries <- Resource
+        .eval(Async[F].blocking(Files.isRegularFile(jarPath)))
+        .ifM(
+          ifTrue = Resource
             .fromAutoCloseable(Async[F].blocking(new JarFile(jarPath.toFile())))
             .evalMap(jar =>
               Async[F].blocking {
@@ -45,7 +45,9 @@ class ResourceRepository[F[_]: Async: LogWriter](stage: Option[String] = None) e
                   .filter(name => name.startsWith(criteria + "/") && name.length > criteria.length + 1)
                   .toList
               }
-            )
+            ),
+          ifFalse = Resource.pure[F, List[String]](List.empty)
+        )
     } yield entries
 
     val fsEntries: Resource[F, List[Path]] = {

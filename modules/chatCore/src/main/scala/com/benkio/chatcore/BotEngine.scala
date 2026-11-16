@@ -77,8 +77,7 @@ class BotEngine[F[_]: Async: LogWriter](
         for {
           _ <- LogWriter
             .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ")
-          filter <- filteringMatchesMessages(replyBundle, msg)
-          _      <- if filter then reply(replyBundle.reply, msg) else Async[F].unit
+          _ <- filteringMatchesMessages(replyBundle, msg).ifM(reply(replyBundle.reply, msg), Async[F].unit)
         } yield ()
       )
 
@@ -118,18 +117,8 @@ class BotEngine[F[_]: Async: LogWriter](
   /** The entry point: a message arrived. */
   def onMessage(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = {
     val process: F[Unit] = for {
-      _         <- LogWriter.trace(s"${sBotConfig.sBotInfo.botName}: A message arrived: $msg")
-      duplicate <- isDuplicate(msg)
-      _         <-
-        if duplicate then LogWriter.info(
-          s"${sBotConfig.sBotInfo.botName}: duplicate message skipped (chatId=${msg.chatId}, messageId=${msg.messageId})"
-        )
-        else
-          for {
-            _ <- LogWriter.info(s"${sBotConfig.sBotInfo.botName}: A message arrived with content: ${msg.text}")
-            _ <- botLogic(msg)
-            _ <- postComputation(msg)
-          } yield ()
+      _ <- LogWriter.trace(s"${sBotConfig.sBotInfo.botName}: A message arrived: $msg")
+      _ <- isDuplicate(msg).ifM(skipDuplicate(msg), handleMessage(msg))
     } yield ()
 
     sBotConfig.requestProcessingTimeout match {
@@ -137,6 +126,17 @@ class BotEngine[F[_]: Async: LogWriter](
       case None          => process
     }
   }
+
+  private def skipDuplicate(msg: Message): F[Unit] =
+    LogWriter.info(
+      s"${sBotConfig.sBotInfo.botName}: duplicate message skipped (chatId=${msg.chatId}, messageId=${msg.messageId})"
+    )
+
+  private def handleMessage(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = for {
+    _ <- LogWriter.info(s"${sBotConfig.sBotInfo.botName}: A message arrived with content: ${msg.text}")
+    _ <- botLogic(msg)
+    _ <- postComputation(msg)
+  } yield ()
 
   /** Whether the message was already received: the platforms can deliver the same message more than once (e.g. Telegram
     * retries an update that was not acknowledged in time). Without a message id (e.g. IRC) it can't be told, so the

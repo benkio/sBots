@@ -37,7 +37,9 @@ object DBProcessedMessage {
       retention: FiniteDuration = defaultRetention,
       cleanupInterval: FiniteDuration = defaultCleanupInterval
   )(using log: LogWriter[F]): F[DBProcessedMessage[F]] =
-    Ref.of[F, Long](0L).map(lastCleanup => DBProcessedMessageImpl[F](transactor, retention, cleanupInterval, lastCleanup))
+    Ref
+      .of[F, Long](0L)
+      .map(lastCleanup => DBProcessedMessageImpl[F](transactor, retention, cleanupInterval, lastCleanup))
 
   private[chatcore] class DBProcessedMessageImpl[F[_]: Async](
       transactor: Transactor[F],
@@ -50,24 +52,25 @@ object DBProcessedMessage {
     override def markIfNew(chatId: ChatId, botId: SBotId, messageId: MessageId): F[Boolean] =
       for {
         now      <- Async[F].delay(Instant.now().getEpochSecond)
-        inserted <- markQuery(chatId = chatId, botId = botId, messageId = messageId, processedAt = now).run.transact(transactor).map(_ == 1)
-        _        <- cleanupIfDue(now)
+        inserted <- markQuery(chatId = chatId, botId = botId, messageId = messageId, processedAt = now).run
+          .transact(transactor)
+          .map(_ == 1)
+        _ <- cleanupIfDue(now)
       } yield inserted
 
     override def deleteOlderThan(epochSeconds: Long): F[Int] =
       deleteOlderThanQuery(epochSeconds).run.transact(transactor)
 
-    private def cleanupIfDue(now: Long): F[Unit] =
+    private def cleanupIfDue(now: Long): F[Unit] = {
+      val cleanup: F[Unit] =
+        deleteOlderThan(now - retention.toSeconds).attempt.flatMap {
+          case Right(deleted) => log.debug(s"DB deleted $deleted processed messages older than $retention")
+          case Left(e)        => log.error(s"DB failed to delete the old processed messages: $e")
+        }
       lastCleanup
         .modify(last => if now - last >= cleanupInterval.toSeconds then (now, true) else (last, false))
-        .flatMap(due =>
-          if due then
-            deleteOlderThan(now - retention.toSeconds).attempt.flatMap {
-              case Right(deleted) => log.debug(s"DB deleted $deleted processed messages older than $retention")
-              case Left(e)        => log.error(s"DB failed to delete the old processed messages: $e")
-            }
-          else Async[F].unit
-        )
+        .flatMap(cleanup.whenA)
+    }
   }
 
   def markQuery(chatId: ChatId, botId: SBotId, messageId: MessageId, processedAt: Long): Update0 =

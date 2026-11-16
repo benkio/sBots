@@ -153,9 +153,7 @@ object DBMedia {
                   getMediaQueryByKind(kind = kind, botId = botId).to[List].transact(transactor)
                   <* log.debug(s"[DBMedia] getMediaByKind for ${botId.value} - $kind completed")
               )(Async[F].pure)
-            _ <-
-              if cachedValueOpt.isEmpty then dbCache.insert(cacheKey, medias)
-              else Async[F].unit
+            _ <- dbCache.insert(cacheKey, medias).whenA(cachedValueOpt.isEmpty)
           } yield medias
       )
     }

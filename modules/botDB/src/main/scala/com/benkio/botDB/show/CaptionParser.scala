@@ -75,9 +75,9 @@ object CaptionParser {
 
       val program = for {
         _      <- LogWriter.debug(s"[CaptionParser] Parse caption file $captionPath")
-        exists <- Async[F].delay(Files.exists(captionPath))
-        result <- if !exists then Async[F].pure(Option.empty[String]) else extractPlainCaption
-
+        result <- Async[F]
+          .delay(Files.exists(captionPath))
+          .ifM(extractPlainCaption, Async[F].pure(Option.empty[String]))
       } yield result
 
       program.handleErrorWith(e =>
@@ -96,8 +96,9 @@ object CaptionParser {
 
       val program = for {
         _      <- LogWriter.debug(s"[CaptionParser] Parse SRT caption file $captionPath")
-        exists <- Async[F].delay(Files.exists(captionPath))
-        result <- if !exists then Async[F].pure(Vector.empty[(FiniteDuration, String)]) else extractSrtCaptions
+        result <- Async[F]
+          .delay(Files.exists(captionPath))
+          .ifM(extractSrtCaptions, Async[F].pure(Vector.empty[(FiniteDuration, String)]))
       } yield result
 
       program.handleErrorWith(e =>

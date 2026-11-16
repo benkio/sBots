@@ -13,6 +13,7 @@ import org.http4s.Uri
 
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
+import java.nio.file.Path
 
 object DataEntry {
 
@@ -64,6 +65,11 @@ object DataEntry {
   private[dataentry] def parseInput(links: List[String]): IO[List[MediaFileSource]] =
     links.traverse(parseInputLink)
 
+  private def readFile(path: Path): IO[String] =
+    Resource
+      .make(IO.delay(scala.io.Source.fromFile(path.toFile)))(bufferedSource => IO.delay(bufferedSource.close))
+      .use(_.mkString.pure[IO])
+
   def dataEntryLogic(input: List[String], sBotConfig: SBotConfig): IO[Unit] = {
     for {
       listJsonFilepath    <- IO.pure(sBotConfig.listJsonFilePath)
@@ -74,19 +80,13 @@ object DataEntry {
       _ <- IO.raiseUnless(Files.exists(repliesJsonFilepath))(
         Throwable(s"[DataEntry] Missing replies json file at: ${repliesJsonFilepath.toAbsolutePath}")
       )
-      jsonListFileResource = Resource.make(IO.delay(scala.io.Source.fromFile(listJsonFilepath.toFile)))(bufferedSorce =>
-        IO.delay(bufferedSorce.close)
-      )
-      repliesJsonFileResource = Resource.make(IO.delay(scala.io.Source.fromFile(repliesJsonFilepath.toFile)))(
-        bufferedSorce => IO.delay(bufferedSorce.close)
-      )
       _ <- IO.println(
         s"[DataEntry:22:42]] Read the input ${input.length} links & parse them to Json"
       )
       mediafileSources <- parseInput(input)
       mediafileSourcesJson = mediafileSources.asJson
       _               <- IO.println("[DataEntry:24:45]] Read the json_list and parse it to json")
-      botListFile     <- jsonListFileResource.use(_.mkString.pure[IO])
+      botListFile     <- readFile(listJsonFilepath)
       botListFileJson <- IO.fromEither(parse(botListFile))
       _               <- IO.println("[DataEntry]] Merge the 2 arrays together list")
       mergedArrayList = {
@@ -104,7 +104,7 @@ object DataEntry {
       _ <- IO.println("[DataEntry] convert media file source groups to ReplyBundleMessages")
       newReplyBundleMessages = mediaFileSourceGroups.map(MediaFileSourceGroup.toReplyBundleMessage).asJson
       _                  <- IO.println("[DataEntry] Read the current replies")
-      botRepliesFile     <- repliesJsonFileResource.use(_.mkString.pure[IO])
+      botRepliesFile     <- readFile(repliesJsonFilepath)
       botRepliesFileJson <- IO.fromEither(parse(botRepliesFile))
       _                  <- IO.println("[DataEntry]] Merge the 2 arrays together replies")
       mergedArrayReplies = {

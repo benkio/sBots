@@ -29,10 +29,10 @@ class ITDBProcessedMessageSpec extends CatsEffectSuite with DBFixture {
   databaseFixture.test(
     "DBProcessedMessage.markIfNew keeps apart different messages, chats, bots and platforms"
   ) { fixture =>
-    val chat  = TestIds.chatId(52L)
-    val other = ChatId(Platform.Irc, chat.id)
+    val chat           = TestIds.chatId(52L)
+    val other          = ChatId(Platform.Irc, chat.id)
     val resourceAssert = for {
-      db <- fixture.resourceDBLayer.map(_.dbProcessedMessage)
+      db      <- fixture.resourceDBLayer.map(_.dbProcessedMessage)
       results <- Resource.eval(
         List(
           (chat, botId, MessageId("1")),
@@ -48,11 +48,11 @@ class ITDBProcessedMessageSpec extends CatsEffectSuite with DBFixture {
 
   databaseFixture.test("DBProcessedMessage.deleteOlderThan forgets only the old messages") { fixture =>
     val resourceAssert = for {
-      db       <- fixture.resourceDBLayer.map(_.dbProcessedMessage)
-      _        <- Resource.eval(db.markIfNew(TestIds.chatId(55L), botId, MessageId("1")))
-      none     <- Resource.eval(db.deleteOlderThan(Instant.now.getEpochSecond - 3600))
-      all      <- Resource.eval(db.deleteOlderThan(Instant.now.getEpochSecond + 3600))
-      again    <- Resource.eval(db.markIfNew(TestIds.chatId(55L), botId, MessageId("1")))
+      db    <- fixture.resourceDBLayer.map(_.dbProcessedMessage)
+      _     <- Resource.eval(db.markIfNew(TestIds.chatId(55L), botId, MessageId("1")))
+      none  <- Resource.eval(db.deleteOlderThan(Instant.now.getEpochSecond - 3600))
+      all   <- Resource.eval(db.deleteOlderThan(Instant.now.getEpochSecond + 3600))
+      again <- Resource.eval(db.markIfNew(TestIds.chatId(55L), botId, MessageId("1")))
     } yield (none, all, again)
     resourceAssert.use { case (none, all, again) => IO(assertEquals((none, all, again), (0, 1, true))) }
   }

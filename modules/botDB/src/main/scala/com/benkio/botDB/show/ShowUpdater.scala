@@ -169,17 +169,11 @@ object ShowUpdater {
         _ <- LogWriter.info(s"[ShowUpdater] ${youTubeBotVideos.length} Converting YouTube data to DBShowData")
         _ <- LogWriter.debug(s"[ShowUpdater] Data to be converted: ${youTubeBotVideos}")
         youTubeBotdbShowDatas <- youTubeBotVideosToDbShowDatas(youTubeBotVideos)
-        totalShowsNoCaption = mergeShowDatas(storedDbShowDatas, youTubeBotdbShowDatas)
-        _ <-
-          if config.showConfig.runShowCaptionFetching
-          then LogWriter.info(
-            s"[ShowUpdater] ✓ run show caption fetching is ${config.showConfig.runShowCaptionFetching}"
-          ) >> saveAndFetchCaptions(totalShowsNoCaption)
-          else
-            LogWriter.info(
-              s"[ShowUpdater] ❌ run show caption fetching is ${config.showConfig.runShowCaptionFetching}"
-            )
-
+        totalShowsNoCaption   = mergeShowDatas(storedDbShowDatas, youTubeBotdbShowDatas)
+        runCaptionFetching    = config.showConfig.runShowCaptionFetching
+        captionFetchingString = if runCaptionFetching then "✓" else "❌"
+        _ <- LogWriter.info(s"[ShowUpdater] $captionFetchingString run show caption fetching is $runCaptionFetching")
+        _ <- saveAndFetchCaptions(totalShowsNoCaption).whenA(runCaptionFetching)
         _ <- LogWriter.info(s"[ShowUpdater] Insert ${totalShowsNoCaption.length} DBShowDatas to DB")
         _ <- LogWriter.debug(s"[ShowUpdater] Data to be intserted: $youTubeBotdbShowDatas")
         _ <- insertDBShowDatas(totalShowsNoCaption)

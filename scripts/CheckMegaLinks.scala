@@ -364,12 +364,40 @@ object CheckMegaLinks:
       _ <- IO.println("")
     yield ()
 
+  private def applyFixes(
+      bots: Vector[BotTarget],
+      reports: Vector[BotReport],
+      cfg: Config,
+      httpClient: HttpClient
+  ): IO[Unit] =
+    for
+    _ <- IO.println("Applying bulk fixer for invalid api links...")
+    botMap = bots.map(b => b.name -> b).toMap
+    fixResults <- reports.traverse { report =>
+      botMap.get(report.botName) match
+        case Some(bot) => applyBulkFix(bot, report)
+        case None =>
+          IO.pure(FixResult(report.botName, 0, 0, 0, Vector((report.botName, "", "bot lookup failed"))))
+    }
+    _ <- fixResults.traverse_ { fr =>
+      IO.println(
+        s"[fix] ${fr.botName}: attempted=${fr.attempted}, resolved=${fr.resolved}, replaced=${fr.replaced}, unresolved=${fr.unresolved.size}"
+      ) *> printPreview("[fix] unresolved", fr.unresolved, cfg.maxPreview) { case (fn, old, reason) =>
+        s"$fn | $reason | $old"
+      }
+    }
+    _ <- IO.println("")
+    _ <- IO.println("Re-running validation after fixes...")
+    afterFixReports <- bots.traverse(bot => botReport(bot, cfg, httpClient))
+    _ <- afterFixReports.traverse_(report => printReport(report, cfg.maxPreview))
+  yield ()
+
   def run(cfg: Config): IO[Unit] =
     for
       bots <- discoverBots(cfg)
-      _ <- if bots.isEmpty then
-        IO.raiseError(new IllegalArgumentException("No matching bots found. Check --mega-root, --project-root, or --bot values."))
-      else IO.unit
+      _ <- IO.raiseWhen(bots.isEmpty)(
+        new IllegalArgumentException("No matching bots found. Check --mega-root, --project-root, or --bot values.")
+      )
       _ <- IO.println(s"Mega root: ${cfg.megaRoot}")
       _ <- IO.println(s"Project root: ${cfg.projectRoot}")
       _ <- IO.println(s"Bots checked: ${bots.map(_.name).mkString(", ")}")
@@ -387,32 +415,10 @@ object CheckMegaLinks:
           IO.blocking(os.write.over(reportPath, lines.mkString("\n"), createFolders = true)) *>
             IO.println(s"Wrote invalid-link report to: $reportPath")
         case None => IO.unit
-      _ <- if cfg.fixInvalid then
-        for
-          _ <- IO.println("Applying bulk fixer for invalid api links...")
-          botMap = bots.map(b => b.name -> b).toMap
-          fixResults <- reports.traverse { report =>
-            botMap.get(report.botName) match
-              case Some(bot) => applyBulkFix(bot, report)
-              case None =>
-                IO.pure(FixResult(report.botName, 0, 0, 0, Vector((report.botName, "", "bot lookup failed"))))
-          }
-          _ <- fixResults.traverse_ { fr =>
-            IO.println(
-              s"[fix] ${fr.botName}: attempted=${fr.attempted}, resolved=${fr.resolved}, replaced=${fr.replaced}, unresolved=${fr.unresolved.size}"
-            ) *> printPreview("[fix] unresolved", fr.unresolved, cfg.maxPreview) { case (fn, old, reason) =>
-              s"$fn | $reason | $old"
-            }
-          }
-          _ <- IO.println("")
-          _ <- IO.println("Re-running validation after fixes...")
-          afterFixReports <- bots.traverse(bot => botReport(bot, cfg, httpClient))
-          _ <- afterFixReports.traverse_(report => printReport(report, cfg.maxPreview))
-        yield ()
-      else IO.unit
+      _ <- applyFixes(bots, reports, cfg, httpClient).whenA(cfg.fixInvalid)
       totalInvalid = reports.map(_.invalidLinks.size).sum
-      _ <- if totalInvalid == 0 then IO.println("All checked Mega links are reachable.")
-      else IO.println(s"Found $totalInvalid invalid/unreachable link(s).")
+      _ <- IO.println("All checked Mega links are reachable.").whenA(totalInvalid == 0)
+      _ <- IO.println(s"Found $totalInvalid invalid/unreachable link(s).").unlessA(totalInvalid == 0)
     yield ()
 
 @main def main(args: String*): Unit =
