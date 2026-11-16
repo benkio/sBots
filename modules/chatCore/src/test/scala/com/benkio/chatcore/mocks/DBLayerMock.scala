@@ -9,6 +9,7 @@ import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.show.ShowQuery
 import com.benkio.chatcore.model.show.SimpleShowQuery
 import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.MessageId
 import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.SubscriptionType
@@ -20,6 +21,7 @@ import com.benkio.chatcore.repository.db.DBLogData
 import com.benkio.chatcore.repository.db.DBMedia
 import com.benkio.chatcore.repository.db.DBMediaData
 import com.benkio.chatcore.repository.db.DBMessageReplies
+import com.benkio.chatcore.repository.db.DBProcessedMessage
 import com.benkio.chatcore.repository.db.DBShow
 import com.benkio.chatcore.repository.db.DBShowData
 import com.benkio.chatcore.repository.db.DBSubscription
@@ -38,6 +40,7 @@ object DBLayerMock {
       subscriptions: List[DBSubscriptionData] = List.empty,
       shows: List[DBShowData] = List.empty,
       logs: List[DBLogData] = List.empty,
+      processedMessages: DBProcessedMessage[IO] = DBProcessedMessageMock(Ref.unsafe(Set.empty)),
       messageReplies: List[ReplyBundleMessage] = List.empty,
       commandReplies: List[ReplyBundleCommand] = List.empty
   ): DBLayer[IO] =
@@ -47,9 +50,19 @@ object DBLayerMock {
       dbSubscription = DBSubscriptionMock(Ref.unsafe(subscriptions)),
       dbShow = DBShowMock(Ref.unsafe(shows)),
       dbLog = DBLogMock(Ref.unsafe(logs)),
+      dbProcessedMessage = processedMessages,
       dbMessageReplies = DBMessageReplies(messageReplies),
       dbCommandReplies = DBCommandReplies(commandReplies)
     )
+
+  final class DBProcessedMessageMock(db: Ref[IO, Set[(ChatId, SBotId, MessageId)]]) extends DBProcessedMessage[IO] {
+    override def markIfNew(chatId: ChatId, botId: SBotId, messageId: MessageId): IO[Boolean] =
+      db.modify(seen =>
+        if seen.contains((chatId, botId, messageId)) then (seen, false) else (seen + ((chatId, botId, messageId)), true)
+      )
+
+    override def deleteOlderThan(epochSeconds: Long): IO[Int] = IO.pure(0)
+  }
 
   final class DBTimeoutMock(db: Ref[IO, List[DBTimeoutData]], botIdI: SBotId) extends DBTimeout[IO] {
     override def getOrDefault(chatId: ChatId, botId: SBotId): IO[DBTimeoutData] =
