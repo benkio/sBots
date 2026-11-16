@@ -20,22 +20,38 @@ jobs:
       run: |
         cd filesCheck/
         npm run test
-  scalaCode:
+  # Each Scala job can be re-run on its own ("Re-run failed jobs"): a flaky one doesn't redo the others.
+  scalaCheck:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v5
-    - uses: actions/setup-java@v6
-      with:
-        distribution: 'temurin'
-        java-version: '21'
-        cache: 'sbt'
-    - uses: sbt/setup-sbt@v1
-    - name: Check Scala Formatting, JSONs Validity, Explicit Dependencies
+    - uses: ./.github/actions/setup-scala
+    - name: Check Scala Formatting, JSONs Validity, Explicit Dependencies, Instructions
       run: |
         echo this workflow was triggered by ${{github.actor}}
-        sbt "check"
-    - name: Validate the Scala project (clean, compile, format, test, itTest)
-      run: sbt validate
+        sbt "check; checkInstructions"
+  scalaUnitTests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: ./.github/actions/setup-scala
+    - name: Unit tests with coverage
+      run: sbt "dbSetup; coverage; test; coverageAggregate; coverageOff"
+  scalaIntegrationTests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: ./.github/actions/setup-scala
+    - name: Integration tests
+      run: sbt "dbSetup; integration/mUnitTests"
+  scalaAssembly:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: ./.github/actions/setup-scala
+    - name: Assembly
+      run: sbt assembly
+  dbMigration:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: ./.github/actions/setup-scala
+    - name: Generate the DB
+      run: sbt dbSetup
     - name: Check the production DB migration (DBMigration.sql + updateProdDB.sh)
       run: sh scripts/checkDBMigration.sh botDB.sqlite3
