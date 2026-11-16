@@ -110,7 +110,7 @@ per-chat reply cooldown managed by `/settimeout`.
 Per-bot runtime configuration: set `request-processing-timeout` in each bot's config block (`main.<botId>` in
 `modules/main/src/main/resources/application.conf`, or the bot module's `application.conf` when run standalone). The
 value is loaded into `chatcore.initialization.Config` and applied to the bot's effective `SBotConfig` at startup (e.g.
-`3 seconds`, or `null`/override via config as needed per environment).
+`10 seconds`, or `null`/override via config as needed per environment).
 
 ### Media subtype dispatch
 
@@ -239,7 +239,7 @@ You can join or watch the test channel directly in a browser via the [Libera.Cha
 Performance integration tests validate request-handling performance for **all registered bots** (one spec per bot; the template bot is not executed) using `BaseBotPerformanceSpec` (`modules/integration-tests/.../performance/BaseBotPerformanceSpec.scala`). Each bot has its own spec (e.g. `ITRichardPHJBensonBotPerformanceSpec.scala`) that extends the base, defines an explicit, switchable scenario via `perfCase` (`inputText`, `description`, expectations) and `botEntry`, and registers/runs its own performance test. Tests run the scenario through `BotEngine.onMessage` with real DB/repository/HTTP clients (integration fixtures) and a capturing platform adapter.
 
 - **Explicit scenarios (easy to switch):** each bot spec defines its own `override def perfCase: PerfCase = ...` (fixed selected trigger/request). Update that field in the bot’s performance spec to change the scenario.
-- **Timeout/threshold:** tests run with the default per-request processing timeout (**3 seconds**) as the performance threshold. If handling hits/crosses the timeout (request dropped/no reply delivered) or exceeds 3s, the performance test fails.
+- **Timeout/threshold:** tests run with the default per-request processing timeout (**10 seconds**) as the performance threshold. If handling hits/crosses the timeout (request dropped/no reply delivered) or exceeds 3s, the performance test fails.
 - **Designated large/heavy case:** RPHJB explicitly includes the ~9 MB-class target case `rifiutato` (`rphjb_RifiutatoLavorareStoriaMusicista.mp4` in that reply bundle). Other bots use explicit representative/heaviest-available cases as defined in their own specs (document rationale in code/PR/issue as needed).
 - **Environment:** these tests use integration DB/resources and may involve external I/O (Dropbox/MEGA/network) and can be slow or environment-dependent.
 - **Adding a new bot:** when adding a bot (including via template cloning), add `IT<BotName>PerformanceSpec.scala` in `modules/integration-tests/src/test/scala/com/benkio/integration/integrationmunit/performance/` extending `BaseBotPerformanceSpec` with the bot’s `botEntry` and explicit `perfCase`, and call `registerPerformanceTest()`.

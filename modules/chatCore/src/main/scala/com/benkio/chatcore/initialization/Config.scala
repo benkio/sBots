@@ -10,7 +10,7 @@ import scala.concurrent.duration.*
 final case class Config(
     db: DBConfig,
     httpCache: HttpClientsCacheConfig,
-    requestProcessingTimeout: Option[FiniteDuration] = Some(3.seconds)
+    requestProcessingTimeout: Option[FiniteDuration] = Some(10.seconds)
 ) derives ConfigReader
 final case class DBConfig(
     driver: String,

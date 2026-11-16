@@ -18,7 +18,7 @@ class ConfigSpec extends CatsEffectSuite {
       assertEquals(config.httpCache.dropbox.maxSize, 20)
       assertEquals(config.httpCache.mega.ttlSeconds, 21600L)
       assertEquals(config.httpCache.mega.maxSize, 20)
-      assertEquals(config.requestProcessingTimeout, Some(3.seconds))
+      assertEquals(config.requestProcessingTimeout, Some(10.seconds))
     }
   }
 }

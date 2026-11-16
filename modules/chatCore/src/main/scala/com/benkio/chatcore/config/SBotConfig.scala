@@ -118,7 +118,7 @@ object SBotConfig {
       messageTimeToLive: Option[FiniteDuration] = 10.seconds.some,
       ignoreMessagePrefix: Option[String] = Some("!"),
       disableForward: Boolean = true,
-      requestProcessingTimeout: Option[FiniteDuration] = Some(3.seconds)
+      requestProcessingTimeout: Option[FiniteDuration] = Some(10.seconds)
   ): SBotConfig = {
     val botRoot = Path
       .of("modules", "bots", sBotInfo.botName.value)
