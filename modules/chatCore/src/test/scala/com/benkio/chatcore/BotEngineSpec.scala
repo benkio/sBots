@@ -28,6 +28,7 @@ import org.http4s.syntax.literals.*
 import org.http4s.Uri
 
 import java.time.Instant
+import scala.concurrent.duration.*
 
 class BotEngineSpec extends CatsEffectSuite {
 
@@ -71,9 +72,10 @@ class BotEngineSpec extends CatsEffectSuite {
 
   private def engineWith(
       filter: Boolean = true,
-      postComputation: Message => IO[Unit] = _ => IO.unit
+      postComputation: Message => IO[Unit] = _ => IO.unit,
+      config: SBotConfig = sBotConfig
   ): BotEngine[IO] = new BotEngine[IO](
-    sBotConfig = sBotConfig,
+    sBotConfig = config,
     dbLayer = DBLayerMock.mock(sBotInfo.botId, messageReplies = messageReplies, commandReplies = commandReplies),
     filteringMatchesMessages = (_, _) => IO.pure(filter),
     postComputation = postComputation
@@ -94,7 +96,7 @@ class BotEngineSpec extends CatsEffectSuite {
   ): IO[(List[Sent], Int)] = for {
     adapter      <- FakePlatformAdapter(capabilities = capabilities)
     postComputed <- Ref.of[IO, Int](0)
-    engine = engineWith(filter, _ => postComputed.update(_ + 1))
+    engine = engineWith(filter = filter, postComputation = _ => postComputed.update(_ + 1))
     _      <- engine.onMessage(message(text))(using adapter)
     result <- adapter.sent.get
     count  <- postComputed.get
@@ -199,5 +201,29 @@ class BotEngineSpec extends CatsEffectSuite {
       assertEquals(marked._1.map(s => (s.replyValue, s.replyToMessage)), List((Mp3File("eng_file.mp3"), true)))
       assertEquals(plain._1, List.empty)
     }
+  }
+
+  test("a request that completes within the configured timeout is processed normally") {
+    val config = sBotConfig.copy(requestProcessingTimeout = Some(2.seconds))
+    for {
+      adapter <- FakePlatformAdapter(capabilities = slashCommands)
+      engine = engineWith(config = config)
+      _    <- engine.onMessage(message("ciao"))(using adapter)
+      sent <- adapter.sent.get
+    } yield assertEquals(sent.map(_.replyValue), List(Text("hello")))
+  }
+
+  test("a request that exceeds the configured timeout is dropped without failing the engine") {
+    val config = sBotConfig.copy(requestProcessingTimeout = Some(50.millis))
+    for {
+      adapter      <- FakePlatformAdapter(capabilities = slashCommands)
+      postComputed <- Ref.of[IO, Boolean](false)
+      engine = engineWith(
+        config = config,
+        postComputation = _ => IO.sleep(1.second) *> postComputed.set(true)
+      )
+      _        <- engine.onMessage(message("ciao"))(using adapter)
+      computed <- postComputed.get
+    } yield assert(!computed, "post computation should not complete after timeout")
   }
 }

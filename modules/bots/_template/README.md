@@ -11,5 +11,6 @@ This folder is the scaffold for a new bot. Do not use it as a project directly.
    - file names: `tpl_*.json`, `tpl_*.txt` → `mynew_*.json`, `mynew_*.txt`
    - file contents: replace `TemplateBot` and `tpl` in every Scala and config file.
 3. Follow the steps in [docs/adding-a-bot.md](../../../docs/adding-a-bot.md) to register the bot in the build and BotsRegistry.
+4. Add a performance integration spec for the new bot: `modules/integration-tests/src/test/scala/com/benkio/integration/integrationmunit/performance/IT<BotName>PerformanceSpec.scala` extending `BaseBotPerformanceSpec` with the bot’s `botEntry` and an explicit, switchable `perfCase` (`inputText`/description/expectations), then call `registerPerformanceTest()`. Keep the selected trigger/request explicit so it is easy to switch. (The template bot itself is not tested.)
 
 Alternatively, use the sbt task: `sbt "newBot MyNewBot mynew"` (see docs).

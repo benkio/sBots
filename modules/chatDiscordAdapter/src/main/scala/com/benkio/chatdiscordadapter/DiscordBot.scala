@@ -45,12 +45,13 @@ object DiscordBot {
       core       <- BotCoreSetup[F](httpClient, sBotConfig)
       dispatcher <- Dispatcher.parallel[F]
     } yield (token, core, dispatcher)).use { (token, core, dispatcher) =>
-      val capabilities = DiscordCapabilities.value
-      val repository   = core.repository.usableFor(capabilities)
+      val effectiveSBotConfig = core.sBotConfig
+      val capabilities        = DiscordCapabilities.value
+      val repository          = core.repository.usableFor(capabilities)
       for {
         apiReady <- Deferred[F, DiscordApi[F]]
         random   <- Random.scalaUtilRandom[F]
-        engine = BotEngine[F](sBotConfig, core.dbLayer)
+        engine = BotEngine[F](effectiveSBotConfig, core.dbLayer)
         // the subscriptions send to a chat without a message to reply to, once the connection is up
         sendToChat = (chatId: com.benkio.chatcore.model.ChatId, replyValue: ReplyValue, replyToMessage: Boolean) =>
           apiReady.get.flatMap(api =>
@@ -66,7 +67,7 @@ object DiscordBot {
           CronBackgroundJobManager[F](
             dbLayer = core.dbLayer,
             sBotInfo = sBotInfo,
-            ttl = sBotConfig.messageTimeToLive,
+            ttl = effectiveSBotConfig.messageTimeToLive,
             capabilities = capabilities,
             send = sendToChat
           )
@@ -78,7 +79,7 @@ object DiscordBot {
             backgroundJobManager = backgroundJobManager,
             effectfulCallbacks = commandEffectfulCallback,
             dbLayer = core.dbLayer,
-            ttl = sBotConfig.messageTimeToLive,
+            ttl = effectiveSBotConfig.messageTimeToLive,
             startGateway = startGateway
           )
           // deferred: the listener needs the adapter, which needs this

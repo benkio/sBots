@@ -1,0 +1,11 @@
+name: Setup Scala
+description: JDK 21 and sbt (with the sbt cache)
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-java@v6
+      with:
+        distribution: 'temurin'
+        java-version: '21'
+        cache: 'sbt'
+    - uses: sbt/setup-sbt@v1

@@ -28,6 +28,8 @@ import com.benkio.chatircadapter.outbound.KittehIrcApi
 import log.effect.LogWriter
 import org.http4s.client.Client
 
+import scala.annotation.unused
+
 /** Runs a bot on IRC: the engine, the IRC adapter, the subscriptions, and the connection to the server, until the
   * connection ends.
   */
@@ -62,16 +64,17 @@ object IrcBot {
   /** The bot with its DB and repository already there. */
   def runWith[F[_]: Async](
       core: BotCoreSetup[F],
-      sBotConfig: SBotConfig,
+      @unused sBotConfig: SBotConfig,
       password: Option[String],
       commandEffectfulCallback: Map[String, Message => F[ReplyValue]],
       config: IrcConfig,
       notifier: Notifier[F]
   )(using log: LogWriter[F]): F[Unit] = {
-    given Notifier[F] = notifier
-    val capabilities  = IrcCapabilities.value
-    val repository    = core.repository.usableFor(capabilities)
-    val nick          = IrcCredentials.nick(sBotConfig.sBotInfo)
+    given Notifier[F]       = notifier
+    val effectiveSBotConfig = core.sBotConfig
+    val capabilities        = IrcCapabilities.value
+    val repository          = core.repository.usableFor(capabilities)
+    val nick                = IrcCredentials.nick(effectiveSBotConfig.sBotInfo)
     (for {
       dispatcher <- Dispatcher.parallel[F]
       limiter    <- Resource.eval(RateLimiter[F](config.rateLimitMessages, config.rateLimitWindow))
@@ -79,7 +82,7 @@ object IrcBot {
       for {
         apiReady <- Deferred[F, IrcApi[F]]
         random   <- Random.scalaUtilRandom[F]
-        engine = BotEngine[F](sBotConfig, core.dbLayer)
+        engine = BotEngine[F](effectiveSBotConfig, core.dbLayer)
         // the subscriptions send to a chat without a message to reply to, once the connection is up
         sendToChat = (chatId: ChatId, replyValue: ReplyValue, replyToMessage: Boolean) =>
           apiReady.get.flatMap(api =>
@@ -93,8 +96,8 @@ object IrcBot {
           given Random[F] = random
           CronBackgroundJobManager[F](
             dbLayer = core.dbLayer,
-            sBotInfo = sBotConfig.sBotInfo,
-            ttl = sBotConfig.messageTimeToLive,
+            sBotInfo = effectiveSBotConfig.sBotInfo,
+            ttl = effectiveSBotConfig.messageTimeToLive,
             capabilities = capabilities,
             send = sendToChat
           )
@@ -106,7 +109,7 @@ object IrcBot {
             backgroundJobManager = backgroundJobManager,
             effectfulCallbacks = commandEffectfulCallback,
             dbLayer = core.dbLayer,
-            ttl = sBotConfig.messageTimeToLive,
+            ttl = effectiveSBotConfig.messageTimeToLive,
             startConnection = startConnection
           )
           // deferred: the listener needs the adapter, which needs this
@@ -115,7 +118,7 @@ object IrcBot {
               new IrcInboundListener[F](dispatcher, limiter, message => engine.onMessage(message)(using adapter))
             IrcConnection.resource[F](nick, password, config, List(listener)).use { connection =>
               apiReady.complete(new KittehIrcApi[F](connection.client)) >>
-                notifier.info(sBotConfig.sBotInfo, s"started on IRC as $nick") >>
+                notifier.info(effectiveSBotConfig.sBotInfo, s"started on IRC as $nick") >>
                 connection.closed
             }
           }

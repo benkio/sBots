@@ -97,6 +97,21 @@ After the reply the engine runs its post computation (the last interaction of th
 presses of the inline keyboards (pagination, a media, a show) are Telegram only: `ISBot.onCallbackLogic` handles them,
 outside of the engine.
 
+### Request processing timeout
+
+`BotEngine.onMessage` enforces a configurable per-request processing timeout (`SBotConfig.requestProcessingTimeout`,
+`Option[FiniteDuration]`, default `Some(3.seconds)`) around the full handling of an incoming interaction
+(bot logic + post computation). If the timeout is reached, in-flight processing for that request is cancelled and the
+request is dropped; the bot logs an error with actionable context (bot, platform, chat id, message id, content, and
+timeout) and remains responsive for subsequent requests. Set `requestProcessingTimeout = None` to disable the timeout
+(for example in tests or environments where long-running handling is intentional). This timeout is distinct from the
+per-chat reply cooldown managed by `/settimeout`.
+
+Per-bot runtime configuration: set `request-processing-timeout` in each bot's config block (`main.<botId>` in
+`modules/main/src/main/resources/application.conf`, or the bot module's `application.conf` when run standalone). The
+value is loaded into `chatcore.initialization.Config` and applied to the bot's effective `SBotConfig` at startup (e.g.
+`3 seconds`, or `null`/override via config as needed per environment).
+
 ### Media subtype dispatch
 
 ```mermaid
@@ -218,6 +233,28 @@ a markdown file of the bot (when it has one a text can trigger) and `!random`, a
 the bot may have left in the channel.
 
 You can join or watch the test channel directly in a browser via the [Libera.Chat web client](https://web.libera.chat/?channels=%23%23sBotsTesting).
+
+### Performance integration tests
+
+Performance integration tests validate request-handling performance for **all registered bots** (one spec per bot; the template bot is not executed) using `BaseBotPerformanceSpec` (`modules/integration-tests/.../performance/BaseBotPerformanceSpec.scala`). Each bot has its own spec (e.g. `ITRichardPHJBensonBotPerformanceSpec.scala`) that extends the base, defines an explicit, switchable scenario via `perfCase` (`inputText`, `description`, expectations) and `botEntry`, and registers/runs its own performance test. Tests run the scenario through `BotEngine.onMessage` with real DB/repository/HTTP clients (integration fixtures) and a capturing platform adapter.
+
+- **Explicit scenarios (easy to switch):** each bot spec defines its own `override def perfCase: PerfCase = ...` (fixed selected trigger/request). Update that field in the bot’s performance spec to change the scenario.
+- **Timeout/threshold:** tests run with the default per-request processing timeout (**3 seconds**) as the performance threshold. If handling hits/crosses the timeout (request dropped/no reply delivered) or exceeds 3s, the performance test fails.
+- **Designated large/heavy case:** RPHJB explicitly includes the ~9 MB-class target case `rifiutato` (`rphjb_RifiutatoLavorareStoriaMusicista.mp4` in that reply bundle). Other bots use explicit representative/heaviest-available cases as defined in their own specs (document rationale in code/PR/issue as needed).
+- **Environment:** these tests use integration DB/resources and may involve external I/O (Dropbox/MEGA/network) and can be slow or environment-dependent.
+- **Adding a new bot:** when adding a bot (including via template cloning), add `IT<BotName>PerformanceSpec.scala` in `modules/integration-tests/src/test/scala/com/benkio/integration/integrationmunit/performance/` extending `BaseBotPerformanceSpec` with the bot’s `botEntry` and explicit `perfCase`, and call `registerPerformanceTest()`.
+
+Run:
+
+```bash
+# all bot performance specs
+sbt "integration/testOnly *PerformanceSpec"
+
+# a single bot
+sbt "integration/testOnly *ITRichardPHJBensonBotPerformanceSpec"
+```
+
+Interpretation: each test logs `[ITBotPerformance] bot=... input='...' elapsed=...ms replies=...`. A failure means the request did not complete successfully within 3s (including timeout/drop) for the selected explicit scenario; investigate regressions, environment/network variability, or update the bot’s explicit scenario/baseline rationale if the representative case legitimately changes.
 
 ### Running a bot on IRC
 

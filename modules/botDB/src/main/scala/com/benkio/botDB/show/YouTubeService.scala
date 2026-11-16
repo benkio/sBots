@@ -66,6 +66,7 @@ trait YouTubeService[F[_]] {
       videoIds: List[String]
   ): F[List[Video]]
   def saveCaption(videoId: String, captionFolderPath: Path, captionLanguage: String): F[Unit]
+  def hasCaption(videoId: String, captionLanguage: String): F[Boolean]
 }
 
 object YouTubeService {
@@ -182,16 +183,36 @@ object YouTubeService {
         s"""yt-dlp --write-auto-subs --sub-lang $captionLanguage --skip-download --sub-format srt -o "%(id)s" -P $captionFolderPath https://www.youtube.com/watch?v=${videoId}"""
       val captionDownloadLogic: F[Unit] = for {
         _ <- LogWriter.info(
-          s"[ShowUpdater - ${videoId} - $captionLanguage] Fetch caption into ${captionFolderPath.getName(captionFolderPath.getNameCount() - 1)}"
+          s"[YouTubeService - ${videoId} - $captionLanguage] Fetch caption into ${captionFolderPath.getName(captionFolderPath.getNameCount() - 1)}"
         )
         output <- Async[F].delay(command.!!)
-        _      <- LogWriter.debug(s"[ShowUpdater - ${videoId}] yt-dlp output: $output")
+        _      <- LogWriter.debug(s"[YouTubeService - ${videoId}] yt-dlp output: $output")
       } yield ()
       captionDownloadLogic
         .handleErrorWith(e =>
           LogWriter.error(
-            s"[ShowUpdater - ${videoId} - $captionLanguage] ❌ Downloading Caption: $e"
+            s"[YouTubeService - ${videoId} - $captionLanguage] ❌ Downloading Caption: $e"
           ) >> Async[F].unit
+        )
+    }
+    override def hasCaption(videoId: String, captionLanguage: String): F[Boolean] = {
+      val command =
+        s"""yt-dlp --list-subs https://www.youtube.com/watch?v=${videoId}"""
+      val regex                         = s"(?m)^$captionLanguage\\b".r
+      val captionCheckLogic: F[Boolean] = for {
+        _ <- LogWriter.info(
+          s"[YouTubeService - ${videoId} - $captionLanguage] Check caption"
+        )
+        output <- Async[F].delay(command.!!)
+        searchResult       = regex.findFirstIn(output).isDefined
+        searchResultString = if searchResult then "✅" else "❌"
+        _ <- LogWriter.info(s"[YouTubeService - ${videoId} - $captionLanguage] $searchResultString caption")
+      } yield searchResult
+      captionCheckLogic
+        .handleErrorWith(e =>
+          LogWriter.error(
+            s"[YouTubeService - ${videoId} - $captionLanguage] ❌ Checking Caption: $e"
+          ) >> Async[F].pure(false)
         )
     }
   }

@@ -114,7 +114,8 @@ class ITIrcLiveSpec extends CatsEffectSuite with DBFixture {
       jsonDataRepository = JsonDataRepository[IO](),
       dbLayer = dbLayer,
       repository =
-        DBRepository.dbResources[IO](dbLayer.dbMedia, HttpClients(dropboxClient = dropbox, megaClient = mega))
+        DBRepository.dbResources[IO](dbLayer.dbMedia, HttpClients(dropboxClient = dropbox, megaClient = mega)),
+      sBotConfig = sBotConfig
     )
 
   /** The text that triggers a reply made only of markdown files (or of some, if no reply is made only of them), when

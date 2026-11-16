@@ -2,6 +2,7 @@ package com.benkio.botDB.show
 
 import cats.effect.implicits.*
 import cats.effect.kernel.Async
+import cats.effect.std.Random
 import cats.effect.Resource
 import cats.implicits.*
 import cats.Semigroup
@@ -21,7 +22,7 @@ import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
-import java.time.Duration
+import scala.concurrent.duration.*
 import scala.io.Source
 import scala.sys.process.*
 import scala.util.Try
@@ -249,7 +250,7 @@ object ShowUpdater {
 
     private[show] def videoToDBShowData(video: Video, botId: SBotId): F[Option[DBShowData]] = {
       def durationISO8601ToSeconds(isoDuration: String): Int = {
-        val duration = Duration.parse(isoDuration)
+        val duration = java.time.Duration.parse(isoDuration)
         duration.getSeconds.toInt
       }
       val maybeDBShowData = for {
@@ -320,31 +321,40 @@ object ShowUpdater {
         youTubeBotDBShowDatas: YouTubeBotDBShowDatas,
         index: Int
     ): F[Unit] = for {
-      _ <- LogWriter.info(s"[ShowUpdater - $index] 🚀 Start fetching and saving captions")
-      _ <- youTubeBotDBShowDatas.dbShowDatas.parTraverse(
-        saveAndFetchCaptionDbShowData(
-          _,
-          youTubeBotDBShowDatas = youTubeBotDBShowDatas
+      _               <- LogWriter.info(s"[ShowUpdater - $index] 🚀 Start fetching and saving captions")
+      missingCaptions <- youTubeBotDBShowDatas.dbShowDatas.parFilterA(dbShowData =>
+        captionAlreadyExists(dbShowData, youTubeBotDBShowDatas).flatMap(captionExists =>
+          if captionExists then Async[F].pure(false)
+          else youTubeService.hasCaption(dbShowData.show_id, youTubeBotDBShowDatas.captionLanguage)
         )
       )
+      _ <- missingCaptions.traverse(dbShowData => saveCaption(dbShowData, youTubeBotDBShowDatas))
       _ <- LogWriter.info(s"[ShowUpdater - $index] 🏁 Finish saving captions")
     } yield ()
 
-    private[show] def saveAndFetchCaptionDbShowData(
+    private def captionAlreadyExists(
         dbShowData: DBShowData,
         youTubeBotDBShowDatas: YouTubeBotDBShowDatas
-    ): F[Unit] = for {
+    ): F[Boolean] = for {
       _ <- LogWriter.info(s"[ShowUpdater - ${dbShowData.show_id}] Check caption file existance")
       captionFolderPath = youTubeBotDBShowDatas.captionFilePath(dbShowData)
       exists <- Async[F].delay(Files.exists(captionFolderPath))
-      _      <-
-        if !exists then LogWriter
-          .info(s"[ShowUpdater - ${dbShowData.show_id}] 💾 Saving caption") >> youTubeService.saveCaption(
+      existsString = if exists then "✅" else "❌"
+      _ <- LogWriter.info(s"[ShowUpdater - ${dbShowData.show_id}] Caption exists: " + existsString)
+    } yield exists
+
+    private def saveCaption(dbShowData: DBShowData, youTubeBotDBShowDatas: YouTubeBotDBShowDatas): F[Unit] =
+      for {
+        random                       <- Random.scalaUtilRandom[F]
+        randomThrottlingSleepSeconds <- random.betweenInt(5, 10)
+        _ <- LogWriter.info(s"[ShowUpdater - ${dbShowData.show_id}] 💤 Throttling Sleep (prevent 429)")
+        _ <- Async[F].sleep(randomThrottlingSleepSeconds.seconds)
+        _ <- LogWriter.info(s"[ShowUpdater - ${dbShowData.show_id}] 💾 Saving caption")
+        _ <- youTubeService.saveCaption(
           videoId = dbShowData.show_id,
           captionFolderPath = Path.of(youTubeBotDBShowDatas.captionFolderPath),
           captionLanguage = youTubeBotDBShowDatas.captionLanguage
         )
-        else LogWriter.info(s"[ShowUpdater - ${dbShowData.show_id}] Caption already exists")
-    } yield ()
+      } yield ()
   }
 }

@@ -20,7 +20,8 @@ import org.http4s.client.Client
 final case class BotCoreSetup[F[_]](
     jsonDataRepository: JsonDataRepository[F],
     dbLayer: DBLayer[F],
-    repository: Repository[F]
+    repository: Repository[F],
+    sBotConfig: SBotConfig
 )
 
 object BotCoreSetup {
@@ -42,16 +43,18 @@ object BotCoreSetup {
       log: LogWriter[F]
   ): Resource[F, BotCoreSetup[F]] =
     for {
-      config        <- Resource.eval(Config.loadConfig[F](sBotConfig.sBotInfo.botId.value))
-      _             <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Configuration: $config"))
+      config <- Resource.eval(Config.loadConfig[F](sBotConfig.sBotInfo.botId.value))
+      _      <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Configuration: $config"))
+      effectiveSBotConfig = sBotConfig.copy(requestProcessingTimeout = config.requestProcessingTimeout)
       dropboxClient <- Resource.eval(DropboxClient[F](httpClient, config.httpCache.dropbox))
       megaClient    <- Resource.eval(MegaClient[F](httpClient, config.httpCache.mega))
       clients            = HttpClients(dropboxClient = dropboxClient, megaClient = megaClient)
       jsonDataRepository = JsonDataRepository[F]()
-      dbLayer <- loadDB[F](config.db).evalMap(DBLayer.loadReplies[F](_, jsonDataRepository, sBotConfig))
+      dbLayer <- loadDB[F](config.db).evalMap(DBLayer.loadReplies[F](_, jsonDataRepository, effectiveSBotConfig))
     } yield BotCoreSetup(
       jsonDataRepository = jsonDataRepository,
       dbLayer = dbLayer,
-      repository = DBRepository.dbResources[F](dbLayer.dbMedia, clients)
+      repository = DBRepository.dbResources[F](dbLayer.dbMedia, clients),
+      sBotConfig = effectiveSBotConfig
     )
 }
