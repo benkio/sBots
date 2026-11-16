@@ -93,9 +93,14 @@ object StartupCheck {
   def dbRead[F[_]: Sync](dbLayer: DBLayer[F]): Probe[F] =
     Probe("DB read", dbLayer.dbLog.getLastLog().void)
 
-  /** The host answers over HTTPS: any HTTP status counts, what is checked is the DNS, the TLS and the connection. */
-  def hostReachable[F[_]: Sync](name: String, client: Client[F], uri: Uri): Probe[F] =
-    Probe(name, client.status(Request[F](Method.HEAD, uri)).void)
+  /** The host answers over HTTPS: any HTTP status counts, what is checked is the DNS, the TLS and the connection.
+    *
+    * @param method
+    *   the one the client really uses: some endpoints never answer a `HEAD` (the Mega API does not), and the probe
+    *   would report a problem that does not exist
+    */
+  def hostReachable[F[_]: Sync](name: String, client: Client[F], uri: Uri, method: Method = Method.HEAD): Probe[F] =
+    Probe(name, client.status(Request[F](method, uri)).void)
 }
 
 /** The deploy leaves a marker file to ask for the post deploy check: the first start that finds it removes it, so a bot

@@ -12,7 +12,7 @@
   *   - modules/main/src/main/resources/application.conf: adds the new bot db block (main.<id>.db)
   *   - .github/workflows/healthcheck.yml: adds the new bot token to BOT_TOKENS
   *   - .github/workflows/deploy.yml: adds the new bot token file injection during assembly
-  *   - scripts/copyTokensFromDropbox.sh: adds the new bot to the list
+  *   - scripts/copyTokensFromFileStorage.sh: adds the new bot to the list
  *   - modules/integration-tests/.../MediaIntegrityParSpec.scala: adds import + media collection block
  *   - filesCheck/src/Config.ts: adds bot metadata entry
  *   - integration-tests performance: adds IT<BotName>PerformanceSpec with placeholder scenario
@@ -206,18 +206,21 @@ if java.nio.file.Files.isRegularFile(deployYml) then {
   }
 } else println(s"Deploy workflow not found at $deployYml, skipping.")
 
-// 6. copyTokensFromDropbox.sh: add new bot to the list
-val copyTokensScript = rootAbs.resolve("scripts/copyTokensFromDropbox.sh")
+// 6. copyTokensFromFileStorage.sh: add new bot to the dropbox_bots list
+val copyTokensScript = rootAbs.resolve("scripts/copyTokensFromFileStorage.sh")
 if java.nio.file.Files.isRegularFile(copyTokensScript) then {
   var ctContent = read(copyTokensScript)
-  if !ctContent.contains(botName) then {
-    ctContent = ctContent.replace("; do", s" $botName; do")
-    if ctContent != read(copyTokensScript) then {
+  val anchor = "dropbox_bots=(\n"
+  val anchorIdx = ctContent.indexOf(anchor)
+  if !ctContent.contains(s"\"$botName\"") then {
+    if anchorIdx >= 0 then {
+      ctContent = ctContent.patch(anchorIdx + anchor.length, s"  \"$botName\"\n", 0)
       write(copyTokensScript, ctContent)
-      println(s"Updated scripts/copyTokensFromDropbox.sh with $botName")
-    } else println("Could not find insertion point in copyTokensFromDropbox.sh")
-  } else println(s"copyTokensFromDropbox.sh already contains $botName, skipping.")
-} else println(s"copyTokensFromDropbox.sh not found at $copyTokensScript, skipping.")
+      println(s"Added $botName to dropbox_bots in scripts/copyTokensFromFileStorage.sh")
+      println(s"  If $botName uses Mega, move it from dropbox_bots to mega_bots manually.")
+    } else println("Could not find dropbox_bots insertion point in copyTokensFromFileStorage.sh")
+  } else println(s"copyTokensFromFileStorage.sh already contains $botName, skipping.")
+} else println(s"copyTokensFromFileStorage.sh not found at $copyTokensScript, skipping.")
 
 // 7. build.sbt: add data-entry alias
 val buildContentNow = read(buildSbt)
