@@ -260,6 +260,7 @@ object Dependencies {
     libs.pureConfigCore,
     libs.pureConfigCron4s,
     libs.pureConfigHttp4s,
+    libs.sqlite % Runtime,
     libs.vault
   )
 
