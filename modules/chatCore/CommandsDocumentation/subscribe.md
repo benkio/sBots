@@ -20,6 +20,7 @@ Crea una sottoscrizione periodica per la chat corrente. A ogni esecuzione pianif
 - Ogni minuto, show casuale: `/subscribe 0 * * ? * *`
 - Ogni giorno alle 09:30, show casuale: `/subscribe 0 30 9 * * ?`
 - Ogni lunedi alle 18:00: `/subscribe 0 0 18 ? * MON`
+- Ogni anno l'11 settembre alle 09:30, la risposta al trigger "torri gemelle": `/subscribe 0 30 9 11 9 ? trigger torri gemelle`
 - Ogni giorno alle 09:30, uno show che contiene "pino scotto": `/subscribe 0 30 9 * * ? show pino scotto`
 - Ogni giorno alle 09:30, uno show preciso: `/subscribe 0 30 9 * * ? show <ID show>`
 - Ogni giorno alle 09:30, la risposta al trigger "buongiorno": `/subscribe 0 30 9 * * ? trigger buongiorno`
@@ -58,6 +59,7 @@ Create a periodic subscription for the current chat. On each scheduled execution
 - Every minute, random show: `/subscribe 0 * * ? * *`
 - Every day at 09:30, random show: `/subscribe 0 30 9 * * ?`
 - Every Monday at 18:00: `/subscribe 0 0 18 ? * MON`
+- Every year on September 11 at 09:30, the reply to the trigger "torri gemelle": `/subscribe 0 30 9 11 9 ? trigger torri gemelle`
 - Every day at 09:30, a show matching "pino scotto": `/subscribe 0 30 9 * * ? show pino scotto`
 - Every day at 09:30, one specific show: `/subscribe 0 30 9 * * ? show <show ID>`
 - Every day at 09:30, the reply to the trigger "buongiorno": `/subscribe 0 30 9 * * ? trigger buongiorno`
