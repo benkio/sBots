@@ -1,12 +1,15 @@
 package com.benkio.chatcore.http
 
 import cats.effect.IO
-import com.benkio.chatcore.http.MegaClient.MegaEncryptedFileErrorEmptyResponse
 import cats.syntax.all.*
+import com.benkio.chatcore.http.MegaClient.MegaEncryptedFileErrorEmptyResponse
 import com.benkio.chatcore.Logger.given
 import fs2.Chunk
 import fs2.Stream
 import io.circe.Json
+import javax.crypto.spec.IvParameterSpec
+import javax.crypto.spec.SecretKeySpec
+import javax.crypto.Cipher
 import munit.CatsEffectSuite
 import org.http4s.circe.*
 import org.http4s.client.Client
@@ -19,9 +22,6 @@ import org.http4s.Uri
 
 import java.nio.file.Files
 import java.util.Base64
-import javax.crypto.Cipher
-import javax.crypto.spec.IvParameterSpec
-import javax.crypto.spec.SecretKeySpec
 import scala.concurrent.duration.*
 
 /** The download of a Mega file: decrypted while it arrives, with the memory of a few chunks instead of the whole file.
@@ -63,8 +63,7 @@ class MegaClientDownloadSpec extends CatsEffectSuite {
           )
         )
         IO.pure(Response[IO](Status.Ok).withEntity(json))
-      }
-      else
+      } else
         answers.get(request.uri.renderString) match {
           case Some(Right(encrypted)) =>
             val chunks = Stream.emits(encrypted.grouped(16 * 1024).toList.map(Chunk.array(_))).flatMap(Stream.chunk)
@@ -92,7 +91,8 @@ class MegaClientDownloadSpec extends CatsEffectSuite {
 
   test("the next address is used when the first one answers an error") {
     val plain = content(100 * 1024)
-    val stub  = megaStub(List(primary, mirror), Map(primary -> Left(Status.InternalServerError), mirror -> Right(encrypt(plain))))
+    val stub  =
+      megaStub(List(primary, mirror), Map(primary -> Left(Status.InternalServerError), mirror -> Right(encrypt(plain))))
     fetchedBytes(stub).map(bytes => assert(bytes.sameElements(plain)))
   }
 
@@ -102,11 +102,14 @@ class MegaClientDownloadSpec extends CatsEffectSuite {
   }
 
   test("the temporary file of a failed download does not stay on the disk") {
-    val before = Option(Files.list(java.nio.file.Path.of(System.getProperty("java.io.tmpdir")))).map(_.count()).getOrElse(0L)
-    val stub   = megaStub(List(primary), Map(primary -> Left(Status.Forbidden)))
+    val before =
+      Option(Files.list(java.nio.file.Path.of(System.getProperty("java.io.tmpdir")))).map(_.count()).getOrElse(0L)
+    val stub = megaStub(List(primary), Map(primary -> Left(Status.Forbidden)))
     for {
       _     <- interceptIO[MegaEncryptedFileErrorEmptyResponse](fetchedBytes(stub, "leftover_check.bin"))
-      names <- IO.blocking(Files.list(java.nio.file.Path.of(System.getProperty("java.io.tmpdir"))).toArray.toList.map(_.toString))
+      names <- IO.blocking(
+        Files.list(java.nio.file.Path.of(System.getProperty("java.io.tmpdir"))).toArray.toList.map(_.toString)
+      )
     } yield assert(!names.exists(_.contains("leftover_check")), s"a temporary file was left: $names (before: $before)")
   }
 
@@ -139,30 +142,31 @@ class MegaClientDownloadSpec extends CatsEffectSuite {
     val size       = 96 * 1024 * 1024
     val heapAtHalf = new java.util.concurrent.atomic.AtomicLong(-1L)
     val client     = Client.fromHttpApp(HttpApp[IO] { request =>
-      if request.method == Method.POST then
-        IO.pure(
-          Response[IO](Status.Ok).withEntity(
-            Json.arr(
-              Json.obj(
-                "s"   -> Json.fromInt(1),
-                "at"  -> Json.fromString("x"),
-                "msd" -> Json.fromInt(1),
-                "g"   -> Json.fromString(primary),
-                "ip"  -> Json.arr(),
-                "fh"  -> Json.fromString("fh")
-              )
+      if request.method == Method.POST then IO.pure(
+        Response[IO](Status.Ok).withEntity(
+          Json.arr(
+            Json.obj(
+              "s"   -> Json.fromInt(1),
+              "at"  -> Json.fromString("x"),
+              "msd" -> Json.fromInt(1),
+              "g"   -> Json.fromString(primary),
+              "ip"  -> Json.arr(),
+              "fh"  -> Json.fromString("fh")
             )
           )
         )
+      )
       else
         IO.pure(Response[IO](Status.Ok, body = generatedEncryptedBody(size, IO(heapAtHalf.set(usedHeap())))))
     })
     for {
       megaClient <- MegaClient[IO](client)
       baseline   <- IO(usedHeap())
-      _          <- megaClient.fetchFile("heap_test.bin", megaUrl).use(path => IO(assertEquals(Files.size(path), size.toLong)))
+      _ <- megaClient.fetchFile("heap_test.bin", megaUrl).use(path => IO(assertEquals(Files.size(path), size.toLong)))
       growth = heapAtHalf.get - baseline
-      _ <- IO.println(f"[MegaClientDownloadSpec] heap growth at half of a file of ${size / 1048576}%d MiB: ${growth / 1048576.0}%.1f MiB")
+      _ <- IO.println(
+        f"[MegaClientDownloadSpec] heap growth at half of a file of ${size / 1048576}%d MiB: ${growth / 1048576.0}%.1f MiB"
+      )
     } yield {
       assert(heapAtHalf.get >= 0, "the middle of the download was never reached")
       // reading the whole file in memory would be about 48 MiB here
