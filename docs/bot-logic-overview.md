@@ -93,6 +93,12 @@ flowchart TD
   L -->|Other| Q["Warn and return empty"]
 ```
 
+A `ReplyBundleMessage` can carry any `Reply`, not only a `PlainReply`: with an `EffectfulReply` a keyword in a message does
+what a command does. For example in `XahLeeBot` (`xah_replies.json`) the keyword `fuck` has the same `MediaByKind` reply as
+the command `/fak`, so the bot answers both ways. The keyword bundles copy the reply of the command, and
+`XahLeeBotSpec` checks that each of them is the reply of a command. Prefer a regex trigger with word boundaries (`\\bass\\b`)
+for short words, as string triggers match any text that contains them.
+
 After the reply the engine runs its post computation (the last interaction of the chat is logged, for the timeout). The
 presses of the inline keyboards (pagination, a media, a show) are Telegram only: `ISBot.onCallbackLogic` handles them,
 outside of the engine.

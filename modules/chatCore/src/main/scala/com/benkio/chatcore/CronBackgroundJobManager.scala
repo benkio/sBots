@@ -11,6 +11,7 @@ import com.benkio.chatcore.model.show.CalendarMessage
 import com.benkio.chatcore.model.show.Show
 import com.benkio.chatcore.model.show.ShowCalendar
 import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.PlatformCapabilities
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.model.Subscription
@@ -217,8 +218,25 @@ object CronBackgroundJobManager {
         }
       for {
         replyBundle <- bundle
-        replyValue  <- replyBundle.traverse(selected => BotEngine.runPlainReply[F](selected.reply, capabilities))
-        _           <- Async[F].whenA(replyValue.isEmpty)(
+        replyValue  <- replyBundle.traverse(selected =>
+          // The reply can be effectful (e.g. the media of a kind): it runs as for a message with the text of the target
+          ComputeReply.runReply[F](
+            reply = selected.reply,
+            msg = Message(
+              messageId = None,
+              date = 0L,
+              chatId = subscription.chatId,
+              chatType = "",
+              text = subscription.target
+            ),
+            backgroundJobManager = this,
+            dbLayer = dbLayer,
+            effectfulCallbacks = Map.empty,
+            ttl = ttl,
+            capabilities = capabilities
+          )
+        )
+        _ <- Async[F].whenA(replyValue.isEmpty)(
           log.info(s"[BackgroundJobManager] trigger subscription ${subscription.id.value} has no reply to send")
         )
       } yield replyValue
