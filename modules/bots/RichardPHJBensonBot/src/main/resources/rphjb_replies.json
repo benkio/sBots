@@ -3735,7 +3735,10 @@
             "StringTextTriggerValue" : "basta ridere"
           },
           {
-            "StringTextTriggerValue" : "staccate la telefonata"
+            "RegexTextTriggerValue" : {
+              "trigger" : "(stacca|leva)[te]? la telefonata",
+              "regexLength" : 18
+            }
           }
         ]
       }
