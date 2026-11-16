@@ -66,4 +66,9 @@ final case class PlatformCapabilities(
   def commandPrefix: String = commandSyntax.prefix
 
   def supports(mediaFile: MediaFile): Boolean = supportedMedia.contains(MediaKind.of(mediaFile))
+
+  /** Whether the platform sends no file but the markdown files, as text (e.g. IRC): of the files of a reply, the
+    * markdown file is the one it can show.
+    */
+  def textOnly: Boolean = supportedMedia == Set(MediaKind.MarkdownFile)
 }
