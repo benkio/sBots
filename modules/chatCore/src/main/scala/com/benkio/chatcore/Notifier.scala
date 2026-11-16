@@ -31,8 +31,10 @@ object Notifier {
   /** Writes the notifications to the log: for the platforms that have no place for the operators yet. */
   def logging[F[_]](using log: LogWriter[F]): Notifier[F] = new Notifier[F] {
     override def info(sBotInfo: SBotInfo, message: String): F[Unit] = log.info(formatInfo(sBotInfo, message))
-    override def mediaError(message: Message, mediaFile: MediaFile, error: Throwable): F[Unit] =
-      log.error(formatMediaError(message = message, mediaFile = mediaFile, error = error))
+    override def mediaError(message: Message, mediaFile: MediaFile, error: Throwable): F[Unit] = {
+      val formatted = formatMediaError(message = message, mediaFile = mediaFile, error = error)
+      if isMissingRights(error) then log.warn(formatted) else log.error(formatted)
+    }
   }
 
   def formatInfo(sBotInfo: SBotInfo, message: String): String =
@@ -46,10 +48,18 @@ object Notifier {
        | - error: ${error.getMessage()}
        |""".stripMargin
 
-  /** Whether the error of a media is worth a notification: not when the user typed something with no media behind it.
+  /** Whether the error means that the bot has no rights to send that to the chat, e.g. the `400` of Telegram
+    * `method=sendAnimation code=400 description=Bad Request: not enough rights to send animations to the chat`. The
+    * chat is the one to change, not the bot: a false positive for the people running the bots.
+    */
+  def isMissingRights(error: Throwable): Boolean =
+    Option(error.getMessage).exists(text => text.contains("code=400") && text.contains("not enough rights"))
+
+  /** Whether the error of a media is worth a notification: not when the user typed something with no media behind it,
+    * nor when the bot has no rights in the chat.
     */
   def isReportable(error: Throwable): Boolean = error match {
     case RepositoryError.NoResourcesFoundFile(_) => false
-    case _                                       => true
+    case other                                   => !isMissingRights(other)
   }
 }

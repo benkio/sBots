@@ -123,7 +123,7 @@ object BotSetup {
         httpClient,
         baseUrl = baseUrl.renderString
       )
-      notifier = new TelegramNotifier[F](opsChatId)(using Async[F], api)
+      notifier = new TelegramNotifier[F](opsChatId)(using Async[F], api, log)
       backgroundJobManager <- Resource.eval(
         TelegramBackgroundJobManager[F](
           repository = repository,
