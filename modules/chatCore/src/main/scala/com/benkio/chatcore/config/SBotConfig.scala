@@ -34,7 +34,12 @@ case class SBotConfig(
 }
 
 object SBotConfig {
-  private def findProjectRoot(path: Path): Path = {
+
+  /** The default time a request can take before it is dropped (see `BotEngine.onMessage`): also the threshold of the
+    * performance tests.
+    */
+  val defaultRequestProcessingTimeout: FiniteDuration = 10.seconds
+  private def findProjectRoot(path: Path): Path       = {
     val isProjectRoot =
       Files.exists(path.resolve("build.sbt")) &&
         Files.isDirectory(path.resolve("modules"))
@@ -118,7 +123,7 @@ object SBotConfig {
       messageTimeToLive: Option[FiniteDuration] = 10.seconds.some,
       ignoreMessagePrefix: Option[String] = Some("!"),
       disableForward: Boolean = true,
-      requestProcessingTimeout: Option[FiniteDuration] = Some(10.seconds)
+      requestProcessingTimeout: Option[FiniteDuration] = Some(defaultRequestProcessingTimeout)
   ): SBotConfig = {
     val botRoot = Path
       .of("modules", "bots", sBotInfo.botName.value)

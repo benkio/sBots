@@ -29,8 +29,9 @@ import java.time.Instant
 import scala.concurrent.duration.*
 
 /** Shared performance test harness for a single registered bot. Each bot spec defines its own explicit, switchable
-  * [[perfCase]] and runs this perf test. Uses the default per-request processing timeout (3s) as threshold: if handling
-  * hits/crosses timeout (request dropped/no reply delivered) or exceeds 3s, the test fails.
+  * [[perfCase]] and runs this perf test. Uses the default per-request processing timeout
+  * (`SBotConfig.defaultRequestProcessingTimeout`) as threshold: if handling hits/crosses timeout (request dropped/no
+  * reply delivered) or exceeds it, the test fails.
   */
 trait BaseBotPerformanceSpec extends CatsEffectSuite with DBFixture {
 
@@ -49,7 +50,7 @@ trait BaseBotPerformanceSpec extends CatsEffectSuite with DBFixture {
   /** Explicit, switchable performance scenario for this bot. */
   def perfCase: PerfCase
 
-  protected val perfThreshold: FiniteDuration = 3.seconds
+  protected val perfThreshold: FiniteDuration = SBotConfig.defaultRequestProcessingTimeout
 
   private val testCapabilities: PlatformCapabilities = PlatformCapabilities(
     platform = Platform.Telegram,
