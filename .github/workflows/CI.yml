@@ -24,6 +24,7 @@ jobs:
   scalaCheck:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v5
     - uses: ./.github/actions/setup-scala
     - name: Check Scala Formatting, JSONs Validity, Explicit Dependencies, Instructions
       run: |
@@ -32,24 +33,28 @@ jobs:
   scalaUnitTests:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v5
     - uses: ./.github/actions/setup-scala
     - name: Unit tests with coverage
       run: sbt "dbSetup; coverage; test; coverageAggregate; coverageOff"
   scalaIntegrationTests:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v5
     - uses: ./.github/actions/setup-scala
     - name: Integration tests
       run: sbt "dbSetup; integration/mUnitTests"
   scalaAssembly:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v5
     - uses: ./.github/actions/setup-scala
     - name: Assembly
       run: sbt assembly
   dbMigration:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v5
     - uses: ./.github/actions/setup-scala
     - name: Generate the DB
       run: sbt dbSetup
