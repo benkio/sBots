@@ -31,7 +31,8 @@ object DropboxServerMock {
         Ok(response)
     }
 
-    val httpApp = Logger.httpApp(true, true)(
+    // No body in the log: a large file would be printed as a single line of several MB, that stalls the log of the CI
+    val httpApp = Logger.httpApp(logHeaders = true, logBody = false)(
       CORS.policy.withAllowOriginAll(dropboxRoutes.orNotFound)
     )
 
