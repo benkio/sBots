@@ -3,6 +3,7 @@ package com.benkio.chatcore.initialization
 import cats.*
 import cats.implicits.*
 import com.benkio.chatcore.config.SBotConfig
+import com.benkio.chatcore.config.StartupCheckConfig
 import log.effect.LogWriter
 import pureconfig.*
 
@@ -11,7 +12,8 @@ import scala.concurrent.duration.*
 final case class Config(
     db: DBConfig,
     httpCache: HttpClientsCacheConfig,
-    requestProcessingTimeout: Option[FiniteDuration] = Some(SBotConfig.defaultRequestProcessingTimeout)
+    requestProcessingTimeout: Option[FiniteDuration] = Some(SBotConfig.defaultRequestProcessingTimeout),
+    startupCheck: StartupCheckConfig = StartupCheckConfig()
 ) derives ConfigReader
 final case class DBConfig(
     driver: String,
@@ -19,8 +21,7 @@ final case class DBConfig(
     url: String
 ) derives ConfigReader
 final case class HttpClientsCacheConfig(
-    dropbox: HttpCacheConfig = HttpCacheConfig(),
-    mega: HttpCacheConfig = HttpCacheConfig()
+    dropbox: HttpCacheConfig = HttpCacheConfig()
 ) derives ConfigReader
 final case class HttpCacheConfig(
     ttlSeconds: Long = 21600L,

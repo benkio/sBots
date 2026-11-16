@@ -55,16 +55,16 @@ object Repository {
         )
   }
 
-  def toTempFile[F[_]: Async](fileName: String, content: Array[Byte]): Resource[F, Path] = {
+  /** An empty temporary file, deleted when the resource is released. */
+  def tempFile[F[_]: Async](fileName: String): Resource[F, Path] = {
     val (name, ext) = fileName.span(_ != '.')
-    Resource.make(
-      Async[F].blocking {
-        val path = Files.createTempFile(name, ext)
-        Files.write(path, content)
-        path
-      }
-    )(f => Async[F].blocking(Files.deleteIfExists(f)).void)
+    Resource.make(Async[F].blocking(Files.createTempFile(name, ext)))(f =>
+      Async[F].blocking(Files.deleteIfExists(f)).void
+    )
   }
+
+  def toTempFile[F[_]: Async](fileName: String, content: Array[Byte]): Resource[F, Path] =
+    tempFile[F](fileName).evalTap(path => Async[F].blocking(Files.write(path, content)).void)
 
   def fileToString[F[_]: Async: LogWriter](path: Path): Resource[F, String] =
     Resource

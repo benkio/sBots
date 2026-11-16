@@ -55,11 +55,12 @@ object DropboxClient {
               Resource.raiseError[F, Path, Throwable](DropboxLocationHeaderNotFound[F](response))
             case _ =>
               for {
-                content <- Resource.eval(response.body.compile.toList)
+                // An Array, not a List: a List[Byte] takes about 24 bytes for each byte of the file, the heap of the bot is small
+                content <- Resource.eval[F, Array[Byte]](response.body.compile.to(Array))
                 _       <- Resource
                   .eval(LogWriter.info(s"[DropboxClient] received ${content.length} bytes for $filename"))
                 _      <- Resource.eval(Async[F].raiseWhen(content.isEmpty)(UnexpectedDropboxResponse[F](response)))
-                result <- Repository.toTempFile(filename, content.toArray)
+                result <- Repository.toTempFile(filename, content)
               } yield result
           }
 

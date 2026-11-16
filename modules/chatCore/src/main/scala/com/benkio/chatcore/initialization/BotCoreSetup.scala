@@ -45,9 +45,12 @@ object BotCoreSetup {
     for {
       config <- Resource.eval(Config.loadConfig[F](sBotConfig.sBotInfo.botId.value))
       _      <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Configuration: $config"))
-      effectiveSBotConfig = sBotConfig.copy(requestProcessingTimeout = config.requestProcessingTimeout)
+      effectiveSBotConfig = sBotConfig.copy(
+        requestProcessingTimeout = config.requestProcessingTimeout,
+        startupCheck = config.startupCheck
+      )
       dropboxClient <- Resource.eval(DropboxClient[F](httpClient, config.httpCache.dropbox))
-      megaClient    <- Resource.eval(MegaClient[F](httpClient, config.httpCache.mega))
+      megaClient    <- Resource.eval(MegaClient[F](httpClient))
       clients            = HttpClients(dropboxClient = dropboxClient, megaClient = megaClient)
       jsonDataRepository = JsonDataRepository[F]()
       dbLayer <- loadDB[F](config.db).evalMap(DBLayer.loadReplies[F](_, jsonDataRepository, effectiveSBotConfig))

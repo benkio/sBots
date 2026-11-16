@@ -27,11 +27,12 @@ object DropboxServerMock {
         // Relative redirect avoids hardcoding host/port and plays nicely with dynamic test ports
         Found(Location(uri"/200TestFile"))
       case GET -> Root / "200TestFile" =>
-        println("[DropboxServerMock] 200: " + response)
+        println("[DropboxServerMock] 200: " + response.length + " chars")
         Ok(response)
     }
 
-    val httpApp = Logger.httpApp(true, true)(
+    // No body in the log: a large file would be printed as a single line of several MB, that stalls the log of the CI
+    val httpApp = Logger.httpApp(logHeaders = true, logBody = false)(
       CORS.policy.withAllowOriginAll(dropboxRoutes.orNotFound)
     )
 

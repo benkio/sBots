@@ -4,11 +4,13 @@ import cats.effect.Async
 import cats.effect.Resource
 import cats.implicits.*
 import com.benkio.chattelegramadapter.SBotWebhook
+import com.benkio.chattelegramadapter.TelegramStartupCheck
+import log.effect.LogWriter
 import org.http4s.server.Server
 import telegramium.bots.high.WebhookBot
 
 object TelegramWebhookServer {
-  def compose[F[_]: Async](
+  def compose[F[_]: Async: LogWriter](
       bots: List[SBotWebhook[F]],
       port: Int,
       host: String,
@@ -25,10 +27,7 @@ object TelegramWebhookServer {
       )
       _ <- Resource.eval(
         bots.traverse { bot =>
-          bot.sBotSetup.notifier.info(
-            sBotInfo = bot.sBotSetup.sBotConfig.sBotInfo,
-            message = "Start Webook Bot Successful ✅"
-          )
+          TelegramStartupCheck.run(bot.sBotSetup, "Start Webook Bot Successful ✅")
         }
       )
     } yield server

@@ -8,6 +8,7 @@ import telegramium.bots.high.Api
 import telegramium.bots.Chat
 import telegramium.bots.CirceImplicits.*
 import telegramium.bots.Message
+import telegramium.bots.User
 
 final class ApiMock extends Api[IO] {
   override def execute[Res](method: Method[Res]): IO[Res] =
@@ -27,6 +28,7 @@ object ApiMock {
     ).asJson
 
   val expectedResponses: Map[String, Json] = Map(
+    "getMe"           -> User(id = 1, isBot = true, firstName = "apiMock", username = Some("apiMockBot")).asJson,
     "sendChatAction"  -> Json.False,
     "deleteMessage"   -> true.asJson,
     "sendMessage"     -> messageResponse("[apiMock] sendMessage reply"),
