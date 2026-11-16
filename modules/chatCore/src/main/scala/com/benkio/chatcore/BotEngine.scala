@@ -77,7 +77,7 @@ class BotEngine[F[_]: Async: LogWriter](
         for {
           _ <- LogWriter
             .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ")
-          _ <- filteringMatchesMessages(replyBundle, msg).ifM(reply(replyBundle.reply, msg), Async[F].unit)
+          _ <- filteringMatchesMessages(replyBundle, msg).flatMap(reply(replyBundle.reply, msg).whenA)
         } yield ()
       )
 
