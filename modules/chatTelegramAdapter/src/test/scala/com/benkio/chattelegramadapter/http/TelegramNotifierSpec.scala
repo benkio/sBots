@@ -1,14 +1,17 @@
 package com.benkio.chattelegramadapter.http
 
+import cats.effect.IO
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.repository.Repository.RepositoryError
+import com.benkio.chatcore.Logger.given
 import com.benkio.chatcore.Notifier
 import com.benkio.chattelegramadapter.mocks.PayloadRecordingApi
 import com.benkio.chattelegramadapter.model.TelegramIds
 import io.circe.Json
 import munit.CatsEffectSuite
+import telegramium.bots.high.Api
 
 class TelegramNotifierSpec extends CatsEffectSuite {
 
@@ -18,6 +21,10 @@ class TelegramNotifierSpec extends CatsEffectSuite {
   private val mediaFile = Mp3File("audio.mp3")
   private val botInfo   = SBotInfo(SBotInfo.SBotId("bot"), SBotInfo.SBotName("BotName"))
 
+  // The notifier over the recording api of the test: the only place that spells out the given arguments
+  private def notifierOver(api: Api[IO]): TelegramNotifier[IO] =
+    new TelegramNotifier[IO](opsChatId)(using summon, api, summon)
+
   private def sentMessages(calls: List[(String, Json)]): List[Json] =
     calls.collect { case ("sendMessage", payload) => payload }
 
@@ -25,7 +32,7 @@ class TelegramNotifierSpec extends CatsEffectSuite {
     for {
       apiAndRecording <- PayloadRecordingApi()
       (api, recorded) = apiAndRecording
-      _     <- new TelegramNotifier[cats.effect.IO](opsChatId)(using summon, api).info(botInfo, "started")
+      _     <- notifierOver(api).info(botInfo, "started")
       calls <- recorded
     } yield {
       val sent = sentMessages(calls)
@@ -40,7 +47,8 @@ class TelegramNotifierSpec extends CatsEffectSuite {
     for {
       apiAndRecording <- PayloadRecordingApi()
       (api, recorded) = apiAndRecording
-      _     <- new TelegramNotifier[cats.effect.IO](opsChatId)(using summon, api).mediaError(message, mediaFile, error)
+      _ <- notifierOver(api)
+        .mediaError(message, mediaFile, error)
       calls <- recorded
     } yield {
       val sent = sentMessages(calls)
@@ -57,10 +65,48 @@ class TelegramNotifierSpec extends CatsEffectSuite {
     for {
       apiAndRecording <- PayloadRecordingApi()
       (api, recorded) = apiAndRecording
-      _ <- new TelegramNotifier[cats.effect.IO](opsChatId)(using summon, api)
+      _ <- notifierOver(api)
         .mediaError(message, mediaFile, RepositoryError.NoResourcesFoundFile(mediaFile))
       calls <- recorded
     } yield assertEquals(sentMessages(calls), List.empty)
+  }
+
+  private def failedRequest(code: Int, description: String): Throwable =
+    telegramium.bots.high.FailedRequest(
+      method = telegramium.bots.high.Methods.sendAnimation(
+        chatId = telegramium.bots.ChatIntId(5L),
+        animation = telegramium.bots.InputLinkFile("https://example.com/a.mp4")
+      ),
+      errorCode = Some(code),
+      description = Some(description)
+    )
+
+  test("mediaError does not send the 400 of a chat where the bot has no rights") {
+    val error = failedRequest(400, "Bad Request: not enough rights to send animations to the chat")
+    for {
+      apiAndRecording <- PayloadRecordingApi()
+      (api, recorded) = apiAndRecording
+      _ <- notifierOver(api)
+        .mediaError(message, mediaFile, error)
+      calls <- recorded
+    } yield {
+      assertEquals(
+        error.getMessage,
+        "method=sendAnimation code=400 description=Bad Request: not enough rights to send animations to the chat"
+      )
+      assertEquals(sentMessages(calls), List.empty)
+    }
+  }
+
+  test("mediaError still sends the other 400s") {
+    val error = failedRequest(400, "Bad Request: wrong file identifier")
+    for {
+      apiAndRecording <- PayloadRecordingApi()
+      (api, recorded) = apiAndRecording
+      _ <- notifierOver(api)
+        .mediaError(message, mediaFile, error)
+      calls <- recorded
+    } yield assertEquals(sentMessages(calls).size, 1)
   }
 
   test("the default chat of the operators is the one the notifications always went to") {

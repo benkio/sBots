@@ -41,6 +41,29 @@ class NotifierSpec extends ScalaCheckSuite {
     }
   }
 
+  private val noRightsPayload =
+    "method=sendAnimation code=400 description=Bad Request: not enough rights to send animations to the chat"
+
+  test("the 400 of a chat where the bot has no rights is not reported") {
+    val error = new RuntimeException(noRightsPayload)
+    assert(Notifier.isMissingRights(error))
+    assert(!Notifier.isReportable(error))
+  }
+
+  test("the other 400s and the errors that are not a 400 are still reported") {
+    List(
+      "method=sendAnimation code=400 description=Bad Request: wrong file identifier",
+      "method=sendMessage code=400 description=Bad Request: message is too long",
+      "method=sendAnimation code=403 description=Forbidden: bot was blocked by the user",
+      "method=sendAnimation code=500 description=Internal Server Error: not enough rights"
+    ).foreach { text =>
+      val error = new RuntimeException(text)
+      assert(!Notifier.isMissingRights(error), text)
+      assert(Notifier.isReportable(error), text)
+    }
+    assert(Notifier.isReportable(new RuntimeException(null: String)))
+  }
+
   test("the errors of a file that does not exist are not reported, the others are") {
     assert(!Notifier.isReportable(RepositoryError.NoResourcesFoundFile(mediaFile)))
     assert(Notifier.isReportable(new RuntimeException("boom")))
