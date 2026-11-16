@@ -28,7 +28,7 @@ sealed trait ReplyBundle {
 
 case class ReplyBundleMessage(
     trigger: MessageTrigger,
-    reply: PlainReply,
+    reply: Reply,
     matcher: MessageMatches
 ) extends ReplyBundle
 

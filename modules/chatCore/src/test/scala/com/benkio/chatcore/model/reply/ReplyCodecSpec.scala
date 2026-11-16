@@ -65,13 +65,15 @@ class ReplyCodecSpec extends FunSuite {
     assertEquals(json.as[ReplyBundleMessage], Right(bundle))
   }
 
-  test("a message bundle with an effectful reply is rejected") {
-    val json = ReplyBundleMessage(
+  test("a message bundle with an effectful reply round-trips: a keyword can do what a command does") {
+    val bundle = ReplyBundleMessage(
       trigger = TextTrigger(StringTextTriggerValue("hello")),
-      reply = textReply,
+      reply = effectfulReply,
       matcher = MessageMatches.ContainsOnce
-    ).asJson.mapObject(_.add("reply", (effectfulReply: Reply).asJson))
-    assert(json.as[ReplyBundleMessage].isLeft, json.noSpaces)
+    )
+    val json = bundle.asJson
+    assertEquals(json.hcursor.downField("reply").focus, Some((effectfulReply: Reply).asJson))
+    assertEquals(json.as[ReplyBundleMessage], Right(bundle))
   }
 
   test("a command bundle keeps accepting every kind of reply") {
