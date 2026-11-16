@@ -19,12 +19,12 @@ import scala.concurrent.duration.*
 
 class TelegramStartupCheckSpec extends CatsEffectSuite {
 
-  private val opsChatId: Long     = -1001L
-  private val startMessage        = "Start Test Bot Successful ✅"
+  private val opsChatId: Long = -1001L
+  private val startMessage    = "Start Test Bot Successful ✅"
   // what the notifier writes for the start of the bot
-  private val started             = s"[${SampleWebhookBot.sBotInfo.botName}] $startMessage"
-  private val testMedia           = "test_file.mp3"
-  private val fileAvailable       = new RepositoryMock(getResourceFileHandler =
+  private val started       = s"[${SampleWebhookBot.sBotInfo.botName}] $startMessage"
+  private val testMedia     = "test_file.mp3"
+  private val fileAvailable = new RepositoryMock(getResourceFileHandler =
     _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram-file-id"))))
   )
 

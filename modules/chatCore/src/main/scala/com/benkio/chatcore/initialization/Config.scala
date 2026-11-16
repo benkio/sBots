@@ -21,8 +21,7 @@ final case class DBConfig(
     url: String
 ) derives ConfigReader
 final case class HttpClientsCacheConfig(
-    dropbox: HttpCacheConfig = HttpCacheConfig(),
-    mega: HttpCacheConfig = HttpCacheConfig()
+    dropbox: HttpCacheConfig = HttpCacheConfig()
 ) derives ConfigReader
 final case class HttpCacheConfig(
     ttlSeconds: Long = 21600L,

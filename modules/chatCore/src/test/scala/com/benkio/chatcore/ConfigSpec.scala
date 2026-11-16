@@ -18,8 +18,6 @@ class ConfigSpec extends CatsEffectSuite {
       assert(config.db.url == "jdbc:sqlite:testDB.sqlite3")
       assertEquals(config.httpCache.dropbox.ttlSeconds, 21600L)
       assertEquals(config.httpCache.dropbox.maxSize, 20)
-      assertEquals(config.httpCache.mega.ttlSeconds, 21600L)
-      assertEquals(config.httpCache.mega.maxSize, 20)
       assertEquals(config.requestProcessingTimeout, Some(10.seconds))
       assertEquals(config.startupCheck, StartupCheckConfig())
     }
