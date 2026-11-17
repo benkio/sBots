@@ -2,8 +2,8 @@
 //> using scala "3"
 //> using dep "io.circe::circe-core:0.14.17"
 //> using dep "io.circe::circe-parser:0.14.17"
-//> using dep "org.xerial:sqlite-jdbc:3.41.2.1"
-//> using dep "org.scalameta::munit:1.3.1"
+//> using dep "org.xerial:sqlite-jdbc:3.54.1.0"
+//> using dep "org.scalameta::munit:1.3.6"
 
 /** Export the file references accumulated in a downloaded production DB back into the per-bot list JSONs.
   *
