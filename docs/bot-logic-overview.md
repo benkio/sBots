@@ -189,6 +189,12 @@ After a successful media send, the Telegram adapter extracts the returned `file_
 removes that reference in the same update that prepends the fresh ID, so failed references do not accumulate. Markdown
 sends have no file ID and persist nothing. A persistence failure is only logged and notified; it never fails the reply.
 
+`scripts/ExportFileIds.scala` merges the references accumulated in a downloaded production DB back into the per-bot
+`*_list.json` files (`--check` reports the diff, `--write` applies it; tests: `scala-cli test scripts/ExportFileIds.scala`).
+Only references are added, to the same bot and filename, deduped and capped per platform before the URLs; URLs, other
+fields and the source formatting are left as they are. Untagged references, unknown bot IDs and malformed JSON abort
+the export.
+
 ### Discord gateway
 
 `chatDiscordAdapter` keeps the connection of a bot to the Discord gateway in `DiscordGateway`: `managed` opens it when the
