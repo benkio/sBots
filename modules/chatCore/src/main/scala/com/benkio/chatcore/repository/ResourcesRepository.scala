@@ -23,6 +23,13 @@ object ResourcesRepository {
 
 class ResourceRepository[F[_]: Async: LogWriter](stage: Option[String] = None) extends Repository[F] {
 
+  override def registerFileId(
+      _mediaFile: MediaFile,
+      _platform: com.benkio.chatcore.model.Platform,
+      _fileId: String
+  )(using Applicative[F]): F[Unit] =
+    Applicative[F].unit
+
   def getResourcesByKind(
       criteria: String,
       botId: SBotId

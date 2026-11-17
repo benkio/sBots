@@ -6,6 +6,7 @@ import cats.effect.*
 import cats.implicits.*
 import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.reply.MediaFile
+import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.PlatformCapabilities
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBMediaData
@@ -26,14 +27,18 @@ trait Repository[F[_]] {
       mediaFile: MediaFile
   ): Resource[F, Either[Repository.RepositoryError, NonEmptyList[MediaResource[F]]]]
 
+  /** Registers a file reference returned by a successful send of `mediaFile`, so the next sends of that platform can
+    * try it first. The reference is stored with its platform; a platform that has no file references keeps the no-op.
+    */
+  def registerFileId(mediaFile: MediaFile, platform: Platform, fileId: String)(using Applicative[F]): F[Unit]
+
   /** The same repository, that gives only the resources the platform can use: the references to files already uploaded
     * (`MediaResourceIFile`) only if it accepts them, see
     * [[com.benkio.chatcore.model.reply.ReplyTransformer.usableSources]]. What is left without a usable resource is a
     * not found error, the same as a media that does not exist.
     */
   final def usableFor(capabilities: PlatformCapabilities): Repository[F] =
-    if capabilities.acceptsFileIds then this
-    else UsableResourcesRepository(this)
+    UsableResourcesRepository(this, capabilities)
 }
 
 object Repository {

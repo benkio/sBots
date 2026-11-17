@@ -33,7 +33,7 @@ class ReplyToMessageSpec extends CatsEffectSuite {
   private val withoutId: Message = message(None)
 
   private val repository = RepositoryMock(getResourceFileHandler =
-    _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("a file id"))))
+    _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram:a file id"))))
   )
 
   private val values: List[(String, ReplyValue)] = List(

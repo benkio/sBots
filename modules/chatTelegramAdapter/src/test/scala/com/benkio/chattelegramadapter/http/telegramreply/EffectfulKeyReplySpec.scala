@@ -56,7 +56,8 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
       )
     )
     val repositoryMockWithHandler = RepositoryMock(
-      getResourceFileHandler = _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("test value"))))
+      getResourceFileHandler =
+        _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram:test value"))))
     )
     val effectfulKey = EffectfulKey.Random(sBotInfo)
 
@@ -222,7 +223,8 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
       )
     )
     val repositoryMockWithHandler = RepositoryMock(
-      getResourceFileHandler = _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("test value"))))
+      getResourceFileHandler =
+        _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram:test value"))))
     )
 
     val result = EffectfulKeyReply
@@ -304,7 +306,8 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
       )
     )
     val repositoryMockWithHandler = RepositoryMock(
-      getResourceFileHandler = _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("test value"))))
+      getResourceFileHandler =
+        _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram:test value"))))
     )
     val effectfulKey = EffectfulKey.MediaByKind("audio", sBotInfo)
 

@@ -32,7 +32,7 @@ class TelegramStartupCheckSpec extends CatsEffectSuite {
   private val started       = s"[${SampleWebhookBot.sBotInfo.botName}] $startMessage"
   private val testMedia     = "test_file.mp3"
   private val fileAvailable = new RepositoryMock(getResourceFileHandler =
-    _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram-file-id"))))
+    _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram:telegram-file-id"))))
   )
 
   /** The setup of a sample bot over a recording api: what the notifier sends to the ops chat is in `calls`. */

@@ -10,6 +10,7 @@ import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceFile
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceIFile
 import com.benkio.chatcore.model.reply.MediaFile
+import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBMedia
 import com.benkio.chatcore.repository.db.DBMediaData
@@ -65,6 +66,11 @@ object DBRepository {
           )
         } yield result
       }
+
+      override def registerFileId(mediaFile: MediaFile, platform: Platform, fileId: String)(using
+          Applicative[F]
+      ): F[Unit] =
+        dbMedia.registerFileId(mediaFile.filepath, platform, fileId)
 
       private[repository] def dbMediaDataToMediaResource(
           dbMediaData: DBMediaData

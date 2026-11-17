@@ -44,8 +44,8 @@ enum MarkdownSupport {
   *   the maximum number of characters of a text message; longer texts are split
   * @param acceptsFileIds
   *   whether the platform can use the media sources that are not an url (`Left`): the references to files that were
-  *   already uploaded to it. Each platform says it for itself; the data does not record which platform a reference
-  *   belongs to
+  *   already uploaded to it. Each reference carries a platform tag, so a platform only sees the ones it can use even
+  *   when it accepts references
   * @param commandSyntax
   *   how the commands and the file requests are written, e.g. `/command@BotName` or `!command`
   */

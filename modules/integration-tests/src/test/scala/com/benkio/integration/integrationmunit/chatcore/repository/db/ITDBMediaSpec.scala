@@ -2,6 +2,10 @@ package com.benkio.integration.integrationmunit.chatcore.repository.db
 
 import cats.effect.IO
 import cats.effect.Resource
+import cats.syntax.all.*
+import com.benkio.chatcore.model.media.Media
+import com.benkio.chatcore.model.media.MediaSources
+import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.repository.db.DBMedia
 import com.benkio.chatcore.repository.db.DBMediaData
 import com.benkio.chattelegramadapter.SBot
@@ -72,6 +76,51 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
       dbMedia  <- fixture.resourceDBLayer.map(_.dbMedia)
       mediaOpt <- Resource.eval(dbMedia.getMedia(filename = testMediaName, cache = false))
     } yield mediaOpt.fold(false)(checkMedia(_, testMedia))
+    resourceAssert.use(IO.pure).assert
+  }
+
+  databaseFixture.test(
+    "DBMedia.registerFileId keeps the newest IDs, preserves the URLs and leaves the other columns untouched"
+  ) { fixture =>
+    // Use a dedicated row: cleanDB does not reset media_sources, so the seeded rows must stay untouched.
+    val filename = "rphjb_TestFileIds.mp3"
+    // media_sources is stored as a JSON-encoded JSON array, as the seeded rows are.
+    val row = DBMediaData(
+      media_name = filename,
+      bot_id = "rphjb",
+      kinds = "[]",
+      mime_type = "audio/mpeg",
+      media_sources = """["https://example.com/test.mp3"]""",
+      media_count = 7,
+      created_at = java.time.Instant.now.getEpochSecond.toString
+    )
+    val resourceAssert = for {
+      dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
+      _       <- Resource.eval(dbMedia.insertMedia(row))
+      before  <- Resource.eval(dbMedia.getMedia(filename = filename, cache = false))
+      _       <- Resource.eval(
+        List("id-1", "id-2", "id-3", "id-4").traverse_(dbMedia.registerFileId(filename, Platform.Telegram, _))
+      )
+      _      <- Resource.eval(dbMedia.registerFileId(filename, Platform.Discord, "discord-id"))
+      cached <- Resource.eval(dbMedia.getMedia(filename = filename))
+      after  <- Resource.eval(dbMedia.getMedia(filename = filename, cache = false))
+    } yield {
+      val beforeData = before.get
+      val afterData  = after.get
+      assertEquals(afterData.media_count, beforeData.media_count)
+      assertEquals(afterData.kinds, beforeData.kinds)
+      assertEquals(afterData.mime_type, beforeData.mime_type)
+      assertEquals(afterData.created_at, beforeData.created_at)
+      val afterSources = Media(afterData).toOption.get.mediaSources
+      val ids          = afterSources.collect {
+        case Left(id) if MediaSources.belongsTo(id, Platform.Telegram) => id
+      }
+      assertEquals(ids.size, MediaSources.maxFileIds)
+      assertEquals(ids, List("telegram:id-4", "telegram:id-3", "telegram:id-2"))
+      assert(afterSources.contains(Left("discord:discord-id")), "another platform keeps its own reference")
+      assert(afterSources.exists(_.isRight), "the original URL is still there")
+      assertEquals(cached.map(_.media_sources), after.map(_.media_sources), "the cache was invalidated")
+    }
     resourceAssert.use(IO.pure).assert
   }
 
