@@ -8,9 +8,8 @@ on:
         type: boolean
         required: false
         default: false
-  # Enable a weekly cron only after the first generated PR has been reviewed:
-  # schedule:
-  #   - cron: "0 6 * * 1"
+  schedule:
+    - cron: "0 6 * * 0"
 
 permissions:
   contents: write
