@@ -25,6 +25,7 @@ class KittehConnection[F[_]: Async](
     shuttingDown: AtomicBoolean
 ) extends IrcClientConnection[F] {
 
+  override def isReady: F[Boolean] = ready.tryGet.map(_.isDefined)
   override def awaitReady: F[Unit] = ready.get
   override def closed: F[Unit]     = closedSignal.get
   override def shutdown: F[Unit]   = Async[F].delay {

@@ -7,6 +7,9 @@ import scala.concurrent.duration.FiniteDuration
   */
 trait IrcClientConnection[F[_]] {
 
+  /** Tells you when the bot is connected and registered with the server. */
+  def isReady: F[Boolean]
+
   /** Completes when the bot is connected and registered with the server. */
   def awaitReady: F[Unit]
 
