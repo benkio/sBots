@@ -8,11 +8,11 @@ import com.google.api.services.youtube.model.Video
 import java.nio.file.Path
 
 class YouTubeServiceMock(
-    onGetAllBotNameIds: IO[List[YouTubeBotIds]] = IO.raiseError(Throwable("[YouTubeServiceMock] Unexpected Call")),
+    onGetAllBotNameIds: IO[List[YouTubeBotIds]] = IO.raiseError(Throwable(YouTubeServiceMock.unexpectedCall)),
     onGetYouTubeVideos: List[String] => IO[List[Video]] = _ =>
-      IO.raiseError(Throwable("[YouTubeServiceMock] Unexpected Call")),
+      IO.raiseError(Throwable(YouTubeServiceMock.unexpectedCall)),
     onSaveCaption: (String, Path, String) => IO[Unit] = (_, _, _) =>
-      IO.raiseError(Throwable("[YouTubeServiceMock] Unexpected Call"))
+      IO.raiseError(Throwable(YouTubeServiceMock.unexpectedCall))
 ) extends YouTubeService[IO] {
   override def getAllBotNameIds: IO[List[YouTubeBotIds]] = onGetAllBotNameIds
   override def getYouTubeVideos(
@@ -23,4 +23,8 @@ class YouTubeServiceMock(
     onSaveCaption(videoId, captionFolderPath, captionLanguage)
 
   override def hasCaption(videoId: String, captionLanguage: String): IO[Boolean] = IO.pure(true)
+}
+
+object YouTubeServiceMock {
+  private val unexpectedCall = "[YouTubeServiceMock] Unexpected Call"
 }
