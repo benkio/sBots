@@ -30,6 +30,7 @@ object Dependencies {
     val scalameta         = "org.scalameta"
     val scalatest         = "org.scalatest"
     val testScope         = "test"
+    val tpolecat          = "org.tpolecat"
     val timepit           = "eu.timepit"
     val tulz              = "app.tulz"
     val typelevel         = "org.typelevel"
