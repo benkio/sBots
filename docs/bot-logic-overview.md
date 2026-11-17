@@ -195,6 +195,15 @@ Only references are added, to the same bot and filename, deduped and capped per 
 fields and the source formatting are left as they are. Untagged references, unknown bot IDs and malformed JSON abort
 the export.
 
+`.github/workflows/fileIds.yml` automates that export. It is manual-only (`workflow_dispatch`) for now — the weekly cron
+is commented out until the first generated PR has been reviewed. It reuses `downloadDB.yml` to fetch the production DB,
+runs the export, and when the bot lists changed, force-pushes the single branch `bot/telegram-file-ids` and opens or
+updates one PR with the counts of added and removed references. Set the `dry_run` input to only report the diff. The PR
+is always reviewed by a human; the weekly schedule and any auto-merge are deliberately left off.
+
+Platforms that do not accept file references (Discord, IRC) keep using only URL sources: their repository is filtered to
+hide other platforms' tagged references, and they do not call the capture APIs.
+
 ### Discord gateway
 
 `chatDiscordAdapter` keeps the connection of a bot to the Discord gateway in `DiscordGateway`: `managed` opens it when the
