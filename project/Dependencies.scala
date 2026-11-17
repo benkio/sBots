@@ -6,6 +6,7 @@ object Dependencies {
 
   private object groups {
     val apimorphism       = "io.github.apimorphism"
+    val cb372             = "com.github.cb372"
     val chrisdavenport    = "io.chrisdavenport"
     val circe             = "io.circe"
     val comcast           = "com.comcast"
@@ -30,8 +31,8 @@ object Dependencies {
     val scalameta         = "org.scalameta"
     val scalatest         = "org.scalatest"
     val testScope         = "test"
-    val tpolecat          = "org.tpolecat"
     val timepit           = "eu.timepit"
+    val tpolecat          = "org.tpolecat"
     val tulz              = "app.tulz"
     val typelevel         = "org.typelevel"
     val wolfendale        = "io.github.wolfendale"
@@ -43,6 +44,7 @@ object Dependencies {
     val cats                  = "2.13.0"
     val catsEffectTime        = "0.4.0"
     val catsEffectVersion     = "3.7.1"
+    val catsRetry             = "4.0.0"
     val circe                 = "0.14.17"
     val cron4s                = "0.8.2"
     val doobie                = "1.0.0-RC12"
@@ -56,6 +58,9 @@ object Dependencies {
     val googleYouTubeApi      = "v3-rev20261104-2.9.2"
     val http4s                = "0.23.38"
     val ip4s                  = "3.8.0"
+    val jda                   = "6.7.0"
+    val kitteh                = "9.0.0"
+    val laminar               = "17.2.1"
     val logEffects            = "0.20.0"
     val logbackClassic        = "1.6.7"
     val logbackLogstash       = "9.0"
@@ -65,19 +70,16 @@ object Dependencies {
     val munit                 = "1.3.1"
     val munitCatsEffect       = "2.2.1"
     val pureConfig            = "0.17.11"
-    val scalajsDom            = "2.8.1"
     val scalacheck            = "1.20.0"
     val scalacheckEffectMunit = "2.1.0"
     val scalacheckGenRegexp   = "1.1.0"
+    val scalajsDom            = "2.8.1"
     val scalatest             = "3.2.16"
     val shapeless             = "2.3.10"
     val sqlite                = "3.41.2.1"
     val telegramiumVersion    = "10.1003.2"
-    val jda                   = "6.7.0"
-    val kitteh                = "9.0.0"
-    val vault                 = "3.7.0"
-    val laminar               = "17.2.1"
     val tuplez                = "0.4.0"
+    val vault                 = "3.7.0"
   }
 
   object libs {
@@ -89,6 +91,7 @@ object Dependencies {
     val catsEffectTime       = groups.chrisdavenport  %% "cats-effect-time"        % versions.catsEffectTime
     val catsFree             = groups.typelevel       %% "cats-free"               % versions.cats
     val catsKernel           = groups.typelevel       %% "cats-kernel"             % versions.cats
+    val catsRetry            = groups.cb372           %% "cats-retry"              % versions.catsRetry
     val circeCore            = groups.circe           %% "circe-core"              % versions.circe
     val circeGeneric         = groups.circe           %% "circe-generic"           % versions.circe
     val circeParser          = groups.circe           %% "circe-parser"            % versions.circe
@@ -99,8 +102,8 @@ object Dependencies {
     val flyway               = groups.flywaydb         % "flyway-core"             % versions.flyway
     val fs2Core              = groups.fs2             %% "fs2-core"                % versions.fs2Core
     val fs2Cron              = groups.timepit         %% "fs2-cron-cron4s"         % versions.fs2Cron
-    val fs2CronCore          = groups.timepit         %% "fs2-cron-core"           % versions.fs2Cron
     val fs2CronCalev         = groups.timepit         %% "fs2-cron-calev"          % versions.fs2Cron
+    val fs2CronCore          = groups.timepit         %% "fs2-cron-core"           % versions.fs2Cron
     val fs2IO                = groups.fs2             %% "fs2-io"                  % versions.fs2IO
     val googleApiClient      = groups.googleApiClient  % "google-api-client"       % versions.googleApiClient
     val googleHttpClient     = groups.googleHttpClient % "google-http-client"      % versions.googleHttpClient
@@ -112,13 +115,16 @@ object Dependencies {
     val http4sCore        = groups.http4s           %% "http4s-core"                 % versions.http4s
     val http4sDsl         = groups.http4s           %% "http4s-dsl"                  % versions.http4s
     val http4sEmberClient = groups.http4s           %% "http4s-ember-client"         % versions.http4s
-    val http4sServer      = groups.http4s           %% "http4s-server"               % versions.http4s
     val http4sEmberServer = groups.http4s           %% "http4s-ember-server"         % versions.http4s
+    val http4sServer      = groups.http4s           %% "http4s-server"               % versions.http4s
     val ip4sCore          = groups.comcast          %% "ip4s-core"                   % versions.ip4s
+    val jda               = groups.dv8tion           % "JDA"                         % versions.jda
+    val kitteh            = groups.kittehIrc         % "client-lib"                  % versions.kitteh
     val logEffectsCore    = groups.laserdisc        %% "log-effect-core"             % versions.logEffects
     val logEffectsFs2     = groups.laserdisc        %% "log-effect-fs2"              % versions.logEffects
     val logbackClassic    = groups.qosLogback        % "logback-classic"             % versions.logbackClassic % Runtime
     val logbackLogstash = groups.logstashLogback % "logstash-logback-encoder" % versions.logbackLogstash % Runtime
+    val mbassador       = groups.engio           % "mbassador"                % versions.mbassador
     val mules           = groups.chrisdavenport %% "mules"                    % versions.mules
     val mulesCaffeine   = groups.chrisdavenport %% "mules-caffeine"           % versions.mules
     val mulesHttp4s     = groups.chrisdavenport %% "mules-http4s"             % versions.mulesHttp4s
@@ -126,17 +132,14 @@ object Dependencies {
     val munitCatsEffect  = groups.typelevel  %% "munit-cats-effect" % versions.munitCatsEffect % groups.testScope
     val munitScalacheck  = groups.scalameta  %% "munit-scalacheck"  % versions.munit           % groups.testScope
     val pureConfig       = groups.pureconfig %% "pureconfig"        % versions.pureConfig
-    val pureConfigHttp4s = groups.pureconfig %% "pureconfig-http4s" % versions.pureConfig
-    val pureConfigCron4s = groups.pureconfig %% "pureconfig-cron4s" % versions.pureConfig
     val pureConfigCore   = groups.pureconfig %% "pureconfig-core"   % versions.pureConfig
+    val pureConfigCron4s = groups.pureconfig %% "pureconfig-cron4s" % versions.pureConfig
+    val pureConfigHttp4s = groups.pureconfig %% "pureconfig-http4s" % versions.pureConfig
     val scalacheck       = groups.scalacheck %% "scalacheck"        % versions.scalacheck      % Test
     val scalacheckEffectMunit = groups.typelevel  %% "scalacheck-effect-munit" % versions.scalacheckEffectMunit % Test
     val scalacheckGenRegexp   = groups.wolfendale %% "scalacheck-gen-regexp"   % versions.scalacheckGenRegexp   % Test
     val scalatest       = groups.scalatest   %% "scalatest"        % versions.scalatest % groups.testScope
     val sqlite          = groups.xerial       % "sqlite-jdbc"      % versions.sqlite
-    val jda             = groups.dv8tion      % "JDA"              % versions.jda
-    val kitteh          = groups.kittehIrc    % "client-lib"       % versions.kitteh
-    val mbassador       = groups.engio        % "mbassador"        % versions.mbassador
     val telegramiumCore = groups.apimorphism %% "telegramium-core" % versions.telegramiumVersion
     val telegramiumHigh = groups.apimorphism %% "telegramium-high" % versions.telegramiumVersion
     val vault           = groups.typelevel   %% "vault"            % versions.vault
@@ -361,22 +364,23 @@ object Dependencies {
 
   val IntegrationDependencies: Seq[ModuleID] =
     Seq(
-      libs.munitCatsEffect,
-      libs.munit,
+      libs.catsCore   % groups.testScope,
+      libs.catsEffect % groups.testScope,
+      libs.catsRetry  % groups.testScope,
+      libs.cron4s     % groups.testScope,
+      libs.doobieCore % groups.testScope,
       libs.doobieMunit,
-      libs.scalatest,
-      libs.catsEffect        % groups.testScope,
-      libs.catsCore          % groups.testScope,
-      libs.cron4s            % groups.testScope,
-      libs.doobieCore        % groups.testScope,
-      libs.telegramiumCore   % groups.testScope,
-      libs.http4sEmberClient % groups.testScope,
+      libs.flyway            % groups.testScope,
       libs.googleApiClient   % groups.testScope,
       libs.googleOauthClient % groups.testScope,
       libs.googleYouTubeApi  % groups.testScope,
+      libs.http4sEmberClient % groups.testScope,
+      libs.logEffectsCore    % groups.testScope,
       libs.logbackClassic,
       libs.logbackLogstash,
-      libs.logEffectsCore % groups.testScope,
-      libs.flyway         % groups.testScope
+      libs.munit,
+      libs.munitCatsEffect,
+      libs.scalatest,
+      libs.telegramiumCore % groups.testScope
     )
 }

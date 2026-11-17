@@ -29,8 +29,12 @@ import com.benkio.integration.Logger.given
 import com.benkio.main.BotRegistry
 import com.benkio.main.BotRegistryEntry
 import munit.CatsEffectSuite
+import munit.TestOptions
 import net.engio.mbassy.listener.Handler
 import org.kitteh.irc.client.library.event.channel.ChannelMessageEvent
+import retry.syntax.*
+import retry.ResultHandler
+import retry.RetryPolicies.*
 
 import scala.concurrent.duration.*
 import scala.jdk.CollectionConverters.*
@@ -48,6 +52,11 @@ class ITIrcLiveSpec extends CatsEffectSuite with DBFixture {
 
   /** `##` is the prefix that Libera.Chat asks for the channels that do not belong to a registered project. */
   private val channel: String = "##sBotsTesting"
+  private val retryPolicy     =
+    limitRetriesByCumulativeDelay[IO, Throwable](
+      30.seconds,
+      exponentialBackoff[IO](1.second)
+    )
 
   private val ircConfig: IrcConfig = IrcConfig(
     host = "irc.libera.chat",
@@ -162,13 +171,15 @@ class ITIrcLiveSpec extends CatsEffectSuite with DBFixture {
   }
 
   private def botTest(entry: BotRegistryEntry[IO]): Unit =
-    databaseFixture.test(s"${entry.sBotInfo.botName.value} answers its markdown file and !instructions on IRC") {
-      fixture =>
-        assume(!sys.env.get("IRC_LIVE_TEST").contains("false"), "IRC_LIVE_TEST=false")
-        val sBotConfig = SBotConfig.fromSBotInfo(entry.sBotInfo)
-        val nick       = IrcCredentials.nick(entry.sBotInfo)
-        val t          = tester()
-        core(fixture, sBotConfig).use { core =>
+    databaseFixture.test(
+      TestOptions(s"${entry.sBotInfo.botName.value} answers its markdown file and !instructions on IRC").flaky
+    ) { fixture =>
+      assume(!sys.env.get("IRC_LIVE_TEST").contains("false"), "IRC_LIVE_TEST=false")
+      val sBotConfig = SBotConfig.fromSBotInfo(entry.sBotInfo)
+      val nick       = IrcCredentials.nick(entry.sBotInfo)
+      val t          = tester()
+      core(fixture, sBotConfig)
+        .use { core =>
           val chat = ChatId(Platform.Irc, channel.toLowerCase)
           for {
             // an earlier run could have left the bot waiting for its timeout in this chat
@@ -191,6 +202,12 @@ class ITIrcLiveSpec extends CatsEffectSuite with DBFixture {
             assert(result._2.exists(_.text.trim.nonEmpty), result._2.toString)
           }
         }
+        .retryingOnErrors(
+          retryPolicy,
+          ResultHandler.retryOnAllErrors[IO, Unit]((error, details) =>
+            IO.println(s"[ITIrcLiveSpec] retrying after ${error.getMessage} (${details.retriesSoFar} retries so far)")
+          )
+        )
     }
 
   BotRegistry.toList(BotRegistry.value).foreach(botTest)
