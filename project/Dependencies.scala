@@ -4,6 +4,40 @@ import Keys.*
 
 object Dependencies {
 
+  private object groups {
+    val apimorphism       = "io.github.apimorphism"
+    val chrisdavenport    = "io.chrisdavenport"
+    val circe             = "io.circe"
+    val comcast           = "com.comcast"
+    val cron4s            = "com.github.alonsodomin.cron4s"
+    val dv8tion           = "net.dv8tion"
+    val engio             = "net.engio"
+    val flywaydb          = "org.flywaydb"
+    val fs2               = "co.fs2"
+    val googleApiClient   = "com.google.api-client"
+    val googleApis        = "com.google.apis"
+    val googleHttpClient  = "com.google.http-client"
+    val googleOauthClient = "com.google.oauth-client"
+    val http4s            = "org.http4s"
+    val kittehIrc         = "org.kitteh.irc"
+    val laserdisc         = "io.laserdisc"
+    val logstashLogback   = "net.logstash.logback"
+    val pureconfig        = "com.github.pureconfig"
+    val qosLogback        = "ch.qos.logback"
+    val raquo             = "com.raquo"
+    val scalaJs           = "org.scala-js"
+    val scalacheck        = "org.scalacheck"
+    val scalameta         = "org.scalameta"
+    val scalatest         = "org.scalatest"
+    val testScope         = "test"
+    val tpolecat          = "org.tpolecat"
+    val timepit           = "eu.timepit"
+    val tulz              = "app.tulz"
+    val typelevel         = "org.typelevel"
+    val wolfendale        = "io.github.wolfendale"
+    val xerial            = "org.xerial"
+  }
+
   object versions {
     val caseInsensitive       = "1.5.0"
     val cats                  = "2.13.0"
@@ -47,75 +81,75 @@ object Dependencies {
   }
 
   object libs {
-    val caseInsensitive      = "org.typelevel"                 %% "case-insensitive"        % versions.caseInsensitive
-    val catsCore             = "org.typelevel"                 %% "cats-core"               % versions.cats
-    val catsEffect           = "org.typelevel"                 %% "cats-effect"             % versions.catsEffectVersion
-    val catsEffectKernel     = "org.typelevel"                 %% "cats-effect-kernel"      % versions.catsEffectVersion
-    val catsEffectStd        = "org.typelevel"                 %% "cats-effect-std"         % versions.catsEffectVersion
-    val catsEffectTime       = "io.chrisdavenport"             %% "cats-effect-time"        % versions.catsEffectTime
-    val catsFree             = "org.typelevel"                 %% "cats-free"               % versions.cats
-    val catsKernel           = "org.typelevel"                 %% "cats-kernel"             % versions.cats
-    val circeCore            = "io.circe"                      %% "circe-core"              % versions.circe
-    val circeGeneric         = "io.circe"                      %% "circe-generic"           % versions.circe
-    val circeParser          = "io.circe"                      %% "circe-parser"            % versions.circe
-    val cron4s               = "com.github.alonsodomin.cron4s" %% "cron4s-core"             % versions.cron4s
-    val doobieCore           = "org.tpolecat"                  %% "doobie-core"             % versions.doobie
-    val doobieFree           = "org.tpolecat"                  %% "doobie-free"             % versions.doobie
-    val doobieMunit          = "org.tpolecat"                  %% "doobie-munit"            % versions.doobie % "test"
-    val flyway               = "org.flywaydb"                   % "flyway-core"             % versions.flyway
-    val fs2Core              = "co.fs2"                        %% "fs2-core"                % versions.fs2Core
-    val fs2Cron              = "eu.timepit"                    %% "fs2-cron-cron4s"         % versions.fs2Cron
-    val fs2CronCore          = "eu.timepit"                    %% "fs2-cron-core"           % versions.fs2Cron
-    val fs2CronCalev         = "eu.timepit"                    %% "fs2-cron-calev"          % versions.fs2Cron
-    val fs2IO                = "co.fs2"                        %% "fs2-io"                  % versions.fs2IO
-    val googleApiClient      = "com.google.api-client"          % "google-api-client"       % versions.googleApiClient
-    val googleHttpClient     = "com.google.http-client"         % "google-http-client"      % versions.googleHttpClient
-    val googleHttpClientGson = "com.google.http-client"         % "google-http-client-gson" % versions.googleHttpClient
-    val googleOauthClient = "com.google.oauth-client" % "google-oauth-client-jetty"   % versions.googleOauthClient
-    val googleYouTubeApi  = "com.google.apis"         % "google-api-services-youtube" % versions.googleYouTubeApi
-    val http4sCirce       = "org.http4s"             %% "http4s-circe"                % versions.http4s
-    val http4sClient      = "org.http4s"             %% "http4s-client"               % versions.http4s
-    val http4sCore        = "org.http4s"             %% "http4s-core"                 % versions.http4s
-    val http4sDsl         = "org.http4s"             %% "http4s-dsl"                  % versions.http4s
-    val http4sEmberClient = "org.http4s"             %% "http4s-ember-client"         % versions.http4s
-    val http4sServer      = "org.http4s"             %% "http4s-server"               % versions.http4s
-    val http4sEmberServer = "org.http4s"             %% "http4s-ember-server"         % versions.http4s
-    val ip4sCore          = "com.comcast"            %% "ip4s-core"                   % versions.ip4s
-    val logEffectsCore    = "io.laserdisc"           %% "log-effect-core"             % versions.logEffects
-    val logEffectsFs2     = "io.laserdisc"           %% "log-effect-fs2"              % versions.logEffects
-    val logbackClassic   = "ch.qos.logback"         % "logback-classic"          % versions.logbackClassic  % Runtime
-    val logbackLogstash  = "net.logstash.logback"   % "logstash-logback-encoder" % versions.logbackLogstash % Runtime
-    val mules            = "io.chrisdavenport"     %% "mules"                    % versions.mules
-    val mulesCaffeine    = "io.chrisdavenport"     %% "mules-caffeine"           % versions.mules
-    val mulesHttp4s      = "io.chrisdavenport"     %% "mules-http4s"             % versions.mulesHttp4s
-    val munit            = "org.scalameta"         %% "munit"                    % versions.munit           % "test"
-    val munitCatsEffect  = "org.typelevel"         %% "munit-cats-effect"        % versions.munitCatsEffect % "test"
-    val munitScalacheck  = "org.scalameta"         %% "munit-scalacheck"         % versions.munit           % "test"
-    val pureConfig       = "com.github.pureconfig" %% "pureconfig"               % versions.pureConfig
-    val pureConfigHttp4s = "com.github.pureconfig" %% "pureconfig-http4s"        % versions.pureConfig
-    val pureConfigCron4s = "com.github.pureconfig" %% "pureconfig-cron4s"        % versions.pureConfig
-    val pureConfigCore   = "com.github.pureconfig" %% "pureconfig-core"          % versions.pureConfig
-    val scalacheck       = "org.scalacheck"        %% "scalacheck"               % versions.scalacheck      % Test
-    val scalacheckEffectMunit = "org.typelevel" %% "scalacheck-effect-munit" % versions.scalacheckEffectMunit % Test
-    val scalacheckGenRegexp = "io.github.wolfendale"  %% "scalacheck-gen-regexp" % versions.scalacheckGenRegexp % Test
-    val scalatest           = "org.scalatest"         %% "scalatest"             % versions.scalatest           % "test"
-    val sqlite              = "org.xerial"             % "sqlite-jdbc"           % versions.sqlite
-    val jda                 = "net.dv8tion"            % "JDA"                   % versions.jda
-    val kitteh              = "org.kitteh.irc"         % "client-lib"            % versions.kitteh
-    val mbassador           = "net.engio"              % "mbassador"             % versions.mbassador
-    val telegramiumCore     = "io.github.apimorphism" %% "telegramium-core"      % versions.telegramiumVersion
-    val telegramiumHigh     = "io.github.apimorphism" %% "telegramium-high"      % versions.telegramiumVersion
-    val vault               = "org.typelevel"         %% "vault"                 % versions.vault
+    val caseInsensitive      = groups.typelevel       %% "case-insensitive"        % versions.caseInsensitive
+    val catsCore             = groups.typelevel       %% "cats-core"               % versions.cats
+    val catsEffect           = groups.typelevel       %% "cats-effect"             % versions.catsEffectVersion
+    val catsEffectKernel     = groups.typelevel       %% "cats-effect-kernel"      % versions.catsEffectVersion
+    val catsEffectStd        = groups.typelevel       %% "cats-effect-std"         % versions.catsEffectVersion
+    val catsEffectTime       = groups.chrisdavenport  %% "cats-effect-time"        % versions.catsEffectTime
+    val catsFree             = groups.typelevel       %% "cats-free"               % versions.cats
+    val catsKernel           = groups.typelevel       %% "cats-kernel"             % versions.cats
+    val circeCore            = groups.circe           %% "circe-core"              % versions.circe
+    val circeGeneric         = groups.circe           %% "circe-generic"           % versions.circe
+    val circeParser          = groups.circe           %% "circe-parser"            % versions.circe
+    val cron4s               = groups.cron4s          %% "cron4s-core"             % versions.cron4s
+    val doobieCore           = groups.tpolecat        %% "doobie-core"             % versions.doobie
+    val doobieFree           = groups.tpolecat        %% "doobie-free"             % versions.doobie
+    val doobieMunit          = groups.tpolecat        %% "doobie-munit"            % versions.doobie % groups.testScope
+    val flyway               = groups.flywaydb         % "flyway-core"             % versions.flyway
+    val fs2Core              = groups.fs2             %% "fs2-core"                % versions.fs2Core
+    val fs2Cron              = groups.timepit         %% "fs2-cron-cron4s"         % versions.fs2Cron
+    val fs2CronCore          = groups.timepit         %% "fs2-cron-core"           % versions.fs2Cron
+    val fs2CronCalev         = groups.timepit         %% "fs2-cron-calev"          % versions.fs2Cron
+    val fs2IO                = groups.fs2             %% "fs2-io"                  % versions.fs2IO
+    val googleApiClient      = groups.googleApiClient  % "google-api-client"       % versions.googleApiClient
+    val googleHttpClient     = groups.googleHttpClient % "google-http-client"      % versions.googleHttpClient
+    val googleHttpClientGson = groups.googleHttpClient % "google-http-client-gson" % versions.googleHttpClient
+    val googleOauthClient = groups.googleOauthClient % "google-oauth-client-jetty"   % versions.googleOauthClient
+    val googleYouTubeApi  = groups.googleApis        % "google-api-services-youtube" % versions.googleYouTubeApi
+    val http4sCirce       = groups.http4s           %% "http4s-circe"                % versions.http4s
+    val http4sClient      = groups.http4s           %% "http4s-client"               % versions.http4s
+    val http4sCore        = groups.http4s           %% "http4s-core"                 % versions.http4s
+    val http4sDsl         = groups.http4s           %% "http4s-dsl"                  % versions.http4s
+    val http4sEmberClient = groups.http4s           %% "http4s-ember-client"         % versions.http4s
+    val http4sServer      = groups.http4s           %% "http4s-server"               % versions.http4s
+    val http4sEmberServer = groups.http4s           %% "http4s-ember-server"         % versions.http4s
+    val ip4sCore          = groups.comcast          %% "ip4s-core"                   % versions.ip4s
+    val logEffectsCore    = groups.laserdisc        %% "log-effect-core"             % versions.logEffects
+    val logEffectsFs2     = groups.laserdisc        %% "log-effect-fs2"              % versions.logEffects
+    val logbackClassic    = groups.qosLogback        % "logback-classic"             % versions.logbackClassic % Runtime
+    val logbackLogstash = groups.logstashLogback % "logstash-logback-encoder" % versions.logbackLogstash % Runtime
+    val mules           = groups.chrisdavenport %% "mules"                    % versions.mules
+    val mulesCaffeine   = groups.chrisdavenport %% "mules-caffeine"           % versions.mules
+    val mulesHttp4s     = groups.chrisdavenport %% "mules-http4s"             % versions.mulesHttp4s
+    val munit            = groups.scalameta  %% "munit"             % versions.munit           % groups.testScope
+    val munitCatsEffect  = groups.typelevel  %% "munit-cats-effect" % versions.munitCatsEffect % groups.testScope
+    val munitScalacheck  = groups.scalameta  %% "munit-scalacheck"  % versions.munit           % groups.testScope
+    val pureConfig       = groups.pureconfig %% "pureconfig"        % versions.pureConfig
+    val pureConfigHttp4s = groups.pureconfig %% "pureconfig-http4s" % versions.pureConfig
+    val pureConfigCron4s = groups.pureconfig %% "pureconfig-cron4s" % versions.pureConfig
+    val pureConfigCore   = groups.pureconfig %% "pureconfig-core"   % versions.pureConfig
+    val scalacheck       = groups.scalacheck %% "scalacheck"        % versions.scalacheck      % Test
+    val scalacheckEffectMunit = groups.typelevel  %% "scalacheck-effect-munit" % versions.scalacheckEffectMunit % Test
+    val scalacheckGenRegexp   = groups.wolfendale %% "scalacheck-gen-regexp"   % versions.scalacheckGenRegexp   % Test
+    val scalatest       = groups.scalatest   %% "scalatest"        % versions.scalatest % groups.testScope
+    val sqlite          = groups.xerial       % "sqlite-jdbc"      % versions.sqlite
+    val jda             = groups.dv8tion      % "JDA"              % versions.jda
+    val kitteh          = groups.kittehIrc    % "client-lib"       % versions.kitteh
+    val mbassador       = groups.engio        % "mbassador"        % versions.mbassador
+    val telegramiumCore = groups.apimorphism %% "telegramium-core" % versions.telegramiumVersion
+    val telegramiumHigh = groups.apimorphism %% "telegramium-high" % versions.telegramiumVersion
+    val vault           = groups.typelevel   %% "vault"            % versions.vault
 
     // ScalaJS-enabled projects already append the "_sjs1" cross-version suffix via `%%`.
     // The replies editor UI is Scala.js-only, so portability isn't needed here.
-    val laminarSjs1         = "com.raquo"    %% "laminar"           % versions.laminar
-    val airstreamSjs1       = "com.raquo"    %% "airstream"         % versions.laminar
-    val tuplezFullLightSjs1 = "app.tulz"     %% "tuplez-full-light" % versions.tuplez
-    val scalajsDomSjs1      = "org.scala-js" %% "scalajs-dom"       % versions.scalajsDom
-    val circeCoreSjs1       = "io.circe"     %% "circe-core"        % versions.circe
-    val circeGenericSjs1    = "io.circe"     %% "circe-generic"     % versions.circe
-    val circeParserSjs1     = "io.circe"     %% "circe-parser"      % versions.circe
+    val laminarSjs1         = groups.raquo   %% "laminar"           % versions.laminar
+    val airstreamSjs1       = groups.raquo   %% "airstream"         % versions.laminar
+    val tuplezFullLightSjs1 = groups.tulz    %% "tuplez-full-light" % versions.tuplez
+    val scalajsDomSjs1      = groups.scalaJs %% "scalajs-dom"       % versions.scalajsDom
+    val circeCoreSjs1       = groups.circe   %% "circe-core"        % versions.circe
+    val circeGenericSjs1    = groups.circe   %% "circe-generic"     % versions.circe
+    val circeParserSjs1     = groups.circe   %% "circe-parser"      % versions.circe
   }
 
   val ChatCoreDependencies: Seq[ModuleID] = Seq(
@@ -133,8 +167,8 @@ object Dependencies {
     libs.doobieCore,
     libs.doobieFree,
     libs.doobieMunit,
-    libs.flyway % "test",
-    libs.sqlite % "test",
+    libs.flyway % groups.testScope,
+    libs.sqlite % groups.testScope,
     libs.fs2Core,
     libs.fs2Cron,
     libs.fs2CronCore,
@@ -142,8 +176,8 @@ object Dependencies {
     libs.http4sClient,
     libs.http4sCore,
     libs.http4sDsl,
-    libs.http4sEmberClient % "test",
-    libs.http4sEmberServer % "test",
+    libs.http4sEmberClient % groups.testScope,
+    libs.http4sEmberServer % groups.testScope,
     libs.logEffectsCore,
     libs.logEffectsFs2,
     libs.logbackClassic,
@@ -331,18 +365,18 @@ object Dependencies {
       libs.munit,
       libs.doobieMunit,
       libs.scalatest,
-      libs.catsEffect        % "test",
-      libs.catsCore          % "test",
-      libs.cron4s            % "test",
-      libs.doobieCore        % "test",
-      libs.telegramiumCore   % "test",
-      libs.http4sEmberClient % "test",
-      libs.googleApiClient   % "test",
-      libs.googleOauthClient % "test",
-      libs.googleYouTubeApi  % "test",
+      libs.catsEffect        % groups.testScope,
+      libs.catsCore          % groups.testScope,
+      libs.cron4s            % groups.testScope,
+      libs.doobieCore        % groups.testScope,
+      libs.telegramiumCore   % groups.testScope,
+      libs.http4sEmberClient % groups.testScope,
+      libs.googleApiClient   % groups.testScope,
+      libs.googleOauthClient % groups.testScope,
+      libs.googleYouTubeApi  % groups.testScope,
       libs.logbackClassic,
       libs.logbackLogstash,
-      libs.logEffectsCore % "test",
-      libs.flyway         % "test"
+      libs.logEffectsCore % groups.testScope,
+      libs.flyway         % groups.testScope
     )
 }

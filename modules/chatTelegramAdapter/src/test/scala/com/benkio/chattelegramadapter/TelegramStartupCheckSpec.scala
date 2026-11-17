@@ -5,8 +5,10 @@ import cats.effect.IO
 import com.benkio.chatcore.config.StartupCheckConfig
 import com.benkio.chatcore.mocks.RepositoryMock
 import com.benkio.chatcore.model.media.MediaResource
+import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.Logger.given
+import com.benkio.chatcore.PostDeployMarker
 import com.benkio.chattelegramadapter.http.TelegramNotifier
 import com.benkio.chattelegramadapter.initialization.BotSetup
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
@@ -82,9 +84,11 @@ class TelegramStartupCheckSpec extends CatsEffectSuite {
     } yield assertEquals(opsTexts(calls), List(started))
   }
 
-  test("after a deploy the test file is sent to the ops chat once and the marker is consumed") {
+  test("after a deploy the test file is sent to the ops chat once and the bot's marker is consumed") {
     for {
-      marker        <- IO.blocking(Files.createTempFile("post-deploy", ".marker"))
+      marker <- IO.blocking(Files.createTempFile("post-deploy", ".marker"))
+      botMarker = PostDeployMarker.fileFor(marker.toString, SampleWebhookBot.sBotInfo.botId.value)
+      _             <- IO.blocking(Files.createFile(botMarker))
       setupAndCalls <- setupOver(StartupCheckConfig(testMedia = Some(testMedia), markerFile = marker.toString))
       (setup, recorded) = setupAndCalls
       _      <- TelegramStartupCheck.run(setup, startMessage)
@@ -95,14 +99,44 @@ class TelegramStartupCheckSpec extends CatsEffectSuite {
       assertEquals(first.count(_._1 == "sendAudio"), 1, "the test file is sent to the ops chat")
       assert(opsTexts(first).head.contains(s"Test file $testMedia"), opsTexts(first).toString)
       assertEquals(second.count(_._1 == "sendAudio"), 1, "the second start does not send it again")
-      assert(!Files.exists(marker), "the marker is consumed")
+      assert(!Files.exists(botMarker), "the bot's marker is consumed")
+      assert(Files.exists(marker), "the shared marker is left to the other bots")
+    }
+  }
+
+  test("two bots with the same marker configuration each send their own test file after a deploy") {
+    val config = StartupCheckConfig(testMedia = Some(testMedia))
+    for {
+      marker <- IO.blocking(Files.createTempFile("post-deploy", ".marker"))
+      markerPath  = marker.toString
+      setupForBot = (botId: String) =>
+        for {
+          _             <- IO.blocking(Files.createFile(PostDeployMarker.fileFor(markerPath, botId)))
+          setupAndCalls <- setupOver(config.copy(markerFile = markerPath))
+          (setup, recorded) = setupAndCalls
+          info              = SBotInfo(
+            botId = SBotInfo.SBotId(botId),
+            botName = SBotInfo.SBotName(s"${botId}_Bot")
+          )
+        } yield (setup.copy(sBotConfig = setup.sBotConfig.copy(sBotInfo = info)), recorded)
+      (firstSetup, firstCalls)   <- setupForBot("sbot")
+      (secondSetup, secondCalls) <- setupForBot("other")
+      _                          <- TelegramStartupCheck.run(firstSetup, startMessage)
+      _                          <- TelegramStartupCheck.run(secondSetup, startMessage)
+      first                      <- firstCalls
+      second                     <- secondCalls
+    } yield {
+      assertEquals(first.count(_._1 == "sendAudio"), 1, "the first bot sends its test file")
+      assertEquals(second.count(_._1 == "sendAudio"), 1, "the second bot sends its test file")
     }
   }
 
   test("a test file that can't be fetched is a failed check with the real reason, the start is notified anyway") {
     val missing = new RepositoryMock(getResourceFileHandler = _ => IO.raiseError(new RuntimeException("not found")))
     for {
-      marker        <- IO.blocking(Files.createTempFile("post-deploy", ".marker"))
+      marker <- IO.blocking(Files.createTempFile("post-deploy", ".marker"))
+      botMarker = PostDeployMarker.fileFor(marker.toString, SampleWebhookBot.sBotInfo.botId.value)
+      _             <- IO.blocking(Files.createFile(botMarker))
       setupAndCalls <- setupOver(
         StartupCheckConfig(testMedia = Some(testMedia), markerFile = marker.toString, probeTimeout = 2.seconds),
         repository = missing
@@ -126,7 +160,9 @@ class TelegramStartupCheckSpec extends CatsEffectSuite {
       mediaFile => IO.pure(Left(Repository.RepositoryError.NoResourcesFoundFile(mediaFile)))
     )
     for {
-      marker        <- IO.blocking(Files.createTempFile("post-deploy", ".marker"))
+      marker <- IO.blocking(Files.createTempFile("post-deploy", ".marker"))
+      botMarker = PostDeployMarker.fileFor(marker.toString, SampleWebhookBot.sBotInfo.botId.value)
+      _             <- IO.blocking(Files.createFile(botMarker))
       setupAndCalls <- setupOver(
         StartupCheckConfig(testMedia = Some(testMedia), markerFile = marker.toString, probeTimeout = 2.seconds),
         repository = notInDb

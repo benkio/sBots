@@ -23,7 +23,6 @@ import telegramium.bots.high.Api
 import telegramium.bots.high.Methods
 import telegramium.bots.ChatIntId
 
-import java.nio.file.Path
 import java.time.Instant
 import scala.concurrent.duration.*
 
@@ -83,12 +82,15 @@ object TelegramStartupCheck {
     Probe(s"Test file $fileName", send, timeout = Some(10.seconds))
   }
 
-  /** Only after a deploy: the deploy leaves a marker file and the first start that finds it sends the test file. */
+  /** Only after a deploy: the deploy leaves one marker file per bot and the first start of each bot that finds its own
+    * marker sends that bot's test file.
+    */
   private def postDeployTestFile[F[_]: Async: LogWriter](setup: BotSetup[F]): F[List[ProbeResult]] = {
     val config = setup.sBotConfig.startupCheck
+    val botId  = setup.sBotConfig.sBotInfo.botId.value
     config.testMedia.fold(List.empty[ProbeResult].pure[F])(fileName =>
       PostDeployMarker
-        .consume[F](Path.of(config.markerFile))
+        .consume[F](PostDeployMarker.fileFor(config.markerFile, botId))
         .ifM(
           StartupCheck.runProbe(testFileProbe(setup, fileName), config).map(List(_)),
           List.empty[ProbeResult].pure[F]

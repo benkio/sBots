@@ -17,7 +17,8 @@ import scala.concurrent.duration.*
   *   the file sent to the ops chat once after a deploy, through the same path of a real reply: fetched by the
   *   repository and sent by the platform
   * @param markerFile
-  *   the file the deploy leaves to ask for the test file: the check removes it, so a restart does not send it again
+  *   the base name of the marker the deploy leaves for each bot (`<botId>_<markerFile>`): the check removes its own, so
+  *   every bot sends its test file once and a restart does not send it again
   */
 final case class StartupCheckConfig(
     enabled: Boolean = true,

@@ -108,6 +108,15 @@ object StartupCheck {
   */
 object PostDeployMarker {
 
+  /** The marker of one bot: the deploy leaves one per bot, so that every bot sends its own test file. A single shared
+    * marker would be consumed by the first bot that starts, and the others would send nothing. The bot id is prepended
+    * to the configured file name, in its own directory.
+    */
+  def fileFor(markerFile: String, botId: String): Path = {
+    val path = Path.of(markerFile)
+    path.resolveSibling(s"${botId}_${path.getFileName}")
+  }
+
   /** Whether the marker was there: it is removed in the same step, so only one caller gets `true`. */
   def consume[F[_]: Sync](markerFile: Path): F[Boolean] =
     Sync[F].blocking(Files.deleteIfExists(markerFile))

@@ -8,9 +8,12 @@ import com.benkio.chatcore.repository.db.DBMediaData
 
 object TestData {
 
+  private val botId     = "botid"
+  private val testBotId = "testbot"
+
   val google: DBMediaData = DBMediaData(
     media_name = "botid_google.gif",
-    bot_id = "botid",
+    bot_id = botId,
     kinds = "[]",
     mime_type = "image/gif",
     media_sources = """["https://www.google.com"]""",
@@ -19,7 +22,7 @@ object TestData {
   )
   val amazon: DBMediaData = DBMediaData(
     media_name = "botid_amazon.mp4",
-    bot_id = "botid",
+    bot_id = botId,
     kinds = """["kind"]""",
     mime_type = "video/mp4",
     media_sources = """["https://www.amazon.com"]""",
@@ -28,7 +31,7 @@ object TestData {
   )
   val facebook: DBMediaData = DBMediaData(
     media_name = "botid_facebook.mp3",
-    bot_id = "botid",
+    bot_id = botId,
     kinds = """["kind_innerKind"]""",
     mime_type = "audio/mpeg",
     media_sources = """["https://www.facebook.com"]""",
@@ -38,7 +41,7 @@ object TestData {
 
   val showSourceConfig: ShowSourceConfig = ShowSourceConfig(
     youtubeSources = List("PLO1i4nEhzCLYvR6gBHuZJS4z28he2S8yh"),
-    botId = "testbot",
+    botId = testBotId,
     captionLanguage = "it",
     outputFilePath = "./src/test/resources/testdata/test_shows.json",
     captionFolderPath = "./src/test/resources/testdata/captions"
@@ -50,7 +53,7 @@ object TestData {
     url = "jdbc:sqlite:../../botDB.sqlite3",
     migrationsLocations = List("db/migrations"),
     migrationsTable = "FlywaySchemaHistory",
-    jsonLocation = List(JsonLocation(botId = "testbot", value = "/testdata")),
+    jsonLocation = List(JsonLocation(botId = testBotId, value = "/testdata")),
     showConfig = ShowConfig(List(showSourceConfig), false, false, false, "sBots")
   )
 }
