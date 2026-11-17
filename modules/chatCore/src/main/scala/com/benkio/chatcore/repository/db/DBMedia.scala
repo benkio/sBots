@@ -242,7 +242,9 @@ object DBMedia {
     override def registerFileId(filename: String, platform: com.benkio.chatcore.model.Platform, fileId: String)(using
         cats.Applicative[F]
     ): F[Unit] =
-      updateFileIds(filename, platform, "registerFileId")(MediaSources.withFileId(_, platform, fileId))
+      updateFileIds(filename = filename, platform = platform, operation = "registerFileId")(
+        MediaSources.withFileId(_, platform, fileId)
+      )
 
     override def replaceFileId(
         filename: String,
@@ -250,7 +252,9 @@ object DBMedia {
         failedId: String,
         newId: String
     )(using cats.Applicative[F]): F[Unit] =
-      updateFileIds(filename, platform, "replaceFileId")(MediaSources.replaceFileId(_, platform, failedId, newId))
+      updateFileIds(filename = filename, platform = platform, operation = "replaceFileId")(
+        MediaSources.replaceFileId(_, platform, failedId, newId)
+      )
   }
 
   def insertSql(dbMediaData: DBMediaData): Update0 =

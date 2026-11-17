@@ -73,6 +73,6 @@ object MediaSources {
       case Left(ref) => belongsTo(ref, platform) && rawId(ref) == cleanFailed
       case _         => false
     }
-    withFileId(remaining, platform, newId)
+    withFileId(sources = remaining, platform = platform, id = newId)
   }
 }

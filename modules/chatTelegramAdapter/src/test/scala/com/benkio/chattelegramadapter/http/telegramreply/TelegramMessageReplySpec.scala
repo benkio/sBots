@@ -275,7 +275,11 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
           registerFileIdHandler = (mf, platform, fileId) => calls.update(_ :+ ((mf, platform, fileId)))
         )
         response = messageWithFileId(id, kind)
-        sent     <- sendPattern(mediaFile, repository, (_, _, _) => IO.pure(response))
+        sent <- sendPattern(
+          mediaFile = mediaFile,
+          repository = repository,
+          sendFileAPIMethod = (_, _, _) => IO.pure(response)
+        )
         recorded <- calls.get
       } yield {
         assertEquals(sent, List(response))
@@ -302,9 +306,9 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
         replaceFileIdHandler = (mf, platform, failedId, newId) => calls.update(_ :+ ((mf, platform, failedId, newId)))
       )
       sent <- sendPattern(
-        mp3,
-        repository,
-        (_, ifile, _) =>
+        mediaFile = mp3,
+        repository = repository,
+        sendFileAPIMethod = (_, ifile, _) =>
           ifile match {
             case InputLinkFile(id) => IO.raiseError(new RuntimeException(s"stale reference $id"))
             case _                 => IO.pure(fresh)
@@ -327,7 +331,7 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
           _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram:stored")))),
         registerFileIdHandler = (_, _, _) => calls.update(_ + 1) >> IO.raiseError(new RuntimeException("db down"))
       )
-      sent     <- sendPattern(mp3, repository, (_, _, _) => IO.pure(response))
+      sent <- sendPattern(mediaFile = mp3, repository = repository, sendFileAPIMethod = (_, _, _) => IO.pure(response))
       attempts <- calls.get
     } yield {
       assertEquals(sent, List(response))
@@ -351,7 +355,11 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
         registerFileIdHandler = (_, _, _) => calls.update(_ + 1)
       )
       response = TMessage(0, date = 0, chat = Chat(0, "private"), text = Some("rendered"))
-      sent     <- sendPattern(markdown, repository, (_, _, _) => IO.pure(response))
+      sent <- sendPattern(
+        mediaFile = markdown,
+        repository = repository,
+        sendFileAPIMethod = (_, _, _) => IO.pure(response)
+      )
       attempts <- calls.get
     } yield {
       assertEquals(sent, List(response))
