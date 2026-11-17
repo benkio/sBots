@@ -59,7 +59,7 @@ object Dependencies {
     val logEffects            = "0.20.0"
     val logbackClassic        = "1.6.7"
     val logbackLogstash       = "9.0"
-    val mbassador             = "1.3.1"
+    val mbassador             = "1.3.2"
     val mules                 = "0.8.0"
     val mulesHttp4s           = "0.6.0"
     val munit                 = "1.3.1"
