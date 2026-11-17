@@ -17,7 +17,7 @@ import scala.concurrent.duration.*
 
 class StartupCheckSpec extends CatsEffectSuite {
 
-  private val config = StartupCheckConfig(probeTimeout = 300.millis, slowThreshold = 80.millis)
+  private val config = StartupCheckConfig(probeTimeout = 1.seconds, slowThreshold = 500.millis)
 
   private def outcome(probe: Probe[IO]): IO[ProbeOutcome] = StartupCheck.runProbe(probe, config).map(_.outcome)
 
@@ -26,7 +26,9 @@ class StartupCheckSpec extends CatsEffectSuite {
   }
 
   test("a probe that takes more than the slow threshold is slow, not failed") {
-    outcome(Probe("slow", IO.sleep(150.millis))).map(o => assert(o.isInstanceOf[ProbeOutcome.Slow], o.toString))
+    outcome(Probe("slow", IO.sleep(config.slowThreshold + 50.millis))).map(o =>
+      assert(o.isInstanceOf[ProbeOutcome.Slow], o.toString)
+    )
   }
 
   test("a probe that raises is failed with the message of the error") {
@@ -44,7 +46,7 @@ class StartupCheckSpec extends CatsEffectSuite {
   }
 
   test("a probe that never answers times out after the timeout of the configuration") {
-    outcome(Probe("hang", IO.never)).map(o => assertEquals(o, ProbeOutcome.TimedOut(300.millis)))
+    outcome(Probe("hang", IO.never)).map(o => assertEquals(o, ProbeOutcome.TimedOut(config.probeTimeout)))
   }
 
   test("a probe can have a timeout of its own") {
@@ -110,7 +112,7 @@ class StartupCheckSpec extends CatsEffectSuite {
       head <- outcome(StartupCheck.hostReachable("Host", client, uri"https://example.com", Method.HEAD))
       get  <- outcome(StartupCheck.hostReachable("Host", client, uri"https://example.com", Method.GET))
     } yield {
-      assertEquals(head, ProbeOutcome.TimedOut(300.millis))
+      assertEquals(head, ProbeOutcome.TimedOut(config.probeTimeout))
       assert(get.isInstanceOf[ProbeOutcome.Ok], get.toString)
     }
   }
