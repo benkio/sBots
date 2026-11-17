@@ -32,7 +32,14 @@ mega_bots=(
 # Bots that also run on Discord keep their <id>_<name>_discord.token next to the
 # Telegram one. Only the bots in this list are required to have it.
 discord_bots=(
+  "ABarberoBot"
+  "M0sconiBot"
   "RichardPHJBensonBot"
+  "XahLeeBot"
+  "YouTuboAncheI0Bot"
+  "PinoScottoBot"
+  "Alessandro0rlandoBot"
+  "VittorioSgarbiBot"
 )
 
 supports_discord() {

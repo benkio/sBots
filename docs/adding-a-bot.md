@@ -59,6 +59,13 @@ This updates:
 
 If your bot needs `commandEffectfulCallback` (like RichardPHJBensonBot), add it manually in BotsRegistry after running the script.
 
+**Optional – Discord**: a bot registered here runs on Telegram only. To also run it on Discord (see
+[Running a bot on Discord](bot-logic-overview.md#running-a-bot-on-discord)), add `Platform.Discord` to its
+`platforms` in `BotsRegistry.scala`, update the platform expectation in `RunnerSpec.scala`, add the bot to
+`discord_bots` in `scripts/copyTokensFromFileStorage.sh`, add a `printf` for the `<ID>_DISCORD_TOKEN` secret to
+`.github/workflows/deploy.yml` (the token becomes `<id>_<BotName>_discord.token`), and add its OAuth2 link to the
+README table.
+
 **Option B – Manual**
 
 1. **Define the project and add it to `botProjects`**

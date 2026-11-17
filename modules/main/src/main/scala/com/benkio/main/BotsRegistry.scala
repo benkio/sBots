@@ -70,19 +70,25 @@ object BotRegistry {
 
   val value: BotRegistry[IO] = BotRegistry(
     List(
-      BotRegistryEntry[IO](sBotInfo = ABarberoBot.sBotInfo),
+      BotRegistryEntry[IO](sBotInfo = ABarberoBot.sBotInfo, platforms = List(Platform.Telegram, Platform.Discord)),
       BotRegistryEntry[IO](sBotInfo = CalandroBot.sBotInfo),
-      BotRegistryEntry[IO](sBotInfo = M0sconiBot.sBotInfo),
-      BotRegistryEntry[IO](sBotInfo = XahLeeBot.sBotInfo),
-      BotRegistryEntry[IO](sBotInfo = YouTuboAncheI0Bot.sBotInfo),
+      BotRegistryEntry[IO](sBotInfo = M0sconiBot.sBotInfo, platforms = List(Platform.Telegram, Platform.Discord)),
+      BotRegistryEntry[IO](sBotInfo = XahLeeBot.sBotInfo, platforms = List(Platform.Telegram, Platform.Discord)),
+      BotRegistryEntry[IO](
+        sBotInfo = YouTuboAncheI0Bot.sBotInfo,
+        platforms = List(Platform.Telegram, Platform.Discord)
+      ),
       BotRegistryEntry[IO](
         sBotInfo = RichardPHJBensonBot.sBotInfo,
         commandEffectfulCallback = RichardPHJBensonBot.commandEffectfulCallback[IO],
         platforms = List(Platform.Telegram, Platform.Discord)
       ),
-      BotRegistryEntry[IO](sBotInfo = PinoScottoBot.sBotInfo),
-      BotRegistryEntry[IO](sBotInfo = Alessandro0rlandoBot.sBotInfo),
-      BotRegistryEntry[IO](sBotInfo = VittorioSgarbiBot.sBotInfo)
+      BotRegistryEntry[IO](sBotInfo = PinoScottoBot.sBotInfo, platforms = List(Platform.Telegram, Platform.Discord)),
+      BotRegistryEntry[IO](
+        sBotInfo = Alessandro0rlandoBot.sBotInfo,
+        platforms = List(Platform.Telegram, Platform.Discord)
+      ),
+      BotRegistryEntry[IO](sBotInfo = VittorioSgarbiBot.sBotInfo, platforms = List(Platform.Telegram, Platform.Discord))
     )
   )
 }
