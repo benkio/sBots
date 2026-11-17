@@ -72,6 +72,11 @@ object DBRepository {
       ): F[Unit] =
         dbMedia.registerFileId(mediaFile.filepath, platform, fileId)
 
+      override def replaceFileId(mediaFile: MediaFile, platform: Platform, failedId: String, newId: String)(using
+          Applicative[F]
+      ): F[Unit] =
+        dbMedia.replaceFileId(mediaFile.filepath, platform, failedId, newId)
+
       private[repository] def dbMediaDataToMediaResource(
           dbMediaData: DBMediaData
       ): Resource[F, Either[RepositoryError, NonEmptyList[MediaResource[F]]]] = {

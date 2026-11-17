@@ -98,6 +98,14 @@ object DBLayerMock {
     )(using cats.Applicative[IO]): IO[Unit] =
       IO.unit
 
+    override def replaceFileId(
+        _filename: String,
+        _platform: Platform,
+        _failedId: String,
+        _newId: String
+    )(using cats.Applicative[IO]): IO[Unit] =
+      IO.unit
+
     override def getMedia(filename: String, cache: Boolean = true): IO[Option[DBMediaData]] =
       db.get.flatMap(_.find(m => m.media_name == filename).fold[IO[Option[DBMediaData]]](None.pure)(_.some.pure))
 

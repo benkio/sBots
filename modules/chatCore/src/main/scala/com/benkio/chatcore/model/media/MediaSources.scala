@@ -58,4 +58,21 @@ object MediaSources {
       newest.map(newId => Left(tagged(platform, newId)): Either[String, Uri]) ++ urls ++ others
     }
   }
+
+  /** Drops the failed reference for `platform` and puts the fresh one in its place. Reuses [[withFileId]] so dedupe,
+    * the per-platform cap and the ordering of URLs and other platforms' references stay identical.
+    */
+  def replaceFileId(
+      sources: List[Either[String, Uri]],
+      platform: Platform,
+      failedId: String,
+      newId: String
+  ): List[Either[String, Uri]] = {
+    val cleanFailed = failedId.trim
+    val remaining   = sources.filterNot {
+      case Left(ref) => belongsTo(ref, platform) && rawId(ref) == cleanFailed
+      case _         => false
+    }
+    withFileId(remaining, platform, newId)
+  }
 }

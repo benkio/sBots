@@ -184,6 +184,11 @@ all left out; a media with nothing usable is a not found error. Every new adapte
 `TelegramPlatformAdapter` does. References are stored as `<platform.id>:<id>`; the one-time `scripts/MigrateFileIdSources.scala`
 tagged the older Telegram records, and `FileIdSourcesSpec` fails CI if an untagged source comes back.
 
+After a successful media send, the Telegram adapter extracts the returned `file_id` and stores it through
+`Repository.registerFileId`. If a stored reference fails and a later source (the URL) succeeds, `Repository.replaceFileId`
+removes that reference in the same update that prepends the fresh ID, so failed references do not accumulate. Markdown
+sends have no file ID and persist nothing. A persistence failure is only logged and notified; it never fails the reply.
+
 ### Discord gateway
 
 `chatDiscordAdapter` keeps the connection of a bot to the Discord gateway in `DiscordGateway`: `managed` opens it when the
@@ -325,12 +330,7 @@ Limitations:
 
 ### Known gaps
 
-- The sources that are not an url are plain strings in the DB and do not say which platform they belong to: today they are
-  all Telegram's file references. A platform that declares it accepts them would be handed Telegram's, so before a second
-  platform keeps its own, they have to be tagged with the platform they belong to (and the capability, a plain
-  `acceptsFileIds`, would become "accepts the ones of its platform"). Discord and Slack start with it off and the filter
-  applied; tagging the references, converting the data and the DB, and letting them reuse their own uploads is the milestone
-  "M4 - Platform-tagged file references" (epic #1387).
+- Discord and IRC do not capture their own file references yet (milestone M4); they keep using only URL sources.
 - A platform without buttons shows only the requested page of a `PagedList`: there is no page argument yet.
 - The help texts of the commands write `/command`, whatever the syntax of the platform.
 

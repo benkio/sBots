@@ -12,6 +12,7 @@ import doobie.implicits.*
 import io.chrisdavenport.mules.*
 import io.circe.syntax.*
 import log.effect.LogWriter
+import org.http4s.Uri
 
 import scala.concurrent.duration.*
 
@@ -56,6 +57,14 @@ trait DBMedia[F[_]] {
   def registerFileId(filename: String, platform: com.benkio.chatcore.model.Platform, fileId: String)(using
       cats.Applicative[F]
   ): F[Unit]
+
+  /** Replaces a failed file reference with the fresh one in a single update of `media_sources`. */
+  def replaceFileId(
+      filename: String,
+      platform: com.benkio.chatcore.model.Platform,
+      failedId: String,
+      newId: String
+  )(using cats.Applicative[F]): F[Unit]
 
   // For test purposes only
   def getAllMedia(botId: Option[SBotId] = None): F[List[DBMediaData]]
@@ -200,30 +209,48 @@ object DBMedia {
               )
         }
 
-    override def registerFileId(filename: String, platform: com.benkio.chatcore.model.Platform, fileId: String)(using
+    /** Shared read-modify-write for both file-id APIs: cache invalidation, row lookup, source transformation and the
+      * single `media_sources` update. `operation` is only used for logging.
+      */
+    private def updateFileIds(
+        filename: String,
+        platform: com.benkio.chatcore.model.Platform,
+        operation: String
+    )(transform: List[Either[String, Uri]] => List[Either[String, Uri]])(using
         cats.Applicative[F]
     ): F[Unit] = {
-      def registerFileIdDBMediaData(dbMedia: DBMediaData): F[Unit] = {
-
+      def updateDBMediaData(dbMedia: DBMediaData): F[Unit] =
         for {
           media <- Async[F].fromEither(Media(dbMedia))
-          sources = MediaSources.withFileId(media.mediaSources, platform, fileId)
+          sources = transform(media.mediaSources)
           updated = DBMediaData(media.copy(mediaSources = sources))
           _ <- Async[F].unlessA(sources == media.mediaSources)(
-            log.debug(s"[DBMedia] registerFileId $platform for $filename: ${updated.media_sources}") >>
+            log.debug(s"[DBMedia] $operation $platform for $filename: ${updated.media_sources}") >>
               updateMediaSourcesQuery(updated).run.transact(transactor).void >>
               dbCache.delete(filename)
           )
         } yield ()
-      }
       for {
         _          <- dbCache.delete(filename)
         optDbMedia <- getMedia(filename, cache = false)
-        _          <- optDbMedia.fold(log.warn(s"[DBMedia] registerFileId no media found for $filename"))(
-          registerFileIdDBMediaData(_)
+        _          <- optDbMedia.fold(log.warn(s"[DBMedia] $operation no media found for $filename"))(
+          updateDBMediaData(_)
         )
       } yield ()
     }
+
+    override def registerFileId(filename: String, platform: com.benkio.chatcore.model.Platform, fileId: String)(using
+        cats.Applicative[F]
+    ): F[Unit] =
+      updateFileIds(filename, platform, "registerFileId")(MediaSources.withFileId(_, platform, fileId))
+
+    override def replaceFileId(
+        filename: String,
+        platform: com.benkio.chatcore.model.Platform,
+        failedId: String,
+        newId: String
+    )(using cats.Applicative[F]): F[Unit] =
+      updateFileIds(filename, platform, "replaceFileId")(MediaSources.replaceFileId(_, platform, failedId, newId))
   }
 
   def insertSql(dbMediaData: DBMediaData): Update0 =

@@ -2,6 +2,8 @@ package com.benkio.chattelegramadapter.http.telegramreply
 
 import cats.data.NonEmptyList
 import cats.effect.IO
+import cats.effect.Ref
+import cats.syntax.all.*
 import com.benkio.chatcore.mocks.NotifierMock.given
 import com.benkio.chatcore.mocks.RepositoryMock
 import com.benkio.chatcore.model.media.MediaResource
@@ -9,11 +11,14 @@ import com.benkio.chatcore.model.reply.Document
 import com.benkio.chatcore.model.reply.GifFile
 import com.benkio.chatcore.model.reply.Markdown
 import com.benkio.chatcore.model.reply.MarkdownFile
+import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.PhotoFile
+import com.benkio.chatcore.model.reply.Sticker as ChatSticker
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.VideoFile
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.Logger.given
 import com.benkio.chattelegramadapter.conversions.MessageConversions.*
@@ -23,6 +28,18 @@ import com.benkio.chattelegramadapter.http.telegramreply.messagereply.TextReply
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chattelegramadapter.model.TelegramIds
 import munit.*
+import telegramium.bots.Animation
+import telegramium.bots.Audio
+import telegramium.bots.Chat
+import telegramium.bots.ChatId
+import telegramium.bots.Document as TDocument
+import telegramium.bots.IFile
+import telegramium.bots.InputLinkFile
+import telegramium.bots.Message as TMessage
+import telegramium.bots.PhotoSize
+import telegramium.bots.ReplyParameters
+import telegramium.bots.Sticker as TSticker
+import telegramium.bots.Video as TVideo
 
 import scala.concurrent.duration.*
 
@@ -37,6 +54,34 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
         IO.raiseUnless(mediaFile.filepath == expectedFilepath)(
           Throwable(s"[repositoryMock] ${mediaFile.filepath} ≠ $expectedFilepath")
         ).as(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram:test value"))))
+    )
+
+  private def messageWithFileId(fileId: String, kind: String): TMessage = {
+    val base = TMessage(0, date = 0, chat = Chat(0, "private"))
+    kind match {
+      case "audio"     => base.copy(audio = Some(Audio(fileId, "unique", 0)))
+      case "animation" => base.copy(animation = Some(Animation(fileId, "unique", 0, 0, 0)))
+      case "video"     => base.copy(video = Some(TVideo(fileId, "unique", 0, 0, 0)))
+      case "document"  => base.copy(document = Some(TDocument(fileId, "unique")))
+      case "sticker"   => base.copy(sticker = Some(TSticker(fileId, "unique", "regular", 0, 0, false, false)))
+      case "photo"     =>
+        base.copy(photo = List(PhotoSize("other", "other-unique", 0, 0), PhotoSize(fileId, "unique", 0, 0)))
+      case other => throw new IllegalArgumentException(s"unknown media field: $other")
+    }
+  }
+
+  private def sendPattern(
+      mediaFile: MediaFile,
+      repository: Repository[IO],
+      sendFileAPIMethod: (ChatId, IFile, Option[ReplyParameters]) => IO[TMessage]
+  ): IO[List[TMessage]] =
+    TelegramMessageReply.telegramFileReplyPattern[IO](
+      msg = testMessage.toTelegramium,
+      repository = repository,
+      chatAction = "upload_voice",
+      mediaFile = mediaFile,
+      replyToMessage = false,
+      sendFileAPIMethod = sendFileAPIMethod
     )
 
   test("TextReply.sendText reply should work as expected") {
@@ -210,5 +255,107 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
         value = text.value
       )
     assertIO(result, true)
+  }
+
+  test("captures and persists the file ID returned for each media type with the Telegram tag") {
+    val cases: List[(MediaFile, String, String)] = List(
+      (Mp3File("f.mp3"), "audio", "audio-id"),
+      (GifFile("fGif.mp4"), "animation", "animation-id"),
+      (VideoFile("f.mp4"), "video", "video-id"),
+      (Document("f.jpg"), "document", "document-id"),
+      (ChatSticker("f.sticker"), "sticker", "sticker-id"),
+      (PhotoFile("f.jpg"), "photo", "photo-id")
+    )
+    cases.traverse_ { case (mediaFile, kind, id) =>
+      for {
+        calls <- Ref.of[IO, List[(MediaFile, Platform, String)]](List.empty)
+        repository = RepositoryMock(
+          getResourceFileHandler =
+            _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram:stored")))),
+          registerFileIdHandler = (mf, platform, fileId) => calls.update(_ :+ ((mf, platform, fileId)))
+        )
+        response = messageWithFileId(id, kind)
+        sent     <- sendPattern(mediaFile, repository, (_, _, _) => IO.pure(response))
+        recorded <- calls.get
+      } yield {
+        assertEquals(sent, List(response))
+        assertEquals(recorded, List((mediaFile, Platform.Telegram, id)))
+      }
+    }
+  }
+
+  test("replaces a failed stored reference with the fresh ID returned by the URL fallback") {
+    val mp3   = Mp3File("fallback.mp3")
+    val fresh = messageWithFileId("fresh-id", "audio")
+    for {
+      calls <- Ref.of[IO, List[(MediaFile, Platform, String, String)]](List.empty)
+      repository = RepositoryMock(
+        getResourceFileHandler = _ =>
+          IO.pure(
+            Right(
+              NonEmptyList.of(
+                MediaResource.MediaResourceIFile("telegram:bad-id"),
+                MediaResource.MediaResourceFile(Repository.toTempFile[IO]("fallback.mp3", "content".getBytes()))
+              )
+            )
+          ),
+        replaceFileIdHandler = (mf, platform, failedId, newId) => calls.update(_ :+ ((mf, platform, failedId, newId)))
+      )
+      sent <- sendPattern(
+        mp3,
+        repository,
+        (_, ifile, _) =>
+          ifile match {
+            case InputLinkFile(id) => IO.raiseError(new RuntimeException(s"stale reference $id"))
+            case _                 => IO.pure(fresh)
+          }
+      )
+      recorded <- calls.get
+    } yield {
+      assertEquals(sent, List(fresh))
+      assertEquals(recorded, List((mp3, Platform.Telegram, "bad-id", "fresh-id")))
+    }
+  }
+
+  test("a failing persistence does not change the sent messages") {
+    val mp3      = Mp3File("f.mp3")
+    val response = messageWithFileId("id", "audio")
+    for {
+      calls <- Ref.of[IO, Int](0)
+      repository = RepositoryMock(
+        getResourceFileHandler =
+          _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram:stored")))),
+        registerFileIdHandler = (_, _, _) => calls.update(_ + 1) >> IO.raiseError(new RuntimeException("db down"))
+      )
+      sent     <- sendPattern(mp3, repository, (_, _, _) => IO.pure(response))
+      attempts <- calls.get
+    } yield {
+      assertEquals(sent, List(response))
+      assertEquals(attempts, 1)
+    }
+  }
+
+  test("a successful send with no file ID does not persist anything") {
+    val markdown = MarkdownFile("f.md")
+    for {
+      calls <- Ref.of[IO, Int](0)
+      repository = RepositoryMock(
+        getResourceFileHandler = _ =>
+          IO.pure(
+            Right(
+              NonEmptyList.one(
+                MediaResource.MediaResourceFile(Repository.toTempFile[IO]("f.md", "body".getBytes()))
+              )
+            )
+          ),
+        registerFileIdHandler = (_, _, _) => calls.update(_ + 1)
+      )
+      response = TMessage(0, date = 0, chat = Chat(0, "private"), text = Some("rendered"))
+      sent     <- sendPattern(markdown, repository, (_, _, _) => IO.pure(response))
+      attempts <- calls.get
+    } yield {
+      assertEquals(sent, List(response))
+      assertEquals(attempts, 0)
+    }
   }
 }

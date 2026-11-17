@@ -2,9 +2,12 @@ package com.benkio.chattelegramadapter.http.telegramreply.messagereply
 
 import cats.*
 import cats.data.EitherT
+import cats.data.NonEmptyList
+import cats.data.OptionT
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.chatcore.model.media.MediaResource
+import com.benkio.chatcore.model.media.MediaSources
 import com.benkio.chatcore.model.reply.Markdown
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.PagedList
@@ -12,6 +15,7 @@ import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.ReplyValueCore
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.Notifier
 import com.benkio.chattelegramadapter.conversions.MediaResourceConversions.*
@@ -48,6 +52,61 @@ object TelegramMessageReply {
             Option.when(replyToMessage)(ReplyParameters(Some(msg.messageId)))
           )
       )
+
+    /** The file ID Telegram returns for a successful media send. Markdown replies have none and are skipped. */
+    def fileIdOf(message: TMessage): Option[String] =
+      message.audio
+        .map(_.fileId)
+        .orElse(message.animation.map(_.fileId))
+        .orElse(message.video.map(_.fileId))
+        .orElse(message.document.map(_.fileId))
+        .orElse(message.sticker.map(_.fileId))
+        .orElse(message.photo.lastOption.map(_.fileId))
+
+    def failedReferenceOf(mediaResource: MediaResource[F]): Option[String] = mediaResource match {
+      case MediaResource.MediaResourceIFile(reference) => MediaSources.rawId(reference).some
+      case _                                           => none
+    }
+
+    def persistFileId(fileId: String, failedId: Option[String]): F[Unit] = {
+      val write = OptionT
+        .fromOption[F](failedId)
+        .semiflatMap(failed => repository.replaceFileId(mediaFile, Platform.Telegram, failed, fileId))
+        .getOrElseF(repository.registerFileId(mediaFile, Platform.Telegram, fileId))
+      write.handleErrorWith(e =>
+        LogWriter.error(s"[TelegramMessageReply] could not persist file id for $mediaFile: $e") >>
+          summon[Notifier[F]].mediaError(msg.toModel, mediaFile, e)
+      )
+    }
+
+    /** Tries the sources in order, remembering the first stored reference that failed so the fresh ID returned by the
+      * successful retry can replace it. A persistence failure never fails the reply.
+      */
+    def sendWithFallback(
+        resources: NonEmptyList[MediaResource[F]],
+        failedId: Option[String]
+    ): F[TMessage] =
+      computeMediaResource(resources.head).redeemWith(
+        e => {
+          val nextFailed = failedId.orElse(failedReferenceOf(resources.head))
+          NonEmptyList.fromList(resources.tail) match {
+            case Some(rest) =>
+              LogWriter.error(
+                s"[TelegramMessageReply] ERROR while executing media resource for $mediaFile with $e. Fallback to $rest"
+              ) >> sendWithFallback(rest, nextFailed)
+            case None => Async[F].raiseError(e)
+          }
+        },
+        message =>
+          OptionT
+            .fromOption[F](fileIdOf(message))
+            .semiflatMap(id => persistFileId(id, failedId).as(message))
+            .getOrElseF(
+              LogWriter.warn(s"[TelegramMessageReply - ${mediaFile.filename}] successful send returned no file id") >>
+                message.pure[F]
+            )
+      )
+
     val result: EitherT[F, Throwable, List[TMessage]] = for {
       _ <- EitherT.liftF(LogWriter.trace(s"[TelegramReply - ${mediaFile.filename}] Send Chat Action"))
       _ <- Methods.sendChatAction(chatId, chatAction).exec.void.attemptT
@@ -59,16 +118,7 @@ object TelegramMessageReply {
             LogWriter.trace(s"[TelegramReply - ${mediaFile.filename}] Fetched $mediaResources") >>
               Async[F]
                 .fromEither(mediaResources)
-                .flatMap(
-                  _.reduceLeftTo(computeMediaResource(_))((prevExec, nextRes) =>
-                    prevExec.handleErrorWith(e =>
-                      LogWriter.error(
-                        s"[TelegramMessageReply] ERROR while executing media resource for $mediaFile with $e. Fallback to $nextRes"
-                      ) >>
-                        computeMediaResource(nextRes)
-                    )
-                  )
-                )
+                .flatMap(sendWithFallback(_, none))
                 .map(List(_))
           )
           .onError(e =>

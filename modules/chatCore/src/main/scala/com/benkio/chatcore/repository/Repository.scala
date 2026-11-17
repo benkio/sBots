@@ -32,6 +32,13 @@ trait Repository[F[_]] {
     */
   def registerFileId(mediaFile: MediaFile, platform: Platform, fileId: String)(using Applicative[F]): F[Unit]
 
+  /** Replaces a stored reference that failed on send with the fresh ID returned by the successful retry. Platforms
+    * without file references keep the no-op.
+    */
+  def replaceFileId(mediaFile: MediaFile, platform: Platform, failedId: String, newId: String)(using
+      Applicative[F]
+  ): F[Unit]
+
   /** The same repository, that gives only the resources the platform can use: the references to files already uploaded
     * (`MediaResourceIFile`) only if it accepts them, see
     * [[com.benkio.chatcore.model.reply.ReplyTransformer.usableSources]]. What is left without a usable resource is a
