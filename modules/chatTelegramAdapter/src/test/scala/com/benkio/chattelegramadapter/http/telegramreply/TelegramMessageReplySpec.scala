@@ -36,7 +36,7 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
       getResourceFileHandler = mediaFile =>
         IO.raiseUnless(mediaFile.filepath == expectedFilepath)(
           Throwable(s"[repositoryMock] ${mediaFile.filepath} ≠ $expectedFilepath")
-        ).as(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("test value"))))
+        ).as(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram:test value"))))
     )
 
   test("TextReply.sendText reply should work as expected") {

@@ -4,6 +4,7 @@ import cats.effect.*
 import cats.implicits.*
 import com.benkio.chatcore.model.media.Media
 import com.benkio.chatcore.model.media.MediaFileSource.given
+import com.benkio.chatcore.model.media.MediaSources
 import com.benkio.chatcore.model.MimeTypeOps.given
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import doobie.*
@@ -48,6 +49,13 @@ trait DBMedia[F[_]] {
   def incrementMediaCount(filename: String): F[Unit]
   def decrementMediaCount(filename: String): F[Unit]
   def insertMedia(dbMediaData: DBMediaData): F[Unit]
+
+  /** Adds a file reference returned by a successful send to the sources of `filename`, scoped to `platform`.
+    * Implementations that cannot persist sources still have to override it as a no-op.
+    */
+  def registerFileId(filename: String, platform: com.benkio.chatcore.model.Platform, fileId: String)(using
+      cats.Applicative[F]
+  ): F[Unit]
 
   // For test purposes only
   def getAllMedia(botId: Option[SBotId] = None): F[List[DBMediaData]]
@@ -191,6 +199,31 @@ object DBMedia {
                 new RuntimeException(s"An error occurred in inserting $dbMediaData with exception: $e")
               )
         }
+
+    override def registerFileId(filename: String, platform: com.benkio.chatcore.model.Platform, fileId: String)(using
+        cats.Applicative[F]
+    ): F[Unit] = {
+      def registerFileIdDBMediaData(dbMedia: DBMediaData): F[Unit] = {
+
+        for {
+          media <- Async[F].fromEither(Media(dbMedia))
+          sources = MediaSources.withFileId(media.mediaSources, platform, fileId)
+          updated = DBMediaData(media.copy(mediaSources = sources))
+          _ <- Async[F].unlessA(sources == media.mediaSources)(
+            log.debug(s"[DBMedia] registerFileId $platform for $filename: ${updated.media_sources}") >>
+              updateMediaSourcesQuery(updated).run.transact(transactor).void >>
+              dbCache.delete(filename)
+          )
+        } yield ()
+      }
+      for {
+        _          <- dbCache.delete(filename)
+        optDbMedia <- getMedia(filename, cache = false)
+        _          <- optDbMedia.fold(log.warn(s"[DBMedia] registerFileId no media found for $filename"))(
+          registerFileIdDBMediaData(_)
+        )
+      } yield ()
+    }
   }
 
   def insertSql(dbMediaData: DBMediaData): Update0 =
@@ -198,6 +231,10 @@ object DBMedia {
 
   def updateOnConflictSql(dbMediaData: DBMediaData): Update0 =
     sql"UPDATE media SET kinds = ${dbMediaData.kinds.asJson.noSpaces}, media_sources = ${dbMediaData.media_sources.asJson.noSpaces} WHERE media_name = ${dbMediaData.media_name};".update
+
+  /** Only the sources change: counts, kinds, mime and creation date are left as they are. */
+  def updateMediaSourcesQuery(dbMediaData: DBMediaData): Update0 =
+    sql"UPDATE media SET media_sources = ${dbMediaData.media_sources.asJson.noSpaces} WHERE media_name = ${dbMediaData.media_name};".update
 
   def getMediaQueryByName(resourceName: String): Query0[DBMediaData] =
     sql"SELECT media_name, bot_id, kinds, mime_type, media_sources, media_count, created_at FROM media WHERE media_name = $resourceName"

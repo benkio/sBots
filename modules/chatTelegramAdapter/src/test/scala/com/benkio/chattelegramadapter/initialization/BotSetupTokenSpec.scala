@@ -19,6 +19,13 @@ class BotSetupTokenSpec extends CatsEffectSuite {
   private final class RepoStub(
       onGetResourceFile: Resource[IO, Either[RepositoryError, NonEmptyList[MediaResource[IO]]]]
   ) extends Repository[IO] {
+    override def registerFileId(
+        _mediaFile: com.benkio.chatcore.model.reply.MediaFile,
+        _platform: com.benkio.chatcore.model.Platform,
+        _fileId: String
+    )(using cats.Applicative[IO]): IO[Unit] =
+      IO.unit
+
     override def getResourcesByKind(
         criteria: String,
         botId: SBotId
@@ -48,7 +55,7 @@ class BotSetupTokenSpec extends CatsEffectSuite {
     val tokenFilename = "nofile.token"
     val repo          = RepoStub(
       Resource.pure(
-        Right(NonEmptyList.one(MediaResource.MediaResourceIFile("some-telegram-file-id")))
+        Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram:some-telegram-file-id")))
       )
     )
 

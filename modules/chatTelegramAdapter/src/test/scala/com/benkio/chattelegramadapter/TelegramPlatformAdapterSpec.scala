@@ -37,7 +37,7 @@ class TelegramPlatformAdapterSpec extends CatsEffectSuite {
   private def adapter(api: Api[IO], startUpdates: IO[Unit] = IO.unit): TelegramPlatformAdapter[IO] =
     new TelegramPlatformAdapter[IO](
       repository =
-        RepositoryMock((_, _) => NonEmptyList.one(NonEmptyList.one(MediaResourceIFile("not used"))).pure[IO]),
+        RepositoryMock((_, _) => NonEmptyList.one(NonEmptyList.one(MediaResourceIFile("telegram:not used"))).pure[IO]),
       backgroundJobManager = BackgroundJobManagerMock.mock(),
       effectfulCallbacks = Map.empty,
       dbLayer = DBLayerMock.mock(SampleWebhookBot.sBotInfo.botId),

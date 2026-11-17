@@ -178,9 +178,11 @@ nothing but the texts over the Telegram limit.
 
 ### Media sources per platform
 
-A platform adapter reads the media through `repository.usableFor(capabilities)`: when `acceptsFileIds` is off the file
-references (`MediaResourceIFile`, the sources that are not an url) are left out, and a media with nothing usable is a not
-found error. Every new adapter has to do the same, as `TelegramPlatformAdapter` does.
+A platform adapter reads the media through `repository.usableFor(capabilities)`: file references (`MediaResourceIFile`,
+the sources that are not an url) reach only the platform they were produced for, and when `acceptsFileIds` is off they are
+all left out; a media with nothing usable is a not found error. Every new adapter has to do the same, as
+`TelegramPlatformAdapter` does. References are stored as `<platform.id>:<id>`; the one-time `scripts/MigrateFileIdSources.scala`
+tagged the older Telegram records, and `FileIdSourcesSpec` fails CI if an untagged source comes back.
 
 ### Discord gateway
 
