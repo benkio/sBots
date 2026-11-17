@@ -30,6 +30,14 @@ class ResourceRepository[F[_]: Async: LogWriter](stage: Option[String] = None) e
   )(using Applicative[F]): F[Unit] =
     Applicative[F].unit
 
+  override def replaceFileId(
+      _mediaFile: MediaFile,
+      _platform: com.benkio.chatcore.model.Platform,
+      _failedId: String,
+      _newId: String
+  )(using Applicative[F]): F[Unit] =
+    Applicative[F].unit
+
   def getResourcesByKind(
       criteria: String,
       botId: SBotId

@@ -20,6 +20,14 @@ class UsableResourcesRepository[F[_]](underlying: Repository[F], capabilities: P
   ): F[Unit] =
     underlying.registerFileId(mediaFile, platform, fileId)
 
+  override def replaceFileId(
+      mediaFile: MediaFile,
+      platform: com.benkio.chatcore.model.Platform,
+      failedId: String,
+      newId: String
+  )(using cats.Applicative[F]): F[Unit] =
+    underlying.replaceFileId(mediaFile, platform, failedId, newId)
+
   override def getResourcesByKind(
       criteria: String,
       botId: SBotId

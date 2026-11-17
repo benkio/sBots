@@ -26,6 +26,14 @@ class BotSetupTokenSpec extends CatsEffectSuite {
     )(using cats.Applicative[IO]): IO[Unit] =
       IO.unit
 
+    override def replaceFileId(
+        _mediaFile: com.benkio.chatcore.model.reply.MediaFile,
+        _platform: com.benkio.chatcore.model.Platform,
+        _failedId: String,
+        _newId: String
+    )(using cats.Applicative[IO]): IO[Unit] =
+      IO.unit
+
     override def getResourcesByKind(
         criteria: String,
         botId: SBotId

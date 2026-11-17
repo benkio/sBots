@@ -12,6 +12,7 @@ import com.benkio.chattelegramadapter.SBot
 import com.benkio.integration.DBFixture
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import com.benkio.XahLeeBot.XahLeeBot
+import doobie.implicits.*
 import doobie.munit.analysisspec.IOChecker
 import doobie.Transactor
 import munit.CatsEffectSuite
@@ -96,9 +97,11 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
     )
     val resourceAssert = for {
       dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
-      _       <- Resource.eval(dbMedia.insertMedia(row))
-      before  <- Resource.eval(dbMedia.getMedia(filename = filename, cache = false))
-      _       <- Resource.eval(
+      _       <- Resource.make(dbMedia.insertMedia(row))(_ =>
+        sql"DELETE FROM media WHERE media_name = $filename".update.run.transact(transactor).void
+      )
+      before <- Resource.eval(dbMedia.getMedia(filename = filename, cache = false))
+      _      <- Resource.eval(
         List("id-1", "id-2", "id-3", "id-4").traverse_(dbMedia.registerFileId(filename, Platform.Telegram, _))
       )
       _      <- Resource.eval(dbMedia.registerFileId(filename, Platform.Discord, "discord-id"))
@@ -118,6 +121,43 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
       assertEquals(ids.size, MediaSources.maxFileIds)
       assertEquals(ids, List("telegram:id-4", "telegram:id-3", "telegram:id-2"))
       assert(afterSources.contains(Left("discord:discord-id")), "another platform keeps its own reference")
+      assert(afterSources.exists(_.isRight), "the original URL is still there")
+      assertEquals(cached.map(_.media_sources), after.map(_.media_sources), "the cache was invalidated")
+    }
+    resourceAssert.use(IO.pure).assert
+  }
+
+  databaseFixture.test(
+    "DBMedia.replaceFileId removes the failed reference, prepends the fresh one and leaves the other columns untouched"
+  ) { fixture =>
+    val filename = "rphjb_TestReplaceFileIds.mp3"
+    val row      = DBMediaData(
+      media_name = filename,
+      bot_id = "rphjb",
+      kinds = "[]",
+      mime_type = "audio/mpeg",
+      media_sources = """["https://example.com/test.mp3","telegram:failed","telegram:keep"]""",
+      media_count = 7,
+      created_at = java.time.Instant.now.getEpochSecond.toString
+    )
+    val resourceAssert = for {
+      dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
+      _       <- Resource.make(dbMedia.insertMedia(row))(_ =>
+        sql"DELETE FROM media WHERE media_name = $filename".update.run.transact(transactor).void
+      )
+      before <- Resource.eval(dbMedia.getMedia(filename, cache = false))
+      _      <- Resource.eval(dbMedia.replaceFileId(filename, Platform.Telegram, "failed", "fresh"))
+      after  <- Resource.eval(dbMedia.getMedia(filename, cache = false))
+      cached <- Resource.eval(dbMedia.getMedia(filename))
+    } yield {
+      val beforeData = before.get
+      val afterData  = after.get
+      assertEquals(afterData.media_count, beforeData.media_count)
+      assertEquals(afterData.kinds, beforeData.kinds)
+      assertEquals(afterData.mime_type, beforeData.mime_type)
+      assertEquals(afterData.created_at, beforeData.created_at)
+      val afterSources = Media(afterData).toOption.get.mediaSources
+      assertEquals(afterSources.collect { case Left(id) => id }, List("telegram:fresh", "telegram:keep"))
       assert(afterSources.exists(_.isRight), "the original URL is still there")
       assertEquals(cached.map(_.media_sources), after.map(_.media_sources), "the cache was invalidated")
     }

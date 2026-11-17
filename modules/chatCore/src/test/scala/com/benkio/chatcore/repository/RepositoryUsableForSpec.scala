@@ -31,6 +31,14 @@ class RepositoryUsableForSpec extends CatsEffectSuite {
     ): IO[Unit] =
       IO.unit
 
+    override def replaceFileId(
+        _mediaFile: MediaFile,
+        _platform: Platform,
+        _failedId: String,
+        _newId: String
+    )(using cats.Applicative[IO]): IO[Unit] =
+      IO.unit
+
     override def getResourcesByKind(criteria: String, botId: SBotId) =
       Resource.pure(Right(NonEmptyList.one(resources)))
     override def getResourceFile(mediaFile: MediaFile) = Resource.pure(Right(resources))

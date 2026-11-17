@@ -65,4 +65,45 @@ class MediaSourcesSpec extends FunSuite {
     val sources: List[Either[String, Uri]] = List(Left("telegram:id"), Right(url1))
     assertEquals(MediaSources.withFileId(sources, Platform.Telegram, "  "), sources)
   }
+
+  test("replaceFileId removes the failed reference and puts the fresh one first") {
+    val sources: List[Either[String, Uri]] =
+      List(Left("telegram:failed"), Left("telegram:older"), Right(url1))
+    assertEquals(
+      MediaSources.replaceFileId(sources, Platform.Telegram, "failed", "fresh"),
+      List(Left("telegram:fresh"), Left("telegram:older"), Right(url1))
+    )
+  }
+
+  test("replaceFileId leaves other platforms, URLs and unrelated references untouched") {
+    val sources: List[Either[String, Uri]] =
+      List(Left("telegram:failed"), Left("discord:dc"), Left("telegram:other"), Right(url1), Right(url2))
+    assertEquals(
+      MediaSources.replaceFileId(sources, Platform.Telegram, "failed", "fresh"),
+      List(Left("telegram:fresh"), Left("telegram:other"), Right(url1), Right(url2), Left("discord:dc"))
+    )
+  }
+
+  test("replaceFileId does not grow the number of stored IDs across repeated failures") {
+    val sources: List[Either[String, Uri]] =
+      List(Left("telegram:old1"), Left("telegram:old2"), Left("telegram:old3"), Right(url1))
+    val afterFirst  = MediaSources.replaceFileId(sources, Platform.Telegram, "old1", "new1")
+    val afterSecond = MediaSources.replaceFileId(afterFirst, Platform.Telegram, "new1", "new2")
+    assertEquals(afterFirst.collect { case Left(_) => () }.size, MediaSources.maxFileIds)
+    assertEquals(afterSecond.collect { case Left(_) => () }.size, MediaSources.maxFileIds)
+    assert(afterSecond.contains(Left("telegram:new2")))
+    assert(!afterSecond.contains(Left("telegram:new1")))
+    assert(afterSecond.contains(Right(url1)))
+  }
+
+  test("replaceFileId ignores a failed ID from another platform and a blank fresh ID") {
+    val sources: List[Either[String, Uri]] = List(Left("discord:dc"), Left("telegram:id"), Right(url1))
+    val otherPlatformFailed                = MediaSources.replaceFileId(sources, Platform.Telegram, "dc", "fresh")
+    assert(otherPlatformFailed.contains(Left("discord:dc")), "another platform's reference is not removed")
+    assert(otherPlatformFailed.contains(Left("telegram:fresh")))
+    assertEquals(
+      MediaSources.replaceFileId(sources, Platform.Telegram, "id", "  "),
+      List(Left("discord:dc"), Right(url1))
+    )
+  }
 }
