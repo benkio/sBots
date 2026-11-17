@@ -94,14 +94,17 @@ class RunnerSpec extends CatsEffectSuite {
     assertEquals(TelegramPollingPlatformRuntime.platform, Platform.Telegram)
   }
 
-  test("every bot of the real registry runs on Telegram, only Richard is also on Discord") {
+  test("every bot of the real registry runs on Telegram, every bot but Calandro also on Discord") {
     import com.benkio.main.entriesOn
     val registry = BotRegistry.value
     assertEquals(
       registry.entriesOn(Platform.Telegram).size,
       BotRegistry.toList(registry).size
     )
-    assertEquals(registry.entriesOn(Platform.Discord).map(_.sBotInfo.botId.value), List("rphjb"))
+    assertEquals(
+      registry.entriesOn(Platform.Discord).map(_.sBotInfo.botId.value),
+      List("abar", "mos", "xah", "ytai", "rphjb", "pino", "orl", "sgar")
+    )
   }
 
   test("select keeps the bots with the given ids or names") {
