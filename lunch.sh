@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Script for sarting the bots ##################################################
 #
 # This script will always step into the single projects and run a test + run
@@ -53,9 +55,11 @@ then
         exit 1
     fi
 
-    # Like a fresh deploy, ask every bot to send its startup test file, so the
-    # probe actually runs locally and its timing can be compared.
-    touch "$SCALA_TARGET_DIR/post-deploy-test.marker"
+    # Like a fresh deploy, ask every bot to send its own startup test file, so
+    # the probe actually runs locally and its timing can be compared.
+    for BOT_ID in abar cala mos rphjb xah ytai pino orl sgar; do
+        touch "$SCALA_TARGET_DIR/${BOT_ID}_post-deploy-test.marker"
+    done
 
     if [ "$WEBHOOK" = false ] ;
     then
