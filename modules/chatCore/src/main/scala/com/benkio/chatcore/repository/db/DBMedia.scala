@@ -234,7 +234,10 @@ object DBMedia {
                   updateMediaSourcesIfUnchangedQuery(
                     dbMediaData = DBMediaData(media.copy(mediaSources = sources)),
                     previousSources = dbMedia.media_sources
-                  ).run.map(rows => if rows == 1 then FileIdUpdate.Updated(sources) else FileIdUpdate.Conflict)
+                  ).run.map(rows =>
+                    if rows == 1 then FileIdUpdate.Updated(sources, Media.droppedSources(dbMedia))
+                    else FileIdUpdate.Conflict
+                  )
             } yield result
         }
 
@@ -247,10 +250,12 @@ object DBMedia {
 
       def attempt(left: Int): F[Unit] =
         step.transact(transactor).recover { case e if isBusy(e) => FileIdUpdate.Conflict }.flatMap {
-          case FileIdUpdate.NotFound         => log.warn(s"[DBMedia] $operation no media found for $filename")
-          case FileIdUpdate.Unchanged        => Async[F].unit
-          case FileIdUpdate.Updated(sources) =>
-            log.debug(s"[DBMedia] $operation $platform for $filename: $sources")
+          case FileIdUpdate.NotFound                  => log.warn(s"[DBMedia] $operation no media found for $filename")
+          case FileIdUpdate.Unchanged                 => Async[F].unit
+          case FileIdUpdate.Updated(sources, dropped) =>
+            Async[F].whenA(dropped.nonEmpty)(
+              log.warn(s"[DBMedia] $operation for $filename removed the stored entries that are not a source: $dropped")
+            ) >> log.debug(s"[DBMedia] $operation $platform for $filename: $sources")
           case FileIdUpdate.Conflict if left > 1 =>
             log.debug(s"[DBMedia] $operation $platform for $filename: concurrent update, retrying") >>
               Async[F].sleep((10 * (maxAttempts - left + 1)).millis) >> attempt(left - 1)
@@ -297,7 +302,7 @@ object DBMedia {
 
   private enum FileIdUpdate {
     case NotFound, Unchanged, Conflict
-    case Updated(sources: List[MediaSource])
+    case Updated(sources: List[MediaSource], dropped: List[String])
   }
 
   def getMediaQueryByName(resourceName: String): Query0[DBMediaData] =

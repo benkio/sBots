@@ -41,6 +41,10 @@ object Media {
   private def decodeSources(stored: String): List[MediaSource] =
     decodeStringToJson[String](stored).flatMap(MediaSource.parse)
 
+  /** The stored entries [[Media.apply]] leaves out because they are not a source, for the caller to report. */
+  def droppedSources(dbMediaData: DBMediaData): List[String] =
+    decodeStringToJson[String](dbMediaData.media_sources).filter(MediaSource.parse(_).isEmpty)
+
   extension (media: Media) {
     def getLink: Option[Uri] = media.mediaSources.collectFirst { case MediaSource.Url(uri) => uri }
     def toHtmlRow: String    =

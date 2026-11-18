@@ -1,6 +1,7 @@
 package com.benkio.integration.integrationmunit.chatcore.repository.db
 
 import cats.effect.IO
+import cats.effect.Ref
 import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.chatcore.model.media.Media
@@ -21,7 +22,18 @@ import munit.CatsEffectSuite
 
 import java.sql.DriverManager
 
+import _root_.log.effect.internal.Show
+import _root_.log.effect.LogLevel
+import _root_.log.effect.LogLevels
+import _root_.log.effect.LogWriter
+
 class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
+
+  /** Keeps the messages logged at warn level. */
+  private def recordingLog(messages: Ref[IO, List[String]]): LogWriter[IO] = new LogWriter[IO] {
+    override def write[A](level: LogLevel, a: => A)(implicit show: Show[A]): IO[Unit] =
+      IO.whenA(level == LogLevels.Warn)(messages.update(_ :+ show.show(a)))
+  }
 
   val sBotConfig             = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
   val testMediaName          = "rphjb_MaSgus.mp3"
@@ -116,6 +128,44 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
         sources.collect { case MediaSource.Url(uri) => uri.renderString },
         List("https://example.com/test.mp3")
       )
+    }
+    resourceAssert.use(IO.pure)
+  }
+
+  databaseFixture.test(
+    "DBMedia.registerFileId warns about the stored entries that are not a source and removes them"
+  ) { fixture =>
+    val filename = "rphjb_TestDroppedSources.mp3"
+    val row      = DBMediaData(
+      media_name = filename,
+      bot_id = "rphjb",
+      kinds = "[]",
+      mime_type = "audio/mpeg",
+      media_sources = """["untagged-id","https://example.com/test.mp3"]""",
+      media_count = 0,
+      created_at = java.time.Instant.now.getEpochSecond.toString
+    )
+    val resourceAssert = for {
+      dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
+      _       <- Resource.make(dbMedia.insertMedia(row))(_ =>
+        sql"DELETE FROM media WHERE media_name = $filename".update.run.transact(transactor).void
+      )
+      warnings <- Resource.eval(Ref.of[IO, List[String]](List.empty))
+      writer   <- Resource.eval(
+        DBMedia[IO](Transactor.fromDriverManager[IO]("org.sqlite.JDBC", DBFixture.dbUrl, "", "", None))(using
+          summon[cats.effect.Async[IO]],
+          recordingLog(warnings)
+        )
+      )
+      _      <- Resource.eval(writer.registerFileId(filename, Platform.Telegram, "id-1"))
+      after  <- Resource.eval(dbMedia.getMedia(filename = filename, cache = false))
+      logged <- Resource.eval(warnings.get)
+    } yield {
+      assertEquals(
+        Media(after.get).toOption.get.mediaSources.map(MediaSource.render),
+        List("telegram:id-1", "https://example.com/test.mp3")
+      )
+      assertEquals(logged.count(m => m.contains(filename) && m.contains("untagged-id")), 1)
     }
     resourceAssert.use(IO.pure)
   }
