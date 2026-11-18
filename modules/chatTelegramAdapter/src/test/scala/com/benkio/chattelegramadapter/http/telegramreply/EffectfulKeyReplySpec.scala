@@ -8,12 +8,14 @@ import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.NotifierMock.given
 import com.benkio.chatcore.mocks.RepositoryMock
 import com.benkio.chatcore.model.media.MediaResource
+import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.MediaReply
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.StringTextTriggerValue
 import com.benkio.chatcore.model.TextTrigger
 import com.benkio.chatcore.repository.db.DBMediaData
@@ -56,8 +58,12 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
       )
     )
     val repositoryMockWithHandler = RepositoryMock(
-      getResourceFileHandler =
-        _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram:test value"))))
+      getResourceFileHandler = _ =>
+        IO.pure(
+          Right(
+            NonEmptyList.one(MediaResource.MediaResourceIFile(MediaSource.FileRef(Platform.Telegram, "test value")))
+          )
+        )
     )
     val effectfulKey = EffectfulKey.Random(sBotInfo)
 
@@ -223,8 +229,12 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
       )
     )
     val repositoryMockWithHandler = RepositoryMock(
-      getResourceFileHandler =
-        _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram:test value"))))
+      getResourceFileHandler = _ =>
+        IO.pure(
+          Right(
+            NonEmptyList.one(MediaResource.MediaResourceIFile(MediaSource.FileRef(Platform.Telegram, "test value")))
+          )
+        )
     )
 
     val result = EffectfulKeyReply
@@ -306,8 +316,12 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
       )
     )
     val repositoryMockWithHandler = RepositoryMock(
-      getResourceFileHandler =
-        _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram:test value"))))
+      getResourceFileHandler = _ =>
+        IO.pure(
+          Right(
+            NonEmptyList.one(MediaResource.MediaResourceIFile(MediaSource.FileRef(Platform.Telegram, "test value")))
+          )
+        )
     )
     val effectfulKey = EffectfulKey.MediaByKind("audio", sBotInfo)
 

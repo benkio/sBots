@@ -3,7 +3,6 @@ package com.benkio.chatcore.repository
 import cats.data.NonEmptyList
 import cats.effect.Resource
 import com.benkio.chatcore.model.media.MediaResource
-import com.benkio.chatcore.model.media.MediaSources
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.PlatformCapabilities
 import com.benkio.chatcore.model.SBotInfo.SBotId
@@ -52,7 +51,7 @@ class UsableResourcesRepository[F[_]](underlying: Repository[F], capabilities: P
   private def usable(resources: NonEmptyList[MediaResource[F]]): Option[NonEmptyList[MediaResource[F]]] =
     NonEmptyList.fromList(resources.filter {
       case MediaResource.MediaResourceIFile(reference) =>
-        capabilities.acceptsFileIds && MediaSources.belongsTo(reference, capabilities.platform)
+        capabilities.acceptsFileIds && reference.platform == capabilities.platform
       case _ => true
     })
 }

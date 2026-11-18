@@ -6,6 +6,7 @@ import cats.effect.Resource
 import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceFile
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceIFile
+import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.reply.GifFile
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.CommandSyntax
@@ -21,7 +22,7 @@ import java.nio.file.Path
 class RepositoryUsableForSpec extends CatsEffectSuite {
 
   private val file: MediaResource[IO]  = MediaResourceFile(Resource.pure(Path.of("a.mp4")))
-  private val iFile: MediaResource[IO] = MediaResourceIFile("telegram:fileId")
+  private val iFile: MediaResource[IO] = MediaResourceIFile(MediaSource.FileRef(Platform.Telegram, "fileId"))
   private val mediaFile: MediaFile     = GifFile("a.mp4")
   private val botId                    = SBotId("bot")
 
@@ -70,30 +71,22 @@ class RepositoryUsableForSpec extends CatsEffectSuite {
   }
 
   test("a platform only sees the file references of its own platform") {
-    val telegramReference: MediaResource[IO] = MediaResourceIFile("telegram:tg-id")
-    val discordReference: MediaResource[IO]  = MediaResourceIFile("discord:dc-id")
+    val telegramReference: MediaResource[IO] = MediaResourceIFile(MediaSource.FileRef(Platform.Telegram, "tg-id"))
+    val discordReference: MediaResource[IO]  = MediaResourceIFile(MediaSource.FileRef(Platform.Discord, "dc-id"))
     val discord                              = withIds.copy(platform = Platform.Discord)
     for {
       forTelegram <- repositoryOf(NonEmptyList.of(telegramReference, file))
         .usableFor(withIds)
         .getResourceFile(mediaFile)
-        .use(r => IO(r.toOption.get.collect { case MediaResourceIFile(ref) => ref }))
+        .use(r => IO(r.toOption.get.collect { case MediaResourceIFile(ref) => MediaSource.render(ref) }))
       forDiscord <- repositoryOf(NonEmptyList.of(telegramReference, discordReference, file))
         .usableFor(discord)
         .getResourceFile(mediaFile)
-        .use(r => IO(r.toOption.get.collect { case MediaResourceIFile(ref) => ref }))
+        .use(r => IO(r.toOption.get.collect { case MediaResourceIFile(ref) => MediaSource.render(ref) }))
     } yield {
       assertEquals(forTelegram, List("telegram:tg-id"))
       assertEquals(forDiscord, List("discord:dc-id"))
     }
-  }
-
-  test("an untagged reference is unusable even for a platform that accepts file ids") {
-    val untagged: MediaResource[IO] = MediaResourceIFile("fileId")
-    repositoryOf(NonEmptyList.of(untagged, file))
-      .usableFor(withIds)
-      .getResourceFile(mediaFile)
-      .use(r => IO(assertEquals(r.map(names), Right(List("file")))))
   }
 
   test("a platform that does not accept file ids gets only the others, in order") {

@@ -4,6 +4,7 @@ import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.chatcore.model.media.Media
+import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.media.MediaSources
 import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.repository.db.DBMedia
@@ -110,8 +111,11 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
       after <- Resource.eval(dbMedia.getMedia(filename = filename, cache = false))
     } yield {
       val sources = Media(after.get).toOption.get.mediaSources
-      platforms.foreach(p => assert(sources.contains(Left(MediaSources.tagged(p, s"${p.id}-id"))), s"missing $p"))
-      assertEquals(sources.collect { case Right(uri) => uri.renderString }, List("https://example.com/test.mp3"))
+      platforms.foreach(p => assert(sources.contains(MediaSource.FileRef(p, s"${p.id}-id")), s"missing $p"))
+      assertEquals(
+        sources.collect { case MediaSource.Url(uri) => uri.renderString },
+        List("https://example.com/test.mp3")
+      )
     }
     resourceAssert.use(IO.pure)
   }
@@ -151,13 +155,16 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
       assertEquals(afterData.mime_type, beforeData.mime_type)
       assertEquals(afterData.created_at, beforeData.created_at)
       val afterSources = Media(afterData).toOption.get.mediaSources
-      val ids          = afterSources.collect {
-        case Left(id) if MediaSources.belongsTo(id, Platform.Telegram) => id
+      val ids          = afterSources.collect { case MediaSource.FileRef(Platform.Telegram, id) =>
+        id
       }
       assertEquals(ids.size, MediaSources.maxFileIds)
       assertEquals(ids, List("telegram:id-4", "telegram:id-3", "telegram:id-2"))
-      assert(afterSources.contains(Left("discord:discord-id")), "another platform keeps its own reference")
-      assert(afterSources.exists(_.isRight), "the original URL is still there")
+      assert(
+        afterSources.contains(MediaSource.FileRef(Platform.Discord, "discord-id")),
+        "another platform keeps its own reference"
+      )
+      assert(afterSources.exists(_.isUrl), "the original URL is still there")
       assertEquals(cached.map(_.media_sources), after.map(_.media_sources), "the cache was invalidated")
     }
     resourceAssert.use(IO.pure).assert
@@ -193,8 +200,8 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
       assertEquals(afterData.mime_type, beforeData.mime_type)
       assertEquals(afterData.created_at, beforeData.created_at)
       val afterSources = Media(afterData).toOption.get.mediaSources
-      assertEquals(afterSources.collect { case Left(id) => id }, List("telegram:fresh", "telegram:keep"))
-      assert(afterSources.exists(_.isRight), "the original URL is still there")
+      assertEquals(afterSources.collect { case MediaSource.FileRef(_, id) => id }, List("fresh", "keep"))
+      assert(afterSources.exists(_.isUrl), "the original URL is still there")
       assertEquals(cached.map(_.media_sources), after.map(_.media_sources), "the cache was invalidated")
     }
     resourceAssert.use(IO.pure).assert

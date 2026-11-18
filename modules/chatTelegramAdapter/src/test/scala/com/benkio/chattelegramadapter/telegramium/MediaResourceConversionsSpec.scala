@@ -6,6 +6,8 @@ import cats.implicits.*
 import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceFile
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceIFile
+import com.benkio.chatcore.model.media.MediaSource
+import com.benkio.chatcore.model.Platform
 import com.benkio.chattelegramadapter.conversions.MediaResourceConversions.*
 import munit.*
 import telegramium.bots.InputLinkFile
@@ -20,7 +22,7 @@ class MediaResourceConversionsSpec extends CatsEffectSuite {
     val actual1   = MediaResourceFile(Resource.pure[IO, Path](path)).toTelegramApi
     val expected1 = InputPartFile(path.toFile())
     // --------------------------------------------------
-    val ifile                            = "telegram:ifile"
+    val ifile: MediaSource.FileRef       = MediaSource.FileRef(Platform.Telegram, "ifile")
     val mediaResource: MediaResource[IO] = MediaResourceIFile(ifile)
     val actual2                          = mediaResource.toTelegramApi
     val expected2                        = InputLinkFile("ifile")

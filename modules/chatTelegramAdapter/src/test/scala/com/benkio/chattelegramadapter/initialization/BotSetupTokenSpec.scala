@@ -4,7 +4,9 @@ import cats.data.NonEmptyList
 import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.chatcore.model.media.MediaResource
+import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.reply.Document
+import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.repository.Repository.RepositoryError
@@ -63,7 +65,11 @@ class BotSetupTokenSpec extends CatsEffectSuite {
     val tokenFilename = "nofile.token"
     val repo          = RepoStub(
       Resource.pure(
-        Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram:some-telegram-file-id")))
+        Right(
+          NonEmptyList.one(
+            MediaResource.MediaResourceIFile(MediaSource.FileRef(Platform.Telegram, "some-telegram-file-id"))
+          )
+        )
       )
     )
 

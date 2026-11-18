@@ -5,6 +5,7 @@ import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.model.media.MediaFileSource
+import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.MimeTypeOps
 import io.circe.parser.*
 import io.circe.syntax.*
@@ -47,7 +48,7 @@ object DataEntry {
           filename = filename,
           kinds = List.empty,
           mime = MimeTypeOps.mimeTypeOrDefault(filename, None),
-          sources = List(Right(uri))
+          sources = List(MediaSource.Url(uri))
         )
       case _ =>
         IO.raiseError(

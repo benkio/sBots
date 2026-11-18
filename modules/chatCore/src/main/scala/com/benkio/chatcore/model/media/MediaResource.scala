@@ -5,8 +5,8 @@ import cats.effect.Resource
 import java.nio.file.Path
 
 enum MediaResource[F[_]] {
-  case MediaResourceFile(file: Resource[F, Path]) extends MediaResource[F]
-  case MediaResourceIFile(iFile: String)          extends MediaResource[F]
+  case MediaResourceFile(file: Resource[F, Path])   extends MediaResource[F]
+  case MediaResourceIFile(ref: MediaSource.FileRef) extends MediaResource[F]
 }
 
 extension [F[_]](mediaResource: MediaResource[F]) {

@@ -1,6 +1,7 @@
 package com.benkio.chatcore.model.media
 
 import cats.effect.IO
+import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.MimeType
 import munit.CatsEffectSuite
 import org.http4s.syntax.all.uri
@@ -12,7 +13,7 @@ class MediaFileSourceSpec extends CatsEffectSuite {
       filename = "test.bot_mediaFile.mp3",
       kinds = List.empty,
       mime = MimeType.MPEG,
-      sources = List(Right(uri"https://example.com/test.bot_mediaFile.mp3"))
+      sources = List(MediaSource.Url(uri"https://example.com/test.bot_mediaFile.mp3"))
     )
 
     val actual: IO[MediaFileSource] = MediaFileSource.fromUriString[IO](input)

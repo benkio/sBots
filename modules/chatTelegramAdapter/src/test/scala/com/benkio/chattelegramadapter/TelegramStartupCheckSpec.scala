@@ -5,6 +5,8 @@ import cats.effect.IO
 import com.benkio.chatcore.config.StartupCheckConfig
 import com.benkio.chatcore.mocks.RepositoryMock
 import com.benkio.chatcore.model.media.MediaResource
+import com.benkio.chatcore.model.media.MediaSource
+import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.Logger.given
@@ -32,7 +34,12 @@ class TelegramStartupCheckSpec extends CatsEffectSuite {
   private val started       = s"[${SampleWebhookBot.sBotInfo.botName}] $startMessage"
   private val testMedia     = "test_file.mp3"
   private val fileAvailable = new RepositoryMock(getResourceFileHandler =
-    _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram:telegram-file-id"))))
+    _ =>
+      IO.pure(
+        Right(
+          NonEmptyList.one(MediaResource.MediaResourceIFile(MediaSource.FileRef(Platform.Telegram, "telegram-file-id")))
+        )
+      )
   )
 
   /** The setup of a sample bot over a recording api: what the notifier sends to the ops chat is in `calls`. */

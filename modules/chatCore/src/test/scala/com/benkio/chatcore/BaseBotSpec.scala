@@ -5,6 +5,7 @@ import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.messagefiltering.MessageMatches
 import com.benkio.chatcore.model.media.MediaFileSource
+import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.reply.*
 import com.benkio.chatcore.model.LeftMemberTrigger
 import com.benkio.chatcore.model.Message as ModelMessage
@@ -95,7 +96,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
       for {
         mediaFileSources <- IO.fromEither(jsonMediaFileSource)
         files = mediaFileSources.map(_.filename)
-        urls  = mediaFileSources.flatMap(_.sources.collect { case Right(uri) => uri })
+        urls  = mediaFileSources.flatMap(_.sources.collect { case MediaSource.Url(uri) => uri })
         filenames <- botData
       } yield {
         assert(
@@ -123,7 +124,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
         mediaFileSources
           .foreach(mfs =>
             mfs.sources.foreach {
-              case Right(uri) =>
+              case MediaSource.Url(uri) =>
                 if uri.host.exists(_.value.contains("dropbox.com")) then assert(
                   uri.toString.contains(mfs.filename),
                   s"$uri doesn't contain the filename: ${mfs.filename}"

@@ -6,7 +6,7 @@ import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.chatcore.model.media.getMediaResourceFile
 import com.benkio.chatcore.model.media.MediaResource
-import com.benkio.chatcore.model.media.MediaSources
+import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.Sticker
 import com.benkio.chatcore.model.Platform
@@ -76,7 +76,7 @@ class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
       val assert2 = mediaSource == Right(
         NonEmptyList.one(
           MediaResource.MediaResourceIFile(
-            MediaSources.tagged(
+            MediaSource.FileRef(
               Platform.Telegram,
               "CAACAgQAAxkBAAEC14Fnn4qAwqMd2BGYk0rsC5oTZvsMrAACzQEAAsMN4w3VywfrQeOnhTYE"
             )

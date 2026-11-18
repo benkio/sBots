@@ -9,6 +9,7 @@ import com.benkio.chatcore.model.media.Media
 import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceFile
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceIFile
+import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo.SBotId
@@ -17,7 +18,6 @@ import com.benkio.chatcore.repository.db.DBMediaData
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.repository.Repository.RepositoryError
 import log.effect.LogWriter
-import org.http4s.Uri
 
 object DBRepository {
   def dbResources[F[_]: Async: LogWriter](
@@ -82,11 +82,11 @@ object DBRepository {
       ): Resource[F, Either[RepositoryError, NonEmptyList[MediaResource[F]]]] = {
         def buildMediaResources(
             mediaName: String,
-            sources: NonEmptyList[Either[String, Uri]]
+            sources: NonEmptyList[MediaSource]
         ): Resource[F, NonEmptyList[MediaResource[F]]] =
           Resource.pure(sources.map {
-            case Left(iFile) => MediaResourceIFile(iFile)
-            case Right(uri)  =>
+            case ref: MediaSource.FileRef => MediaResourceIFile(ref)
+            case MediaSource.Url(uri)     =>
               val fetchFileResource = HttpClients.fetchFile(clients, mediaName, uri)
               MediaResourceFile(
                 fetchFileResource

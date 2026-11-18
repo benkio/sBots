@@ -8,6 +8,7 @@ import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.NotifierMock.given
 import com.benkio.chatcore.mocks.RepositoryMock
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceIFile
+import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.EffectfulReply
 import com.benkio.chatcore.model.reply.Markdown
@@ -36,8 +37,11 @@ class TelegramPlatformAdapterSpec extends CatsEffectSuite {
 
   private def adapter(api: Api[IO], startUpdates: IO[Unit] = IO.unit): TelegramPlatformAdapter[IO] =
     new TelegramPlatformAdapter[IO](
-      repository =
-        RepositoryMock((_, _) => NonEmptyList.one(NonEmptyList.one(MediaResourceIFile("telegram:not used"))).pure[IO]),
+      repository = RepositoryMock((_, _) =>
+        NonEmptyList
+          .one(NonEmptyList.one(MediaResourceIFile(MediaSource.FileRef(Platform.Telegram, "not used"))))
+          .pure[IO]
+      ),
       backgroundJobManager = BackgroundJobManagerMock.mock(),
       effectfulCallbacks = Map.empty,
       dbLayer = DBLayerMock.mock(SampleWebhookBot.sBotInfo.botId),
