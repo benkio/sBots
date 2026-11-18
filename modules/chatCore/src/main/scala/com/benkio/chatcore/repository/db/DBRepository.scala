@@ -101,6 +101,14 @@ object DBRepository {
 
         val result = for {
           media <- Resource.eval(Async[F].fromEither(Media(dbMediaData)))
+          dropped = Media.droppedSources(dbMediaData)
+          _ <- Resource.eval(
+            Async[F].whenA(dropped.nonEmpty)(
+              LogWriter.warn(
+                s"[ResourcesAccess] ${dbMediaData.media_name} has stored entries that are not a source, left out: $dropped"
+              )
+            )
+          )
           _ <- Resource.eval(LogWriter.info(s"[ResourcesAccess] fetching data for $media from ${media.mediaSources}"))
           nonEmptyMediaSources <- Resource.eval(
             Async[F].fromOption(

@@ -52,4 +52,17 @@ class MediaSourceSpec extends FunSuite {
       Right(List(FileRef(Platform.Telegram, "ok"), Url(uri"https://example.com/a.mp3")))
     )
   }
+
+  test("Media.droppedSources reports the entries Media leaves out") {
+    val db = DBMediaData(
+      media_name = "bot_a.mp3",
+      bot_id = "bot",
+      kinds = "[]",
+      mime_type = "audio/mpeg",
+      media_sources = """["untagged-id","telegram:ok","whatsapp:1","https://example.com/a.mp3"]""",
+      media_count = 0,
+      created_at = "0"
+    )
+    assertEquals(Media.droppedSources(db), List("untagged-id", "whatsapp:1"))
+  }
 }
