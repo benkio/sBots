@@ -20,10 +20,18 @@ class ConfigSpec extends CatsEffectSuite {
     }
   }
 
-  test("Config.loadConfig should load the Telegram block, with the chat of the operators of before as the default") {
+  test(
+    "Config.loadConfig should load the Telegram block, with a placeholder chat of the operators that the deploy sets"
+  ) {
     Config.loadConfig[IO].map { config =>
       assert(config.telegram.webhookBaseUrl.startsWith("https://"), config.telegram.webhookBaseUrl)
-      assertEquals(config.telegram.opsChatId, -4145546019L)
+      assertEquals(config.telegram.opsChatId, 0L)
+    }
+  }
+
+  test("Config.loadConfig should load the healthcheck ping as a placeholder url that the deploy sets") {
+    Config.loadConfig[IO].map { config =>
+      assertEquals(config.healthcheckPing.endpoint.renderString, "https://hc-ping.com/placeholder")
     }
   }
 

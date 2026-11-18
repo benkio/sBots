@@ -109,7 +109,4 @@ class TelegramNotifierSpec extends CatsEffectSuite {
     } yield assertEquals(sentMessages(calls).size, 1)
   }
 
-  test("the default chat of the operators is the one the notifications always went to") {
-    assertEquals(TelegramNotifier.defaultOpsChatId, -4145546019L)
-  }
 }

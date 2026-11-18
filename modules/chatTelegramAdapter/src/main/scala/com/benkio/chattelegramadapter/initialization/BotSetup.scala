@@ -97,7 +97,7 @@ object BotSetup {
       httpClient: Client[F],
       sBotConfig: SBotConfig,
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
-      opsChatId: Long = TelegramNotifier.defaultOpsChatId
+      opsChatId: Long
   )(using log: LogWriter[F]): Resource[F, BotSetup[F]] = {
 
     val resourceRepository = ResourcesRepository.fromResources[F]()

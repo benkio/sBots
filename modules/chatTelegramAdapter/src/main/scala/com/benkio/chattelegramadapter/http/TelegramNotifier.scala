@@ -30,9 +30,3 @@ final class TelegramNotifier[F[_]: Async](opsChatId: Long)(using api: Api[F], lo
       sendText(formatted).whenA(Notifier.isReportable(error))
   }
 }
-
-object TelegramNotifier {
-
-  /** The chat the notifications went to before it was configurable. */
-  val defaultOpsChatId: Long = -4145546019L
-}
