@@ -37,6 +37,7 @@ object TelegramBackgroundJobManager {
       ttl = ttl,
       capabilities = TelegramCapabilities.value,
       send = sendToChat[F](repository),
+      notifier = summon[Notifier[F]],
       calendarMessage = (botName, shows) => TelegramCalendarMessage.render(botName, shows)
     )
 

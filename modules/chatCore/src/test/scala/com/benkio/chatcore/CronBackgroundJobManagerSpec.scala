@@ -6,6 +6,7 @@ import cats.effect.IO
 import cats.syntax.all.*
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.FakePlatformAdapter
+import com.benkio.chatcore.mocks.NotifierMock
 import com.benkio.chatcore.model.reply.GifFile
 import com.benkio.chatcore.model.reply.Markdown
 import com.benkio.chatcore.model.reply.Mp3File
@@ -33,6 +34,39 @@ class CronBackgroundJobManagerSpec extends CatsEffectSuite {
 
   private val sBotInfo: SBotInfo = SBotInfo(botId = SBotInfo.SBotId("eng"), botName = SBotInfo.SBotName("EngineBot"))
   private val ircChat: ChatId    = ChatId(Platform.Irc, "#sbots")
+
+  test("a failing scheduled run is notified once, with its context, and the schedule goes on") {
+    val boom = new RuntimeException("send failed")
+    for {
+      recording <- NotifierMock.recording
+      sent      <- fire(
+        subscription = subscription(SubscriptionType.Trigger, Some("ciao")),
+        capabilities = textOnly,
+        messageReplies = List(ReplyBundleMessage.textToText("ciao")("hello")),
+        notifier = recording,
+        failure = Some(boom)
+      )
+      errors <- recording.errors.get
+    } yield {
+      assertEquals(sent, List.empty)
+      assertEquals(errors.map(_._1), List(sBotInfo))
+      assertEquals(errors.map(_._3), List(boom))
+      assert(errors.head._2.contains("subscription") && errors.head._2.contains(ircChat.id), errors.head._2)
+    }
+  }
+
+  test("a successful scheduled run notifies nothing") {
+    for {
+      recording <- NotifierMock.recording
+      _         <- fire(
+        subscription = subscription(SubscriptionType.Trigger, Some("ciao")),
+        capabilities = textOnly,
+        messageReplies = List(ReplyBundleMessage.textToText("ciao")("hello")),
+        notifier = recording
+      )
+      errors <- recording.errors.get
+    } yield assertEquals(errors, List.empty)
+  }
 
   private val textOnly: PlatformCapabilities   = FakePlatformAdapter.textOnlyCapabilities
   private val everything: PlatformCapabilities = textOnly.copy(
@@ -70,7 +104,9 @@ class CronBackgroundJobManagerSpec extends CatsEffectSuite {
       subscription: Subscription,
       capabilities: PlatformCapabilities,
       messageReplies: List[ReplyBundleMessage] = List.empty,
-      calendar: Markdown = Markdown("**calendar**")
+      calendar: Markdown = Markdown("**calendar**"),
+      notifier: Notifier[IO] = Notifier.noop[IO],
+      failure: Option[Throwable] = None
   ): IO[List[Sent]] = for {
     sent    <- Ref.of[IO, List[Sent]](List.empty)
     random  <- Random.scalaUtilRandom[IO]
@@ -81,7 +117,9 @@ class CronBackgroundJobManagerSpec extends CatsEffectSuite {
         sBotInfo = sBotInfo,
         ttl = None,
         capabilities = capabilities,
-        send = (chatId, value, replyToMessage) => sent.update(_ :+ Sent(chatId, value, replyToMessage)),
+        send = (chatId, value, replyToMessage) =>
+          failure.fold(sent.update(_ :+ Sent(chatId, value, replyToMessage)))(IO.raiseError),
+        notifier = notifier,
         calendarMessage = (_, _) => Some(calendar)
       )
     }
@@ -179,7 +217,8 @@ class CronBackgroundJobManagerSpec extends CatsEffectSuite {
           sBotInfo = sBotInfo,
           ttl = None,
           capabilities = capabilities,
-          send = (_, _, _) => IO.unit
+          send = (_, _, _) => IO.unit,
+          notifier = Notifier.noop[IO]
         )
       }
     } yield manager.getScheduledSubscriptions().map(_.chatId).toSet

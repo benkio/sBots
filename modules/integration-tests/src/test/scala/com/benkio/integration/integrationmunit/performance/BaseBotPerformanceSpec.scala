@@ -18,6 +18,7 @@ import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBRepository
 import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.BotEngine
+import com.benkio.chatcore.Notifier
 import com.benkio.integration.DBFixture
 import com.benkio.integration.DBFixtureResources
 import com.benkio.integration.Logger.given
@@ -108,7 +109,7 @@ trait BaseBotPerformanceSpec extends CatsEffectSuite with DBFixture {
       buildCore(fixture, sBotConfig).use { core =>
         for {
           adapter <- FakePlatformAdapter(capabilities = testCapabilities)
-          engine = BotEngine[IO](core.sBotConfig, core.dbLayer)
+          engine = BotEngine[IO](core.sBotConfig, core.dbLayer, Notifier.noop[IO])
           start <- IO.monotonic
           _     <- engine.onMessage(message(pc.inputText))(using adapter)
           end   <- IO.monotonic

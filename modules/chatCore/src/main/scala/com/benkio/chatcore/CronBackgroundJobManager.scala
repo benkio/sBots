@@ -63,6 +63,7 @@ object CronBackgroundJobManager {
       ttl: Option[FiniteDuration],
       capabilities: PlatformCapabilities,
       send: SendToChat[F],
+      notifier: Notifier[F],
       calendarMessage: (String, List[Show]) => Option[Markdown] = (botName, shows) =>
         CalendarMessage.render(botName, shows)
   )(using log: LogWriter[F]): F[BackgroundJobManager[F]] =
@@ -74,6 +75,7 @@ object CronBackgroundJobManager {
           ttl = ttl,
           capabilities = capabilities,
           send = send,
+          notifier = notifier,
           calendarMessage = calendarMessage
         )
       )
@@ -86,6 +88,7 @@ object CronBackgroundJobManager {
       ttl: Option[FiniteDuration],
       capabilities: PlatformCapabilities,
       send: SendToChat[F],
+      notifier: Notifier[F],
       calendarMessage: (String, List[Show]) => Option[Markdown]
   )(using log: LogWriter[F])
       extends BackgroundJobManager[F] {
@@ -260,9 +263,18 @@ object CronBackgroundJobManager {
             .map(_.map(reply => ScheduledReply(reply, replyToMessage = false)))
             // a failing trigger must not stop the schedule of the subscription
             .handleErrorWith(e =>
-              log.error(s"[BackgroundJobManager] trigger subscription failed: $subscription. Error: $e").as(None)
+              log.error(s"[BackgroundJobManager] trigger subscription failed: $subscription. Error: $e") >>
+                notifyFailure(subscription, e).as(None)
             )
       }
+
+    private def notifyFailure(subscription: Subscription, error: Throwable): F[Unit] =
+      notifier.error(
+        sBotInfo,
+        s"scheduled ${subscription.subscriptionType.asString} subscription ${subscription.id.value} " +
+          s"(platform=${capabilities.platform}, chatId=${subscription.chatId.id})",
+        error
+      )
 
     override def runSubscription(
         subscription: Subscription
@@ -283,8 +295,14 @@ object CronBackgroundJobManager {
         }
       } yield now // For testing purposes
 
+      // a failing run is notified and must not end the schedule of the subscription
+      val safeAction: F[Instant] = action.handleErrorWith(e =>
+        log.error(s"[BackgroundJobManager] subscription failed: $subscription. Error: $e") >>
+          notifyFailure(subscription, e) >> Async[F].realTimeInstant
+      )
+
       for cancel <- cancelF
-      yield (Stream.eval(action).interruptWhen(cancel), cancel)
+      yield (Stream.eval(safeAction).interruptWhen(cancel), cancel)
     }
 
     override def getScheduledSubscriptions(): List[SubscriptionKey] =

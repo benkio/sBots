@@ -82,7 +82,7 @@ object IrcBot {
       for {
         apiReady <- Deferred[F, IrcApi[F]]
         random   <- Random.scalaUtilRandom[F]
-        engine = BotEngine[F](effectiveSBotConfig, core.dbLayer)
+        engine = BotEngine[F](effectiveSBotConfig, core.dbLayer, notifier)
         // the subscriptions send to a chat without a message to reply to, once the connection is up
         sendToChat = (chatId: ChatId, replyValue: ReplyValue, replyToMessage: Boolean) =>
           apiReady.get.flatMap(api =>
@@ -99,7 +99,8 @@ object IrcBot {
             sBotInfo = effectiveSBotConfig.sBotInfo,
             ttl = effectiveSBotConfig.messageTimeToLive,
             capabilities = capabilities,
-            send = sendToChat
+            send = sendToChat,
+            notifier = notifier
           )
         }
         _ <- {

@@ -34,12 +34,15 @@ import scala.concurrent.duration.FiniteDuration
   *   whether the reply bundle selected for a message can be used, e.g. not while the chat is in timeout
   * @param postComputation
   *   what to do after a message is handled, e.g. logging the last interaction of the chat
+  * @param notifier
+  *   tells the operators about the requests that time out and the checks that fail
   */
 class BotEngine[F[_]: Async: LogWriter](
     val sBotConfig: SBotConfig,
     dbLayer: DBLayer[F],
     filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean],
-    postComputation: Message => F[Unit]
+    postComputation: Message => F[Unit],
+    notifier: Notifier[F]
 ) {
 
   // Replies data ////////////////////////////////////////////////////////
@@ -152,6 +155,10 @@ class BotEngine[F[_]: Async: LogWriter](
         .handleErrorWith(e =>
           LogWriter.error(
             s"${sBotConfig.sBotInfo.botName}: duplicate check failed, processing the message anyway: $e"
+          ) *> notifier.error(
+            sBotConfig.sBotInfo,
+            s"duplicate check failed, the message is processed anyway (chatId=${msg.chatId.id}, messageId=$messageId)",
+            e
           ) *> false.pure[F]
         )
     )
@@ -159,11 +166,17 @@ class BotEngine[F[_]: Async: LogWriter](
   private def withRequestTimeout(msg: Message, timeout: FiniteDuration)(
       process: F[Unit]
   )(using platform: PlatformAdapter[F]): F[Unit] = {
-    val timedOut: F[Unit] =
+    val timedOut: F[Unit] = {
+      val details =
+        s"platform=${platform.capabilities.platform}, chatId=${msg.chatId.id}, messageId=${msg.messageId}, content=${msg.text}"
       LogWriter.error(
-        s"${sBotConfig.sBotInfo.botName}: request processing timed out after $timeout and was dropped " +
-          s"(platform=${platform.capabilities.platform}, chatId=${msg.chatId.id}, messageId=${msg.messageId}, content=${msg.text})"
+        s"${sBotConfig.sBotInfo.botName}: request processing timed out after $timeout and was dropped ($details)"
+      ) *> notifier.error(
+        sBotConfig.sBotInfo,
+        s"request processing timed out after $timeout and was dropped ($details)",
+        BotEngine.RequestTimedOut(timeout)
       )
+    }
     Async[F].timeoutTo(process, timeout, timedOut)
   }
 
@@ -187,9 +200,12 @@ class BotEngine[F[_]: Async: LogWriter](
 
 object BotEngine {
 
+  final case class RequestTimedOut(timeout: FiniteDuration)
+      extends Throwable(s"the request processing timed out after $timeout")
+
   /** The engine with the standard filtering (the timeout of the chat) and post computation (log the last interaction).
     */
-  def apply[F[_]: Async: LogWriter](sBotConfig: SBotConfig, dbLayer: DBLayer[F]): BotEngine[F] =
+  def apply[F[_]: Async: LogWriter](sBotConfig: SBotConfig, dbLayer: DBLayer[F], notifier: Notifier[F]): BotEngine[F] =
     new BotEngine[F](
       sBotConfig = sBotConfig,
       dbLayer = dbLayer,
@@ -197,7 +213,8 @@ object BotEngine {
       postComputation = PostComputationPatterns.timeoutPostComputation(
         dbTimeout = dbLayer.dbTimeout,
         sBotId = sBotConfig.sBotInfo.botId
-      )
+      ),
+      notifier = notifier
     )
 
   /** Picks one of the values of a reply that is just data. */
