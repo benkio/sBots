@@ -321,6 +321,25 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
     }
   }
 
+  test("a send by a stored reference that returns the same file ID does not touch the repository") {
+    val mp3      = Mp3File("f.mp3")
+    val response = messageWithFileId("stored", "audio")
+    for {
+      calls <- Ref.of[IO, Int](0)
+      repository = RepositoryMock(
+        getResourceFileHandler =
+          _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram:stored")))),
+        registerFileIdHandler = (_, _, _) => calls.update(_ + 1),
+        replaceFileIdHandler = (_, _, _, _) => calls.update(_ + 1)
+      )
+      sent <- sendPattern(mediaFile = mp3, repository = repository, sendFileAPIMethod = (_, _, _) => IO.pure(response))
+      writes <- calls.get
+    } yield {
+      assertEquals(sent, List(response))
+      assertEquals(writes, 0)
+    }
+  }
+
   test("a failing persistence does not change the sent messages") {
     val mp3      = Mp3File("f.mp3")
     val response = messageWithFileId("id", "audio")
