@@ -28,6 +28,8 @@ jobs:
     steps:
     - uses: actions/checkout@v5
     - uses: ./.github/actions/setup-scala
+    - name: Test the health probe script
+      run: sh scripts/healthProbeTest.sh
     - name: Check Scala Formatting, JSONs Validity, Explicit Dependencies, Instructions
       run: |
         echo this workflow was triggered by ${{github.actor}}

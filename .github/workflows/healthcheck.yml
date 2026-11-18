@@ -1,26 +1,53 @@
 name: Healthcheck
 
+# Probes the bots from the outside: after a deploy, every 30 minutes and on demand. A problem is sent to the ops chat,
+# a healthy run is silent. The logic is in scripts/healthProbe.sh (tested by scripts/healthProbeTest.sh).
 on:
   workflow_run:
     workflows: ["Deploy"]
     types:
       - completed
+  schedule:
+    - cron: "*/30 * * * *"
   workflow_dispatch:
 
 jobs:
   healthcheck:
     runs-on: ubuntu-latest
     steps:
-      - name: Health check Telegram bots
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Probe the Telegram and Discord bots
         env:
-          BOT_TOKENS: ${{ secrets.ABAR_TOKEN }} ${{ secrets.CALA_TOKEN }} ${{ secrets.MOS_TOKEN }} ${{ secrets.RPHJB_TOKEN }} ${{ secrets.XAH_TOKEN }} ${{ secrets.YTAI_TOKEN }} ${{ secrets.SGAR_TOKEN }} ${{ secrets.ORL_TOKEN }} ${{ secrets.PINO_TOKEN }}
+          TELEGRAM_BOTS: >-
+            ABAR:${{ secrets.ABAR_TOKEN }} CALA:${{ secrets.CALA_TOKEN }} MOS:${{ secrets.MOS_TOKEN }}
+            RPHJB:${{ secrets.RPHJB_TOKEN }} XAH:${{ secrets.XAH_TOKEN }} YTAI:${{ secrets.YTAI_TOKEN }}
+            SGAR:${{ secrets.SGAR_TOKEN }} ORL:${{ secrets.ORL_TOKEN }} PINO:${{ secrets.PINO_TOKEN }}
+          DISCORD_BOTS: >-
+            ABAR:${{ secrets.ABAR_DISCORD_TOKEN }} MOS:${{ secrets.MOS_DISCORD_TOKEN }} ORL:${{ secrets.ORL_DISCORD_TOKEN }}
+            PINO:${{ secrets.PINO_DISCORD_TOKEN }} RPHJB:${{ secrets.RPHJB_DISCORD_TOKEN }}
+            SGAR:${{ secrets.SGAR_DISCORD_TOKEN }} XAH:${{ secrets.XAH_DISCORD_TOKEN }} YTAI:${{ secrets.YTAI_DISCORD_TOKEN }}
+          SUMMARY_FILE: ${{ runner.temp }}/health-summary.txt
+        run: ./scripts/healthProbe.sh
+
+      - name: Send the problems to the ops chat
+        if: failure()
+        env:
+          OPS_ALERT_BOT_TOKEN: ${{ secrets.OPS_ALERT_BOT_TOKEN }}
+          OPS_CHAT_ID: ${{ vars.TELEGRAM_OPS_CHAT_ID }}
+          SUMMARY_FILE: ${{ runner.temp }}/health-summary.txt
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          for TOKEN in $BOT_TOKENS; do
-            RESPONSE=$(curl -s "https://api.telegram.org/bot${TOKEN}/getMe")
-            if echo "$RESPONSE" | grep -q '"ok":true'; then
-              echo "Bot with token ending ${TOKEN: -10} is healthy!"
-            else
-              echo "Bot with token ending ${TOKEN: -10} health check failed: $RESPONSE"
-              exit 1
-            fi
-          done
+          if [ -z "$OPS_ALERT_BOT_TOKEN" ] || [ -z "$OPS_CHAT_ID" ]; then
+            echo "::error::Set the secret OPS_ALERT_BOT_TOKEN and the variable TELEGRAM_OPS_CHAT_ID to be notified"
+            exit 1
+          fi
+          {
+            echo "Health probe failed"
+            if [ -s "$SUMMARY_FILE" ]; then cat "$SUMMARY_FILE"; else echo "- the probe itself failed before reporting, see the run"; fi
+            echo "$RUN_URL"
+          } > "$RUNNER_TEMP/alert.txt"
+          curl -sf --max-time 20 "https://api.telegram.org/bot${OPS_ALERT_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${OPS_CHAT_ID}" \
+            --data-urlencode "text@${RUNNER_TEMP}/alert.txt" > /dev/null
