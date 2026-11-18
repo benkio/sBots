@@ -7,7 +7,6 @@ import cats.data.OptionT
 import cats.effect.*
 import cats.implicits.*
 import com.benkio.chatcore.model.media.MediaResource
-import com.benkio.chatcore.model.media.MediaSources
 import com.benkio.chatcore.model.reply.Markdown
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.PagedList
@@ -64,7 +63,7 @@ object TelegramMessageReply {
         .orElse(message.photo.lastOption.map(_.fileId))
 
     def failedReferenceOf(mediaResource: MediaResource[F]): Option[String] = mediaResource match {
-      case MediaResource.MediaResourceIFile(reference) => MediaSources.rawId(reference).some
+      case MediaResource.MediaResourceIFile(reference) => reference.id.some
       case _                                           => none
     }
 

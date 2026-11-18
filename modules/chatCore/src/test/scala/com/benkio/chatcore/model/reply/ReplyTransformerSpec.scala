@@ -1,5 +1,6 @@
 package com.benkio.chatcore.model.reply
 
+import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.MarkdownSupport
 import com.benkio.chatcore.model.MediaKind
@@ -156,10 +157,13 @@ class ReplyTransformerSpec extends ScalaCheckSuite {
     assertEquals(ReplyTransformer.transform(textOnly)(AdapterValue), List(AdapterValue))
   }
 
-  test("usableSources drops the sources that are not an url when file ids are not accepted") {
-    val sources = List(Left("telegramFileId"), Right(mp3Link))
-    assertEquals(ReplyTransformer.usableSources(textOnly)(sources), List(Right(mp3Link)))
-    assertEquals(ReplyTransformer.usableSources(everything)(sources), sources)
+  test("usableSources drops the references when file ids are not accepted, and the ones of another platform") {
+    val own     = MediaSource.FileRef(everything.platform, "ownId")
+    val other   = MediaSource.FileRef(Platform.Discord, "otherId")
+    val url     = MediaSource.Url(mp3Link)
+    val sources = List(own, other, url)
+    assertEquals(ReplyTransformer.usableSources(textOnly)(sources), List(url))
+    assertEquals(ReplyTransformer.usableSources(everything)(sources), List(own, url))
   }
 
   private val pagedList: PagedList = PagedList(

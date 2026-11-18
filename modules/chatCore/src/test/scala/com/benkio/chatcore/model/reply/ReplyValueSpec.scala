@@ -1,6 +1,7 @@
 package com.benkio.chatcore.model.reply
 
 import com.benkio.chatcore.model.media.Media
+import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.MimeType
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.model.SBotInfo.SBotId
@@ -73,7 +74,7 @@ class ReplyValueSpec extends ScalaCheckSuite {
         botId = SBotId("botid"),
         kinds = List("kind"),
         mimeType = MimeType.MP4,
-        mediaSources = List(Right(uri"http://something.com")),
+        mediaSources = List(MediaSource.Url(uri"http://something.com")),
         mediaCount = 0,
         createdAt = Instant.now()
       )
@@ -255,7 +256,7 @@ class ReplyValueSpec extends ScalaCheckSuite {
       botId = SBotId("botid"),
       kinds = List("kind"),
       mimeType = MimeType.DOC,
-      mediaSources = List(Right(uri"http://something.com")),
+      mediaSources = List(MediaSource.Url(uri"http://something.com")),
       mediaCount = 0,
       createdAt = Instant.now()
     )

@@ -356,10 +356,11 @@ Limitations:
 
 The repository resolves each media file to one or more candidate sources. Sources can be either:
 
-- `Right(Uri)` -> remote URL (Mega/Dropbox), fetched to temp file
-- `Left(String)` -> reusable file reference tagged with its platform as `<platform.id>:<id>` (for example
-  `telegram:AwACAgQ…`). Only a reference of the asking platform is kept by `repository.usableFor`, and it is mapped to
-  `MediaResourceIFile`; an untagged string is not usable
+- `MediaSource.Url(uri)` -> remote URL (Mega/Dropbox), fetched to temp file
+- `MediaSource.FileRef(platform, id)` -> reusable file reference tagged with its platform, stored as `<platform.id>:<id>`
+  (for example `telegram:AwACAgQ…`). Only a reference of the asking platform is kept by `repository.usableFor`, and it is
+  mapped to `MediaResourceIFile`. A stored string that is neither an url nor a tagged reference is not a source: it is
+  left out when a media is read, and `FileIdSourcesSpec` / `filesCheck` fail on it
 
 ```mermaid
 flowchart TD

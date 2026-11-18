@@ -13,6 +13,7 @@ import com.benkio.chatcore.model.media.getMediaResourceFile
 import com.benkio.chatcore.model.media.MediaFileSource
 import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceFile
+import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.MimeType
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBMediaData
@@ -95,8 +96,8 @@ class MediaUpdaterSpec extends CatsEffectSuite {
         ),
         mime = MimeType.MPEG,
         sources = List(
-          Right(
-            value = uri"https://www.dropbox.com/scl/fi/hYPb0/test_testData.mp3?rlkey=BbLKm&dl=1"
+          MediaSource.Url(
+            uri = uri"https://www.dropbox.com/scl/fi/hYPb0/test_testData.mp3?rlkey=BbLKm&dl=1"
           )
         )
       )

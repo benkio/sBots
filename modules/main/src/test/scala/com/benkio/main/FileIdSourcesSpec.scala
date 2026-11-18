@@ -1,9 +1,9 @@
 package com.benkio.main
 
-import com.benkio.chatcore.model.media.MediaFileSource
-import com.benkio.chatcore.model.media.MediaFileSource.given
-import com.benkio.chatcore.model.Platform
+import com.benkio.chatcore.model.media.MediaSource
+import io.circe.generic.semiauto.deriveDecoder
 import io.circe.parser.decode
+import io.circe.Decoder
 import munit.FunSuite
 
 import java.nio.file.Files
@@ -26,18 +26,20 @@ class FileIdSourcesSpec extends FunSuite {
 
     assert(files.nonEmpty, "no bot list JSON found")
 
+    // The raw strings are checked, so the message names the offending source instead of a decoding failure.
     val invalid = files.flatMap { path =>
-      decode[List[MediaFileSource]](Files.readString(path)).fold(
+      decode[List[RawMedia]](Files.readString(path)).fold(
         error => List(s"$path: ${error.getMessage}"),
-        _.flatMap { media =>
-          media.sources.collect {
-            case Left(reference) if !reference.contains(':') || Platform.fromId(reference.takeWhile(_ != ':')).isLeft =>
-              s"$path: ${media.filename}: $reference"
-          }
-        }
+        _.flatMap(media =>
+          media.sources.filter(MediaSource.parse(_).isEmpty).map(source => s"$path: ${media.filename}: $source")
+        )
       )
     }
 
     assertEquals(invalid, Nil)
   }
+
+  private final case class RawMedia(filename: String, sources: List[String])
+
+  private given Decoder[RawMedia] = deriveDecoder
 }
