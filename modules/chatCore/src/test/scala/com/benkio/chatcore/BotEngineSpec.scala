@@ -7,6 +7,7 @@ import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.FakePlatformAdapter
 import com.benkio.chatcore.mocks.FakePlatformAdapter.Sent
+import com.benkio.chatcore.mocks.NotifierMock
 import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.EffectfulReply
 import com.benkio.chatcore.model.reply.Mp3File
@@ -77,7 +78,8 @@ class BotEngineSpec extends CatsEffectSuite {
       filter: Boolean = true,
       postComputation: Message => IO[Unit] = _ => IO.unit,
       config: SBotConfig = sBotConfig,
-      processedMessages: DBProcessedMessage[IO] = DBLayerMock.DBProcessedMessageMock(Ref.unsafe(Set.empty))
+      processedMessages: DBProcessedMessage[IO] = DBLayerMock.DBProcessedMessageMock(Ref.unsafe(Set.empty)),
+      notifier: Notifier[IO] = Notifier.noop[IO]
   ): BotEngine[IO] = new BotEngine[IO](
     sBotConfig = config,
     dbLayer = DBLayerMock.mock(
@@ -87,7 +89,8 @@ class BotEngineSpec extends CatsEffectSuite {
       processedMessages = processedMessages
     ),
     filteringMatchesMessages = (_, _) => IO.pure(filter),
-    postComputation = postComputation
+    postComputation = postComputation,
+    notifier = notifier
   )
 
   // A text only platform that writes the commands like Telegram, as `/command`
@@ -234,6 +237,50 @@ class BotEngineSpec extends CatsEffectSuite {
       _        <- engine.onMessage(message("ciao"))(using adapter)
       computed <- postComputed.get
     } yield assert(!computed, "post computation should not complete after timeout")
+  }
+
+  test("a request that exceeds the configured timeout is notified once, with its context") {
+    val config = sBotConfig.copy(requestProcessingTimeout = Some(50.millis))
+    for {
+      adapter   <- FakePlatformAdapter(capabilities = slashCommands)
+      recording <- NotifierMock.recording
+      engine = engineWith(config = config, postComputation = _ => IO.sleep(1.second), notifier = recording)
+      _      <- engine.onMessage(message("ciao"))(using adapter)
+      errors <- recording.errors.get
+    } yield {
+      assertEquals(errors.map(_._1), List(sBotInfo))
+      assertEquals(errors.map(_._3), List(BotEngine.RequestTimedOut(50.millis)))
+      assert(errors.head._2.contains("content=Some(ciao)"), errors.head._2)
+    }
+  }
+
+  test("a request that completes in time notifies nothing") {
+    val config = sBotConfig.copy(requestProcessingTimeout = Some(2.seconds))
+    for {
+      adapter   <- FakePlatformAdapter(capabilities = slashCommands)
+      recording <- NotifierMock.recording
+      _         <- engineWith(config = config, notifier = recording).onMessage(message("ciao"))(using adapter)
+      errors    <- recording.errors.get
+    } yield assertEquals(errors, List.empty)
+  }
+
+  test("a failing duplicate check is notified and the message is processed anyway") {
+    val failing = new DBProcessedMessage[IO] {
+      override def markIfNew(chatId: ChatId, botId: SBotInfo.SBotId, messageId: MessageId): IO[Boolean] =
+        IO.raiseError(new RuntimeException("db down"))
+      override def deleteOlderThan(epochSeconds: Long): IO[Int] = IO.pure(0)
+    }
+    for {
+      adapter   <- FakePlatformAdapter(capabilities = slashCommands)
+      recording <- NotifierMock.recording
+      engine = engineWith(processedMessages = failing, notifier = recording)
+      _      <- engine.onMessage(message("ciao", Some(MessageId("1"))))(using adapter)
+      sent   <- adapter.sent.get
+      errors <- recording.errors.get
+    } yield {
+      assertEquals(sent.map(_.replyValue), List(Text("hello")))
+      assertEquals(errors.map(_._3.getMessage), List("db down"))
+    }
   }
 
   test("the same message delivered twice is answered and post computed once") {

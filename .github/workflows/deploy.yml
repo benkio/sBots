@@ -85,7 +85,7 @@ jobs:
       - name: Install Log Rotation on Server
         run: |
           cat > /tmp/sbots-logrotate <<EOF
-          ${{ env.DEPLOY_DIR }}/sbots.log ${{ env.DEPLOY_DIR }}/sbots.err.log {
+          ${{ env.DEPLOY_DIR }}/sbots.log ${{ env.DEPLOY_DIR }}/sbots.err.log ${{ env.DEPLOY_DIR }}/log.txt {
               size 20M
               rotate 5
               copytruncate

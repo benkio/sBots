@@ -59,4 +59,20 @@ class GeneralErrorHandlingSpec extends CatsEffectSuite {
       sent    <- signals.get
     } yield assertEquals(sent, List(expectedErrorMessage))
   }
+
+  test("a crash is appended to the history with its stack trace, and the previous entries are kept") {
+    val dbLayer = DBLayerMock.mock(SBotId("whateverBot"))
+    for {
+      history <- IO.blocking(java.nio.file.Files.createTempFile("log", ".txt"))
+      _       <- IO.blocking(java.nio.file.Files.delete(history))
+      _       <- GeneralErrorHandling.dbLogAndDie(dbLayer.dbLog, failedIO, _ => IO.unit, history)
+      _       <- GeneralErrorHandling.dbLogAndDie(dbLayer.dbLog, failedIO, _ => IO.unit, history)
+      content <- IO.blocking(java.nio.file.Files.readString(history))
+    } yield {
+      assertEquals(content.split("\\[[^\\]]+\\] ").count(_.nonEmpty), 2)
+      assert(content.contains(expectedErrorMessage), content)
+      assert(content.contains("java.lang.RuntimeException: Test Throwable"), content)
+      assert(content.contains("\tat "), content)
+    }
+  }
 }

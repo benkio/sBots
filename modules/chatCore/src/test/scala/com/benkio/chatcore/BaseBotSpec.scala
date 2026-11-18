@@ -44,7 +44,9 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
       dbLayer: DBLayer[IO],
       sBotConfig: SBotConfig
   )(using LogWriter[IO]): IO[BotEngine[IO]] =
-    DBLayer.loadReplies[IO](dbLayer, JsonDataRepository[IO](), sBotConfig).map(BotEngine[IO](sBotConfig, _))
+    DBLayer
+      .loadReplies[IO](dbLayer, JsonDataRepository[IO](), sBotConfig)
+      .map(BotEngine[IO](sBotConfig, _, Notifier.noop[IO]))
 
   private def triggerFileContentForSearch(triggerContent: String): String =
     triggerContent.replace("""\|""", "|")

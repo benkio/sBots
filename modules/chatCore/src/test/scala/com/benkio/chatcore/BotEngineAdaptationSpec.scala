@@ -94,7 +94,8 @@ class BotEngineAdaptationSpec extends CatsEffectSuite {
         )
       ),
       filteringMatchesMessages = (_, _) => IO.pure(true),
-      postComputation = _ => IO.unit
+      postComputation = _ => IO.unit,
+      notifier = Notifier.noop[IO]
     )
     _    <- engine.onMessage(message(text))(using adapter)
     sent <- adapter.sent.get
