@@ -188,8 +188,12 @@ SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' A
   periodically pings an external healthcheck endpoint so you can
   monitor that the service is up (e.g. [[https://healthchecks.io][healthchecks.io]]).
 
-  - *Where*: The healthcheck runs in the main module; one background
-    fiber pings the configured URL on a cron schedule.
+  - *Where*: The healthcheck runs in the main module, in the webhook and
+    in the polling mode; one background fiber pings the configured URL
+    on a cron schedule. It also pings ~<url>/start~ on boot and
+    ~<url>/fail~ (with the error as the body) when the application
+    crashes; a failed ping is only logged, and the fiber starts again
+    after an error.
   - *Config*: In ~modules/main/src/main/resources/application.conf~
     under ~main.healthcheck-ping~:
     - ~endpoint~ :: URL to POST (e.g. ~https://hc-ping.com/<your-check-uuid>~).
