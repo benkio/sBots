@@ -220,7 +220,7 @@ object DBMedia {
         platform: com.benkio.chatcore.model.Platform,
         operation: String
     )(transform: List[Either[String, Uri]] => List[Either[String, Uri]]): F[Unit] = {
-      val maxAttempts = 5
+      val maxAttempts = 10
 
       def step: ConnectionIO[FileIdUpdate] =
         getMediaQueryByName(filename).option.flatMap {
@@ -239,15 +239,22 @@ object DBMedia {
             } yield result
         }
 
+      // SQLite does not wait for a lock upgrade of a concurrent transaction: it fails at once with SQLITE_BUSY.
+      def isBusy(e: Throwable): Boolean = e match {
+        case sql: java.sql.SQLException =>
+          sql.getErrorCode == 5 || Option(sql.getMessage).exists(_.contains("SQLITE_BUSY"))
+        case _ => false
+      }
+
       def attempt(left: Int): F[Unit] =
-        step.transact(transactor).flatMap {
+        step.transact(transactor).recover { case e if isBusy(e) => FileIdUpdate.Conflict }.flatMap {
           case FileIdUpdate.NotFound         => log.warn(s"[DBMedia] $operation no media found for $filename")
           case FileIdUpdate.Unchanged        => Async[F].unit
           case FileIdUpdate.Updated(sources) =>
             log.debug(s"[DBMedia] $operation $platform for $filename: $sources")
           case FileIdUpdate.Conflict if left > 1 =>
             log.debug(s"[DBMedia] $operation $platform for $filename: concurrent update, retrying") >>
-              attempt(left - 1)
+              Async[F].sleep((10 * (maxAttempts - left + 1)).millis) >> attempt(left - 1)
           case FileIdUpdate.Conflict =>
             Async[F].raiseError(
               new RuntimeException(
