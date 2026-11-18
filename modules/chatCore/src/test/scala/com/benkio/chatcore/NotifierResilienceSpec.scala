@@ -40,10 +40,14 @@ class NotifierResilienceSpec extends CatsEffectSuite {
       window    <- Deferred[IO, Unit]
       throttle  <- Throttle.withWindow[IO](window.get)
       notifier = Notifier.throttled(recording, throttle)
-      _       <- notifier.error(botInfo, "job", boom) >> notifier.error(botInfo, "job", boom) >> notifier.error(botInfo, "job", boom)
-      first   <- recording.errors.get
-      _       <- window.complete(())
-      infos   <- recording.infos.get.iterateUntil(_.nonEmpty).timeout(5.seconds)
+      _ <- notifier.error(botInfo, "job", boom) >> notifier.error(botInfo, "job", boom) >> notifier.error(
+        botInfo,
+        "job",
+        boom
+      )
+      first <- recording.errors.get
+      _     <- window.complete(())
+      infos <- recording.infos.get.iterateUntil(_.nonEmpty).timeout(5.seconds)
     } yield {
       assertEquals(first.map(_._2), List("job"))
       assertEquals(infos.size, 1)

@@ -63,9 +63,9 @@ class ThrottleSpec extends CatsEffectSuite {
 
   test("no summary when nothing was suppressed") {
     for {
-      f         <- fixture
-      _         <- f.run("a")
-      _         <- f.window.complete(())
+      f <- fixture
+      _ <- f.run("a")
+      _ <- f.window.complete(())
       // the key is free again once the window is closed: the summary step has run by then
       _         <- (f.run("a") >> f.sent.get).iterateUntil(_.size >= 2).timeout(5.seconds)
       summaries <- f.summaries.get
@@ -78,9 +78,9 @@ class ThrottleSpec extends CatsEffectSuite {
       throttle <- Throttle.withWindow[IO](window.get)
       sent     <- Ref.of[IO, Int](0)
       run = throttle("a")(send = sent.update(_ + 1), summary = _ => IO.raiseError(new RuntimeException("no chat")))
-      _ <- run >> run
-      _ <- window.complete(())
-      _ <- (run >> sent.get).iterateUntil(_ >= 2).timeout(5.seconds)
+      _     <- run >> run
+      _     <- window.complete(())
+      _     <- (run >> sent.get).iterateUntil(_ >= 2).timeout(5.seconds)
       count <- sent.get
     } yield assertEquals(count, 2)
   }
