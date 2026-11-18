@@ -20,3 +20,5 @@ are merged back into the repository `*_list.json` files through a PR.
 - An untagged reference is invalid: `FileIdSourcesSpec` (modules/main) and `filesCheck` (`MediaListSchema.ts`) fail.
 - Tag old untagged data with `scala-cli scripts/MigrateFileIdSources.scala -- --write` (idempotent, `--check` first).
 - References never cross bot or platform; do not copy an id by hand.
+- Keep only the newest reference per platform: a fresh DB id replaces the stale one in the `*_list.json` file, it does
+  not pile up beside it. The DB's newest id is first in `media_sources` (`MediaSources.withFileId`).

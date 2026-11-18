@@ -9,8 +9,9 @@
   *
   * Only references are merged: URLs and every non-source field of the list entries stay as they are. A reference is
   * copied only into the entry with the same filename of the same bot, keeping its platform tag, so a Telegram ID never
-  * moves to another bot or platform. References are deduped per platform, capped at the same three newest IDs the DB
-  * keeps, and written before the URLs. Untagged references, unknown bot IDs and malformed JSON are rejected.
+  * moves to another bot or platform. A single reference per platform is kept: the newest one from the DB when present,
+  * otherwise the list's existing one, so a refreshed ID replaces the stale one instead of piling up. References are
+  * written before the URLs. Untagged references, unknown bot IDs and malformed JSON are rejected.
   *
   * Run from the project root:
   *   scala-cli scripts/ExportFileIds.scala -- --check            # report the files that would change (default)
@@ -29,11 +30,10 @@ import scala.jdk.CollectionConverters.*
 final class ExportFileIdsError(message: String) extends RuntimeException(message)
 
 object ExportFileIds:
-  private val printer               = Printer.spaces2
-  private val maxFileIdsPerPlatform = 3
-  private val platforms             = Set("telegram", "discord", "irc", "slack")
-  private val defaultDb             = Paths.get("botDB.sqlite3")
-  private val defaultBotsRoot       = Paths.get("modules", "bots")
+  private val printer         = Printer.spaces2
+  private val platforms       = Set("telegram", "discord", "irc", "slack")
+  private val defaultDb       = Paths.get("botDB.sqlite3")
+  private val defaultBotsRoot = Paths.get("modules", "bots")
 
   private def fail(message: String): Nothing = throw ExportFileIdsError(message)
 
@@ -120,20 +120,15 @@ object ExportFileIds:
 
   private def botIdOf(path: Path): String = path.getFileName.toString.stripSuffix("_list.json")
 
-  /** DB references first, then the list's own references, deduped with at most [[maxFileIdsPerPlatform]] per platform;
-    * the list's URLs follow, in their original order.
+  /** The newest reference per platform wins: DB references come first, so a fresh ID replaces the list's stale one
+    * instead of accumulating. The list's URLs follow, in their original order.
     */
   private def mergeSources(existing: List[String], fromDb: List[String]): List[String] = {
-    val references = (fromDb.filterNot(isUrl) ++ existing.filterNot(isUrl)).distinct
-    val keptPerPlatform = scala.collection.mutable.Map.empty[String, Int].withDefaultValue(0)
-    val merged = references.filter { reference =>
-      val platform = tagOf(reference).get // validated before merging
-      if keptPerPlatform(platform) < maxFileIdsPerPlatform then
-        keptPerPlatform.update(platform, keptPerPlatform(platform) + 1)
-        true
-      else false
-    }
-    merged ++ existing.filter(isUrl)
+    // Every reference was validated before merging, so tagOf is defined.
+    val references        = (fromDb.filterNot(isUrl) ++ existing.filterNot(isUrl)).distinct
+    val seenPlatforms     = scala.collection.mutable.Set.empty[String]
+    val newestPerPlatform = references.filter(reference => seenPlatforms.add(tagOf(reference).get))
+    newestPerPlatform ++ existing.filter(isUrl)
   }
 
   private def mergeEntry(entry: Json, dbSources: List[String], context: String): Json = {
@@ -274,16 +269,27 @@ class ExportFileIdsSpec extends munit.FunSuite {
     }
   }
 
-  test("references are deduped and capped per platform, with the DB ones first") {
+  test("only the newest reference per platform is kept, replacing stale IDs") {
     inTempDir { root =>
       val db = root.resolve("db.sqlite3")
-      createDb(db, List("a.mp3" -> ("rphjb", List("telegram:one", "telegram:two", "telegram:three", "telegram:four"))))
-      val list = writeList(root, "rphjb", """[{"filename":"a.mp3","sources":["telegram:two","https://url"]}]""")
-      assertEquals(exportFileIds(db, root.resolve("bots"), write = true), List(list))
-      assertEquals(
-        sourcesOf(Files.readString(list)),
-        List("telegram:one", "telegram:two", "telegram:three", "https://url")
+      createDb(db, List("a.mp3" -> ("rphjb", List("telegram:new", "telegram:older", "discord:dc"))))
+      val list = writeList(
+        root,
+        "rphjb",
+        """[{"filename":"a.mp3","sources":["telegram:stale","discord:dc","https://url"]}]"""
       )
+      assertEquals(exportFileIds(db, root.resolve("bots"), write = true), List(list))
+      assertEquals(sourcesOf(Files.readString(list)), List("telegram:new", "discord:dc", "https://url"))
+    }
+  }
+
+  test("an existing reference is kept when the DB has none for that platform") {
+    inTempDir { root =>
+      val db = root.resolve("db.sqlite3")
+      createDb(db, List("a.mp3" -> ("rphjb", List("https://db-url"))))
+      val list = writeList(root, "rphjb", """[{"filename":"a.mp3","sources":["telegram:old","https://url"]}]""")
+      assertEquals(exportFileIds(db, root.resolve("bots"), write = true), Nil)
+      assertEquals(sourcesOf(Files.readString(list)), List("telegram:old", "https://url"))
     }
   }
 

@@ -191,9 +191,9 @@ sends have no file ID and persist nothing. A persistence failure is only logged 
 
 `scripts/ExportFileIds.scala` merges the references accumulated in a downloaded production DB back into the per-bot
 `*_list.json` files (`--check` reports the diff, `--write` applies it; tests: `scala-cli test scripts/ExportFileIds.scala`).
-Only references are added, to the same bot and filename, deduped and capped per platform before the URLs; URLs, other
-fields and the source formatting are left as they are. Untagged references, unknown bot IDs and malformed JSON abort
-the export.
+Only references are updated, on the same bot and filename: a single, newest reference per platform (the DB's, or the
+list's when the DB has none) replaces the stale one instead of accumulating; URLs, other fields and the source
+formatting are left as they are. Untagged references, unknown bot IDs and malformed JSON abort the export.
 
 `.github/workflows/fileIds.yml` automates that export. It runs every day at 00:00 UTC and on demand
 (`workflow_dispatch`; the `dry_run` input only reports the diff). It reuses `downloadDB.yml` to fetch the production DB,
