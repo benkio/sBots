@@ -5,8 +5,10 @@ are merged back into the repository `*_list.json` files through a PR.
 
 ## Flow
 
-- Manual run: GitHub Action `.github/workflows/fileIds.yml` (`workflow_dispatch`, `dry_run` input to only report).
-  It downloads the prod DB, runs the export and updates the single branch/PR `bot/telegram-file-ids`. A human reviews it.
+- GitHub Action `.github/workflows/fileIds.yml`: every day at 00:00 UTC, or manually (`workflow_dispatch`, `dry_run`
+  input to only report). It downloads the prod DB, runs the export and updates the single branch/PR
+  `bot/telegram-file-ids`, dispatches `CI.yml` on it (a `GITHUB_TOKEN` push does not trigger CI) and enables auto-merge:
+  it merges only when the required checks pass, otherwise the PR stays open for review.
 - Locally, with a downloaded `botDB.sqlite3`: `scala-cli scripts/ExportFileIds.scala -- --check` (diff) or `--write`.
 - Tests of the tool: `scala-cli test scripts/ExportFileIds.scala`.
 
