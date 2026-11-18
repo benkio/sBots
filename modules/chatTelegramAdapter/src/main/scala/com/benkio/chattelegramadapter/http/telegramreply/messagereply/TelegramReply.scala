@@ -68,6 +68,10 @@ object TelegramMessageReply {
       case _                                           => none
     }
 
+    /** A send by a stored reference that returns the same ID has nothing new to persist. */
+    def alreadyStored(used: MediaResource[F], fileId: String, failedId: Option[String]): Boolean =
+      failedId.isEmpty && failedReferenceOf(used).contains(fileId)
+
     def persistFileId(fileId: String, failedId: Option[String]): F[Unit] = {
       val write = OptionT
         .fromOption[F](failedId)
@@ -100,7 +104,13 @@ object TelegramMessageReply {
         message =>
           OptionT
             .fromOption[F](fileIdOf(message))
-            .semiflatMap(id => persistFileId(id, failedId).as(message))
+            .semiflatMap(id =>
+              Async[F]
+                .unlessA(alreadyStored(used = resources.head, fileId = id, failedId = failedId))(
+                  persistFileId(id, failedId)
+                )
+                .as(message)
+            )
             .getOrElseF(
               LogWriter.warn(s"[TelegramMessageReply - ${mediaFile.filename}] successful send returned no file id") >>
                 message.pure[F]
