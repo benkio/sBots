@@ -2,21 +2,37 @@ name: Auto approve & Auto Merge
 
 on: pull_request_target
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   autoApproveMerge:
     runs-on: ubuntu-latest
-    permissions: write-all
-    if: startsWith(github.head_ref, 'update/')
+    # Dependency-update PRs only. Both the head branch and the author are checked: `pull_request_target` has write
+    # permissions, so a human branch merely named "dependabot/*" must never be auto-approved and auto-merged.
+    # pull_request_target is required because Dependabot PRs run with a read-only token on the pull_request event,
+    # while approval and auto-merge need write permissions in the base repository.
+    if: |-
+      (startsWith(github.head_ref, 'update/') && github.event.pull_request.user.login == 'scala-steward') ||
+      (startsWith(github.head_ref, 'dependabot/') &&
+        (github.event.pull_request.user.login == 'app/dependabot' ||
+         github.event.pull_request.user.login == 'dependabot[bot]'))
     steps:
-      - id: autoapprove
-        name: autoapprove
+      - name: autoapprove
+        id: autoapprove
         uses: hmarr/auto-approve-action@v3
-      - id: automerge
-        name: automerge
-        uses: "pascalgn/automerge-action@v0.15.6"
+
+      - name: Enable native auto-merge
+        # Unlike a "wait N times then merge" action, GitHub's own auto-merge waits indefinitely for the required
+        # checks to go green and then squashes. No human interaction, and the branch protection rules still apply.
         env:
-          MERGE_LABELS: ""
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_FILTER_AUTHOR: scala-steward
-          MERGE_DELETE_BRANCH: "true"
-          UPDATE_LABELS: ""
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          if [ "$(gh pr view "$PR_NUMBER" --json autoMergeRequest --jq '.autoMergeRequest != null')" = "true" ]; then
+            echo "Auto-merge is already enabled on PR #$PR_NUMBER"
+          else
+            gh pr merge "$PR_NUMBER" --auto --squash
+          fi
