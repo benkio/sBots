@@ -10,6 +10,11 @@ on:
         default: 'true'
         required: true
 
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+
 jobs:
   updateShows:
     runs-on: ubuntu-latest
@@ -55,6 +60,7 @@ jobs:
           echo "has_changes=true" >> $GITHUB_OUTPUT
         fi
     - name: Create PR
+      id: cpr
       if: steps.check_changes.outputs.has_changes == 'true'
       uses: peter-evans/create-pull-request@v7
       with:
@@ -70,3 +76,13 @@ jobs:
         base: main # Target branch for the PR
         labels: Update
         token: ${{ secrets.GITHUB_TOKEN }} # Use the default GitHub token
+    - name: Run the required checks and enable auto-merge
+      # A push made with GITHUB_TOKEN does not trigger the "Scala CI" push workflow, so the required checks would never
+      # report and the PR would stay blocked. Dispatch it on the branch (the jobs report on the head commit under the
+      # names the branch protection requires) and merge only once they are all green.
+      if: steps.cpr.outputs.pull-request-number != '' && steps.cpr.outputs.pull-request-operation != 'closed'
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        gh workflow run CI.yml --ref auto-update-shows
+        gh pr merge ${{ steps.cpr.outputs.pull-request-number }} --auto --squash

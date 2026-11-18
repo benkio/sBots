@@ -4,6 +4,8 @@ on:
   push:
     branches:
         - "**"
+  # Lets the workflows that push with GITHUB_TOKEN (which does not trigger the push event) run the required checks.
+  workflow_dispatch:
 
 jobs:
   typescriptCode:
