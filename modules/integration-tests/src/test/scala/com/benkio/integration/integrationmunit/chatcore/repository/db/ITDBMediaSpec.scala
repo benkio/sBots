@@ -81,6 +81,35 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
   }
 
   databaseFixture.test(
+    "DBMedia.registerFileId does not lose references registered concurrently for the same media"
+  ) { fixture =>
+    val filename = "rphjb_TestConcurrentFileIds.mp3"
+    val row      = DBMediaData(
+      media_name = filename,
+      bot_id = "rphjb",
+      kinds = "[]",
+      mime_type = "audio/mpeg",
+      media_sources = """["https://example.com/test.mp3"]""",
+      media_count = 0,
+      created_at = java.time.Instant.now.getEpochSecond.toString
+    )
+    val platforms      = List(Platform.Telegram, Platform.Discord, Platform.Irc)
+    val resourceAssert = for {
+      dbMedia <- fixture.resourceDBLayer.map(_.dbMedia)
+      _       <- Resource.make(dbMedia.insertMedia(row))(_ =>
+        sql"DELETE FROM media WHERE media_name = $filename".update.run.transact(transactor).void
+      )
+      _     <- Resource.eval(platforms.parTraverse_(p => dbMedia.registerFileId(filename, p, s"${p.id}-id")))
+      after <- Resource.eval(dbMedia.getMedia(filename = filename, cache = false))
+    } yield {
+      val sources = Media(after.get).toOption.get.mediaSources
+      platforms.foreach(p => assert(sources.contains(Left(MediaSources.tagged(p, s"${p.id}-id"))), s"missing $p"))
+      assertEquals(sources.collect { case Right(uri) => uri.renderString }, List("https://example.com/test.mp3"))
+    }
+    resourceAssert.use(IO.pure)
+  }
+
+  databaseFixture.test(
     "DBMedia.registerFileId keeps the newest IDs, preserves the URLs and leaves the other columns untouched"
   ) { fixture =>
     // Use a dedicated row: cleanDB does not reset media_sources, so the seeded rows must stay untouched.

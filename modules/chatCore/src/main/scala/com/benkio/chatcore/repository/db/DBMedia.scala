@@ -1,6 +1,7 @@
 package com.benkio.chatcore.repository.db
 
 import cats.effect.*
+import cats.effect.syntax.monadCancel.*
 import cats.implicits.*
 import com.benkio.chatcore.model.media.Media
 import com.benkio.chatcore.model.media.MediaFileSource.given
@@ -209,34 +210,53 @@ object DBMedia {
               )
         }
 
-    /** Shared read-modify-write for both file-id APIs: cache invalidation, row lookup, source transformation and the
-      * single `media_sources` update. `operation` is only used for logging.
+    /** Shared read-modify-write for both file-id APIs, atomic against concurrent writers: the row is read and updated
+      * in one transaction, and the update only applies if `media_sources` is still what was read (compare-and-set).
+      * When another writer got there first the whole step is retried on the fresh row. `operation` is only used for
+      * logging.
       */
     private def updateFileIds(
         filename: String,
         platform: com.benkio.chatcore.model.Platform,
         operation: String
-    )(transform: List[Either[String, Uri]] => List[Either[String, Uri]])(using
-        cats.Applicative[F]
-    ): F[Unit] = {
-      def updateDBMediaData(dbMedia: DBMediaData): F[Unit] =
-        for {
-          media <- Async[F].fromEither(Media(dbMedia))
-          sources = transform(media.mediaSources)
-          updated = DBMediaData(media.copy(mediaSources = sources))
-          _ <- Async[F].unlessA(sources == media.mediaSources)(
-            log.debug(s"[DBMedia] $operation $platform for $filename: ${updated.media_sources}") >>
-              updateMediaSourcesQuery(updated).run.transact(transactor).void >>
-              dbCache.delete(filename)
-          )
-        } yield ()
-      for {
-        _          <- dbCache.delete(filename)
-        optDbMedia <- getMedia(filename, cache = false)
-        _          <- optDbMedia.fold(log.warn(s"[DBMedia] $operation no media found for $filename"))(
-          updateDBMediaData(_)
-        )
-      } yield ()
+    )(transform: List[Either[String, Uri]] => List[Either[String, Uri]]): F[Unit] = {
+      val maxAttempts = 5
+
+      def step: ConnectionIO[FileIdUpdate] =
+        getMediaQueryByName(filename).option.flatMap {
+          case None          => FileIdUpdate.NotFound.pure[ConnectionIO].widen
+          case Some(dbMedia) =>
+            for {
+              media <- Media(dbMedia).liftTo[ConnectionIO]
+              sources = transform(media.mediaSources)
+              result <-
+                if sources == media.mediaSources then FileIdUpdate.Unchanged.pure[ConnectionIO].widen
+                else
+                  updateMediaSourcesIfUnchangedQuery(
+                    dbMediaData = DBMediaData(media.copy(mediaSources = sources)),
+                    previousSources = dbMedia.media_sources
+                  ).run.map(rows => if rows == 1 then FileIdUpdate.Updated(sources) else FileIdUpdate.Conflict)
+            } yield result
+        }
+
+      def attempt(left: Int): F[Unit] =
+        step.transact(transactor).flatMap {
+          case FileIdUpdate.NotFound         => log.warn(s"[DBMedia] $operation no media found for $filename")
+          case FileIdUpdate.Unchanged        => Async[F].unit
+          case FileIdUpdate.Updated(sources) =>
+            log.debug(s"[DBMedia] $operation $platform for $filename: $sources")
+          case FileIdUpdate.Conflict if left > 1 =>
+            log.debug(s"[DBMedia] $operation $platform for $filename: concurrent update, retrying") >>
+              attempt(left - 1)
+          case FileIdUpdate.Conflict =>
+            Async[F].raiseError(
+              new RuntimeException(
+                s"[DBMedia] $operation $platform for $filename: gave up after $maxAttempts conflicts"
+              )
+            )
+        }
+
+      dbCache.delete(filename) >> attempt(maxAttempts).guarantee(dbCache.delete(filename))
     }
 
     override def registerFileId(filename: String, platform: com.benkio.chatcore.model.Platform, fileId: String)(using
@@ -263,9 +283,16 @@ object DBMedia {
   def updateOnConflictSql(dbMediaData: DBMediaData): Update0 =
     sql"UPDATE media SET kinds = ${dbMediaData.kinds.asJson.noSpaces}, media_sources = ${dbMediaData.media_sources.asJson.noSpaces} WHERE media_name = ${dbMediaData.media_name};".update
 
-  /** Only the sources change: counts, kinds, mime and creation date are left as they are. */
-  def updateMediaSourcesQuery(dbMediaData: DBMediaData): Update0 =
-    sql"UPDATE media SET media_sources = ${dbMediaData.media_sources.asJson.noSpaces} WHERE media_name = ${dbMediaData.media_name};".update
+  /** Updates only the sources, and only if the column still holds `previousSources` is the raw column value that was
+    * read.
+    */
+  def updateMediaSourcesIfUnchangedQuery(dbMediaData: DBMediaData, previousSources: String): Update0 =
+    sql"UPDATE media SET media_sources = ${dbMediaData.media_sources.asJson.noSpaces} WHERE media_name = ${dbMediaData.media_name} AND media_sources = $previousSources;".update
+
+  private enum FileIdUpdate {
+    case NotFound, Unchanged, Conflict
+    case Updated(sources: List[Either[String, Uri]])
+  }
 
   def getMediaQueryByName(resourceName: String): Query0[DBMediaData] =
     sql"SELECT media_name, bot_id, kinds, mime_type, media_sources, media_count, created_at FROM media WHERE media_name = $resourceName"
