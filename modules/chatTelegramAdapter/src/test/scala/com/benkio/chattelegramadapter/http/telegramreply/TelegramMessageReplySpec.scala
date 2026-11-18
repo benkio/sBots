@@ -7,6 +7,7 @@ import cats.syntax.all.*
 import com.benkio.chatcore.mocks.NotifierMock.given
 import com.benkio.chatcore.mocks.RepositoryMock
 import com.benkio.chatcore.model.media.MediaResource
+import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.reply.Document
 import com.benkio.chatcore.model.reply.GifFile
 import com.benkio.chatcore.model.reply.Markdown
@@ -53,7 +54,11 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
       getResourceFileHandler = mediaFile =>
         IO.raiseUnless(mediaFile.filepath == expectedFilepath)(
           Throwable(s"[repositoryMock] ${mediaFile.filepath} ≠ $expectedFilepath")
-        ).as(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram:test value"))))
+        ).as(
+          Right(
+            NonEmptyList.one(MediaResource.MediaResourceIFile(MediaSource.FileRef(Platform.Telegram, "test value")))
+          )
+        )
     )
 
   private def messageWithFileId(fileId: String, kind: String): TMessage = {
@@ -270,8 +275,12 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
       for {
         calls <- Ref.of[IO, List[(MediaFile, Platform, String)]](List.empty)
         repository = RepositoryMock(
-          getResourceFileHandler =
-            _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram:stored")))),
+          getResourceFileHandler = _ =>
+            IO.pure(
+              Right(
+                NonEmptyList.one(MediaResource.MediaResourceIFile(MediaSource.FileRef(Platform.Telegram, "stored")))
+              )
+            ),
           registerFileIdHandler = (mf, platform, fileId) => calls.update(_ :+ ((mf, platform, fileId)))
         )
         response = messageWithFileId(id, kind)
@@ -298,7 +307,7 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
           IO.pure(
             Right(
               NonEmptyList.of(
-                MediaResource.MediaResourceIFile("telegram:bad-id"),
+                MediaResource.MediaResourceIFile(MediaSource.FileRef(Platform.Telegram, "bad-id")),
                 MediaResource.MediaResourceFile(Repository.toTempFile[IO]("fallback.mp3", "content".getBytes()))
               )
             )
@@ -327,8 +336,10 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
     for {
       calls <- Ref.of[IO, Int](0)
       repository = RepositoryMock(
-        getResourceFileHandler =
-          _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram:stored")))),
+        getResourceFileHandler = _ =>
+          IO.pure(
+            Right(NonEmptyList.one(MediaResource.MediaResourceIFile(MediaSource.FileRef(Platform.Telegram, "stored"))))
+          ),
         registerFileIdHandler = (_, _, _) => calls.update(_ + 1),
         replaceFileIdHandler = (_, _, _, _) => calls.update(_ + 1)
       )
@@ -346,8 +357,10 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
     for {
       calls <- Ref.of[IO, Int](0)
       repository = RepositoryMock(
-        getResourceFileHandler =
-          _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram:stored")))),
+        getResourceFileHandler = _ =>
+          IO.pure(
+            Right(NonEmptyList.one(MediaResource.MediaResourceIFile(MediaSource.FileRef(Platform.Telegram, "stored"))))
+          ),
         registerFileIdHandler = (_, _, _) => calls.update(_ + 1) >> IO.raiseError(new RuntimeException("db down"))
       )
       sent <- sendPattern(mediaFile = mp3, repository = repository, sendFileAPIMethod = (_, _, _) => IO.pure(response))

@@ -4,6 +4,7 @@ import cats.effect.IO
 import cats.effect.Resource
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.model.media.MediaFileSource
+import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.MimeType
 import com.benkio.chatcore.model.SBotInfo
@@ -103,7 +104,7 @@ class DataEntrySpec extends CatsEffectSuite {
         filename = "rphjb_new_mega.mp3",
         kinds = List.empty,
         mime = MimeType.MPEG,
-        sources = List(Right(uri"https://mega.nz/file/abc#def"))
+        sources = List(MediaSource.Url(uri"https://mega.nz/file/abc#def"))
       )
     )
 
@@ -114,7 +115,7 @@ class DataEntrySpec extends CatsEffectSuite {
     val input = List("https://example.com/rphjb_new_c.mp3?rlkey=test&dl=0")
     assertIO(
       DataEntry.parseInput(input).map(_.head.sources.headOption),
-      Some(Right(uri"https://example.com/rphjb_new_c.mp3?rlkey=test&dl=1"))
+      Some(MediaSource.Url(uri"https://example.com/rphjb_new_c.mp3?rlkey=test&dl=1"))
     )
   }
 }

@@ -15,7 +15,7 @@ final case class MediaFileSource(
     filename: String,
     kinds: List[String],
     mime: MimeType,
-    sources: List[Either[String, Uri]]
+    sources: List[MediaSource]
 ) {
   val botId: SBotId = SBotId(filename.takeWhile(_ != '_'))
 }
@@ -38,29 +38,16 @@ object MediaFileSource {
       filename = filename,
       kinds = List.empty,
       mime = MimeTypeOps.mimeTypeOrDefault(filename, None),
-      sources = List(Right(uri))
+      sources = List(MediaSource.Url(uri))
     )
 
   // Decoder //////////////////////////////////////////////////////////////////
-  given Decoder[Either[String, Uri]] with {
-    def apply(c: HCursor): Decoder.Result[Either[String, Uri]] =
-      c.as[String].map { str =>
-        Uri
-          .fromString(str)
-          .leftMap(_ => str)
-          .flatMap { uri =>
-            val isHttpUri = uri.scheme.exists(s => s.value == "http" || s.value == "https") && uri.host.isDefined
-            if isHttpUri then Right(uri) else Left(str)
-          }
-      }
-  }
-
   given Decoder[MediaFileSource] =
     new Decoder[MediaFileSource] {
       final def apply(c: HCursor): Decoder.Result[MediaFileSource] =
         for {
           filename <- c.downField("filename").as[String]
-          sources  <- c.downField("sources").as[List[Either[String, Uri]]]
+          sources  <- c.downField("sources").as[List[MediaSource]]
           mime     <- c.downField("mime").as[Option[String]]
           kinds    <- c.downField("kinds").as[Option[List[String]]]
         } yield {
@@ -74,9 +61,6 @@ object MediaFileSource {
     }
 
   // Encoder //////////////////////////////////////////////////////////////////
-  given Encoder[Either[String, Uri]] =
-    encodeString.contramap(_.fold(identity, _.toString))
-
   given Encoder[MimeType]        = encodeString.contramap(_.show)
   given Encoder[MediaFileSource] = deriveEncoder
 

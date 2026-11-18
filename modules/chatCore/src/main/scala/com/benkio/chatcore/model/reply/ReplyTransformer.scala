@@ -1,6 +1,7 @@
 package com.benkio.chatcore.model.reply
 
 import com.benkio.chatcore.conversions.MarkdownConversions
+import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.MarkdownSupport
 import com.benkio.chatcore.model.PlatformCapabilities
 import org.http4s.Uri
@@ -47,13 +48,14 @@ object ReplyTransformer {
       values: List[ReplyValue]
   ): List[ReplyValue] = values.flatMap(transform(capabilities, mediaLink))
 
-  /** The media sources that the platform can use: the ones that are not an url (`Left`, references to files already
-    * uploaded to a platform) only if the platform accepts them.
+  /** The media sources that the platform can use: the urls, and the references to files already uploaded to the
+    * platform itself, if it accepts them.
     */
-  def usableSources(capabilities: PlatformCapabilities)(
-      sources: List[Either[String, Uri]]
-  ): List[Either[String, Uri]] =
-    if capabilities.acceptsFileIds then sources else sources.filter(_.isRight)
+  def usableSources(capabilities: PlatformCapabilities)(sources: List[MediaSource]): List[MediaSource] =
+    sources.filter {
+      case MediaSource.Url(_)               => true
+      case MediaSource.FileRef(platform, _) => capabilities.acceptsFileIds && platform == capabilities.platform
+    }
 
   /** The message can only be deleted after its time to live if the platform supports the deletion. */
   private def timeToLive(capabilities: PlatformCapabilities, ttl: Option[FiniteDuration]): Option[FiniteDuration] =

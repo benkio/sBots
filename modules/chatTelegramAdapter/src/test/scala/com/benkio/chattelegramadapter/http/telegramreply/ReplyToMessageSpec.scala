@@ -5,6 +5,7 @@ import cats.effect.IO
 import com.benkio.chatcore.mocks.NotifierMock.given
 import com.benkio.chatcore.mocks.RepositoryMock
 import com.benkio.chatcore.model.media.MediaResource
+import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.reply.Markdown
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.PagedList
@@ -12,6 +13,7 @@ import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageId
+import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.Logger.given
 import com.benkio.chattelegramadapter.conversions.MessageConversions.replyParameters
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.TelegramMessageReply
@@ -33,7 +35,10 @@ class ReplyToMessageSpec extends CatsEffectSuite {
   private val withoutId: Message = message(None)
 
   private val repository = RepositoryMock(getResourceFileHandler =
-    _ => IO.pure(Right(NonEmptyList.one(MediaResource.MediaResourceIFile("telegram:a file id"))))
+    _ =>
+      IO.pure(
+        Right(NonEmptyList.one(MediaResource.MediaResourceIFile(MediaSource.FileRef(Platform.Telegram, "a file id"))))
+      )
   )
 
   private val values: List[(String, ReplyValue)] = List(

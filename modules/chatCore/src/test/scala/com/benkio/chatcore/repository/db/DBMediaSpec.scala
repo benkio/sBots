@@ -1,6 +1,7 @@
 package com.benkio.chatcore.repository.db
 
 import com.benkio.chatcore.model.media.Media
+import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.MimeType
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import munit.*
@@ -17,7 +18,7 @@ class DBMediaSpec extends FunSuite {
       botId = SBotId("botid"),
       kinds = List("kind"),
       mimeType = MimeType.MP4,
-      mediaSources = List(Right(uri"http://something.com")),
+      mediaSources = List(MediaSource.Url(uri"http://something.com")),
       mediaCount = 0,
       createdAt = now
     )

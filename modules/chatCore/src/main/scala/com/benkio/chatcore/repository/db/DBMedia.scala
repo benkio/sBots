@@ -4,7 +4,7 @@ import cats.effect.*
 import cats.effect.syntax.monadCancel.*
 import cats.implicits.*
 import com.benkio.chatcore.model.media.Media
-import com.benkio.chatcore.model.media.MediaFileSource.given
+import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.media.MediaSources
 import com.benkio.chatcore.model.MimeTypeOps.given
 import com.benkio.chatcore.model.SBotInfo.SBotId
@@ -13,7 +13,6 @@ import doobie.implicits.*
 import io.chrisdavenport.mules.*
 import io.circe.syntax.*
 import log.effect.LogWriter
-import org.http4s.Uri
 
 import scala.concurrent.duration.*
 
@@ -219,7 +218,7 @@ object DBMedia {
         filename: String,
         platform: com.benkio.chatcore.model.Platform,
         operation: String
-    )(transform: List[Either[String, Uri]] => List[Either[String, Uri]]): F[Unit] = {
+    )(transform: List[MediaSource] => List[MediaSource]): F[Unit] = {
       val maxAttempts = 10
 
       def step: ConnectionIO[FileIdUpdate] =
@@ -298,7 +297,7 @@ object DBMedia {
 
   private enum FileIdUpdate {
     case NotFound, Unchanged, Conflict
-    case Updated(sources: List[Either[String, Uri]])
+    case Updated(sources: List[MediaSource])
   }
 
   def getMediaQueryByName(resourceName: String): Query0[DBMediaData] =

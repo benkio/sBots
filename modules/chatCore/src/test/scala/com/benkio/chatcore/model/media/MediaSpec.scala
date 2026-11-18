@@ -1,6 +1,8 @@
 package com.benkio.chatcore.model.media
 
+import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.MimeType
+import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBMediaData
 import munit.*
@@ -16,7 +18,7 @@ class MediaSpec extends FunSuite {
       botId = SBotId("botid"),
       kinds = List.empty,
       mimeType = MimeType.MP4,
-      mediaSources = List(Right(uri"https://benkio.github.io")),
+      mediaSources = List(MediaSource.Url(uri"https://benkio.github.io")),
       mediaCount = 0,
       createdAt = Instant.parse("2022-11-01T12:54:23Z")
     )
@@ -29,7 +31,7 @@ class MediaSpec extends FunSuite {
       bot_id = "rphjb",
       kinds = """"[\"kind\"]"""",
       media_sources =
-        """"[\"CQACAgQAAxkBAAEC15xnn5dbOnZ6NOodXkiKvxMsJrHqVAACjRgAAjmJAVFDx6HUqYYeWzYE\",\"https://www.dropbox.com/scl/fi/hjonp4gt8jqjgpnqf6wgh/rphjb_Animali.mp3?rlkey=oy88fu1htok2npygddon3q5oz&dl=1\"]"""",
+        """"[\"telegram:CQACAgQAAxkBAAEC15xnn5dbOnZ6NOodXkiKvxMsJrHqVAACjRgAAjmJAVFDx6HUqYYeWzYE\",\"https://www.dropbox.com/scl/fi/hjonp4gt8jqjgpnqf6wgh/rphjb_Animali.mp3?rlkey=oy88fu1htok2npygddon3q5oz&dl=1\"]"""",
       mime_type = "audio/mpeg",
       media_count = 0,
       created_at = "1662126018293"
@@ -48,8 +50,9 @@ class MediaSpec extends FunSuite {
     assert(
       result.map(_.mediaSources) == Right(
         List(
-          Left("CQACAgQAAxkBAAEC15xnn5dbOnZ6NOodXkiKvxMsJrHqVAACjRgAAjmJAVFDx6HUqYYeWzYE"),
-          Right(
+          MediaSource
+            .FileRef(Platform.Telegram, "CQACAgQAAxkBAAEC15xnn5dbOnZ6NOodXkiKvxMsJrHqVAACjRgAAjmJAVFDx6HUqYYeWzYE"),
+          MediaSource.Url(
             uri"https://www.dropbox.com/scl/fi/hjonp4gt8jqjgpnqf6wgh/rphjb_Animali.mp3?rlkey=oy88fu1htok2npygddon3q5oz&dl=1"
           )
         )

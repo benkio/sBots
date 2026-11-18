@@ -1,5 +1,6 @@
 package com.benkio.chattelegramadapter.model
 
+import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.reply.*
 import com.benkio.chatcore.model.MediaKind
 import com.benkio.chatcore.model.Platform
@@ -49,8 +50,10 @@ class TelegramCapabilitiesSpec extends ScalaCheckSuite {
     assertEquals(ReplyTransformer.transform(TelegramCapabilities.value)(text), List(text))
   }
 
-  test("Telegram keeps the sources that are file ids") {
-    val sources = List(Left("telegramFileId"), Right(uri"https://example.com/a.mp3"))
-    assertEquals(ReplyTransformer.usableSources(TelegramCapabilities.value)(sources), sources)
+  test("Telegram keeps its own file ids and the urls") {
+    val own   = MediaSource.FileRef(Platform.Telegram, "telegramFileId")
+    val other = MediaSource.FileRef(Platform.Discord, "discordFileId")
+    val url   = MediaSource.Url(uri"https://example.com/a.mp3")
+    assertEquals(ReplyTransformer.usableSources(TelegramCapabilities.value)(List(own, other, url)), List(own, url))
   }
 }
