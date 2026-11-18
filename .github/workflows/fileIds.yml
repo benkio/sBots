@@ -113,10 +113,7 @@ jobs:
               --title "Refresh Telegram file IDs" --body "$body"
           fi
 
-          # A push made with GITHUB_TOKEN does not trigger the "Scala CI" push workflow, so the required checks would
-          # never report and the PR would stay blocked. Dispatch it explicitly on the branch: the jobs report on the
-          # head commit under the same names the branch protection requires.
-          gh workflow run CI.yml --ref "$branch"
-
-          # Merges only once every required check is green; a failing check leaves the PR open for a human.
+          # Opening/updating the PR triggers "Scala CI" on the pull_request event, which is the run whose checks
+          # GitHub rolls up on the PR. For a PR opened by GITHUB_TOKEN that run waits for one approval from a writer
+          # before starting; the checks then report and auto-merge completes once they are green.
           gh pr merge "$branch" --auto --squash
