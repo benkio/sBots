@@ -15,9 +15,9 @@ import scala.concurrent.duration.FiniteDuration
   */
 final class Throttle[F[_]: Async] private (suppressed: Ref[F, Map[String, Int]], awaitWindow: F[Unit]) {
 
-  /** Runs `send` if `key` is not in a window, otherwise counts it. `summary` gets the count at the end of a window
-    * that suppressed something. The summary runs in the background: its failure is its own, `send` and the caller are
-    * not affected.
+  /** Runs `send` if `key` is not in a window, otherwise counts it. `summary` gets the count at the end of a window that
+    * suppressed something. The summary runs in the background: its failure is its own, `send` and the caller are not
+    * affected.
     */
   def apply(key: String)(send: F[Unit], summary: Int => F[Unit]): F[Unit] =
     suppressed
@@ -35,9 +35,9 @@ final class Throttle[F[_]: Async] private (suppressed: Ref[F, Map[String, Int]],
 
   private def closeWindow(key: String, summary: Int => F[Unit]): F[Unit] =
     awaitWindow >>
-      suppressed.modify(counts => (counts - key, counts.getOrElse(key, 0))).flatMap(count =>
-        summary(count).whenA(count > 0).attempt.void
-      )
+      suppressed
+        .modify(counts => (counts - key, counts.getOrElse(key, 0)))
+        .flatMap(count => summary(count).whenA(count > 0).attempt.void)
 }
 
 object Throttle {
