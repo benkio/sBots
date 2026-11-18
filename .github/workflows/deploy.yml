@@ -30,6 +30,7 @@ jobs:
       WEBHOOK_PUBLIC_HOST: ${{ vars.WEBHOOK_PUBLIC_HOST }}
       DEPLOY_USER: ${{ vars.DEPLOY_USER }}
       DEPLOY_DIR: ${{ vars.DEPLOY_DIR }}
+      TELEGRAM_OPS_CHAT_ID: ${{ vars.TELEGRAM_OPS_CHAT_ID }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -42,7 +43,13 @@ jobs:
       - name: Install Sbt
         uses: sbt/setup-sbt@v1
       - name: Set Secrets & Run Assembly
+        env:
+          HEALTHCHECK_PING_URL: ${{ secrets.HEALTHCHECK_PING_URL }}
         run: |
+          test -n "$TELEGRAM_OPS_CHAT_ID" || { echo "::error::Set the repository variable TELEGRAM_OPS_CHAT_ID (ops chat id)"; exit 1; }
+          test -n "$HEALTHCHECK_PING_URL" || { echo "::error::Set the repository secret HEALTHCHECK_PING_URL (Healthchecks.io ping url)"; exit 1; }
+          sed -i "s|^\( *ops-chat-id = \)0\$|\1$TELEGRAM_OPS_CHAT_ID|" /home/runner/work/sBots/sBots/modules/main/src/main/resources/application.conf
+          sed -i "s|endpoint = \"https://hc-ping.com/placeholder\"|endpoint = \"$HEALTHCHECK_PING_URL\"|" /home/runner/work/sBots/sBots/modules/main/src/main/resources/application.conf
           sed -i 's!\"\.\./botDB\.sqlite3"!\"botDB\.sqlite3\"!g' /home/runner/work/sBots/sBots/modules/main/src/main/resources/application.conf
           sed -i '0,/webhook-base-url = ".*"/s//webhook-base-url = "https:\/\/'"${{ env.WEBHOOK_PUBLIC_HOST }}"':443"/' /home/runner/work/sBots/sBots/modules/main/src/main/resources/application.conf
           cat /home/runner/work/sBots/sBots/modules/main/src/main/resources/application.conf

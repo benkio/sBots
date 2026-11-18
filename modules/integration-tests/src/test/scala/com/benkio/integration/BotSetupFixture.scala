@@ -11,7 +11,6 @@ import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBRepository
 import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.Notifier
-import com.benkio.chattelegramadapter.http.TelegramNotifier
 import com.benkio.chattelegramadapter.initialization.BotSetup
 import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
 import com.benkio.integration.Logger.given
@@ -110,6 +109,6 @@ object BotSetupFixture {
       webhookUri = webhookUri,
       webhookPath = webhookPath,
       sBotConfig = sBotConfig,
-      opsChatId = TelegramNotifier.defaultOpsChatId
+      opsChatId = 0L
     )
 }

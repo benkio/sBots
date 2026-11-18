@@ -15,7 +15,6 @@ import com.benkio.chatcore.repository.db.DBMessageReplies
 import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.Logger.given
 import com.benkio.chatcore.Notifier
-import com.benkio.chattelegramadapter.http.TelegramNotifier
 import com.benkio.chattelegramadapter.initialization.BotSetup
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
 import com.benkio.chattelegramadapter.ISBotWebhook
@@ -105,7 +104,7 @@ object SampleWebhookBot {
         webhookUri = uri"https://localhost",
         webhookPath = uri"/",
         sBotConfig = sBotConfig,
-        opsChatId = TelegramNotifier.defaultOpsChatId
+        opsChatId = 0L
       )
     )
   }
