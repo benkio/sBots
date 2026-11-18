@@ -159,7 +159,7 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
         id
       }
       assertEquals(ids.size, MediaSources.maxFileIds)
-      assertEquals(ids, List("telegram:id-4", "telegram:id-3", "telegram:id-2"))
+      assertEquals(ids, List("id-4", "id-3", "id-2"))
       assert(
         afterSources.contains(MediaSource.FileRef(Platform.Discord, "discord-id")),
         "another platform keeps its own reference"
