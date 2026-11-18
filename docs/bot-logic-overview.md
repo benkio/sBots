@@ -201,9 +201,11 @@ runs the export, and when the bot lists changed, opens a refresh PR from a fresh
 `bot/telegram-file-ids-<run id>-<attempt>` (updating only an existing open refresh PR, never a merged one), with the
 counts of added and removed references. A merged PR's head branch must not be reused: it would edit the merged PR and
 show references already in `main`. The export aborts on untagged references, unknown bot IDs and malformed JSON, so
-nothing is opened in that case. A push with `GITHUB_TOKEN` does not trigger the `Scala CI`
-push workflow, so the workflow dispatches `CI.yml` on the branch (it has `workflow_dispatch` for that) and enables
-auto-merge: the PR merges only when all the required checks pass, and stays open for a human when one fails.
+nothing is opened in that case. A push with `GITHUB_TOKEN` does not trigger the `Scala CI` push workflow, so opening
+the PR triggers `CI.yml` through its `pull_request` trigger instead: only those checks are rolled up on the PR and
+count for branch protection. Because the PR is created by `GITHUB_TOKEN`, GitHub requires one approval from a writer
+for that run: click **Approve** on the waiting workflow run from the PR page. Auto-merge is enabled, so the PR merges
+once all required checks are green and stays open for a human when one fails.
 
 Platforms that do not accept file references (Discord, IRC) keep using only URL sources: their repository is filtered to
 hide other platforms' tagged references, and they do not call the capture APIs. The same shape is checked in two places:
