@@ -197,9 +197,11 @@ the export.
 
 `.github/workflows/fileIds.yml` automates that export. It runs every day at 00:00 UTC and on demand
 (`workflow_dispatch`; the `dry_run` input only reports the diff). It reuses `downloadDB.yml` to fetch the production DB,
-runs the export, and when the bot lists changed, force-pushes the single branch `bot/telegram-file-ids` and opens or
-updates one PR with the counts of added and removed references. The export aborts on untagged references, unknown bot
-IDs and malformed JSON, so nothing is opened in that case. A push with `GITHUB_TOKEN` does not trigger the `Scala CI`
+runs the export, and when the bot lists changed, opens a refresh PR from a fresh branch named
+`bot/telegram-file-ids-<run id>-<attempt>` (updating only an existing open refresh PR, never a merged one), with the
+counts of added and removed references. A merged PR's head branch must not be reused: it would edit the merged PR and
+show references already in `main`. The export aborts on untagged references, unknown bot IDs and malformed JSON, so
+nothing is opened in that case. A push with `GITHUB_TOKEN` does not trigger the `Scala CI`
 push workflow, so the workflow dispatches `CI.yml` on the branch (it has `workflow_dispatch` for that) and enables
 auto-merge: the PR merges only when all the required checks pass, and stays open for a human when one fails.
 
