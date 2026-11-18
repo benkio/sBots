@@ -9,11 +9,12 @@ on:
         required: false
         default: false
   schedule:
-    - cron: "0 6 * * 0"
+    - cron: "0 0 * * *"
 
 permissions:
   contents: write
   pull-requests: write
+  actions: write
 
 jobs:
   download-db:
@@ -92,3 +93,11 @@ jobs:
             gh pr create --base main --head bot/telegram-file-ids \
               --title "Refresh Telegram file IDs" --body "$body"
           fi
+
+          # A push made with GITHUB_TOKEN does not trigger the "Scala CI" push workflow, so the required checks would
+          # never report and the PR would stay blocked. Dispatch it explicitly on the branch: the jobs report on the
+          # head commit under the same names the branch protection requires.
+          gh workflow run CI.yml --ref bot/telegram-file-ids
+
+          # Merges only once every required check is green; a failing check leaves the PR open for a human.
+          gh pr merge bot/telegram-file-ids --auto --squash
