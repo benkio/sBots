@@ -67,28 +67,35 @@ object Runner {
   def runWebhook(registry: BotRegistry[IO])(using log: LogWriter[IO]): IO[ExitCode] =
     (for {
       mainSetup <- MainSetup[IO]()
-      _         <- Resource.eval(
-        HealthcheckPing.healthcheckPing(
-          mainSetup.dbLayer.dbLog,
-          mainSetup.httpClient,
-          mainSetup.healthcheckEndpoint,
-          mainSetup.healthcheckCron
-        )
-      )
-      running <- GeneralErrorHandling.dbLogAndDie[IO, IO[Unit]](
+      _         <- Resource.eval(heartbeat(mainSetup))
+      running   <- GeneralErrorHandling.dbLogAndDie[IO, IO[Unit]](
         mainSetup.dbLayer.dbLog,
-        start(registry = registry, runtimes = runtimes(RunMode.Webhook), mainSetup = mainSetup)
+        start(registry = registry, runtimes = runtimes(RunMode.Webhook), mainSetup = mainSetup),
+        onError = signalFailure(mainSetup)
       )
     } yield running).use(identity).as(ExitCode.Success)
 
   /** The bots ask the platform for their messages, no HTTP server. An error is logged and is the exit code. */
   def runPolling(registry: BotRegistry[IO])(using log: LogWriter[IO]): IO[ExitCode] =
     MainSetup[IO]().use { mainSetup =>
-      GeneralErrorHandling.dbLogAndDie(
+      heartbeat(mainSetup) >> GeneralErrorHandling.dbLogAndDie(
         mainSetup.dbLayer.dbLog,
         start(registry = registry, runtimes = runtimes(RunMode.Polling), mainSetup = mainSetup)
           .use(identity)
-          .as(ExitCode.Success)
+          .as(ExitCode.Success),
+        onError = signalFailure(mainSetup)
       )
     }
+
+  /** Signals the boot to the health check and keeps the heartbeat going, in every mode. */
+  private def heartbeat(mainSetup: MainSetup[IO])(using log: LogWriter[IO]): IO[Unit] =
+    HealthcheckPing.healthcheckPing(
+      mainSetup.dbLayer.dbLog,
+      mainSetup.httpClient,
+      mainSetup.healthcheckEndpoint,
+      mainSetup.healthcheckCron
+    )
+
+  private def signalFailure(mainSetup: MainSetup[IO])(reason: String)(using log: LogWriter[IO]): IO[Unit] =
+    HealthcheckPing.fail(mainSetup.httpClient, mainSetup.healthcheckEndpoint, reason)
 }
