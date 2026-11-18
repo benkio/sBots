@@ -17,15 +17,19 @@ object NotifierMock {
   /** A notifier that records the notifications. */
   final class RecordingNotifier(
       val infos: Ref[IO, List[(SBotInfo, String)]],
-      val mediaErrors: Ref[IO, List[MediaError]]
+      val mediaErrors: Ref[IO, List[MediaError]],
+      val errors: Ref[IO, List[(SBotInfo, String, Throwable)]]
   ) extends Notifier[IO] {
     override def info(sBotInfo: SBotInfo, message: String): IO[Unit] = infos.update(_ :+ (sBotInfo -> message))
     override def mediaError(message: Message, mediaFile: MediaFile, error: Throwable): IO[Unit] =
       mediaErrors.update(_ :+ MediaError(message, mediaFile, error))
+    override def error(sBotInfo: SBotInfo, context: String, error: Throwable): IO[Unit] =
+      errors.update(_ :+ ((sBotInfo, context, error)))
   }
 
   def recording: IO[RecordingNotifier] = for {
     infos       <- Ref.of[IO, List[(SBotInfo, String)]](List.empty)
     mediaErrors <- Ref.of[IO, List[MediaError]](List.empty)
-  } yield new RecordingNotifier(infos, mediaErrors)
+    errors      <- Ref.of[IO, List[(SBotInfo, String, Throwable)]](List.empty)
+  } yield new RecordingNotifier(infos, mediaErrors, errors)
 }

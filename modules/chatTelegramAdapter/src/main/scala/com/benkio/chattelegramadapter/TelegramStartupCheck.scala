@@ -62,6 +62,8 @@ object TelegramStartupCheck {
         override def info(sBotInfo: SBotInfo, message: String): F[Unit] = setup.notifier.info(sBotInfo, message)
         override def mediaError(message: Message, mediaFile: MediaFile, error: Throwable): F[Unit] =
           reported.set(Some(error)) *> setup.notifier.mediaError(message, mediaFile, error)
+        override def error(sBotInfo: SBotInfo, context: String, error: Throwable): F[Unit] =
+          setup.notifier.error(sBotInfo, context, error)
       }
       for {
         _    <- Methods.sendChatAction(ChatIntId(setup.opsChatId), "upload_video").exec(using setup.api).void

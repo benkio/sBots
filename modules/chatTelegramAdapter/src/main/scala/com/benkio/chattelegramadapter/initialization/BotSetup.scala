@@ -25,6 +25,7 @@ import telegramium.bots.high.Api
 import telegramium.bots.high.BotApi
 
 import java.nio.file.Path
+import scala.concurrent.duration.*
 
 final case class BotSetup[F[_]](
     token: String,
@@ -42,6 +43,9 @@ final case class BotSetup[F[_]](
 )
 
 object BotSetup {
+
+  /** The same error of a bot is notified once in this window, followed by how many more there were. */
+  private val NotifierWindow: FiniteDuration = 5.minutes
 
   enum BotSetupError(msg: String) extends Throwable(msg) {
     case TokenNotFound(tokenFilename: String) extends BotSetupError(s"[BotSetup] Cannot find the token $tokenFilename")
@@ -124,7 +128,9 @@ object BotSetup {
         httpClient,
         baseUrl = baseUrl.renderString
       )
-      notifier = new TelegramNotifier[F](opsChatId)(using Async[F], api, log)
+      notifier <- Resource.eval(
+        Notifier.resilient[F](new TelegramNotifier[F](opsChatId)(using Async[F], api, log), NotifierWindow)
+      )
       backgroundJobManager <- Resource.eval(
         TelegramBackgroundJobManager[F](
           repository = repository,

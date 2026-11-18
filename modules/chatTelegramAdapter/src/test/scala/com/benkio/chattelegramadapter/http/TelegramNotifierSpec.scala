@@ -109,4 +109,38 @@ class TelegramNotifierSpec extends CatsEffectSuite {
     } yield assertEquals(sentMessages(calls).size, 1)
   }
 
+  test("error sends what the bot was doing and the error to the chat of the operators") {
+    val error = new RuntimeException("boom")
+    for {
+      apiAndRecording <- PayloadRecordingApi()
+      (api, recorded) = apiAndRecording
+      _     <- notifierOver(api).error(botInfo, "the cron job", error)
+      calls <- recorded
+    } yield {
+      val sent = sentMessages(calls)
+      assertEquals(sent.size, 1)
+      assertEquals(sent.head.hcursor.downField("chat_id").as[Long], Right(opsChatId))
+      assertEquals(
+        sent.head.hcursor.downField("text").as[String],
+        Right(Notifier.formatError(botInfo, "the cron job", error))
+      )
+    }
+  }
+
+  test("error does not send the 400 of a chat where the bot has no rights, nor an error of a missing file") {
+    for {
+      apiAndRecording <- PayloadRecordingApi()
+      (api, recorded) = apiAndRecording
+      notifier        = notifierOver(api)
+      _ <- notifier.error(
+        botInfo,
+        "a reply",
+        new RuntimeException(
+          "method=sendAnimation code=400 description=Bad Request: not enough rights to send animations"
+        )
+      )
+      _     <- notifier.error(botInfo, "a reply", RepositoryError.NoResourcesFoundFile(mediaFile))
+      calls <- recorded
+    } yield assertEquals(sentMessages(calls), List.empty[Json])
+  }
 }
