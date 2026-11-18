@@ -4,17 +4,11 @@ on:
   push:
     branches:
         - "**"
-  # The file-ID refresh pushes with GITHUB_TOKEN, which does not trigger the push event. A pull_request event does
-  # create a run for a GITHUB_TOKEN-created PR (it needs one approval from a writer), and unlike a manual dispatch its
-  # checks are rolled up on the PR, so branch protection and auto-merge can see them. Only the bot's PRs use it: other
-  # PRs already get CI from the push event, and skipped checks count as passing for branch protection.
-  pull_request:
   # Kept for the other workflows that dispatch CI explicitly (e.g. showUpdate.yml).
   workflow_dispatch:
 
 jobs:
   typescriptCode:
-    if: github.event_name != 'pull_request' || startsWith(github.head_ref, 'bot/telegram-file-ids')
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -30,7 +24,6 @@ jobs:
         npm run test
   # Each Scala job can be re-run on its own ("Re-run failed jobs"): a flaky one doesn't redo the others.
   scalaCheck:
-    if: github.event_name != 'pull_request' || startsWith(github.head_ref, 'bot/telegram-file-ids')
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v5
@@ -42,7 +35,6 @@ jobs:
         echo this workflow was triggered by ${{github.actor}}
         sbt "check; checkInstructions"
   scalaUnitTests:
-    if: github.event_name != 'pull_request' || startsWith(github.head_ref, 'bot/telegram-file-ids')
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v5
@@ -50,7 +42,6 @@ jobs:
     - name: Unit tests with coverage
       run: sbt "dbSetup; generateTriggerDocumentation; generateCalendar; coverage; test; coverageAggregate; coverageOff"
   scalaIntegrationTests:
-    if: github.event_name != 'pull_request' || startsWith(github.head_ref, 'bot/telegram-file-ids')
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v5
@@ -58,7 +49,6 @@ jobs:
     - name: Integration tests
       run: sbt "dbSetup; integration/mUnitTests"
   scalaAssembly:
-    if: github.event_name != 'pull_request' || startsWith(github.head_ref, 'bot/telegram-file-ids')
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v5
@@ -66,7 +56,6 @@ jobs:
     - name: Assembly
       run: sbt assembly
   dbMigration:
-    if: github.event_name != 'pull_request' || startsWith(github.head_ref, 'bot/telegram-file-ids')
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v5

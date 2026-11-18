@@ -9,10 +9,9 @@ are merged back into the repository `*_list.json` files through a PR.
   input to only report). It downloads the prod DB, runs the export, and opens a refresh PR from a fresh branch
   (`bot/telegram-file-ids-<run id>-<attempt>`), reusing only an existing **open** refresh PR, and enables auto-merge.
   Never reuse a merged PR's branch: it would edit the merged PR and its diff would show references already in `main`.
-  With the `APP_CLIENT_ID` variable and `APP_PRIVATE_KEY` secret configured, the push and PR are made by a GitHub App:
-  the push triggers `push` CI, the PR needs no run approval, and auto-merge completes unattended. Without them the
-  workflow falls back to `GITHUB_TOKEN`: that push does not trigger `push` CI, so `CI.yml` runs on the `pull_request`
-  event instead, and GitHub requires one **Approve** click on that run from a writer before it starts.
+  The `APP_CLIENT_ID` variable and `APP_PRIVATE_KEY` secret are required: the push and PR are made by a GitHub App, so
+  the push triggers the normal `push` CI, no run approval is needed, and auto-merge completes unattended. A push made
+  with the built-in `GITHUB_TOKEN` would trigger neither `push` CI nor an approval-free `pull_request` run.
 - Locally, with a downloaded `botDB.sqlite3`: `scala-cli scripts/ExportFileIds.scala -- --check` (diff) or `--write`.
 - Tests of the tool: `scala-cli test scripts/ExportFileIds.scala`.
 
