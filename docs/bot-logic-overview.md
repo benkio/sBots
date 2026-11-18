@@ -202,7 +202,9 @@ updates one PR with the counts of added and removed references. Set the `dry_run
 is always reviewed by a human; the weekly schedule and any auto-merge are deliberately left off.
 
 Platforms that do not accept file references (Discord, IRC) keep using only URL sources: their repository is filtered to
-hide other platforms' tagged references, and they do not call the capture APIs.
+hide other platforms' tagged references, and they do not call the capture APIs. The same shape is checked in two places:
+`FileIdSourcesSpec` (Scala, CI) and the source schema of `filesCheck` (`MediaListSchema.ts`): a source is an url or
+`<platform id>:<reference>`.
 
 ### Discord gateway
 
@@ -345,7 +347,8 @@ Limitations:
 
 ### Known gaps
 
-- Discord and IRC do not capture their own file references yet (milestone M4); they keep using only URL sources.
+- Only Telegram reuses file references. Discord has no send-by-reference (an upload gives an attachment id and a signed
+  CDN url that expires), so Discord and IRC keep using only URL sources; Slack reuse is tracked in #1477.
 - A platform without buttons shows only the requested page of a `PagedList`: there is no page argument yet.
 - The help texts of the commands write `/command`, whatever the syntax of the platform.
 
@@ -354,7 +357,9 @@ Limitations:
 The repository resolves each media file to one or more candidate sources. Sources can be either:
 
 - `Right(Uri)` -> remote URL (Mega/Dropbox), fetched to temp file
-- `Left(String)` -> Telegram reusable file reference (mapped to `MediaResourceIFile`)
+- `Left(String)` -> reusable file reference tagged with its platform as `<platform.id>:<id>` (for example
+  `telegram:AwACAgQ…`). Only a reference of the asking platform is kept by `repository.usableFor`, and it is mapped to
+  `MediaResourceIFile`; an untagged string is not usable
 
 ```mermaid
 flowchart TD

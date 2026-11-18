@@ -10,6 +10,7 @@ import com.benkio.chatcore.repository.db.DBMedia
 import com.benkio.chatcore.repository.db.DBMediaData
 import com.benkio.chattelegramadapter.SBot
 import com.benkio.integration.DBFixture
+import com.benkio.integration.WarnLogger.given
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import com.benkio.XahLeeBot.XahLeeBot
 import doobie.implicits.*
@@ -99,7 +100,13 @@ class ITDBMediaSpec extends CatsEffectSuite with DBFixture with IOChecker {
       _       <- Resource.make(dbMedia.insertMedia(row))(_ =>
         sql"DELETE FROM media WHERE media_name = $filename".update.run.transact(transactor).void
       )
-      _     <- Resource.eval(platforms.parTraverse_(p => dbMedia.registerFileId(filename, p, s"${p.id}-id")))
+      // Like in production, every writer has its own connection (the fixture shares a single one).
+      writers <- Resource.eval(
+        platforms.traverse(_ =>
+          DBMedia[IO](Transactor.fromDriverManager[IO]("org.sqlite.JDBC", DBFixture.dbUrl, "", "", None))
+        )
+      )
+      _ <- Resource.eval(writers.zip(platforms).parTraverse_((w, p) => w.registerFileId(filename, p, s"${p.id}-id")))
       after <- Resource.eval(dbMedia.getMedia(filename = filename, cache = false))
     } yield {
       val sources = Media(after.get).toOption.get.mediaSources
