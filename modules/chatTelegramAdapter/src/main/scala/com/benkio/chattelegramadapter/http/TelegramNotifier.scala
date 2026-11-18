@@ -29,4 +29,11 @@ final class TelegramNotifier[F[_]: Async](opsChatId: Long)(using api: Api[F], lo
     log.warn(formatted).whenA(Notifier.isMissingRights(error)) *>
       sendText(formatted).whenA(Notifier.isReportable(error))
   }
+
+  override def error(sBotInfo: SBotInfo, context: String, error: Throwable): F[Unit] = {
+    val formatted = Notifier.formatError(sBotInfo = sBotInfo, context = context, error = error)
+    // Same filter as the media errors: no rights in the chat is only logged, what the user can cause is skipped
+    log.warn(formatted).whenA(Notifier.isMissingRights(error)) *>
+      sendText(formatted).whenA(Notifier.isReportable(error))
+  }
 }
