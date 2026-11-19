@@ -91,7 +91,7 @@ object StartupCheck {
 
   /** The DB answers a read. */
   def dbRead[F[_]: Sync](dbLayer: DBLayer[F]): Probe[F] =
-    Probe("DB read", dbLayer.dbLog.getLastLog().void)
+    Probe("DB read", dbLayer.dbShow.getShowById("startup-check-probe").void)
 
   /** The host answers over HTTPS: any HTTP status counts, what is checked is the DNS, the TLS and the connection.
     *

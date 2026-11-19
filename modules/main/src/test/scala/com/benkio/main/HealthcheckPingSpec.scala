@@ -2,8 +2,6 @@ package com.benkio.main
 
 import cats.effect.kernel.Ref
 import cats.effect.IO
-import com.benkio.chatcore.repository.db.DBLog
-import com.benkio.chatcore.repository.db.DBLogData
 import com.benkio.chatcore.Logger.given
 import fs2.Stream
 import munit.CatsEffectSuite
@@ -21,11 +19,7 @@ import scala.concurrent.duration.*
 
 class HealthcheckPingSpec extends CatsEffectSuite {
 
-  test("sendHealthcheckEndpoint should POST latest log and return true on success") {
-    val dbLog = new DBLog[IO] {
-      override def writeLog(logMessage: String): IO[Unit] = IO.unit
-      override def getLastLog(): IO[Option[DBLogData]]    = IO.pure(Some(DBLogData(123L, "all good")))
-    }
+  test("sendHealthcheckEndpoint should POST the heartbeat and return true on success") {
     val endpoint = uri"https://healthcheck.local/ping"
 
     val result = for {
@@ -37,7 +31,7 @@ class HealthcheckPingSpec extends CatsEffectSuite {
         } yield Response[IO](Status.Ok)
       }
       client = Client.fromHttpApp[IO](app)
-      isSuccessful <- HealthcheckPing.sendHealthcheckEndpoint[IO](dbLog, client, endpoint)
+      isSuccessful <- HealthcheckPing.sendHealthcheckEndpoint[IO](client, endpoint)
       requestData  <- captured.get
     } yield (isSuccessful, requestData)
 
@@ -45,21 +39,17 @@ class HealthcheckPingSpec extends CatsEffectSuite {
       assert(isSuccessful)
       assertEquals(requestData.map(_._1), Some(Method.POST))
       assertEquals(requestData.map(_._2), Some(endpoint))
-      assertEquals(requestData.map(_._3), Some("Latest log: Some(DBLogData(123,all good))"))
+      assertEquals(requestData.map(_._3), Some("Heartbeat"))
     }
   }
 
   test("sendHealthcheckEndpoint should return false on non successful response") {
-    val dbLog = new DBLog[IO] {
-      override def writeLog(logMessage: String): IO[Unit] = IO.unit
-      override def getLastLog(): IO[Option[DBLogData]]    = IO.pure(None)
-    }
     val endpoint = uri"https://healthcheck.local/ping"
     val client   = Client.fromHttpApp[IO](HttpApp[IO] { (_: Request[IO]) =>
       IO.pure(Response[IO](Status.InternalServerError))
     })
 
-    val result = HealthcheckPing.sendHealthcheckEndpoint[IO](dbLog, client, endpoint)
+    val result = HealthcheckPing.sendHealthcheckEndpoint[IO](client, endpoint)
     assertIO(result, false)
   }
 

@@ -3,7 +3,6 @@ package com.benkio.main
 import cats.effect.implicits.*
 import cats.effect.Async
 import cats.implicits.*
-import com.benkio.chatcore.repository.db.DBLog
 import cron4s.CronExpr
 import eu.timepit.fs2cron.cron4s.Cron4sScheduler
 import fs2.Stream
@@ -23,13 +22,12 @@ object HealthcheckPing {
 
   /** Signals the boot and starts the heartbeat in the background: it is started again after an error. */
   def healthcheckPing[F[_]: Async](
-      dbLog: DBLog[F],
       client: Client[F],
       healthcheckEndpoint: Uri,
       healthcheckCron: CronExpr
   )(using log: LogWriter[F]): F[Unit] = {
     val ticks = Cron4sScheduler.systemDefault[F].awakeEvery(healthcheckCron).void
-    val ping  = sendHealthcheckEndpoint(dbLog = dbLog, client = client, healthcheckEndpoint = healthcheckEndpoint).void
+    val ping  = sendHealthcheckEndpoint(client = client, healthcheckEndpoint = healthcheckEndpoint).void
     start(client, healthcheckEndpoint) >>
       resilient(ticks = ticks, ping = ping, restartDelay = restartDelay).compile.drain.start.void
   }
@@ -48,17 +46,10 @@ object HealthcheckPing {
           resilient(ticks = ticks, ping = ping, restartDelay = restartDelay)
       )
 
-  def sendHealthcheckEndpoint[F[_]: Async](dbLog: DBLog[F], client: Client[F], healthcheckEndpoint: Uri): F[Boolean] =
-    dbLog
-      .getLastLog()
-      .flatMap(latestLogMessage =>
-        client.successful(
-          Request(
-            method = Method.POST,
-            uri = healthcheckEndpoint
-          ).withEntity(s"Latest log: $latestLogMessage")
-        )
-      )
+  def sendHealthcheckEndpoint[F[_]](client: Client[F], healthcheckEndpoint: Uri): F[Boolean] =
+    client.successful(
+      Request[F](method = Method.POST, uri = healthcheckEndpoint).withEntity("Heartbeat")
+    )
 
   /** The application is booting. */
   def start[F[_]: Async](client: Client[F], healthcheckEndpoint: Uri)(using log: LogWriter[F]): F[Unit] =
