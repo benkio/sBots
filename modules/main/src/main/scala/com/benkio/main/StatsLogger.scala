@@ -1,7 +1,7 @@
 package com.benkio.main
 
-import cats.effect.Async
 import cats.effect.syntax.all.*
+import cats.effect.Async
 import cats.effect.Sync
 import cats.syntax.all.*
 import com.benkio.chatcore.UsageStats
