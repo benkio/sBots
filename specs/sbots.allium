@@ -379,8 +379,6 @@ rule DataEntryRejectsInvalidInput {
         or inputs.any(i => not (is_plain_url(i) or is_named_url(i)))
 
     -- nothing is written when an input or a file is invalid, the replies file included
-    -- known defect: the list file is written before the replies file is parsed, so an unparsable replies file leaves a
-    -- half-applied run
     ensures: DataEntryRun.created(bot: bot, inputs: inputs, status: failed)
 }
 
