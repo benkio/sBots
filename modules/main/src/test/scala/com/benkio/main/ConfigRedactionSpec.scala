@@ -2,8 +2,8 @@ package com.benkio.main
 
 import cron4s.Cron
 import munit.FunSuite
-import org.http4s.Uri
 import org.http4s.syntax.literals.*
+import org.http4s.Uri
 
 class ConfigRedactionSpec extends FunSuite {
 
