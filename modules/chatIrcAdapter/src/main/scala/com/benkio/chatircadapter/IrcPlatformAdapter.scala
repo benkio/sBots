@@ -2,7 +2,6 @@ package com.benkio.chatircadapter
 
 import cats.effect.Async
 import cats.syntax.all.*
-import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.model.reply.EffectfulReply
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.Message
@@ -11,6 +10,7 @@ import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chatcore.ComputeReply
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.Notifier
 import com.benkio.chatcore.PlatformAdapter
 import com.benkio.chatircadapter.model.IrcCapabilities

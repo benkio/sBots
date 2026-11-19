@@ -171,7 +171,7 @@ class BotEngine[F[_]: Async: LogWriter](
     )
 
   private def handleMessage(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = for {
-    _ <- LogWriter.info(s"${sBotConfig.sBotInfo.botName}: A message arrived with content: ${msg.text}")
+    _       <- LogWriter.info(s"${sBotConfig.sBotInfo.botName}: A message arrived with content: ${msg.text}")
     replied <- botLogic(msg)
     // the last interaction (what the chat timeout is measured from) is logged only after a reply
     _ <- postComputation(msg).whenA(replied)

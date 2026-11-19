@@ -2,14 +2,13 @@ package com.benkio.chattelegramadapter.http.telegramreply.messagereply
 
 import cats.effect.*
 import cats.syntax.all.*
-import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.messagefiltering.RandomSelection
 import com.benkio.chatcore.model.reply.EffectfulKey
-import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.EffectfulKeyRunner
 import com.benkio.chatcore.Notifier
 import com.benkio.chattelegramadapter.model.TelegramCapabilities

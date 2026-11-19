@@ -6,7 +6,6 @@ import cats.effect.Async
 import cats.effect.Deferred
 import cats.effect.Resource
 import cats.syntax.all.*
-import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.initialization.BotCoreSetup
 import com.benkio.chatcore.model.reply.ReplyValue
@@ -16,6 +15,7 @@ import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.repository.ResourcesRepository
 import com.benkio.chatcore.BotEngine
 import com.benkio.chatcore.CronBackgroundJobManager
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.Notifier
 import com.benkio.chatircadapter.connection.IrcConfig
 import com.benkio.chatircadapter.connection.IrcConnection

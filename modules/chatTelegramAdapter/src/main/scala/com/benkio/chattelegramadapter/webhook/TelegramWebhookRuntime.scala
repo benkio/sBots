@@ -3,11 +3,9 @@ package com.benkio.chattelegramadapter.webhook
 import cats.effect.std.Random
 import cats.effect.Async
 import cats.effect.Resource
-import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.model.reply.ReplyValue
-import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chattelegramadapter.initialization.BotSetup
 import com.benkio.chattelegramadapter.SBotWebhook
 import log.effect.LogWriter

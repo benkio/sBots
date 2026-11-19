@@ -129,8 +129,8 @@ class CommandPatternsCommandsSpec extends CatsEffectSuite {
   }
 
   test("Unsubscribe command by id should not cancel a subscription of another chat") {
-    val manager     = BackgroundJobManagerMock.mock()
-    val otherChatId = TestIds.chatId(999L)
+    val manager               = BackgroundJobManagerMock.mock()
+    val otherChatId           = TestIds.chatId(999L)
     val otherChatSubscription = Subscription(
       id = SubscriptionId(UUID.fromString("B674CCE0-9684-4D31-8CC7-9E2A41EA0879")),
       chatId = otherChatId,
@@ -140,7 +140,7 @@ class CommandPatternsCommandsSpec extends CatsEffectSuite {
     )
 
     val result = for {
-      _ <- manager.scheduleSubscription(otherChatSubscription)
+      _                 <- manager.scheduleSubscription(otherChatSubscription)
       unsubscribeResult <- CommandPatterns.SubscribeUnsubscribeCommand
         .unsubcribeCommandLogic[IO](
           backgroundJobManager = manager,

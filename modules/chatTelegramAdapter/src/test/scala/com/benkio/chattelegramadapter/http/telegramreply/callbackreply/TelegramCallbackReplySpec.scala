@@ -4,14 +4,12 @@ import cats.effect.kernel.Ref
 import cats.effect.IO
 import cats.syntax.all.*
 import com.benkio.chatcore.mocks.BackgroundJobManagerMock
-import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.NotifierMock.given
 import com.benkio.chatcore.mocks.RepositoryMock
-import com.benkio.chatcore.model.reply.ReplyValue
-import com.benkio.chatcore.model.Message as ModelMessage
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBShowData
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.Logger.given
 import com.benkio.chattelegramadapter.mocks.RecordingApi
 import com.benkio.chattelegramadapter.model.CallbackData

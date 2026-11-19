@@ -3,11 +3,9 @@ package com.benkio.chattelegramadapter
 import cats.effect.std.Random
 import cats.effect.Async
 import cats.Parallel
-import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.model.reply.ReplyValue
-import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chattelegramadapter.initialization.BotSetup
 import fs2.io.net.Network
 import log.effect.LogWriter
