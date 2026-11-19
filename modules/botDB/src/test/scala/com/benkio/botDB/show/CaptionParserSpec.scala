@@ -1,7 +1,7 @@
 package com.benkio.botDB.show
 
 import cats.effect.IO
-import com.benkio.botDB.Logger.given
+import com.benkio.chatcore.Logger.given
 import munit.CatsEffectSuite
 
 import java.nio.charset.StandardCharsets

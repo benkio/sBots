@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="CONSOLE_PLAIN" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date{ISO8601} [%-5level] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.flywaydb" level="WARN"/>
+    <root level="INFO">
+        <appender-ref ref="CONSOLE_PLAIN"/>
+    </root>
+
+    <!-- Selected in production with -Dlogback.configurationFile=logback-main.xml (see deploy.yml): every module ships a
+         logback.xml and the assembly keeps an arbitrary one, so the name has to be unique.
+         Grafana Cloud Loki is opt-in: the deploy sets LOG_EXTRA=logback-loki.xml (with the LOKI_* variables)
+         only when all the credentials are present. Anything else (local runs, tests) includes the empty file.
+         A Loki4jAppender with an empty url breaks the whole logback configuration, so it must not be declared at all. -->
+    <include resource="${LOG_EXTRA:-logback-noop.xml}"/>
+</configuration>

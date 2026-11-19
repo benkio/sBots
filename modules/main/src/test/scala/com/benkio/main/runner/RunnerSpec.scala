@@ -6,9 +6,9 @@ import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chatcore.Logger.given
 import com.benkio.main.BotRegistry
 import com.benkio.main.BotRegistryEntry
-import com.benkio.main.Logger.given
 import com.benkio.main.MainSetup
 import log.effect.LogWriter
 import munit.CatsEffectSuite

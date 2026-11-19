@@ -4,10 +4,10 @@ import cats.effect.IO
 import cats.implicits.*
 import com.benkio.botDB.mocks.YouTubeServiceMock
 import com.benkio.botDB.show.ShowUpdater.ShowUpdaterImpl
-import com.benkio.botDB.Logger.given
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBShowData
+import com.benkio.chatcore.Logger.given
 import com.google.api.services.youtube.model.*
 import munit.*
 

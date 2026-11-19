@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Included by logback-main.xml when LOG_EXTRA=logback-loki.xml. Needs LOKI_URL, LOKI_USER and LOKI_TOKEN. -->
+<included>
+    <appender name="LOKI" class="com.github.loki4j.logback.Loki4jAppender">
+        <!-- Small batches and queue: the JVM runs with -Xmx256m. When Loki is unreachable old batches are dropped. -->
+        <batch>
+            <maxItems>200</maxItems>
+            <maxBytes>262144</maxBytes>
+            <timeoutMs>3000</timeoutMs>
+            <sendQueueMaxBytes>2097152</sendQueueMaxBytes>
+        </batch>
+        <http>
+            <url>${LOKI_URL}</url>
+            <auth>
+                <username>${LOKI_USER}</username>
+                <password>${LOKI_TOKEN}</password>
+            </auth>
+        </http>
+        <!-- Low cardinality labels only: everything else stays in the JSON line. -->
+        <labels>app=sbots
+level=%level</labels>
+        <message class="com.github.loki4j.logback.JsonLayout"/>
+    </appender>
+
+    <root>
+        <appender-ref ref="LOKI"/>
+    </root>
+</included>
