@@ -21,8 +21,18 @@ class TimeoutSpec extends ScalaCheckSuite {
     }
   }
 
-  property("Timeout.apply(chatId, botId, string) succeeds for valid HH:MM:SS") {
-    forAll(timeoutHhMmSsGen, arbitrary[SBotId]) { case ((formatted, expected), botId) =>
+  test("Timeout.apply(chatId, botId, string) rejects a zero or negative timeout") {
+    List("00:00:00", "0:0:0", "-1:00:00", "01:-30:00", "00:00:-5").foreach { input =>
+      assertEquals(
+        Timeout(TestIds.chatId(1L), SBotId("test"), input).left.toOption,
+        Some(NonPositiveTimeoutError(input)),
+        s"$input should be rejected"
+      )
+    }
+  }
+
+  property("Timeout.apply(chatId, botId, string) succeeds for valid positive HH:MM:SS") {
+    forAll(timeoutHhMmSsGen.suchThat(_._2 > Duration.Zero), arbitrary[SBotId]) { case ((formatted, expected), botId) =>
       val actual = Timeout(TestIds.chatId(1L), botId, formatted)
       assert(actual.isRight)
       assertEquals(actual.toOption.get.timeoutValue, expected)

@@ -12,7 +12,6 @@ config {
 }
 
 rule UserSetsTimeout {
-    -- known defect: the code also accepts 00:00:00 and negative values, storing them
     when: UserSetsTimeout(chat, bot, value)       -- "/settimeout hh:mm:ss", a malformed value only gets an error text
     requires: value > 0.seconds
     ensures: core/ChatTimeout.created(chat: chat, bot: bot, reply_timeout: value, last_interaction: now)
