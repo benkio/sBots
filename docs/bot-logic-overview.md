@@ -278,7 +278,7 @@ the channel, or to the nick for a private message; IRC has no reply to a message
 
 ### IRC live test
 
-`ITIrcLiveSpec` (integration tests, so it runs with `integration/mUnitTests` in CI) puts every bot of the registry on the real
+`ITIrcLiveSpec` (integration tests; it is excluded from `integration/mUnitTests` and runs with `integration/mUnitLiveTests`, in its own CI job, because the network makes it flaky) puts every bot of the registry on the real
 `irc.libera.chat`, in `##sBotsTesting` (`##` is Libera's prefix for channels that are not a registered project), one bot
 after the other so a single address never holds many connections: a tester client writes to the channel a text that triggers
 a markdown file of the bot (when it has one a text can trigger) and `!random`, and checks that the bot answers both. Set
