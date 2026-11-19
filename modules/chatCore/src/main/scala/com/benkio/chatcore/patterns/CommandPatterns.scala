@@ -621,7 +621,7 @@ object CommandPatterns {
               .as(Text(value = "All Subscriptions for current chat successfully cancelled", timeToLive = ttl))
           case UnsubscribeArguments.ById(subscriptionId) =>
             backgroundJobManager
-              .cancelSubscription(subscriptionId)
+              .cancelSubscription(m.chatId, subscriptionId)
               .as(Text(value = "Subscription successfully cancelled", timeToLive = ttl))
           case UnsubscribeArguments.ByType(subscriptionType) =>
             backgroundJobManager

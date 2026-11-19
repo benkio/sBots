@@ -70,8 +70,8 @@ rule UserLoadsCalendar {
     ensures: Subscription.created(chat: chat, bot: bot, type: calendar, target: null, schedule: "0 0 9 * * ?", subscribed_at: now)
 }
 
--- known defect: the code cancels a subscription given by id without checking it belongs to the calling chat, and an id not
--- loaded in memory (another platform) raises not found and keeps the stored row
+-- an id of a subscription that does not belong to the calling chat (or is not loaded on this platform) is not found and
+-- nothing is cancelled
 rule UserUnsubscribes {
     when: UserUnsubscribes(chat, bot, selector)               -- empty selector = all, an id = that one, else a type
     ensures:

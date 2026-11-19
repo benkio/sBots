@@ -128,6 +128,34 @@ class CommandPatternsCommandsSpec extends CatsEffectSuite {
     }
   }
 
+  test("Unsubscribe command by id should not cancel a subscription of another chat") {
+    val manager     = BackgroundJobManagerMock.mock()
+    val otherChatId = TestIds.chatId(999L)
+    val otherChatSubscription = Subscription(
+      id = SubscriptionId(UUID.fromString("B674CCE0-9684-4D31-8CC7-9E2A41EA0879")),
+      chatId = otherChatId,
+      botId = sBotInfo.botId,
+      cron = Cron.unsafeParse("0 * * ? * *"),
+      subscribedAt = Instant.now()
+    )
+
+    val result = for {
+      _ <- manager.scheduleSubscription(otherChatSubscription)
+      unsubscribeResult <- CommandPatterns.SubscribeUnsubscribeCommand
+        .unsubcribeCommandLogic[IO](
+          backgroundJobManager = manager,
+          m = msg.copy(text = Some(s"/unsubscribe ${otherChatSubscription.id.value}")),
+          sBotInfo = sBotInfo,
+          ttl = None
+        )
+    } yield (unsubscribeResult, manager.getScheduledSubscriptions())
+
+    result.map { case (unsubscribeResult, scheduled) =>
+      assert(unsubscribeResult.show.startsWith("An error occurred processing the command: unsubscribe"))
+      assertEquals(scheduled.count(_.subscriptionId == otherChatSubscription.id), 1)
+    }
+  }
+
   // The only message reply of the bot: the text of a trigger subscription must select it
   private val messageReplies: DBMessageReplies =
     DBMessageReplies(List(ReplyBundleMessage.textToText("buongiorno")("ciao")))
