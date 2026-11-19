@@ -1,0 +1,107 @@
+-- allium: 3
+-- engine-extras.allium: chatCore behaviour that sbots.allium does not cover yet: per-chat timeout, subscriptions,
+-- media usage, operator notification throttling. Corrections to sbots.allium itself are not made here.
+
+use "./sbots.allium" as core
+
+config {
+    subscription_min_interval: Duration = 1.minute
+    max_subscriptions_per_chat: Integer = 50
+    max_subscription_target_length: Integer = 200
+    top_media_count: Integer = 20
+}
+
+rule UserSetsTimeout {
+    when: UserSetsTimeout(chat, bot, value)       -- "/settimeout hh:mm:ss", a malformed value only gets an error text
+    requires: value > 0.seconds
+    ensures: core/ChatTimeout.created(chat: chat, bot: bot, reply_timeout: value, last_interaction: now)
+}
+
+rule UserRemovesTimeout {
+    when: UserRemovesTimeout(chat, bot)           -- "/settimeout" with an empty value
+    requires: exists core/ChatTimeout{chat: chat, bot: bot}
+    ensures: not exists core/ChatTimeout{chat: chat, bot: bot}
+}
+
+actor ChatUser {
+    identified_by: ChatUser where true
+}
+
+surface ChatCommands {
+    facing user: ChatUser
+
+    provides:
+        UserSetsTimeout(chat, bot, value)
+        UserRemovesTimeout(chat, bot)
+        UserSubscribes(chat, bot, schedule, type, target)
+        UserLoadsCalendar(chat, bot)
+        UserUnsubscribes(chat, bot, selector)
+        UserSearchesTriggers(chat, bot, input)
+}
+
+enum SubscriptionType { show | trigger | calendar }
+
+entity Subscription {
+    chat: core/Chat
+    bot: core/Bot
+    type: SubscriptionType
+    target: String?
+    schedule: String          -- six-field cron
+    subscribed_at: Timestamp
+}
+
+rule UserSubscribes {
+    when: UserSubscribes(chat, bot, schedule, type, target)   -- "/subscribe <cron> [type [target]]", no type means show
+    requires: type = show or type = trigger                   -- calendar only through /loadcalendar
+    requires: target = null or target.length <= config.max_subscription_target_length
+    -- a trigger subscription needs the bot to have message replies, or a target that matches a bundle
+    -- the shortest gap between occurrences of the schedule is at least config.subscription_min_interval
+    requires: ScheduleGapAtLeast(schedule: schedule, gap: config.subscription_min_interval)
+    requires: (Subscriptions where chat = chat and bot = bot).count < config.max_subscriptions_per_chat
+    ensures: Subscription.created(chat: chat, bot: bot, type: type, target: target, schedule: schedule, subscribed_at: now)
+}
+
+rule UserLoadsCalendar {
+    when: UserLoadsCalendar(chat, bot)
+    requires: bot.has_calendar_candidates
+    requires: not exists Subscription{chat: chat, bot: bot, type: calendar}
+    ensures: Subscription.created(chat: chat, bot: bot, type: calendar, target: null, schedule: "0 0 9 * * ?", subscribed_at: now)
+}
+
+-- known defect: the code cancels a subscription given by id without checking it belongs to the calling chat, and an id not
+-- loaded in memory (another platform) raises not found and keeps the stored row
+rule UserUnsubscribes {
+    when: UserUnsubscribes(chat, bot, selector)               -- empty selector = all, an id = that one, else a type
+    ensures:
+        for s in Subscriptions where s.chat = chat and s.bot = bot and SelectorMatches(selector, s):
+            not exists s
+}
+
+-- a trigger subscription only matches a bundle: no timeout, ignore prefix, forward or age filter, no post computation;
+-- a calendar subscription replies only when today has shows
+rule SubscriptionFires {
+    when: SubscriptionFires(s)
+    ensures: core/Reply.sent(chat: s.chat, reply: SubscriptionReply(s))
+}
+
+rule SubscriptionFireFails {
+    when: SubscriptionFireErrored(s)
+    -- the schedule keeps running
+    ensures: core/OperatorsNotified(bot: s.bot, reason: subscription_failed)
+}
+
+-- /triggersearch <input> lists the bundles whose trigger matches the input.
+-- known defect: the code matches against the whole command message ("/triggersearch foo"), not just the input.
+rule UserSearchesTriggers {
+    when: UserSearchesTriggers(chat, bot, input)
+    ensures: core/Reply.sent(chat: chat, reply: TriggerSearchResult(bot, input))
+}
+
+rule MediaSentCounted {
+    when: MediaFetchedForReply(media)
+    ensures: media.send_count = media.send_count + 1
+}
+
+-- operator notifications: an error with the same (bot, context, error) is notified once per window followed by one summary;
+-- infos and media errors are not throttled; a failing notification never breaks the caller
+

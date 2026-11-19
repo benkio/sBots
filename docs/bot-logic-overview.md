@@ -1,5 +1,9 @@
 # Bot Logic Overview
 
+> The intended behavior (what triggers do, the invariants) is specified in [`specs/sbots.allium`](../specs/sbots.allium),
+> written in [Allium](https://juxt.github.io/allium/language). This document maps the code; the spec says what must hold.
+> A change of bot behavior updates the spec in the same PR, and a review starts from the spec.
+
 This document gives a high-level map of how bots work in this repository, from startup to sending replies.
 
 The bots are meant to run on several platforms (Telegram today; IRC, Discord and Slack are planned). The logic is platform

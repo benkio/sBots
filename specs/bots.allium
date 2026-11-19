@@ -1,0 +1,51 @@
+-- allium: 3
+-- bots.allium: the individual bots (modules/bots). Mostly data: an id, a name and per-bot command, reply and media-list
+-- JSON files. Excludes tokens, logging, db and cache config, launchers.
+
+use "./sbots.allium" as core
+
+actor ChatMember {
+    identified_by: ChatMember where true
+}
+
+-- Command catalogue (grouped):
+--   show bots (abar, orl, pino, rphjb, sgar, xah, ytai): /searchshow /subscribe /unsubscribe /subscriptions /loadcalendar /showcalendar /random
+--   mos: /random only
+--   cala: /randomcard plus 28 fixed media commands, no show or subscription commands
+--   xah: 25 topic commands (/emacs, /linux, ...), each a random media of that kind
+--   rphjb: adds /bensonify
+-- Reply bundle patterns: most bots have media replies on text triggers; xah answers topics with media by kind;
+-- cala has text replies; rphjb has the welcome and farewell media on new and left members.
+-- TemplateBot (tpl) is the scaffold for new bots, not deployed: an empty replies file and the commands a new bot starts from.
+-- CalandroBot is deliberately small: Telegram only, no data entry, no show or subscription commands (intended).
+-- Every bot but cala runs on Telegram and Discord (cala on Telegram only) and has a data entry runner.
+
+config {
+    message_time_to_live: Duration = 10.seconds
+}
+
+rule BotRepliesWithMediaByKind {
+    when: core/RequestIsDispatched(request)
+    requires: request.message.is_command
+    -- the command is a media-by-kind command: a random catalogue media of that kind
+    ensures: core/Reply.sent(chat: request.message.chat, reply: RandomMediaOfKind(request.bot))
+}
+
+rule BensonifyRewritesText {
+    when: core/RequestIsDispatched(request)
+    requires: request.message.is_command
+    requires: request.bot.id = core/BotId.rphjb
+    requires: CommandWord(request.message) = "bensonify"
+    -- non empty input: replaced in order t->d, rr->r, c->g, b->bb, p->b (uppercase pairs first, then lowercase),
+    -- sent quoting the message; empty input: "E PARLAAAAAAA!!!!"; the reply is deleted after message_time_to_live
+    ensures: core/Reply.sent(chat: request.message.chat, reply: BensonifiedText(request.message))
+}
+
+-- cala: a MessageLengthTrigger bundle (280 characters) answers a long message with a quoted
+-- "wawaaa rischio calandrico in aumento!!!", and a contains_all ["stasera", "?"] bundle answers "Facciamo qualcosa tutti assieme?".
+-- rphjb: NewMemberTrigger and LeftMemberTrigger bundles send the welcome and farewell media. These are data of the
+-- generic trigger rules in sbots.allium, not rules of their own.
+
+-- a media reply with several files sends one random file of them
+open question "What does media-by-kind reply when the kind has no media?"
+open question "Should the long-message alarm, welcome and farewell replies and Bensonify's substitution table be named in the spec, or stay generic data?"

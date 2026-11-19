@@ -1,0 +1,135 @@
+-- allium: 3
+-- operations.allium: app wiring, runtimes, health and stats (modules/main). Excludes build-time generators.
+
+use "./sbots.allium" as core
+
+external entity HealthCheck {
+    status: up | late | down
+}
+
+entity Application {
+    mode: webhook | polling
+    status: running | stopped | crashed
+    started_at: Timestamp
+    next_heartbeat_tick: Timestamp
+    last_system_stats: Timestamp
+
+    transitions status {
+        running -> stopped
+        running -> crashed
+        terminal: stopped, crashed
+    }
+}
+
+entity PlatformRuntime {
+    platform: core/Platform
+    status: running | not_started
+}
+
+entity BotOnPlatform {
+    bot: core/Bot
+    platform: core/Platform
+    status: running | stopped
+}
+
+config {
+    heartbeat_restart_delay: Duration = 30.seconds
+    system_stats_every: Duration = 1.minute
+    heartbeat_every: Duration = 10.minutes
+}
+
+-- Telegram (webhook or polling), Discord and IRC have runtimes; Slack is in the Platform enum but has none.
+surface OperatorShell {
+    facing op: core/Operator
+
+    provides:
+        OperatorStartsApp(mode, bots)
+        OperatorRunsGenerators()
+}
+
+rule AppStarts {
+    when: OperatorStartsApp(mode, bots)
+    requires: bots.all(b => b.platforms.all(p => p != slack))
+    -- a runtime starts only if at least one bot runs on its platform
+    ensures: Application.created(mode: mode, status: running, started_at: now, next_heartbeat_tick: now + config.heartbeat_every, last_system_stats: now)
+    ensures: HealthSignalSent(kind: start)
+}
+
+rule AppRefusesBotWithoutRuntime {
+    when: OperatorStartsApp(mode, bots)
+    requires: bots.any(b => b.platforms.any(p => p = slack))
+    ensures: AppCrashed(reason: platform_without_runtime)
+}
+
+-- a bot that fails on Discord or IRC stops on that platform only: no restart, no health check failure
+rule BotStopsOnConnectionPlatform {
+    when: BotPlatformFailed(entry)
+    requires: entry.platform = discord or entry.platform = irc
+    ensures: entry.status = stopped
+}
+
+rule HeartbeatTick {
+    when: app: Application.next_heartbeat_tick <= now
+    requires: app.status = running
+    ensures: HealthSignalSent(kind: heartbeat)
+    ensures: app.next_heartbeat_tick = now + config.heartbeat_every
+}
+
+rule HeartbeatRecovers {
+    when: HealthSignalFailed(app)
+    -- a failed ping resumes after the delay; a refused start or fail signal is only a logged warning
+    ensures: HeartbeatResumesAt(at: now + config.heartbeat_restart_delay)
+}
+
+rule AppCrashes {
+    when: AppCrashed(app, reason)
+    -- logged and appended to the crash history with time and stack trace
+    ensures: app.status = crashed
+    ensures: HealthSignalSent(kind: fail)
+}
+
+rule AppStops {
+    when: AppTerminated(app, cause)
+    requires: cause = completed or cause = cancelled
+    ensures: app.status = stopped
+}
+
+-- the Grafana dashboard depends on the stats keys, they must stay stable
+-- known defect: the log label is outcome=timeout while the outcome is timed_out; the label should be timed_out
+rule UsageStatsLine {
+    when: request: core/Request.outcome becomes handled
+    ensures: StatsLineWritten(kind: message, bot: request.bot)
+}
+
+rule SystemStatsLine {
+    when: app: Application.last_system_stats + config.system_stats_every <= now
+    requires: app.status = running
+    -- heap, uptime and db size (-1 when the DB file is missing); a failed collection is only a warning
+    ensures: StatsLineWritten(kind: system)
+    ensures: app.last_system_stats = now
+}
+
+-- ops notifications go to the Telegram ops chat for Telegram bots and only to the log for Discord and IRC bots (intended)
+-- Slack is kept in the Platform enum as planned: a bot configured for it makes startup fail (intended)
+-- the crash history file is infrastructure and not specified
+
+-- Telegram startup: probes (db, Telegram, Dropbox, Mega) and, after a deploy, a test media file to the ops chat.
+-- A failed check never blocks the start.
+rule StartupCheckReports {
+    when: BotStarted(bot)
+    requires: bot.platforms.any(p => p = telegram)
+    ensures: core/OperatorsNotified(bot: bot, reason: started_with_report)
+}
+
+-- Build time: for each bot the generators write the triggers list, the instructions and the calendar files.
+rule GeneratorsWriteBotFiles {
+    when: OperatorRunsGenerators()
+    ensures:
+        for b in core/Bots:
+            BotFilesGenerated(bot: b)
+}
+-- secrets (keystore password, health-check URL) are redacted from the configuration logged at startup
+
+open question "Are the heartbeat (10 min) and stats (1 min) intervals product decisions or tuning?"
+open question "Should the spec model choosing which bots run (MainPolling arguments)? Production runs every bot."
+open question "A bot that fails on Discord or IRC is not restarted and does not fail the health check: acceptable?"

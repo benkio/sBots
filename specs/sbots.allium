@@ -1,0 +1,415 @@
+-- allium: 3
+-- sBots: the observable behaviour of the bots, platform agnostic.
+-- Seeded from docs/bot-logic-overview.md. Code: modules/chatCore (BotEngine, MessageMatches, ReplyBundle,
+-- Filtering*, DataEntry). Behaviour changes land in this spec in the same PR.
+
+------------------------------------------------------------
+-- External Entities
+------------------------------------------------------------
+
+external entity Chat {
+    platform: Platform
+}
+
+-- The reply timeout (/settimeout) belongs to the pair (chat, bot). A chat without a row has no timeout.
+external entity ChatTimeout {
+    chat: Chat
+    bot: Bot
+    reply_timeout: Duration
+    last_interaction: Timestamp       -- second precision
+    -- the pair is "in timeout" until reply_timeout has passed since the last interaction
+    in_timeout: last_interaction + reply_timeout >= now
+}
+
+actor Operator {
+    -- runs data entry and the catalogue job, reads the ops chat, the health check and the dashboard
+    identified_by: Operator where true
+}
+
+external entity Message {
+    chat: Chat
+    id: String?           -- absent on some platforms (e.g. IRC)
+    text: String?
+    caption: String?
+    sent_at: Timestamp
+    is_forward: Boolean
+    new_members: Boolean
+    left_member: Boolean
+    content: text ?? caption
+    -- the first word is a command of the platform's syntax
+    is_command: Boolean
+    -- a file request of the platform's syntax, addressed to this bot
+    is_file_request: Boolean
+}
+
+------------------------------------------------------------
+-- Enumerations
+------------------------------------------------------------
+
+enum Platform { telegram | irc | discord | slack }
+
+enum Matcher { contains_once | contains_all }
+
+enum Outcome { handled | duplicate | timed_out | failed }
+
+------------------------------------------------------------
+-- Entities and Variants
+------------------------------------------------------------
+
+enum BotId { abar | orl | cala | mos | pino | rphjb | sgar | xah | ytai }   -- tpl is the scaffold for new bots, not deployed
+
+entity Bot {
+    id: BotId
+    name: String
+    nick: String                      -- IRC nick derived from the name
+    engine: BotEngine
+    media: MediaFile with bot = this
+    message_replies: ReplyBundleMessage with bot = this
+    command_replies: ReplyBundleCommand with bot = this
+    platforms: Set<Platform>
+}
+
+entity BotEngine {
+    bot: Bot
+    -- the trigger files (list of triggers, instructions) add fixed commands to the bot's own commands
+    fixed_commands: Set<ReplyBundleCommand>
+    processed: Set<ProcessedMessage>
+}
+
+entity ProcessedMessage {
+    chat: Chat
+    bot: Bot
+    message_id: String
+    processed_at: Timestamp
+}
+
+-- A media file of a bot's catalogue (built by data entry, loaded by the catalogue job).
+entity MediaFile {
+    bot: Bot
+    name: String                      -- prefixed with the bot id
+    kind: mp3 | gif | photo | video | document | sticker | markdown
+    kinds: Set<String>                -- topic tags used by the media-by-kind commands
+    mime_type: String
+    sources: List<String>
+    platform_file_ids: Set<String>    -- cached per platform, tried before the downloadable file
+    send_count: Integer               -- grows each time the file is fetched to be sent
+    created_at: Timestamp
+}
+
+entity ReplyBundleMessage {
+    bot: Bot
+    trigger: Trigger
+    matcher: Matcher
+    reply: Reply
+}
+
+entity ReplyBundleCommand {
+    bot: Bot
+    command: String
+    reply: Reply
+}
+
+-- A trigger decides when a message selects a reply bundle.
+variant TextTrigger : Trigger { values: Set<String> }   -- string (substring) or regex values, matched on lower case text
+variant MessageLengthTrigger : Trigger { length: Integer }
+variant NewMemberTrigger : Trigger
+variant LeftMemberTrigger : Trigger
+
+entity Trigger {
+    kind: TextTrigger | MessageLengthTrigger | NewMemberTrigger | LeftMemberTrigger
+    -- a selection among several matching bundles prefers the highest trigger in Trigger's ordering
+}
+
+-- A reply is plain (random value from the bundle) or effectful (computed at reply time, e.g. media by kind).
+entity Reply {
+    kind: plain | effectful
+}
+
+entity Request {
+    message: Message
+    bot: Bot
+    started_at: Timestamp
+    outcome: Outcome?
+}
+
+entity DataEntryRun {
+    bot: Bot
+    inputs: List<String>
+    status: running | done | failed
+}
+
+------------------------------------------------------------
+-- Config
+------------------------------------------------------------
+
+config {
+    -- SBotConfig.requestProcessingTimeout; None disables it
+    request_processing_timeout: Duration? = 10.seconds
+    -- FilteringOlder.olderThreshold
+    older_message_threshold: Duration = 5.minutes
+    -- SBotConfig.disableForward / ignoreMessagePrefix, per bot
+    disable_forward: Boolean = true
+    ignore_message_prefix: String? = "!"
+    -- SBotConfig.messageTimeToLive: command replies are deleted after this, only where the platform can delete
+    reply_time_to_live: Duration? = 10.seconds
+    processed_message_retention: Duration = 24.hours
+}
+
+------------------------------------------------------------
+-- Rules
+------------------------------------------------------------
+
+-- Request lifecycle -------------------------------------------------
+
+rule BotReceivesNewMessage {
+    when: BotReceivesMessage(message, bot)
+
+    requires: message.id = null or not exists ProcessedMessage{chat: message.chat, bot: bot, message_id: message.id}
+
+    ensures:
+        let request = Request.created(message: message, bot: bot, started_at: now)
+        if message.id != null: ProcessedMessage.created(chat: message.chat, bot: bot, message_id: message.id, processed_at: now)
+        RequestIsDispatched(request: request)
+}
+
+-- Platforms can deliver a message twice (e.g. Telegram retries an unacknowledged update): reply once.
+rule BotSkipsDuplicateMessage {
+    when: BotReceivesMessage(message, bot)
+
+    requires: message.id != null
+    requires: exists ProcessedMessage{chat: message.chat, bot: bot, message_id: message.id}
+
+    ensures: Request.created(message: message, bot: bot, started_at: now, outcome: duplicate)
+}
+
+-- Command dispatch ----------------------------------------------------
+
+rule BotRepliesToCommand {
+    when: RequestIsDispatched(request)
+
+    requires: request.message.is_command
+    let command_reply = request.bot.engine.command_for(request.message)
+    requires: command_reply != null
+
+    ensures: Reply.sent(chat: request.message.chat, reply: command_reply.reply)
+}
+
+-- Any "/word" is a command, known or not, so an unknown command gets no reply. The command is the first of
+-- [bot commands ++ fixed commands] invoked as "/cmd", "/cmd ..." or "/cmd@botName ...". Fixed commands: triggerlist,
+-- triggersearch, toptwenty, settimeout, gettimeout, instructions. The show commands (searchshow, subscribe, unsubscribe,
+-- subscriptions, loadcalendar, showcalendar) are an opt-in group a bot adds itself.
+
+-- Message dispatch via reply bundles ------------------------------------
+
+rule BotRepliesToTextTrigger {
+    when: RequestIsDispatched(request)
+
+    -- a command (or a file request) is never also handled as a message
+    requires: not request.message.is_command
+    requires: not request.message.is_file_request
+    let message = request.message
+    let bundle = request.bot.engine.best_matching_bundle(message)
+    requires: bundle != null
+    requires: not (config.disable_forward and message.is_forward)
+    requires: now - message.sent_at <= config.older_message_threshold
+    -- filteringMatchesMessages: the chat must be out of timeout
+    -- the timeout filter applies only to the selected bundle: a chat in timeout gets no reply, with no fallback bundle
+    requires: not exists ChatTimeout{chat: message.chat, bot: request.bot, in_timeout: true}
+
+    ensures: Reply.sent(chat: message.chat, reply: bundle.reply)
+}
+
+-- Best match: the rank of a TextTrigger is the length of its longest value (a regex value has a declared length), every
+-- other trigger ranks 0. The highest rank wins, a tie goes to the first bundle in the replies order. The forward and age
+-- filters apply before matching, to messages only.
+
+rule BotRepliesToFileRequest {
+    when: RequestIsDispatched(request)
+
+    requires: request.message.is_file_request
+    requires: request.message.content != null
+
+    -- the media file named by the request content, sent as a reply to the message
+    ensures: Reply.sent(chat: request.message.chat, reply: media_file_named(request.message.content))
+}
+
+-- After a reply the last interaction is logged: this is what the timeout is measured from. It only updates an existing
+-- timeout row.
+-- known defect: the code logs it after every non-duplicate message that finishes within the timeout, replied or not,
+-- so a busy chat can stay in timeout indefinitely.
+rule PostComputationLogsInteraction {
+    when: RequestIsDispatched(request)
+
+    requires: ReplySentFor(request)
+    requires: exists ChatTimeout{chat: request.message.chat, bot: request.bot}
+
+    ensures: ChatTimeout{chat: request.message.chat, bot: request.bot}.last_interaction = now
+}
+
+-- The duplicate check failing does not stop the message: it is processed and the operators are told.
+rule DuplicateCheckFailsOpen {
+    when: BotReceivesMessage(message, bot)
+
+    requires: message.id != null
+    requires: DuplicateStoreUnavailable()
+
+    ensures: OperatorsNotified(bot: bot, reason: duplicate_check_failed)
+    ensures: RequestIsDispatched(request: Request.created(message: message, bot: bot, started_at: now))
+}
+
+rule RequestFails {
+    when: RequestErrored(request)
+
+    requires: request.outcome = null
+
+    ensures: request.outcome = failed
+}
+
+-- A redelivery after the retention is processed again.
+rule ProcessedMessageExpires {
+    when: pm: ProcessedMessage.processed_at + config.processed_message_retention <= now
+
+    ensures: not exists pm
+}
+
+rule RequestIsHandled {
+    when: RequestIsDispatched(request)
+
+    ensures: request.outcome = handled
+}
+
+rule RequestTimesOut {
+    when: request: Request.started_at + config.request_processing_timeout <= now
+
+    requires: config.request_processing_timeout != null
+    requires: request.outcome = null
+
+    -- in-flight processing is cancelled and the request dropped (no reply), the operators are notified
+    ensures:
+        request.outcome = timed_out
+        OperatorsNotified(bot: request.bot, reason: request_timed_out)
+}
+
+-- Trigger semantics ---------------------------------------------------
+
+-- BotEngine picks the best matching bundle: each bundle is matched by its trigger, the highest trigger wins.
+rule TextTriggerMatches {
+    when: BundleIsMatched(bundle, message)
+
+    requires: bundle.trigger.kind = TextTrigger
+    requires: message.content != null
+    requires: not (config.ignore_message_prefix != null and message.content.starts_with(config.ignore_message_prefix))
+    requires: bundle.matcher = contains_once and bundle.trigger.values.any(v => matches(v, lower(message.content)))
+        or bundle.matcher = contains_all and bundle.trigger.values.all(v => matches(v, lower(message.content)))
+
+    ensures: BundleMatches(bundle: bundle, message: message)
+}
+
+rule MessageLengthTriggerMatches {
+    when: BundleIsMatched(bundle, message)
+
+    requires: bundle.trigger.kind = MessageLengthTrigger
+    requires: message.content != null
+    requires: not (config.ignore_message_prefix != null and message.content.starts_with(config.ignore_message_prefix))
+    requires: length(message.content) >= bundle.trigger.length
+
+    ensures: BundleMatches(bundle: bundle, message: message)
+}
+
+rule NewMemberTriggerMatches {
+    when: BundleIsMatched(bundle, message)
+
+    requires: bundle.trigger.kind = NewMemberTrigger
+    requires: message.new_members
+    -- the ignore prefix suppresses every trigger kind, member triggers included
+    requires: not (config.ignore_message_prefix != null and message.content != null
+                   and message.content.starts_with(config.ignore_message_prefix))
+
+    ensures: BundleMatches(bundle: bundle, message: message)
+}
+
+rule LeftMemberTriggerMatches {
+    when: BundleIsMatched(bundle, message)
+
+    requires: bundle.trigger.kind = LeftMemberTrigger
+    requires: message.left_member
+    requires: not (config.ignore_message_prefix != null and message.content != null
+                   and message.content.starts_with(config.ignore_message_prefix))
+
+    ensures: BundleMatches(bundle: bundle, message: message)
+}
+
+-- Data entry: links -> parse -> list + replies json ----------------------
+
+surface OperatorConsole {
+    facing op: Operator
+
+    provides:
+        OperatorRunsDataEntry(bot, inputs)
+}
+
+-- An operator feeds the data entry with links, each a plain http(s) URL or `<botId>_<name>=<url>`.
+rule DataEntryParsesLinks {
+    when: OperatorRunsDataEntry(bot, inputs)
+
+    requires: bot.list_json_exists and bot.replies_json_exists
+    requires: inputs.all(i => is_plain_url(i) or is_named_url(i))
+    -- a named input needs a non empty name containing the `_` separator between botId and name, and a non empty url
+
+    ensures:
+        let run = DataEntryRun.created(bot: bot, inputs: inputs, status: running)
+        -- sources are appended to the bot's media list, grouped, and the replies built from the groups
+        -- are prepended to the bot's replies; a Dropbox `dl=0` link is stored as `dl=1`
+        MediaListExtended(bot: bot, run: run)
+        RepliesExtended(bot: bot, run: run)
+        run.status = done
+}
+
+rule DataEntryRejectsInvalidInput {
+    when: OperatorRunsDataEntry(bot, inputs)
+
+    requires: not bot.list_json_exists or not bot.replies_json_exists
+        or inputs.any(i => not (is_plain_url(i) or is_named_url(i)))
+
+    -- nothing is written when an input or a file is invalid, the replies file included
+    -- known defect: the list file is written before the replies file is parsed, so an unparsable replies file leaves a
+    -- half-applied run
+    ensures: DataEntryRun.created(bot: bot, inputs: inputs, status: failed)
+}
+
+------------------------------------------------------------
+-- Invariants
+------------------------------------------------------------
+
+-- Reply bundle selection must not change while the chat is in timeout (filteringMatchesMessages).
+invariant NoMessageReplyInTimeout {
+    for r in Replies:
+        r.is_message_reply implies not exists ChatTimeout{chat: r.chat, bot: r.bot, in_timeout: true}
+}
+
+-- A message is either a command, a file request or a plain message: commands are dispatched by the command
+-- logic only, before and instead of the message replies.
+invariant CommandsNeverGetMessageReplies {
+    for r in Replies:
+        r.is_message_reply implies not r.message.is_command
+}
+
+-- The message-length trigger fires when the message reaches the threshold (messageText.size >= messageLength).
+invariant MessageLengthTriggerFiresAtThreshold {
+    for m in BundleMatches:
+        m.bundle.trigger.kind = MessageLengthTrigger implies length(m.message.content) >= m.bundle.trigger.length
+}
+
+-- A message is processed at most once per chat and bot.
+invariant ProcessedOnce {
+    for a in ProcessedMessages:
+        for b in ProcessedMessages:
+            a != b implies not (a.chat = b.chat and a.bot = b.bot and a.message_id = b.message_id)
+}
+
+------------------------------------------------------------
+-- Open Questions
+------------------------------------------------------------
+
+open question "Data entry: should the spec state how the downloaded files reach the repository (Dropbox/Mega)?"
+open question "Effectful replies and platform adaptation (ReplyAdaptation, text-only platforms) are not specified yet"
