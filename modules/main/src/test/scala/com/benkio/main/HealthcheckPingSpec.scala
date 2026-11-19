@@ -4,7 +4,7 @@ import cats.effect.kernel.Ref
 import cats.effect.IO
 import com.benkio.chatcore.repository.db.DBLog
 import com.benkio.chatcore.repository.db.DBLogData
-import com.benkio.main.Logger.given
+import com.benkio.chatcore.Logger.given
 import fs2.Stream
 import munit.CatsEffectSuite
 import org.http4s.client.Client

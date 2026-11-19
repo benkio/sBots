@@ -90,7 +90,7 @@ object SampleWebhookBot {
         dbLayer = dbLayerMock,
         sBotInfo = sBotInfo,
         ttl = None
-      )(using Async[IO], summon[Api[IO]], summon[Random[IO]], Notifier.noop[IO], log)
+      )(using Async[IO], summon[Api[IO]], summon[Random[IO]], Notifier.noop[IO], logWriter)
     } yield new SampleWebhookBot(
       BotSetup(
         token = "test",

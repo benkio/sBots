@@ -5,7 +5,6 @@ import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.botDB.media.MediaUpdater.MediaUpdaterImpl
-import com.benkio.botDB.Logger.given
 import com.benkio.botDB.TestData.*
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.RepositoryMock
@@ -17,6 +16,7 @@ import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.MimeType
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBMediaData
+import com.benkio.chatcore.Logger.given
 import munit.CatsEffectSuite
 import org.http4s.syntax.literals.*
 import org.http4s.Uri

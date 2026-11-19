@@ -8,8 +8,8 @@ import cats.implicits.*
 import com.benkio.chatcore.dataentry.DataEntry
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.repository.JsonDataRepository
+import com.benkio.chatcore.Logger.given
 import com.benkio.main.BotRegistryEntry
-import com.benkio.main.Logger.given
 import log.effect.LogWriter
 
 import java.nio.charset.StandardCharsets

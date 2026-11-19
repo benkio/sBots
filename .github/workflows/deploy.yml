@@ -124,13 +124,28 @@ jobs:
           rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10' /home/runner/work/sBots/sBots/botDB.sqlite3 ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/botDBBase.sqlite3
           ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh ${{ env.DEPLOY_DIR }}/updateProdDB.sh ${{ env.DEPLOY_DIR }}"
       - name: Install & Enable Bots Service
+        env:
+          # LOKI_URL and LOKI_USER are repository variables (not sensitive), only the token is a secret
+          LOKI_URL: ${{ vars.LOKI_URL }}
+          LOKI_USER: ${{ vars.LOKI_USER }}
+          LOKI_TOKEN: ${{ secrets.LOKI_TOKEN }}
         run: |
+          # Log shipping to Grafana Cloud Loki is enabled only when all the credentials are set (see logback-main.xml)
+          loki_env=""
+          # Grafana shows the base url of the stack: the push endpoint is appended unless it is already there
+          case "$LOKI_URL" in */loki/api/*) ;; ?*) LOKI_URL="${LOKI_URL%/}/loki/api/v1/push" ;; esac
+          if [ -n "$LOKI_URL" ] && [ -n "$LOKI_USER" ] && [ -n "$LOKI_TOKEN" ]; then
+            loki_env="export LOG_EXTRA='logback-loki.xml'
+          export LOKI_URL='$LOKI_URL'
+          export LOKI_USER='$LOKI_USER'
+          export LOKI_TOKEN='$LOKI_TOKEN'"
+          fi
           cat > /tmp/sbots-openrc <<EOF
           #!/sbin/openrc-run
           name="sBots"
           supervisor=supervise-daemon
           command="/usr/bin/java"
-          command_args="-Xms64m -Xmx256m -Xss512k -XX:MaxMetaspaceSize=160m -XX:ReservedCodeCacheSize=64m -XX:+ExitOnOutOfMemoryError -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=${{ env.DEPLOY_DIR }}/oom.hprof -cp ${{ env.DEPLOY_DIR }}/main.jar com.benkio.main.MainWebhook"
+          command_args="-Xms64m -Xmx256m -Xss512k -XX:MaxMetaspaceSize=160m -XX:ReservedCodeCacheSize=64m -XX:+ExitOnOutOfMemoryError -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=${{ env.DEPLOY_DIR }}/oom.hprof -Dlogback.configurationFile=logback-main.xml -cp ${{ env.DEPLOY_DIR }}/main.jar com.benkio.main.MainWebhook"
           directory="${{ env.DEPLOY_DIR }}"
           command_user="${{ env.DEPLOY_USER }}"
           pidfile="/run/sbots.pid"
@@ -139,6 +154,8 @@ jobs:
           respawn_period="60"
           output_log="${{ env.DEPLOY_DIR }}/sbots.log"
           error_log="${{ env.DEPLOY_DIR }}/sbots.err.log"
+
+          $loki_env
 
           depend() {
             need net
@@ -150,7 +167,7 @@ jobs:
           }
           EOF
           rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10' /tmp/sbots-openrc ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:/tmp/sbots-openrc
-          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S install -m 755 /tmp/sbots-openrc /etc/init.d/sbots; if ! echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-update show default | grep -Eq \"^[[:space:]]*sbots[[:space:]]*$\"; then echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-update add sbots default; fi'"
+          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S install -m 700 /tmp/sbots-openrc /etc/init.d/sbots; if ! echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-update show default | grep -Eq \"^[[:space:]]*sbots[[:space:]]*$\"; then echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-update add sbots default; fi'"
       - name: Ask for the post deploy test files
         # One marker per bot: the first start of each bot consumes its own and sends its configured test file to the ops chat (see StartupCheckConfig).
         # The remote command is single-quoted so $bot survives the runner's shell; the touch target is then

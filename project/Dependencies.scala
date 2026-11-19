@@ -22,6 +22,7 @@ object Dependencies {
     val http4s            = "org.http4s"
     val kittehIrc         = "org.kitteh.irc"
     val laserdisc         = "io.laserdisc"
+    val loki4j            = "com.github.loki4j"
     val logstashLogback   = "net.logstash.logback"
     val pureconfig        = "com.github.pureconfig"
     val qosLogback        = "ch.qos.logback"
@@ -64,6 +65,7 @@ object Dependencies {
     val logEffects            = "0.20.0"
     val logbackClassic        = "1.6.7"
     val logbackLogstash       = "9.0"
+    val loki4j                = "2.1.0"
     val mbassador             = "1.3.2"
     val mules                 = "0.8.0"
     val mulesHttp4s           = "0.6.0"
@@ -124,6 +126,7 @@ object Dependencies {
     val logEffectsFs2     = groups.laserdisc        %% "log-effect-fs2"              % versions.logEffects
     val logbackClassic    = groups.qosLogback        % "logback-classic"             % versions.logbackClassic % Runtime
     val logbackLogstash = groups.logstashLogback % "logstash-logback-encoder" % versions.logbackLogstash % Runtime
+    val loki4jLogback   = groups.loki4j          % "loki-logback-appender"    % versions.loki4j          % Runtime
     val mbassador       = groups.engio           % "mbassador"                % versions.mbassador
     val mules           = groups.chrisdavenport %% "mules"                    % versions.mules
     val mulesCaffeine   = groups.chrisdavenport %% "mules-caffeine"           % versions.mules
@@ -292,6 +295,7 @@ object Dependencies {
     libs.logEffectsFs2,
     libs.logbackClassic,
     libs.logbackLogstash,
+    libs.loki4jLogback,
     libs.munit,
     libs.munitCatsEffect,
     libs.pureConfigCore,

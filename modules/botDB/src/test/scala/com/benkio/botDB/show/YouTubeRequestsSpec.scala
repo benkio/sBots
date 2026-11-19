@@ -1,7 +1,7 @@
 package com.benkio.botDB.show
 
 import cats.effect.IO
-import com.benkio.botDB.Logger.given
+import com.benkio.chatcore.Logger.given
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport
 import com.google.api.client.http.HttpRequest
 import com.google.api.client.http.HttpRequestInitializer

@@ -8,7 +8,7 @@ import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.chatcore.repository.JsonDataRepository
-import com.benkio.main.Logger.given
+import com.benkio.chatcore.Logger.given
 import log.effect.LogWriter
 
 import java.nio.charset.StandardCharsets

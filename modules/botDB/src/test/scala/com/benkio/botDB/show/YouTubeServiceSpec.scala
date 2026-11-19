@@ -5,8 +5,8 @@ import com.benkio.botDB.config.Config
 import com.benkio.botDB.config.JsonLocation
 import com.benkio.botDB.config.ShowConfig
 import com.benkio.botDB.config.ShowSourceConfig
-import com.benkio.botDB.Logger.given
 import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.Logger.given
 import munit.CatsEffectSuite
 
 class YouTubeServiceSpec extends CatsEffectSuite {

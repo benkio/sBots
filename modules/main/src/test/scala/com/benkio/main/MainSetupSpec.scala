@@ -1,7 +1,7 @@
 package com.benkio.main
 
 import cats.effect.IO
-import com.benkio.main.Logger.given
+import com.benkio.chatcore.Logger.given
 import munit.CatsEffectSuite
 
 class MainSetupSpec extends CatsEffectSuite {

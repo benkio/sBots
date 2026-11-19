@@ -4,7 +4,7 @@ import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.model.SBotInfo.SBotId
-import com.benkio.main.Logger.given
+import com.benkio.chatcore.Logger.given
 import munit.CatsEffectSuite
 
 // No timing involved on purpose: the failing resource/IO fail immediately and the log is written before

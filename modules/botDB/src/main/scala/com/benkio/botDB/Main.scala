@@ -7,10 +7,10 @@ import com.benkio.botDB.media.MediaUpdater
 import com.benkio.botDB.show.CaptionParser
 import com.benkio.botDB.show.ShowUpdater
 import com.benkio.botDB.show.YouTubeService
-import com.benkio.botDB.Logger.given
 import com.benkio.chatcore.initialization.TokenReader
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.ResourcesRepository
+import com.benkio.chatcore.Logger.given
 import log.effect.LogWriter
 
 object Main extends IOApp {
