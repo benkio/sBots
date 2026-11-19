@@ -21,23 +21,26 @@ actor ChatMember {
 -- Every bot but cala runs on Telegram and Discord (cala on Telegram only) and has a data entry runner.
 
 config {
-    message_time_to_live: Duration = 10.seconds
 }
 
 rule BotRepliesWithMediaByKind {
     when: core/RequestIsDispatched(request)
     requires: request.message.is_command
+    requires: CommandIsMediaByKind(request)
     -- the command is a media-by-kind command: a random catalogue media of that kind
     ensures: core/Reply.sent(chat: request.message.chat, reply: RandomMediaOfKind(request.bot))
 }
 
+-- The command is written in the platform's command syntax: "/bensonify" on Telegram and Discord, "!bensonify" on IRC.
+-- known defect (latent): the code calls the command handler without the platform's command syntax, so it only recognises
+-- the slash form and "!bensonify" on IRC would get the default reply. Today no bot with /bensonify runs on IRC.
 rule BensonifyRewritesText {
     when: core/RequestIsDispatched(request)
     requires: request.message.is_command
     requires: request.bot.id = core/BotId.rphjb
-    requires: CommandWord(request.message) = "bensonify"
+    requires: CommandWord(request.message, request.message.chat.platform) = "bensonify"   -- the word after the platform prefix
     -- non empty input: replaced in order t->d, rr->r, c->g, b->bb, p->b (uppercase pairs first, then lowercase),
-    -- sent quoting the message; empty input: "E PARLAAAAAAA!!!!"; the reply is deleted after message_time_to_live
+    -- sent quoting the message; empty input: "E PARLAAAAAAA!!!!"; the rewritten text stays; the default and error replies are deleted after core/config.reply_time_to_live
     ensures: core/Reply.sent(chat: request.message.chat, reply: BensonifiedText(request.message))
 }
 

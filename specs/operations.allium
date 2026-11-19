@@ -49,7 +49,7 @@ surface OperatorShell {
 
 rule AppStarts {
     when: OperatorStartsApp(mode, bots)
-    requires: bots.all(b => b.platforms.all(p => p != slack))
+    requires: bots.all(b => b.platforms.all(p => p != slack))   -- generally: every platform of a bot has a runtime
     -- a runtime starts only if at least one bot runs on its platform
     ensures: Application.created(mode: mode, status: running, started_at: now, next_heartbeat_tick: now + config.heartbeat_every, last_system_stats: now)
     ensures: HealthSignalSent(kind: start)
@@ -58,15 +58,22 @@ rule AppStarts {
 rule AppRefusesBotWithoutRuntime {
     when: OperatorStartsApp(mode, bots)
     requires: bots.any(b => b.platforms.any(p => p = slack))
-    ensures: AppCrashed(reason: platform_without_runtime)
+    -- no Application exists on this path; a refused start only sends the fail signal
+    -- known defect: the code sends the start signal before the check, so the health check sees start, then fail
+    ensures: HealthSignalSent(kind: fail)
 }
 
--- a bot that fails on Discord or IRC stops on that platform only: no restart, no health check failure
+-- a bot that fails on a platform stops there only: no restart, no health check failure (on Discord and IRC today; Telegram
+-- is a known defect, see below)
 rule BotStopsOnConnectionPlatform {
     when: BotPlatformFailed(entry)
-    requires: entry.platform = discord or entry.platform = irc
     ensures: entry.status = stopped
 }
+
+-- the heartbeat follows a wall-clock cron (every 10 minutes), not the start time; a failed ping sleeps the restart delay
+-- and then waits for the next cron tick
+-- known defect: a Telegram bot failure is not isolated, the code ends the whole app; it should stop only that bot like on
+-- Discord and IRC (BotStopsOnConnectionPlatform applies to every platform)
 
 rule HeartbeatTick {
     when: app: Application.next_heartbeat_tick <= now
@@ -95,9 +102,9 @@ rule AppStops {
 }
 
 -- the Grafana dashboard depends on the stats keys, they must stay stable
--- known defect: the log label is outcome=timeout while the outcome is timed_out; the label should be timed_out
 rule UsageStatsLine {
-    when: request: core/Request.outcome becomes handled
+    -- one line for every outcome (handled, duplicate, timeout, failed)
+    when: request: core/Request.outcome != null
     ensures: StatsLineWritten(kind: message, bot: request.bot)
 }
 
@@ -121,6 +128,7 @@ rule StartupCheckReports {
     ensures: core/OperatorsNotified(bot: bot, reason: started_with_report)
 }
 
+-- The IRC send delay, ready timeout and shutdown timeout are infrastructure tuning, not specified.
 -- Build time: for each bot the generators write the triggers list, the instructions and the calendar files.
 rule GeneratorsWriteBotFiles {
     when: OperatorRunsGenerators()

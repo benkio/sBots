@@ -69,8 +69,8 @@ entity CatalogueRun {
 config {
     run_show_fetching: Boolean = false
     run_show_caption_fetching: Boolean = false
-    dry_run: Boolean = false
-    caption_throttle: Duration = 5.seconds   -- random 5 to 10 s between caption downloads
+    dry_run: Boolean = false   -- on both show paths: the show catalogue files are deleted and the stored set is empty
+    caption_throttle: Duration = 5.seconds   -- random 5 to 9 s between caption downloads
 }
 
 surface CatalogueConsole {
@@ -101,6 +101,8 @@ rule MediaCatalogueLoaded {
     ensures: run.status = loading_shows
 }
 
+-- the run needs the YouTube API token even when it only reads files; config load and DB connection happen before migration
+-- and a failure there is not a modelled transition
 -- an unparsable list file fails the whole run
 rule MediaCatalogueFails {
     when: MediaListUnparsable(run)
@@ -118,13 +120,14 @@ rule ShowsLoadedFromCatalogueFiles {
 rule ShowsRefreshedFromYouTube {
     when: run: CatalogueRun.status transitions_to loading_shows
     requires: config.run_show_fetching
+    -- the stored shows' local caption files are parsed on both paths
     -- a YouTube video id is globally unique, so ids not yet stored (across all sources) become Shows, incomplete videos are skipped, the catalogue file is
     -- rewritten sorted by id; if YouTube cannot be listed only the stored shows are kept
     ensures: CaptionsRequested(run: run)
     ensures: run.status = done
 }
 
--- needs the caption download tool, else the run fails; a failed download is logged and skipped
+-- needs the caption download tool (checked only when both fetching flags are on), else the run fails; a failed download is logged and skipped
 rule CaptionsFetched {
     when: CaptionsRequested(run)
     requires: config.run_show_caption_fetching
@@ -142,7 +145,8 @@ invariant ShowIdsUniquePerCatalogue {
             a != b and a.bot = b.bot implies a.id != b.id
 }
 
-open question "dry_run deletes the show catalogue files and treats the stored set as empty: intended full refetch, or a misnamed behaviour?"
+open question "dry_run deletes the show catalogue files and loads no shows on both paths, even a file-only run: intended, or a misnamed behaviour?"
 open question "Does a re-run reset send counts of existing media (depends on DBLayer insert semantics)?"
+open question "A file-only run still needs the YouTube API token at startup: intended, or should it be optional?"
 open question "Captions are fetched only when run_show_fetching is true; the file-only path reads local captions. Intended asymmetry?"
 open question "YouTubeRequests builds captions.list/download requests that are unused (yt-dlp is used): dead code?"

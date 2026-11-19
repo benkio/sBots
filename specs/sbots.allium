@@ -50,7 +50,7 @@ enum Platform { telegram | irc | discord | slack }
 
 enum Matcher { contains_once | contains_all }
 
-enum Outcome { handled | duplicate | timed_out | failed }
+enum Outcome { handled | duplicate | timeout | failed }
 
 ------------------------------------------------------------
 -- Entities and Variants
@@ -153,6 +153,7 @@ config {
     -- SBotConfig.messageTimeToLive: command replies are deleted after this, only where the platform can delete
     reply_time_to_live: Duration? = 10.seconds
     processed_message_retention: Duration = 24.hours
+    processed_message_cleanup_interval: Duration = 1.hour
 }
 
 ------------------------------------------------------------
@@ -219,13 +220,15 @@ rule BotRepliesToTextTrigger {
     ensures: Reply.sent(chat: message.chat, reply: bundle.reply)
 }
 
--- Best match: the rank of a TextTrigger is the length of its longest value (a regex value has a declared length), every
--- other trigger ranks 0. The highest rank wins, a tie goes to the first bundle in the replies order. The forward and age
+-- Best match: the rank of a TextTrigger is the length of its longest value that matched (a regex value has a declared
+-- length; for contains_all every value matched), every other trigger ranks 0. The highest rank wins, a tie goes to the first bundle in the replies order. The forward and age
 -- filters apply before matching, to messages only.
 
 rule BotRepliesToFileRequest {
     when: RequestIsDispatched(request)
 
+    -- a message that is both a command and a file request is handled as a command
+    requires: not request.message.is_command
     requires: request.message.is_file_request
     requires: request.message.content != null
 
@@ -235,6 +238,7 @@ rule BotRepliesToFileRequest {
 
 -- After a reply the last interaction is logged: this is what the timeout is measured from. It only updates an existing
 -- timeout row.
+-- (if updating the row fails the code inserts a row with a zero timeout, which never puts the chat in timeout)
 -- known defect: the code logs it after every non-duplicate message that finishes within the timeout, replied or not,
 -- so a busy chat can stay in timeout indefinitely.
 rule PostComputationLogsInteraction {
@@ -265,7 +269,8 @@ rule RequestFails {
     ensures: request.outcome = failed
 }
 
--- A redelivery after the retention is processed again.
+-- A redelivery after the retention is processed again. The purge runs lazily, at most once per cleanup interval and only
+-- when a message is checked, so a redelivery slightly after the retention can still count as a duplicate until then.
 rule ProcessedMessageExpires {
     when: pm: ProcessedMessage.processed_at + config.processed_message_retention <= now
 
@@ -284,10 +289,12 @@ rule RequestTimesOut {
     requires: config.request_processing_timeout != null
     requires: request.outcome = null
 
+    -- the timeout wraps the duplicate check, the bot logic and the last-interaction update, so a timed-out request also
+    -- skips that update; a failed request gets a stats line and no operator notification
     -- in-flight processing is cancelled and the request dropped (no reply), the operators are notified
     ensures:
-        request.outcome = timed_out
-        OperatorsNotified(bot: request.bot, reason: request_timed_out)
+        request.outcome = timeout
+        OperatorsNotified(bot: request.bot, reason: request_timeout)
 }
 
 -- Trigger semantics ---------------------------------------------------
