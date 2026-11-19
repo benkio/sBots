@@ -6,6 +6,7 @@ Part of the monitoring epic (#1438).
 
 The bots ship their logs to Grafana Cloud Loki (free tier, 14 days of retention).
 
+- **Dashboard:** [sbots Alerts Overview](https://glowingdate3125.grafana.net/d/be4zdbd/sbots-alerts-overview): the state of the alert rules and the log activity at a glance.
 - **Read the logs:** [Grafana Explore](https://glowingdate3125.grafana.net/explore) with the `grafanacloud-glowingdate3125-logs` data source, query `{app="sbots"}`.
   Anyone who needs access has to be invited to the Grafana Cloud stack (Administration, Users and access).
 - **Labels:** `app` (always `sbots`) and `level`. Everything else is in the JSON line; filter it with

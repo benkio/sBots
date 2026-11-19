@@ -41,7 +41,7 @@ object HealthcheckPing {
       log: LogWriter[F]
   ): Stream[F, Unit] =
     ticks
-      .evalMap(_ => ping)
+      .evalMap(_ => log.info("[HealthcheckPing] heartbeat") >> ping)
       .handleErrorWith(e =>
         Stream.exec(log.error(s"[HealthcheckPing] The heartbeat failed, starting it again: $e")) ++
           Stream.sleep_(restartDelay) ++
