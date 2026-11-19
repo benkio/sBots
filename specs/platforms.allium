@@ -148,7 +148,8 @@ rule SentMessageExpires {
 -- sources are tried in order (stored platform file ids first, then the downloadable file); the id that worked is cached
 -- a reply value the platform cannot send (stickers or buttons on Discord, other unsupported kinds on Telegram) sends
 -- nothing and only logs a warning (intended)
--- known defect: document and sticker sends show the upload_video chat action
+-- while a file is sent the chat shows the action matching its kind (upload_voice, upload_photo, upload_video,
+-- upload_document for gifs and documents, choose_sticker for stickers)
 rule SendMediaFile {
     when: ReplySent(chat, reply)
     requires: reply.kind = media_file
