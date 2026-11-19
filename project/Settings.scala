@@ -11,9 +11,10 @@ import Keys.*
 object Settings {
 
   // TASKS
-  lazy val mUnitTests = taskKey[Unit]("Run MUnit tests")
-  lazy val runMigrate = taskKey[Unit]("Migrates the database schema.")
-  lazy val scalaTests = taskKey[Unit]("Run ScalaTest tests")
+  lazy val mUnitTests     = taskKey[Unit]("Run MUnit tests, but the live ones")
+  lazy val mUnitLiveTests = taskKey[Unit]("Run the MUnit tests that need the real network (flaky by nature)")
+  lazy val runMigrate     = taskKey[Unit]("Migrates the database schema.")
+  lazy val scalaTests     = taskKey[Unit]("Run ScalaTest tests")
 
   /** Statement-coverage threshold, rounded down from each module's current measured coverage (with a small safety
     * margin) so coverage checks reflect reality instead of an arbitrary one-size-fits-all number. Raise per-module as
@@ -70,6 +71,13 @@ object Settings {
     libraryDependencies := ChatIrcAdapterDependencies
   )
 
+  /** The integration tests that need the real network: they time out now and then, so CI runs them on their own.
+    *   - `ITIrcLiveSpec` connects the bots to the real irc.libera.chat.
+    */
+  private val liveSpecs: Seq[String] = Seq(
+    "com.benkio.integration.integrationmunit.irc.ITIrcLiveSpec"
+  )
+
   lazy val IntegrationSettings = Seq(
     name                := "Integration",
     libraryDependencies := IntegrationDependencies,
@@ -82,7 +90,10 @@ object Settings {
     Test / javaOptions += s"-Dsbots.repoRoot=${(ThisBuild / baseDirectory).value.getAbsolutePath}",
     Test / javaOptions += s"-Dsbots.integrationTestResourcesDirectory=${(Test / resourceDirectory).value.getAbsolutePath}/",
     mUnitTests := Def.uncached {
-      (Test / testOnly).toTask(" com.benkio.integration.integrationmunit.*").value
+      (Test / testOnly).toTask((" com.benkio.integration.integrationmunit.*" +: liveSpecs.map(" -" + _)).mkString).value
+    },
+    mUnitLiveTests := Def.uncached {
+      (Test / testOnly).toTask(liveSpecs.map(" " + _).mkString).value
     },
     scalaTests := Def.uncached {
       (Test / testOnly).toTask(" com.benkio.integration.integrationscalatest.*").value
