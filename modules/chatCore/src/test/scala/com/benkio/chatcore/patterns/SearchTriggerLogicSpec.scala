@@ -135,6 +135,20 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
             #""".stripMargin('#')
   )
 
+  test("searchTriggerLogic should match the input only, not the words of the command itself") {
+    val mdr = List(ReplyBundleMessage.textToMedia("search")(mp3"test_Search.mp3"))
+    val msg = ModelMessage(
+      messageId = None,
+      date = Instant.now.getEpochSecond(),
+      chatId = TestIds.chatId(0L),
+      chatType = "test",
+      text = Some("/triggersearch foo")
+    )
+    TriggerSearchCommand
+      .searchTriggerLogic[IO](mdr, msg, Some("!"), sBotInfo, ttl = None)
+      .map(result => assertEquals(result, com.benkio.chatcore.model.reply.Text(value = "No matching trigger for foo")))
+  }
+
   test("searchTriggerLogic should return the expected result when a trigger is found") {
     expectedSearchTriggerResponse.traverse_ { case ((mdr, query), expectedResponse) =>
       val msg = ModelMessage(

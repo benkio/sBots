@@ -96,7 +96,6 @@ rule SubscriptionFireFails {
 }
 
 -- /triggersearch <input> lists the bundles whose trigger matches the input.
--- known defect: the code matches against the whole command message ("/triggersearch foo"), not just the input.
 rule UserSearchesTriggers {
     when: UserSearchesTriggers(chat, bot, input)
     ensures: core/Reply.sent(chat: chat, reply: TriggerSearchResult(bot, input))
