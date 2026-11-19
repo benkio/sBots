@@ -63,7 +63,7 @@ object Dependencies {
     val kitteh                = "9.0.0"
     val laminar               = "17.2.1"
     val logEffects            = "0.20.0"
-    val logbackClassic        = "1.6.7"
+    val logbackClassic        = "1.6.8"
     val logbackLogstash       = "9.0"
     val loki4j                = "2.1.0"
     val mbassador             = "1.3.2"
