@@ -48,19 +48,37 @@ object Runner {
       registry: BotRegistry[IO],
       runtimes: List[PlatformRuntime],
       mainSetup: MainSetup[IO]
-  )(using log: LogWriter[IO]): Resource[IO, IO[Unit]] = {
+  )(using log: LogWriter[IO]): Resource[IO, IO[Unit]] =
+    for {
+      _       <- Resource.eval(checkRuntimes(registry, runtimes))
+      started <- runtimes.traverse(runtime =>
+        Option(registry.entriesOn(runtime.platform)).filter(_.nonEmpty).traverse(runtime.start(_, mainSetup))
+      )
+    } yield started.flatten.parSequence_
+
+  /** A bot on a platform with no runtime is an error. */
+  private def checkRuntimes(registry: BotRegistry[IO], runtimes: List[PlatformRuntime]): IO[Unit] = {
     val runnablePlatforms = runtimes.map(_.platform).toSet
     val withoutRuntime    = for {
       entry    <- BotRegistry.toList(registry)
       platform <- entry.platforms if !runnablePlatforms.contains(platform)
     } yield PlatformWithoutRuntime(entry, platform.id)
-    for {
-      _       <- Resource.eval(withoutRuntime.headOption.traverse_(IO.raiseError))
-      started <- runtimes.traverse(runtime =>
-        Option(registry.entriesOn(runtime.platform)).filter(_.nonEmpty).traverse(runtime.start(_, mainSetup))
-      )
-    } yield started.flatten.parSequence_
+    withoutRuntime.headOption.traverse_(IO.raiseError)
   }
+
+  /** The registry is checked before the boot is reported: a refused start only signals the failure, never the start.
+    */
+  private[main] def startReporting(
+      registry: BotRegistry[IO],
+      runtimes: List[PlatformRuntime],
+      mainSetup: MainSetup[IO],
+      heartbeat: IO[Unit]
+  )(using log: LogWriter[IO]): Resource[IO, IO[Unit]] =
+    Resource.eval(checkRuntimes(registry, runtimes) >> heartbeat) >> start(
+      registry = registry,
+      runtimes = runtimes,
+      mainSetup = mainSetup
+    )
 
   /** The bots listen to the platform through the webhook, on an HTTP server, and the health of the application is
     * reported. It never ends but for an error, which is logged.
@@ -68,9 +86,13 @@ object Runner {
   def runWebhook(registry: BotRegistry[IO])(using log: LogWriter[IO]): IO[ExitCode] =
     (for {
       mainSetup <- MainSetup[IO]()
-      _         <- Resource.eval(heartbeat(mainSetup))
       running   <- GeneralErrorHandling.logAndDie[IO, IO[Unit]](
-        start(registry = registry, runtimes = runtimes(RunMode.Webhook), mainSetup = mainSetup),
+        startReporting(
+          registry = registry,
+          runtimes = runtimes(RunMode.Webhook),
+          mainSetup = mainSetup,
+          heartbeat = heartbeat(mainSetup)
+        ),
         onError = signalFailure(mainSetup)
       )
     } yield running).use(identity).as(ExitCode.Success)
@@ -78,8 +100,13 @@ object Runner {
   /** The bots ask the platform for their messages, no HTTP server. An error is logged and is the exit code. */
   def runPolling(registry: BotRegistry[IO])(using log: LogWriter[IO]): IO[ExitCode] =
     MainSetup[IO]().use { mainSetup =>
-      heartbeat(mainSetup) >> GeneralErrorHandling.logAndDie(
-        start(registry = registry, runtimes = runtimes(RunMode.Polling), mainSetup = mainSetup)
+      GeneralErrorHandling.logAndDie(
+        startReporting(
+          registry = registry,
+          runtimes = runtimes(RunMode.Polling),
+          mainSetup = mainSetup,
+          heartbeat = heartbeat(mainSetup)
+        )
           .use(identity)
           .as(ExitCode.Success),
         onError = signalFailure(mainSetup)

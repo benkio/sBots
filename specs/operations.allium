@@ -59,7 +59,6 @@ rule AppRefusesBotWithoutRuntime {
     when: OperatorStartsApp(mode, bots)
     requires: bots.any(b => b.platforms.any(p => p = slack))
     -- no Application exists on this path; a refused start only sends the fail signal
-    -- known defect: the code sends the start signal before the check, so the health check sees start, then fail
     ensures: HealthSignalSent(kind: fail)
 }
 
