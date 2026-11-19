@@ -10,6 +10,7 @@ import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chatcore.ComputeReply
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.Notifier
 import com.benkio.chatcore.PlatformAdapter
 import com.benkio.chatircadapter.model.IrcCapabilities
@@ -31,7 +32,7 @@ class IrcPlatformAdapter[F[_]: Async: LogWriter: Notifier](
     ircApi: F[IrcApi[F]],
     repository: Repository[F],
     backgroundJobManager: BackgroundJobManager[F],
-    effectfulCallbacks: Map[String, Message => F[ReplyValue]],
+    effectfulCallbacks: Map[String, EffectfulCallback[F]],
     dbLayer: DBLayer[F],
     ttl: Option[FiniteDuration],
     startConnection: F[Unit]

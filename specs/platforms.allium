@@ -1,0 +1,213 @@
+-- allium: 3
+-- platforms.allium: the chat adapters (modules/chatTelegramAdapter, chatDiscordAdapter, chatIrcAdapter):
+-- how platform events become Messages and how Replies are delivered. Excludes transport libraries and wiring.
+
+use "./sbots.allium" as core
+
+actor ChatUser {
+    identified_by: ChatUser where true
+}
+
+-- what a platform supports, used by the engine to adapt replies (text split, markdown to plain, media to link, ...)
+value PlatformCapabilities {
+    command_prefix: String
+    max_text_length: Integer
+    native_markdown: Boolean
+    supports_delete: Boolean
+    supports_edit: Boolean
+    supported_media: Set<String>
+    supports_buttons: Boolean
+    accepts_file_ids: Boolean
+}
+
+-- telegram: "/", 4096, markdown yes, delete yes, buttons yes, file ids yes, every media kind
+-- discord:  "/", 2000, markdown yes, delete yes, buttons no,  file ids no,  audio gif photo video document markdown_file
+-- irc:      "!", 400,  markdown no,  delete no,  buttons no,  file ids no,  markdown_file only
+
+entity SentMessage {
+    chat: core/Chat
+    time_to_live: Duration?
+    sent_at: Timestamp
+    deleted: Boolean
+}
+
+entity InlineKeyboard {
+    message: SentMessage
+    page: Integer
+    item_count: Integer
+    has_prev: page > 0
+    has_next: (page + 1) * config.page_size < item_count
+}
+
+external entity TelegramUpdate {
+    kind: message | callback_query
+}
+
+external entity DiscordEvent {
+    kind: message | slash_command
+    channel: String
+    is_direct: Boolean
+    author_is_bot: Boolean
+    text: String
+    command_name: String?
+    arguments: String?
+}
+
+external entity IrcEvent {
+    sender: String
+    channel: String?
+    text: String
+}
+
+config {
+    page_size: Integer = 5
+    notifier_dedup_window: Duration = 5.minutes
+    discord_max_upload_bytes: Integer = 10485760
+    discord_max_slash_commands: Integer = 100
+    irc_max_lines_per_reply: Integer = 20
+    irc_rate_limit_messages: Integer = 5
+    irc_rate_limit_window: Duration = 10.seconds
+    irc_reconnect_base_delay: Duration = 2.seconds
+    irc_reconnect_max_delay: Duration = 60.seconds
+    irc_message_delay: Duration = 1200.milliseconds
+}
+
+------------------------------------------------------------
+-- Inbound
+------------------------------------------------------------
+
+rule TelegramMessageBecomesMessage {
+    when: TelegramUpdateReceived(update, bot)
+    requires: update.kind = message
+    ensures: core/BotReceivesMessage(message: update, bot: bot)
+}
+
+rule DiscordMessageBecomesMessage {
+    when: DiscordEventReceived(e, bot)
+    requires: e.kind = message
+    requires: not e.author_is_bot
+    requires: e.text.trim != ""
+    ensures: core/BotReceivesMessage(message: e, bot: bot)
+}
+
+rule DiscordSlashCommandBecomesCommandMessage {
+    when: DiscordEventReceived(e, bot)
+    requires: e.kind = slash_command
+    requires: not e.author_is_bot
+    -- the interaction is acknowledged invisibly and the acknowledgement deleted at once, replies are plain channel messages;
+    -- the message text is "/" + command name + optional trimmed arguments
+    ensures: core/BotReceivesMessage(message: e, bot: bot)
+}
+
+-- IRC limitation (intended): no message ids and no message times, so dedup and the older-message filter never apply
+rule IrcLineBecomesMessage {
+    when: IrcEventReceived(e, bot)
+    -- colour and format codes are stripped; the bot's own echo, empty lines and senders over the rate limit are ignored
+    -- IRC has no message ids (no deduplication) and no message times (sent_at is the receive time)
+    requires: e.sender.lower != bot.nick.lower
+    -- the empty check is made after the colour and format codes are stripped
+    requires: e.text.trim != ""
+    requires: not IrcSenderOverLimit(sender: e.sender)
+    ensures: core/BotReceivesMessage(message: e, bot: bot)
+}
+
+-- fixed window per sender, over the limit the line gets no reply (an info log line is written)
+rule IrcSenderOverRateLimitIgnored {
+    when: IrcEventReceived(e, bot)
+    requires: IrcSenderOverLimit(sender: e.sender)
+    ensures: IrcLineDropped(sender: e.sender)
+}
+
+rule DiscordRegistersSlashCommands {
+    when: DiscordConnected(bot)
+    -- one slash command per command reply that has English instructions, lowercase 1-32 chars [a-z0-9_-],
+    -- (any Unicode letter or digit is accepted), the description is cut to 100 characters with an ellipsis,
+    -- deduplicated, first config.discord_max_slash_commands kept, replacing the bot's command set;
+    -- a registration failure is logged and the bot keeps running
+    ensures: SlashCommandsRegistered(bot: bot)
+}
+
+------------------------------------------------------------
+-- Outbound
+------------------------------------------------------------
+
+rule TelegramSendsText {
+    when: ReplySent(chat, reply)
+    requires: reply.kind = text
+    -- quotes the triggering message when asked and it has an id
+    ensures: SentMessage.created(chat: chat, time_to_live: reply.time_to_live, sent_at: now, deleted: false)
+}
+
+rule SentMessageExpires {
+    when: m: SentMessage.sent_at + m.time_to_live <= now
+    requires: m.time_to_live != null
+    requires: not m.deleted
+    ensures: m.deleted = true
+}
+
+-- sources are tried in order (stored platform file ids first, then the downloadable file); the id that worked is cached
+-- a reply value the platform cannot send (stickers or buttons on Discord, other unsupported kinds on Telegram) sends
+-- nothing and only logs a warning (intended)
+-- while a file is sent the chat shows the action matching its kind (upload_voice, upload_photo, upload_video,
+-- upload_document for gifs and documents, choose_sticker for stickers)
+rule SendMediaFile {
+    when: ReplySent(chat, reply)
+    requires: reply.kind = media_file
+    ensures: MediaDelivered(chat: chat)
+}
+
+rule MediaSendFailureNotified {
+    when: MediaSendFailed(chat, bot)
+    -- the other replies of the same request are unaffected; missing files and missing chat rights are only logged
+    ensures: core/OperatorsNotified(bot: bot, reason: media_error)
+}
+
+rule SendPagedListAsKeyboard {
+    when: ReplySent(chat, reply)
+    requires: reply.kind = paged_list
+    ensures: InlineKeyboard.created(message: SentMessage.created(chat: chat, time_to_live: null, sent_at: now, deleted: false),
+                                    page: 0, item_count: reply.item_count)
+}
+
+-- Telegram only, handled outside the engine on purpose: a press answers the bot's own message, so no dedup, age,
+-- timeout or forward filter applies and there is no post computation
+rule CallbackPagesKeyboard {
+    when: CallbackPressed(keyboard, kind)
+    requires: kind = previous_page or kind = next_page
+    ensures: keyboard.page = if kind = next_page: keyboard.page + 1 else: max(keyboard.page - 1, 0)
+}
+
+rule CallbackDeliversMedia {
+    when: CallbackPressed(keyboard, kind)
+    requires: kind = media
+    ensures: keyboard.message.deleted = true
+}
+
+rule CallbackDeliversShow {
+    when: CallbackPressed(keyboard, kind)
+    requires: kind = show
+    ensures: keyboard.message.deleted = true
+}
+
+-- Discord: text and markdown sent as messages, quoting the triggering message, deleted after their time to live (empty sends nothing); media urls tried in order, a file over the upload
+-- limit is sent as its link; markdown files are sent in chunks of 2000 characters; other reply kinds send nothing.
+-- IRC: all replies of a request form one logical reply, markdown becomes plain text, text is split on line breaks and each
+-- line cut at 400 characters and bytes, capped at irc_max_lines_per_reply ("(K more lines not shown)"), paced by the send delay.
+rule IrcSendsReply {
+    when: ReplySent(chat, reply)
+    ensures: IrcLinesSent(chat: chat)
+}
+
+rule IrcReconnects {
+    when: IrcConnectionLost(bot)
+    -- the delay doubles on each failed attempt up to the maximum, the attempt count resets on every successful registration,
+    -- channels are joined again on registration
+    ensures: ReconnectScheduled(bot: bot)
+}
+
+open question "Media or Show delivery deletes the keyboard message, paging edits it in place: intended?"
+open question "An unparsable callback is treated as a media file named by the raw data: intended fallback or accident?"
+open question "Text, rich-text and keyboard send failures are swallowed, only media failures reach operators: report them too?"
+open question "Is quoting the triggering message a domain requirement or a platform nicety?"
+open question "Discord with the message-content intent off: only slash commands work: intended default?"
+open question "IRC rate limit is a fixed window (up to 2N across a window edge) with no reply to the user: intended? Should the rate limit and line cap be platform-agnostic anti-flood rules?"

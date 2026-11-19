@@ -7,10 +7,9 @@ import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.NotifierMock.given
 import com.benkio.chatcore.mocks.RepositoryMock
-import com.benkio.chatcore.model.reply.ReplyValue
-import com.benkio.chatcore.model.Message as ModelMessage
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBShowData
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.Logger.given
 import com.benkio.chattelegramadapter.mocks.RecordingApi
 import com.benkio.chattelegramadapter.model.CallbackData
@@ -60,7 +59,7 @@ class TelegramCallbackReplyRoutingSpec extends CatsEffectSuite {
           repository = RepositoryMock(),
           allCommandRepliesData = List.empty,
           backgroundJobManager = BackgroundJobManagerMock.mock(),
-          effectfulCallbacks = Map.empty[String, ModelMessage => IO[ReplyValue]],
+          effectfulCallbacks = Map.empty[String, EffectfulCallback[IO]],
           dbLayer = dbLayer,
           ttl = None
         ) *> methodNames.get

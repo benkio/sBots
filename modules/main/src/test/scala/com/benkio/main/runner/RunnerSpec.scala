@@ -89,6 +89,48 @@ class RunnerSpec extends CatsEffectSuite {
     }
   }
 
+  test("a refused start never reports the boot") {
+    for {
+      started   <- Ref.of[IO, List[(Platform, List[String])]](List.empty)
+      ran       <- Ref.of[IO, List[Platform]](List.empty)
+      heartbeat <- Ref.of[IO, Boolean](false)
+      result    <- withMainSetup(mainSetup =>
+        Runner
+          .startReporting(
+            registry,
+            List(new FakeRuntime(Platform.Telegram, started, ran)),
+            mainSetup,
+            heartbeat.set(true)
+          )
+          .use(identity)
+          .attempt
+      )
+      reported <- heartbeat.get
+    } yield {
+      assert(result.isLeft)
+      assert(!reported)
+    }
+  }
+
+  test("a valid start reports the boot before the runtimes start") {
+    for {
+      started             <- Ref.of[IO, List[(Platform, List[String])]](List.empty)
+      ran                 <- Ref.of[IO, List[Platform]](List.empty)
+      startedWhenReported <- Ref.of[IO, Option[Int]](None)
+      _                   <- withMainSetup(mainSetup =>
+        Runner
+          .startReporting(
+            registry,
+            List(new FakeRuntime(Platform.Telegram, started, ran), new FakeRuntime(Platform.Irc, started, ran)),
+            mainSetup,
+            started.get.flatMap(runtimes => startedWhenReported.set(Some(runtimes.size)))
+          )
+          .use(identity)
+      )
+      reportedAfter <- startedWhenReported.get
+    } yield assertEquals(reportedAfter, Some(0))
+  }
+
   test("the Telegram runtimes serve the Telegram platform") {
     assertEquals(TelegramWebhookPlatformRuntime.platform, Platform.Telegram)
     assertEquals(TelegramPollingPlatformRuntime.platform, Platform.Telegram)

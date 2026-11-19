@@ -199,7 +199,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
       _ = println("[ITBackgroundJobManagerSpec] test subscription scheduled")
       inserted_subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId))
       _ = println("[ITBackgroundJobManagerSpec] test subscription fetched")
-      _ <- Resource.eval(backgroundJobManager.cancelSubscription(testSubscriptionId))
+      _ <- Resource.eval(backgroundJobManager.cancelSubscription(testSubscription.chatId, testSubscriptionId))
       _ = println("[ITBackgroundJobManagerSpec] test subscription cancelled")
       cancel_subscriptions <- Resource.eval(dbLayer.dbSubscription.getSubscriptions(sBotInfo.botId))
       _ = println("[ITBackgroundJobManagerSpec] test subscription re-fetched")

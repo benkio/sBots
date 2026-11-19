@@ -15,6 +15,7 @@ import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.repository.ResourcesRepository
 import com.benkio.chatcore.BotEngine
 import com.benkio.chatcore.CronBackgroundJobManager
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.Notifier
 import com.benkio.chatircadapter.connection.IrcConfig
 import com.benkio.chatircadapter.connection.IrcConnection
@@ -41,7 +42,7 @@ object IrcBot {
   def run[F[_]: Async](
       httpClient: Client[F],
       sBotInfo: SBotInfo,
-      commandEffectfulCallback: Map[String, Message => F[ReplyValue]],
+      commandEffectfulCallback: Map[String, EffectfulCallback[F]],
       config: IrcConfig,
       notifier: Notifier[F]
   )(using log: LogWriter[F]): F[Unit] = {
@@ -66,7 +67,7 @@ object IrcBot {
       core: BotCoreSetup[F],
       @unused sBotConfig: SBotConfig,
       password: Option[String],
-      commandEffectfulCallback: Map[String, Message => F[ReplyValue]],
+      commandEffectfulCallback: Map[String, EffectfulCallback[F]],
       config: IrcConfig,
       notifier: Notifier[F]
   )(using log: LogWriter[F]): F[Unit] = {

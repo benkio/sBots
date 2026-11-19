@@ -9,10 +9,9 @@ package com.benkio.main
 
 import cats.effect.IO
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.model.reply.ReplyValue
-import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.ABarberoBot.ABarberoBot
 import com.benkio.Alessandro0rlandoBot.Alessandro0rlandoBot
 import com.benkio.CalandroBot.CalandroBot
@@ -28,7 +27,7 @@ import com.benkio.YouTuboAncheI0Bot.YouTuboAncheI0Bot
   */
 final case class BotRegistryEntry[F[_]](
     sBotInfo: SBotInfo,
-    commandEffectfulCallback: Map[String, Message => F[ReplyValue]] = Map.empty,
+    commandEffectfulCallback: Map[String, EffectfulCallback[F]] = Map.empty,
     platforms: List[Platform] = List(Platform.Telegram)
 )
 

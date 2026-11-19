@@ -384,8 +384,10 @@ object CommandPatterns {
         sBotInfo = sBotInfo,
         ttl = ttl,
         computation = t => {
-          val matches = mdr
-            .mapFilter(MessageMatches.doesMatch(_, m, ignoreMessagePrefix))
+          // match the input only, not the whole command message (it would match words of the command itself)
+          val inputMessage = m.copy(text = Some(t), caption = None)
+          val matches      = mdr
+            .mapFilter(MessageMatches.doesMatch(_, inputMessage, ignoreMessagePrefix))
             .sortBy(_._1)(using Trigger.orderingInstance.reverse)
             .headOption
           matches.fold(Text(value = s"No matching trigger for $t", timeToLive = ttl).pure[F]) { case (_, rbm) =>
@@ -619,7 +621,7 @@ object CommandPatterns {
               .as(Text(value = "All Subscriptions for current chat successfully cancelled", timeToLive = ttl))
           case UnsubscribeArguments.ById(subscriptionId) =>
             backgroundJobManager
-              .cancelSubscription(subscriptionId)
+              .cancelSubscription(m.chatId, subscriptionId)
               .as(Text(value = "Subscription successfully cancelled", timeToLive = ttl))
           case UnsubscribeArguments.ByType(subscriptionType) =>
             backgroundJobManager

@@ -19,6 +19,7 @@ import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.StringTextTriggerValue
 import com.benkio.chatcore.model.TextTrigger
 import com.benkio.chatcore.repository.db.DBMediaData
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.Logger.given
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.EffectfulKeyReply
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
@@ -344,8 +345,8 @@ class EffectfulKeyReplySpec extends CatsEffectSuite {
   test("EffectfulKeyReply.sendEffectfulKey should work for Callback") {
     val callbackKey = "uppercase"
     // Setup a simple callback that takes the message text and makes it uppercase
-    val callback: Message => IO[Text] =
-      (msg: Message) => IO.pure(Text(msg.getContent.map(_.toUpperCase).getOrElse("")))
+    val callback: EffectfulCallback[IO] =
+      (msg, _) => IO.pure(Text(msg.getContent.map(_.toUpperCase).getOrElse("")))
     val effectfulCallbacks = Map(callbackKey -> callback)
     val effectfulKey       = EffectfulKey.Callback(key = callbackKey, sBotInfo = sBotInfo)
     val testMessage        = message.copy(text = Some("hello world"))

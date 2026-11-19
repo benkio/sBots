@@ -97,8 +97,6 @@ object DataEntry {
         // Combine and convert back to Json
         Json.fromValues(elements1 ++ elements2)
       }
-      _ <- IO.println("[DataEntry] Write the json back")
-      _ <- IO(Files.write(listJsonFilepath, mergedArrayList.toString.getBytes(StandardCharsets.UTF_8)))
 
       _ <- IO.println("[DataEntry] create media file source groups")
       mediaFileSourceGroups = MediaFileSourceGroup.fromMediaFileSourceList(mediafileSources)
@@ -115,7 +113,10 @@ object DataEntry {
         // Combine and convert back to Json
         Json.fromValues(elements1 ++ elements2)
       }
-      _ <- IO.println("[DataEntry] Write the json back")
+
+      // Everything that can fail is done: write the files only now, so an invalid file leaves both untouched
+      _ <- IO.println("[DataEntry] Write the jsons back")
+      _ <- IO(Files.write(listJsonFilepath, mergedArrayList.toString.getBytes(StandardCharsets.UTF_8)))
       _ <- IO(Files.write(repliesJsonFilepath, mergedArrayReplies.toString.getBytes(StandardCharsets.UTF_8)))
     } yield ()
   }

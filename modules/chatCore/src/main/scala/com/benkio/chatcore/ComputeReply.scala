@@ -29,7 +29,7 @@ object ComputeReply {
       msg: Message,
       backgroundJobManager: BackgroundJobManager[F],
       dbLayer: DBLayer[F],
-      effectfulCallbacks: Map[String, Message => F[ReplyValue]],
+      effectfulCallbacks: Map[String, EffectfulCallback[F]],
       ttl: Option[FiniteDuration],
       commandSyntax: CommandSyntax,
       overridePage: Option[Int] = None
@@ -51,7 +51,7 @@ object ComputeReply {
       msg: Message,
       backgroundJobManager: BackgroundJobManager[F],
       dbLayer: DBLayer[F],
-      effectfulCallbacks: Map[String, Message => F[ReplyValue]],
+      effectfulCallbacks: Map[String, EffectfulCallback[F]],
       ttl: Option[FiniteDuration],
       capabilities: PlatformCapabilities,
       overridePage: Option[Int] = None

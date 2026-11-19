@@ -14,7 +14,8 @@ import java.time.Instant
 trait BackgroundJobManager[F[_]] {
   def scheduleSubscription(subscription: Subscription): F[Unit]
   def getScheduledSubscriptions(): List[SubscriptionKey]
-  def cancelSubscription(subscriptionId: SubscriptionId): F[Unit]
+  // Fails with SubscriptionIdNotFound when the subscription does not belong to the chat
+  def cancelSubscription(chatId: ChatId, subscriptionId: SubscriptionId): F[Unit]
   def cancelSubscriptions(chatId: ChatId): F[Unit]
   // No-op when the chat has no subscription of the given type
   def cancelSubscriptionByType(chatId: ChatId, subscriptionType: SubscriptionType): F[Unit]

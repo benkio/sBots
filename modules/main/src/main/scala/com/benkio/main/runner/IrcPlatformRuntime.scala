@@ -24,19 +24,16 @@ object IrcPlatformRuntime extends PlatformRuntime {
   ): Resource[IO, IO[Unit]] =
     Resource.pure(
       entries.parTraverse_(entry =>
-        IrcBot
-          .run[IO](
-            httpClient = mainSetup.httpClient,
-            sBotInfo = entry.sBotInfo,
-            commandEffectfulCallback = entry.commandEffectfulCallback,
-            config = mainSetup.irc,
-            notifier = Notifier.logging[IO]
-          )
-          .handleErrorWith(e =>
-            log.error(
-              s"[IrcPlatformRuntime] ${entry.sBotInfo.botName} stopped on IRC, the other bots keep running: $e"
+        isolated(entry, mainSetup)(
+          IrcBot
+            .run[IO](
+              httpClient = mainSetup.httpClient,
+              sBotInfo = entry.sBotInfo,
+              commandEffectfulCallback = entry.commandEffectfulCallback,
+              config = mainSetup.irc,
+              notifier = Notifier.logging[IO]
             )
-          )
+        )
       )
     )
 }

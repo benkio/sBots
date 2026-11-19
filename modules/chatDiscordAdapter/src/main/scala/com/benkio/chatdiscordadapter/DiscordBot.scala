@@ -13,6 +13,7 @@ import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.repository.ResourcesRepository
 import com.benkio.chatcore.BotEngine
 import com.benkio.chatcore.CronBackgroundJobManager
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.Notifier
 import com.benkio.chatdiscordadapter.gateway.DiscordGateway
 import com.benkio.chatdiscordadapter.gateway.DiscordGatewayConfig
@@ -34,7 +35,7 @@ object DiscordBot {
   def run[F[_]: Async](
       httpClient: Client[F],
       sBotInfo: SBotInfo,
-      commandEffectfulCallback: Map[String, Message => F[ReplyValue]],
+      commandEffectfulCallback: Map[String, EffectfulCallback[F]],
       gatewayConfig: DiscordGatewayConfig,
       notifier: Notifier[F]
   )(using log: LogWriter[F]): F[Unit] = {

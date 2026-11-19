@@ -8,13 +8,13 @@ import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.messagefiltering.*
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
-import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.Message as ModelMessage
 import com.benkio.chatcore.patterns.PostComputationPatterns
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chatcore.BotEngine
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.Notifier
 import com.benkio.chatcore.PlatformAdapter
 import com.benkio.chattelegramadapter.conversions.MessageConversions.*
@@ -76,7 +76,7 @@ trait ISBot[F[_]: Async: LogWriter] {
   def postComputation: ModelMessage => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
 
-  val commandEffectfulCallback: Map[String, ModelMessage => F[ReplyValue]] = Map.empty
+  val commandEffectfulCallback: Map[String, EffectfulCallback[F]] = Map.empty
 
   // The logic of the bot is platform agnostic: this is only the Telegram shell around it ////////////////////////
 

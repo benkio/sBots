@@ -1,0 +1,152 @@
+-- allium: 3
+-- catalogue.allium: the offline job (modules/botDB) that loads each bot's media and show catalogues into the bot store.
+-- Excludes: schema migration, DB transactor, YouTube request shapes, logging.
+
+use "./sbots.allium" as core
+
+external entity MediaListFile {
+    bot: core/Bot
+    entries: List<MediaListEntry>
+}
+
+value MediaListEntry {
+    filename: String
+    kind: mp3 | gif | photo | video | document | sticker | markdown
+    kinds: Set<String>
+    mime_type: String
+    sources: List<String>
+}
+
+external entity YouTubeVideo {
+    id: String
+    title: String?
+    published_at: Timestamp?
+    duration: Duration?
+    description: String?
+    is_live: Boolean
+}
+
+entity ShowSource {
+    bot: core/Bot
+    youtube_sources: List<String>   -- "@handle" is a channel, anything else a playlist id
+    caption_language: String
+    catalogue_file: String
+    caption_folder: String
+}
+
+value Caption {
+    at: Duration
+    text: String
+}
+
+entity Show {
+    id: String                      -- YouTube video id, unique within a catalogue file
+    bot: core/Bot
+    title: String
+    uploaded_at: Timestamp
+    duration: Duration
+    description: String?
+    is_live: Boolean
+    caption_text: String?
+    caption_timed: List<Caption>
+    has_caption: caption_text != null
+}
+
+entity CatalogueRun {
+    status: migrating | loading_media | loading_shows | done | failed
+
+    transitions status {
+        migrating -> loading_media
+        loading_media -> loading_shows
+        loading_shows -> done
+        migrating -> failed
+        loading_media -> failed
+        loading_shows -> failed
+        terminal: done, failed
+    }
+}
+
+config {
+    run_show_fetching: Boolean = false
+    run_show_caption_fetching: Boolean = false
+    dry_run: Boolean = false   -- on both show paths: the show catalogue files are deleted and the stored set is empty
+    caption_throttle: Duration = 5.seconds   -- random 5 to 9 s between caption downloads
+}
+
+surface CatalogueConsole {
+    facing op: core/Operator
+
+    provides:
+        OperatorRunsCatalogue()
+}
+
+rule CatalogueRunStarts {
+    when: OperatorRunsCatalogue()
+    -- the store schema is brought up to date first
+    ensures: CatalogueRun.created(status: migrating)
+}
+
+rule MigrationDone {
+    when: run: CatalogueRun.created
+    ensures: run.status = loading_media
+}
+
+rule MediaCatalogueLoaded {
+    when: run: CatalogueRun.status transitions_to loading_media
+    ensures:
+        for f in MediaListFile:
+            for e in f.entries:
+                core/MediaFile.created(bot: f.bot, name: e.filename, kind: e.kind, kinds: e.kinds, mime_type: e.mime_type,
+                                       sources: e.sources, platform_file_ids: {}, send_count: 0, created_at: now)
+    ensures: run.status = loading_shows
+}
+
+-- the run needs the YouTube API token even when it only reads files; config load and DB connection happen before migration
+-- and a failure there is not a modelled transition
+-- an unparsable list file fails the whole run
+rule MediaCatalogueFails {
+    when: MediaListUnparsable(run)
+    requires: run.status = loading_media
+    ensures: run.status = failed
+}
+
+rule ShowsLoadedFromCatalogueFiles {
+    when: run: CatalogueRun.status transitions_to loading_shows
+    requires: not config.run_show_fetching
+    -- shows are read from each source's catalogue file, captions from its caption folder
+    ensures: run.status = done
+}
+
+rule ShowsRefreshedFromYouTube {
+    when: run: CatalogueRun.status transitions_to loading_shows
+    requires: config.run_show_fetching
+    -- the stored shows' local caption files are parsed on both paths
+    -- a YouTube video id is globally unique, so ids not yet stored (across all sources) become Shows, incomplete videos are skipped, the catalogue file is
+    -- rewritten sorted by id; if YouTube cannot be listed only the stored shows are kept
+    ensures: CaptionsRequested(run: run)
+    ensures: run.status = done
+}
+
+-- needs the caption download tool (checked only when both fetching flags are on), else the run fails; a failed download is logged and skipped
+rule CaptionsFetched {
+    when: CaptionsRequested(run)
+    requires: config.run_show_caption_fetching
+    ensures: CaptionsDownloaded(run: run)
+}
+
+rule CatalogueFailsWithoutCaptionTool {
+    when: CaptionToolMissing(run)
+    ensures: run.status = failed
+}
+
+invariant ShowIdsUniquePerCatalogue {
+    for a in Shows:
+        for b in Shows:
+            a != b and a.bot = b.bot implies a.id != b.id
+}
+
+open question "dry_run deletes the show catalogue files and loads no shows on both paths, even a file-only run: intended, or a misnamed behaviour?"
+open question "Does a re-run reset send counts of existing media (depends on DBLayer insert semantics)?"
+open question "A file-only run still needs the YouTube API token at startup: intended, or should it be optional?"
+open question "Captions are fetched only when run_show_fetching is true; the file-only path reads local captions. Intended asymmetry?"
+open question "YouTubeRequests builds captions.list/download requests that are unused (yt-dlp is used): dead code?"

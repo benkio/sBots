@@ -14,10 +14,13 @@ final case class Timeout(
     lastInteraction: Instant
 )
 
+final case class NonPositiveTimeoutError(input: String) extends Throwable(s"The timeout must be positive: $input")
+
 object Timeout {
 
   def apply(chatId: ChatId, botId: SBotId, timeoutValue: String): Either[Throwable, Timeout] =
-    Try(timeStringToDuration(timeoutValue))
+    Try(timeStringToDuration(timeoutValue)).toEither
+      .filterOrElse(_ > Duration.Zero, NonPositiveTimeoutError(timeoutValue))
       .map(timeoutValue =>
         Timeout(
           chatId = chatId,
@@ -26,7 +29,6 @@ object Timeout {
           lastInteraction = Instant.now()
         )
       )
-      .toEither
 
   def apply(chatId: ChatId, botId: SBotId): Timeout = Timeout(
     chatId = chatId,
@@ -53,6 +55,7 @@ object Timeout {
     timeout
       .split(":")
       .map(_.toLong)
+      .tapEach(value => if value < 0 then throw NonPositiveTimeoutError(timeout))
       .zip(List(HOURS, MINUTES, SECONDS))
       .map { case (value, timeUnit) =>
         FiniteDuration(value, timeUnit)

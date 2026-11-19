@@ -240,7 +240,7 @@ object MediaFileReply {
     TelegramMessageReply.telegramFileReplyPattern[F](
       msg = msg,
       repository = repository,
-      chatAction = "upload_video",
+      chatAction = "upload_document",
       mediaFile = reply,
       replyToMessage = replyToMessage,
       sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
@@ -263,7 +263,7 @@ object MediaFileReply {
     TelegramMessageReply.telegramFileReplyPattern[F](
       msg = msg,
       repository = repository,
-      chatAction = "upload_video",
+      chatAction = "choose_sticker",
       mediaFile = reply,
       replyToMessage = replyToMessage,
       sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>

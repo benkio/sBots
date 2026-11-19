@@ -72,7 +72,10 @@ class BotEngine[F[_]: Async: LogWriter](
 
   // Bot logic ////////////////////////////////////////////////////////////
 
-  def messageLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] =
+  def messageLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = messageLogicReplied(msg).void
+
+  /** Whether a reply was sent: a matching bundle that the filters let through. */
+  private def messageLogicReplied(msg: Message)(using platform: PlatformAdapter[F]): F[Boolean] =
     ReplyBundleMessage
       .selectReplyBundle(
         msg = msg,
@@ -80,15 +83,19 @@ class BotEngine[F[_]: Async: LogWriter](
         ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix,
         disableForward = sBotConfig.disableForward
       )
-      .traverse_(replyBundle =>
+      .traverse(replyBundle =>
         for {
           _ <- LogWriter
             .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ")
-          _ <- filteringMatchesMessages(replyBundle, msg).flatMap(reply(replyBundle.reply, msg).whenA)
-        } yield ()
+          passesFilters <- filteringMatchesMessages(replyBundle, msg)
+          _             <- reply(replyBundle.reply, msg).whenA(passesFilters)
+        } yield passesFilters
       )
+      .map(_.getOrElse(false))
 
-  def commandLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] =
+  def commandLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = commandLogicReplied(msg).void
+
+  private def commandLogicReplied(msg: Message)(using platform: PlatformAdapter[F]): F[Boolean] =
     ReplyBundleCommand
       .selectCommandReplyBundle(
         msg = msg,
@@ -96,29 +103,35 @@ class BotEngine[F[_]: Async: LogWriter](
         botName = sBotConfig.sBotInfo.botName,
         syntax = platform.capabilities.commandSyntax
       )
-      .traverse_(commandReply =>
+      .traverse(commandReply =>
         LogWriter.info(
           s"${sBotConfig.sBotInfo.botName}: Computing command ${msg.text} matching command reply bundle"
-        ) *> reply(commandReply.reply, msg)
+        ) *> reply(commandReply.reply, msg).as(true)
       )
+      .map(_.getOrElse(false))
 
-  def fileRequestLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] =
-    msg.getContent.traverse_(content =>
-      deliver(
-        replyValue = MediaFile.fromString(platform.capabilities.commandSyntax.fileRequestContent(content)),
-        msg = msg,
-        replyToMessage = true
+  def fileRequestLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = fileRequestLogicReplied(msg).void
+
+  private def fileRequestLogicReplied(msg: Message)(using platform: PlatformAdapter[F]): F[Boolean] =
+    msg.getContent
+      .traverse(content =>
+        deliver(
+          replyValue = MediaFile.fromString(platform.capabilities.commandSyntax.fileRequestContent(content)),
+          msg = msg,
+          replyToMessage = true
+        ).as(true)
       )
-    )
+      .map(_.getOrElse(false))
 
-  def botLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] =
+  /** Whether a reply was sent. */
+  def botLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Boolean] =
     msg.messageType(sBotConfig.sBotInfo.botId, platform.capabilities.commandSyntax) match {
       case MessageType.Message =>
-        LogWriter.trace("Message Type: Message") >> messageLogic(msg)
+        LogWriter.trace("Message Type: Message") >> messageLogicReplied(msg)
       case MessageType.Command =>
-        LogWriter.trace("Message Type: Command") >> commandLogic(msg)
+        LogWriter.trace("Message Type: Command") >> commandLogicReplied(msg)
       case MessageType.FileRequest =>
-        LogWriter.trace("Message Type: File Request") >> fileRequestLogic(msg)
+        LogWriter.trace("Message Type: File Request") >> fileRequestLogicReplied(msg)
     }
 
   /** The entry point: a message arrived. One `[stats]` line tells how it ended and how long it took. */
@@ -158,9 +171,10 @@ class BotEngine[F[_]: Async: LogWriter](
     )
 
   private def handleMessage(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = for {
-    _ <- LogWriter.info(s"${sBotConfig.sBotInfo.botName}: A message arrived with content: ${msg.text}")
-    _ <- botLogic(msg)
-    _ <- postComputation(msg)
+    _       <- LogWriter.info(s"${sBotConfig.sBotInfo.botName}: A message arrived with content: ${msg.text}")
+    replied <- botLogic(msg)
+    // the last interaction (what the chat timeout is measured from) is logged only after a reply
+    _ <- postComputation(msg).whenA(replied)
   } yield ()
 
   /** Whether the message was already received: the platforms can deliver the same message more than once (e.g. Telegram

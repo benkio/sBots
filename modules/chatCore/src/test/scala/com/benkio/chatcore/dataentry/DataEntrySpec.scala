@@ -46,6 +46,23 @@ class DataEntrySpec extends CatsEffectSuite {
       }
     )
 
+  private def testConfig(listPath: Path, repliesPath: Path): SBotConfig =
+    SBotConfig(
+      disableForward = true,
+      ignoreMessagePrefix = Some("!"),
+      messageTimeToLive = Some(5.seconds),
+      sBotInfo = SBotInfo(SBotId("rphjb"), SBotName("RichardPHJBensonBot")),
+      triggerFilename = "x",
+      triggerListUri = uri"http://example.com",
+      instructionsFilename = "x_instructions.md",
+      instructionsUri = uri"http://example.com/x_instructions.md",
+      listJsonFilename = listPath.toString,
+      showFilename = "x",
+      repliesJsonFilename = repliesPath.toString,
+      commandsJsonFilename = "x",
+      token = "x"
+    )
+
   test("DataEntry merges list + replies json and writes back") {
     tempDir.use { dir =>
       val listPath    = dir.resolve("rphjb_list.json")
@@ -59,22 +76,7 @@ class DataEntrySpec extends CatsEffectSuite {
       val initialReplies =
         List(ReplyBundleMessage.textToText("hello")("existing")).asJson.spaces2
 
-      val config =
-        SBotConfig(
-          disableForward = true,
-          ignoreMessagePrefix = Some("!"),
-          messageTimeToLive = Some(5.seconds),
-          sBotInfo = SBotInfo(SBotId("rphjb"), SBotName("RichardPHJBensonBot")),
-          triggerFilename = "x",
-          triggerListUri = uri"http://example.com",
-          instructionsFilename = "x_instructions.md",
-          instructionsUri = uri"http://example.com/x_instructions.md",
-          listJsonFilename = listPath.toString,
-          showFilename = "x",
-          repliesJsonFilename = repliesPath.toString,
-          commandsJsonFilename = "x",
-          token = "x"
-        )
+      val config = testConfig(listPath, repliesPath)
 
       val input = List(
         "https://example.com/rphjb_new_a.mp3?dl=0",
@@ -92,6 +94,29 @@ class DataEntrySpec extends CatsEffectSuite {
       } yield {
         assertEquals(outListJ.asArray.map(_.size), Some(3))
         assertEquals(outRepJ.asArray.map(_.size), Some(3))
+      }
+    }
+  }
+
+  test("DataEntry leaves the list file untouched when the replies file is not valid json") {
+    tempDir.use { dir =>
+      val listPath    = dir.resolve("rphjb_list.json")
+      val repliesPath = dir.resolve("rphjb_replies.json")
+      val initialList =
+        """[
+          |  { "filename": "rphjb_existing.mp3", "sources": ["http://example.com/rphjb_existing.mp3"] }
+          |]""".stripMargin
+
+      for {
+        _      <- write(listPath, initialList)
+        _      <- write(repliesPath, "this is not json")
+        result <- DataEntry
+          .dataEntryLogic(List("https://example.com/rphjb_new_a.mp3?dl=0"), testConfig(listPath, repliesPath))
+          .attempt
+        outList <- IO.blocking(Files.readString(listPath, StandardCharsets.UTF_8))
+      } yield {
+        assert(result.isLeft)
+        assertEquals(outList, initialList)
       }
     }
   }

@@ -168,9 +168,9 @@ object CronBackgroundJobManager {
         subscription.subscriptionType
       ) -> cancel
 
-    override def cancelSubscription(subscriptionId: SubscriptionId): F[Unit] = {
+    override def cancelSubscription(chatId: ChatId, subscriptionId: SubscriptionId): F[Unit] = {
       val (optCancellingBoolean, onGoingScheduleReferences) = scheduleReferences.partition {
-        case (SubscriptionKey(sId, _, _), _) => sId == subscriptionId
+        case (SubscriptionKey(sId, cId, _), _) => sId == subscriptionId && cId == chatId
       }
       for {
         _ <- Async[F].raiseWhen(optCancellingBoolean.isEmpty)(SubscriptionIdNotFound(subscriptionId))
