@@ -10,6 +10,7 @@ import com.benkio.main.BotRegistryEntry
 import com.benkio.main.GeneralErrorHandling
 import com.benkio.main.HealthcheckPing
 import com.benkio.main.MainSetup
+import com.benkio.main.StatsLogger
 import log.effect.LogWriter
 
 /** Runs the bots of the registry: the runtime of every platform they run on, in one resource, with the HTTP server only
@@ -87,14 +88,14 @@ object Runner {
       )
     }
 
-  /** Signals the boot to the health check and keeps the heartbeat going, in every mode. */
+  /** Signals the boot to the health check and keeps the heartbeat and the system stats going, in every mode. */
   private def heartbeat(mainSetup: MainSetup[IO])(using log: LogWriter[IO]): IO[Unit] =
     HealthcheckPing.healthcheckPing(
       mainSetup.dbLayer.dbLog,
       mainSetup.httpClient,
       mainSetup.healthcheckEndpoint,
       mainSetup.healthcheckCron
-    )
+    ) >> StatsLogger.start[IO](mainSetup.mainDBName)
 
   private def signalFailure(mainSetup: MainSetup[IO])(reason: String)(using log: LogWriter[IO]): IO[Unit] =
     HealthcheckPing.fail(mainSetup.httpClient, mainSetup.healthcheckEndpoint, reason)

@@ -16,7 +16,12 @@ final case class HttpServerConfig(
     port: Int,
     keystorePath: Option[String],
     keystorePassword: Option[String]
-) derives ConfigReader
+) derives ConfigReader {
+
+  // The configuration is logged at the startup, and the logs are shipped to Grafana Cloud: no secrets in it
+  override def toString: String =
+    s"HttpServerConfig($hostUrl,$port,$keystorePath,${keystorePassword.map(_ => Config.redacted)})"
+}
 
 /** What is Telegram specific. Every platform has a block like this one (`main.<platform>`): see [[Config]].
   *
@@ -41,9 +46,15 @@ final case class Config(
 final case class HealthcheckPingConfig(
     endpoint: Uri,
     cron: CronExpr
-) derives ConfigReader
+) derives ConfigReader {
+
+  // Whoever has the ping url can fake the heartbeat of the check: it is a secret
+  override def toString: String = s"HealthcheckPingConfig(${Config.redacted},$cron)"
+}
 
 object Config {
+
+  private[main] val redacted = "<redacted>"
 
   def loadConfig[F[_]: Async]: F[Config] =
     ConfigSource.default

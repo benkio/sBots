@@ -31,7 +31,8 @@ final case class MainSetup[F[_]](
     discord: DiscordGatewayConfig,
     irc: IrcConfig,
     healthcheckEndpoint: Uri,
-    healthcheckCron: CronExpr
+    healthcheckCron: CronExpr,
+    mainDBName: String
 )
 
 object MainSetup {
@@ -69,6 +70,7 @@ object MainSetup {
     discord = config.discord,
     irc = config.irc,
     healthcheckEndpoint = config.healthcheckPing.endpoint,
-    healthcheckCron = config.healthcheckPing.cron
+    healthcheckCron = config.healthcheckPing.cron,
+    mainDBName = config.mainDB.dbName
   )
 }
