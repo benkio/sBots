@@ -8,6 +8,22 @@ on:
   workflow_dispatch:
 
 jobs:
+  alliumSpecs:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v5
+    - name: Cache the allium CLI
+      id: allium-cache
+      uses: actions/cache@v4
+      with:
+        path: ~/.cargo/bin/allium
+        key: allium-cli-3.7.2
+    - name: Install the allium CLI
+      if: steps.allium-cache.outputs.cache-hit != 'true'
+      run: cargo install allium-cli --version 3.7.2 --locked
+    - name: Check the behavior specs
+      run: sh scripts/checkSpecs.sh
   typescriptCode:
     runs-on: ubuntu-latest
     steps:
