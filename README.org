@@ -205,6 +205,73 @@ SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' A
     run multiple replicas, each will ping the same endpoint on each
     tick.
 
+** Operations
+
+  Runbook of the production VM. The directory is the repository variable ~DEPLOY_DIR~ (the user is ~DEPLOY_USER~,
+  the ssh port ~DEPLOY_PORT~, see [[*GitHub Deploy Workflow (current target)][GitHub Deploy Workflow]]). The details of
+  the logs in Grafana are in [[docs/monitoring.md][docs/monitoring.md]].
+
+*** Where the logs are
+
+  - *Grafana Cloud* (first choice, no SSH): [[https://glowingdate3125.grafana.net/explore][Explore]] with the
+    ~grafanacloud-glowingdate3125-logs~ data source and the query ~{app="sbots"}~; 14 days of retention. Shipping is on
+    only when ~LOKI_URL~, ~LOKI_USER~ (variables) and ~LOKI_TOKEN~ (secret) are set.
+  - *On the VM*, in ~DEPLOY_DIR~:
+    - ~sbots.log~ :: the standard output of the service (the same lines as the ones in Grafana).
+    - ~sbots.err.log~ :: the standard error of the service.
+    - ~log.txt~ :: the history of how the application ended (crashes with the stack trace), only grows.
+    - ~oom.hprof~ :: the heap dump of an ~OutOfMemoryError~; it is deleted when the service is started again.
+  - *Rotation*: ~logrotate~ (hourly, from ~/etc/periodic/hourly~) rotates ~sbots.log~, ~sbots.err.log~ and ~log.txt~ at
+    20 MB, keeps 5 compressed files (~copytruncate~). Installed by the deploy workflow.
+  - *Download without SSH*: run the workflow "Download Prod DB and log files" (Actions, ~workflow_dispatch~): the
+    artifacts are the DB (~prod sqlite-db~), ~log.txt~ (~prod logTxt~) and ~sbots.log~ with ~sbots.err.log~
+    (~prod sbots logs~).
+
+*** Dashboards and alerts
+
+  - [[https://glowingdate3125.grafana.net/d/be4zdbd/sbots-alerts-overview][sbots Alerts Overview]]: alert queries, usage
+    and health stats (messages per bot and platform, timeouts, latency, heap, DB size) and the raw logs. The JSON is
+    in ~docs/grafana/~.
+  - *Grafana alert rules* (folder ~sBots~): error burst, no log lines for 15 minutes, restarts. They are sent to the
+    Telegram ops chat.
+  - *Healthchecks.io*: the application pings the check every 10 minutes (~/start~ on boot, ~/fail~ on a crash); the
+    alert is the one configured in Healthchecks.io.
+  - *GitHub Healthcheck workflow* (~.github/workflows/healthcheck.yml~): after every deploy and every 30 minutes it
+    asks the Telegram API how every bot is doing and writes to the ops chat only when something is wrong.
+  - The application itself writes to the ops chat (~Notifier~): errors (throttled), request timeouts, crashes and
+    the result of the startup checks.
+
+*** Restart and status
+
+  The bots run as the OpenRC service ~sbots~ (~/etc/init.d/sbots~, supervised and respawned after a crash). On the VM:
+
+  #+begin_src shell
+  sudo rc-service sbots status
+  sudo rc-service sbots restart      # or stop / start
+  tail -f DEPLOY_DIR/sbots.log
+  #+end_src
+
+  A redeploy of the current ~main~ is the other way to restart: run the workflow "Deploy" (~workflow_dispatch~).
+
+*** Rollback
+
+  - *Code*: the Deploy workflow runs after the CI of every commit on ~main~. Revert the bad commit
+    (~git revert <sha>~), merge the revert and the deploy puts the previous behavior back.
+  - *Database*: every deploy migrates the production data into a new DB (~DBMigration.sql~, ~scripts/updateProdDB.sh~).
+    If the migration fails the production DB is restored by the script and the deploy stops. When it succeeds the
+    previous production DB is kept as ~botDB.sqlite3.bak~ (only the last one). To go back to it:
+
+    #+begin_src shell
+    sudo rc-service sbots stop
+    cd DEPLOY_DIR
+    mv botDB.sqlite3 botDB.sqlite3.broken && cp botDB.sqlite3.bak botDB.sqlite3
+    sudo rc-service sbots start
+    #+end_src
+
+    The data written after that deploy (timeouts, subscriptions, counters) is lost, and an older jar may not
+    work with the DB of a newer schema: roll the code back too.
+  - To check a migration before deploying it: ~scripts/checkDBMigration.sh~ (from the repository root, after ~sbt dbSetup~).
+
 ** Continuous Deployment
 
   There should be a pipeline on ~main~, running after the other
@@ -230,12 +297,14 @@ SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' A
   - ~DEPLOY_USER~
   - ~DEPLOY_DIR~
   - ~WEBHOOK_PUBLIC_HOST~
+  - ~LOKI_URL~ and ~LOKI_USER~ (optional, Grafana Cloud Loki: base url of the stack and user id)
 
   Required repository secrets:
 
   - ~SSH_PRIVATE_KEY~ :: private key used by GitHub Actions to connect via SSH
   - ~DEPLOY_SUDO_PASSWORD~ :: password used for ~sudo~ while installing/updating runtime packages
   - bot tokens (eg ~ABAR_TOKEN~, ~CALA_TOKEN~, etc.) as already used by the workflow
+  - ~LOKI_TOKEN~ (optional, with ~LOKI_URL~ and ~LOKI_USER~: without all three the logs are not shipped)
 
   Notes:
 

@@ -1,4 +1,4 @@
-name: Download Prod DB and log file
+name: Download Prod DB and log files
 
 on:
   workflow_dispatch:
@@ -27,6 +27,13 @@ jobs:
       - name: Download log file from VM
         run: |
           rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10' ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/log.txt /home/runner/work/log.txt
+      - name: Download the service logs from VM
+        # --ignore-missing-args: a log that does not exist (yet) is not an error. The logs are the current ones: the rotated
+        # files (sbots.log.1, .2.gz, ...) stay on the VM.
+        run: |
+          mkdir -p /home/runner/work/sbots-logs
+          rsync -av --ignore-missing-args -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10' ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/sbots.log ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/sbots.err.log /home/runner/work/sbots-logs/
+
       - name: Upload DB as artifact
         uses: actions/upload-artifact@v4
         with:
@@ -38,3 +45,10 @@ jobs:
         with:
           name: prod logTxt
           path: /home/runner/work/log.txt
+
+      - name: Upload the service logs as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: prod sbots logs
+          path: /home/runner/work/sbots-logs/
+          if-no-files-found: warn
