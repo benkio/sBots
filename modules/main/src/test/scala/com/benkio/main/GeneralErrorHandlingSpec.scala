@@ -2,13 +2,11 @@ package com.benkio.main
 
 import cats.effect.*
 import cats.syntax.all.*
-import com.benkio.chatcore.mocks.DBLayerMock
-import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.Logger.given
 import munit.CatsEffectSuite
 
 // No timing involved on purpose: the failing resource/IO fail immediately and the log is written before
-// `dbLogAndDie` completes, so there is nothing to wait for (a sleep/race here made the test flaky on slow CI).
+// `logAndDie` completes, so there is nothing to wait for (a sleep/race here made the test flaky on slow CI).
 class GeneralErrorHandlingSpec extends CatsEffectSuite {
 
   val plainErrorMessage: String    = "Test Throwable"
@@ -18,55 +16,56 @@ class GeneralErrorHandlingSpec extends CatsEffectSuite {
   val failedResource: Resource[IO, Unit] =
     Resource.eval(failedIO).void
 
-  test("GeneralErrorHandling should write logs when an error occurred in the failed resource") {
-    val dbLayer = DBLayerMock.mock(SBotId("whateverBot"))
+  private def tempHistory: IO[java.nio.file.Path] =
+    IO.blocking(java.nio.file.Files.createTempFile("log", ".txt"))
+      .flatTap(h => IO.blocking(java.nio.file.Files.delete(h)))
+
+  test("GeneralErrorHandling should write the history when an error occurred in the failed resource") {
     for {
-      result  <- GeneralErrorHandling.dbLogAndDie(dbLayer.dbLog, failedResource, _ => IO.unit).use_.attempt
-      lastLog <- dbLayer.dbLog.getLastLog()
+      history <- tempHistory
+      result  <- GeneralErrorHandling.logAndDie(failedResource, _ => IO.unit, history).use_.attempt
+      content <- IO.blocking(java.nio.file.Files.readString(history))
     } yield {
       assertEquals(result.left.map(_.getMessage), Left(plainErrorMessage))
-      assertEquals(lastLog.map(_.message), Some(expectedErrorMessage))
+      assert(content.contains(expectedErrorMessage), content)
     }
   }
 
-  test("GeneralErrorHandling should write logs when an error occurred in the failed IO") {
-    val dbLayer = DBLayerMock.mock(SBotId("whateverBot"))
+  test("GeneralErrorHandling should write the history when an error occurred in the failed IO") {
     for {
-      exitCode <- GeneralErrorHandling.dbLogAndDie(dbLayer.dbLog, failedIO, _ => IO.unit)
-      lastLog  <- dbLayer.dbLog.getLastLog()
+      history  <- tempHistory
+      exitCode <- GeneralErrorHandling.logAndDie(failedIO, _ => IO.unit, history)
+      content  <- IO.blocking(java.nio.file.Files.readString(history))
     } yield {
       assertEquals(exitCode, ExitCode.Error)
-      assertEquals(lastLog.map(_.message), Some(expectedErrorMessage))
+      assert(content.contains(expectedErrorMessage), content)
     }
   }
 
   test("GeneralErrorHandling should signal the error when the resource crashes, and nothing on a normal end") {
-    val dbLayer = DBLayerMock.mock(SBotId("whateverBot"))
     for {
       signals <- Ref.of[IO, List[String]](List.empty)
       onError = (error: String) => signals.update(_ :+ error)
-      _        <- GeneralErrorHandling.dbLogAndDie(dbLayer.dbLog, failedResource, onError).use_.attempt
-      _        <- GeneralErrorHandling.dbLogAndDie(dbLayer.dbLog, Resource.unit[IO], onError).use_
+      _        <- GeneralErrorHandling.logAndDie(failedResource, onError).use_.attempt
+      _        <- GeneralErrorHandling.logAndDie(Resource.unit[IO], onError).use_
       afterEnd <- signals.get
     } yield assertEquals(afterEnd, List(expectedErrorMessage))
   }
 
   test("GeneralErrorHandling should signal the error when the IO crashes") {
-    val dbLayer = DBLayerMock.mock(SBotId("whateverBot"))
     for {
       signals <- Ref.of[IO, List[String]](List.empty)
-      _       <- GeneralErrorHandling.dbLogAndDie(dbLayer.dbLog, failedIO, error => signals.update(_ :+ error))
+      _       <- GeneralErrorHandling.logAndDie(failedIO, error => signals.update(_ :+ error))
       sent    <- signals.get
     } yield assertEquals(sent, List(expectedErrorMessage))
   }
 
   test("a crash is appended to the history with its stack trace, and the previous entries are kept") {
-    val dbLayer = DBLayerMock.mock(SBotId("whateverBot"))
     for {
       history <- IO.blocking(java.nio.file.Files.createTempFile("log", ".txt"))
       _       <- IO.blocking(java.nio.file.Files.delete(history))
-      _       <- GeneralErrorHandling.dbLogAndDie(dbLayer.dbLog, failedIO, _ => IO.unit, history)
-      _       <- GeneralErrorHandling.dbLogAndDie(dbLayer.dbLog, failedIO, _ => IO.unit, history)
+      _       <- GeneralErrorHandling.logAndDie(failedIO, _ => IO.unit, history)
+      _       <- GeneralErrorHandling.logAndDie(failedIO, _ => IO.unit, history)
       content <- IO.blocking(java.nio.file.Files.readString(history))
     } yield {
       assertEquals(content.split("\\[[^\\]]+\\] ").count(_.nonEmpty), 2)

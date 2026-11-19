@@ -28,8 +28,4 @@ INSERT OR REPLACE INTO subscription(subscription_id, platform, chat_id, bot_id, 
 SELECT subscription_id, platform, chat_id, bot_id, subscription_type, target, cron, subscribed_at
 FROM prodDB.subscription;
 
-INSERT OR REPLACE INTO log(log_time, message)
-SELECT log_time, message
-FROM prodDB.log;
-
 DETACH DATABASE prodDB;

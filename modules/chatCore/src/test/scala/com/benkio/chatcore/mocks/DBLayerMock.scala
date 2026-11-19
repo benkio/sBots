@@ -16,8 +16,6 @@ import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.model.Timeout
 import com.benkio.chatcore.repository.db.DBCommandReplies
 import com.benkio.chatcore.repository.db.DBLayer
-import com.benkio.chatcore.repository.db.DBLog
-import com.benkio.chatcore.repository.db.DBLogData
 import com.benkio.chatcore.repository.db.DBMedia
 import com.benkio.chatcore.repository.db.DBMediaData
 import com.benkio.chatcore.repository.db.DBMessageReplies
@@ -39,7 +37,6 @@ object DBLayerMock {
       medias: List[DBMediaData] = List.empty,
       subscriptions: List[DBSubscriptionData] = List.empty,
       shows: List[DBShowData] = List.empty,
-      logs: List[DBLogData] = List.empty,
       processedMessages: DBProcessedMessage[IO] = DBProcessedMessageMock(Ref.unsafe(Set.empty)),
       messageReplies: List[ReplyBundleMessage] = List.empty,
       commandReplies: List[ReplyBundleCommand] = List.empty
@@ -49,7 +46,6 @@ object DBLayerMock {
       dbMedia = DBMediaMock(Ref.unsafe(medias)),
       dbSubscription = DBSubscriptionMock(Ref.unsafe(subscriptions)),
       dbShow = DBShowMock(Ref.unsafe(shows)),
-      dbLog = DBLogMock(Ref.unsafe(logs)),
       dbProcessedMessage = processedMessages,
       dbMessageReplies = DBMessageReplies(messageReplies),
       dbCommandReplies = DBCommandReplies(commandReplies)
@@ -234,18 +230,5 @@ object DBLayerMock {
       } yield ()
 
     override def deleteShow(dbShowData: DBShowData): IO[Unit] = ???
-  }
-
-  final class DBLogMock(db: Ref[IO, List[DBLogData]]) extends DBLog[IO] {
-    override def writeLog(logMessage: String): IO[Unit] =
-      db.update(ms =>
-        ms :+ DBLogData(
-          log_time = Instant.now().toEpochMilli,
-          message = logMessage
-        )
-      )
-
-    override def getLastLog(): IO[Option[DBLogData]] =
-      db.get.map(_.lastOption)
   }
 }

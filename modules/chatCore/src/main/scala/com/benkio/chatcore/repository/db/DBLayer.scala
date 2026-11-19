@@ -13,7 +13,6 @@ final case class DBLayer[F[_]](
     dbTimeout: DBTimeout[F],
     dbMedia: DBMedia[F],
     dbSubscription: DBSubscription[F],
-    dbLog: DBLog[F],
     dbShow: DBShow[F],
     dbProcessedMessage: DBProcessedMessage[F],
     dbMessageReplies: DBMessageReplies = DBMessageReplies.empty,
@@ -46,14 +45,12 @@ object DBLayer {
       transactor,
       log
     )
-    dbLog  = DBLog[F](transactor)
     dbShow = DBShow(transactor)
     dbProcessedMessage <- DBProcessedMessage[F](transactor)
   } yield DBLayer[F](
     dbTimeout = dbTimeout,
     dbSubscription = dbSubscription,
     dbMedia = dbMedia,
-    dbLog = dbLog,
     dbShow = dbShow,
     dbProcessedMessage = dbProcessedMessage
   )

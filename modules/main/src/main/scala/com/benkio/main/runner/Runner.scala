@@ -69,8 +69,7 @@ object Runner {
     (for {
       mainSetup <- MainSetup[IO]()
       _         <- Resource.eval(heartbeat(mainSetup))
-      running   <- GeneralErrorHandling.dbLogAndDie[IO, IO[Unit]](
-        mainSetup.dbLayer.dbLog,
+      running   <- GeneralErrorHandling.logAndDie[IO, IO[Unit]](
         start(registry = registry, runtimes = runtimes(RunMode.Webhook), mainSetup = mainSetup),
         onError = signalFailure(mainSetup)
       )
@@ -79,8 +78,7 @@ object Runner {
   /** The bots ask the platform for their messages, no HTTP server. An error is logged and is the exit code. */
   def runPolling(registry: BotRegistry[IO])(using log: LogWriter[IO]): IO[ExitCode] =
     MainSetup[IO]().use { mainSetup =>
-      heartbeat(mainSetup) >> GeneralErrorHandling.dbLogAndDie(
-        mainSetup.dbLayer.dbLog,
+      heartbeat(mainSetup) >> GeneralErrorHandling.logAndDie(
         start(registry = registry, runtimes = runtimes(RunMode.Polling), mainSetup = mainSetup)
           .use(identity)
           .as(ExitCode.Success),
@@ -91,7 +89,6 @@ object Runner {
   /** Signals the boot to the health check and keeps the heartbeat and the system stats going, in every mode. */
   private def heartbeat(mainSetup: MainSetup[IO])(using log: LogWriter[IO]): IO[Unit] =
     HealthcheckPing.healthcheckPing(
-      mainSetup.dbLayer.dbLog,
       mainSetup.httpClient,
       mainSetup.healthcheckEndpoint,
       mainSetup.healthcheckCron
