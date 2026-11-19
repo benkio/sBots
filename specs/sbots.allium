@@ -239,8 +239,6 @@ rule BotRepliesToFileRequest {
 -- After a reply the last interaction is logged: this is what the timeout is measured from. It only updates an existing
 -- timeout row.
 -- (if updating the row fails the code inserts a row with a zero timeout, which never puts the chat in timeout)
--- known defect: the code logs it after every non-duplicate message that finishes within the timeout, replied or not,
--- so a busy chat can stay in timeout indefinitely.
 rule PostComputationLogsInteraction {
     when: RequestIsDispatched(request)
 

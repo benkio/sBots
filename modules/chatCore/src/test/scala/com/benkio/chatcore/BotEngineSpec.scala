@@ -151,9 +151,19 @@ class BotEngineSpec extends CatsEffectSuite {
     }
   }
 
-  test("the post computation runs once for every message, whether it got a reply or not") {
-    List("ciao", "something else", "/hi", "/unknown", "eng_file.mp3").traverse(run(_)).map { results =>
-      assertEquals(results.map(_._2), List.fill(5)(1))
+  test("the post computation runs once for every message that got a reply") {
+    List("ciao", "/hi", "eng_file.mp3").traverse(run(_)).map { results =>
+      assertEquals(results.map(_._2), List.fill(3)(1))
+    }
+  }
+
+  test("the post computation does not run for a message that got no reply") {
+    for {
+      noMatch  <- List("something else", "/unknown").traverse(run(_))
+      filtered <- run(text = "ciao", filter = false)
+    } yield {
+      assertEquals(noMatch.map(_._2), List.fill(2)(0))
+      assertEquals(filtered._2, 0)
     }
   }
 
