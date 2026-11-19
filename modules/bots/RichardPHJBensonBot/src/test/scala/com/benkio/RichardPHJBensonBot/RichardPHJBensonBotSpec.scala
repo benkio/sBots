@@ -7,6 +7,7 @@ import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.Text
+import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.LeftMemberTrigger
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.NewMemberTrigger
@@ -98,6 +99,23 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
     instructionsUri = "https://github.com/benkio/sBots/blob/main/modules/bots/RichardPHJBensonBot/rphjb_instructions.md"
   )
 
+  test("Bensonify command callback should follow the command syntax of the platform") {
+    val ircSyntax = CommandSyntax(prefix = "!")
+    for {
+      callback <- IO.fromOption(commandEffectfulCallback[IO].get(RichardPHJBensonBot.bensonifyKey))(
+        Throwable(s"Callback with key '${RichardPHJBensonBot.bensonifyKey}' not found")
+      )
+      message = Message(
+        messageId = None,
+        date = 0,
+        chatId = TestIds.chatId(0),
+        chatType = "private",
+        text = Some("!bensonify ciao")
+      )
+      result <- callback(message, ircSyntax)
+    } yield assertEquals(result, Text(Bensonify.compute("ciao")))
+  }
+
   test("Bensonify command callback should return the expected result") {
     PropF.forAllF(Gen.alphaNumStr.suchThat(_.nonEmpty)) { (input: String) =>
       for {
@@ -114,7 +132,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
           text = Some(s"/bensonify $input")
         )
         // Call the callback
-        callbackResult <- callback(testMessage)
+        callbackResult <- callback(testMessage, CommandSyntax.Slash)
         // Compute expected result
         expectedResult = Bensonify.compute(input)
       } yield {

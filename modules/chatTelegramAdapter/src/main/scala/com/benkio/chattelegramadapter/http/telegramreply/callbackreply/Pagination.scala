@@ -3,6 +3,7 @@ package com.benkio.chattelegramadapter.http.telegramreply.callbackreply
 import cats.*
 import cats.effect.Async
 import cats.implicits.*
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.CommandKey
@@ -64,7 +65,7 @@ object Pagination {
       commandKey: CommandKey,
       allCommandRepliesData: List[ReplyBundleCommand],
       backgroundJobManager: BackgroundJobManager[F],
-      effectfulCallbacks: Map[String, ModelMessage => F[ReplyValue]],
+      effectfulCallbacks: Map[String, EffectfulCallback[F]],
       dbLayer: DBLayer[F],
       ttl: Option[FiniteDuration]
   ): F[Unit] =

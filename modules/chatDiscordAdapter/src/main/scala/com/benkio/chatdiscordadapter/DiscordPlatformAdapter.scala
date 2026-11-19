@@ -2,6 +2,7 @@ package com.benkio.chatdiscordadapter
 
 import cats.effect.Async
 import cats.syntax.all.*
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.model.reply.EffectfulReply
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.Message
@@ -31,7 +32,7 @@ class DiscordPlatformAdapter[F[_]: Async: LogWriter: Notifier](
     discordApi: F[DiscordApi[F]],
     repository: Repository[F],
     backgroundJobManager: BackgroundJobManager[F],
-    effectfulCallbacks: Map[String, Message => F[ReplyValue]],
+    effectfulCallbacks: Map[String, EffectfulCallback[F]],
     dbLayer: DBLayer[F],
     ttl: Option[FiniteDuration],
     startGateway: F[Unit]

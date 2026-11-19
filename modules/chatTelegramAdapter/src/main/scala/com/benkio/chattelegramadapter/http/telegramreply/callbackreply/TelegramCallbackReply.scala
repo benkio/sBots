@@ -1,6 +1,7 @@
 package com.benkio.chattelegramadapter.http.telegramreply.callbackreply
 
 import cats.effect.Async
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.Message as ModelMessage
@@ -27,7 +28,7 @@ object TelegramCallbackReply {
       repository: Repository[F],
       allCommandRepliesData: List[ReplyBundleCommand],
       backgroundJobManager: BackgroundJobManager[F],
-      effectfulCallbacks: Map[String, ModelMessage => F[ReplyValue]],
+      effectfulCallbacks: Map[String, EffectfulCallback[F]],
       dbLayer: DBLayer[F],
       ttl: Option[FiniteDuration]
   ): F[Unit] = callbackData match {

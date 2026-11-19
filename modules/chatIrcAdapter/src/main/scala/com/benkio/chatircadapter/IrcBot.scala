@@ -6,6 +6,7 @@ import cats.effect.Async
 import cats.effect.Deferred
 import cats.effect.Resource
 import cats.syntax.all.*
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.initialization.BotCoreSetup
 import com.benkio.chatcore.model.reply.ReplyValue
@@ -41,7 +42,7 @@ object IrcBot {
   def run[F[_]: Async](
       httpClient: Client[F],
       sBotInfo: SBotInfo,
-      commandEffectfulCallback: Map[String, Message => F[ReplyValue]],
+      commandEffectfulCallback: Map[String, EffectfulCallback[F]],
       config: IrcConfig,
       notifier: Notifier[F]
   )(using log: LogWriter[F]): F[Unit] = {
@@ -66,7 +67,7 @@ object IrcBot {
       core: BotCoreSetup[F],
       @unused sBotConfig: SBotConfig,
       password: Option[String],
-      commandEffectfulCallback: Map[String, Message => F[ReplyValue]],
+      commandEffectfulCallback: Map[String, EffectfulCallback[F]],
       config: IrcConfig,
       notifier: Notifier[F]
   )(using log: LogWriter[F]): F[Unit] = {

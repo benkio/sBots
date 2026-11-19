@@ -2,6 +2,7 @@ package com.benkio.chattelegramadapter.http.telegramreply.messagereply
 
 import cats.effect.*
 import cats.syntax.all.*
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.messagefiltering.RandomSelection
 import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.ReplyValue
@@ -26,7 +27,7 @@ object EffectfulKeyReply {
       repository: Repository[F],
       dbLayer: DBLayer[F],
       backgroundJobManager: BackgroundJobManager[F],
-      effectfulCallbacks: Map[String, Message => F[ReplyValue]],
+      effectfulCallbacks: Map[String, EffectfulCallback[F]],
       replyToMessage: Boolean,
       ttl: Option[FiniteDuration]
   ): F[List[TMessage]] = {

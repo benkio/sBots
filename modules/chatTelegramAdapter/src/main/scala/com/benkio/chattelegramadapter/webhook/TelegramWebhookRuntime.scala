@@ -3,6 +3,7 @@ package com.benkio.chattelegramadapter.webhook
 import cats.effect.std.Random
 import cats.effect.Async
 import cats.effect.Resource
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.Message
@@ -22,7 +23,7 @@ object TelegramWebhookRuntime {
       sBotInfo: SBotInfo,
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       webhookCertificate: Option[Path] = None,
-      commandEffectfulCallback: Map[String, Message => F[ReplyValue]] = Map.empty,
+      commandEffectfulCallback: Map[String, EffectfulCallback[F]] = Map.empty,
       opsChatId: Long
   )(using log: LogWriter[F]): Resource[F, SBotWebhook[F]] =
     BotSetup(

@@ -3,6 +3,7 @@ package com.benkio.chattelegramadapter
 import cats.effect.std.Random
 import cats.effect.Async
 import cats.Parallel
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.Message
@@ -17,14 +18,14 @@ import java.nio.file.Path
 
 class SBotPolling[F[_]: Parallel: Api](
     override val sBotSetup: BotSetup[F],
-    override val commandEffectfulCallback: Map[String, Message => F[ReplyValue]] = Map.empty
+    override val commandEffectfulCallback: Map[String, EffectfulCallback[F]] = Map.empty
 )(using Async[F], LogWriter[F])
     extends ISBotPolling[F](sBotSetup)
 
 class SBotWebhook[F[_]: Api](
     override val sBotSetup: BotSetup[F],
     webhookCertificate: Option[Path] = None,
-    override val commandEffectfulCallback: Map[String, Message => F[ReplyValue]] = Map.empty
+    override val commandEffectfulCallback: Map[String, EffectfulCallback[F]] = Map.empty
 )(using Async[F], LogWriter[F])
     extends ISBotWebhook[F](sBotSetup, webhookCertificate)
 
@@ -36,7 +37,7 @@ object SBot {
   def buildPollingBot[F[_]: Parallel: Async: Network: Random, A](
       action: SBotPolling[F] => F[A],
       sBotInfo: SBotInfo,
-      commandEffectfulCallback: Map[String, Message => F[ReplyValue]] = Map.empty,
+      commandEffectfulCallback: Map[String, EffectfulCallback[F]] = Map.empty,
       opsChatId: Long
   )(using log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build

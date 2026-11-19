@@ -4,6 +4,7 @@ import cats.*
 import cats.data.OptionT
 import cats.effect.*
 import cats.syntax.all.*
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.messagefiltering.*
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
@@ -76,7 +77,7 @@ trait ISBot[F[_]: Async: LogWriter] {
   def postComputation: ModelMessage => F[Unit] =
     PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
 
-  val commandEffectfulCallback: Map[String, ModelMessage => F[ReplyValue]] = Map.empty
+  val commandEffectfulCallback: Map[String, EffectfulCallback[F]] = Map.empty
 
   // The logic of the bot is platform agnostic: this is only the Telegram shell around it ////////////////////////
 

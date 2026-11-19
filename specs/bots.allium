@@ -32,8 +32,6 @@ rule BotRepliesWithMediaByKind {
 }
 
 -- The command is written in the platform's command syntax: "/bensonify" on Telegram and Discord, "!bensonify" on IRC.
--- known defect (latent): the code calls the command handler without the platform's command syntax, so it only recognises
--- the slash form and "!bensonify" on IRC would get the default reply. Today no bot with /bensonify runs on IRC.
 rule BensonifyRewritesText {
     when: core/RequestIsDispatched(request)
     requires: request.message.is_command

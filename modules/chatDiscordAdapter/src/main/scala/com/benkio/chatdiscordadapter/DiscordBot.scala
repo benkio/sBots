@@ -5,6 +5,7 @@ import cats.effect.std.Random
 import cats.effect.Async
 import cats.effect.Deferred
 import cats.syntax.all.*
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.initialization.BotCoreSetup
 import com.benkio.chatcore.model.reply.ReplyValue
@@ -34,7 +35,7 @@ object DiscordBot {
   def run[F[_]: Async](
       httpClient: Client[F],
       sBotInfo: SBotInfo,
-      commandEffectfulCallback: Map[String, Message => F[ReplyValue]],
+      commandEffectfulCallback: Map[String, EffectfulCallback[F]],
       gatewayConfig: DiscordGatewayConfig,
       notifier: Notifier[F]
   )(using log: LogWriter[F]): F[Unit] = {

@@ -2,6 +2,7 @@ package com.benkio.chattelegramadapter
 
 import cats.effect.Async
 import cats.syntax.all.*
+import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.model.reply.EffectfulReply
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.Message
@@ -28,7 +29,7 @@ import scala.concurrent.duration.FiniteDuration
 class TelegramPlatformAdapter[F[_]: Async: LogWriter: Api: Notifier](
     repository: Repository[F],
     backgroundJobManager: BackgroundJobManager[F],
-    effectfulCallbacks: Map[String, Message => F[ReplyValue]],
+    effectfulCallbacks: Map[String, EffectfulCallback[F]],
     dbLayer: DBLayer[F],
     ttl: Option[FiniteDuration],
     startUpdates: F[Unit]

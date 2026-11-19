@@ -33,7 +33,7 @@ object EffectfulKeyRunner {
       msg: Message,
       dbLayer: DBLayer[F],
       backgroundJobManager: BackgroundJobManager[F],
-      effectfulCallbacks: Map[String, Message => F[ReplyValue]],
+      effectfulCallbacks: Map[String, EffectfulCallback[F]],
       ttl: Option[FiniteDuration],
       commandSyntax: CommandSyntax
   ): F[List[ReplyValue]] = effectfulKey match {
@@ -171,7 +171,7 @@ object EffectfulKeyRunner {
               s"[EffectfulKeyReply] callback not found. Check your sync between commands and callback in the ${sBotInfo.botName} code"
             )
           )
-        )(callback => toReplyValue(callback(msg)))
+        )(callback => toReplyValue(callback(msg, commandSyntax)))
   }
 
 }
