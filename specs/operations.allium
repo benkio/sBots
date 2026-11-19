@@ -62,17 +62,16 @@ rule AppRefusesBotWithoutRuntime {
     ensures: HealthSignalSent(kind: fail)
 }
 
--- a bot that fails on a platform stops there only: no restart, no health check failure (on Discord and IRC today; Telegram
--- is a known defect, see below)
+-- a bot that fails on a platform (Telegram, Discord or IRC) stops there only: the other bots keep running, the failure is
+-- logged and the health check fails
 rule BotStopsOnConnectionPlatform {
     when: BotPlatformFailed(entry)
     ensures: entry.status = stopped
+    ensures: HealthSignalSent(kind: fail)
 }
 
 -- the heartbeat follows a wall-clock cron (every 10 minutes), not the start time; a failed ping sleeps the restart delay
 -- and then waits for the next cron tick
--- known defect: a Telegram bot failure is not isolated, the code ends the whole app; it should stop only that bot like on
--- Discord and IRC (BotStopsOnConnectionPlatform applies to every platform)
 
 rule HeartbeatTick {
     when: app: Application.next_heartbeat_tick <= now

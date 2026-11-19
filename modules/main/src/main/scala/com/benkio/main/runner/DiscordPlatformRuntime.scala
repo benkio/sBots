@@ -24,19 +24,16 @@ object DiscordPlatformRuntime extends PlatformRuntime {
   ): Resource[IO, IO[Unit]] =
     Resource.pure(
       entries.parTraverse_(entry =>
-        DiscordBot
-          .run[IO](
-            httpClient = mainSetup.httpClient,
-            sBotInfo = entry.sBotInfo,
-            commandEffectfulCallback = entry.commandEffectfulCallback,
-            gatewayConfig = mainSetup.discord,
-            notifier = Notifier.logging[IO]
-          )
-          .handleErrorWith(e =>
-            log.error(
-              s"[DiscordPlatformRuntime] ${entry.sBotInfo.botName} stopped on Discord, the other bots keep running: $e"
+        isolated(entry, mainSetup)(
+          DiscordBot
+            .run[IO](
+              httpClient = mainSetup.httpClient,
+              sBotInfo = entry.sBotInfo,
+              commandEffectfulCallback = entry.commandEffectfulCallback,
+              gatewayConfig = mainSetup.discord,
+              notifier = Notifier.logging[IO]
             )
-          )
+        )
       )
     )
 }
