@@ -1,6 +1,7 @@
 package com.benkio.chatcore
 
 import cats.effect.Async
+import cats.effect.Clock
 import cats.effect.Sync
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
@@ -22,6 +23,7 @@ import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.chatcore.patterns.CommandPatternsGroup
 import com.benkio.chatcore.patterns.PostComputationPatterns
 import com.benkio.chatcore.repository.db.DBLayer
+import com.benkio.chatcore.UsageStats.Outcome
 import log.effect.LogWriter
 
 import scala.concurrent.duration.FiniteDuration
@@ -119,18 +121,36 @@ class BotEngine[F[_]: Async: LogWriter](
         LogWriter.trace("Message Type: File Request") >> fileRequestLogic(msg)
     }
 
-  /** The entry point: a message arrived. */
+  /** The entry point: a message arrived. One `[stats]` line tells how it ended and how long it took. */
   def onMessage(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = {
-    val process: F[Unit] = for {
-      _ <- LogWriter.trace(s"${sBotConfig.sBotInfo.botName}: A message arrived: $msg")
-      _ <- isDuplicate(msg).ifM(skipDuplicate(msg), handleMessage(msg))
-    } yield ()
+    val process: F[Outcome] = for {
+      _       <- LogWriter.trace(s"${sBotConfig.sBotInfo.botName}: A message arrived: $msg")
+      outcome <- isDuplicate(msg).ifM(skipDuplicate(msg).as(Outcome.Duplicate), handleMessage(msg).as(Outcome.Handled))
+    } yield outcome
 
-    sBotConfig.requestProcessingTimeout match {
+    val bounded: F[Outcome] = sBotConfig.requestProcessingTimeout match {
       case Some(timeout) => withRequestTimeout(msg, timeout)(process)
       case None          => process
     }
+
+    for {
+      start   <- Clock[F].monotonic
+      outcome <- bounded.onError(_ => logStats(Outcome.Failed, start))
+      _       <- logStats(outcome, start)
+    } yield ()
   }
+
+  private def logStats(outcome: Outcome, start: FiniteDuration)(using platform: PlatformAdapter[F]): F[Unit] =
+    Clock[F].monotonic.flatMap(end =>
+      LogWriter.info(
+        UsageStats.messageLine(
+          bot = sBotConfig.sBotInfo.botName.toString,
+          platform = platform.platform.id,
+          outcome = outcome,
+          latency = end - start
+        )
+      )
+    )
 
   private def skipDuplicate(msg: Message): F[Unit] =
     LogWriter.info(
@@ -164,8 +184,8 @@ class BotEngine[F[_]: Async: LogWriter](
     )
 
   private def withRequestTimeout(msg: Message, timeout: FiniteDuration)(
-      process: F[Unit]
-  )(using platform: PlatformAdapter[F]): F[Unit] = {
+      process: F[Outcome]
+  )(using platform: PlatformAdapter[F]): F[Outcome] = {
     val timedOut: F[Unit] = {
       val details =
         s"platform=${platform.capabilities.platform}, chatId=${msg.chatId.id}, messageId=${msg.messageId}, content=${msg.text}"
@@ -177,7 +197,7 @@ class BotEngine[F[_]: Async: LogWriter](
         BotEngine.RequestTimedOut(timeout)
       )
     }
-    Async[F].timeoutTo(process, timeout, timedOut)
+    Async[F].timeoutTo(process, timeout, timedOut.as(Outcome.TimedOut))
   }
 
   private def reply(reply: Reply, msg: Message)(using platform: PlatformAdapter[F]): F[Unit] =

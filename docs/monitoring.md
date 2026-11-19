@@ -6,12 +6,38 @@ Part of the monitoring epic (#1438).
 
 The bots ship their logs to Grafana Cloud Loki (free tier, 14 days of retention).
 
-- **Dashboard:** [sbots Alerts Overview](https://glowingdate3125.grafana.net/d/be4zdbd/sbots-alerts-overview): the state of the alert rules and the log activity at a glance.
+- **Dashboard:** [sbots Alerts Overview](https://glowingdate3125.grafana.net/d/be4zdbd/sbots-alerts-overview): the three alert queries, the usage and health stats and the raw logs, in three rows (Alerts, Usage and health, Logs).
+  The JSON is in [`docs/grafana/sbots-overview-dashboard.json`](grafana/sbots-overview-dashboard.json): after a change of the
+  stats lines or of the queries below, edit the dashboard in Grafana, export it (Share, Export, Export as JSON) and commit it
+  here. To restore it: Dashboards, New, Import, paste the file (the `be4zdbd` uid replaces the existing dashboard).
 - **Read the logs:** [Grafana Explore](https://glowingdate3125.grafana.net/explore) with the `grafanacloud-glowingdate3125-logs` data source, query `{app="sbots"}`.
   Anyone who needs access has to be invited to the Grafana Cloud stack (Administration, Users and access).
 - **Labels:** `app` (always `sbots`) and `level`. Everything else is in the JSON line; filter it with
   `{app="sbots"} | json | line_format "{{.message}}"` or a text match like `{app="sbots"} |= "error"`.
 - **Without Grafana:** the same lines go to `sbots.log` next to the jar on the VM (plain text).
+
+## Usage and health stats
+
+Two kinds of `[stats]` lines, logged at `info` in the `logfmt` style (`UsageStats`, `StatsLogger`). Keep the keys stable: the
+dashboard depends on them.
+
+- `[stats] type=message bot=<bot> platform=<platform> outcome=<outcome> latency_ms=<n>`: one per message that reaches a bot
+  (`BotEngine.onMessage`). `outcome` is `handled` (also when nothing matched), `duplicate` (skipped, #1432), `timeout`
+  (dropped after the request timeout) or `failed` (an error ended the processing).
+- `[stats] type=system heap_used_mb=<n> heap_max_mb=<n> uptime_s=<n> db_mb=<n>`: once a minute (`db_mb=-1` when the DB file is
+  not found).
+
+Panels of the dashboard (the lines are JSON: the `regexp` parser reads the `[stats]` text inside, no `json` step needed). Use
+backticks for the regexp in the Grafana editor, so the backslashes are not escaped twice.
+
+| Panel | LogQL |
+|---|---|
+| Messages per bot and platform | ``sum by (bot, platform) (count_over_time({app="sbots"} \|= "[stats] type=message" \| regexp `bot=(?P<bot>\S+) platform=(?P<platform>\S+)` [$__interval]))`` |
+| Timeouts | ``sum by (bot) (count_over_time({app="sbots"} \|= "[stats] type=message" \|= "outcome=timeout" \| regexp `bot=(?P<bot>\S+)` [$__interval]))`` |
+| Duplicates skipped | ``sum by (bot) (count_over_time({app="sbots"} \|= "[stats] type=message" \|= "outcome=duplicate" \| regexp `bot=(?P<bot>\S+)` [$__interval]))`` |
+| Latency p95 | ``quantile_over_time(0.95, {app="sbots"} \|= "[stats] type=message" \| regexp `bot=(?P<bot>\S+).*latency_ms=(?P<l>\d+)` \| unwrap l [$__interval]) by (bot)`` |
+| Heap used (MB) | ``max_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `heap_used_mb=(?P<h>\d+)` \| unwrap h [$__interval])`` |
+| Media errors | ``sum(count_over_time({app="sbots", level=~"ERROR\|WARN"} \|~ "(?i)media" [$__interval]))`` (approximate: it matches the log lines that mention media) |
 
 ## How it works
 
