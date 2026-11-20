@@ -280,16 +280,31 @@ a line (multibyte text is longer in bytes), at most 20 lines a reply (the rest i
 left out). The flood control is the queue of Kitteh: one message every `main.irc.message-delay` (1.2 seconds). The text goes to
 the channel, or to the nick for a private message; IRC has no reply to a message.
 
-### IRC live test
+### IRC integration test
 
-`ITIrcLiveSpec` (integration tests; it is excluded from `integration/mUnitTests` and runs with `integration/mUnitLiveTests`, in its own CI job, because the network makes it flaky) puts every bot of the registry on the real
-`irc.libera.chat`, in `##sBotsTesting` (`##` is Libera's prefix for channels that are not a registered project), one bot
-after the other so a single address never holds many connections: a tester client writes to the channel a text that triggers
-a markdown file of the bot (when it has one a text can trigger) and `!random`, and checks that the bot answers both. Set
-`IRC_LIVE_TEST=false` to skip it without the network. It uses the real DB of the integration tests, and removes the timeout
-the bot may have left in the channel.
+`ITIrcSpec` (integration tests, part of `integration/mUnitTests`) starts a local IRC server with testcontainers (the
+`ghcr.io/ergochat/ergo:stable` image, so Docker is needed) and puts every bot of the registry on it, in `#sBotsTesting`,
+one bot after the other: a tester client writes to the channel a text that triggers a markdown file of the bot (when it
+has one a text can trigger) and `!instructions`, and checks that the bot answers both. It uses the real DB of the
+integration tests, and removes the timeout the bot may have left in the channel.
 
-You can join or watch the test channel directly in a browser via the [Libera.Chat web client](https://web.libera.chat/?channels=%23%23sBotsTesting).
+### Discord and Telegram integration tests
+
+Same idea as the IRC one (Docker needed, part of `integration/mUnitTests`, every bot of the registry one after the other,
+a markdown trigger and the `/instructions` command, the real DB of the integration tests), with a mock of the platform API:
+
+- `ITDiscordSpec` uses the `ghcr.io/tomacheese/fauxcord:latest` image. `main.discord.api-base-url` (`DiscordGatewayConfig.apiBaseUrl`,
+  only for the tests, unset in production) moves both the REST calls and the gateway of JDA to the mock, and
+  `DiscordBot.runWith` runs a bot with its token and core already there. The tester is a user that is not a bot (the
+  bots ignore the bots), registered and writing through the `/_test/*` control API of the mock, which gives back the answers.
+- `ITTelegramSpec` uses the `ghcr.io/skrashevich/telegram-mock-ai:latest` image (its admin API is bound to the loopback
+  unless a config file says otherwise, so the test copies one in; its LLM is off). The bot gets the mock as base url of
+  its `BotApi` (see `BotSetupFixture.botSetupResource`), the tester writes to a group chat through the admin API and the
+  answers are read from it. The mock hands the updates only to the bots it already knows, so the test waits that the bot
+  has polled once.
+
+Both mocks lack the file uploads (multipart): the Telegram test sends only a trigger whose reply is made of markdown files (and skips the step if a bot has none), the Discord one accepts an attachment as the answer. `PlatformITSupport` has what
+the three specs share (container, bot core, trigger choice, waiting for the answers).
 
 ### Performance integration tests
 

@@ -42,14 +42,33 @@ object DiscordBot {
       gatewayConfig: DiscordGatewayConfig,
       notifier: Notifier[F]
   )(using log: LogWriter[F]): F[Unit] = {
-    val sBotConfig    = SBotConfig.fromSBotInfo(sBotInfo)
-    given Notifier[F] = notifier
+    val sBotConfig = SBotConfig.fromSBotInfo(sBotInfo)
     (for {
-      token      <- DiscordToken.read[F](sBotInfo, ResourcesRepository.fromResources[F]())
-      core       <- BotCoreSetup[F](httpClient, sBotConfig)
-      dispatcher <- Dispatcher.parallel[F]
-    } yield (token, core, dispatcher)).use { (token, core, dispatcher) =>
+      token <- DiscordToken.read[F](sBotInfo, ResourcesRepository.fromResources[F]())
+      core  <- BotCoreSetup[F](httpClient, sBotConfig)
+    } yield (token, core)).use((token, core) =>
+      runWith[F](
+        core = core,
+        token = token,
+        commandEffectfulCallback = commandEffectfulCallback,
+        gatewayConfig = gatewayConfig,
+        notifier = notifier
+      )
+    )
+  }
+
+  /** The bot with its DB, repository and token already there. */
+  def runWith[F[_]: Async](
+      core: BotCoreSetup[F],
+      token: String,
+      commandEffectfulCallback: Map[String, EffectfulCallback[F]],
+      gatewayConfig: DiscordGatewayConfig,
+      notifier: Notifier[F]
+  )(using log: LogWriter[F]): F[Unit] = {
+    given Notifier[F] = notifier
+    Dispatcher.parallel[F].use { dispatcher =>
       val effectiveSBotConfig = core.sBotConfig
+      val sBotInfo            = effectiveSBotConfig.sBotInfo
       val capabilities        = DiscordCapabilities.value
       val repository          = core.repository.usableFor(capabilities)
       for {

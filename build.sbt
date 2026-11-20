@@ -49,7 +49,6 @@ Global / excludeLintKeys += git.gitDescribedVersion
 
 addCommandAlias("checkAllLinksTest", "integration/scalaTests")
 addCommandAlias("integrationTests", "integration/mUnitTests")
-addCommandAlias("integrationLiveTests", "integration/mUnitLiveTests")
 addCommandAlias("dbSetup", "runMigrate")
 addCommandAlias("compileAll", "compile; Test/compile; integration/Test/compile");
 addCommandAlias(
@@ -67,7 +66,7 @@ addCommandAlias("generateInstructions", "main/runMain com.benkio.main.GenerateIn
 addCommandAlias("checkInstructions", "main/runMain com.benkio.main.GenerateInstructions --check")
 addCommandAlias(
   "validate",
-  "fix; checkInstructions; dbSetup; coverage; test; integration/mUnitTests; integration/mUnitLiveTests; coverageAggregate; coverageOff; assembly"
+  "fix; checkInstructions; dbSetup; coverage; test; integration/mUnitTests; coverageAggregate; coverageOff; assembly"
 )
 // Data Entry Aliases
 addCommandAlias("abarAddData", "ABarberoBot/runMain com.benkio.ABarberoBot.ABarberoBotMainDataEntry")
