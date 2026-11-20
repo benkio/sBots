@@ -6,6 +6,7 @@ use "./sbots.allium" as core
 
 external entity MediaListFile {
     bot: core/Bot
+    parsable: Boolean                -- false when the list file is not valid json for the entries
     entries: List<MediaListEntry>
 }
 
@@ -15,6 +16,27 @@ value MediaListEntry {
     kinds: Set<String>
     mime_type: String
     sources: List<String>
+}
+
+-- a show as stored in a source's catalogue file
+external entity ShowFileEntry {
+    file: String                    -- the ShowSource.catalogue_file it is read from
+    id: String
+    title: String
+    uploaded_at: Timestamp
+    duration: Duration
+    description: String?
+    is_live: Boolean
+}
+
+-- a local caption file `<folder>/<video id>.<language>.srt`, parsed into plain and timed text
+external entity CaptionFile {
+    source: ShowSource
+    folder: String                  -- the ShowSource.caption_folder it lives in
+    language: String                -- the ShowSource.caption_language
+    video_id: String
+    text: String?
+    timed: List<Caption>
 }
 
 -- a video as listed by the YouTube API
@@ -49,9 +71,11 @@ entity Show {
     duration: Duration
     description: String?
     is_live: Boolean
+    source: ShowSource
     caption_text: String?
     caption_timed: List<Caption>
-    has_caption: caption_text != null
+    -- the video has a caption in the source's caption_language (asked to the caption tool, per stored or new show)
+    has_caption: Boolean
 }
 
 entity CatalogueRun {
@@ -61,7 +85,6 @@ entity CatalogueRun {
         migrating -> loading_media
         loading_media -> loading_shows
         loading_shows -> done
-        migrating -> failed
         loading_media -> failed
         loading_shows -> failed
         terminal: done, failed
@@ -71,6 +94,7 @@ entity CatalogueRun {
 config {
     run_show_fetching: Boolean = false
     run_show_caption_fetching: Boolean = false
+    caption_tool_available: Boolean = true   -- yt-dlp found on the PATH
     dry_run: Boolean = false   -- on both show paths: the show catalogue files are deleted and the stored set is empty
     caption_throttle: Duration = 5.seconds   -- random 5 to 9 s between caption downloads
 }
@@ -96,6 +120,7 @@ rule MigrationDone {
 
 rule MediaCatalogueLoaded {
     when: run: CatalogueRun.status transitions_to loading_media
+    requires: not exists MediaListFile{parsable: false}
     ensures:
         for f in MediaListFile:
             for e in f.entries:
@@ -105,47 +130,73 @@ rule MediaCatalogueLoaded {
 }
 
 -- the run needs the YouTube API token even when it only reads files; config load and DB connection happen before migration
--- and a failure there is not a modelled transition
+-- and a failure there, like a migration failure, crashes the process and is not a modelled transition
 -- an unparsable list file fails the whole run
 rule MediaCatalogueFails {
-    when: MediaListUnparsable(run)
-    requires: run.status = loading_media
+    when: run: CatalogueRun.status transitions_to loading_media
+    requires: exists MediaListFile{parsable: false}
     ensures: run.status = failed
 }
 
 rule ShowsLoadedFromCatalogueFiles {
     when: run: CatalogueRun.status transitions_to loading_shows
     requires: not config.run_show_fetching
-    -- shows are read from each source's catalogue file, captions from its caption folder
+    -- shows are read from each source's catalogue file; the dry run deletes the files first, so nothing is loaded
+    requires: not config.dry_run
     ensures:
-        for s in ShowSource:
-            ShowsLoadedFromFile(source: s)
+        for src in ShowSource:
+            for e in ShowFileEntry where e.file = src.catalogue_file:
+                Show.created(id: e.id, bot: src.bot, source: src, title: e.title, uploaded_at: e.uploaded_at,
+                             duration: e.duration, description: e.description, is_live: e.is_live,
+                             caption_text: null, caption_timed: [], has_caption: false)
     ensures: run.status = done
 }
 
 rule ShowsRefreshedFromYouTube {
     when: run: CatalogueRun.status transitions_to loading_shows
     requires: config.run_show_fetching
-    -- the stored shows' local caption files are parsed on both paths
+    -- the caption tool is checked after the videos are listed, only when both fetching flags are on; a missing tool aborts
+    -- before anything is stored or written
+    requires: not (config.run_show_caption_fetching and not config.caption_tool_available)
     -- a YouTube video id is globally unique, so ids not yet stored (across all sources) become Shows, incomplete videos are skipped, the catalogue file is
     -- rewritten sorted by id; if YouTube cannot be listed only the stored shows are kept
     ensures:
-        for v in YouTubeVideo where v.title != null and v.published_at != null and v.duration != null and not exists Show{id: v.id}:
-            Show.created(id: v.id, bot: v.source.bot, title: v.title, uploaded_at: v.published_at, duration: v.duration,
-                         description: v.description, is_live: v.is_live, caption_text: null, caption_timed: [])
+        -- a source without YouTube sources (channel "@handle" or playlist id) lists no videos
+        for src in ShowSource where src.youtube_sources.count > 0:
+            for v in YouTubeVideo where v.source = src and v.title != null and v.published_at != null
+                    and v.duration != null and not exists Show{id: v.id}:
+                Show.created(id: v.id, bot: src.bot, source: src, title: v.title, uploaded_at: v.published_at,
+                             duration: v.duration, description: v.description, is_live: v.is_live,
+                             caption_text: null, caption_timed: [], has_caption: false)
     ensures: CaptionsRequested(run: run)
     ensures: run.status = done
 }
 
--- needs the caption download tool (checked only when both fetching flags are on), else the run fails; a failed download is logged and skipped
+-- a caption is downloaded (with a throttle between downloads) for each show that YouTube lists a caption for and that has
+-- no local caption file yet; a failed download is logged and skipped
 rule CaptionsFetched {
     when: CaptionsRequested(run)
     requires: config.run_show_caption_fetching
-    ensures: CaptionsDownloaded(run: run)
+    ensures:
+        for sh in Shows where sh.has_caption and not exists CaptionFile{source: sh.source, video_id: sh.id}:
+            CaptionFile.created(source: sh.source, folder: sh.source.caption_folder,
+                                language: sh.source.caption_language, video_id: sh.id, text: null, timed: [])
+}
+
+-- at the end of both paths each show takes its caption from its local caption file, when there is one
+rule ShowCaptionsParsed {
+    when: run: CatalogueRun.status transitions_to done
+    ensures:
+        for sh in Shows:
+            for f in CaptionFiles where f.source = sh.source and f.video_id = sh.id
+                    and f.language = sh.source.caption_language:
+                sh.caption_text = f.text
+                sh.caption_timed = f.timed
 }
 
 rule CatalogueFailsWithoutCaptionTool {
-    when: CaptionToolMissing(run)
+    when: run: CatalogueRun.status transitions_to loading_shows
+    requires: config.run_show_fetching and config.run_show_caption_fetching and not config.caption_tool_available
     ensures: run.status = failed
 }
 

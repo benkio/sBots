@@ -39,11 +39,10 @@ object DataEntry {
     val trimmedInput = link.trim
     val isPlainUrl   = trimmedInput.startsWith("http://") || trimmedInput.startsWith("https://")
 
-    if isPlainUrl then
-      for {
-        source <- MediaFileSource.fromUriString[IO](normalizeUrl(trimmedInput))
-        _      <- validateFilename(botId, source.filename)
-      } yield source
+    if isPlainUrl then for {
+      source <- MediaFileSource.fromUriString[IO](normalizeUrl(trimmedInput))
+      _      <- validateFilename(botId, source.filename)
+    } yield source
     else if trimmedInput.contains(FilenameUrlDelimiter) then trimmedInput.split(FilenameUrlDelimiter, 2).toList match {
       case filenameRaw :: urlRaw :: Nil =>
         val filename = filenameRaw.trim
