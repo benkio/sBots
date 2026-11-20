@@ -17,7 +17,8 @@ class RepositoryMock(
     getResourceFileHandler: MediaFile => IO[Either[RepositoryError, NonEmptyList[MediaResource[IO]]]] = _ =>
       IO.raiseError(Throwable("[RepositoryMock] getResourceByteArray call unexpected")),
     registerFileIdHandler: (MediaFile, Platform, String) => IO[Unit] = (_, _, _) => IO.unit,
-    replaceFileIdHandler: (MediaFile, Platform, String, String) => IO[Unit] = (_, _, _, _) => IO.unit
+    replaceFileIdHandler: (MediaFile, Platform, String, String) => IO[Unit] = (_, _, _, _) => IO.unit,
+    registerSendHandler: MediaFile => IO[Unit] = _ => IO.unit
 ) extends Repository[IO] {
 
   override def registerFileId(mediaFile: MediaFile, platform: Platform, fileId: String)(using
@@ -29,6 +30,9 @@ class RepositoryMock(
       Applicative[IO]
   ): IO[Unit] =
     replaceFileIdHandler(mediaFile, platform, failedId, newId)
+
+  override def registerSend(mediaFile: MediaFile)(using Applicative[IO]): IO[Unit] =
+    registerSendHandler(mediaFile)
 
   override def getResourceFile(
       mediaFile: MediaFile

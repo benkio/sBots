@@ -139,6 +139,7 @@ rule IrcLineBecomesMessage {
     when: e: IrcEvent.created
     -- colour and format codes are stripped; the bot's own echo, empty lines and senders over the rate limit are ignored
     -- IRC has no message ids (no deduplication) and no message times (sent_at is the receive time)
+    -- the code compares with the nick the connection actually has, which a server can change from bot.nick (intended)
     requires: e.sender.lower != e.bot.nick.lower
     -- the empty check is made after the colour and format codes are stripped
     requires: e.text.trim != ""
@@ -209,8 +210,17 @@ rule SendPagedListAsKeyboard {
 -- timeout or forward filter applies and there is no post computation
 rule CallbackPagesKeyboard {
     when: press: CallbackPress.created
+    -- the buttons are offered only when has_prev / has_next
     requires: (press.kind = previous_page and press.keyboard.has_prev) or (press.kind = next_page and press.keyboard.has_next)
     ensures: press.keyboard.page = if press.kind = next_page: press.keyboard.page + 1 else: press.keyboard.page - 1
+}
+
+-- known defect: a press on a stale button is not rejected: previous stops at the first page, but next past the last
+-- page shows an empty page
+rule CallbackOnStaleButton {
+    when: press: CallbackPress.created
+    requires: (press.kind = previous_page and not press.keyboard.has_prev) or (press.kind = next_page and not press.keyboard.has_next)
+    ensures: press.keyboard.page = if press.kind = next_page: press.keyboard.page + 1 else: 0
 }
 
 rule CallbackDeliversMedia {

@@ -48,10 +48,13 @@ class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
       _ = println(s"debug mediaSource: $mediaSources")
       postMedia <- Resource.eval(dbMedia.getMedia(testMediaName, false))
       _ = println(s"debug postMedia: $postMedia")
+      _         <- Resource.eval(dbRepository.registerSend(Mp3File(testMediaName)))
+      sentMedia <- Resource.eval(dbMedia.getMedia(testMediaName, false))
       _            <- Resource.eval(dbMedia.decrementMediaCount(testMediaName))
       initialMedia <- Resource.eval(dbMedia.getMedia(testMediaName, false))
     } yield {
-      val assert1 = postMedia == preMedia.map(x => x.copy(media_count = x.media_count + 1))
+      // fetching the resources does not count, the send does
+      val assert1 = postMedia == preMedia && sentMedia == preMedia.map(x => x.copy(media_count = x.media_count + 1))
       val assert2 = mediaSources.exists(_.fold(false)(f => Files.readAllBytes(f).length >= (1024 * 5)))
       val assert3 = preMedia == initialMedia
       assert1 && assert2 && assert3

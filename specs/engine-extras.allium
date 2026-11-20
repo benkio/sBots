@@ -109,8 +109,11 @@ rule UserSearchesTriggers {
     ensures: core/Reply.sent(chat: chat, reply: TriggerSearchResult(bot, input))
 }
 
+-- counted once the file reached the chat: a failed send is not counted, nor is a file that is too big to be uploaded and
+-- is sent as a link instead
 rule MediaSentCounted {
-    when: reply: core/Reply.created
+    when: core/Reply.sent(chat, reply)
+    requires: reply.delivery = media_file
     ensures:
         for media in reply.media:
             media.send_count = media.send_count + 1

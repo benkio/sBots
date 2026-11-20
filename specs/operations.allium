@@ -110,7 +110,8 @@ rule HeartbeatTick {
 rule HeartbeatRecovers {
     when: ping: HealthPing.failed = true
     requires: ping.kind = heartbeat and ping.app.status = running
-    -- a failed ping resumes after the delay; a refused start or fail signal is only a logged warning
+    -- failed = the ping raised an error, timed out (10 seconds) or was not accepted (non-2xx); it resumes after the delay.
+    -- a refused start or fail signal is only a logged warning
     ensures: HeartbeatResumesAt(at: now + config.heartbeat_restart_delay)
 }
 
@@ -170,4 +171,4 @@ rule GeneratorsWriteBotFiles {
 
 open question "Are the heartbeat (10 min) and stats (1 min) intervals product decisions or tuning?"
 open question "Should the spec model choosing which bots run (MainPolling arguments)? Production runs every bot."
-open question "A bot that fails on Discord or IRC is not restarted and does not fail the health check: acceptable?"
+open question "A bot that fails on Discord or IRC is not restarted (the health check does fail): acceptable?"

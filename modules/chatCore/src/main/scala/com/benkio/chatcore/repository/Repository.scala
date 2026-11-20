@@ -39,6 +39,11 @@ trait Repository[F[_]] {
       Applicative[F]
   ): F[Unit]
 
+  /** Counts a successful send of `mediaFile`: called by the adapters once the file reached the chat, never when the
+    * resources are only fetched. A repository without a media count keeps the no-op.
+    */
+  def registerSend(@scala.annotation.unused mediaFile: MediaFile)(using Applicative[F]): F[Unit] = Applicative[F].unit
+
   /** The same repository, that gives only the resources the platform can use: the references to files already uploaded
     * (`MediaResourceIFile`) only if it accepts them, see
     * [[com.benkio.chatcore.model.reply.ReplyTransformer.usableSources]]. What is left without a usable resource is a

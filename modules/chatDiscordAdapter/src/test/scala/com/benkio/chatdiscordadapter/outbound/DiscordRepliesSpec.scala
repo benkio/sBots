@@ -155,6 +155,49 @@ class DiscordRepliesSpec extends CatsEffectSuite {
     ).map((calls, _) => assertEquals(calls, List("text:999:https://exam:32:111")))
   }
 
+  test("an uploaded media is counted once, a media sent as its link is not") {
+    val small = tempFile("data")
+    val big   = Files.createTempFile("discordBig", ".tmp")
+    big.toFile.deleteOnExit()
+    val file = new RandomAccessFile(big.toFile, "rw")
+    file.setLength(DiscordLimits.maxUploadBytes + 1)
+    file.close()
+    def counted(path: Path): IO[Int] =
+      for {
+        sends <- Ref.of[IO, Int](0)
+        _     <- run(
+          value = Mp3File("bot_song.mp3"),
+          repository = new RepositoryMock(
+            getResourceFileHandler = _ => IO.pure(Right(NonEmptyList.one(resource(path)))),
+            registerSendHandler = _ => sends.update(_ + 1)
+          ),
+          medias = List(mediaData("bot_song.mp3"))
+        )
+        count <- sends.get
+      } yield count
+    for {
+      uploaded <- counted(small)
+      link     <- counted(big)
+    } yield {
+      assertEquals(uploaded, 1)
+      assertEquals(link, 0)
+    }
+  }
+
+  test("a media that fails to be read is not counted") {
+    for {
+      sends <- Ref.of[IO, Int](0)
+      _     <- run(
+        value = Mp3File("bot_song.mp3"),
+        repository = new RepositoryMock(
+          getResourceFileHandler = mediaFile => IO.pure(Left(RepositoryError.NoResourcesFoundFile(mediaFile))),
+          registerSendHandler = _ => sends.update(_ + 1)
+        )
+      )
+      count <- sends.get
+    } yield assertEquals(count, 0)
+  }
+
   test("a media that cannot be read is notified and nothing is sent") {
     run(
       value = Mp3File("bot_song.mp3"),

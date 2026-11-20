@@ -92,7 +92,7 @@ entity MediaFile {
     kinds: Set<String>                -- topic tags used by the media-by-kind commands
     sources: List<String>
     platform_file_ids: Set<String>    -- cached per platform, tried before the downloadable file
-    send_count: Integer               -- grows each time the file is fetched to be sent
+    send_count: Integer               -- grows each time the file is sent to a chat
 }
 
 entity ReplyBundleMessage {
@@ -202,7 +202,10 @@ rule BotRepliesToCommand {
     let command_reply = request.bot.engine.command_for(request.message)
     requires: command_reply != null
     requires: command_reply in request.bot.command_replies or command_reply in request.bot.engine.fixed_commands
-    requires: command_invoked(request.message, command_reply.command)    -- "/cmd", "/cmd ..." or "/cmd@botName ..."
+    -- the message is the command alone or with an input ("/cmd", "/cmd ..."), written with the command_prefix of the
+    -- platform ("/" on Telegram and Discord, "!" on IRC). Where the platform has a mention (Telegram only) it can also be
+    -- addressed to this bot ("/cmd@botName ..."), when more bots share the chat
+    requires: command_invoked(request.message, command_reply.command)
 
     ensures: Reply.sent(chat: request.message.chat, reply: command_reply.reply)
 }
@@ -444,7 +447,8 @@ rule DataEntryRejectsInvalidInput {
 -- Media delivery -----------------------------------------------------
 
 -- the stored platform file ids are tried first, then the downloadable sources in order; the id that worked is cached
--- in platform_file_ids for the platform
+-- in platform_file_ids for the platform. The newest id is first, at most 3 ids are kept per platform, and a platform
+-- that does not accept file ids, or an id of another platform, is never tried
 rule MediaDeliveryTriesCachedIdsThenSources {
     when: Reply.sent(chat, reply)
 
@@ -463,7 +467,8 @@ invariant RequestsOnBotPlatforms {
         r.message.chat.platform in r.bot.platforms
 }
 
--- the IRC nick is derived from the bot name
+-- the IRC nick is derived from the bot name: only the characters a nick allows are kept, a leading digit or "-" is
+-- prefixed with "_", and it is cut to 16 characters
 invariant BotNickDerivedFromName {
     for b in Bots:
         b.nick = irc_nick(b.name)
@@ -505,7 +510,8 @@ invariant MessageLengthTriggerFiresAtThreshold {
         m.bundle.trigger.kind = MessageLengthTrigger implies length(m.message.content) >= m.bundle.trigger.length
 }
 
--- A message is processed at most once per chat and bot.
+-- A message is processed at most once per chat and bot, as long as it has an id (IRC messages have none), the duplicate
+-- check works (if it fails the message is processed anyway) and the id is still retained (old ids are forgotten).
 invariant ProcessedOnce {
     for a in ProcessedMessages:
         for b in ProcessedMessages:
