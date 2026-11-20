@@ -42,6 +42,25 @@ class GeneralErrorHandlingSpec extends CatsEffectSuite {
     }
   }
 
+  test("GeneralErrorHandling should write the history when the IO ends normally or is cancelled") {
+    for {
+      completedHistory <- tempHistory
+      exitCode         <- GeneralErrorHandling.logAndDie(IO.pure(ExitCode.Success), _ => IO.unit, completedHistory)
+      completed        <- IO.blocking(java.nio.file.Files.readString(completedHistory))
+      cancelledHistory <- tempHistory
+      running          <- IO.deferred[Unit]
+      fiber            <- GeneralErrorHandling
+        .logAndDie(running.complete(()) >> IO.never[ExitCode], _ => IO.unit, cancelledHistory)
+        .start
+      _         <- running.get >> fiber.cancel
+      cancelled <- IO.blocking(java.nio.file.Files.readString(cancelledHistory))
+    } yield {
+      assertEquals(exitCode, ExitCode.Success)
+      assert(completed.contains("Terminated with no error"), completed)
+      assert(cancelled.contains("Cancelled"), cancelled)
+    }
+  }
+
   test("GeneralErrorHandling should signal the error when the resource crashes, and nothing on a normal end") {
     for {
       signals <- Ref.of[IO, List[String]](List.empty)

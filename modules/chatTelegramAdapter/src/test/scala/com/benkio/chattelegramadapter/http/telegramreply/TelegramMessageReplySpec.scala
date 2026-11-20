@@ -398,4 +398,55 @@ class TelegramMessageReplySpec extends CatsEffectSuite {
       assertEquals(attempts, 0)
     }
   }
+
+  private val storedReference =
+    MediaResource.MediaResourceIFile[IO](MediaSource.FileRef(Platform.Telegram, "stored"))
+
+  test("a successful send is counted once") {
+    val mp3      = Mp3File("f.mp3")
+    val response = messageWithFileId("stored", "audio")
+    for {
+      sends <- Ref.of[IO, List[MediaFile]](List.empty)
+      repository = RepositoryMock(
+        getResourceFileHandler = _ => IO.pure(Right(NonEmptyList.one(storedReference))),
+        registerSendHandler = mf => sends.update(_ :+ mf)
+      )
+      sent <- sendPattern(mediaFile = mp3, repository = repository, sendFileAPIMethod = (_, _, _) => IO.pure(response))
+      counted <- sends.get
+    } yield {
+      assertEquals(sent, List(response))
+      assertEquals(counted, List(mp3))
+    }
+  }
+
+  test("a failed send is not counted") {
+    val mp3 = Mp3File("f.mp3")
+    for {
+      sends <- Ref.of[IO, Int](0)
+      repository = RepositoryMock(
+        getResourceFileHandler = _ => IO.pure(Right(NonEmptyList.one(storedReference))),
+        registerSendHandler = _ => sends.update(_ + 1)
+      )
+      sent <- sendPattern(
+        mediaFile = mp3,
+        repository = repository,
+        sendFileAPIMethod = (_, _, _) => IO.raiseError(new RuntimeException("telegram down"))
+      )
+      counted <- sends.get
+    } yield {
+      assertEquals(sent, List.empty)
+      assertEquals(counted, 0)
+    }
+  }
+
+  test("a failing count does not change the sent messages") {
+    val mp3        = Mp3File("f.mp3")
+    val response   = messageWithFileId("stored", "audio")
+    val repository = RepositoryMock(
+      getResourceFileHandler = _ => IO.pure(Right(NonEmptyList.one(storedReference))),
+      registerSendHandler = _ => IO.raiseError(new RuntimeException("db down"))
+    )
+    sendPattern(mediaFile = mp3, repository = repository, sendFileAPIMethod = (_, _, _) => IO.pure(response))
+      .map(sent => assertEquals(sent, List(response)))
+  }
 }
