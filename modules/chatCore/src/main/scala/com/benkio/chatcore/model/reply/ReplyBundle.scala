@@ -24,12 +24,13 @@ sealed trait ReplyBundle {
 
   def trigger: Trigger
   def reply: Reply
+  def matcher: MessageMatches = MessageMatches.ContainsOnce
 }
 
 case class ReplyBundleMessage(
     trigger: MessageTrigger,
     reply: Reply,
-    matcher: MessageMatches
+    override val matcher: MessageMatches
 ) extends ReplyBundle
 
 object ReplyBundleMessage {
@@ -172,8 +173,19 @@ object ReplyBundleCommand {
 
 object ReplyBundle {
 
-  given orderingInstance: Ordering[ReplyBundle] =
-    Trigger.orderingInstance.contramap(_.trigger)
+  given orderingInstance: Ordering[ReplyBundle] = new Ordering[ReplyBundle] {
+    def compare(rpb1: ReplyBundle, rpb2: ReplyBundle): Int = (rpb1.matcher, rpb2.matcher) match {
+      case (MessageMatches.ContainsOnce, MessageMatches.ContainsAll) =>
+        Trigger
+          .triggerLongestString(rpb1.trigger, MessageMatches.ContainsOnce)
+          .compare(Trigger.triggerLongestString(rpb2.trigger, MessageMatches.ContainsAll))
+      case (MessageMatches.ContainsAll, MessageMatches.ContainsOnce) =>
+        Trigger
+          .triggerLongestString(rpb1.trigger, MessageMatches.ContainsAll)
+          .compare(Trigger.triggerLongestString(rpb2.trigger, MessageMatches.ContainsOnce))
+      case _ => Trigger.orderingInstance.compare(rpb1.trigger, rpb2.trigger)
+    }
+  }
 
   private def mdTriggerCell(trigger: String): String =
     trigger.replace("|", "\\|")

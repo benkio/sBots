@@ -236,9 +236,12 @@ rule BotRepliesToTextTrigger {
     ensures: Reply.sent(chat: message.chat, reply: bundle.reply)
 }
 
--- Best match: the rank of a TextTrigger is the length of its longest value that matched (a regex value has a declared
--- length; for contains_all every value matched), every other trigger ranks 0. The highest rank wins, a tie goes to the first bundle in the replies order. The forward and age
--- filters apply before matching, to messages only.
+-- Best match: the rank of a TextTrigger is the length of its longest value (a regex value has a declared length);
+-- the contains_all rank of a TextTrigger is the sum of the lengths of its values, every value matched. Every other
+-- trigger ranks 0. When two bundles are ordered and their matchers differ, each bundle is ranked by its own matcher
+-- and the higher rank wins; when the matchers are the same the trigger ordering applies (a TextTrigger by the length
+-- of its longest value, every other trigger 0). The highest rank wins, a tie goes to the first bundle in the replies
+-- order. The forward and age filters apply before matching, to messages only.
 
 rule BotRepliesToFileRequest {
     when: RequestIsDispatched(request)
