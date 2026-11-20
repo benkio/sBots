@@ -25,6 +25,11 @@ value PlatformCapabilities {
 -- discord:  "/", 2000, markdown yes, delete yes, buttons no,  file ids no,  audio gif photo video document markdown_file
 -- irc:      "!", 400,  markdown no,  delete no,  buttons no,  file ids no,  markdown_file only
 
+external entity PlatformAdapter {
+    platform: core/Platform
+    capabilities: PlatformCapabilities
+}
+
 entity SentMessage {
     chat: core/Chat
     time_to_live: Duration?
@@ -36,11 +41,33 @@ entity InlineKeyboard {
     message: SentMessage
     page: Integer
     item_count: Integer
-    has_prev: page > 0
-    has_next: (page + 1) * config.page_size < item_count
+    has_prev: page > 0                                         -- the previous page button is offered only then
+    has_next: (page + 1) * config.page_size < item_count       -- the next page button is offered only then
+}
+
+-- the adapter reports these as they happen
+external entity DiscordConnection {
+    bot: core/Bot
+}
+
+external entity MediaSend {
+    chat: core/Chat
+    bot: core/Bot
+    failed: Boolean
+}
+
+external entity CallbackPress {
+    keyboard: InlineKeyboard
+    kind: previous_page | next_page | media | show
+}
+
+external entity IrcConnection {
+    bot: core/Bot
+    lost: Boolean
 }
 
 external entity TelegramUpdate {
+    bot: core/Bot
     kind: message | callback_query
     chat: core/Chat
     bot_added: Boolean
@@ -48,6 +75,7 @@ external entity TelegramUpdate {
 }
 
 external entity DiscordEvent {
+    bot: core/Bot
     kind: message | slash_command
     channel: String
     is_direct: Boolean
@@ -58,6 +86,7 @@ external entity DiscordEvent {
 }
 
 external entity IrcEvent {
+    bot: core/Bot
     sender: String
     channel: String?
     text: String
@@ -83,9 +112,9 @@ config {
 -- The joined members of a Telegram message are split by the bot's own Telegram id, which never changes and is the
 -- numeric prefix of its Telegram token: the bot goes to bot_added, the others stay in new_members.
 rule TelegramMessageBecomesMessage {
-    when: TelegramUpdateReceived(update, bot)
+    when: update: TelegramUpdate.created
     requires: update.kind = message
-    ensures: core/BotReceivesMessage(message: update, bot: bot)
+    ensures: core/BotReceivesMessage(message: update, bot: update.bot)
 }
 
 rule TelegramBotAddedRaisesJoin {
@@ -111,48 +140,54 @@ rule DiscordGuildJoinRaisesJoin {
 }
 
 rule DiscordMessageBecomesMessage {
-    when: DiscordEventReceived(e, bot)
+    when: e: DiscordEvent.created
     requires: e.kind = message
     requires: not e.author_is_bot
     requires: e.text.trim != ""
-    ensures: core/BotReceivesMessage(message: e, bot: bot)
+    -- the chat is the channel: private for a direct message, group for the channel of a server
+    ensures: core/BotReceivesMessage(message: e, bot: e.bot, chat: DiscordChat(e.channel, e.is_direct))
 }
 
 rule DiscordSlashCommandBecomesCommandMessage {
-    when: DiscordEventReceived(e, bot)
+    when: e: DiscordEvent.created
     requires: e.kind = slash_command
     requires: not e.author_is_bot
+    requires: e.command_name != null
     -- the interaction is acknowledged invisibly and the acknowledgement deleted at once, replies are plain channel messages;
-    -- the message text is "/" + command name + optional trimmed arguments
-    ensures: core/BotReceivesMessage(message: e, bot: bot)
+    -- the message has no id: the interaction is not a message to reply to
+    -- the message text is "/" + command name + optional trimmed arguments, in the command syntax of the platform
+    ensures: core/BotReceivesMessage(message: e, bot: e.bot, text: SlashCommandText(e.command_name, e.arguments),
+                                     chat: DiscordChat(e.channel, e.is_direct))
 }
 
 -- IRC limitation (intended): no message ids and no message times, so dedup and the older-message filter never apply
 rule IrcLineBecomesMessage {
-    when: IrcEventReceived(e, bot)
+    when: e: IrcEvent.created
     -- colour and format codes are stripped; the bot's own echo, empty lines and senders over the rate limit are ignored
     -- IRC has no message ids (no deduplication) and no message times (sent_at is the receive time)
-    requires: e.sender.lower != bot.nick.lower
+    -- the code compares with the nick the connection actually has, which a server can change from bot.nick (intended)
+    requires: e.sender.lower != e.bot.nick.lower
     -- the empty check is made after the colour and format codes are stripped
     requires: e.text.trim != ""
     requires: not IrcSenderOverLimit(sender: e.sender)
-    ensures: core/BotReceivesMessage(message: e, bot: bot)
+    -- the chat is the channel, or the sender for a private message (channel = null), compared in lower case
+    ensures: core/BotReceivesMessage(message: e, bot: e.bot, chat: IrcChat(e.channel ?? e.sender, e.channel = null))
 }
 
 -- fixed window per sender, over the limit the line gets no reply (an info log line is written)
 rule IrcSenderOverRateLimitIgnored {
-    when: IrcEventReceived(e, bot)
+    when: e: IrcEvent.created
     requires: IrcSenderOverLimit(sender: e.sender)
     ensures: IrcLineDropped(sender: e.sender)
 }
 
 rule DiscordRegistersSlashCommands {
-    when: DiscordConnected(bot)
+    when: c: DiscordConnection.created
     -- one slash command per command reply that has English instructions, lowercase 1-32 chars [a-z0-9_-],
     -- (any Unicode letter or digit is accepted), the description is cut to 100 characters with an ellipsis,
     -- deduplicated, first config.discord_max_slash_commands kept, replacing the bot's command set;
     -- a registration failure is logged and the bot keeps running
-    ensures: SlashCommandsRegistered(bot: bot)
+    ensures: SlashCommandsRegistered(bot: c.bot)
 }
 
 ------------------------------------------------------------
@@ -160,8 +195,8 @@ rule DiscordRegistersSlashCommands {
 ------------------------------------------------------------
 
 rule TelegramSendsText {
-    when: ReplySent(chat, reply)
-    requires: reply.kind = text
+    when: core/Reply.sent(chat, reply)
+    requires: reply.delivery = text
     -- quotes the triggering message when asked and it has an id
     ensures: SentMessage.created(chat: chat, time_to_live: reply.time_to_live, sent_at: now, deleted: false)
 }
@@ -179,20 +214,20 @@ rule SentMessageExpires {
 -- while a file is sent the chat shows the action matching its kind (upload_voice, upload_photo, upload_video,
 -- upload_document for gifs and documents, choose_sticker for stickers)
 rule SendMediaFile {
-    when: ReplySent(chat, reply)
-    requires: reply.kind = media_file
+    when: core/Reply.sent(chat, reply)
+    requires: reply.delivery = media_file
     ensures: MediaDelivered(chat: chat)
 }
 
 rule MediaSendFailureNotified {
-    when: MediaSendFailed(chat, bot)
+    when: send: MediaSend.failed = true
     -- the other replies of the same request are unaffected; missing files and missing chat rights are only logged
-    ensures: core/OperatorsNotified(bot: bot, reason: media_error)
+    ensures: core/OperatorsNotified(bot: send.bot, reason: media_error)
 }
 
 rule SendPagedListAsKeyboard {
-    when: ReplySent(chat, reply)
-    requires: reply.kind = paged_list
+    when: core/Reply.sent(chat, reply)
+    requires: reply.delivery = paged_list
     ensures: InlineKeyboard.created(message: SentMessage.created(chat: chat, time_to_live: null, sent_at: now, deleted: false),
                                     page: 0, item_count: reply.item_count)
 }
@@ -211,21 +246,30 @@ rule CallbackIsPagedListAction {
 }
 
 rule CallbackPagesKeyboard {
-    when: CallbackPressed(keyboard, kind)
-    requires: kind = previous_page or kind = next_page
-    ensures: keyboard.page = if kind = next_page: keyboard.page + 1 else: max(keyboard.page - 1, 0)
+    when: press: CallbackPress.created
+    -- the buttons are offered only when has_prev / has_next
+    requires: (press.kind = previous_page and press.keyboard.has_prev) or (press.kind = next_page and press.keyboard.has_next)
+    ensures: press.keyboard.page = if press.kind = next_page: press.keyboard.page + 1 else: press.keyboard.page - 1
+}
+
+-- known defect: a press on a stale button is not rejected: previous stops at the first page, but next past the last
+-- page shows an empty page
+rule CallbackOnStaleButton {
+    when: press: CallbackPress.created
+    requires: (press.kind = previous_page and not press.keyboard.has_prev) or (press.kind = next_page and not press.keyboard.has_next)
+    ensures: press.keyboard.page = if press.kind = next_page: press.keyboard.page + 1 else: 0
 }
 
 rule CallbackDeliversMedia {
-    when: CallbackPressed(keyboard, kind)
-    requires: kind = media
-    ensures: keyboard.message.deleted = true
+    when: press: CallbackPress.created
+    requires: press.kind = media
+    ensures: press.keyboard.message.deleted = true
 }
 
 rule CallbackDeliversShow {
-    when: CallbackPressed(keyboard, kind)
-    requires: kind = show
-    ensures: keyboard.message.deleted = true
+    when: press: CallbackPress.created
+    requires: press.kind = show
+    ensures: press.keyboard.message.deleted = true
 }
 
 -- Discord: text and markdown sent as messages, quoting the triggering message, deleted after their time to live (empty sends nothing); media urls tried in order, a file over the upload
@@ -233,15 +277,22 @@ rule CallbackDeliversShow {
 -- IRC: all replies of a request form one logical reply, markdown becomes plain text, text is split on line breaks and each
 -- line cut at 400 characters and bytes, capped at irc_max_lines_per_reply ("(K more lines not shown)"), paced by the send delay.
 rule IrcSendsReply {
-    when: ReplySent(chat, reply)
+    when: core/Reply.sent(chat, reply)
     ensures: IrcLinesSent(chat: chat)
 }
 
 rule IrcReconnects {
-    when: IrcConnectionLost(bot)
+    when: c: IrcConnection.lost = true
     -- the delay doubles on each failed attempt up to the maximum, the attempt count resets on every successful registration,
     -- channels are joined again on registration
-    ensures: ReconnectScheduled(bot: bot)
+    ensures: ReconnectScheduled(bot: c.bot)
+}
+
+-- inline keyboards exist only where the platform supports buttons
+invariant KeyboardsOnlyWhereSupported {
+    for k in InlineKeyboards:
+        for a in PlatformAdapters:
+            a.platform = k.message.chat.platform implies a.capabilities.supports_buttons
 }
 
 open question "Media or Show delivery deletes the keyboard message, paging edits it in place: intended?"

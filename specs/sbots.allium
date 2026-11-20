@@ -7,19 +7,10 @@
 -- External Entities
 ------------------------------------------------------------
 
-external entity Chat {
+-- created by the platform adapters (platforms.allium) from the inbound events
+entity Chat {
     platform: Platform
     is_private: Boolean   -- a one-to-one chat (Telegram private chat, Discord DM)
-}
-
--- The reply timeout (/settimeout) belongs to the pair (chat, bot). A chat without a row has no timeout.
-external entity ChatTimeout {
-    chat: Chat
-    bot: Bot
-    reply_timeout: Duration
-    last_interaction: Timestamp       -- second precision
-    -- the pair is "in timeout" until reply_timeout has passed since the last interaction
-    in_timeout: last_interaction + reply_timeout >= now
 }
 
 actor Operator {
@@ -27,7 +18,7 @@ actor Operator {
     identified_by: Operator where true
 }
 
-external entity Message {
+entity Message {
     chat: Chat
     id: String?           -- absent on some platforms (e.g. IRC)
     text: String?
@@ -38,9 +29,9 @@ external entity Message {
     bot_added: Boolean    -- this bot is among the joined members
     left_member: Boolean
     content: text ?? caption
-    -- the first word is a command of the platform's syntax
+    -- the first word of the text is a command of the platform's syntax; a caption is never a command
     is_command: Boolean
-    -- a file request of the platform's syntax, addressed to this bot
+    -- a file request of the platform's syntax in the text, addressed to this bot; a caption is never a file request
     is_file_request: Boolean
 }
 
@@ -75,7 +66,16 @@ entity BotEngine {
     bot: Bot
     -- the trigger files (list of triggers, instructions) add fixed commands to the bot's own commands
     fixed_commands: Set<ReplyBundleCommand>
-    processed: Set<ProcessedMessage>
+}
+
+-- The reply timeout (/settimeout) belongs to the pair (chat, bot). A chat without a row has no timeout.
+entity ChatTimeout {
+    chat: Chat
+    bot: Bot
+    reply_timeout: Duration
+    last_interaction: Timestamp       -- second precision
+    -- the pair is "in timeout" until reply_timeout has passed since the last interaction
+    in_timeout: last_interaction + reply_timeout >= now
 }
 
 entity ProcessedMessage {
@@ -91,11 +91,9 @@ entity MediaFile {
     name: String                      -- prefixed with the bot id
     kind: mp3 | gif | photo | video | document | sticker | markdown
     kinds: Set<String>                -- topic tags used by the media-by-kind commands
-    mime_type: String
     sources: List<String>
     platform_file_ids: Set<String>    -- cached per platform, tried before the downloadable file
-    send_count: Integer               -- grows each time the file is fetched to be sent
-    created_at: Timestamp
+    send_count: Integer               -- grows each time the file is sent to a chat
 }
 
 entity ReplyBundleMessage {
@@ -126,6 +124,11 @@ entity Trigger {
 -- A reply is plain (random value from the bundle) or effectful (computed at reply time, e.g. media by kind).
 entity Reply {
     kind: plain | effectful
+    media: Set<MediaFile>             -- the media files fetched to send the reply (none for a text reply)
+    delivery: text | media_file | paged_list   -- how a platform adapter has to deliver it
+    time_to_live: Duration?           -- a text reply is deleted after it, when set
+    item_count: Integer?              -- the items of a paged_list
+    media_kind: String?               -- the kind asked by a media-by-kind reply
 }
 
 entity Request {
@@ -138,7 +141,12 @@ entity Request {
 entity DataEntryRun {
     bot: Bot
     inputs: List<String>
-    status: running | done | failed
+    status: in_progress | done | failed
+
+    transitions status {
+        in_progress -> done
+        terminal: done, failed
+    }
 }
 
 ------------------------------------------------------------
@@ -194,6 +202,11 @@ rule BotRepliesToCommand {
     requires: request.message.is_command
     let command_reply = request.bot.engine.command_for(request.message)
     requires: command_reply != null
+    requires: command_reply in request.bot.command_replies or command_reply in request.bot.engine.fixed_commands
+    -- the message is the command alone or with an input ("/cmd", "/cmd ..."), written with the command_prefix of the
+    -- platform ("/" on Telegram and Discord, "!" on IRC). Where the platform has a mention (Telegram only) it can also be
+    -- addressed to this bot ("/cmd@botName ..."), when more bots share the chat
+    requires: command_invoked(request.message, command_reply.command)
 
     ensures: Reply.sent(chat: request.message.chat, reply: command_reply.reply)
 }
@@ -233,10 +246,10 @@ rule BotRepliesToFileRequest {
     -- a message that is both a command and a file request is handled as a command
     requires: not request.message.is_command
     requires: request.message.is_file_request
-    requires: request.message.content != null
+    requires: request.message.text != null
 
     -- the media file named by the request content, sent as a reply to the message
-    ensures: Reply.sent(chat: request.message.chat, reply: media_file_named(request.message.content))
+    ensures: Reply.sent(chat: request.message.chat, reply: file_reply(MediaFile{bot: request.bot, name: file_request_name(request.message.text)}))
 }
 
 -- After a reply the last interaction is logged: this is what the timeout is measured from. It only updates an existing
@@ -264,12 +277,17 @@ rule DuplicateCheckFailsOpen {
     ensures: RequestIsDispatched(request: Request.created(message: message, bot: bot, started_at: now))
 }
 
+-- an unexpected error while the request is processed
+entity RequestError {
+    request: Request
+}
+
 rule RequestFails {
-    when: RequestErrored(request)
+    when: error: RequestError.created
 
-    requires: request.outcome = null
+    requires: error.request.outcome = null
 
-    ensures: request.outcome = failed
+    ensures: error.request.outcome = failed
 }
 
 -- A redelivery after the retention is processed again. The purge runs lazily, at most once per cleanup interval and only
@@ -301,6 +319,18 @@ rule RequestTimesOut {
 }
 
 -- Trigger semantics ---------------------------------------------------
+
+-- every message reply bundle of the bot is tried on a message that is neither a command nor a file request
+rule BotTriesBundles {
+    when: RequestIsDispatched(request)
+
+    requires: not request.message.is_command
+    requires: not request.message.is_file_request
+
+    ensures:
+        for b in request.bot.message_replies:
+            BundleIsMatched(bundle: b, message: request.message)
+}
 
 -- BotEngine picks the best matching bundle: each bundle is matched by its trigger, the highest trigger wins.
 rule TextTriggerMatches {
@@ -365,42 +395,104 @@ rule LeftMemberTriggerMatches {
 -- Data entry: links -> parse -> list + replies json ----------------------
 
 surface OperatorConsole {
-    facing op: Operator
+    facing _: Operator
 
     provides:
         OperatorRunsDataEntry(bot, inputs)
 }
 
--- An operator feeds the data entry with links, each a plain http(s) URL or `<botId>_<name>=<url>`.
+-- An operator feeds the data entry with links. Each input is trimmed, then must be one of:
+--   is_plain_url(input, bot): an http(s) URL that is a valid URI whose last path segment is the media filename
+--     (e.g. a Dropbox share link), the filename being `<bot.id>_<name>` with a non empty name;
+--   is_named_url(input, bot): `<bot.id>_<name>=<url>`, split on the first `=`, with a non empty name, a non empty
+--     url that is a valid URI, and the filename starting with `<bot.id>_`.
+-- A plain url is recognised first (it may itself contain `=` in its query); anything else is a named input.
+-- (black box predicates, SBot DataEntry.parseInputLink)
 rule DataEntryParsesLinks {
     when: OperatorRunsDataEntry(bot, inputs)
 
+    -- both files must exist and contain valid json arrays (malformed json or a non array is a rejection)
     requires: bot.list_json_exists and bot.replies_json_exists
-    requires: inputs.all(i => is_plain_url(i) or is_named_url(i))
-    -- a named input needs a non empty name containing the `_` separator between botId and name, and a non empty url
+    requires: bot.list_json_is_array and bot.replies_json_is_array
+    requires: inputs.all(i => is_plain_url(i, bot) or is_named_url(i, bot))
 
     ensures:
-        let run = DataEntryRun.created(bot: bot, inputs: inputs, status: running)
-        -- sources are appended to the bot's media list, grouped, and the replies built from the groups
-        -- are prepended to the bot's replies; a Dropbox `dl=0` link is stored as `dl=1`
+        let run = DataEntryRun.created(bot: bot, inputs: inputs, status: in_progress)
+        -- the sources (filename, no kinds, mime guessed from the filename) are appended to the bot's media list;
+        -- they are grouped by the filename without its extension (gif, markdown and sticker suffixes included),
+        -- one reply per group is built with the placeholder trigger text "new data" and the replies are prepended
+        -- to the bot's replies (the order of the new replies is unspecified);
+        -- a `dl=0` query flag is stored as `dl=1` for Dropbox links only
+        -- both files are replaced through a temporary file; if the second replacement fails the first is restored
         MediaListExtended(bot: bot, run: run)
         RepliesExtended(bot: bot, run: run)
-        run.status = done
 }
 
+rule DataEntryFinishes {
+    when: run: DataEntryRun.created
+    requires: run.status = in_progress
+    ensures: run.status = done
+}
+
+-- The code reports a rejection as an error and never builds a DataEntryRun; `failed` is the spec's view of it.
+-- An empty `inputs` is vacuously valid: the run completes and both files are rewritten with the same content.
 rule DataEntryRejectsInvalidInput {
     when: OperatorRunsDataEntry(bot, inputs)
 
     requires: not bot.list_json_exists or not bot.replies_json_exists
-        or inputs.any(i => not (is_plain_url(i) or is_named_url(i)))
+        or not bot.list_json_is_array or not bot.replies_json_is_array
+        or inputs.any(i => not (is_plain_url(i, bot) or is_named_url(i, bot)))
 
     -- nothing is written when an input or a file is invalid, the replies file included
     ensures: DataEntryRun.created(bot: bot, inputs: inputs, status: failed)
 }
 
+-- Media delivery -----------------------------------------------------
+
+-- the stored platform file ids are tried first, then the downloadable sources in order; the id that worked is cached
+-- in platform_file_ids for the platform. The newest id is first, at most 3 ids are kept per platform, and a platform
+-- that does not accept file ids, or an id of another platform, is never tried
+rule MediaDeliveryTriesCachedIdsThenSources {
+    when: Reply.sent(chat, reply)
+
+    ensures:
+        for m in reply.media:
+            MediaDeliveryAttempted(media: m, chat: chat, candidates: cached_ids_then_sources(m.platform_file_ids, m.sources))
+}
+
 ------------------------------------------------------------
 -- Invariants
 ------------------------------------------------------------
+
+-- a request comes from a chat on one of the platforms the bot runs on
+invariant RequestsOnBotPlatforms {
+    for r in Requests:
+        r.message.chat.platform in r.bot.platforms
+}
+
+-- the IRC nick is derived from the bot name: only the characters a nick allows are kept, a leading digit or "-" is
+-- prefixed with "_", and it is cut to 16 characters
+invariant BotNickDerivedFromName {
+    for b in Bots:
+        b.nick = irc_nick(b.name)
+}
+
+invariant SendCountNeverNegative {
+    for m in MediaFiles:
+        m.send_count >= 0
+}
+
+invariant ReplyDeliveryDetails {
+    for r in Replies:
+        r.delivery = paged_list implies r.item_count != null
+        r.time_to_live != null implies r.delivery = text
+}
+
+-- a media-by-kind reply only picks files of the bot that carry the kind
+invariant MediaByKindReplyPicksKind {
+    for r in Replies:
+        r.media_kind != null implies r.media.all(m => r.media_kind in m.kinds)
+}
 
 -- Reply bundle selection must not change while the chat is in timeout (filteringMatchesMessages).
 invariant NoMessageReplyInTimeout {
@@ -421,7 +513,8 @@ invariant MessageLengthTriggerFiresAtThreshold {
         m.bundle.trigger.kind = MessageLengthTrigger implies length(m.message.content) >= m.bundle.trigger.length
 }
 
--- A message is processed at most once per chat and bot.
+-- A message is processed at most once per chat and bot, as long as it has an id (IRC messages have none), the duplicate
+-- check works (if it fails the message is processed anyway) and the id is still retained (old ids are forgotten).
 invariant ProcessedOnce {
     for a in ProcessedMessages:
         for b in ProcessedMessages:

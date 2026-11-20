@@ -113,7 +113,11 @@ class DiscordReplies[F[_]: Async: LogWriter: Notifier](
           if size > DiscordLimits.maxUploadBytes then LogWriter
             .info(s"[DiscordReplies] ${mediaFile.filename} is $size bytes, sending its link") >>
             sendLink(channelId = channelId, mediaFile = mediaFile, replyTo = replyTo)
-          else api.sendFile(channelId, mediaFile.filename, path, replyTo).void
+          else
+            api.sendFile(channelId, mediaFile.filename, path, replyTo) >>
+              repository
+                .registerSend(mediaFile)
+                .handleErrorWith(e => LogWriter.error(s"[DiscordReplies] could not count the send of $mediaFile: $e"))
         }
       )
     )

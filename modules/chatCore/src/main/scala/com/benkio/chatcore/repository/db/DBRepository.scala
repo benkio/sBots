@@ -62,10 +62,13 @@ object DBRepository {
           _        <- Resource.eval(LogWriter.info(s"[ResourcesAccess] getResourceFile of $mediaFile"))
           mediaOpt <- Resource.eval(dbMedia.getMedia(mediaFile.filepath))
           result   <- mediaOpt.fold(Resource.pure(Left(RepositoryError.NoResourcesFoundFile(mediaFile))))(media =>
-            dbMediaDataToMediaResource(media).evalTap(_ => dbMedia.incrementMediaCount(media.media_name))
+            dbMediaDataToMediaResource(media)
           )
         } yield result
       }
+
+      override def registerSend(mediaFile: MediaFile)(using Applicative[F]): F[Unit] =
+        dbMedia.incrementMediaCount(mediaFile.filepath)
 
       override def registerFileId(mediaFile: MediaFile, platform: Platform, fileId: String)(using
           Applicative[F]

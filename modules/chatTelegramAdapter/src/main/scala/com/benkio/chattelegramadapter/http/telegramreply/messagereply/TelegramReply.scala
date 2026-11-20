@@ -128,6 +128,13 @@ object TelegramMessageReply {
               Async[F]
                 .fromEither(mediaResources)
                 .flatMap(sendWithFallback(_, none))
+                .flatTap(_ =>
+                  repository
+                    .registerSend(mediaFile)
+                    .handleErrorWith(e =>
+                      LogWriter.error(s"[TelegramMessageReply] could not count the send of $mediaFile: $e")
+                    )
+                )
                 .map(List(_))
           )
           .onError(e =>

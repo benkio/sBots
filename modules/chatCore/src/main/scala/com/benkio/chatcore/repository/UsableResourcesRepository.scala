@@ -27,6 +27,9 @@ class UsableResourcesRepository[F[_]](underlying: Repository[F], capabilities: P
   )(using cats.Applicative[F]): F[Unit] =
     underlying.replaceFileId(mediaFile, platform, failedId, newId)
 
+  override def registerSend(mediaFile: MediaFile)(using cats.Applicative[F]): F[Unit] =
+    underlying.registerSend(mediaFile)
+
   override def getResourcesByKind(
       criteria: String,
       botId: SBotId
