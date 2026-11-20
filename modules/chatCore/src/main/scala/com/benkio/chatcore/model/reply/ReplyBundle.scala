@@ -75,7 +75,9 @@ object ReplyBundleMessage {
         MessageMatches
           .doesMatch(messageReplyBundle, msg, ignoreMessagePrefix)
       )
-      .sortBy(_._1)(using Trigger.orderingInstance.reverse)
+      .sortBy { case (trigger, replyBundleMessage) =>
+        -Trigger.triggerLongestString(trigger, replyBundleMessage.matcher)
+      }
       .headOption
       .map(_._2)
 
@@ -172,20 +174,6 @@ object ReplyBundleCommand {
 }
 
 object ReplyBundle {
-
-  given orderingInstance: Ordering[ReplyBundle] = new Ordering[ReplyBundle] {
-    def compare(rpb1: ReplyBundle, rpb2: ReplyBundle): Int = (rpb1.matcher, rpb2.matcher) match {
-      case (MessageMatches.ContainsOnce, MessageMatches.ContainsAll) =>
-        Trigger
-          .triggerLongestString(rpb1.trigger, MessageMatches.ContainsOnce)
-          .compare(Trigger.triggerLongestString(rpb2.trigger, MessageMatches.ContainsAll))
-      case (MessageMatches.ContainsAll, MessageMatches.ContainsOnce) =>
-        Trigger
-          .triggerLongestString(rpb1.trigger, MessageMatches.ContainsAll)
-          .compare(Trigger.triggerLongestString(rpb2.trigger, MessageMatches.ContainsOnce))
-      case _ => Trigger.orderingInstance.compare(rpb1.trigger, rpb2.trigger)
-    }
-  }
 
   private def mdTriggerCell(trigger: String): String =
     trigger.replace("|", "\\|")

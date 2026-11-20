@@ -187,7 +187,9 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
         )
         replyBundleMessages
           .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))
-          .sortBy(_._1)(using Trigger.orderingInstance.reverse)
+          .sortBy { case (trigger, replyBundleMessage) =>
+            -Trigger.triggerLongestString(trigger, replyBundleMessage.matcher)
+          }
           .headOption
           .fold(fail(s"[BaseBotSpec] Expected $expectedMatch for string ${input}, but None found"))(_._2.reply match {
             case mf: MediaReply =>
@@ -299,7 +301,9 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
             )
             replyBundleMessages
               .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))
-              .sortBy(_._1)(using Trigger.orderingInstance.reverse)
+              .sortBy { case (trigger, replyBundleMessage) =>
+                -Trigger.triggerLongestString(trigger, replyBundleMessage.matcher)
+              }
               .headOption
               .fold(fail(s"expected a match for string ${stringTrigger.show}, but None found")) { case (tr, rbm) =>
                 assert(
@@ -322,7 +326,9 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
                 )
                 replyBundleMessages
                   .mapFilter(MessageMatches.doesMatch(_, exactStringMessage, None))
-                  .sortBy(_._1)(using Trigger.orderingInstance.reverse)
+                  .sortBy { case (trigger, replyBundleMessage) =>
+                    -Trigger.triggerLongestString(trigger, replyBundleMessage.matcher)
+                  }
                   .headOption
                   .fold(
                     fail(

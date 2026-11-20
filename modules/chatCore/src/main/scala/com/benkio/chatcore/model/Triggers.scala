@@ -112,11 +112,6 @@ object Trigger {
     }
   )
 
-  given orderingInstance: Ordering[Trigger] = new Ordering[Trigger] {
-    def compare(trigger1: Trigger, trigger2: Trigger) =
-      triggerLongestString(trigger1).compare(triggerLongestString(trigger2))
-  }
-
   given Decoder[MessageTrigger] = deriveDecoder[MessageTrigger]
   given Encoder[MessageTrigger] = deriveEncoder[MessageTrigger]
 
