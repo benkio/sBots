@@ -5,6 +5,7 @@ import cats.effect.Ref
 import cats.syntax.all.*
 import com.benkio.chatcore.messagefiltering.MessageMatches
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.model.BotAddedTrigger
 import com.benkio.chatcore.model.LeftMemberTrigger
 import com.benkio.chatcore.model.MessageLengthTrigger
 import com.benkio.chatcore.model.NewMemberTrigger
@@ -118,6 +119,7 @@ final class BotStore private (ref: Ref[IO, BotStore.State]) extends BotStoreApi 
       case (_, MessageLengthTrigger(messageLength)) =>
         messageLower.length >= messageLength
       case (_, _: NewMemberTrigger.type)                         => false
+      case (_, _: BotAddedTrigger.type)                          => false
       case (_, _: LeftMemberTrigger.type)                        => false
       case (MessageMatches.ContainsOnce, TextTrigger(triggers*)) =>
         triggers

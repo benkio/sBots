@@ -16,6 +16,7 @@ import com.benkio.chatcore.model.reply.Sticker
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.VideoFile
 import com.benkio.chatcore.model.show.Show
+import com.benkio.chatcore.model.BotAddedTrigger
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.LeftMemberTrigger
@@ -110,6 +111,7 @@ trait Generators {
     textTriggerGen,
     Gen.choose(0, 200).map(MessageLengthTrigger.apply),
     Gen.const(NewMemberTrigger),
+    Gen.const(BotAddedTrigger),
     Gen.const(LeftMemberTrigger)
   )
 
@@ -118,6 +120,7 @@ trait Generators {
     Gen.choose(0, 200).map(MessageLengthTrigger.apply),
     Gen.asciiPrintableStr.map(CommandTrigger.apply),
     Gen.const(NewMemberTrigger),
+    Gen.const(BotAddedTrigger),
     Gen.const(LeftMemberTrigger)
   )
 
@@ -129,6 +132,7 @@ trait Generators {
     text           <- Gen.option(Gen.alphaStr)
     caption        <- Gen.option(Gen.alphaStr)
     newChatMembers <- Gen.listOf(userGen)
+    botAdded       <- Gen.oneOf(false, true)
     leftChatMember <- Gen.option(userGen)
     isForward      <- Gen.oneOf(false, true)
   } yield Message(
@@ -139,6 +143,7 @@ trait Generators {
     text = text,
     caption = caption,
     newChatMembers = newChatMembers,
+    botAdded = botAdded,
     leftChatMember = leftChatMember,
     isForward = isForward
   )

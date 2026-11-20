@@ -7,6 +7,7 @@ import com.benkio.chatcore.messagefiltering.MessageMatches
 import com.benkio.chatcore.model.media.MediaFileSource
 import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.reply.*
+import com.benkio.chatcore.model.BotAddedTrigger
 import com.benkio.chatcore.model.LeftMemberTrigger
 import com.benkio.chatcore.model.Message as ModelMessage
 import com.benkio.chatcore.model.MessageLengthTrigger
@@ -271,6 +272,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
     case _: TextTrigger          => "TextTrigger"
     case MessageLengthTrigger(_) => "MessageLengthTrigger"
     case NewMemberTrigger        => "NewMemberTrigger"
+    case BotAddedTrigger         => "BotAddedTrigger"
     case LeftMemberTrigger       => "LeftMemberTrigger"
   }
 

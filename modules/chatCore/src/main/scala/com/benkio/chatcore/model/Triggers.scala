@@ -94,6 +94,7 @@ sealed trait MessageTrigger extends Trigger
 case class TextTrigger(triggers: TextTriggerValue*) extends MessageTrigger
 case class MessageLengthTrigger(messageLength: Int) extends MessageTrigger
 case object NewMemberTrigger                        extends MessageTrigger
+case object BotAddedTrigger                         extends MessageTrigger
 case object LeftMemberTrigger                       extends MessageTrigger
 case class CommandTrigger(command: String)          extends Trigger
 
@@ -104,6 +105,7 @@ object Trigger {
       case TextTrigger(tvs*)       => tvs.map(_.show).mkString("\n")
       case MessageLengthTrigger(l) => s"trigger when the length of message exceed $l"
       case NewMemberTrigger        => "trigger on new member joining a group"
+      case BotAddedTrigger         => "trigger when the bot is added to a group"
       case LeftMemberTrigger       => "trigger when a member leaves a group"
       case CommandTrigger(c)       => c
     }
@@ -124,6 +126,7 @@ object Trigger {
     case TextTrigger(lt*)          => lt.max(using TextTriggerValue.orderingInstance).length.value
     case MessageLengthTrigger(_)   => 0
     case _: NewMemberTrigger.type  => 0
+    case _: BotAddedTrigger.type   => 0
     case _: LeftMemberTrigger.type => 0
     case CommandTrigger(c)         => c.length
   }

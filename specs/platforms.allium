@@ -76,6 +76,8 @@ config {
 -- Inbound
 ------------------------------------------------------------
 
+-- The joined members of a Telegram message are split by the bot's own Telegram id, which never changes and is the
+-- numeric prefix of its Telegram token: the bot goes to bot_added, the others stay in new_members.
 rule TelegramMessageBecomesMessage {
     when: TelegramUpdateReceived(update, bot)
     requires: update.kind = message

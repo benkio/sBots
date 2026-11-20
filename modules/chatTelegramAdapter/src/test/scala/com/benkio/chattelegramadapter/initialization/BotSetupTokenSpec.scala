@@ -11,6 +11,7 @@ import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.repository.Repository.RepositoryError
 import com.benkio.chatcore.Logger.given
+import com.benkio.chattelegramadapter.model.TelegramToken.value
 import munit.CatsEffectSuite
 
 import java.nio.charset.StandardCharsets
@@ -116,6 +117,6 @@ class BotSetupTokenSpec extends CatsEffectSuite {
 
     BotSetup
       .token[IO](tokenFilename, repo)
-      .use(token => IO(assertEquals(token, expected)))
+      .use(token => IO(assertEquals(token.value, expected)))
   }
 }

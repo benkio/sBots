@@ -32,7 +32,17 @@ object MessageConversions {
   }
 
   extension (m: TelegramMessage) {
-    def toModel: Message =
+
+    /** The bot itself, when its id is given, is split out of the joined members into `botAdded`. The replies to a
+      * message don't need the split and give no id.
+      */
+    def toModel(botId: Option[Long] = None): Message = {
+      val model         = toRaw
+      val (bot, others) = model.newChatMembers.partition(u => botId.contains(u.id))
+      model.copy(newChatMembers = others, botAdded = bot.nonEmpty)
+    }
+
+    private def toRaw: Message =
       Message(
         messageId = Some(TelegramIds.messageId(m.messageId)),
         date = m.date.toLong,
@@ -50,7 +60,7 @@ object MessageConversions {
 
   extension (msg: MaybeInaccessibleMessage) {
     def toModelMessage: Option[Message] = msg match {
-      case m: TelegramMessage     => Some(m.toModel)
+      case m: TelegramMessage     => Some(m.toModel())
       case i: InaccessibleMessage =>
         Some(
           Message(

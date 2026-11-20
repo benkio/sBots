@@ -21,6 +21,7 @@ import com.benkio.chattelegramadapter.conversions.MessageConversions.*
 import com.benkio.chattelegramadapter.http.telegramreply.callbackreply.TelegramCallbackReply
 import com.benkio.chattelegramadapter.initialization.BotSetup
 import com.benkio.chattelegramadapter.model.CallbackData
+import com.benkio.chattelegramadapter.model.TelegramToken.botId
 import log.effect.LogWriter
 import telegramium.bots.high.*
 import telegramium.bots.high.implicits.methodOps
@@ -37,7 +38,7 @@ abstract class ISBotPolling[F[_]: Parallel: Api](
     with ISBot[F] {
   protected override def api: Api[F]                          = summon[Api[F]]
   protected override def startUpdates: F[Unit]                = start()
-  override def onMessage(msg: TMessage): F[Unit]              = onMessageLogic(msg.toModel)
+  override def onMessage(msg: TMessage): F[Unit]              = onMessageLogic(msg.toModel(sBotSetup.token.botId))
   override def onCallbackQuery(query: CallbackQuery): F[Unit] = onCallbackLogic(query)
 }
 
@@ -58,7 +59,7 @@ abstract class ISBotWebhook[F[_]: Api](
     * what registers the webhook: the bot has no connection of its own to start, it runs until it is cancelled.
     */
   protected override def startUpdates: F[Unit]                = Async[F].never
-  override def onMessage(msg: TMessage): F[Unit]              = onMessageLogic(msg.toModel)
+  override def onMessage(msg: TMessage): F[Unit]              = onMessageLogic(msg.toModel(sBotSetup.token.botId))
   override def onCallbackQuery(query: CallbackQuery): F[Unit] = onCallbackLogic(query)
 }
 
