@@ -138,6 +138,25 @@ class DBRepositorySpec extends CatsEffectSuite {
     val check: IO[Boolean] = RepositorySpec.testFilename(expectedFileName)(using dbRepository)
     assertIO(check, true)
   }
+  test("DBRepository counts a send only when registerSend is called, not when the resources are fetched") {
+    val expectedFileName = "bot_testMediaName.mp4"
+    val clients          = HttpClients(dropboxClientMockBuild(expectedFileName), megaClientMockBuild(expectedFileName))
+    val dbMedia          = fullDBLayer.dbMedia
+    val dbRepository     = DBRepository.dbResources[IO](dbMedia, clients)
+    val mediaFile        = VideoFile(expectedFileName)
+    val countOf          = dbMedia.getMedia(expectedFileName, false).map(_.map(_.media_count))
+    for {
+      initial <- countOf
+      _       <- dbRepository.getResourceFile(mediaFile).use(_ => IO.unit)
+      fetched <- countOf
+      _       <- dbRepository.registerSend(mediaFile)
+      sent    <- countOf
+    } yield {
+      assertEquals(fetched, initial)
+      assertEquals(sent, initial.map(_ + 1))
+    }
+  }
+
   test("DBRepository.getResourceKind should return an error if the criteria doesn't exists") {
     val expectedFileName                     = "bot_testMediaName2.mp4"
     val dropboxClientMock: DropboxClient[IO] = dropboxClientMockBuild(expectedFileName)

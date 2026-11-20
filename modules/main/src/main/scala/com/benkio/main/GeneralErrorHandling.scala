@@ -1,6 +1,7 @@
 package com.benkio.main
 
 import cats.effect.kernel.Resource.ExitCase
+import cats.effect.syntax.monadCancel.*
 import cats.effect.Async
 import cats.effect.ExitCode
 import cats.effect.Resource
@@ -50,7 +51,10 @@ object GeneralErrorHandling {
       onError: String => F[Unit],
       history: Path
   )(using log: LogWriter[F]): F[ExitCode] =
-    app.handleErrorWith((e: Throwable) => crashed(history = history, e = e, onError = onError).as(ExitCode.Error))
+    app
+      .onCancel(logMessage(history = history, error = "Cancelled"))
+      .flatTap(_ => logMessage(history = history, error = s"Terminated with no error: ${ExitCase.Succeeded}"))
+      .handleErrorWith((e: Throwable) => crashed(history = history, e = e, onError = onError).as(ExitCode.Error))
 
   private def crashed[F[_]: Async](history: Path, e: Throwable, onError: String => F[Unit])(using
       log: LogWriter[F]
