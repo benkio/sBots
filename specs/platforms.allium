@@ -22,7 +22,7 @@ value PlatformCapabilities {
 }
 
 -- telegram: "/", 4096, markdown yes, delete yes, buttons yes, file ids yes, every media kind
--- discord:  "/", 2000, markdown yes, delete yes, buttons no,  file ids no,  audio gif photo video document markdown_file
+-- discord:  "/", 2000, markdown yes, delete yes, buttons yes, file ids no,  audio gif photo video document markdown_file
 -- irc:      "!", 400,  markdown no,  delete no,  buttons no,  file ids no,  markdown_file only
 
 entity SentMessage {
@@ -30,6 +30,16 @@ entity SentMessage {
     time_to_live: Duration?
     sent_at: Timestamp
     deleted: Boolean
+}
+
+-- Discord shows a paged list with message components (the Telegram layout of a row per item needs 6 rows, Discord allows 5)
+entity DiscordButtonList {
+    message: SentMessage
+    page: Integer
+    item_count: Integer
+    items_on_page: Integer           -- 1 to paged_list_page_size: the buttons "1" to "n" of row 1
+    has_prev: page > 0               -- previous is enabled
+    has_next: (page + 1) * extras/config.paged_list_page_size < item_count
 }
 
 entity InlineKeyboard {
@@ -174,7 +184,7 @@ rule SentMessageExpires {
 }
 
 -- sources are tried in order (stored platform file ids first, then the downloadable file); the id that worked is cached
--- a reply value the platform cannot send (stickers or buttons on Discord, other unsupported kinds on Telegram) sends
+-- a reply value the platform cannot send (stickers on Discord, other unsupported kinds on Telegram) sends
 -- nothing and only logs a warning (intended)
 -- while a file is sent the chat shows the action matching its kind (upload_voice, upload_photo, upload_video,
 -- upload_document for gifs and documents, choose_sticker for stickers)
@@ -193,6 +203,7 @@ rule MediaSendFailureNotified {
 rule SendPagedListAsKeyboard {
     when: ReplySent(chat, reply)
     requires: reply.kind = paged_list
+    requires: chat.platform = telegram
     ensures: InlineKeyboard.created(message: SentMessage.created(chat: chat, time_to_live: null, sent_at: now, deleted: false),
                                     page: 0, item_count: reply.item_count)
 }
@@ -228,6 +239,50 @@ rule CallbackDeliversShow {
     ensures: keyboard.message.deleted = true
 }
 
+-- Discord: the message lists the items of the page as numbered text, cut to max_text_length; row 1 has the buttons "1" to
+-- "n" (one per item of the page, they pick the item), row 2 has previous and next (disabled at the first and at the last
+-- page). The id of every button is the one of the platform-neutral PagedListAction (at most 100 characters, the label at
+-- most 80).
+rule SendPagedListAsDiscordButtons {
+    when: ReplySent(chat, reply)
+    requires: reply.kind = paged_list
+    requires: chat.platform = discord
+    ensures: DiscordButtonList.created(
+        message: SentMessage.created(chat: chat, time_to_live: null, sent_at: now, deleted: false),
+        page: 0,
+        item_count: reply.item_count,
+        items_on_page: min(reply.item_count, extras/config.paged_list_page_size)
+    )
+}
+
+-- a press is acknowledged within the 3 seconds Discord allows (deferred edit) before anything else, then decoded into the
+-- neutral action: previous and next edit the message in place, a pick sends the item as a new message.
+rule DiscordButtonIsPagedListAction {
+    when: DiscordButtonPressed(list, id)
+    requires: PagedListIdDecodes(id)
+    ensures: DiscordButtonAcknowledged(list: list)
+    ensures: extras/PagedListActionRequested(
+        chat: list.message.chat,
+        bot: list.message.bot,
+        action: DecodedAction(id)
+    )
+}
+
+rule DiscordButtonPagesList {
+    when: DiscordButtonPressed(list, id)
+    requires: PagedListIdDecodes(id)
+    requires: DecodedAction(id).kind = previous_page or DecodedAction(id).kind = next_page
+    ensures: list.page = if DecodedAction(id).kind = next_page: list.page + 1 else: max(list.page - 1, 0)
+}
+
+-- a button of a list that is expired or unknown (a bot restart forgets nothing the id needs, but the message may be gone or
+-- the id may not decode) answers with a clear text, visible only to who pressed, and changes nothing
+rule DiscordButtonOfUnknownList {
+    when: DiscordButtonPressed(list, id)
+    requires: not PagedListIdDecodes(id)
+    ensures: DiscordButtonRejected(list: list)
+}
+
 -- Discord: text and markdown sent as messages, quoting the triggering message, deleted after their time to live (empty sends nothing); media urls tried in order, a file over the upload
 -- limit is sent as its link; markdown files are sent in chunks of 2000 characters; other reply kinds send nothing.
 -- IRC: all replies of a request form one logical reply, markdown becomes plain text, text is split on line breaks and each
@@ -245,6 +300,8 @@ rule IrcReconnects {
 }
 
 open question "Media or Show delivery deletes the keyboard message, paging edits it in place: intended?"
+open question "Discord: does picking an item delete the list message like Telegram does, or leave it for more picks?"
+open question "Discord: who may press the buttons, only who asked for the list or everyone in the channel?"
 open question "An unparsable callback is treated as a media file named by the raw data: intended fallback or accident?"
 open question "Text, rich-text and keyboard send failures are swallowed, only media failures reach operators: report them too?"
 open question "Is quoting the triggering message a domain requirement or a platform nicety?"
