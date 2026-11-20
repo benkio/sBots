@@ -280,16 +280,13 @@ a line (multibyte text is longer in bytes), at most 20 lines a reply (the rest i
 left out). The flood control is the queue of Kitteh: one message every `main.irc.message-delay` (1.2 seconds). The text goes to
 the channel, or to the nick for a private message; IRC has no reply to a message.
 
-### IRC live test
+### IRC integration test
 
-`ITIrcLiveSpec` (integration tests; it is excluded from `integration/mUnitTests` and runs with `integration/mUnitLiveTests`, in its own CI job, because the network makes it flaky) puts every bot of the registry on the real
-`irc.libera.chat`, in `##sBotsTesting` (`##` is Libera's prefix for channels that are not a registered project), one bot
-after the other so a single address never holds many connections: a tester client writes to the channel a text that triggers
-a markdown file of the bot (when it has one a text can trigger) and `!random`, and checks that the bot answers both. Set
-`IRC_LIVE_TEST=false` to skip it without the network. It uses the real DB of the integration tests, and removes the timeout
-the bot may have left in the channel.
-
-You can join or watch the test channel directly in a browser via the [Libera.Chat web client](https://web.libera.chat/?channels=%23%23sBotsTesting).
+`ITIrcSpec` (integration tests, part of `integration/mUnitTests`) starts a local IRC server with testcontainers (the
+`ghcr.io/ergochat/ergo:stable` image, so Docker is needed) and puts every bot of the registry on it, in `#sBotsTesting`,
+one bot after the other: a tester client writes to the channel a text that triggers a markdown file of the bot (when it
+has one a text can trigger) and `!instructions`, and checks that the bot answers both. It uses the real DB of the
+integration tests, and removes the timeout the bot may have left in the channel.
 
 ### Performance integration tests
 

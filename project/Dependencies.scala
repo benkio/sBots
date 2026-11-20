@@ -6,7 +6,6 @@ object Dependencies {
 
   private object groups {
     val apimorphism       = "io.github.apimorphism"
-    val cb372             = "com.github.cb372"
     val chrisdavenport    = "io.chrisdavenport"
     val circe             = "io.circe"
     val comcast           = "com.comcast"
@@ -31,6 +30,7 @@ object Dependencies {
     val scalacheck        = "org.scalacheck"
     val scalameta         = "org.scalameta"
     val scalatest         = "org.scalatest"
+    val testcontainers    = "org.testcontainers"
     val testScope         = "test"
     val timepit           = "eu.timepit"
     val tpolecat          = "org.tpolecat"
@@ -45,7 +45,6 @@ object Dependencies {
     val cats                  = "2.13.0"
     val catsEffectTime        = "0.4.0"
     val catsEffectVersion     = "3.7.1"
-    val catsRetry             = "4.0.0"
     val circe                 = "0.14.17"
     val cron4s                = "0.8.2"
     val doobie                = "1.0.0-RC12"
@@ -80,6 +79,7 @@ object Dependencies {
     val shapeless             = "2.3.10"
     val sqlite                = "3.41.2.1"
     val telegramiumVersion    = "10.1003.2"
+    val testcontainers        = "2.0.5"
     val tuplez                = "0.4.0"
     val vault                 = "3.7.0"
   }
@@ -93,7 +93,6 @@ object Dependencies {
     val catsEffectTime       = groups.chrisdavenport  %% "cats-effect-time"        % versions.catsEffectTime
     val catsFree             = groups.typelevel       %% "cats-free"               % versions.cats
     val catsKernel           = groups.typelevel       %% "cats-kernel"             % versions.cats
-    val catsRetry            = groups.cb372           %% "cats-retry"              % versions.catsRetry
     val circeCore            = groups.circe           %% "circe-core"              % versions.circe
     val circeGeneric         = groups.circe           %% "circe-generic"           % versions.circe
     val circeParser          = groups.circe           %% "circe-parser"            % versions.circe
@@ -141,11 +140,12 @@ object Dependencies {
     val scalacheck       = groups.scalacheck %% "scalacheck"        % versions.scalacheck      % Test
     val scalacheckEffectMunit = groups.typelevel  %% "scalacheck-effect-munit" % versions.scalacheckEffectMunit % Test
     val scalacheckGenRegexp   = groups.wolfendale %% "scalacheck-gen-regexp"   % versions.scalacheckGenRegexp   % Test
-    val scalatest       = groups.scalatest   %% "scalatest"        % versions.scalatest % groups.testScope
-    val sqlite          = groups.xerial       % "sqlite-jdbc"      % versions.sqlite
-    val telegramiumCore = groups.apimorphism %% "telegramium-core" % versions.telegramiumVersion
-    val telegramiumHigh = groups.apimorphism %% "telegramium-high" % versions.telegramiumVersion
-    val vault           = groups.typelevel   %% "vault"            % versions.vault
+    val scalatest       = groups.scalatest     %% "scalatest"        % versions.scalatest % groups.testScope
+    val sqlite          = groups.xerial         % "sqlite-jdbc"      % versions.sqlite
+    val telegramiumCore = groups.apimorphism   %% "telegramium-core" % versions.telegramiumVersion
+    val testcontainers  = groups.testcontainers % "testcontainers"   % versions.testcontainers
+    val telegramiumHigh = groups.apimorphism   %% "telegramium-high" % versions.telegramiumVersion
+    val vault           = groups.typelevel     %% "vault"            % versions.vault
 
     // ScalaJS-enabled projects already append the "_sjs1" cross-version suffix via `%%`.
     // The replies editor UI is Scala.js-only, so portability isn't needed here.
@@ -370,7 +370,6 @@ object Dependencies {
     Seq(
       libs.catsCore   % groups.testScope,
       libs.catsEffect % groups.testScope,
-      libs.catsRetry  % groups.testScope,
       libs.cron4s     % groups.testScope,
       libs.doobieCore % groups.testScope,
       libs.doobieMunit,
@@ -385,6 +384,7 @@ object Dependencies {
       libs.munit,
       libs.munitCatsEffect,
       libs.scalatest,
-      libs.telegramiumCore % groups.testScope
+      libs.telegramiumCore % groups.testScope,
+      libs.testcontainers  % groups.testScope
     )
 }

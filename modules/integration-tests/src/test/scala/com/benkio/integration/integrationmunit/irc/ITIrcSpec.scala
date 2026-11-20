@@ -32,48 +32,57 @@ import munit.CatsEffectSuite
 import munit.TestOptions
 import net.engio.mbassy.listener.Handler
 import org.kitteh.irc.client.library.event.channel.ChannelMessageEvent
-import retry.syntax.*
-import retry.ResultHandler
-import retry.RetryPolicies.*
+import org.testcontainers.containers.wait.strategy.Wait
+import org.testcontainers.containers.GenericContainer
+import org.testcontainers.utility.DockerImageName
 
 import scala.concurrent.duration.*
 import scala.jdk.CollectionConverters.*
 import scala.jdk.OptionConverters.*
 
-/** The bots on a real IRC network: every bot of the registry joins the channel (one after the other, to stay under the
-  * limits of connections per address of the network), answers a message that triggers one of its markdown files and the
-  * `!instructions` command, and quits. A second client, the tester, writes to the channel and reads the answers.
+/** The bots on a local IRC server (the ergo image, started with testcontainers): every bot of the registry joins the
+  * channel (one after the other), answers a message that triggers one of its markdown files and the `!instructions`
+  * command, and quits. A second client, the tester, writes to the channel and reads the answers.
   *
-  * It needs the network: it is skipped when the environment variable `IRC_LIVE_TEST` is `false`.
+  * It needs Docker.
   */
-class ITIrcLiveSpec extends CatsEffectSuite with DBFixture {
+class ITIrcSpec extends CatsEffectSuite with DBFixture {
 
   override val munitIOTimeout: FiniteDuration = 30.minutes
 
-  /** `##` is the prefix that Libera.Chat asks for the channels that do not belong to a registered project. */
-  private val channel: String = "##sBotsTesting"
-  private val retryPolicy     =
-    limitRetriesByCumulativeDelay[IO, Throwable](
-      30.seconds,
-      exponentialBackoff[IO](1.second)
-    )
-
-  private val ircConfig: IrcConfig = IrcConfig(
-    host = "irc.libera.chat",
-    port = 6697,
-    tls = true,
+  private val ircPort: Int                                  = 6667
+  private val channel: String                               = "#sBotsTesting"
+  private val ergoImage: String                             = "ghcr.io/ergochat/ergo:stable"
+  private def ircConfig(host: String, port: Int): IrcConfig = IrcConfig(
+    host = host,
+    port = port,
+    tls = false,
     channels = List(channel),
-    readyTimeout = 90.seconds,
+    readyTimeout = 30.seconds,
     shutdownTimeout = 10.seconds,
-    reconnectBaseDelay = 2.seconds,
-    reconnectMaxDelay = 30.seconds,
+    reconnectBaseDelay = 1.second,
+    reconnectMaxDelay = 10.seconds,
     messageDelay = 700.millis,
     rateLimitMessages = 100,
     rateLimitWindow = 10.seconds
   )
 
-  private val answerTimeout: FiniteDuration = 90.seconds
-  private val quietPeriod: FiniteDuration   = 3.seconds
+  /** The local IRC server: the config to connect to it. */
+  private val ergo = ResourceSuiteLocalFixture(
+    "ergo",
+    Resource
+      .make(IO.blocking {
+        val container = new GenericContainer(DockerImageName.parse(ergoImage))
+        container.withExposedPorts(ircPort)
+        container.waitingFor(Wait.forLogMessage(s".*now listening on :$ircPort.*", 1))
+        container.start()
+        container
+      })(container => IO.blocking(container.stop()))
+      .map(container => ircConfig(container.getHost, container.getMappedPort(ircPort)))
+  )
+
+  private val answerTimeout: FiniteDuration = 30.seconds
+  private val quietPeriod: FiniteDuration   = 2.seconds
 
   /** What the tester read in the channel. */
   private final case class Seen(sender: String, text: String)
@@ -97,13 +106,14 @@ class ITIrcLiveSpec extends CatsEffectSuite with DBFixture {
       dispatcher <- Dispatcher.sequential[IO]
       seen       <- Resource.eval(Ref.of[IO, List[Seen]](List.empty))
       nick = s"sBotsTester${scala.util.Random.nextInt(100000)}"
-      connection <- IrcConnection.resource[IO](nick, None, ircConfig, List(new Collector(dispatcher, seen)))
+      config     <- Resource.eval(IO(ergo()))
+      connection <- IrcConnection.resource[IO](nick, None, config, List(new Collector(dispatcher, seen)))
       tester = Tester(connection, seen)
-      _ <- Resource.eval(until("the tester joins the channel", 60.seconds)(tester.nicknames.map(_.contains(nick))))
+      _ <- Resource.eval(until("the tester joins the channel", answerTimeout)(tester.nicknames.map(_.contains(nick))))
     } yield tester
   )
 
-  override def munitFixtures: Seq[munit.AnyFixture[?]] = List(tester)
+  override def munitFixtures: Seq[munit.AnyFixture[?]] = List(ergo, tester)
 
   private def until(what: String, timeout: FiniteDuration)(check: IO[Boolean]): IO[Unit] = {
     def go: IO[Unit] = check.flatMap(ok => if ok then IO.unit else IO.sleep(500.millis) >> go)
@@ -172,9 +182,8 @@ class ITIrcLiveSpec extends CatsEffectSuite with DBFixture {
 
   private def botTest(entry: BotRegistryEntry[IO]): Unit =
     databaseFixture.test(
-      TestOptions(s"${entry.sBotInfo.botName.value} answers its markdown file and !instructions on IRC").flaky
+      TestOptions(s"${entry.sBotInfo.botName.value} answers its markdown file and !instructions on IRC")
     ) { fixture =>
-      assume(!sys.env.get("IRC_LIVE_TEST").contains("false"), "IRC_LIVE_TEST=false")
       val sBotConfig = SBotConfig.fromSBotInfo(entry.sBotInfo)
       val nick       = IrcCredentials.nick(entry.sBotInfo)
       val t          = tester()
@@ -185,7 +194,7 @@ class ITIrcLiveSpec extends CatsEffectSuite with DBFixture {
             // an earlier run could have left the bot waiting for its timeout in this chat
             _   <- core.dbLayer.dbTimeout.removeTimeout(chat, entry.sBotInfo.botId)
             bot <- IrcBot
-              .runWith[IO](core, sBotConfig, None, entry.commandEffectfulCallback, ircConfig, Notifier.logging[IO])
+              .runWith[IO](core, sBotConfig, None, entry.commandEffectfulCallback, ergo(), Notifier.logging[IO])
               .start
             result <- (for {
               _        <- until(s"$nick joins $channel", answerTimeout)(t.nicknames.map(_.exists(_.startsWith(nick))))
@@ -202,12 +211,6 @@ class ITIrcLiveSpec extends CatsEffectSuite with DBFixture {
             assert(result._2.exists(_.text.trim.nonEmpty), result._2.toString)
           }
         }
-        .retryingOnErrors(
-          retryPolicy,
-          ResultHandler.retryOnAllErrors[IO, Unit]((error, details) =>
-            IO.println(s"[ITIrcLiveSpec] retrying after ${error.getMessage} (${details.retriesSoFar} retries so far)")
-          )
-        )
     }
 
   BotRegistry.toList(BotRegistry.value).foreach(botTest)
