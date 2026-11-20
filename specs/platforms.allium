@@ -3,6 +3,7 @@
 -- how platform events become Messages and how Replies are delivered. Excludes transport libraries and wiring.
 
 use "./sbots.allium" as core
+use "./engine-extras.allium" as extras
 
 actor ChatUser {
     identified_by: ChatUser where true
@@ -41,10 +42,15 @@ entity InlineKeyboard {
 
 external entity TelegramUpdate {
     kind: message | callback_query
+    chat: core/Chat
+    bot_added: Boolean
+    member_count: Integer?    -- of the chat, read when the bot is added
 }
 
 external entity DiscordEvent {
-    kind: message | slash_command
+    kind: message | slash_command | guild_join
+    chat: core/Chat
+    member_count: Integer?    -- of the guild, read when the bot joins it
     channel: String
     is_direct: Boolean
     author_is_bot: Boolean
@@ -82,6 +88,22 @@ rule TelegramMessageBecomesMessage {
     when: TelegramUpdateReceived(update, bot)
     requires: update.kind = message
     ensures: core/BotReceivesMessage(message: update, bot: bot)
+}
+
+rule TelegramBotAddedRaisesJoin {
+    when: TelegramUpdateReceived(update, bot)
+    requires: update.kind = message
+    requires: update.bot_added
+    requires: update.member_count != null
+    ensures: extras/BotJoinsChat(chat: update.chat, bot: bot, member_count: update.member_count)
+}
+
+-- Discord: the bot is invited to a server (a guild_join event); no welcome reply is involved
+rule DiscordGuildJoinRaisesJoin {
+    when: DiscordEventReceived(e, bot)
+    requires: e.kind = guild_join
+    requires: e.member_count != null
+    ensures: extras/BotJoinsChat(chat: e.chat, bot: bot, member_count: e.member_count)
 }
 
 rule DiscordMessageBecomesMessage {
