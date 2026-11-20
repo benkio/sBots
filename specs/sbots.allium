@@ -12,16 +12,6 @@ entity Chat {
     platform: Platform
 }
 
--- The reply timeout (/settimeout) belongs to the pair (chat, bot). A chat without a row has no timeout.
-external entity ChatTimeout {
-    chat: Chat
-    bot: Bot
-    reply_timeout: Duration
-    last_interaction: Timestamp       -- second precision
-    -- the pair is "in timeout" until reply_timeout has passed since the last interaction
-    in_timeout: last_interaction + reply_timeout >= now
-}
-
 actor Operator {
     -- runs data entry and the catalogue job, reads the ops chat, the health check and the dashboard
     identified_by: Operator where true
@@ -75,7 +65,16 @@ entity BotEngine {
     bot: Bot
     -- the trigger files (list of triggers, instructions) add fixed commands to the bot's own commands
     fixed_commands: Set<ReplyBundleCommand>
-    processed: Set<ProcessedMessage>
+}
+
+-- The reply timeout (/settimeout) belongs to the pair (chat, bot). A chat without a row has no timeout.
+entity ChatTimeout {
+    chat: Chat
+    bot: Bot
+    reply_timeout: Duration
+    last_interaction: Timestamp       -- second precision
+    -- the pair is "in timeout" until reply_timeout has passed since the last interaction
+    in_timeout: last_interaction + reply_timeout >= now
 }
 
 entity ProcessedMessage {
@@ -91,11 +90,9 @@ entity MediaFile {
     name: String                      -- prefixed with the bot id
     kind: mp3 | gif | photo | video | document | sticker | markdown
     kinds: Set<String>                -- topic tags used by the media-by-kind commands
-    mime_type: String
     sources: List<String>
     platform_file_ids: Set<String>    -- cached per platform, tried before the downloadable file
     send_count: Integer               -- grows each time the file is fetched to be sent
-    created_at: Timestamp
 }
 
 entity ReplyBundleMessage {
@@ -127,6 +124,10 @@ entity Trigger {
 entity Reply {
     kind: plain | effectful
     media: Set<MediaFile>             -- the media files fetched to send the reply (none for a text reply)
+    delivery: text | media_file | paged_list   -- how a platform adapter has to deliver it
+    time_to_live: Duration?           -- a text reply is deleted after it, when set
+    item_count: Integer?              -- the items of a paged_list
+    media_kind: String?               -- the kind asked by a media-by-kind reply
 }
 
 entity Request {
@@ -200,6 +201,8 @@ rule BotRepliesToCommand {
     requires: request.message.is_command
     let command_reply = request.bot.engine.command_for(request.message)
     requires: command_reply != null
+    requires: command_reply in request.bot.command_replies or command_reply in request.bot.engine.fixed_commands
+    requires: command_invoked(request.message, command_reply.command)    -- "/cmd", "/cmd ..." or "/cmd@botName ..."
 
     ensures: Reply.sent(chat: request.message.chat, reply: command_reply.reply)
 }
@@ -242,7 +245,7 @@ rule BotRepliesToFileRequest {
     requires: request.message.text != null
 
     -- the media file named by the request content, sent as a reply to the message
-    ensures: Reply.sent(chat: request.message.chat, reply: media_file_named(request.message.text))
+    ensures: Reply.sent(chat: request.message.chat, reply: file_reply(MediaFile{bot: request.bot, name: file_request_name(request.message.text)}))
 }
 
 -- After a reply the last interaction is logged: this is what the timeout is measured from. It only updates an existing
@@ -268,12 +271,17 @@ rule DuplicateCheckFailsOpen {
     ensures: RequestIsDispatched(request: Request.created(message: message, bot: bot, started_at: now))
 }
 
+-- an unexpected error while the request is processed
+entity RequestError {
+    request: Request
+}
+
 rule RequestFails {
-    when: RequestErrored(request)
+    when: error: RequestError.created
 
-    requires: request.outcome = null
+    requires: error.request.outcome = null
 
-    ensures: request.outcome = failed
+    ensures: error.request.outcome = failed
 }
 
 -- A redelivery after the retention is processed again. The purge runs lazily, at most once per cleanup interval and only
@@ -305,6 +313,18 @@ rule RequestTimesOut {
 }
 
 -- Trigger semantics ---------------------------------------------------
+
+-- every message reply bundle of the bot is tried on a message that is neither a command nor a file request
+rule BotTriesBundles {
+    when: RequestIsDispatched(request)
+
+    requires: not request.message.is_command
+    requires: not request.message.is_file_request
+
+    ensures:
+        for b in request.bot.message_replies:
+            BundleIsMatched(bundle: b, message: request.message)
+}
 
 -- BotEngine picks the best matching bundle: each bundle is matched by its trigger, the highest trigger wins.
 rule TextTriggerMatches {
@@ -421,9 +441,50 @@ rule DataEntryRejectsInvalidInput {
     ensures: DataEntryRun.created(bot: bot, inputs: inputs, status: failed)
 }
 
+-- Media delivery -----------------------------------------------------
+
+-- the stored platform file ids are tried first, then the downloadable sources in order; the id that worked is cached
+-- in platform_file_ids for the platform
+rule MediaDeliveryTriesCachedIdsThenSources {
+    when: Reply.sent(chat, reply)
+
+    ensures:
+        for m in reply.media:
+            MediaDeliveryAttempted(media: m, chat: chat, candidates: cached_ids_then_sources(m.platform_file_ids, m.sources))
+}
+
 ------------------------------------------------------------
 -- Invariants
 ------------------------------------------------------------
+
+-- a request comes from a chat on one of the platforms the bot runs on
+invariant RequestsOnBotPlatforms {
+    for r in Requests:
+        r.message.chat.platform in r.bot.platforms
+}
+
+-- the IRC nick is derived from the bot name
+invariant BotNickDerivedFromName {
+    for b in Bots:
+        b.nick = irc_nick(b.name)
+}
+
+invariant SendCountNeverNegative {
+    for m in MediaFiles:
+        m.send_count >= 0
+}
+
+invariant ReplyDeliveryDetails {
+    for r in Replies:
+        r.delivery = paged_list implies r.item_count != null
+        r.time_to_live != null implies r.delivery = text
+}
+
+-- a media-by-kind reply only picks files of the bot that carry the kind
+invariant MediaByKindReplyPicksKind {
+    for r in Replies:
+        r.media_kind != null implies r.media.all(m => r.media_kind in m.kinds)
+}
 
 -- Reply bundle selection must not change while the chat is in timeout (filteringMatchesMessages).
 invariant NoMessageReplyInTimeout {

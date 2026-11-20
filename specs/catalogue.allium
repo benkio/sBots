@@ -14,7 +14,6 @@ value MediaListEntry {
     filename: String
     kind: mp3 | gif | photo | video | document | sticker | markdown
     kinds: Set<String>
-    mime_type: String
     sources: List<String>
 }
 
@@ -124,8 +123,8 @@ rule MediaCatalogueLoaded {
     ensures:
         for f in MediaListFile:
             for e in f.entries:
-                core/MediaFile.created(bot: f.bot, name: e.filename, kind: e.kind, kinds: e.kinds, mime_type: e.mime_type,
-                                       sources: e.sources, platform_file_ids: {}, send_count: 0, created_at: now)
+                core/MediaFile.created(bot: f.bot, name: e.filename, kind: e.kind, kinds: e.kinds,
+                                       sources: e.sources, platform_file_ids: {}, send_count: 0)
     ensures: run.status = loading_shows
 }
 
