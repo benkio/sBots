@@ -4,13 +4,12 @@ import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.chatcore.messagefiltering.getContent
 import com.benkio.chatcore.model.reply.PagedList
+import com.benkio.chatcore.model.reply.PagedListAction
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
 import com.benkio.chattelegramadapter.conversions.MessageConversions.replyParameters
 import com.benkio.chattelegramadapter.conversions.ToInlineButton
-import com.benkio.chattelegramadapter.model.toCallbackKey
-import com.benkio.chattelegramadapter.model.CallbackData
 import com.benkio.chattelegramadapter.model.TelegramIds.telegramId
 import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
 import log.effect.LogWriter
@@ -98,13 +97,13 @@ object KeyboardReply {
     val prev: Option[InlineKeyboardButton] = Option.unless(page == 0)(
       InlineKeyboardButton(
         text = "prev ⎗",
-        callbackData = Some(CallbackData.PreviousPage(page, commandKey).toCallbackKey)
+        callbackData = PagedListAction.PreviousPage(page, commandKey).toId
       )
     )
     val next: Option[InlineKeyboardButton] = Option.unless((page + 1) * perPage >= totalElems)(
       InlineKeyboardButton(
         text = "next ⎘",
-        callbackData = Some(CallbackData.NextPage(page, commandKey).toCallbackKey)
+        callbackData = PagedListAction.NextPage(page, commandKey).toId
       )
     )
     prev.toList ++ next.toList

@@ -48,8 +48,8 @@ class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
       _ = println(s"debug mediaSource: $mediaSources")
       postMedia <- Resource.eval(dbMedia.getMedia(testMediaName, false))
       _ = println(s"debug postMedia: $postMedia")
-      _         <- Resource.eval(dbRepository.registerSend(Mp3File(testMediaName)))
-      sentMedia <- Resource.eval(dbMedia.getMedia(testMediaName, false))
+      _            <- Resource.eval(dbRepository.registerSend(Mp3File(testMediaName)))
+      sentMedia    <- Resource.eval(dbMedia.getMedia(testMediaName, false))
       _            <- Resource.eval(dbMedia.decrementMediaCount(testMediaName))
       initialMedia <- Resource.eval(dbMedia.getMedia(testMediaName, false))
     } yield {
@@ -72,8 +72,8 @@ class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
       _ = println(s"debug mediaSource: $mediaSource")
       postMedia <- Resource.eval(dbMedia.getMedia("ytai_PizzaYtancheio.sticker", false))
       _ = println(s"debug postMedia: $postMedia")
-      _         <- Resource.eval(dbRepository.registerSend(Sticker("ytai_PizzaYtancheio.sticker")))
-      sentMedia <- Resource.eval(dbMedia.getMedia("ytai_PizzaYtancheio.sticker", false))
+      _            <- Resource.eval(dbRepository.registerSend(Sticker("ytai_PizzaYtancheio.sticker")))
+      sentMedia    <- Resource.eval(dbMedia.getMedia("ytai_PizzaYtancheio.sticker", false))
       _            <- Resource.eval(dbMedia.decrementMediaCount("ytai_PizzaYtancheio.sticker"))
       initialMedia <- Resource.eval(dbMedia.getMedia("ytai_PizzaYtancheio.sticker", false))
     } yield {

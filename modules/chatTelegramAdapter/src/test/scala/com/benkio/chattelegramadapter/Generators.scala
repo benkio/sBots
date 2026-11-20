@@ -1,7 +1,7 @@
 package com.benkio.chattelegramadapter
 
+import com.benkio.chatcore.model.reply.PagedListAction
 import com.benkio.chatcore.model.reply.ReplyValue
-import com.benkio.chattelegramadapter.model.CallbackData
 import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
 import org.scalacheck.Gen
 import telegramium.bots.Chat
@@ -63,33 +63,37 @@ trait Generators extends com.benkio.chatcore.Generators {
 
   val telegramReplyValueGen: Gen[ReplyValue] = Gen.oneOf(textGen, mediaFileGen, telegramInlineKeyboardGen)
 
-  /** Media payloads that do not parse as pagination keys (`previousPage|nextPage-CommandKey-Int`). */
+  /** Media payloads that do not parse as pagination keys (`previousPage|nextPage-CommandKey-Int`). They stay well under
+    * the id limit (`PagedListAction.maxIdLength`), so that every generated action has an id.
+    */
   val mediaCallbackPayloadGen: Gen[String] =
-    Gen.alphaNumStr.suchThat(s =>
-      s.nonEmpty &&
-        !s.startsWith("previousPage-") &&
-        !s.startsWith("nextPage-")
-    )
+    Gen.alphaNumStr
+      .map(_.take(60))
+      .suchThat(s =>
+        s.nonEmpty &&
+          !s.startsWith("previousPage-") &&
+          !s.startsWith("nextPage-")
+      )
 
-  val previousPageCallbackDataGen: Gen[CallbackData] =
+  val previousPageCallbackDataGen: Gen[PagedListAction] =
     Gen
       .choose(0, 100)
-      .flatMap(page => commandKeyGen.map(key => CallbackData.PreviousPage(page, key)))
+      .flatMap(page => commandKeyGen.map(key => PagedListAction.PreviousPage(page, key)))
 
-  val nextPageCallbackDataGen: Gen[CallbackData] =
+  val nextPageCallbackDataGen: Gen[PagedListAction] =
     Gen
       .choose(0, 100)
-      .flatMap(page => commandKeyGen.map(key => CallbackData.NextPage(page, key)))
+      .flatMap(page => commandKeyGen.map(key => PagedListAction.NextPage(page, key)))
 
-  val mediaCallbackDataGen: Gen[CallbackData] =
-    mediaCallbackPayloadGen.map(CallbackData.Media.apply)
+  val mediaCallbackDataGen: Gen[PagedListAction] =
+    mediaCallbackPayloadGen.map(PagedListAction.Media.apply)
 
-  val showCallbackDataGen: Gen[CallbackData] =
+  val showCallbackDataGen: Gen[PagedListAction] =
     mediaCallbackPayloadGen.flatMap(showId =>
-      Gen.option(Gen.oneOf("7s", "1m2s", "2h3m4s")).map(timestamp => CallbackData.Show(showId, timestamp))
+      Gen.option(Gen.oneOf("7s", "1m2s", "2h3m4s")).map(timestamp => PagedListAction.Show(showId, timestamp))
     )
 
-  val callbackDataGen: Gen[CallbackData] = Gen.oneOf(
+  val callbackDataGen: Gen[PagedListAction] = Gen.oneOf(
     previousPageCallbackDataGen,
     nextPageCallbackDataGen,
     mediaCallbackDataGen,
