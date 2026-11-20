@@ -3,6 +3,7 @@ package com.benkio.chatcore.model
 import cats.implicits.*
 import cats.Eval
 import cats.Show
+import com.benkio.chatcore.messagefiltering.MessageMatches
 import io.circe.*
 import io.circe.generic.semiauto.*
 
@@ -111,23 +112,23 @@ object Trigger {
     }
   )
 
-  given orderingInstance: Ordering[Trigger] = new Ordering[Trigger] {
-    def compare(trigger1: Trigger, trigger2: Trigger) =
-      triggerLongestString(trigger1).compare(triggerLongestString(trigger2))
-  }
-
   given Decoder[MessageTrigger] = deriveDecoder[MessageTrigger]
   given Encoder[MessageTrigger] = deriveEncoder[MessageTrigger]
 
   given Decoder[CommandTrigger] = deriveDecoder[CommandTrigger]
   given Encoder[CommandTrigger] = deriveEncoder[CommandTrigger]
 
-  def triggerLongestString(trigger: Trigger): Int = trigger match {
-    case TextTrigger(lt*)          => lt.max(using TextTriggerValue.orderingInstance).length.value
-    case MessageLengthTrigger(_)   => 0
-    case _: NewMemberTrigger.type  => 0
-    case _: BotAddedTrigger.type   => 0
-    case _: LeftMemberTrigger.type => 0
-    case CommandTrigger(c)         => c.length
-  }
+  def triggerLongestString(trigger: Trigger, matcher: MessageMatches = MessageMatches.ContainsOnce): Int =
+    trigger match {
+      case TextTrigger(lt*) =>
+        matcher match {
+          case MessageMatches.ContainsAll => lt.map(_.length.value).sum
+          case _                          => lt.max(using TextTriggerValue.orderingInstance).length.value
+        }
+      case MessageLengthTrigger(_)   => 0
+      case _: NewMemberTrigger.type  => 0
+      case _: BotAddedTrigger.type   => 0
+      case _: LeftMemberTrigger.type => 0
+      case CommandTrigger(c)         => c.length
+    }
 }

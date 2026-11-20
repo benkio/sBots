@@ -55,7 +55,7 @@ object MessageMatches {
           .map(t => (TextTrigger(t), replyBundleMessage))
       case (_, ContainsAll, TextTrigger(triggers*), Some(messageText))
           if triggers.forall(TextTriggerValue.matchValue(_, messageText.toLowerCase())) =>
-        Some((TextTrigger(triggers.sorted(using TextTriggerValue.orderingInstance.reverse)*), replyBundleMessage))
+        Some((TextTrigger(triggers*), replyBundleMessage))
       case _ => None
     }
 }

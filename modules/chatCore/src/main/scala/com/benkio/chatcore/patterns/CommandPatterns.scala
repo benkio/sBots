@@ -388,7 +388,9 @@ object CommandPatterns {
           val inputMessage = m.copy(text = Some(t), caption = None)
           val matches      = mdr
             .mapFilter(MessageMatches.doesMatch(_, inputMessage, ignoreMessagePrefix))
-            .sortBy(_._1)(using Trigger.orderingInstance.reverse)
+            .sortBy { case (trigger, replyBundleMessage) =>
+              -Trigger.triggerLongestString(trigger, replyBundleMessage.matcher)
+            }
             .headOption
           matches.fold(Text(value = s"No matching trigger for $t", timeToLive = ttl).pure[F]) { case (_, rbm) =>
             replyBundleTransformation(rbm).pure[F]

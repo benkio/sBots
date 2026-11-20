@@ -24,12 +24,13 @@ sealed trait ReplyBundle {
 
   def trigger: Trigger
   def reply: Reply
+  def matcher: MessageMatches = MessageMatches.ContainsOnce
 }
 
 case class ReplyBundleMessage(
     trigger: MessageTrigger,
     reply: Reply,
-    matcher: MessageMatches
+    override val matcher: MessageMatches
 ) extends ReplyBundle
 
 object ReplyBundleMessage {
@@ -74,7 +75,9 @@ object ReplyBundleMessage {
         MessageMatches
           .doesMatch(messageReplyBundle, msg, ignoreMessagePrefix)
       )
-      .sortBy(_._1)(using Trigger.orderingInstance.reverse)
+      .sortBy { case (trigger, replyBundleMessage) =>
+        -Trigger.triggerLongestString(trigger, replyBundleMessage.matcher)
+      }
       .headOption
       .map(_._2)
 
@@ -171,9 +174,6 @@ object ReplyBundleCommand {
 }
 
 object ReplyBundle {
-
-  given orderingInstance: Ordering[ReplyBundle] =
-    Trigger.orderingInstance.contramap(_.trigger)
 
   private def mdTriggerCell(trigger: String): String =
     trigger.replace("|", "\\|")
