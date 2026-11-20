@@ -7,6 +7,13 @@ external entity HealthCheck {
     status: up | late | down
 }
 
+-- a call to the health-check URL, for each signal sent
+external entity HealthPing {
+    app: Application
+    kind: start | heartbeat | fail
+    failed: Boolean
+}
+
 enum EndCause { completed | cancelled }
 
 entity Application {
@@ -101,7 +108,8 @@ rule HeartbeatTick {
 }
 
 rule HeartbeatRecovers {
-    when: HealthSignalFailed(app)
+    when: ping: HealthPing.failed = true
+    requires: ping.kind = heartbeat and ping.app.status = running
     -- a failed ping resumes after the delay; a refused start or fail signal is only a logged warning
     ensures: HeartbeatResumesAt(at: now + config.heartbeat_restart_delay)
 }
@@ -142,9 +150,9 @@ rule SystemStatsLine {
 -- Telegram startup: probes (db, Telegram, Dropbox, Mega) and, after a deploy, a test media file to the ops chat.
 -- A failed check never blocks the start.
 rule StartupCheckReports {
-    when: BotStarted(bot)
-    requires: bot.platforms.any(p => p = telegram)
-    ensures: core/OperatorsNotified(bot: bot, reason: started_with_report)
+    when: entry: BotOnPlatform.created
+    requires: entry.platform = telegram
+    ensures: core/OperatorsNotified(bot: entry.bot, reason: started_with_report)
 }
 
 -- The IRC send delay, ready timeout and shutdown timeout are infrastructure tuning, not specified.
