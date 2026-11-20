@@ -12,6 +12,7 @@ import com.benkio.chatcore.model.Message as ModelMessage
 import com.benkio.chatcore.patterns.PostComputationPatterns
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
+import com.benkio.chatcore.AutoTimeout
 import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chatcore.BotEngine
 import com.benkio.chatcore.EffectfulCallback
@@ -19,6 +20,7 @@ import com.benkio.chatcore.Notifier
 import com.benkio.chatcore.PlatformAdapter
 import com.benkio.chattelegramadapter.conversions.MessageConversions.*
 import com.benkio.chattelegramadapter.http.telegramreply.callbackreply.TelegramCallbackReply
+import com.benkio.chattelegramadapter.http.TelegramChatInfo
 import com.benkio.chattelegramadapter.initialization.BotSetup
 import com.benkio.chattelegramadapter.model.CallbackData
 import com.benkio.chattelegramadapter.model.TelegramToken.botId
@@ -115,8 +117,18 @@ trait ISBot[F[_]: Async: LogWriter] {
   def commandLogic(msg: ModelMessage): F[Unit] =
     engine.commandLogic(msg)(using platformAdapter)
 
+  /** When the bot is added to a group the welcome goes first, then the chat gets the timeout from its member count. A
+    * failure to read the count is logged and leaves the chat without timeout.
+    */
   def onMessageLogic(msg: ModelMessage): F[Unit] =
-    engine.onMessage(msg)(using platformAdapter)
+    engine.onMessage(msg)(using platformAdapter) *> autoTimeoutOnJoin(msg)
+
+  private def autoTimeoutOnJoin(msg: ModelMessage): F[Unit] =
+    if msg.botAdded && msg.chatType != "private" then TelegramChatInfo
+      .memberCount(msg.chatId)(using api)
+      .flatMap(count => AutoTimeout.set(dbLayer.dbTimeout, msg.chatId, sBotConfig.sBotInfo.botId, count))
+      .handleErrorWith(e => LogWriter.error(s"[AutoTimeout] Error while setting the timeout of ${msg.chatId}: $e"))
+    else Applicative[F].unit
 
   // Telegram only: the callbacks of the inline keyboards ////////////////////////////////////////////////////////
 

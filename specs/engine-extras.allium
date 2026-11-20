@@ -9,7 +9,29 @@ config {
     max_subscriptions_per_chat: Integer = 50
     max_subscription_target_length: Integer = 200
     top_media_count: Integer = 20
+    auto_timeout_per_doubling: Duration = 5.seconds
 }
+
+-- The bot is added to a group chat: raised by the Telegram and Discord adapters (IRC has no such event).
+-- member_count includes every member, bots and the bot itself.
+-- Scenario: 2 members -> 5s, 10 -> 17s, 100 -> 33s, 1000 -> 50s, 10000 -> 66s.
+rule BotJoinsChatSetsAutoTimeout {
+    when: BotJoinsChat(chat, bot, member_count)
+    requires: not chat.is_private
+    -- the count is a snapshot taken on joining and never refreshed, /settimeout is the way to change it later
+    -- an existing row (manual or from a previous stay) is replaced, as the bot was removed from the chat in between
+    -- if the platform gives no member count no row is created
+    -- the clock starts at the join, the welcome reply does not move it (see PostComputationLogsInteraction)
+    ensures: core/ChatTimeout.created(
+        chat: chat,
+        bot: bot,
+        reply_timeout: AutoTimeoutFor(member_count: member_count),
+        last_interaction: now
+    )
+}
+
+-- AutoTimeoutFor(member_count) = max(1.second, auto_timeout_per_doubling * log2(member_count)), rounded to whole seconds:
+-- logarithmic, so a big chat is slowed more than a small one but never in proportion to its size.
 
 rule UserSetsTimeout {
     when: UserSetsTimeout(chat, bot, value)       -- "/settimeout hh:mm:ss", a malformed value only gets an error text

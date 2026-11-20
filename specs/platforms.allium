@@ -3,6 +3,7 @@
 -- how platform events become Messages and how Replies are delivered. Excludes transport libraries and wiring.
 
 use "./sbots.allium" as core
+use "./engine-extras.allium" as extras
 
 actor ChatUser {
     identified_by: ChatUser where true
@@ -68,6 +69,9 @@ external entity IrcConnection {
 external entity TelegramUpdate {
     bot: core/Bot
     kind: message | callback_query
+    chat: core/Chat
+    bot_added: Boolean
+    member_count: Integer?    -- of the chat, read when the bot is added
 }
 
 external entity DiscordEvent {
@@ -111,6 +115,28 @@ rule TelegramMessageBecomesMessage {
     when: update: TelegramUpdate.created
     requires: update.kind = message
     ensures: core/BotReceivesMessage(message: update, bot: update.bot)
+}
+
+rule TelegramBotAddedRaisesJoin {
+    when: TelegramUpdateReceived(update, bot)
+    requires: update.kind = message
+    requires: update.bot_added
+    requires: update.member_count != null
+    ensures: extras/BotJoinsChat(chat: update.chat, bot: bot, member_count: update.member_count)
+}
+
+-- Discord: the bot is invited to a server. The timeouts are per channel, so the join counts as a join of every text
+-- channel the bot can write to, each with the member count of the server. Channels created later get no timeout.
+-- No welcome reply is involved.
+external entity DiscordGuildJoin {
+    channels: Set<core/Chat>
+    member_count: Integer
+}
+
+rule DiscordGuildJoinRaisesJoin {
+    when: DiscordGuildJoinReceived(join, bot)
+    ensures: for channel in join.channels:
+        extras/BotJoinsChat(chat: channel, bot: bot, member_count: join.member_count)
 }
 
 rule DiscordMessageBecomesMessage {
