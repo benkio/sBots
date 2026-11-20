@@ -38,9 +38,9 @@ entity Message {
     bot_added: Boolean    -- this bot is among the joined members
     left_member: Boolean
     content: text ?? caption
-    -- the first word is a command of the platform's syntax
+    -- the first word of the text is a command of the platform's syntax; a caption is never a command
     is_command: Boolean
-    -- a file request of the platform's syntax, addressed to this bot
+    -- a file request of the platform's syntax in the text, addressed to this bot; a caption is never a file request
     is_file_request: Boolean
 }
 
@@ -238,10 +238,10 @@ rule BotRepliesToFileRequest {
     -- a message that is both a command and a file request is handled as a command
     requires: not request.message.is_command
     requires: request.message.is_file_request
-    requires: request.message.content != null
+    requires: request.message.text != null
 
     -- the media file named by the request content, sent as a reply to the message
-    ensures: Reply.sent(chat: request.message.chat, reply: media_file_named(request.message.content))
+    ensures: Reply.sent(chat: request.message.chat, reply: media_file_named(request.message.text))
 }
 
 -- After a reply the last interaction is logged: this is what the timeout is measured from. It only updates an existing
