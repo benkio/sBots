@@ -15,8 +15,8 @@ import com.benkio.chatcore.repository.db.DBRepository
 import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.integration.DBFixtureResources
 import com.benkio.integration.Logger.given
-import org.testcontainers.containers.GenericContainer
 import org.testcontainers.containers.wait.strategy.WaitStrategy
+import org.testcontainers.containers.GenericContainer
 import org.testcontainers.utility.DockerImageName
 
 import scala.concurrent.duration.*
@@ -62,8 +62,9 @@ object PlatformITSupport {
       val count = current.length
       if count == previousCount then {
         val nextStable = stableFor + 500.millis
-        if nextStable >= quietPeriod then IO.unit else waitQuiet(answers, previousCount, nextStable)
-      } else waitQuiet(answers, count, 0.seconds)
+        if nextStable >= quietPeriod then IO.unit
+        else waitQuiet(answers = answers, previousCount = previousCount, stableFor = nextStable)
+      } else waitQuiet(answers = answers, previousCount = count, stableFor = 0.seconds)
     }
 
   /** Sends, waits that the bot answers and then goes quiet, gives what the bot said. */
@@ -71,7 +72,7 @@ object PlatformITSupport {
     for {
       _ <- send
       _ <- until(s"$nick answers", answerTimeout)(answers.map(_.nonEmpty))
-      _ <- waitQuiet(answers)
+      _ <- waitQuiet(answers = answers)
         .timeoutTo(answerTimeout, IO.raiseError(new AssertionError(s"Timeout after $answerTimeout: $nick goes quiet")))
       result <- answers
     } yield result

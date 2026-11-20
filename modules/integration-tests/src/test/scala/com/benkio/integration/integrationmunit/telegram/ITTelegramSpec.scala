@@ -149,13 +149,13 @@ class ITTelegramSpec extends CatsEffectSuite with DBFixture {
                 )
               }
             // an earlier run could have left the bot waiting for its timeout in this chat
-            _   <- setup.dbLayer.dbTimeout.removeTimeout(chatId, entry.sBotInfo.botId)
-            bot <- new SBotPolling[IO](setup, entry.commandEffectfulCallback).start().start
+            _      <- setup.dbLayer.dbTimeout.removeTimeout(chatId, entry.sBotInfo.botId)
+            bot    <- new SBotPolling[IO](setup, entry.commandEffectfulCallback).start().start
             result <- (for {
               _        <- until(s"the mock knows ${entry.sBotInfo.botName.value}", answerTimeout)(m.knows(token))
               markdown <- markdownTrigger(setup.dbLayer.dbMessageReplies.messageReplies)
-                .traverse(trigger => answered(m.say(chat, user, trigger)))
-              instructions <- answered(m.say(chat, user, commandInstructions))
+                .traverse(trigger => answered(m.say(chat = chat, user = user, text = trigger)))
+              instructions <- answered(m.say(chat = chat, user = user, text = commandInstructions))
             } yield (markdown, instructions)).guarantee(bot.cancel)
           } yield {
             // a set with a markdown file always gives the text of the file, never the link of one of the media

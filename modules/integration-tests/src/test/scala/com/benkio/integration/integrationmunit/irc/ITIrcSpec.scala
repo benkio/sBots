@@ -14,9 +14,9 @@ import com.benkio.chatircadapter.connection.IrcConnection
 import com.benkio.chatircadapter.connection.IrcCredentials
 import com.benkio.chatircadapter.connection.KittehConnection
 import com.benkio.chatircadapter.IrcBot
-import com.benkio.integration.DBFixture
 import com.benkio.integration.integrationmunit.PlatformITSupport
 import com.benkio.integration.integrationmunit.PlatformITSupport.*
+import com.benkio.integration.DBFixture
 import com.benkio.integration.Logger.given
 import com.benkio.main.BotRegistry
 import com.benkio.main.BotRegistryEntry

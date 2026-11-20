@@ -75,7 +75,11 @@ class ITDiscordSpec extends CatsEffectSuite with DBFixture {
               "id"       -> Json.fromString(guildId),
               "name"     -> Json.fromString("sBotsTesting"),
               "channels" -> Json.arr(
-                Json.obj("id" -> Json.fromString(channelId), "name" -> Json.fromString("general"), "type" -> Json.fromInt(0))
+                Json.obj(
+                  "id"   -> Json.fromString(channelId),
+                  "name" -> Json.fromString("general"),
+                  "type" -> Json.fromInt(0)
+                )
               )
             )
           )
@@ -139,7 +143,11 @@ class ITDiscordSpec extends CatsEffectSuite with DBFixture {
               )
             }
           for {
-            _ <- m.registerBot(token, botIds.incrementAndGet().toString, entry.sBotInfo.botName.value)
+            _ <- m.registerBot(
+              token = token,
+              id = botIds.incrementAndGet().toString,
+              name = entry.sBotInfo.botName.value
+            )
             // an earlier run could have left the bot waiting for its timeout in this chat
             _   <- core.dbLayer.dbTimeout.removeTimeout(chat, entry.sBotInfo.botId)
             bot <- DiscordBot

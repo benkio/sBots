@@ -54,7 +54,7 @@ object BotSetupFixture {
       testOptions: TestOptions
   )(using log: LogWriter[IO]): BotSetupFixtureResources = {
     val dbRes    = DBFixture.fixtureSetup(testOptions)
-    val resource = botSetupResource(dbRes, sBotConfig)
+    val resource = botSetupResource(dbRes = dbRes, sBotConfig = sBotConfig)
     BotSetupFixtureResources(
       dbResources = dbRes,
       botSetupResource = resource
