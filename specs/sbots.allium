@@ -126,6 +126,7 @@ entity Trigger {
 -- A reply is plain (random value from the bundle) or effectful (computed at reply time, e.g. media by kind).
 entity Reply {
     kind: plain | effectful
+    media: Set<MediaFile>             -- the media files fetched to send the reply (none for a text reply)
 }
 
 entity Request {
