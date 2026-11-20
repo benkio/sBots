@@ -9,8 +9,9 @@ import com.benkio.chatcore.model.PlatformCapabilities
 /** What Discord can do. The files are uploaded as attachments, and a markdown file is sent as a formatted text message
   * (the Discord markdown is close to ours), as Telegram does with its rich messages. The Telegram stickers are not
   * supported: they become a link. The commands are slash commands, `/command`, with no mention separator: a Discord
-  * mention is `<@id>`. No buttons for now, and no file references (`acceptsFileIds = false`): sources that are not an
-  * url carry a platform tag and are filtered out here. Discord file references come back with the milestone M4.
+  * mention is `<@id>`. The paged lists have buttons (see `DiscordPagedListLayout`). No file references (`acceptsFileIds =
+  * false`): sources that are not an url carry a platform tag and are filtered out here. Discord file references come
+  * back with the milestone M4.
   */
 object DiscordCapabilities {
   val value: PlatformCapabilities = PlatformCapabilities(
@@ -21,7 +22,7 @@ object DiscordCapabilities {
     markdown = MarkdownSupport.Native,
     supportsDelete = true,
     supportsEdit = true,
-    supportsButtons = false,
+    supportsButtons = true,
     acceptsFileIds = false,
     commandSyntax = CommandSyntax(prefix = "/")
   )

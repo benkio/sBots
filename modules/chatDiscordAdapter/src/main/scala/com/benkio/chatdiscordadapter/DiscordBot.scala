@@ -18,6 +18,7 @@ import com.benkio.chatcore.BotEngine
 import com.benkio.chatcore.CronBackgroundJobManager
 import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.Notifier
+import com.benkio.chatcore.PagedListNavigation
 import com.benkio.chatdiscordadapter.gateway.DiscordGateway
 import com.benkio.chatdiscordadapter.gateway.DiscordGatewayConfig
 import com.benkio.chatdiscordadapter.gateway.DiscordToken
@@ -25,6 +26,8 @@ import com.benkio.chatdiscordadapter.inbound.DiscordInboundListener
 import com.benkio.chatdiscordadapter.inbound.DiscordSlashCommands
 import com.benkio.chatdiscordadapter.model.DiscordCapabilities
 import com.benkio.chatdiscordadapter.outbound.DiscordApi
+import com.benkio.chatdiscordadapter.outbound.DiscordButtonHandler
+import com.benkio.chatdiscordadapter.outbound.DiscordButtonLists
 import com.benkio.chatdiscordadapter.outbound.DiscordReplies
 import com.benkio.chatdiscordadapter.outbound.JdaDiscordApi
 import log.effect.LogWriter
@@ -74,11 +77,12 @@ object DiscordBot {
       for {
         apiReady <- Deferred[F, DiscordApi[F]]
         random   <- Random.scalaUtilRandom[F]
+        lists    <- DiscordButtonLists.create[F]()
         engine = BotEngine[F](effectiveSBotConfig, core.dbLayer, notifier)
         // the subscriptions send to a chat without a message to reply to, once the connection is up
         sendToChat = (chatId: com.benkio.chatcore.model.ChatId, replyValue: ReplyValue, replyToMessage: Boolean) =>
           apiReady.get.flatMap(api =>
-            DiscordReplies[F](api, repository, core.dbLayer, capabilities)
+            DiscordReplies[F](api, repository, core.dbLayer, capabilities, lists)
               .send(
                 replyValue,
                 Message(messageId = None, date = 0L, chatId = chatId, chatType = "private"),
@@ -104,7 +108,8 @@ object DiscordBot {
             effectfulCallbacks = commandEffectfulCallback,
             dbLayer = core.dbLayer,
             ttl = effectiveSBotConfig.messageTimeToLive,
-            startGateway = startGateway
+            startGateway = startGateway,
+            lists = lists
           )
           // deferred: the listener needs the adapter, which needs this
           def startGateway: F[Unit] = Async[F].defer {
@@ -120,6 +125,25 @@ object DiscordBot {
                     sBotInfo.botId,
                     join.memberCount
                   )
+                ),
+              press =>
+                apiReady.get.flatMap(api =>
+                  new DiscordButtonHandler[F](
+                    api = api,
+                    lists = lists,
+                    navigate = (action, request) =>
+                      PagedListNavigation.reply[F](
+                        action = action,
+                        msg = request,
+                        allCommandRepliesData = engine.allCommandRepliesData,
+                        backgroundJobManager = backgroundJobManager,
+                        effectfulCallbacks = commandEffectfulCallback,
+                        dbLayer = core.dbLayer,
+                        ttl = effectiveSBotConfig.messageTimeToLive,
+                        capabilities = capabilities
+                      ),
+                    replies = (replyValue, request) => adapter.send(replyValue, request, replyToMessage = false)
+                  ).decide(press)
                 )
             )
             DiscordGateway.resource[F](token, gatewayConfig, List(listener)).use { client =>
