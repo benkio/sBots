@@ -6,18 +6,8 @@ import cats.effect.Ref
 import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.http.HttpClients
-import com.benkio.chatcore.initialization.BotCoreSetup
-import com.benkio.chatcore.model.reply.MarkdownFile
-import com.benkio.chatcore.model.reply.MediaReply
-import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Platform
-import com.benkio.chatcore.model.StringTextTriggerValue
-import com.benkio.chatcore.model.TextTrigger
-import com.benkio.chatcore.repository.db.DBLayer
-import com.benkio.chatcore.repository.db.DBRepository
-import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.Notifier
 import com.benkio.chatircadapter.connection.IrcConfig
 import com.benkio.chatircadapter.connection.IrcConnection
@@ -25,6 +15,8 @@ import com.benkio.chatircadapter.connection.IrcCredentials
 import com.benkio.chatircadapter.connection.KittehConnection
 import com.benkio.chatircadapter.IrcBot
 import com.benkio.integration.DBFixture
+import com.benkio.integration.integrationmunit.PlatformITSupport
+import com.benkio.integration.integrationmunit.PlatformITSupport.*
 import com.benkio.integration.Logger.given
 import com.benkio.main.BotRegistry
 import com.benkio.main.BotRegistryEntry
@@ -33,8 +25,6 @@ import munit.TestOptions
 import net.engio.mbassy.listener.Handler
 import org.kitteh.irc.client.library.event.channel.ChannelMessageEvent
 import org.testcontainers.containers.wait.strategy.Wait
-import org.testcontainers.containers.GenericContainer
-import org.testcontainers.utility.DockerImageName
 
 import scala.concurrent.duration.*
 import scala.jdk.CollectionConverters.*
@@ -70,19 +60,9 @@ class ITIrcSpec extends CatsEffectSuite with DBFixture {
   /** The local IRC server: the config to connect to it. */
   private val ergo = ResourceSuiteLocalFixture(
     "ergo",
-    Resource
-      .make(IO.blocking {
-        val container = new GenericContainer(DockerImageName.parse(ergoImage))
-        container.withExposedPorts(ircPort)
-        container.waitingFor(Wait.forLogMessage(s".*now listening on :$ircPort.*", 1))
-        container.start()
-        container
-      })(container => IO.blocking(container.stop()))
-      .map(container => ircConfig(container.getHost, container.getMappedPort(ircPort)))
+    container(ergoImage, ircPort)(Wait.forLogMessage(s".*now listening on :$ircPort.*", 1))
+      .map(c => ircConfig(c.getHost, c.getMappedPort(ircPort)))
   )
-
-  private val answerTimeout: FiniteDuration = 30.seconds
-  private val quietPeriod: FiniteDuration   = 2.seconds
 
   /** What the tester read in the channel. */
   private final case class Seen(sender: String, text: String)
@@ -115,70 +95,12 @@ class ITIrcSpec extends CatsEffectSuite with DBFixture {
 
   override def munitFixtures: Seq[munit.AnyFixture[?]] = List(ergo, tester)
 
-  private def until(what: String, timeout: FiniteDuration)(check: IO[Boolean]): IO[Unit] = {
-    def go: IO[Unit] = check.flatMap(ok => if ok then IO.unit else IO.sleep(500.millis) >> go)
-    go.timeoutTo(timeout, IO.raiseError(new AssertionError(s"Timeout after $timeout: $what")))
-  }
-
-  private def core(
-      fixture: com.benkio.integration.DBFixtureResources,
-      sBotConfig: SBotConfig
-  ): Resource[IO, BotCoreSetup[IO]] =
-    for {
-      base    <- fixture.resourceDBLayer
-      dbLayer <- Resource.eval(DBLayer.loadReplies[IO](base, JsonDataRepository[IO](), sBotConfig))
-      dropbox <- fixture.dropboxClientResource
-      mega    <- fixture.megaClientResource
-    } yield BotCoreSetup(
-      jsonDataRepository = JsonDataRepository[IO](),
-      dbLayer = dbLayer,
-      repository =
-        DBRepository.dbResources[IO](dbLayer.dbMedia, HttpClients(dropboxClient = dropbox, megaClient = mega)),
-      sBotConfig = sBotConfig
+  private def answer(t: Tester, nick: String, send: IO[Unit]): IO[List[Seen]] =
+    t.seen.set(List.empty) >> PlatformITSupport.answer(
+      nick = nick,
+      answers = t.seen.get.map(_.filter(_.sender.startsWith(nick))),
+      send = send
     )
-
-  /** The text that triggers a reply made only of markdown files (or of some, if no reply is made only of them), when
-    * the bot has one that a text can trigger.
-    */
-  private def markdownTrigger(replies: List[ReplyBundleMessage]): Option[String] = {
-    val withMarkdown = for {
-      bundle <- replies
-      files  <- bundle.reply match {
-        case media: MediaReply => Some(media.mediaFiles)
-        case _                 => None
-      }
-      if files.exists(_.isInstanceOf[MarkdownFile])
-      strings <- bundle.trigger match {
-        case TextTrigger(values*) => Some(values.collect { case StringTextTriggerValue(s) => s }.toList)
-        case _                    => None
-      }
-      if strings.nonEmpty
-    } yield (files.forall(_.isInstanceOf[MarkdownFile]), strings.mkString(" "))
-    withMarkdown.sortBy(!_._1).headOption.map(_._2)
-  }
-
-  /** What the answer is when the media is sent as its link. */
-  private val bareLink = "https?://\\S+".r
-
-  private def answer(t: Tester, nick: String, send: IO[Unit]): IO[List[Seen]] = {
-    def botAnswers: IO[List[Seen]] = t.seen.get.map(_.filter(_.sender.startsWith(nick)))
-    def waitQuiet(previousCount: Int, stableFor: FiniteDuration): IO[Unit] =
-      IO.sleep(500.millis) >> botAnswers.flatMap { answers =>
-        val count = answers.length
-        if count == previousCount then {
-          val nextStable = stableFor + 500.millis
-          if nextStable >= quietPeriod then IO.unit else waitQuiet(previousCount, nextStable)
-        } else waitQuiet(count, 0.seconds)
-      }
-    for {
-      _ <- t.seen.set(List.empty)
-      _ <- send
-      _ <- until(s"$nick answers", answerTimeout)(botAnswers.map(_.nonEmpty))
-      _ <- waitQuiet(0, 0.seconds)
-        .timeoutTo(answerTimeout, IO.raiseError(new AssertionError(s"Timeout after $answerTimeout: $nick goes quiet")))
-      answers <- botAnswers
-    } yield answers
-  }
 
   private def botTest(entry: BotRegistryEntry[IO]): Unit =
     databaseFixture.test(

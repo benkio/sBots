@@ -33,7 +33,7 @@ object DiscordGateway {
       listeners: List[AnyRef] = List.empty
   ): Resource[F, JdaGatewayClient[F]] =
     Dispatcher.sequential[F].flatMap { dispatcher =>
-      managed(JdaGatewayClient.open[F](dispatcher, token, config.intents, listeners), config.shutdownTimeout)
+      managed(JdaGatewayClient.open[F](dispatcher, token, config.intents, listeners, config.apiBaseUrl), config.shutdownTimeout)
     }
 
   /** Connects, and completes when the connection is closed for good. */

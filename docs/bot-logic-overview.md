@@ -288,6 +288,24 @@ one bot after the other: a tester client writes to the channel a text that trigg
 has one a text can trigger) and `!instructions`, and checks that the bot answers both. It uses the real DB of the
 integration tests, and removes the timeout the bot may have left in the channel.
 
+### Discord and Telegram integration tests
+
+Same idea as the IRC one (Docker needed, part of `integration/mUnitTests`, every bot of the registry one after the other,
+a markdown trigger and the `/instructions` command, the real DB of the integration tests), with a mock of the platform API:
+
+- `ITDiscordSpec` uses the `ghcr.io/tomacheese/fauxcord:latest` image. `main.discord.api-base-url` (`DiscordGatewayConfig.apiBaseUrl`,
+  only for the tests, unset in production) moves both the REST calls and the gateway of JDA to the mock, and
+  `DiscordBot.runWith` runs a bot with its token and core already there. The tester is a user that is not a bot (the
+  bots ignore the bots), registered and writing through the `/_test/*` control API of the mock, which gives back the answers.
+- `ITTelegramSpec` uses the `ghcr.io/skrashevich/telegram-mock-ai:latest` image (its admin API is bound to the loopback
+  unless a config file says otherwise, so the test copies one in; its LLM is off). The bot gets the mock as base url of
+  its `BotApi` (see `BotSetupFixture.botSetupResource`), the tester writes to a group chat through the admin API and the
+  answers are read from it. The mock hands the updates only to the bots it already knows, so the test waits that the bot
+  has polled once.
+
+Both mocks lack the file uploads (multipart), so these tests cover the text answers only. `PlatformITSupport` has what
+the three specs share (container, bot core, trigger choice, waiting for the answers).
+
 ### Performance integration tests
 
 Performance integration tests validate request-handling performance for **all registered bots** (one spec per bot; the template bot is not executed) using `BaseBotPerformanceSpec` (`modules/integration-tests/.../performance/BaseBotPerformanceSpec.scala`). Each bot has its own spec (e.g. `ITRichardPHJBensonBotPerformanceSpec.scala`) that extends the base, defines an explicit, switchable scenario via `perfCase` (`inputText`, `description`, expectations) and `botEntry`, and registers/runs its own performance test. Tests run the scenario through `BotEngine.onMessage` with real DB/repository/HTTP clients (integration fixtures) and a capturing platform adapter.
