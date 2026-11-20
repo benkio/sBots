@@ -22,7 +22,7 @@ import com.benkio.chattelegramadapter.conversions.MessageConversions.*
 import com.benkio.chattelegramadapter.http.telegramreply.callbackreply.TelegramCallbackReply
 import com.benkio.chattelegramadapter.http.TelegramChatInfo
 import com.benkio.chattelegramadapter.initialization.BotSetup
-import com.benkio.chattelegramadapter.model.CallbackData
+import com.benkio.chattelegramadapter.model.TelegramCallbackData
 import com.benkio.chattelegramadapter.model.TelegramToken.botId
 import log.effect.LogWriter
 import telegramium.bots.high.*
@@ -137,7 +137,7 @@ trait ISBot[F[_]: Async: LogWriter] {
     given Notifier[F] = sBotSetup.notifier
     (for {
       callbackDataString <- OptionT.fromOption(query.data)
-      callbackData = CallbackData(callbackDataString)
+      callbackData = TelegramCallbackData.decode(callbackDataString)
       msg <- OptionT.fromOption(query.message)
       _   <- OptionT.liftF(Methods.answerCallbackQuery(callbackQueryId = query.id).exec)
       _   <- OptionT.liftF(

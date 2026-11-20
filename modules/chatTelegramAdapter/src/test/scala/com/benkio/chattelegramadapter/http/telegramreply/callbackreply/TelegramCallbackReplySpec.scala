@@ -7,12 +7,12 @@ import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.NotifierMock.given
 import com.benkio.chatcore.mocks.RepositoryMock
+import com.benkio.chatcore.model.reply.PagedListAction
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBShowData
 import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.Logger.given
 import com.benkio.chattelegramadapter.mocks.RecordingApi
-import com.benkio.chattelegramadapter.model.CallbackData
 import munit.CatsEffectSuite
 import munit.ScalaCheckSuite
 import org.scalacheck.Gen
@@ -55,7 +55,7 @@ class TelegramCallbackReplyRoutingSpec extends CatsEffectSuite {
         )
         TelegramCallbackReply.reply[IO](
           msg = callbackMsg,
-          callbackData = CallbackData.Show(dbShowData.show_id, None),
+          callbackData = PagedListAction.Show(dbShowData.show_id, None),
           repository = RepositoryMock(),
           allCommandRepliesData = List.empty,
           backgroundJobManager = BackgroundJobManagerMock.mock(),

@@ -5,12 +5,11 @@ import com.benkio.chatcore.conversions.YouTubeTimestamp.finiteDurationToYoutubeT
 import com.benkio.chatcore.model.reply.Markdown
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.PagedItem
+import com.benkio.chatcore.model.reply.PagedListAction
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.ReplyValueCore
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.show.Show
-import com.benkio.chattelegramadapter.model.toCallbackKey
-import com.benkio.chattelegramadapter.model.CallbackData
 import telegramium.bots.InlineKeyboardButton
 
 trait ToInlineButton[A] {
@@ -52,7 +51,7 @@ object ToInlineButton {
     extension (mediaFile: MediaFile) def toInlineKeyboardButton: Option[InlineKeyboardButton] =
       InlineKeyboardButton(
         text = mediaFile.filename,
-        callbackData = Some(CallbackData.Media(mediaFile.filename).toCallbackKey)
+        callbackData = PagedListAction.Media(mediaFile.filename).toId
       ).some
   }
 
@@ -60,8 +59,7 @@ object ToInlineButton {
     extension (show: Show) def toInlineKeyboardButton: Option[InlineKeyboardButton] =
       InlineKeyboardButton(
         text = show.title,
-        callbackData =
-          Some(CallbackData.Show(show.id, show.timestamp.map(finiteDurationToYoutubeTimestamp)).toCallbackKey)
+        callbackData = PagedListAction.Show(show.id, show.timestamp.map(finiteDurationToYoutubeTimestamp)).toId
       ).some
   }
 

@@ -3,13 +3,14 @@ package com.benkio.chattelegramadapter.http.telegramreply.callbackreply
 import cats.*
 import cats.effect.Async
 import cats.implicits.*
+import com.benkio.chatcore.model.reply.PagedListAction
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message as ModelMessage
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.BackgroundJobManager
-import com.benkio.chatcore.ComputeReply
 import com.benkio.chatcore.EffectfulCallback
+import com.benkio.chatcore.PagedListNavigation
 import com.benkio.chattelegramadapter.conversions.MessageConversions.*
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.KeyboardReply
 import com.benkio.chattelegramadapter.model.extractInput
@@ -60,7 +61,7 @@ object Pagination {
 
   def reply[F[_]: Async: LogWriter: Api](
       msg: MaybeInaccessibleMessage,
-      newPage: Int,
+      action: PagedListAction,
       commandKey: CommandKey,
       allCommandRepliesData: List[ReplyBundleCommand],
       backgroundJobManager: BackgroundJobManager[F],
@@ -69,21 +70,21 @@ object Pagination {
       ttl: Option[FiniteDuration]
   ): F[Unit] =
     for {
-      _                 <- LogWriter.info(s"[Pagination.reply] Reply to callback for page $newPage")
-      _                 <- LogWriter.info(s"[Pagination.reply] Get Command Reply Data from CommandKey: $commandKey")
+      _ <- LogWriter.info(s"[Pagination.reply] Reply to callback for page ${PagedListNavigation.newPage(action)}")
+      _ <- LogWriter.info(s"[Pagination.reply] Get Command Reply Data from CommandKey: $commandKey")
       paginationContext <- MonadThrow[F].fromEither(
         prepare(msg = msg, commandKey = commandKey, allCommandRepliesData = allCommandRepliesData)
       )
       _ <- LogWriter.info(s"[Pagination.reply] Run Reply, modelMessage: ${paginationContext.modelMessage.text}")
-      replyValue <- ComputeReply.runReply(
-        reply = paginationContext.commandReply.reply,
+      replyValue <- PagedListNavigation.reply(
+        action = action,
         msg = paginationContext.modelMessage,
+        allCommandRepliesData = allCommandRepliesData,
         backgroundJobManager = backgroundJobManager,
-        dbLayer = dbLayer,
         effectfulCallbacks = effectfulCallbacks,
+        dbLayer = dbLayer,
         ttl = ttl,
-        capabilities = TelegramCapabilities.value,
-        overridePage = Some(newPage)
+        capabilities = TelegramCapabilities.value
       )
       telegramReplyValue <- MonadThrow[F].fromOption(
         KeyboardReply.keyboardOf(replyValue),

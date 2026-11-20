@@ -2,10 +2,8 @@ package com.benkio.chattelegramadapter.http.telegramreply.callbackreply
 
 import cats.effect.Async
 import cats.syntax.all.*
-import com.benkio.chatcore.model.reply.Text
-import com.benkio.chatcore.model.show.addTimestamp
-import com.benkio.chatcore.model.show.Show as CoreShow
 import com.benkio.chatcore.repository.db.DBShow
+import com.benkio.chatcore.PagedListNavigation
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.TextReply
 import com.benkio.chattelegramadapter.model.TelegramMessageIds
 import log.effect.LogWriter
@@ -27,15 +25,11 @@ object Show {
     val modelMsg           = ModelMessageFromCallback.build(msg)
 
     for {
-      _           <- LogWriter.info(s"[Show.reply] reply to callback for show $showId and timestamp $timestamp")
-      optShowData <- showDb.getShowById(showId)
-      optShow     <- optShowData.traverse(CoreShow(_))
-      renderedText = optShow.fold("Unexpected error when fetching the show")(show =>
-        timestamp.fold(show.show)(t => show.addTimestamp(t).show)
-      )
-      _ <- TextReply
+      _    <- LogWriter.info(s"[Show.reply] reply to callback for show $showId and timestamp $timestamp")
+      text <- PagedListNavigation.showText(showId, timestamp, showDb)
+      _    <- TextReply
         .sendText(
-          reply = Text(renderedText),
+          reply = text,
           msg = modelMsg,
           replyToMessage = false
         )

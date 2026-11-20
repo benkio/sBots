@@ -1,7 +1,7 @@
 package com.benkio.chattelegramadapter
 
+import com.benkio.chatcore.model.reply.PagedListAction
 import com.benkio.chatcore.model.reply.ReplyValue
-import com.benkio.chattelegramadapter.model.CallbackData
 import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
 import org.scalacheck.Gen
 import telegramium.bots.Chat
@@ -71,25 +71,25 @@ trait Generators extends com.benkio.chatcore.Generators {
         !s.startsWith("nextPage-")
     )
 
-  val previousPageCallbackDataGen: Gen[CallbackData] =
+  val previousPageCallbackDataGen: Gen[PagedListAction] =
     Gen
       .choose(0, 100)
-      .flatMap(page => commandKeyGen.map(key => CallbackData.PreviousPage(page, key)))
+      .flatMap(page => commandKeyGen.map(key => PagedListAction.PreviousPage(page, key)))
 
-  val nextPageCallbackDataGen: Gen[CallbackData] =
+  val nextPageCallbackDataGen: Gen[PagedListAction] =
     Gen
       .choose(0, 100)
-      .flatMap(page => commandKeyGen.map(key => CallbackData.NextPage(page, key)))
+      .flatMap(page => commandKeyGen.map(key => PagedListAction.NextPage(page, key)))
 
-  val mediaCallbackDataGen: Gen[CallbackData] =
-    mediaCallbackPayloadGen.map(CallbackData.Media.apply)
+  val mediaCallbackDataGen: Gen[PagedListAction] =
+    mediaCallbackPayloadGen.map(PagedListAction.Media.apply)
 
-  val showCallbackDataGen: Gen[CallbackData] =
+  val showCallbackDataGen: Gen[PagedListAction] =
     mediaCallbackPayloadGen.flatMap(showId =>
-      Gen.option(Gen.oneOf("7s", "1m2s", "2h3m4s")).map(timestamp => CallbackData.Show(showId, timestamp))
+      Gen.option(Gen.oneOf("7s", "1m2s", "2h3m4s")).map(timestamp => PagedListAction.Show(showId, timestamp))
     )
 
-  val callbackDataGen: Gen[CallbackData] = Gen.oneOf(
+  val callbackDataGen: Gen[PagedListAction] = Gen.oneOf(
     previousPageCallbackDataGen,
     nextPageCallbackDataGen,
     mediaCallbackDataGen,
