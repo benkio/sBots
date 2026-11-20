@@ -7,7 +7,8 @@
 -- External Entities
 ------------------------------------------------------------
 
-external entity Chat {
+-- created by the platform adapters (platforms.allium) from the inbound events
+entity Chat {
     platform: Platform
 }
 
@@ -26,7 +27,7 @@ actor Operator {
     identified_by: Operator where true
 }
 
-external entity Message {
+entity Message {
     chat: Chat
     id: String?           -- absent on some platforms (e.g. IRC)
     text: String?
@@ -137,7 +138,12 @@ entity Request {
 entity DataEntryRun {
     bot: Bot
     inputs: List<String>
-    status: running | done | failed
+    status: in_progress | done | failed
+
+    transitions status {
+        in_progress -> done
+        terminal: done, failed
+    }
 }
 
 ------------------------------------------------------------
@@ -362,7 +368,7 @@ rule LeftMemberTriggerMatches {
 -- Data entry: links -> parse -> list + replies json ----------------------
 
 surface OperatorConsole {
-    facing op: Operator
+    facing _: Operator
 
     provides:
         OperatorRunsDataEntry(bot, inputs)
@@ -377,12 +383,17 @@ rule DataEntryParsesLinks {
     -- a named input needs a non empty name containing the `_` separator between botId and name, and a non empty url
 
     ensures:
-        let run = DataEntryRun.created(bot: bot, inputs: inputs, status: running)
+        let run = DataEntryRun.created(bot: bot, inputs: inputs, status: in_progress)
         -- sources are appended to the bot's media list, grouped, and the replies built from the groups
         -- are prepended to the bot's replies; a Dropbox `dl=0` link is stored as `dl=1`
         MediaListExtended(bot: bot, run: run)
         RepliesExtended(bot: bot, run: run)
-        run.status = done
+}
+
+rule DataEntryFinishes {
+    when: run: DataEntryRun.created
+    requires: run.status = in_progress
+    ensures: run.status = done
 }
 
 rule DataEntryRejectsInvalidInput {

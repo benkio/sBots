@@ -7,12 +7,16 @@ external entity HealthCheck {
     status: up | late | down
 }
 
+enum EndCause { completed | cancelled }
+
 entity Application {
     mode: webhook | polling
     status: running | stopped | crashed
     started_at: Timestamp
     next_heartbeat_tick: Timestamp
     last_system_stats: Timestamp
+    crash_reason: String?        -- set when the application crashes
+    end_cause: EndCause?         -- set when the application ends without crashing
 
     transitions status {
         running -> stopped
@@ -21,15 +25,21 @@ entity Application {
     }
 }
 
+-- one runtime per platform that at least one bot runs on; a platform without bots has no runtime
 entity PlatformRuntime {
     platform: core/Platform
-    status: running | not_started
 }
 
 entity BotOnPlatform {
     bot: core/Bot
     platform: core/Platform
-    status: running | stopped
+    status: active | lost
+    failure: String?             -- set when the bot fails on this platform
+
+    transitions status {
+        active -> lost
+        terminal: lost
+    }
 }
 
 config {
@@ -40,7 +50,10 @@ config {
 
 -- Telegram (webhook or polling), Discord and IRC have runtimes; Slack is in the Platform enum but has none.
 surface OperatorShell {
-    facing op: core/Operator
+    facing _: core/Operator
+
+    exposes:
+        HealthCheck.status
 
     provides:
         OperatorStartsApp(mode, bots)
@@ -50,7 +63,13 @@ surface OperatorShell {
 rule AppStarts {
     when: OperatorStartsApp(mode, bots)
     requires: bots.all(b => b.platforms.all(p => p != slack))   -- generally: every platform of a bot has a runtime
-    -- a runtime starts only if at least one bot runs on its platform
+    ensures:
+        for b in bots:
+            for p in b.platforms:
+                BotOnPlatform.created(bot: b, platform: p, status: active)
+    ensures:
+        for p in bots.flatmap(b => b.platforms):
+            PlatformRuntime.created(platform: p)
     ensures: Application.created(mode: mode, status: running, started_at: now, next_heartbeat_tick: now + config.heartbeat_every, last_system_stats: now)
     ensures: HealthSignalSent(kind: start)
 }
@@ -65,8 +84,9 @@ rule AppRefusesBotWithoutRuntime {
 -- a bot that fails on a platform (Telegram, Discord or IRC) stops there only: the other bots keep running, the failure is
 -- logged and the health check fails
 rule BotStopsOnConnectionPlatform {
-    when: BotPlatformFailed(entry)
-    ensures: entry.status = stopped
+    when: entry: BotOnPlatform.failure != null
+    requires: entry.status = active
+    ensures: entry.status = lost
     ensures: HealthSignalSent(kind: fail)
 }
 
@@ -87,15 +107,16 @@ rule HeartbeatRecovers {
 }
 
 rule AppCrashes {
-    when: AppCrashed(app, reason)
-    -- logged and appended to the crash history with time and stack trace
+    when: app: Application.crash_reason != null
+    requires: app.status = running
+    -- the reason is logged and appended to the crash history with time and stack trace
     ensures: app.status = crashed
     ensures: HealthSignalSent(kind: fail)
 }
 
 rule AppStops {
-    when: AppTerminated(app, cause)
-    requires: cause = completed or cause = cancelled
+    when: app: Application.end_cause != null
+    requires: app.status = running
     ensures: app.status = stopped
 }
 

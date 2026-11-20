@@ -24,6 +24,11 @@ value PlatformCapabilities {
 -- discord:  "/", 2000, markdown yes, delete yes, buttons no,  file ids no,  audio gif photo video document markdown_file
 -- irc:      "!", 400,  markdown no,  delete no,  buttons no,  file ids no,  markdown_file only
 
+external entity PlatformAdapter {
+    platform: core/Platform
+    capabilities: PlatformCapabilities
+}
+
 entity SentMessage {
     chat: core/Chat
     time_to_live: Duration?
@@ -40,10 +45,12 @@ entity InlineKeyboard {
 }
 
 external entity TelegramUpdate {
+    bot: core/Bot
     kind: message | callback_query
 }
 
 external entity DiscordEvent {
+    bot: core/Bot
     kind: message | slash_command
     channel: String
     is_direct: Boolean
@@ -54,6 +61,7 @@ external entity DiscordEvent {
 }
 
 external entity IrcEvent {
+    bot: core/Bot
     sender: String
     channel: String?
     text: String
@@ -79,43 +87,43 @@ config {
 -- The joined members of a Telegram message are split by the bot's own Telegram id, which never changes and is the
 -- numeric prefix of its Telegram token: the bot goes to bot_added, the others stay in new_members.
 rule TelegramMessageBecomesMessage {
-    when: TelegramUpdateReceived(update, bot)
+    when: update: TelegramUpdate.created
     requires: update.kind = message
-    ensures: core/BotReceivesMessage(message: update, bot: bot)
+    ensures: core/BotReceivesMessage(message: update, bot: update.bot)
 }
 
 rule DiscordMessageBecomesMessage {
-    when: DiscordEventReceived(e, bot)
+    when: e: DiscordEvent.created
     requires: e.kind = message
     requires: not e.author_is_bot
     requires: e.text.trim != ""
-    ensures: core/BotReceivesMessage(message: e, bot: bot)
+    ensures: core/BotReceivesMessage(message: e, bot: e.bot)
 }
 
 rule DiscordSlashCommandBecomesCommandMessage {
-    when: DiscordEventReceived(e, bot)
+    when: e: DiscordEvent.created
     requires: e.kind = slash_command
     requires: not e.author_is_bot
     -- the interaction is acknowledged invisibly and the acknowledgement deleted at once, replies are plain channel messages;
     -- the message text is "/" + command name + optional trimmed arguments
-    ensures: core/BotReceivesMessage(message: e, bot: bot)
+    ensures: core/BotReceivesMessage(message: e, bot: e.bot)
 }
 
 -- IRC limitation (intended): no message ids and no message times, so dedup and the older-message filter never apply
 rule IrcLineBecomesMessage {
-    when: IrcEventReceived(e, bot)
+    when: e: IrcEvent.created
     -- colour and format codes are stripped; the bot's own echo, empty lines and senders over the rate limit are ignored
     -- IRC has no message ids (no deduplication) and no message times (sent_at is the receive time)
-    requires: e.sender.lower != bot.nick.lower
+    requires: e.sender.lower != e.bot.nick.lower
     -- the empty check is made after the colour and format codes are stripped
     requires: e.text.trim != ""
     requires: not IrcSenderOverLimit(sender: e.sender)
-    ensures: core/BotReceivesMessage(message: e, bot: bot)
+    ensures: core/BotReceivesMessage(message: e, bot: e.bot)
 }
 
 -- fixed window per sender, over the limit the line gets no reply (an info log line is written)
 rule IrcSenderOverRateLimitIgnored {
-    when: IrcEventReceived(e, bot)
+    when: e: IrcEvent.created
     requires: IrcSenderOverLimit(sender: e.sender)
     ensures: IrcLineDropped(sender: e.sender)
 }
@@ -205,6 +213,13 @@ rule IrcReconnects {
     -- the delay doubles on each failed attempt up to the maximum, the attempt count resets on every successful registration,
     -- channels are joined again on registration
     ensures: ReconnectScheduled(bot: bot)
+}
+
+-- inline keyboards exist only where the platform supports buttons
+invariant KeyboardsOnlyWhereSupported {
+    for k in InlineKeyboards:
+        for a in PlatformAdapters:
+            a.platform = k.message.chat.platform implies a.capabilities.supports_buttons
 }
 
 open question "Media or Show delivery deletes the keyboard message, paging edits it in place: intended?"

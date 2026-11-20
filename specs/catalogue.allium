@@ -17,8 +17,10 @@ value MediaListEntry {
     sources: List<String>
 }
 
+-- a video as listed by the YouTube API
 external entity YouTubeVideo {
     id: String
+    source: ShowSource
     title: String?
     published_at: Timestamp?
     duration: Duration?
@@ -26,7 +28,7 @@ external entity YouTubeVideo {
     is_live: Boolean
 }
 
-entity ShowSource {
+external entity ShowSource {
     bot: core/Bot
     youtube_sources: List<String>   -- "@handle" is a channel, anything else a playlist id
     caption_language: String
@@ -74,7 +76,7 @@ config {
 }
 
 surface CatalogueConsole {
-    facing op: core/Operator
+    facing _: core/Operator
 
     provides:
         OperatorRunsCatalogue()
@@ -88,6 +90,7 @@ rule CatalogueRunStarts {
 
 rule MigrationDone {
     when: run: CatalogueRun.created
+    requires: run.status = migrating
     ensures: run.status = loading_media
 }
 
@@ -114,6 +117,9 @@ rule ShowsLoadedFromCatalogueFiles {
     when: run: CatalogueRun.status transitions_to loading_shows
     requires: not config.run_show_fetching
     -- shows are read from each source's catalogue file, captions from its caption folder
+    ensures:
+        for s in ShowSource:
+            ShowsLoadedFromFile(source: s)
     ensures: run.status = done
 }
 
@@ -123,6 +129,10 @@ rule ShowsRefreshedFromYouTube {
     -- the stored shows' local caption files are parsed on both paths
     -- a YouTube video id is globally unique, so ids not yet stored (across all sources) become Shows, incomplete videos are skipped, the catalogue file is
     -- rewritten sorted by id; if YouTube cannot be listed only the stored shows are kept
+    ensures:
+        for v in YouTubeVideo where v.title != null and v.published_at != null and v.duration != null and not exists Show{id: v.id}:
+            Show.created(id: v.id, bot: v.source.bot, title: v.title, uploaded_at: v.published_at, duration: v.duration,
+                         description: v.description, is_live: v.is_live, caption_text: null, caption_timed: [])
     ensures: CaptionsRequested(run: run)
     ensures: run.status = done
 }

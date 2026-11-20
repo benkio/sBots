@@ -28,7 +28,7 @@ actor ChatUser {
 }
 
 surface ChatCommands {
-    facing user: ChatUser
+    facing _: ChatUser
 
     provides:
         UserSetsTimeout(chat, bot, value)
