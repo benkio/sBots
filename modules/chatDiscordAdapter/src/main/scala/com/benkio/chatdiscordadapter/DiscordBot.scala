@@ -8,9 +8,12 @@ import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.initialization.BotCoreSetup
 import com.benkio.chatcore.model.reply.ReplyValue
+import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.repository.ResourcesRepository
+import com.benkio.chatcore.AutoTimeout
 import com.benkio.chatcore.BotEngine
 import com.benkio.chatcore.CronBackgroundJobManager
 import com.benkio.chatcore.EffectfulCallback
@@ -89,7 +92,16 @@ object DiscordBot {
             val listener = new DiscordInboundListener[F](
               dispatcher,
               capabilities.commandSyntax,
-              message => engine.onMessage(message)(using adapter)
+              message => engine.onMessage(message)(using adapter),
+              join =>
+                join.channelIds.traverse_(channelId =>
+                  AutoTimeout.set(
+                    core.dbLayer.dbTimeout,
+                    ChatId(Platform.Discord, channelId),
+                    sBotInfo.botId,
+                    join.memberCount
+                  )
+                )
             )
             DiscordGateway.resource[F](token, gatewayConfig, List(listener)).use { client =>
               apiReady.complete(new JdaDiscordApi[F](client.jda)) >>
