@@ -160,9 +160,10 @@ class ITDiscordSpec extends CatsEffectSuite with DBFixture {
               instructions <- answered(m.say(commandInstructions))
             } yield (markdown, instructions)).guarantee(bot.cancel >> IO.sleep(2.seconds))
           } yield {
-            // a set with a markdown file always gives the text of the file, never the link of one of the media
+            // the answer can be one of the media of the set, an attachment with no text (the mock does not list them),
+            // but never the link of one
             result._1.foreach { markdown =>
-              assert(markdown.exists(_.trim.nonEmpty), markdown.toString)
+              assert(markdown.nonEmpty)
               assert(!markdown.exists(text => bareLink.matches(text.trim)), markdown.toString)
             }
             assert(result._2.exists(_.trim.nonEmpty), result._2.toString)

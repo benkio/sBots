@@ -303,7 +303,7 @@ a markdown trigger and the `/instructions` command, the real DB of the integrati
   answers are read from it. The mock hands the updates only to the bots it already knows, so the test waits that the bot
   has polled once.
 
-Both mocks lack the file uploads (multipart), so these tests cover the text answers only. `PlatformITSupport` has what
+Both mocks lack the file uploads (multipart): the Telegram test sends only a trigger whose reply is made of markdown files (and skips the step if a bot has none), the Discord one accepts an attachment as the answer. `PlatformITSupport` has what
 the three specs share (container, bot core, trigger choice, waiting for the answers).
 
 ### Performance integration tests

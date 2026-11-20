@@ -91,17 +91,18 @@ object PlatformITSupport {
       sBotConfig = sBotConfig
     )
 
-  /** The text that triggers a reply made only of markdown files (or of some, if no reply is made only of them), when
-    * the bot has one that a text can trigger.
+  /** The text that triggers a reply made only of markdown files (or of some, if no reply is made only of them and
+    * `onlyMarkdown` is false), when the bot has one that a text can trigger. A reply with other media may be answered
+    * with one of them, which a mock without file uploads cannot take: `onlyMarkdown` leaves those out.
     */
-  def markdownTrigger(replies: List[ReplyBundleMessage]): Option[String] = {
+  def markdownTrigger(replies: List[ReplyBundleMessage], onlyMarkdown: Boolean = false): Option[String] = {
     val withMarkdown = for {
       bundle <- replies
       files  <- bundle.reply match {
         case media: MediaReply => Some(media.mediaFiles)
         case _                 => None
       }
-      if files.exists(_.isInstanceOf[MarkdownFile])
+      if files.exists(_.isInstanceOf[MarkdownFile]) && (!onlyMarkdown || files.forall(_.isInstanceOf[MarkdownFile]))
       strings <- bundle.trigger match {
         case TextTrigger(values*) => Some(values.collect { case StringTextTriggerValue(s) => s }.toList)
         case _                    => None

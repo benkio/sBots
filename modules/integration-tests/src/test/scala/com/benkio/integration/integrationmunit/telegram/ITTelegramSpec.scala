@@ -153,12 +153,12 @@ class ITTelegramSpec extends CatsEffectSuite with DBFixture {
             bot    <- new SBotPolling[IO](setup, entry.commandEffectfulCallback).start().start
             result <- (for {
               _        <- until(s"the mock knows ${entry.sBotInfo.botName.value}", answerTimeout)(m.knows(token))
-              markdown <- markdownTrigger(setup.dbLayer.dbMessageReplies.messageReplies)
+              markdown <- markdownTrigger(setup.dbLayer.dbMessageReplies.messageReplies, onlyMarkdown = true)
                 .traverse(trigger => answered(m.say(chat = chat, user = user, text = trigger)))
               instructions <- answered(m.say(chat = chat, user = user, text = commandInstructions))
             } yield (markdown, instructions)).guarantee(bot.cancel)
           } yield {
-            // a set with a markdown file always gives the text of the file, never the link of one of the media
+            // the trigger gives only markdown files (the mock has no file uploads): the text of the file, not a link
             result._1.foreach { markdown =>
               assert(markdown.exists(_.trim.nonEmpty), markdown.toString)
               assert(!markdown.exists(text => bareLink.matches(text.trim)), markdown.toString)
