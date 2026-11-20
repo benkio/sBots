@@ -64,15 +64,6 @@ jobs:
     - uses: ./.github/actions/setup-scala
     - name: Integration tests
       run: sbt "dbSetup; integration/mUnitTests"
-  # Apart from the other integration tests: it uses the real IRC network and times out now and then,
-  # so it can be rerun alone.
-  scalaIntegrationLiveTests:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v5
-    - uses: ./.github/actions/setup-scala
-    - name: Integration live tests
-      run: sbt "dbSetup; integration/mUnitLiveTests"
   scalaAssembly:
     runs-on: ubuntu-latest
     steps:

@@ -37365,7 +37365,10 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "vermi"
+            "RegexTextTriggerValue" : {
+              "trigger" : "\\bvermi\\b",
+              "regexLength" : 5
+            }
           }
         ]
       }

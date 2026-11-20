@@ -11,6 +11,9 @@ import net.dv8tion.jda.api.events.session.SessionResumeEvent
 import net.dv8tion.jda.api.events.session.ShutdownEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 import net.dv8tion.jda.api.requests.GatewayIntent
+import net.dv8tion.jda.api.requests.RestConfig
+import net.dv8tion.jda.api.utils.Compression
+import net.dv8tion.jda.api.utils.SessionControllerAdapter
 import net.dv8tion.jda.api.JDA
 import net.dv8tion.jda.api.JDABuilder
 
@@ -26,7 +29,8 @@ object JdaGatewayClient {
       dispatcher: Dispatcher[F],
       token: String,
       intents: Set[GatewayIntent],
-      listeners: List[AnyRef]
+      listeners: List[AnyRef],
+      apiBaseUrl: Option[String] = None
   ): F[JdaGatewayClient[F]] =
     Deferred[F, Unit].flatMap { closedSignal =>
       val lifecycle = new ListenerAdapter {
@@ -41,13 +45,26 @@ object JdaGatewayClient {
       }
       Async[F]
         .blocking(
-          JDABuilder
-            .createLight(token, intents.asJava)
+          withApiBaseUrl(JDABuilder.createLight(token, intents.asJava), apiBaseUrl)
             .setAutoReconnect(true)
             .addEventListeners((lifecycle :: listeners)*)
             .build()
         )
         .map(jda => new JdaGatewayClient[F](jda, closedSignal))
+    }
+
+  /** JDA reads the REST url from its config, but the gateway one is fixed in the session controller: both are moved to
+    * the given server, without the compression of the gateway (the mock does not compress).
+    */
+  private def withApiBaseUrl(builder: JDABuilder, apiBaseUrl: Option[String]): JDABuilder =
+    apiBaseUrl.fold(builder) { url =>
+      val base = url.stripSuffix("/")
+      builder
+        .setRestConfig(new RestConfig().setBaseUrl(s"$base/api/v10/"))
+        .setSessionController(new SessionControllerAdapter {
+          override def getGateway: String = base.replaceFirst("^http", "ws")
+        })
+        .setCompression(Compression.NONE)
     }
 }
 

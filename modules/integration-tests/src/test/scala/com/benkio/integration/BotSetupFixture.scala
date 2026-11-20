@@ -54,7 +54,7 @@ object BotSetupFixture {
       testOptions: TestOptions
   )(using log: LogWriter[IO]): BotSetupFixtureResources = {
     val dbRes    = DBFixture.fixtureSetup(testOptions)
-    val resource = botSetupResource(dbRes, sBotConfig)
+    val resource = botSetupResource(dbRes = dbRes, sBotConfig = sBotConfig)
     BotSetupFixtureResources(
       dbResources = dbRes,
       botSetupResource = resource
@@ -69,7 +69,9 @@ object BotSetupFixture {
     */
   def botSetupResource(
       dbRes: DBFixtureResources,
-      sBotConfig: SBotConfig
+      sBotConfig: SBotConfig,
+      apiBaseUrl: String = "https://api.telegram.org",
+      token: String = "test"
   )(using log: LogWriter[IO]): Resource[IO, BotSetup[IO]] =
     for {
       dbLayerBase   <- dbRes.resourceDBLayer
@@ -85,8 +87,7 @@ object BotSetupFixture {
         dbMedia = dbLayer.dbMedia,
         clients = clients
       )
-      token   = "test"
-      baseUrl = s"https://api.telegram.org/bot$token"
+      baseUrl = s"$apiBaseUrl/bot$token"
       api     = BotApi(httpClient, baseUrl)
       backgroundJobManager <- Resource.eval(
         TelegramBackgroundJobManager[IO](
