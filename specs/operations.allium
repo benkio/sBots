@@ -14,7 +14,7 @@ external entity HealthPing {
     failed: Boolean
 }
 
-enum EndCause { completed | cancelled }
+enum EndKind { crashed | completed | cancelled }
 
 entity Application {
     mode: webhook | polling
@@ -22,8 +22,8 @@ entity Application {
     started_at: Timestamp
     next_heartbeat_tick: Timestamp
     last_system_stats: Timestamp
-    crash_reason: String?        -- set when the application crashes
-    end_cause: EndCause?         -- set when the application ends without crashing
+    end: EndKind?                -- how the application ended, set once
+    crash_reason: String?        -- set when end = crashed
 
     transitions status {
         running -> stopped
@@ -115,15 +115,18 @@ rule HeartbeatRecovers {
 }
 
 rule AppCrashes {
-    when: app: Application.crash_reason != null
+    when: app: Application.end != null
+    requires: app.end = crashed
     requires: app.status = running
     -- the reason is logged and appended to the crash history with time and stack trace
+    ensures: CrashLogged(reason: app.crash_reason)
     ensures: app.status = crashed
     ensures: HealthSignalSent(kind: fail)
 }
 
 rule AppStops {
-    when: app: Application.end_cause != null
+    when: app: Application.end != null
+    requires: app.end = completed or app.end = cancelled
     requires: app.status = running
     ensures: app.status = stopped
 }
