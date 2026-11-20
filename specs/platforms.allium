@@ -48,9 +48,7 @@ external entity TelegramUpdate {
 }
 
 external entity DiscordEvent {
-    kind: message | slash_command | guild_join
-    chat: core/Chat
-    member_count: Integer?    -- of the guild, read when the bot joins it
+    kind: message | slash_command
     channel: String
     is_direct: Boolean
     author_is_bot: Boolean
@@ -98,12 +96,18 @@ rule TelegramBotAddedRaisesJoin {
     ensures: extras/BotJoinsChat(chat: update.chat, bot: bot, member_count: update.member_count)
 }
 
--- Discord: the bot is invited to a server (a guild_join event); no welcome reply is involved
+-- Discord: the bot is invited to a server. The timeouts are per channel, so the join counts as a join of every text
+-- channel the bot can write to, each with the member count of the server. Channels created later get no timeout.
+-- No welcome reply is involved.
+external entity DiscordGuildJoin {
+    channels: Set<core/Chat>
+    member_count: Integer
+}
+
 rule DiscordGuildJoinRaisesJoin {
-    when: DiscordEventReceived(e, bot)
-    requires: e.kind = guild_join
-    requires: e.member_count != null
-    ensures: extras/BotJoinsChat(chat: e.chat, bot: bot, member_count: e.member_count)
+    when: DiscordGuildJoinReceived(join, bot)
+    ensures: for channel in join.channels:
+        extras/BotJoinsChat(chat: channel, bot: bot, member_count: join.member_count)
 }
 
 rule DiscordMessageBecomesMessage {
