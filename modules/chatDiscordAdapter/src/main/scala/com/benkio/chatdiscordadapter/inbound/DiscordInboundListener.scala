@@ -6,9 +6,15 @@ import cats.syntax.all.*
 import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.Message
 import log.effect.LogWriter
+import net.dv8tion.jda.api.events.guild.GuildJoinEvent
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
+
+import scala.jdk.CollectionConverters.*
+
+/** The bot joined a server: the channels it can write to and the number of members of the server, bots included. */
+final case class DiscordGuildJoin(channelIds: List[String], memberCount: Int)
 
 /** Hands to `onMessage` what the bot receives, mapped by [[DiscordInbound]]. A failure of `onMessage` is logged: it
   * must not reach the library. It is a listener of [[com.benkio.chatdiscordadapter.gateway.DiscordGateway]].
@@ -19,7 +25,8 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter
 class DiscordInboundListener[F[_]: Async: LogWriter](
     dispatcher: Dispatcher[F],
     syntax: CommandSyntax,
-    onMessage: Message => F[Unit]
+    onMessage: Message => F[Unit],
+    onGuildJoin: DiscordGuildJoin => F[Unit]
 ) extends ListenerAdapter {
 
   override def onMessageReceived(event: MessageReceivedEvent): Unit =
@@ -34,6 +41,17 @@ class DiscordInboundListener[F[_]: Async: LogWriter](
           createdAtEpochSecond = event.getMessage.getTimeCreated.toEpochSecond
         )
       )
+    )
+
+  /** The timeouts are per channel, so the join is handed over with every channel the bot can write to. */
+  override def onGuildJoin(event: GuildJoinEvent): Unit =
+    dispatcher.unsafeRunAndForget(
+      onGuildJoin(
+        DiscordGuildJoin(
+          channelIds = event.getGuild.getTextChannels.asScala.filter(_.canTalk).map(_.getId).toList,
+          memberCount = event.getGuild.getMemberCount
+        )
+      ).handleErrorWith(e => LogWriter.error(s"[DiscordInbound] Error while handling the guild join: $e"))
     )
 
   override def onSlashCommandInteraction(event: SlashCommandInteractionEvent): Unit = {

@@ -13,6 +13,8 @@ import com.benkio.integration.Logger.given
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import munit.CatsEffectSuite
 
+import scala.concurrent.duration.*
+
 class ITSetTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
 
   val sBotConfig  = SBot.buildSBotConfig(RichardPHJBensonBot.sBotInfo)
@@ -20,6 +22,9 @@ class ITSetTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
   val botId       = sBotConfig.sBotInfo.botId
   val chatIdValue = 0L
   val chatId      = TestIds.chatId(chatIdValue)
+
+  // `getOrDefault` may stamp the default entry with the current time, so tolerate small drifts
+  val lastInteractionTolerance: FiniteDuration = 500.millis
 
   val msg: Message = Message(messageId = None, date = 0, chatId = chatId, chatType = "private")
 
@@ -46,7 +51,16 @@ class ITSetTimeoutCommandSpec extends CatsEffectSuite with DBFixture {
         dbLayer.dbTimeout.getOrDefault(chatId = TestIds.chatId(chatIdValue), botId = botId)
       )
     } yield {
-      assertEquals(beforeTimeout, afterTimeout)
+      assertEquals(
+        beforeTimeout.copy(last_interaction = afterTimeout.last_interaction),
+        afterTimeout
+      )
+      val lastInteractionDiff =
+        math.abs(beforeTimeout.last_interaction.toLong - afterTimeout.last_interaction.toLong)
+      assert(
+        lastInteractionDiff <= lastInteractionTolerance.toMillis,
+        s"last_interaction differs by ${lastInteractionDiff}ms, more than $lastInteractionTolerance"
+      )
       assertEquals(
         reply.map(_.show),
         Right(

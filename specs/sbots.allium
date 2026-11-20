@@ -9,6 +9,7 @@
 
 external entity Chat {
     platform: Platform
+    is_private: Boolean   -- a one-to-one chat (Telegram private chat, Discord DM)
 }
 
 -- The reply timeout (/settimeout) belongs to the pair (chat, bot). A chat without a row has no timeout.
@@ -241,10 +242,12 @@ rule BotRepliesToFileRequest {
 -- After a reply the last interaction is logged: this is what the timeout is measured from. It only updates an existing
 -- timeout row.
 -- (if updating the row fails the code inserts a row with a zero timeout, which never puts the chat in timeout)
+-- The welcome reply to the bot being added is not an interaction: the automatic timeout is measured from the join.
 rule PostComputationLogsInteraction {
     when: RequestIsDispatched(request)
 
     requires: ReplySentFor(request)
+    requires: not request.message.bot_added
     requires: exists ChatTimeout{chat: request.message.chat, bot: request.bot}
 
     ensures: ChatTimeout{chat: request.message.chat, bot: request.bot}.last_interaction = now
