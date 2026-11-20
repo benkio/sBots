@@ -10,6 +10,8 @@ config {
     max_subscription_target_length: Integer = 200
     top_media_count: Integer = 20
     auto_timeout_per_doubling: Duration = 5.seconds
+    paged_list_page_size: Integer = 5
+    paged_list_action_id_max_length: Integer = 100    -- the limit of a Discord button id
 }
 
 -- The bot is added to a group chat: raised by the Telegram and Discord adapters (IRC has no such event).
@@ -127,7 +129,48 @@ rule MediaSentCounted {
     ensures: media.send_count = media.send_count + 1
 }
 
--- paged command lists (trigger list and search, toptwenty) show 5 items per page
+-- Paged command lists (shows, triggers, top twenty) show paged_list_page_size items per page.
+-- What happens when the user acts on a list is platform neutral (PagedListNavigation in chatCore, no platform type in it):
+-- an adapter only turns a button press (Telegram, later Discord and Slack) or a typed command (IRC and Twitch, later)
+-- into a PagedListAction and sends back the replies. The action has an id (toId / fromId) of at most
+-- paged_list_action_id_max_length characters; the id of an action decodes to the same action (round trip).
+value PagedListAction {
+    kind: next_page | previous_page | pick_media | pick_show
+    command: String         -- the command that produced the list, run again for another page
+    page: Integer           -- the page the user was looking at, from 0
+    item: String?           -- the media file or the show picked, only for pick_media and pick_show
+}
+
+-- the command runs again with the new page (the same input, the same bot, no timeout or dedup of its own)
+rule PagedListChangesPage {
+    when: PagedListActionRequested(chat, bot, action)
+    requires: action.kind = next_page or action.kind = previous_page
+    -- previous at the first page stays at the first page
+    ensures: PagedListShown(
+        chat: chat,
+        bot: bot,
+        command: action.command,
+        page: if action.kind = next_page: action.page + 1 else: max(action.page - 1, 0)
+    )
+}
+
+-- the replies of the item picked, as if the item had been asked for directly
+rule PagedListPicksItem {
+    when: PagedListActionRequested(chat, bot, action)
+    requires: action.kind = pick_media or action.kind = pick_show
+    requires: action.item != null
+    ensures: PagedListItemReplied(chat: chat, bot: bot, item: action.item)
+}
+
+-- an id that does not decode (bad format or over the length limit) is not an action: the navigation rejects it with
+-- an error, no other reply is produced
+rule PagedListRejectsBadId {
+    when: PagedListIdReceived(chat, bot, id)
+    requires: not PagedListIdDecodes(id)
+    ensures: PagedListIdRejected(chat: chat, bot: bot)
+}
+
+open question "Telegram treats an undecodable callback as a media file named by the raw data (platforms.allium): does it keep that fallback or reject the id like the neutral navigation?"
 -- operator notifications (window 5 minutes, error text cut to 200 characters): an error with the same (bot, context, error) is notified once per window followed by one summary;
 -- infos and media errors are not throttled; a failing notification never breaks the caller
 

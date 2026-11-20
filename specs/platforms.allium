@@ -197,8 +197,19 @@ rule SendPagedListAsKeyboard {
                                     page: 0, item_count: reply.item_count)
 }
 
--- Telegram only, handled outside the engine on purpose: a press answers the bot's own message, so no dedup, age,
--- timeout or forward filter applies and there is no post computation
+-- Telegram only (Discord and Slack buttons, IRC and Twitch text commands follow on the same navigation), handled outside
+-- the engine on purpose: a press answers the bot's own message, so no dedup, age, timeout or forward filter applies and
+-- there is no post computation. The press is decoded into the platform-neutral extras/PagedListAction and the replies
+-- come from extras/PagedListNavigation; only the keyboard of the message is Telegram specific.
+rule CallbackIsPagedListAction {
+    when: CallbackPressed(keyboard, kind)
+    ensures: extras/PagedListActionRequested(
+        chat: keyboard.message.chat,
+        bot: keyboard.message.bot,
+        action: DecodedAction(keyboard, kind)
+    )
+}
+
 rule CallbackPagesKeyboard {
     when: CallbackPressed(keyboard, kind)
     requires: kind = previous_page or kind = next_page
