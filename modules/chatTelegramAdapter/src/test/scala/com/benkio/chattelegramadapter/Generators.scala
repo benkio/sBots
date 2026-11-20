@@ -63,13 +63,17 @@ trait Generators extends com.benkio.chatcore.Generators {
 
   val telegramReplyValueGen: Gen[ReplyValue] = Gen.oneOf(textGen, mediaFileGen, telegramInlineKeyboardGen)
 
-  /** Media payloads that do not parse as pagination keys (`previousPage|nextPage-CommandKey-Int`). */
+  /** Media payloads that do not parse as pagination keys (`previousPage|nextPage-CommandKey-Int`). They stay well under
+    * the id limit (`PagedListAction.maxIdLength`), so that every generated action has an id.
+    */
   val mediaCallbackPayloadGen: Gen[String] =
-    Gen.alphaNumStr.suchThat(s =>
-      s.nonEmpty &&
-        !s.startsWith("previousPage-") &&
-        !s.startsWith("nextPage-")
-    )
+    Gen.alphaNumStr
+      .map(_.take(60))
+      .suchThat(s =>
+        s.nonEmpty &&
+          !s.startsWith("previousPage-") &&
+          !s.startsWith("nextPage-")
+      )
 
   val previousPageCallbackDataGen: Gen[PagedListAction] =
     Gen
