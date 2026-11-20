@@ -8,6 +8,8 @@ import com.benkio.chatcore.model.media.MediaResource.MediaResourceFile
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.Logger.given
 import com.benkio.chattelegramadapter.mocks.TelegramHttpRoutes
+import com.benkio.chattelegramadapter.model.TelegramToken
+import com.benkio.chattelegramadapter.model.TelegramToken.value
 import munit.*
 import org.http4s.*
 import org.http4s.client.Client
@@ -24,7 +26,7 @@ class BotSetupSpec extends CatsEffectSuite {
       BotSetup
         .deleteWebhooks[IO](
           httpClient = client,
-          token = token
+          token = TelegramToken(token)
         )
         .use(_.status.pure[IO]),
       Status.Ok
@@ -50,7 +52,7 @@ class BotSetupSpec extends CatsEffectSuite {
       )
       .use { tokenContent =>
         assert(
-          tokenContent == expectedFileContent.map(_.toChar).mkString,
+          tokenContent.value == expectedFileContent.map(_.toChar).mkString,
           s"Expected ${expectedFileContent.map(_.toChar).mkString}, got $tokenContent"
         ).pure[IO]
       }

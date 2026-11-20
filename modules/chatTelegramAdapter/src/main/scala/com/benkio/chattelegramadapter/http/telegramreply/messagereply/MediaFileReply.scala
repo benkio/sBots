@@ -116,7 +116,7 @@ object MediaFileReply {
                   RichTextReply
                     .sendRichText[F](
                       richMessage = InputRichMessage(markdown = content.some),
-                      msg = msg.toModel,
+                      msg = msg.toModel(),
                       replyToMessage = replyToMessage
                     )
                     .flatMap {

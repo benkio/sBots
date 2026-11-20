@@ -3,6 +3,7 @@ package com.benkio.chatcore.messagefiltering
 import com.benkio.chatcore.model.reply.MediaReply
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.model.BotAddedTrigger
 import com.benkio.chatcore.model.LeftMemberTrigger
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageLengthTrigger
@@ -57,6 +58,14 @@ class MessageMatchesSpec extends ScalaCheckSuite {
       val b   = bundle(NewMemberTrigger)
       val got = MessageMatches.doesMatch(b, msg, None)
       assertEquals(got.isDefined, msg.newChatMembers.nonEmpty)
+    }
+  }
+
+  property("BotAddedTrigger matches iff botAdded is set") {
+    forAll { (msg: Message) =>
+      val b   = bundle(BotAddedTrigger)
+      val got = MessageMatches.doesMatch(b, msg, None)
+      assertEquals(got.isDefined, msg.botAdded)
     }
   }
 

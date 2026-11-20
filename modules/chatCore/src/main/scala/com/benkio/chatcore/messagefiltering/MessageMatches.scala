@@ -1,6 +1,7 @@
 package com.benkio.chatcore.messagefiltering
 
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.model.BotAddedTrigger
 import com.benkio.chatcore.model.LeftMemberTrigger
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageLengthTrigger
@@ -43,6 +44,8 @@ object MessageMatches {
         Some((MessageLengthTrigger(messageLength), replyBundleMessage))
       case (_, _, _: NewMemberTrigger.type, _) if message.newChatMembers.nonEmpty =>
         Some((NewMemberTrigger, replyBundleMessage))
+      case (_, _, _: BotAddedTrigger.type, _) if message.botAdded =>
+        Some((BotAddedTrigger, replyBundleMessage))
       case (_, _, _: LeftMemberTrigger.type, _) if message.leftChatMember.nonEmpty =>
         Some((LeftMemberTrigger, replyBundleMessage))
       case (_, ContainsOnce, TextTrigger(triggers*), Some(messageText)) =>

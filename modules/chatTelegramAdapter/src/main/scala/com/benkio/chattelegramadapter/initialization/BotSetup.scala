@@ -17,6 +17,7 @@ import com.benkio.chatcore.repository.ResourcesRepository
 import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chatcore.Notifier
 import com.benkio.chattelegramadapter.http.TelegramNotifier
+import com.benkio.chattelegramadapter.model.TelegramToken
 import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
 import log.effect.LogWriter
 import org.http4s.*
@@ -28,7 +29,7 @@ import java.nio.file.Path
 import scala.concurrent.duration.*
 
 final case class BotSetup[F[_]](
-    token: String,
+    token: TelegramToken,
     httpClient: Client[F],
     repository: Repository[F],
     jsonDataRepository: JsonDataRepository[F],
@@ -55,10 +56,10 @@ object BotSetup {
 
   def deleteWebhooks[F[_]: Async](
       httpClient: Client[F],
-      token: String
+      token: TelegramToken
   ): Resource[F, Response[F]] = for {
     uri <- Resource.eval(
-      MonadThrow[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot$token/setWebhook?url="))
+      MonadThrow[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot${token.value}/setWebhook?url="))
     )
     deleteWebhookRequest: Request[F] =
       Request[F](
@@ -71,7 +72,7 @@ object BotSetup {
   def token[F[_]: Async: LogWriter](
       tokenFilename: String,
       repository: Repository[F]
-  ): Resource[F, String] = {
+  ): Resource[F, TelegramToken] = {
     for {
       _                   <- Resource.eval(LogWriter.info(s"[BotSetup:58:47] Retrieving Token $tokenFilename"))
       tokenMediaResources <- repository.getResourceFile(Document(tokenFilename))
@@ -91,7 +92,7 @@ object BotSetup {
       _ <- Resource.eval(
         LogWriter.info(s"[BotSetup:58:47] Token $tokenFilename successfully retrieved")
       )
-    } yield tokenFileContent
+    } yield TelegramToken(tokenFileContent)
   }
 
   def loadDB[F[_]: Async](config: DBConfig)(using log: LogWriter[F]): Resource[F, DBLayer[F]] =
@@ -123,7 +124,7 @@ object BotSetup {
         )
       )
       _       <- Resource.eval(log.info(s"[${effectiveSBotConfig.sBotInfo.botId}] Webhook deleted"))
-      baseUrl <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot$tk")))
+      baseUrl <- Resource.eval(Async[F].fromEither(Uri.fromString(s"https://api.telegram.org/bot${tk.value}")))
       api = BotApi(
         httpClient,
         baseUrl = baseUrl.renderString
@@ -139,7 +140,7 @@ object BotSetup {
           ttl = effectiveSBotConfig.messageTimeToLive
         )(using Async[F], api, Random[F], notifier, log)
       )
-      path           <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/$tk")))
+      path           <- Resource.eval(Async[F].fromEither(Uri.fromString(s"/${tk.value}")))
       webhookBaseUri <- Resource.eval(Async[F].fromEither(Uri.fromString(webhookBaseUrl + path)))
     } yield BotSetup(
       token = tk,

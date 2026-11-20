@@ -78,7 +78,7 @@ object TelegramMessageReply {
         .getOrElseF(repository.registerFileId(mediaFile, Platform.Telegram, fileId))
       write.handleErrorWith(e =>
         LogWriter.error(s"[TelegramMessageReply] could not persist file id for $mediaFile: $e") >>
-          summon[Notifier[F]].mediaError(msg.toModel, mediaFile, e)
+          summon[Notifier[F]].mediaError(msg.toModel(), mediaFile, e)
       )
     }
 
@@ -133,7 +133,7 @@ object TelegramMessageReply {
           .onError(e =>
             LogWriter.error(
               s"[TelegramMessageReply] ERROR when replying to $chatId with $mediaFile: $e"
-            ) >> summon[Notifier[F]].mediaError(msg.toModel, mediaFile, e)
+            ) >> summon[Notifier[F]].mediaError(msg.toModel(), mediaFile, e)
           )
           .attemptT
     } yield message

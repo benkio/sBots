@@ -12,6 +12,7 @@ import com.benkio.chatcore.repository.db.DBRepository
 import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.Notifier
 import com.benkio.chattelegramadapter.initialization.BotSetup
+import com.benkio.chattelegramadapter.model.TelegramToken
 import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
 import com.benkio.integration.Logger.given
 import munit.*
@@ -98,7 +99,7 @@ object BotSetupFixture {
       webhookPath = uri"/test"
       webhookUri  = uri"https://localhost/test"
     } yield BotSetup(
-      token = token,
+      token = TelegramToken(token),
       httpClient = httpClient,
       repository = repository,
       jsonDataRepository = JsonDataRepository[IO](),

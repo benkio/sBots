@@ -74,12 +74,14 @@ class TriggersSpec extends CatsEffectSuite with ScalaCheckSuite {
     val messageLengthTrigger: Trigger = MessageLengthTrigger(42)
     val newMemberTrigger: Trigger     = NewMemberTrigger
     val leftMemberTrigger: Trigger    = LeftMemberTrigger
+    val botAddedTrigger: Trigger      = BotAddedTrigger
     val commandTrigger: Trigger       = CommandTrigger("/testcommand")
 
     assertEquals(textTrigger.show, "textTriggerValue\nregexTriggerValue")
     assertEquals(messageLengthTrigger.show, "trigger when the length of message exceed 42")
     assertEquals(newMemberTrigger.show, "trigger on new member joining a group")
     assertEquals(leftMemberTrigger.show, "trigger when a member leaves a group")
+    assertEquals(botAddedTrigger.show, "trigger when the bot is added to a group")
     assertEquals(commandTrigger.show, "/testcommand")
 
   }
@@ -87,12 +89,14 @@ class TriggersSpec extends CatsEffectSuite with ScalaCheckSuite {
     val messageLengthTrigger: Trigger   = MessageLengthTrigger(42)
     val newMemberTrigger: Trigger       = NewMemberTrigger
     val leftMemberTrigger: Trigger      = LeftMemberTrigger
+    val botAddedTrigger: Trigger        = BotAddedTrigger
     val commandTrigger: Trigger         = CommandTrigger("/testcommand")
     val stringTrigger: TextTriggerValue = StringTextTriggerValue("test trigger")
     val regexTrigger: TextTriggerValue  = RegexTextTriggerValue("test [rR]egex(p)?".r, 10)
 
     assertEquals(Trigger.triggerLongestString(newMemberTrigger), 0)
     assertEquals(Trigger.triggerLongestString(leftMemberTrigger), 0)
+    assertEquals(Trigger.triggerLongestString(botAddedTrigger), 0)
     assertEquals(Trigger.triggerLongestString(messageLengthTrigger), 0)
     assertEquals(Trigger.triggerLongestString(commandTrigger), 12)
     assertEquals(Trigger.triggerLongestString(TextTrigger(stringTrigger)), 12)

@@ -17,6 +17,7 @@ import com.benkio.chatcore.Logger.given
 import com.benkio.chatcore.Notifier
 import com.benkio.chattelegramadapter.initialization.BotSetup
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
+import com.benkio.chattelegramadapter.model.TelegramToken
 import com.benkio.chattelegramadapter.ISBotWebhook
 import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
 import org.http4s.client.Client
@@ -93,7 +94,7 @@ object SampleWebhookBot {
       )(using Async[IO], summon[Api[IO]], summon[Random[IO]], Notifier.noop[IO], logWriter)
     } yield new SampleWebhookBot(
       BotSetup(
-        token = "test",
+        token = TelegramToken("test"),
         httpClient = stubClient,
         repository = repositoryMock,
         jsonDataRepository = JsonDataRepository[IO](),

@@ -33,7 +33,8 @@ external entity Message {
     caption: String?
     sent_at: Timestamp
     is_forward: Boolean
-    new_members: Boolean
+    new_members: Boolean  -- at least one joined member is not this bot
+    bot_added: Boolean    -- this bot is among the joined members
     left_member: Boolean
     content: text ?? caption
     -- the first word is a command of the platform's syntax
@@ -114,9 +115,10 @@ variant TextTrigger : Trigger { values: Set<String> }   -- string (substring) or
 variant MessageLengthTrigger : Trigger { length: Integer }
 variant NewMemberTrigger : Trigger
 variant LeftMemberTrigger : Trigger
+variant BotAddedTrigger : Trigger   -- the bot itself joined a group; bundles are data in the replies, like NewMemberTrigger
 
 entity Trigger {
-    kind: TextTrigger | MessageLengthTrigger | NewMemberTrigger | LeftMemberTrigger
+    kind: TextTrigger | MessageLengthTrigger | NewMemberTrigger | BotAddedTrigger | LeftMemberTrigger
     -- a selection among several matching bundles prefers the highest trigger in Trigger's ordering
 }
 
@@ -327,6 +329,19 @@ rule NewMemberTriggerMatches {
     requires: bundle.trigger.kind = NewMemberTrigger
     requires: message.new_members
     -- the ignore prefix suppresses every trigger kind, member triggers included
+    requires: not (config.ignore_message_prefix != null and message.content != null
+                   and message.content.starts_with(config.ignore_message_prefix))
+
+    ensures: BundleMatches(bundle: bundle, message: message)
+}
+
+-- Sibling of NewMemberTrigger, for the bot itself. A join of the bot alone never matches NewMemberTrigger; a join of
+-- the bot together with other members matches both triggers, with no precedence between them.
+rule BotAddedTriggerMatches {
+    when: BundleIsMatched(bundle, message)
+
+    requires: bundle.trigger.kind = BotAddedTrigger
+    requires: message.bot_added
     requires: not (config.ignore_message_prefix != null and message.content != null
                    and message.content.starts_with(config.ignore_message_prefix))
 
