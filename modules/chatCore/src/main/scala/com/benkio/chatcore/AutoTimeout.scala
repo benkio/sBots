@@ -22,7 +22,7 @@ object AutoTimeout {
   val minimum: FiniteDuration     = 1.second
 
   def forMembers(memberCount: Int): FiniteDuration = {
-    val log2 = if (memberCount < 1) 0d else math.log(memberCount.toDouble) / math.log(2d)
+    val log2 = if memberCount < 1 then 0d else math.log(memberCount.toDouble) / math.log(2d)
     (perDoubling.toSeconds * log2).round.seconds.max(minimum)
   }
 
