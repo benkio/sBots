@@ -10,5 +10,6 @@ final case class Message(
     newChatMembers: List[User] = List.empty, // the joined members other than the bot itself
     botAdded: Boolean = false,               // the bot itself is among the joined members
     leftChatMember: Option[User] = None,
-    isForward: Boolean = false
+    isForward: Boolean = false,
+    authorId: Option[String] = None // who wrote it, when the platform says (Discord): the id of the user
 )

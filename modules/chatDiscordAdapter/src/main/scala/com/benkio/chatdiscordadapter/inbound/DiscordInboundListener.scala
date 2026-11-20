@@ -5,9 +5,11 @@ import cats.effect.Async
 import cats.syntax.all.*
 import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.Message
+import com.benkio.chatdiscordadapter.outbound.DiscordButtonPress
 import log.effect.LogWriter
 import net.dv8tion.jda.api.events.guild.GuildJoinEvent
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
+import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 
@@ -26,7 +28,8 @@ class DiscordInboundListener[F[_]: Async: LogWriter](
     dispatcher: Dispatcher[F],
     syntax: CommandSyntax,
     onMessage: Message => F[Unit],
-    onGuildJoin: DiscordGuildJoin => F[Unit]
+    onGuildJoin: DiscordGuildJoin => F[Unit],
+    onButton: DiscordButtonPress => F[Either[String, F[Unit]]]
 ) extends ListenerAdapter {
 
   override def onMessageReceived(event: MessageReceivedEvent): Unit =
@@ -37,6 +40,7 @@ class DiscordInboundListener[F[_]: Async: LogWriter](
           channelId = event.getChannel.getId,
           isDirect = !event.isFromGuild,
           authorIsBot = event.getAuthor.isBot,
+          authorId = event.getAuthor.getId,
           content = event.getMessage.getContentRaw,
           createdAtEpochSecond = event.getMessage.getTimeCreated.toEpochSecond
         )
@@ -62,6 +66,7 @@ class DiscordInboundListener[F[_]: Async: LogWriter](
           channelId = event.getChannel.getId,
           isDirect = !event.isFromGuild,
           authorIsBot = event.getUser.isBot,
+          authorId = event.getUser.getId,
           name = event.getName,
           arguments = Option(event.getOption(DiscordInbound.argumentsOption)).map(_.getAsString),
           createdAtEpochSecond = event.getTimeCreated.toEpochSecond
@@ -69,6 +74,31 @@ class DiscordInboundListener[F[_]: Async: LogWriter](
         syntax
       )
     )
+  }
+
+  /** A press is decided at once: not accepted, only who pressed sees why; accepted, the interaction is acknowledged
+    * (the message is edited later) and the work goes on in the background.
+    */
+  override def onButtonInteraction(event: ButtonInteractionEvent): Unit = {
+    val press = DiscordButtonPress(
+      channelId = event.getChannel.getId,
+      messageId = event.getMessageId,
+      userId = event.getUser.getId,
+      id = event.getComponentId
+    )
+    dispatcher.unsafeRunSync(
+      onButton(press).handleErrorWith(e =>
+        LogWriter.error(s"[DiscordInbound] Error while deciding the button $press: $e") >>
+          Async[F].pure(Left("Something went wrong: try again."))
+      )
+    ) match {
+      case Left(text)  => event.reply(text).setEphemeral(true).queue()
+      case Right(work) =>
+        event.deferEdit().queue()
+        dispatcher.unsafeRunAndForget(
+          work.handleErrorWith(e => LogWriter.error(s"[DiscordInbound] Error while handling the button $press: $e"))
+        )
+    }
   }
 
   private def deliver(message: Option[Message]): Unit =

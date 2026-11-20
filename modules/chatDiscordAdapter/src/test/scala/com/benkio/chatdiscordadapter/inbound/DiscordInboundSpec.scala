@@ -18,6 +18,7 @@ class DiscordInboundSpec extends FunSuite {
     channelId = "987654321098765432",
     isDirect = false,
     authorIsBot = false,
+    authorId = "42",
     content = "hello there",
     createdAtEpochSecond = 1700000000L
   )
@@ -26,6 +27,7 @@ class DiscordInboundSpec extends FunSuite {
     channelId = "987654321098765432",
     isDirect = false,
     authorIsBot = false,
+    authorId = "42",
     name = "hello",
     arguments = None,
     createdAtEpochSecond = 1700000000L
@@ -37,6 +39,7 @@ class DiscordInboundSpec extends FunSuite {
     assertEquals(result.messageId, Some(MessageId("1234567890123456789")))
     assertEquals(result.text, Some("hello there"))
     assertEquals(result.date, 1700000000L)
+    assertEquals(result.authorId, Some("42"))
   }
 
   test("a DM is a private chat, a channel of a server is a group") {

@@ -15,6 +15,7 @@ import com.benkio.chatcore.Notifier
 import com.benkio.chatcore.PlatformAdapter
 import com.benkio.chatdiscordadapter.model.DiscordCapabilities
 import com.benkio.chatdiscordadapter.outbound.DiscordApi
+import com.benkio.chatdiscordadapter.outbound.DiscordButtonLists
 import com.benkio.chatdiscordadapter.outbound.DiscordReplies
 import log.effect.LogWriter
 
@@ -25,6 +26,8 @@ import scala.concurrent.duration.FiniteDuration
   * @param discordApi
   *   gives the API once the gateway connection is up: the replies are only sent after the bot received a message, so
   *   after the connection
+  * @param lists
+  *   the lists with buttons that are on the channels, shared with the handler of the buttons
   * @param startGateway
   *   connects to the gateway and delivers the messages to the engine, until the connection ends
   */
@@ -35,7 +38,8 @@ class DiscordPlatformAdapter[F[_]: Async: LogWriter: Notifier](
     effectfulCallbacks: Map[String, EffectfulCallback[F]],
     dbLayer: DBLayer[F],
     ttl: Option[FiniteDuration],
-    startGateway: F[Unit]
+    startGateway: F[Unit],
+    lists: DiscordButtonLists[F]
 ) extends PlatformAdapter[F] {
 
   override val capabilities: PlatformCapabilities = DiscordCapabilities.value
@@ -46,7 +50,7 @@ class DiscordPlatformAdapter[F[_]: Async: LogWriter: Notifier](
 
   override def send(replyValue: ReplyValue, message: Message, replyToMessage: Boolean): F[Unit] =
     discordApi.flatMap(api =>
-      DiscordReplies[F](api, usableRepository, dbLayer, capabilities).send(replyValue, message, replyToMessage)
+      DiscordReplies[F](api, usableRepository, dbLayer, capabilities, lists).send(replyValue, message, replyToMessage)
     )
 
   override def runEffectful(reply: EffectfulReply, message: Message): F[ReplyValue] =

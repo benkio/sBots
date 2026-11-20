@@ -34,7 +34,8 @@ class DiscordReplies[F[_]: Async: LogWriter: Notifier](
     api: DiscordApi[F],
     repository: Repository[F],
     dbLayer: DBLayer[F],
-    capabilities: PlatformCapabilities
+    capabilities: PlatformCapabilities,
+    lists: DiscordButtonLists[F]
 ) {
 
   def send(replyValue: ReplyValue, message: Message, replyToMessage: Boolean): F[Unit] = {
@@ -49,10 +50,20 @@ class DiscordReplies[F[_]: Async: LogWriter: Notifier](
         )
       case mediaFile: MediaFile =>
         guarded(message, mediaFile)(sendMediaFile(channelId = channelId, mediaFile = mediaFile, replyTo = replyTo))
-      case other =>
+      case pagedList: PagedList => sendPagedList(message = message, pagedList = pagedList, replyTo = replyTo)
+      case other                =>
         LogWriter.warn(s"[DiscordReplies] Unsupported reply value ${other.getClass.getSimpleName}; sending nothing")
     }
   }
+
+  /** The page with its buttons, remembered to answer the buttons: only who wrote the message can use them. */
+  private def sendPagedList(message: Message, pagedList: PagedList, replyTo: Option[String]): F[Unit] =
+    api
+      .sendButtons(message.chatId.id, DiscordPagedListLayout.render(pagedList), replyTo)
+      .flatMap(sent =>
+        lists.put(sent, DiscordButtonList(requestedBy = message.authorId, request = message, pagedList = pagedList))
+      )
+      .handleErrorWith(e => LogWriter.error(s"[DiscordReplies] Error while sending the list ${pagedList.title}: $e"))
 
   private def sendText(
       channelId: String,

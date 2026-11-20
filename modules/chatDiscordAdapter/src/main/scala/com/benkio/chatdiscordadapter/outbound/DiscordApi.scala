@@ -15,4 +15,10 @@ trait DiscordApi[F[_]] {
   def sendFile(channelId: String, fileName: String, file: Path, replyToMessageId: Option[String]): F[String]
 
   def deleteMessage(channelId: String, messageId: String): F[Unit]
+
+  /** Sends a text with rows of buttons, as a reply to the message if there is one. Gives the id of the message sent. */
+  def sendButtons(channelId: String, message: DiscordButtonMessage, replyToMessageId: Option[String]): F[String]
+
+  /** Replaces the text and the buttons of a message. */
+  def editButtons(channelId: String, messageId: String, message: DiscordButtonMessage): F[Unit]
 }

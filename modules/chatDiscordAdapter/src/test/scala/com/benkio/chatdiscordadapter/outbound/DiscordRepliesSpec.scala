@@ -11,6 +11,7 @@ import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceFile
 import com.benkio.chatcore.model.reply.*
 import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageId
 import com.benkio.chatcore.model.Platform
@@ -49,6 +50,14 @@ class DiscordRepliesSpec extends CatsEffectSuite {
       calls.update(_ :+ s"file:$channelId:$fileName:${replyToMessageId.getOrElse("-")}").as("sent2")
     override def deleteMessage(channelId: String, messageId: String): IO[Unit] =
       calls.update(_ :+ s"delete:$channelId:$messageId")
+    override def sendButtons(channelId: String, message: DiscordButtonMessage, replyToMessageId: Option[String]) =
+      calls
+        .update(
+          _ :+ s"buttons:$channelId:${message.rows.map(_.map(_.label).mkString(",")).mkString("|")}:${replyToMessageId.getOrElse("-")}"
+        )
+        .as("sent3")
+    override def editButtons(channelId: String, messageId: String, message: DiscordButtonMessage) =
+      IO.unit
   }
 
   private def tempFile(content: String): Path = {
@@ -80,19 +89,31 @@ class DiscordRepliesSpec extends CatsEffectSuite {
     for {
       calls    <- Ref.of[IO, List[String]](List.empty)
       notifier <- NotifierMock.recording
+      lists    <- DiscordButtonLists.create[IO]()
       replies = {
         given com.benkio.chatcore.Notifier[IO] = notifier
         DiscordReplies[IO](
           new RecordingApi(calls),
           repository,
           DBLayerMock.mock(botId, medias = medias),
-          DiscordCapabilities.value
+          DiscordCapabilities.value,
+          lists
         )
       }
       _      <- replies.send(value, msg, replyToMessage)
       done   <- calls.get
       errors <- notifier.mediaErrors.get
     } yield (done, errors)
+
+  test("a paged list is sent with its buttons, as a reply to the message") {
+    val pagedList = PagedList(
+      title = "Top",
+      items = List(PagedItem.ValueItem(Mp3File("a.mp3")), PagedItem.ValueItem(Mp3File("b.mp3"))),
+      page = 0,
+      commandKey = CommandKey.TopTwenty
+    )
+    run(value = pagedList).map((calls, _) => assertEquals(calls, List("buttons:999:1,2:111")))
+  }
 
   test("a text is sent to the channel, as a reply to the message") {
     run(value = Text("hello")).map((calls, _) => assertEquals(calls, List("text:999:hello:5:111")))

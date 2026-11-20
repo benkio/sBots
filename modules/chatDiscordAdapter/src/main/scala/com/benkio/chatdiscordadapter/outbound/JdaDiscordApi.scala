@@ -2,11 +2,14 @@ package com.benkio.chatdiscordadapter.outbound
 
 import cats.effect.Async
 import cats.syntax.all.*
+import net.dv8tion.jda.api.components.actionrow.ActionRow
+import net.dv8tion.jda.api.components.buttons.Button
 import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel
 import net.dv8tion.jda.api.utils.FileUpload
 import net.dv8tion.jda.api.JDA
 
 import java.nio.file.Path
+import scala.jdk.CollectionConverters.*
 
 /** [[DiscordApi]] with JDA. The channel has to be known to JDA: the channels of the servers the bot is in are, the DM
   * channels are once the bot has seen them (it always has, a reply follows a message).
@@ -45,6 +48,36 @@ class JdaDiscordApi[F[_]: Async](jda: JDA) extends DiscordApi[F] {
           }
         )
         .map(_.getId)
+    )
+
+  private def rows(message: DiscordButtonMessage): java.util.List[ActionRow] =
+    message.rows
+      .map(row => ActionRow.of(row.map(b => Button.secondary(b.id, b.label).withDisabled(b.disabled)).asJava))
+      .asJava
+
+  override def sendButtons(
+      channelId: String,
+      message: DiscordButtonMessage,
+      replyToMessageId: Option[String]
+  ): F[String] =
+    channel(channelId).flatMap(c =>
+      Async[F]
+        .fromCompletableFuture(
+          Async[F].delay {
+            val action = c.sendMessage(message.text).setComponents(rows(message))
+            replyToMessageId.fold(action)(action.setMessageReference(_)).submit()
+          }
+        )
+        .map(_.getId)
+    )
+
+  override def editButtons(channelId: String, messageId: String, message: DiscordButtonMessage): F[Unit] =
+    channel(channelId).flatMap(c =>
+      Async[F]
+        .fromCompletableFuture(
+          Async[F].delay(c.editMessageById(messageId, message.text).setComponents(rows(message)).submit())
+        )
+        .void
     )
 
   override def deleteMessage(channelId: String, messageId: String): F[Unit] =
