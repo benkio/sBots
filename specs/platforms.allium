@@ -35,6 +35,7 @@ entity SentMessage {
 -- Discord shows a paged list with message components (the Telegram layout of a row per item needs 6 rows, Discord allows 5)
 entity DiscordButtonList {
     message: SentMessage
+    requested_by: String             -- the Discord user who asked for the list, the only one who can use its buttons
     page: Integer
     item_count: Integer
     items_on_page: Integer           -- 1 to paged_list_page_size: the buttons "1" to "n" of row 1
@@ -249,6 +250,7 @@ rule SendPagedListAsDiscordButtons {
     requires: chat.platform = discord
     ensures: DiscordButtonList.created(
         message: SentMessage.created(chat: chat, time_to_live: null, sent_at: now, deleted: false),
+        requested_by: reply.requested_by,      -- the author of the message that asked for the list
         page: 0,
         item_count: reply.item_count,
         items_on_page: min(reply.item_count, extras/config.paged_list_page_size)
@@ -258,7 +260,8 @@ rule SendPagedListAsDiscordButtons {
 -- a press is acknowledged within the 3 seconds Discord allows (deferred edit) before anything else, then decoded into the
 -- neutral action: previous and next edit the message in place, a pick sends the item as a new message.
 rule DiscordButtonIsPagedListAction {
-    when: DiscordButtonPressed(list, id)
+    when: DiscordButtonPressed(list, id, user)
+    requires: user = list.requested_by
     requires: PagedListIdDecodes(id)
     ensures: DiscordButtonAcknowledged(list: list)
     ensures: extras/PagedListActionRequested(
@@ -269,16 +272,35 @@ rule DiscordButtonIsPagedListAction {
 }
 
 rule DiscordButtonPagesList {
-    when: DiscordButtonPressed(list, id)
+    when: DiscordButtonPressed(list, id, user)
+    requires: user = list.requested_by
     requires: PagedListIdDecodes(id)
     requires: DecodedAction(id).kind = previous_page or DecodedAction(id).kind = next_page
     ensures: list.page = if DecodedAction(id).kind = next_page: list.page + 1 else: max(list.page - 1, 0)
 }
 
+-- picking an item deletes the list message (as on Telegram) and sends the item as a new message
+rule DiscordButtonPickDeletesList {
+    when: DiscordButtonPressed(list, id, user)
+    requires: user = list.requested_by
+    requires: PagedListIdDecodes(id)
+    requires: DecodedAction(id).kind = pick_media or DecodedAction(id).kind = pick_show
+    ensures: list.message.deleted = true
+}
+
+-- anyone else pressing a button gets a clear text only they see (an ephemeral answer): the list does not change and no
+-- action is requested
+rule DiscordButtonOfAnotherUser {
+    when: DiscordButtonPressed(list, id, user)
+    requires: user != list.requested_by
+    ensures: DiscordButtonRejected(list: list)
+}
+
 -- a button of a list that is expired or unknown (a bot restart forgets nothing the id needs, but the message may be gone or
 -- the id may not decode) answers with a clear text, visible only to who pressed, and changes nothing
 rule DiscordButtonOfUnknownList {
-    when: DiscordButtonPressed(list, id)
+    when: DiscordButtonPressed(list, id, user)
+    requires: user = list.requested_by
     requires: not PagedListIdDecodes(id)
     ensures: DiscordButtonRejected(list: list)
 }
@@ -300,8 +322,6 @@ rule IrcReconnects {
 }
 
 open question "Media or Show delivery deletes the keyboard message, paging edits it in place: intended?"
-open question "Discord: does picking an item delete the list message like Telegram does, or leave it for more picks?"
-open question "Discord: who may press the buttons, only who asked for the list or everyone in the channel?"
 open question "An unparsable callback is treated as a media file named by the raw data: intended fallback or accident?"
 open question "Text, rich-text and keyboard send failures are swallowed, only media failures reach operators: report them too?"
 open question "Is quoting the triggering message a domain requirement or a platform nicety?"
