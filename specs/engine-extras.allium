@@ -52,7 +52,7 @@ actor ChatUser {
 }
 
 surface ChatCommands {
-    facing user: ChatUser
+    facing _: ChatUser
 
     provides:
         UserSetsTimeout(chat, bot, value)
@@ -72,6 +72,7 @@ entity Subscription {
     target: String?
     schedule: String          -- six-field cron
     subscribed_at: Timestamp
+    next_fire_at: Timestamp   -- the next occurrence of the schedule
 }
 
 rule UserSubscribes {
@@ -83,7 +84,7 @@ rule UserSubscribes {
     -- the shortest gap between occurrences of the schedule is at least config.subscription_min_interval
     requires: ScheduleGapAtLeast(schedule: schedule, gap: config.subscription_min_interval)
     requires: (Subscriptions where chat = chat and bot = bot).count < config.max_subscriptions_per_chat
-    ensures: Subscription.created(chat: chat, bot: bot, type: type, target: target, schedule: schedule, subscribed_at: now)
+    ensures: Subscription.created(chat: chat, bot: bot, type: type, target: target, schedule: schedule, subscribed_at: now, next_fire_at: NextOccurrence(schedule, now))
 }
 
 rule UserLoadsCalendar {
@@ -91,7 +92,8 @@ rule UserLoadsCalendar {
     requires: bot.has_calendar_candidates
     requires: not exists Subscription{chat: chat, bot: bot, type: calendar}
     requires: (Subscriptions where chat = chat and bot = bot).count < config.max_subscriptions_per_chat
-    ensures: Subscription.created(chat: chat, bot: bot, type: calendar, target: null, schedule: "0 0 9 * * ?", subscribed_at: now)
+    ensures: Subscription.created(chat: chat, bot: bot, type: calendar, target: null, schedule: "0 0 9 * * ?", subscribed_at: now,
+                                next_fire_at: NextOccurrence("0 0 9 * * ?", now))
 }
 
 -- an id of a subscription that does not belong to the calling chat (or is not loaded on this platform) is not found and
@@ -106,16 +108,23 @@ rule UserUnsubscribes {
 -- a trigger subscription only matches a bundle: no timeout, ignore prefix, forward or age filter, no post computation;
 -- a calendar subscription replies only when today has shows
 rule SubscriptionFires {
-    when: SubscriptionFires(s)
+    when: s: Subscription.next_fire_at <= now
     -- a trigger subscription without a target sends the reply of a random bundle; show and calendar replies are sent as
     -- replies to a message, trigger replies are not
     ensures: core/Reply.sent(chat: s.chat, reply: SubscriptionReply(s))
+    ensures: s.next_fire_at = NextOccurrence(s.schedule, now)
+}
+
+-- the outcome of building and sending a subscription reply
+external entity SubscriptionFireAttempt {
+    subscription: Subscription
+    failed: Boolean
 }
 
 rule SubscriptionFireFails {
-    when: SubscriptionFireErrored(s)
-    -- the schedule keeps running
-    ensures: core/OperatorsNotified(bot: s.bot, reason: subscription_failed)
+    when: attempt: SubscriptionFireAttempt.failed = true
+    -- the schedule keeps running: next_fire_at advances in SubscriptionFires either way
+    ensures: core/OperatorsNotified(bot: attempt.subscription.bot, reason: subscription_failed)
 }
 
 -- /triggersearch <input> lists the bundles whose trigger matches the input.
@@ -124,9 +133,14 @@ rule UserSearchesTriggers {
     ensures: core/Reply.sent(chat: chat, reply: TriggerSearchResult(bot, input))
 }
 
+-- counted once the file reached the chat: a failed send is not counted, nor is a file that is too big to be uploaded and
+-- is sent as a link instead
 rule MediaSentCounted {
-    when: MediaFetchedForReply(media)
-    ensures: media.send_count = media.send_count + 1
+    when: core/Reply.sent(chat, reply)
+    requires: reply.delivery = media_file
+    ensures:
+        for media in reply.media:
+            media.send_count = media.send_count + 1
 }
 
 -- Paged command lists (shows, triggers, top twenty) show paged_list_page_size items per page.

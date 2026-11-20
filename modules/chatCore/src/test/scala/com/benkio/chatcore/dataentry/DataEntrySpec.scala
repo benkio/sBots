@@ -2,6 +2,7 @@ package com.benkio.chatcore.dataentry
 
 import cats.effect.IO
 import cats.effect.Resource
+import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.model.media.MediaFileSource
 import com.benkio.chatcore.model.media.MediaSource
@@ -79,8 +80,8 @@ class DataEntrySpec extends CatsEffectSuite {
       val config = testConfig(listPath, repliesPath)
 
       val input = List(
-        "https://example.com/rphjb_new_a.mp3?dl=0",
-        "https://example.com/rphjb_new_b.mp3?dl=0"
+        "https://www.dropbox.com/rphjb_new_a.mp3?dl=0",
+        "https://www.dropbox.com/rphjb_new_b.mp3?dl=0"
       )
 
       for {
@@ -133,14 +134,51 @@ class DataEntrySpec extends CatsEffectSuite {
       )
     )
 
-    assertIO(DataEntry.parseInput(input), expected)
+    assertIO(DataEntry.parseInput("rphjb", input), expected)
   }
 
   test("DataEntry.parseInput should keep parsing plain URLs with query '='") {
-    val input = List("https://example.com/rphjb_new_c.mp3?rlkey=test&dl=0")
+    val input = List("https://www.dropbox.com/rphjb_new_c.mp3?rlkey=test&dl=0")
     assertIO(
-      DataEntry.parseInput(input).map(_.head.sources.headOption),
-      Some(MediaSource.Url(uri"https://example.com/rphjb_new_c.mp3?rlkey=test&dl=1"))
+      DataEntry.parseInput("rphjb", input).map(_.head.sources.headOption),
+      Some(MediaSource.Url(uri"https://www.dropbox.com/rphjb_new_c.mp3?rlkey=test&dl=1"))
     )
+  }
+
+  test("DataEntry.parseInput should not rewrite dl=0 on non Dropbox links") {
+    val input = List("https://example.com/rphjb_new_c.mp3?dl=0")
+    assertIO(
+      DataEntry.parseInput("rphjb", input).map(_.head.sources.headOption),
+      Some(MediaSource.Url(uri"https://example.com/rphjb_new_c.mp3?dl=0"))
+    )
+  }
+
+  test("DataEntry.parseInput should reject filenames without the botId prefix") {
+    List(
+      "https://example.com/other_new.mp3",
+      "other_new.mp3=https://example.com/x",
+      "rphjb_=https://example.com/x",
+      "_new.mp3=https://example.com/x"
+    ).traverse_(i => DataEntry.parseInput("rphjb", List(i)).attempt.map(r => assert(r.isLeft, i)))
+  }
+
+  test("DataEntry rejects a list file that is not a json array and leaves the files untouched") {
+    tempDir.use { dir =>
+      val listPath    = dir.resolve("rphjb_list.json")
+      val repliesPath = dir.resolve("rphjb_replies.json")
+      for {
+        _      <- write(listPath, """{"not": "an array"}""")
+        _      <- write(repliesPath, "[]")
+        result <- DataEntry
+          .dataEntryLogic(List("https://example.com/rphjb_new_a.mp3"), testConfig(listPath, repliesPath))
+          .attempt
+        outList    <- IO.blocking(Files.readString(listPath, StandardCharsets.UTF_8))
+        outReplies <- IO.blocking(Files.readString(repliesPath, StandardCharsets.UTF_8))
+      } yield {
+        assert(result.isLeft)
+        assertEquals(outList, """{"not": "an array"}""")
+        assertEquals(outReplies, "[]")
+      }
+    }
   }
 }

@@ -27,7 +27,7 @@ object HealthcheckPing {
       healthcheckCron: CronExpr
   )(using log: LogWriter[F]): F[Unit] = {
     val ticks = Cron4sScheduler.systemDefault[F].awakeEvery(healthcheckCron).void
-    val ping  = sendHealthcheckEndpoint(client = client, healthcheckEndpoint = healthcheckEndpoint).void
+    val ping  = heartbeat(client = client, healthcheckEndpoint = healthcheckEndpoint)
     start(client, healthcheckEndpoint) >>
       resilient(ticks = ticks, ping = ping, restartDelay = restartDelay).compile.drain.start.void
   }
@@ -45,6 +45,15 @@ object HealthcheckPing {
           Stream.sleep_(restartDelay) ++
           resilient(ticks = ticks, ping = ping, restartDelay = restartDelay)
       )
+
+  /** A heartbeat that is not accepted, or that takes too long, is an error: the heartbeat starts again after the delay.
+    */
+  private[main] def heartbeat[F[_]: Async](client: Client[F], healthcheckEndpoint: Uri): F[Unit] =
+    sendHealthcheckEndpoint(client = client, healthcheckEndpoint = healthcheckEndpoint)
+      .timeout(10.seconds)
+      .flatMap(ok => Async[F].raiseError[Unit](HeartbeatRejected).unlessA(ok))
+
+  case object HeartbeatRejected extends Throwable("The heartbeat ping was not accepted")
 
   def sendHealthcheckEndpoint[F[_]](client: Client[F], healthcheckEndpoint: Uri): F[Boolean] =
     client.successful(
