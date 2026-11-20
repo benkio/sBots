@@ -374,18 +374,29 @@ surface OperatorConsole {
         OperatorRunsDataEntry(bot, inputs)
 }
 
--- An operator feeds the data entry with links, each a plain http(s) URL or `<botId>_<name>=<url>`.
+-- An operator feeds the data entry with links. Each input is trimmed, then must be one of:
+--   is_plain_url(input, bot): an http(s) URL that is a valid URI whose last path segment is the media filename
+--     (e.g. a Dropbox share link), the filename being `<bot.id>_<name>` with a non empty name;
+--   is_named_url(input, bot): `<bot.id>_<name>=<url>`, split on the first `=`, with a non empty name, a non empty
+--     url that is a valid URI, and the filename starting with `<bot.id>_`.
+-- A plain url is recognised first (it may itself contain `=` in its query); anything else is a named input.
+-- (black box predicates, SBot DataEntry.parseInputLink)
 rule DataEntryParsesLinks {
     when: OperatorRunsDataEntry(bot, inputs)
 
+    -- both files must exist and contain valid json arrays (malformed json or a non array is a rejection)
     requires: bot.list_json_exists and bot.replies_json_exists
-    requires: inputs.all(i => is_plain_url(i) or is_named_url(i))
-    -- a named input needs a non empty name containing the `_` separator between botId and name, and a non empty url
+    requires: bot.list_json_is_array and bot.replies_json_is_array
+    requires: inputs.all(i => is_plain_url(i, bot) or is_named_url(i, bot))
 
     ensures:
         let run = DataEntryRun.created(bot: bot, inputs: inputs, status: in_progress)
-        -- sources are appended to the bot's media list, grouped, and the replies built from the groups
-        -- are prepended to the bot's replies; a Dropbox `dl=0` link is stored as `dl=1`
+        -- the sources (filename, no kinds, mime guessed from the filename) are appended to the bot's media list;
+        -- they are grouped by the filename without its extension (gif, markdown and sticker suffixes included),
+        -- one reply per group is built with the placeholder trigger text "new data" and the replies are prepended
+        -- to the bot's replies (the order of the new replies is unspecified);
+        -- a `dl=0` query flag is stored as `dl=1` for Dropbox links only
+        -- both files are replaced through a temporary file; if the second replacement fails the first is restored
         MediaListExtended(bot: bot, run: run)
         RepliesExtended(bot: bot, run: run)
 }
@@ -396,11 +407,14 @@ rule DataEntryFinishes {
     ensures: run.status = done
 }
 
+-- The code reports a rejection as an error and never builds a DataEntryRun; `failed` is the spec's view of it.
+-- An empty `inputs` is vacuously valid: the run completes and both files are rewritten with the same content.
 rule DataEntryRejectsInvalidInput {
     when: OperatorRunsDataEntry(bot, inputs)
 
     requires: not bot.list_json_exists or not bot.replies_json_exists
-        or inputs.any(i => not (is_plain_url(i) or is_named_url(i)))
+        or not bot.list_json_is_array or not bot.replies_json_is_array
+        or inputs.any(i => not (is_plain_url(i, bot) or is_named_url(i, bot)))
 
     -- nothing is written when an input or a file is invalid, the replies file included
     ensures: DataEntryRun.created(bot: bot, inputs: inputs, status: failed)
