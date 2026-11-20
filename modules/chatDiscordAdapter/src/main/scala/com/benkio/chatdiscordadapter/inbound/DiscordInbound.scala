@@ -17,6 +17,7 @@ final case class DiscordMessageEvent(
     channelId: String,
     isDirect: Boolean,
     authorIsBot: Boolean,
+    authorId: String,
     content: String,
     createdAtEpochSecond: Long
 )
@@ -30,6 +31,7 @@ final case class DiscordSlashCommandEvent(
     channelId: String,
     isDirect: Boolean,
     authorIsBot: Boolean,
+    authorId: String,
     name: String,
     arguments: Option[String],
     createdAtEpochSecond: Long
@@ -53,7 +55,8 @@ object DiscordInbound {
         date = event.createdAtEpochSecond,
         chatId = chatId(event.channelId),
         chatType = chatType(event.isDirect),
-        text = Some(event.content)
+        text = Some(event.content),
+        authorId = Some(event.authorId)
       )
     )
 
@@ -68,7 +71,8 @@ object DiscordInbound {
         chatId = chatId(event.channelId),
         chatType = chatType(event.isDirect),
         text =
-          Some((syntax.invocation(event.name) +: event.arguments.map(_.trim).filter(_.nonEmpty).toList).mkString(" "))
+          Some((syntax.invocation(event.name) +: event.arguments.map(_.trim).filter(_.nonEmpty).toList).mkString(" ")),
+        authorId = Some(event.authorId)
       )
     )
 

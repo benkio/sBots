@@ -15,6 +15,8 @@ import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.Logger.given
 import com.benkio.chatdiscordadapter.outbound.DiscordApi
+import com.benkio.chatdiscordadapter.outbound.DiscordButtonLists
+import com.benkio.chatdiscordadapter.outbound.DiscordButtonMessage
 import munit.CatsEffectSuite
 
 import java.nio.file.Path
@@ -36,6 +38,10 @@ class DiscordPlatformAdapterSpec extends CatsEffectSuite {
     override def sendFile(channelId: String, fileName: String, file: Path, replyToMessageId: Option[String]) =
       IO.pure("id")
     override def deleteMessage(channelId: String, messageId: String): IO[Unit] = IO.unit
+    override def sendButtons(channelId: String, message: DiscordButtonMessage, replyToMessageId: Option[String]) =
+      IO.unit.as("sent3")
+    override def editButtons(channelId: String, messageId: String, message: DiscordButtonMessage) =
+      IO.unit
   }
 
   private def adapter(api: IO[DiscordApi[IO]], startGateway: IO[Unit] = IO.unit): DiscordPlatformAdapter[IO] =
@@ -46,7 +52,8 @@ class DiscordPlatformAdapterSpec extends CatsEffectSuite {
       effectfulCallbacks = Map.empty,
       dbLayer = DBLayerMock.mock(SBotId("bot")),
       ttl = None,
-      startGateway = startGateway
+      startGateway = startGateway,
+      lists = new DiscordButtonLists[IO](Ref.unsafe(Map.empty), 1.minute, 10)
     )
 
   test("the adapter is the Discord platform") {

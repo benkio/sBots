@@ -284,9 +284,11 @@ rule CallbackDeliversShow {
     ensures: press.keyboard.message.deleted = true
 }
 
--- Discord: the message lists the items of the page as numbered text, cut to max_text_length; row 1 has the buttons "1" to
--- "n" (one per item of the page, they pick the item), row 2 has previous and next (disabled at the first and at the last
--- page). The id of every button is the one of the platform-neutral PagedListAction (at most 100 characters, the label at
+-- Discord: the message lists the items of the page as numbered text, cut to max_text_length; row 1 has one button per item
+-- of the page that can be picked (a media file or a show), labelled with the number of the item in the text, row 2 has
+-- previous and next (disabled at the first and at the last page), only when there is more than one page. The lists are
+-- remembered in memory by the id of their message: they expire and a restart forgets them (the buttons then say the list
+-- is gone). The id of every button is the one of the platform-neutral PagedListAction (at most 100 characters, the label at
 -- most 80).
 rule SendPagedListAsDiscordButtons {
     when: core/Reply.sent(chat, reply)

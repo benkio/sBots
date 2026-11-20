@@ -13,9 +13,9 @@ class DiscordCapabilitiesSpec extends FunSuite {
   private val capabilities = DiscordCapabilities.value
   private val link         = uri"https://example.com/a.mp3"
 
-  test("Discord is the Discord platform, without buttons and file references") {
+  test("Discord is the Discord platform, with buttons and without file references") {
     assertEquals(capabilities.platform, Platform.Discord)
-    assert(!capabilities.supportsButtons)
+    assert(capabilities.supportsButtons)
     assert(!capabilities.acceptsFileIds)
   }
 
