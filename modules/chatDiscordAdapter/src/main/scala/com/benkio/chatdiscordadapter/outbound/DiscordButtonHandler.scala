@@ -12,8 +12,8 @@ import log.effect.LogWriter
 /** A button pressed on a list: where, who and what it carries. */
 final case class DiscordButtonPress(channelId: String, messageId: String, userId: String, id: String)
 
-/** What happens when a button of a list is pressed. [[decide]] is quick: it only answers whether the press is accepted, so
-  * that the interaction can be acknowledged in the 3 seconds Discord gives; the work is in the effect it gives back.
+/** What happens when a button of a list is pressed. [[decide]] is quick: it only answers whether the press is accepted,
+  * so that the interaction can be acknowledged in the 3 seconds Discord gives; the work is in the effect it gives back.
   *
   * @param navigate
   *   the reply of an action on the list (see [[PagedListNavigation]]), run from the message that asked for the list
@@ -34,9 +34,9 @@ class DiscordButtonHandler[F[_]: Async: LogWriter](
   /** `Left` with the text to show only to who pressed, or the work to do. */
   def decide(press: DiscordButtonPress): F[Either[String, F[Unit]]] =
     lists.get(press.messageId).map {
-      case None                                                      => Left(listGone)
+      case None                                                     => Left(listGone)
       case Some(list) if list.requestedBy.exists(_ != press.userId) => Left(notYours)
-      case Some(list)                                                =>
+      case Some(list)                                               =>
         PagedListAction.fromId(press.id).toRight(unknownButton).map(act(press, list, _))
     }
 

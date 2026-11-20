@@ -8,8 +8,8 @@ import com.benkio.chatcore.model.reply.PagedListAction
 import com.benkio.chatdiscordadapter.model.DiscordLimits
 
 /** A [[PagedList]] as a Discord message. Telegram's layout, a row per item, would need more than the 5 rows of Discord,
-  * so: the page as numbered text, a row of buttons that pick an item (labelled with the number of the item in the text),
-  * and a row with previous and next, when there is more than a page. The ids of the buttons are the ones of the
+  * so: the page as numbered text, a row of buttons that pick an item (labelled with the number of the item in the
+  * text), and a row with previous and next, when there is more than a page. The ids of the buttons are the ones of the
   * [[PagedListAction]].
   */
 object DiscordPagedListLayout {
@@ -18,13 +18,23 @@ object DiscordPagedListLayout {
 
   def render(pagedList: PagedList): DiscordButtonMessage = {
     val pickRow = pagedList.pageItems.zipWithIndex.flatMap { case (item, index) =>
-      pickAction(item).flatMap(_.toId).map(id => DiscordButton(id, s"${pagedList.page * pagedList.pageSize + index + 1}"))
+      pickAction(item)
+        .flatMap(_.toId)
+        .map(id => DiscordButton(id, s"${pagedList.page * pagedList.pageSize + index + 1}"))
     }
     val navigationRow =
       Option.when(pagedList.totalPages > 1)(
         List(
-          navigation(label = "Previous", action = PagedListAction.PreviousPage(pagedList.page, pagedList.commandKey), disabled = !pagedList.hasPrevious),
-          navigation(label = "Next", action = PagedListAction.NextPage(pagedList.page, pagedList.commandKey), disabled = !pagedList.hasNext)
+          navigation(
+            label = "Previous",
+            action = PagedListAction.PreviousPage(pagedList.page, pagedList.commandKey),
+            disabled = !pagedList.hasPrevious
+          ),
+          navigation(
+            label = "Next",
+            action = PagedListAction.NextPage(pagedList.page, pagedList.commandKey),
+            disabled = !pagedList.hasNext
+          )
         ).flatten
       )
     DiscordButtonMessage(

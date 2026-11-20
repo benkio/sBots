@@ -35,7 +35,11 @@ class DiscordButtonHandlerSpec extends CatsEffectSuite {
       calls.update(_ :+ s"edit:$messageId:${message.rows.head.map(_.label).mkString(",")}")
   }
 
-  private case class Fixture(handler: DiscordButtonHandler[IO], calls: Ref[IO, List[String]], lists: DiscordButtonLists[IO])
+  private case class Fixture(
+      handler: DiscordButtonHandler[IO],
+      calls: Ref[IO, List[String]],
+      lists: DiscordButtonLists[IO]
+  )
 
   private def fixture: IO[Fixture] =
     for {
@@ -84,7 +88,7 @@ class DiscordButtonHandlerSpec extends CatsEffectSuite {
 
   test("a pick deletes the list message and sends the item") {
     for {
-      f      <- fixture
+      f <- fixture
       action = PagedListAction.Media("f3.mp3")
       d      <- f.handler.decide(press(user = "alice", action = action))
       _      <- d.toOption.get
@@ -109,8 +113,10 @@ class DiscordButtonHandlerSpec extends CatsEffectSuite {
 
   test("a list that is gone and a button that is not valid get a clear answer") {
     for {
-      f       <- fixture
-      gone    <- f.handler.decide(press(user = "alice", action = PagedListAction.NextPage(0, CommandKey.TopTwenty), messageId = "other"))
+      f    <- fixture
+      gone <- f.handler.decide(
+        press(user = "alice", action = PagedListAction.NextPage(0, CommandKey.TopTwenty), messageId = "other")
+      )
       invalid <- f.handler.decide(DiscordButtonPress("9", "m1", "alice", "nonsense"))
     } yield {
       assertEquals(gone.left.toOption, Some(f.handler.listGone))

@@ -15,8 +15,8 @@ import scala.concurrent.duration.*
   */
 final case class DiscordButtonList(requestedBy: Option[String], request: Message, pagedList: PagedList)
 
-/** The lists with buttons that are on the channels, by the id of their message, in memory: a restart or the expiry forget
-  * them and their buttons answer that the list is gone. Bounded: the oldest are dropped.
+/** The lists with buttons that are on the channels, by the id of their message, in memory: a restart or the expiry
+  * forget them and their buttons answer that the list is gone. Bounded: the oldest are dropped.
   */
 class DiscordButtonLists[F[_]: Monad: Clock](
     lists: Ref[F, Map[String, (FiniteDuration, DiscordButtonList)]],
@@ -27,8 +27,7 @@ class DiscordButtonLists[F[_]: Monad: Clock](
   def put(messageId: String, list: DiscordButtonList): F[Unit] =
     Clock[F].realTime.flatMap(now =>
       lists.update(current =>
-        (current.filter { case (_, (at, _)) => now - at <= timeToLive } + (messageId -> (now, list)))
-          .toList
+        (current.filter { case (_, (at, _)) => now - at <= timeToLive } + (messageId -> (now, list))).toList
           .sortBy { case (_, (at, _)) => at }
           .takeRight(maxLists)
           .toMap
@@ -49,5 +48,7 @@ object DiscordButtonLists {
       timeToLive: FiniteDuration = 30.minutes,
       maxLists: Int = 500
   ): F[DiscordButtonLists[F]] =
-    Ref.of[F, Map[String, (FiniteDuration, DiscordButtonList)]](Map.empty).map(new DiscordButtonLists[F](_, timeToLive, maxLists))
+    Ref
+      .of[F, Map[String, (FiniteDuration, DiscordButtonList)]](Map.empty)
+      .map(new DiscordButtonLists[F](_, timeToLive, maxLists))
 }
