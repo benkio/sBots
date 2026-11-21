@@ -131,9 +131,11 @@ SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' A
 
   Several command alias are defined in the project to group together useful ~sbt~ commands:
   - ~dbSetup~ :: Run the botDB main that set up the DB anew. Running the migrations and updating the media tables based on the JSON in the bots folders.
-  - ~fix~ :: Run the ~scalafmt~ and ~scalafix~ in the whole project.
-  - ~check~ :: Check the project for formatting and dependencies using ~sbt~ plugins such as ~scalafmt~.
-  - ~validate~ :: compile clean and test. It includes the ~fix~ command and it is run in the CI.
+  - ~fix~ :: Mutating: ~scalafmt~/~scalafix~ plus regeneration of triggers, calendars and instructions. Run locally after bot data changes; never in CI.
+  - ~check~ :: Read-only formatting and explicit-dependency checks using ~sbt~ plugins such as ~scalafmt~.
+  - ~verify~ :: Full read-only verification: ~check~, instruction check, ~dbSetup~, coverage, unit and integration tests, assembly. This is the CI path.
+  - ~validate~ :: Deprecated alias of ~verify~. It used to include ~fix~; it no longer writes files.
+  - ~integrationLiveNetworkTests~ :: Opt-in live Dropbox/Mega integration tests (tagged ~LiveNetwork~, excluded from ~verify~). Also available as the "Live-network integration tests" manual GitHub workflow.
   - ~checkAllLinksTest~ :: Run a parallel test and checks all the
     media links in the DB and can be called manually by ~sbt
     integration/runIntegrationScalaTests~. Run it once in a while

@@ -64,10 +64,17 @@ addCommandAlias("generateTriggerDocumentation", "main/runMain com.benkio.main.Ge
 addCommandAlias("generateCalendar", "main/runMain com.benkio.main.GenerateCalendar")
 addCommandAlias("generateInstructions", "main/runMain com.benkio.main.GenerateInstructions")
 addCommandAlias("checkInstructions", "main/runMain com.benkio.main.GenerateInstructions --check")
+// Read-only verification. Never include `fix` or the generators here: CI must be able to check a
+// change without rewriting tracked files. Live-network integration tests are opt-in (see below).
 addCommandAlias(
-  "validate",
-  "fix; checkInstructions; dbSetup; coverage; test; integration/mUnitTests; coverageAggregate; coverageOff; assembly"
+  "verify",
+  "check; checkInstructions; dbSetup; coverage; test; integration/mUnitTests; coverageAggregate; coverageOff; assembly"
 )
+// Backwards-compatible alias. `validate` used to run `fix` first; it is now purely read-only.
+addCommandAlias("validate", "verify")
+// Opt-in: live Dropbox/Mega integration tests depend on external providers, so they are excluded
+// from `verify` by the LiveNetwork tag and run only on demand.
+addCommandAlias("integrationLiveNetworkTests", "integration/mUnitLiveNetworkTests")
 // Data Entry Aliases
 addCommandAlias("abarAddData", "ABarberoBot/runMain com.benkio.ABarberoBot.ABarberoBotMainDataEntry")
 addCommandAlias("xahAddData", "XahLeeBot/runMain com.benkio.XahLeeBot.XahLeeBotMainDataEntry")

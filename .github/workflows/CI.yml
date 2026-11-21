@@ -56,13 +56,16 @@ jobs:
     - uses: actions/checkout@v5
     - uses: ./.github/actions/setup-scala
     - name: Unit tests with coverage
-      run: sbt "dbSetup; generateTriggerDocumentation; generateCalendar; coverage; test; coverageAggregate; coverageOff"
+      # Read-only verification: no generators here. `sbt fix` is a local, mutating command that
+      # regenerates triggers/calendars/instructions; CI only verifies the checked-in result.
+      run: sbt "dbSetup; coverage; test; coverageAggregate; coverageOff"
   scalaIntegrationTests:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v5
     - uses: ./.github/actions/setup-scala
     - name: Integration tests
+      # Live-network Dropbox/Mega tests carry the LiveNetwork tag and are excluded here.
       run: sbt "dbSetup; integration/mUnitTests"
   scalaAssembly:
     runs-on: ubuntu-latest

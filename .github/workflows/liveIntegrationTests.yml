@@ -1,0 +1,15 @@
+name: Live-network integration tests
+
+# Opt-in only: these tests download from the real Dropbox/Mega providers, so provider/network
+# outages must not block normal PR validation. Run manually when a provider change needs checking.
+on:
+  workflow_dispatch:
+
+jobs:
+  liveNetwork:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v5
+    - uses: ./.github/actions/setup-scala
+    - name: Live Dropbox/Mega integration tests
+      run: sbt "dbSetup; integrationLiveNetworkTests"

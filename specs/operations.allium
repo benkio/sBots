@@ -1,5 +1,5 @@
 -- allium: 3
--- operations.allium: app wiring, runtimes, health and stats (modules/main). Excludes build-time generators.
+-- operations.allium: app wiring, runtimes, health and stats (modules/main), plus the operator-invoked file generators.
 
 use "./sbots.allium" as core
 
@@ -160,7 +160,9 @@ rule StartupCheckReports {
 }
 
 -- The IRC send delay, ready timeout and shutdown timeout are infrastructure tuning, not specified.
--- Build time: for each bot the generators write the triggers list, the instructions and the calendar files.
+-- The generators are an explicit operator action (sbt fix) run after bot data changes: for each bot they write the
+-- triggers list, the instructions and the calendar files. Read-only verification (sbt verify / CI) checks the
+-- checked-in files instead, so it never triggers this rule.
 rule GeneratorsWriteBotFiles {
     when: OperatorRunsGenerators()
     ensures:

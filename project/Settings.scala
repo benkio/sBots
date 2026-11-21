@@ -11,9 +11,10 @@ import Keys.*
 object Settings {
 
   // TASKS
-  lazy val mUnitTests = taskKey[Unit]("Run MUnit tests")
-  lazy val runMigrate = taskKey[Unit]("Migrates the database schema.")
-  lazy val scalaTests = taskKey[Unit]("Run ScalaTest tests")
+  lazy val mUnitTests              = taskKey[Unit]("Run MUnit tests (excludes live-network tests)")
+  lazy val mUnitLiveNetworkTests   = taskKey[Unit]("Run only the live-network MUnit tests (Dropbox/Mega)")
+  lazy val runMigrate              = taskKey[Unit]("Migrates the database schema.")
+  lazy val scalaTests              = taskKey[Unit]("Run ScalaTest tests")
 
   /** Statement-coverage threshold, rounded down from each module's current measured coverage (with a small safety
     * margin) so coverage checks reflect reality instead of an arbitrary one-size-fits-all number. Raise per-module as
@@ -81,8 +82,14 @@ object Settings {
     // `getClass.getResource("/")`, see Constants.scala for why).
     Test / javaOptions += s"-Dsbots.repoRoot=${(ThisBuild / baseDirectory).value.getAbsolutePath}",
     Test / javaOptions += s"-Dsbots.integrationTestResourcesDirectory=${(Test / resourceDirectory).value.getAbsolutePath}/",
+    // Live Dropbox/Mega tests are tagged LiveNetwork and excluded from the default verification
+    // path: provider/network instability must not break a PR. Run them with
+    // `sbt integrationLiveNetworkTests` when explicitly needed.
     mUnitTests := Def.uncached {
-      (Test / testOnly).toTask(" com.benkio.integration.integrationmunit.*").value
+      (Test / testOnly).toTask(" com.benkio.integration.integrationmunit.* -- --exclude-tags=LiveNetwork").value
+    },
+    mUnitLiveNetworkTests := Def.uncached {
+      (Test / testOnly).toTask(" com.benkio.integration.integrationmunit.* -- --include-tags=LiveNetwork").value
     },
     scalaTests := Def.uncached {
       (Test / testOnly).toTask(" com.benkio.integration.integrationscalatest.*").value
