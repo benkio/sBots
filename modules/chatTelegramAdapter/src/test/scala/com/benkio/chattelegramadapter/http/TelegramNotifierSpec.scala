@@ -74,7 +74,7 @@ class TelegramNotifierSpec extends CatsEffectSuite {
   private def failedRequest(code: Int, description: String): Throwable =
     telegramium.bots.high.FailedRequest(
       method = telegramium.bots.high.Methods.sendAnimation(
-        chatId = telegramium.bots.ChatIntId(5L),
+        chatId = Some(telegramium.bots.ChatIntId(5L)),
         animation = telegramium.bots.InputLinkFile("https://example.com/a.mp4")
       ),
       errorCode = Some(code),

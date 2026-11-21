@@ -3,7 +3,9 @@ package com.benkio.integration.integrationmunit.chatcore.http
 import cats.effect.IO
 import cats.syntax.all.*
 import com.benkio.integration.DBFixture
+import com.benkio.integration.LiveNetwork
 import munit.CatsEffectSuite
+import munit.TestOptions
 import org.http4s.syntax.literals.*
 import org.http4s.Uri
 
@@ -12,7 +14,9 @@ import java.nio.file.Path
 
 class ITDropboxClientSpec extends CatsEffectSuite with DBFixture {
 
-  databaseFixture.test("fetch should return the expected urls content in a file if the urls is valid") { fixture =>
+  databaseFixture.test(
+    TestOptions("fetch should return the expected urls content in a file if the urls is valid").tag(LiveNetwork)
+  ) { fixture =>
     val input = List(
       uri"https://www.dropbox.com/scl/fi/t5t952kwidqdyol4mutwv/rphjb_MaSgus.mp3?rlkey=f1fjff8ls4vjhs013plj1hrvs&dl=1" -> "rphjb_MaSgus.mp3",
       uri"https://www.dropbox.com/scl/fi/eb3h61camy0bsomtmxyn8/rphjb_MeNeVado.mp3?rlkey=ugnmubcnpig5phlluzonvy1wk&dl=1" -> "rphjb_MeNeVado.mp3",

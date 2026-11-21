@@ -23,7 +23,9 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main') || github.event_name == 'workflow_dispatch'
+    # Only the push run of "Scala CI" may deploy: the pull_request runs added for fork dependency PRs can also carry
+    # a head branch named `main`, but their code must never reach production.
+    if: (github.event_name == 'workflow_run' && github.event.workflow_run.event == 'push' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main') || github.event_name == 'workflow_dispatch'
     env:
       DEPLOY_HOST: ${{ vars.DEPLOY_HOST }}
       DEPLOY_PORT: ${{ vars.DEPLOY_PORT }}
@@ -145,7 +147,7 @@ jobs:
           name="sBots"
           supervisor=supervise-daemon
           command="/usr/bin/java"
-          command_args="-Xms64m -Xmx256m -Xss512k -XX:+UseG1GC -XX:G1PeriodicGCInterval=600000 -XX:MaxMetaspaceSize=160m -XX:ReservedCodeCacheSize=64m -XX:+ExitOnOutOfMemoryError -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=${{ env.DEPLOY_DIR }}/oom.hprof -Dlogback.configurationFile=logback-main.xml -cp ${{ env.DEPLOY_DIR }}/main.jar com.benkio.main.MainWebhook"
+          command_args="-Xms64m -Xmx256m -Xss512k -XX:+UseG1GC -XX:G1PeriodicGCInterval=600000 -XX:MaxMetaspaceSize=160m -XX:ReservedCodeCacheSize=64m -XX:+ExitOnOutOfMemoryError -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=${{ env.DEPLOY_DIR }}/oom.hprof -Dsbots.repoRoot=${{ env.DEPLOY_DIR }} -Dsbots.projectRoot=${{ env.DEPLOY_DIR }} -Dsbots.logFile=${{ env.DEPLOY_DIR }}/log.txt -Dlogback.configurationFile=logback-main.xml -cp ${{ env.DEPLOY_DIR }}/main.jar com.benkio.main.MainWebhook"
           directory="${{ env.DEPLOY_DIR }}"
           command_user="${{ env.DEPLOY_USER }}"
           pidfile="/run/sbots.pid"

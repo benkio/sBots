@@ -1,5 +1,7 @@
 package com.benkio.integration
 
-import org.scalatest.Tag
+object SlowTest extends org.scalatest.Tag("SlowTest")
 
-object SlowTest extends Tag("SlowTest")
+// Provider-dependent tests (live Dropbox/Mega downloads) are excluded from the default
+// verification path and run only through `sbt integrationLiveNetworkTests`.
+object LiveNetwork extends munit.Tag("LiveNetwork")

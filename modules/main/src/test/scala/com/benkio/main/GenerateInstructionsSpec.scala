@@ -1,6 +1,7 @@
 package com.benkio.main
 
 import cats.effect.ExitCode
+import com.benkio.chatcore.paths.SBotPaths
 import com.benkio.chattelegramadapter.SBot
 import munit.CatsEffectSuite
 
@@ -15,7 +16,11 @@ class GenerateInstructionsSpec extends CatsEffectSuite {
   test("GenerateInstructions.run should generate up-to-date instructions files for every bot") {
     val instructionFiles: List[Path] = BotRegistry.toList(BotRegistry.value).map { entry =>
       val config = SBot.buildSBotConfig(entry.sBotInfo)
-      Path.of(s"../bots/${entry.sBotInfo.botName.value}/${config.instructionsFilename}")
+      SBotPaths.repoRoot
+        .resolve("modules")
+        .resolve("bots")
+        .resolve(entry.sBotInfo.botName.value)
+        .resolve(config.instructionsFilename)
     }
     val fiveMinutesAgo = System.currentTimeMillis() - (5 * 60 * 1000)
     for {

@@ -435,6 +435,15 @@ class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
     }
   }
 
+  test("ReplyBundleCommand.textToMedia builds a media reply for the command") {
+    val command = ReplyBundleCommand.textToMedia("sound", CommandInstructionData.NoInstructions)(
+      Mp3File("audio.mp3")
+    )
+
+    assertEquals(command.trigger, CommandTrigger("sound"))
+    assertEquals(command.reply, MediaReply.fromList(List(Mp3File("audio.mp3"))))
+  }
+
   test("ReplyBundleCommand.from should return command bundle from command key") {
     PropF.forAllF { (commandKey: CommandKey) =>
       for {

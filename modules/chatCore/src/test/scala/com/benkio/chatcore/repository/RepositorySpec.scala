@@ -16,6 +16,7 @@ import com.benkio.chatcore.model.reply.Document
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.VideoFile
 import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.paths.SBotPaths
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBMediaData
 import com.benkio.chatcore.repository.db.DBRepository
@@ -30,12 +31,17 @@ import scala.util.Random
 class ResourceRepositorySpec extends CatsEffectSuite {
 
   val testfile       = "testFile"
-  val rootPath: Path = Paths.get("").toAbsolutePath()
+  val rootPath: Path = SBotPaths.projectRoot
   val random         = new Random()
 
   test("Repository - buildPath should return the expected path when the filename is provided") {
     val result = Repository.buildPath(testfile)
-    assertEquals(result, Paths.get(rootPath.toString, "src", "main", "resources", testfile))
+    assertEquals(result, rootPath.resolve("src").resolve("main").resolve("resources").resolve(testfile))
+  }
+
+  test("Repository - buildPath should treat a leading separator as relative to the stage resources root") {
+    val result = Repository.buildPath("/testdata/", Some("test"))
+    assertEquals(result, rootPath.resolve("src").resolve("test").resolve("resources").resolve("testdata/"))
   }
 
   test("toTempFile should create a temporary file with the expected content and name") {

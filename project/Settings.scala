@@ -11,9 +11,10 @@ import Keys.*
 object Settings {
 
   // TASKS
-  lazy val mUnitTests = taskKey[Unit]("Run MUnit tests")
-  lazy val runMigrate = taskKey[Unit]("Migrates the database schema.")
-  lazy val scalaTests = taskKey[Unit]("Run ScalaTest tests")
+  lazy val mUnitTests            = taskKey[Unit]("Run MUnit tests (excludes live-network tests)")
+  lazy val mUnitLiveNetworkTests = taskKey[Unit]("Run only the live-network MUnit tests (Dropbox/Mega)")
+  lazy val runMigrate            = taskKey[Unit]("Migrates the database schema.")
+  lazy val scalaTests            = taskKey[Unit]("Run ScalaTest tests")
 
   /** Statement-coverage threshold, rounded down from each module's current measured coverage (with a small safety
     * margin) so coverage checks reflect reality instead of an arbitrary one-size-fits-all number. Raise per-module as
@@ -24,16 +25,34 @@ object Settings {
     coverageMinimumStmtTotal := pct
   )
 
+  private def sbotsPathOptions(repoRoot: String, projectRoot: String): Seq[String] =
+    Seq(s"-Dsbots.repoRoot=$repoRoot", s"-Dsbots.projectRoot=$projectRoot")
+
   lazy val settings = Seq(
     organization      := "com.benkio",
     publishMavenStyle := true,
     scalaModuleInfo ~= (_.map(_.withOverrideScalaVersion(true))),
     update / scalaModuleInfo ~= (_.map(_.withOverrideScalaVersion(true))),
-    semanticdbEnabled        := true,
-    fork                     := true,
-    Test / publishArtifact   := false,
-    coverageExcludedPackages := "com\\.benkio\\.chatcore\\.mocks\\..*"
-  ) ++ lineCoverageThreshold(56)
+    semanticdbEnabled      := true,
+    fork                   := true,
+    Test / publishArtifact := false,
+    // Forks inherit the launch directory unless paths are explicit. Inject them for every project so tests and
+    // `run` behave the same from sbt, an IDE or a different shell directory. `fullRunTask` reads javaOptions from the
+    // task scope, not from `run`: without the third entry `dbSetup` resolves the bot media JSONs relative to the
+    // launch directory and generates an empty media table.
+    Test / javaOptions ++= sbotsPathOptions(
+      (ThisBuild / baseDirectory).value.getAbsolutePath,
+      baseDirectory.value.getAbsolutePath
+    ),
+    run / javaOptions ++= sbotsPathOptions(
+      (ThisBuild / baseDirectory).value.getAbsolutePath,
+      baseDirectory.value.getAbsolutePath
+    ),
+    runMigrate / javaOptions ++= sbotsPathOptions(
+      (ThisBuild / baseDirectory).value.getAbsolutePath,
+      baseDirectory.value.getAbsolutePath
+    )
+  ) ++ lineCoverageThreshold(56) // default threshold for modules without an explicit override
 
   lazy val assemblySettings = Seq(
     assembly / assemblyJarName       := name.value + ".jar",
@@ -63,7 +82,7 @@ object Settings {
   lazy val ChatDiscordAdapterSettings = Seq(
     name                := "chatDiscordAdapter",
     libraryDependencies := ChatDiscordAdapterDependencies
-  )
+  ) ++ lineCoverageThreshold(50) // measured baseline; raise as the Discord adapter coverage improves
 
   lazy val ChatIrcAdapterSettings = Seq(
     name                := "chatIrcAdapter",
@@ -77,12 +96,17 @@ object Settings {
     // These tests share a single botDB.sqlite3 file and in-memory caches; running them
     // concurrently races on that shared state and fails nondeterministically.
     Test / parallelExecution := false,
-    // Constants.scala needs these paths (previously found via the now-unreliable
-    // `getClass.getResource("/")`, see Constants.scala for why).
-    Test / javaOptions += s"-Dsbots.repoRoot=${(ThisBuild / baseDirectory).value.getAbsolutePath}",
+    // Constants.scala needs its own resources directory (previously found via the now-unreliable
+    // `getClass.getResource("/")`, see Constants.scala for why); the repo root is injected for every project above.
     Test / javaOptions += s"-Dsbots.integrationTestResourcesDirectory=${(Test / resourceDirectory).value.getAbsolutePath}/",
+    // Live Dropbox/Mega tests are tagged LiveNetwork and excluded from the default verification
+    // path: provider/network instability must not break a PR. Run them with
+    // `sbt integrationLiveNetworkTests` when explicitly needed.
     mUnitTests := Def.uncached {
-      (Test / testOnly).toTask(" com.benkio.integration.integrationmunit.*").value
+      (Test / testOnly).toTask(" com.benkio.integration.integrationmunit.* -- --exclude-tags=LiveNetwork").value
+    },
+    mUnitLiveNetworkTests := Def.uncached {
+      (Test / testOnly).toTask(" com.benkio.integration.integrationmunit.* -- --include-tags=LiveNetwork").value
     },
     scalaTests := Def.uncached {
       (Test / testOnly).toTask(" com.benkio.integration.integrationscalatest.*").value
@@ -90,9 +114,10 @@ object Settings {
   )
 
   /** Shared settings for all bot projects. Pass the project name (e.g. "CalandroBot") and its current line-coverage
-    * threshold (see `lineCoverageThreshold`).
+    * threshold (see `lineCoverageThreshold`). The default is the measured coverage of the data-only bot template; bots
+    * with custom logic raise it explicitly.
     */
-  def botProjectSettings(projectName: String, lineCoverage: Double = 10): Seq[Def.SettingsDefinition] = Seq(
+  def botProjectSettings(projectName: String, lineCoverage: Double = 35): Seq[Def.SettingsDefinition] = Seq(
     name                     := projectName,
     libraryDependencies      := BotDependencies,
     Test / resourceDirectory := (Compile / resourceDirectory).value
@@ -114,7 +139,6 @@ object Settings {
   def RepliesEditorServer(repliesEditorUI: ProjectReference) = Seq(
     name                := "repliesEditorServer",
     libraryDependencies := RepliesEditorServerDependencies,
-    run / javaOptions += s"-Dsbots.repoRoot=${(ThisBuild / baseDirectory).value.getAbsolutePath}",
     Compile / resourceGenerators += Def.task {
       val _        = (repliesEditorUI / Compile / fastLinkJS).value // ensure UI is linked before copying
       val uiOutDir = (repliesEditorUI / Compile / fastLinkJS / scalaJSLinkerOutputDirectory).value

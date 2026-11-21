@@ -64,10 +64,17 @@ addCommandAlias("generateTriggerDocumentation", "main/runMain com.benkio.main.Ge
 addCommandAlias("generateCalendar", "main/runMain com.benkio.main.GenerateCalendar")
 addCommandAlias("generateInstructions", "main/runMain com.benkio.main.GenerateInstructions")
 addCommandAlias("checkInstructions", "main/runMain com.benkio.main.GenerateInstructions --check")
+// Read-only verification. Never include `fix` or the generators here: CI must be able to check a
+// change without rewriting tracked files. Live-network integration tests are opt-in (see below).
 addCommandAlias(
-  "validate",
-  "fix; checkInstructions; dbSetup; coverage; test; integration/mUnitTests; coverageAggregate; coverageOff; assembly"
+  "verify",
+  "check; checkInstructions; dbSetup; coverage; test; coverageReport; integration/mUnitTests; coverageAggregate; coverageOff; assembly"
 )
+// Backwards-compatible alias. `validate` used to run `fix` first; it is now purely read-only.
+addCommandAlias("validate", "verify")
+// Opt-in: live Dropbox/Mega integration tests depend on external providers, so they are excluded
+// from `verify` by the LiveNetwork tag and run only on demand.
+addCommandAlias("integrationLiveNetworkTests", "integration/mUnitLiveNetworkTests")
 // Data Entry Aliases
 addCommandAlias("abarAddData", "ABarberoBot/runMain com.benkio.ABarberoBot.ABarberoBotMainDataEntry")
 addCommandAlias("xahAddData", "XahLeeBot/runMain com.benkio.XahLeeBot.XahLeeBotMainDataEntry")
@@ -146,7 +153,8 @@ lazy val chatIrcAdapter =
 lazy val CalandroBot =
   Project("CalandroBot", file("modules/bots/CalandroBot"))
     .settings(Settings.settings *)
-    .settings(Settings.botProjectSettings("CalandroBot", lineCoverage = 20) *)
+    // Data-only bot: fully covered by its engine spec.
+    .settings(Settings.botProjectSettings("CalandroBot", lineCoverage = 90) *)
     .settings(libraryDependencies := Dependencies.CalandroBotDependencies)
     .dependsOn(chatCore % "compile->compile;test->test")
 
@@ -159,7 +167,8 @@ lazy val ABarberoBot =
 lazy val RichardPHJBensonBot =
   Project("RichardPHJBensonBot", file("modules/bots/RichardPHJBensonBot"))
     .settings(Settings.settings *)
-    .settings(Settings.botProjectSettings("RichardPHJBensonBot", lineCoverage = 56) *)
+    // Custom logic (Bensonify + effectful callback): keep the threshold close to the measured coverage.
+    .settings(Settings.botProjectSettings("RichardPHJBensonBot", lineCoverage = 80) *)
     .dependsOn(chatCore % "compile->compile;test->test")
 
 lazy val XahLeeBot =
@@ -233,7 +242,7 @@ lazy val repliesEditorServer =
     .settings(
       Settings.RepliesEditorServer(repliesEditorUI)
     )
-    .dependsOn(chatCore % "compile->compile;test->test", main % "compile->compile")
+    .dependsOn(chatCore % "compile->compile;test->test")
 
 lazy val integration = (project in file("modules/integration-tests"))
   // This project has only src/test, no src/main; disable coverage instrumentation.

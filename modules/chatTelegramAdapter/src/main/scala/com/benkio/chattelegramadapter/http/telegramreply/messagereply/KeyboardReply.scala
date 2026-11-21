@@ -35,7 +35,7 @@ object KeyboardReply {
         message <-
           Methods
             .sendMessage(
-              chatId = chatId,
+              chatId = Some(chatId),
               text = reply.keyboardTitle,
               replyParameters = msg.replyParameters(replyToMessage),
               replyMarkup = Some(

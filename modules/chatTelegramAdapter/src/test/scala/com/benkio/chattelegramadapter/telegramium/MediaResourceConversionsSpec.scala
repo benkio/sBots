@@ -8,17 +8,17 @@ import com.benkio.chatcore.model.media.MediaResource.MediaResourceFile
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceIFile
 import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.Platform
+import com.benkio.chatcore.paths.SBotPaths
 import com.benkio.chattelegramadapter.conversions.MediaResourceConversions.*
 import munit.*
 import telegramium.bots.InputLinkFile
 import telegramium.bots.InputPartFile
 
 import java.nio.file.Path
-import java.nio.file.Paths
 
 class MediaResourceConversionsSpec extends CatsEffectSuite {
   test("toTelegramApi should return the expected Telegram Type") {
-    val path      = Paths.get(".")
+    val path      = SBotPaths.projectRoot.resolve("media-resource-test")
     val actual1   = MediaResourceFile(Resource.pure[IO, Path](path)).toTelegramApi
     val expected1 = InputPartFile(path.toFile())
     // --------------------------------------------------

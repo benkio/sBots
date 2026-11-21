@@ -1,6 +1,7 @@
 package com.benkio.botDB.show
 
 import cats.effect.IO
+import com.benkio.chatcore.paths.SBotPaths
 import com.benkio.chatcore.Logger.given
 import munit.CatsEffectSuite
 
@@ -36,7 +37,8 @@ class CaptionParserSpec extends CatsEffectSuite {
   }
 
   test("CaptionParser.parsePlainCaptionSrt should return None for missing file") {
-    val missingCaptionPath: Path = Path.of("target", s"caption-parser-missing-${UUID.randomUUID()}.srt")
+    val missingCaptionPath: Path =
+      SBotPaths.projectRoot.resolve("target").resolve(s"caption-parser-missing-${UUID.randomUUID()}.srt")
 
     for {
       result <- captionParser.parsePlainCaptionSrt(missingCaptionPath)
@@ -71,7 +73,8 @@ class CaptionParserSpec extends CatsEffectSuite {
   }
 
   test("CaptionParser.parseCaptionSrt should return empty map for missing file") {
-    val missingCaptionPath: Path = Path.of("target", s"caption-parser-map-missing-${UUID.randomUUID()}.srt")
+    val missingCaptionPath: Path =
+      SBotPaths.projectRoot.resolve("target").resolve(s"caption-parser-map-missing-${UUID.randomUUID()}.srt")
 
     for {
       result <- captionParser.parseCaptionSrt(missingCaptionPath)

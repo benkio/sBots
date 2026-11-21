@@ -7,7 +7,8 @@ restart, rollback). Grafana details: `docs/monitoring.md`.
 
 - Logs without SSH: Grafana Explore, query `{app="sbots"}`; or run the workflow "Download Prod DB and log files"
   (`downloadDB.yml`): artifacts `prod sqlite-db`, `prod logTxt`, `prod sbots logs` (`sbots.log`, `sbots.err.log`).
-- Logs on the VM (`DEPLOY_DIR`): `sbots.log`, `sbots.err.log`, `log.txt` (how the app ended). Rotated at 20 MB, 5 kept.
+- Logs on the VM (`DEPLOY_DIR`): `sbots.log`, `sbots.err.log`, `log.txt` (how the app ended; the service sets
+  `sbots.logFile` explicitly, so an unconfigured launch creates no crash-history file). Rotated at 20 MB, 5 kept.
 - Restart: `sudo rc-service sbots restart`; or the workflow "Deploy" (`workflow_dispatch`).
 - Rollback: revert the commit on `main` (the deploy follows). Database: stop the service and copy `botDB.sqlite3.bak` over
   `botDB.sqlite3` (only the previous deploy's DB, the data written since is lost).

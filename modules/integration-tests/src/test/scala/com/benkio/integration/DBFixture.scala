@@ -6,6 +6,7 @@ import cats.effect.Resource
 import com.benkio.chatcore.http.DropboxClient
 import com.benkio.chatcore.http.HttpClients
 import com.benkio.chatcore.http.MegaClient
+import com.benkio.chatcore.paths.SBotPaths
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBRepository
 import com.benkio.chatcore.repository.Repository
@@ -18,7 +19,7 @@ import org.http4s.client.Client
 import org.http4s.ember.client.*
 
 import java.nio.file.Files
-import java.nio.file.Paths
+import java.nio.file.Path
 import java.sql.Connection
 import java.sql.DriverManager
 
@@ -44,12 +45,15 @@ trait DBFixture { self: FunSuite =>
 
 object DBFixture {
 
-  val dbName: String         = "botDB.sqlite3"
-  val resourcePath: String   = Paths.get(".").resolve("..").toAbsolutePath().normalize().toString
-  val dbPath: String         = s"$resourcePath/../$dbName"
-  val dbUrl: String          = s"jdbc:sqlite:$dbPath";
-  val deleteDB: Boolean      = false
-  val migrationPath: String  = "filesystem:" + resourcePath + "/botDB/src/main/resources/db/migrations"
+  private val repoRoot: Path = SBotPaths.repoRoot
+
+  val dbName: String        = "botDB.sqlite3"
+  val resourcePath: String  = repoRoot.toString
+  val dbPath: String        = repoRoot.resolve(dbName).toString
+  val dbUrl: String         = s"jdbc:sqlite:$dbPath";
+  val deleteDB: Boolean     = false
+  val migrationPath: String =
+    "filesystem:" + repoRoot.resolve("modules/botDB/src/main/resources/db/migrations").toString
   val migrationTable: String = "FlywaySchemaHistory"
 
   def fixtureSetup(@unused testOptions: TestOptions)(using log: LogWriter[IO]): DBFixtureResources = {
@@ -103,7 +107,7 @@ object DBFixture {
   }
 
   def teardownFixture(fixture: DBFixtureResources): Unit = {
-    if deleteDB then Files.deleteIfExists(Paths.get(dbPath))
+    if deleteDB then Files.deleteIfExists(Path.of(dbPath))
     else cleanDB(fixture.connection)
     fixture.connection.close()
     ()

@@ -9,13 +9,13 @@ import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.PlatformCapabilities
 import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.paths.SBotPaths
 import com.benkio.chatcore.repository.db.DBMediaData
 import log.effect.LogWriter
 
 import java.io.FileInputStream
 import java.nio.file.Files
 import java.nio.file.Path
-import java.nio.file.Paths
 import scala.io.Source
 
 trait Repository[F[_]] {
@@ -92,14 +92,15 @@ object Repository {
           Resource.pure[F, String]("")
       )
 
-  def buildPath(subResourceFilePath: String, stage: Option[String] = None): Path =
-    Paths.get(
-      Paths.get("").toAbsolutePath().toString(),
-      "src",
-      stage.getOrElse("main"),
-      "resources",
-      subResourceFilePath
-    )
+  /** Resolves a resource path against the injected project root instead of the process working directory. A leading
+    * separator in `subResourceFilePath` is ignored: these values are stage-relative resource paths (some configs still
+    * use a leading `/`, e.g. `/testdata/`), not filesystem absolute paths. `Path.resolve` would otherwise discard the
+    * stage root and search the filesystem root.
+    */
+  def buildPath(subResourceFilePath: String, stage: Option[String] = None): Path = {
+    val relative = subResourceFilePath.dropWhile(c => c == '/' || c == '\\')
+    SBotPaths.resourcesRoot(stage.getOrElse("main")).resolve(relative)
+  }
 
   def getResourceByteArray[F[_]: Async: LogWriter](
       resourceName: String

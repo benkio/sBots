@@ -1,5 +1,6 @@
 package com.benkio.chatcore.http
 
+import cats.effect.Async
 import cats.effect.Resource
 import org.http4s.Uri
 
@@ -16,20 +17,24 @@ object HttpClients {
     case Mega
   }
 
-  def expectedClient(uri: Uri): ExpectedClient =
+  /** Typed error for a URI no configured client can handle. It is raised in `F` by [[fetchFile]], never thrown from a
+    * pure helper.
+    */
+  final case class UnsupportedClient(uri: Uri) extends RuntimeException(s"Not supported client for uri: $uri")
+
+  def expectedClient(uri: Uri): Either[UnsupportedClient, ExpectedClient] =
     uri.host match {
-      case Some(host) if host.value.contains("mega.nz")     => ExpectedClient.Mega
-      case Some(host) if host.value.contains("dropbox.com") => ExpectedClient.Dropbox
-      case _                                                =>
-        throw new IllegalArgumentException(s"Not supported client for uri: $uri")
+      case Some(host) if host.value.contains("mega.nz")     => Right(ExpectedClient.Mega)
+      case Some(host) if host.value.contains("dropbox.com") => Right(ExpectedClient.Dropbox)
+      case _                                                => Left(UnsupportedClient(uri))
     }
 
-  def fetchFile[F[_]](
+  def fetchFile[F[_]: Async](
       clients: HttpClients[F],
       filename: String,
       uri: Uri
   ): Resource[F, Path] =
-    expectedClient(uri) match {
+    Resource.eval(Async[F].fromEither(expectedClient(uri))).flatMap {
       case ExpectedClient.Mega    => clients.megaClient.fetchFile(filename, uri)
       case ExpectedClient.Dropbox => clients.dropboxClient.fetchFile(filename, uri)
     }

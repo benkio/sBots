@@ -1,5 +1,5 @@
 -- allium: 3
--- operations.allium: app wiring, runtimes, health and stats (modules/main). Excludes build-time generators.
+-- operations.allium: app wiring, runtimes, health and stats (modules/main), plus the operator-invoked file generators.
 
 use "./sbots.allium" as core
 
@@ -119,7 +119,7 @@ rule AppCrashes {
     when: app: Application.end != null
     requires: app.end = crashed
     requires: app.status = running
-    -- the reason is logged and appended to the crash history with time and stack trace
+    -- the reason is always logged; an operator-configured crash history also records time and stack trace
     ensures: CrashLogged(reason: app.crash_reason)
     ensures: app.status = crashed
     ensures: HealthSignalSent(kind: fail)
@@ -149,7 +149,8 @@ rule SystemStatsLine {
 
 -- ops notifications go to the Telegram ops chat for Telegram bots and only to the log for Discord and IRC bots (intended)
 -- Slack is kept in the Platform enum as planned: a bot configured for it makes startup fail (intended)
--- the crash history file is infrastructure and not specified
+-- the crash history is optional operator-configured infrastructure: with no history path configured the app logs and
+-- signals the crash but creates no file in its launch directory
 
 -- Telegram startup: probes (db, Telegram, Dropbox, Mega) and, after a deploy, a test media file to the ops chat.
 -- A failed check never blocks the start.
@@ -160,7 +161,9 @@ rule StartupCheckReports {
 }
 
 -- The IRC send delay, ready timeout and shutdown timeout are infrastructure tuning, not specified.
--- Build time: for each bot the generators write the triggers list, the instructions and the calendar files.
+-- The generators are an explicit operator action (sbt fix) run after bot data changes: for each bot they write the
+-- triggers list, the instructions and the calendar files. Read-only verification (sbt verify / CI) checks the
+-- checked-in files instead, so it never triggers this rule.
 rule GeneratorsWriteBotFiles {
     when: OperatorRunsGenerators()
     ensures:

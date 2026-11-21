@@ -17,6 +17,7 @@ import com.benkio.chatcore.model.RegexTextTriggerValue
 import com.benkio.chatcore.model.StringTextTriggerValue
 import com.benkio.chatcore.model.TextTrigger
 import com.benkio.chatcore.model.Trigger
+import com.benkio.chatcore.paths.SBotPaths
 import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.JsonDataRepository
@@ -33,7 +34,6 @@ import wolfendale.scalacheck.regexp.RegexpGen
 
 import java.nio.file.Files
 import java.nio.file.Path
-import java.nio.file.Paths
 import scala.io.Source
 
 trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
@@ -61,7 +61,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
   def botJsonsAreValid(
       sBotConfig: SBotConfig
   ): Unit = {
-    val basePath                  = Paths.get(".").toAbsolutePath().normalize()
+    val basePath                  = SBotPaths.projectRoot
     val jsonRootPaths: List[Path] =
       List(
         sBotConfig.listJsonFilename,
@@ -92,7 +92,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
       botData: IO[List[String]]
   ): Unit =
     test(s"the `$jsonFilename` should contain all the triggers of the bot") {
-      val listPath            = Paths.get(".").toAbsolutePath().normalize().resolve(jsonFilename)
+      val listPath            = SBotPaths.projectRoot.resolve(jsonFilename)
       val jsonContent         = Files.readString(listPath)
       val jsonMediaFileSource = decode[List[MediaFileSource]](jsonContent)
 
@@ -147,7 +147,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
       botTriggersIO: IO[List[String]]
   ): Unit =
     test(s"the `$triggerFilename` should contain all the triggers of the bot") {
-      val listPath               = Paths.get(".").toAbsolutePath().normalize().resolve(triggerFilename)
+      val listPath               = SBotPaths.projectRoot.resolve(triggerFilename)
       val triggerContent: String = Files.readString(listPath)
 
       for {
@@ -163,7 +163,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
 
   def inputFileShouldRespondAsExpected(replyBundleMessages: List[ReplyBundleMessage]): Unit =
     test("The inputs in the `inputTest.txt` file returns only the expected values") {
-      val inputTextTxt = Paths.get("./src/test/resources/inputTest.txt").toAbsolutePath().normalize()
+      val inputTextTxt                                      = SBotPaths.resourcesRoot("test").resolve("inputTest.txt")
       val inputTextTxtContent: List[(String, List[String])] = Source
         .fromFile(inputTextTxt.toFile())
         .getLines()

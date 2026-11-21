@@ -135,7 +135,7 @@ jobs:
               --title "Refresh Telegram file IDs" --body "$body"
           fi
 
-          # Opening/updating the PR triggers "Scala CI" on the pull_request event, which is the run whose checks
-          # GitHub rolls up on the PR. For a PR opened by GITHUB_TOKEN that run waits for one approval from a writer
-          # before starting; the checks then report and auto-merge completes once they are green.
+          # The App push puts the branch in this repository, so the push event starts "Scala CI" and its check runs
+          # report on the PR head commit. The PR is opened by the same App, so no run approval is needed and
+          # auto-merge completes once the required checks are green.
           gh pr merge "$branch" --auto --squash

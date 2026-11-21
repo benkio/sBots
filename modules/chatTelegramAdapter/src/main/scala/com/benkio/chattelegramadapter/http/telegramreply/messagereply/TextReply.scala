@@ -31,7 +31,7 @@ object TextReply {
         message <-
           Methods
             .sendMessage(
-              chatId = chatId,
+              chatId = Some(chatId),
               text = reply.value,
               replyParameters = msg.replyParameters(replyToMessage)
             )

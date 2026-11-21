@@ -9,6 +9,7 @@ import com.benkio.chatcore.model.SBotInfo.SBotName
 import com.benkio.chatcore.Arbitraries.given
 import io.circe.parser.decode
 import io.circe.syntax.*
+import io.circe.Json
 import munit.ScalaCheckSuite
 import org.http4s.syntax.all.uri
 import org.scalacheck.Gen
@@ -60,7 +61,7 @@ class ReplyValueSpec extends ScalaCheckSuite {
       val eitherMessageTrigger = decode[ReplyValue](inputString)
       eitherMessageTrigger.fold(
         e => fail("failed in parsing the input string as replyValue", e),
-        ms => assertEquals(ms.asJson.toString, inputString)
+        ms => assertEquals(ReplyValue.encodeJson(ms).map(_.toString), Right(inputString))
       )
     }
   }
@@ -349,15 +350,25 @@ class ReplyValueSpec extends ScalaCheckSuite {
     }
   }
 
-  property("ReplyValue encoder should fail on non-core adapter values") {
+  property("ReplyValue.encodeJson should reject non-core adapter values with a typed error") {
     final case class AdapterReplyValue(label: String) extends ReplyValue
 
     forAll(Gen.alphaNumStr.suchThat(_.nonEmpty)) { (label: String) =>
       val replyValue: ReplyValue = AdapterReplyValue(label)
-      val _                      = intercept[UnsupportedOperationException] {
-        replyValue.asJson.noSpaces
-      }
-      assert(true)
+      assertEquals(
+        ReplyValue.encodeJson(replyValue),
+        Left(ReplyValue.EncodeError.UnsupportedAdapterValue(replyValue))
+      )
+    }
+  }
+
+  property("ReplyValue.encodeJson should encode core values") {
+    forAll(Gen.alphaNumStr) { (value: String) =>
+      val text: ReplyValue = Text(value)
+      assertEquals(
+        ReplyValue.encodeJson(text).map(_.noSpaces),
+        Right(Json.obj("Text" -> Json.fromString(value)).noSpaces)
+      )
     }
   }
 

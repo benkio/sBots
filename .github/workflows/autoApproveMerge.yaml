@@ -26,6 +26,8 @@ jobs:
       - name: Enable native auto-merge
         # Unlike a "wait N times then merge" action, GitHub's own auto-merge waits indefinitely for the required
         # checks to go green and then squashes. No human interaction, and the branch protection rules still apply.
+        # Fork PRs (scala-steward) get those checks from CI.yml's pull_request event; same-repo PRs from its push
+        # event. Enabling auto-merge before they report is safe: GitHub merges only once all of them succeed.
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
