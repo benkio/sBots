@@ -25,9 +25,9 @@ class DBShowMockSpec extends CatsEffectSuite {
     show_origin_automatic_caption_srt = ""
   )
 
-  private val first  = show("1", "A title with words")
-  private val second = show("2", "Another title")
-  private val other  = show("3", "Another bot title").copy(bot_id = "otherbot")
+  private val first  = show(id = "1", title = "A title with words")
+  private val second = show(id = "2", title = "Another title")
+  private val other  = show(id = "3", title = "Another bot title").copy(bot_id = "otherbot")
 
   private def mock = DBLayerMock.mock(botId, shows = List(first, second, other)).dbShow
 
@@ -54,7 +54,7 @@ class DBShowMockSpec extends CatsEffectSuite {
       minDate = Some(LocalDate.of(2020, 5, 16)),
       maxDate = Some(LocalDate.of(2020, 5, 18))
     )
-    val short = show("4", "Short show", duration = 100)
+    val short = show(id = "4", title = "Short show", duration = 100)
     DBLayerMock
       .mock(botId, shows = List(short, first))
       .dbShow

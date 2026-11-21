@@ -210,23 +210,23 @@ object ShowUpdater {
       showFilesResource.use(showFiles =>
         LogWriter.info(s"[ShowUpdater] Read show files: ${showFiles.map(_.file)}") >>
           showFiles.traverse(showFile =>
-              for {
-                _                   <- LogWriter.info(s"[ShowUpdater] Parse show file content: ${showFile.file}")
-                showFileContentJson <- Async[F]
-                  .fromEither(parse(Source.fromFile(showFile.file.toFile()).mkString))
-                  .onError(e => LogWriter.error(s"[ShowUpdater] Error Reading File $showFile: $e"))
-                dbShowDatas <- Async[F]
-                  .fromEither(showFileContentJson.as[List[DBShowData]])
-                  .onError(e => LogWriter.error(s"[ShowUpdater] Error Parsing file $showFile: $e"))
-              } yield YouTubeBotDBShowDatas(
-                botId = showFile.botId,
-                outputFilePath = showFile.file.toString,
-                captionFolderPath = showFile.captionFolderPath,
-                captionLanguage = showFile.captionLanguage,
-                dbShowDatas = dbShowDatas.distinctBy(_.show_id)
-              )
+            for {
+              _                   <- LogWriter.info(s"[ShowUpdater] Parse show file content: ${showFile.file}")
+              showFileContentJson <- Async[F]
+                .fromEither(parse(Source.fromFile(showFile.file.toFile()).mkString))
+                .onError(e => LogWriter.error(s"[ShowUpdater] Error Reading File $showFile: $e"))
+              dbShowDatas <- Async[F]
+                .fromEither(showFileContentJson.as[List[DBShowData]])
+                .onError(e => LogWriter.error(s"[ShowUpdater] Error Parsing file $showFile: $e"))
+            } yield YouTubeBotDBShowDatas(
+              botId = showFile.botId,
+              outputFilePath = showFile.file.toString,
+              captionFolderPath = showFile.captionFolderPath,
+              captionLanguage = showFile.captionLanguage,
+              dbShowDatas = dbShowDatas.distinctBy(_.show_id)
             )
-        )
+          )
+      )
     }
 
     private[show] def videoToDBShowData(video: Video, botId: SBotId): F[Option[DBShowData]] = {
