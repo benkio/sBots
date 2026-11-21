@@ -12,6 +12,8 @@ config {
     auto_timeout_per_doubling: Duration = 5.seconds
     paged_list_page_size: Integer = 5
     paged_list_action_id_max_length: Integer = 100    -- the limit of a Discord button id
+    paged_list_text_mode_expiry: Duration = 10.minutes -- the text mode store: the remembered lists expire from when they were shown
+    paged_list_text_mode_max_chats: Integer = 100      -- the text mode store: the bound on the number of chats
 }
 
 -- The bot is added to a group chat: raised by the Telegram and Discord adapters (IRC has no such event).
@@ -182,6 +184,51 @@ rule PagedListRejectsBadId {
     when: PagedListIdReceived(chat, bot, id)
     requires: not PagedListIdDecodes(id)
     ensures: PagedListIdRejected(chat: chat, bot: bot)
+}
+
+-- Text-mode navigation of paged lists --------------------------------------------------------------
+
+-- The engine remembers the last paged list shown in each chat (the "text mode" of a platform without buttons):
+-- an in-memory store of entries, one per chat, each the page as shown and the message that asked for it (the same
+-- input the command runs again with), when it was saved. A get returns the entry of the chat only while it is not
+-- expired: extras/config.paged_list_text_mode_expiry after saved_at; when the store is full to
+-- extras/config.paged_list_text_mode_max_chats chats the oldest entries are dropped. A chat without an entry, or
+-- with an expired one, has no remembered list. The store is per engine and in memory only: a restart forgets it.
+-- The entry keeps the page as shown: the command of the list (run again for another page), the page and the items
+-- of the page (the picks), so the worst case is the bound of chats, each with one page of items.
+entity PagedListTextStoreEntry {
+    engine: core/BotEngine
+    chat: core/Chat
+    command: String
+    page: Integer
+    page_items: List<String>
+    request: core/Message
+    saved_at: Timestamp
+}
+
+-- The text commands of a platform without buttons: the typed-command counterpart of the navigation above; they
+-- exist only on the platforms that do not support buttons (the invariant below), and the engine answers them when
+-- the bot has no command of them. The command is written with the prefix of the platform syntax (`!next`, `!prev`
+-- and `!pick` on IRC; see platforms.allium):
+--   - `!next` and `!prev`: the command of the remembered list runs again at the page after/before the page as
+--     shown (the navigation rule PagedListChangesPage: previous at the first page stays at the first page); the
+--     shown page is the one of the reply.
+--   - `!pick n`: the replies of the item n of the page of the remembered list, as the picks of the navigation rule
+--     PagedListPicksItem. The number n is the number of the item on the page: 1 to the items of the page.
+--   - With no remembered list, or it expired, or the number is out of the page, the command answers with a clear
+--     text and changes nothing. The text of a list says how to move it (platforms.allium).
+
+invariant OnePagedListTextStoreEntryPerChat {
+    for e1 in PagedListTextStoreEntry:
+        for e2 in PagedListTextStoreEntry:
+            e1 != e2 implies not (e1.engine = e2.engine and e1.chat = e2.chat)
+    for e in PagedListTextStoreEntry:
+        e.command != ""
+        e.page >= 0
+        for item in e.page_items:
+            item != ""
+        e.request.chat = e.chat
+        e.saved_at <= now
 }
 
 open question "Telegram treats an undecodable callback as a media file named by the raw data (platforms.allium): does it keep that fallback or reject the id like the neutral navigation?"
