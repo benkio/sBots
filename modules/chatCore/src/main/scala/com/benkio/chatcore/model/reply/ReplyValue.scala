@@ -324,17 +324,18 @@ object ReplyValue {
   given Decoder[ReplyValue] =
     summon[Decoder[ReplyValueCore]].map((rv: ReplyValueCore) => rv: ReplyValue)
 
-  /** Codec round-trips only [[ReplyValueCore]]; persist adapter payloads with explicit encoders where needed. */
-  given Encoder[ReplyValue] with {
-    def apply(value: ReplyValue): Json = value match {
-      case core: ReplyValueCore =>
-        summon[Encoder[ReplyValueCore]].apply(core)
-      case _: ReplyValue =>
-        throw new UnsupportedOperationException(
-          "Encoder[ReplyValue] supports only ReplyValueCore; persist adapter ReplyValue types with their own Codec"
-        )
-    }
+  /** Only [[ReplyValueCore]] is JSON-persistable. Adapter-specific values are rejected with a typed error instead of a
+    * partial `Encoder` that throws at runtime: callers must handle the failure explicitly.
+    */
+  enum EncodeError {
+    case UnsupportedAdapterValue(value: ReplyValue)
   }
+
+  def encodeJson(value: ReplyValue): Either[EncodeError, Json] =
+    value match {
+      case core: ReplyValueCore => Right(summon[Encoder[ReplyValueCore]].apply(core))
+      case adapter              => Left(EncodeError.UnsupportedAdapterValue(adapter))
+    }
 
   given Show[ReplyValue] with {
     def show(value: ReplyValue): String = value match {

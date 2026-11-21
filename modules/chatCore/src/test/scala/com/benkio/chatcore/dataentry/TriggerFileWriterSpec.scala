@@ -20,8 +20,8 @@ class TriggerFileWriterSpec extends CatsEffectSuite {
 
   test("write renders the shared header and a row per reply") {
     for {
-      path    <- tempFile
-      reply    = ReplyBundleMessage.textToText("hello")("world")
+      path <- tempFile
+      reply = ReplyBundleMessage.textToText("hello")("world")
       _       <- TriggerFileWriter.write(path, List(reply))
       content <- readLines(path)
     } yield {
@@ -35,9 +35,9 @@ class TriggerFileWriterSpec extends CatsEffectSuite {
 
   test("write overwrites an existing file with exactly the provided replies") {
     for {
-      path <- tempFile
-      _ <- IO.blocking(Files.writeString(path, "stale content\n", StandardCharsets.UTF_8))
-      _    <- TriggerFileWriter.write(path, List.empty)
+      path    <- tempFile
+      _       <- IO.blocking(Files.writeString(path, "stale content\n", StandardCharsets.UTF_8))
+      _       <- TriggerFileWriter.write(path, List.empty)
       content <- readLines(path)
     } yield assertEquals(content, headerLines)
   }
