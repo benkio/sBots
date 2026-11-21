@@ -209,4 +209,6 @@ open question "dry_run deletes the show catalogue files and loads no shows on bo
 open question "Does a re-run reset send counts of existing media (depends on DBLayer insert semantics)?"
 open question "A file-only run still needs the YouTube API token at startup: intended, or should it be optional?"
 open question "Captions are fetched only when run_show_fetching is true; the file-only path reads local captions. Intended asymmetry?"
-open question "YouTubeRequests builds captions.list/download requests that are unused (yt-dlp is used): dead code?"
+
+-- Captions are listed and downloaded only through the caption tool (yt-dlp); the YouTube API client builds no
+-- captions.list/captions.download requests.
