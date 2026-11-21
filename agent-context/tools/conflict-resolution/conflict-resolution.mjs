@@ -691,6 +691,11 @@ function checkInputTest(state, args) {
   }
 }
 
+function bundleSignature(bundle) {
+  // Stable across media edits and placeholder removal: trigger set + matcher only.
+  return JSON.stringify([bundle?.matcher ?? "ContainsOnce", [...triggersOf(bundle)].sort()]);
+}
+
 function patchInputTest(state, args) {
   if (!loadInputTest(state, args)) return;
   const issues = inputTestIssues(state, args);
@@ -701,11 +706,22 @@ function patchInputTest(state, args) {
       "Stop and report to a human (task rule: additions only)."
     );
   }
+  // Index-based HEAD lookup is unsafe: dedupe/merge shifts bundle indices.
+  // Match by trigger signature so the "before" media set is the right bundle.
+  const headBySignature = new Map();
+  if (state.headReplies) {
+    for (const b of state.headReplies) {
+      const sig = bundleSignature(b);
+      if (!headBySignature.has(sig)) headBySignature.set(sig, b);
+    }
+  }
   let patched = 0;
   for (const issue of issues) {
     if (!issue.extra.length) continue;
-    const before = state.headReplies ? mediaOf(state.headReplies[issue.bundleIndex]) : [];
-    const newlyAdded = mediaOf(state.replies[issue.bundleIndex]).filter(f => !before.includes(f));
+    const bundle = state.replies[issue.bundleIndex];
+    const head = headBySignature.get(bundleSignature(bundle));
+    const before = head ? mediaOf(head) : [];
+    const newlyAdded = mediaOf(bundle).filter(f => !before.includes(f));
     const toAdd = issue.extra.filter(f => newlyAdded.includes(f));
     const lineIndex = issue.line - 1;
     if (toAdd.length) {
@@ -736,12 +752,32 @@ function writeReport(state, args) {
   const refs = unique(state.replies.flatMap(mediaOf));
   const placeholders = state.replies.filter(isPlaceholder);
   const classified = classifyPlaceholders(state);
+  const headNames = state.headList ? new Set(state.headList.map(e => e.filename)) : null;
+  const removedNames = headNames ? unique([...headNames].filter(n => !names.includes(n))) : [];
+  const removedDetail = duplicates.length || removedNames.length
+    ? unique([...duplicates, ...removedNames]).map(n => `  - \`${n}\` (superseded/duplicate entry removed)`).join("\n")
+    : "  - None.";
+  const newNames = headNames ? unique(names.filter(n => !headNames.has(n))) : [];
+  const unreferencedNew = newNames.filter(n => !refs.includes(n));
+  const addDataLine = headNames
+    ? `- AddData media referenced: ${newNames.length - unreferencedNew.length}/${newNames.length} new list files referenced by reply bundles${unreferencedNew.length ? ` (unreferenced: ${unreferencedNew.join(", ")})` : ""}.`
+    : "- AddData media referenced: n/a (HEAD version unavailable).";
+  const mergeRows = classified.filter(i => i.auto).flatMap(i =>
+    i.perBase.map(p => {
+      const target = p.candidates[0];
+      const added = i.media.filter(f => baseOf(f, state.botId) === p.base).join(", ");
+      return `| \`${p.base}\` | ${triggersOf(target).join(", ")} | ${added} |`;
+    })
+  ).join("\n") || "| `-` | `-` | `-` |";
   const templatePath = path.join(state.repoRoot, "agent-context", "tools", "conflict-resolution", "report-template.md");
   const template = fs.readFileSync(templatePath, "utf8");
   const filled = template
     .replace("YYYY-MM-DD", new Date().toISOString().slice(0, 10))
     .replace("`<bot ids>`", `\`${state.botId}\``)
     .replace("`<this file>`", `\`${args.report}\``)
+    .replace("`<bot>_list.json`", `\`${state.botId}_list.json\``)
+    .replace("`<bot>_replies.json`", `\`${state.botId}_replies.json\``)
+    .replace("- Removed `<n>` superseded duplicate entries:\n  - `<filename>` (`<old source>`)", `- Removed ${removedNames.length || duplicates.length} superseded/duplicate entries:\n${removedDetail}`)
     .replace("- `<base>`: new media completes/replaces `<existing media set>`.", classified.length
       ? classified.map(i => `- \`${i.perBase.map(p => p.base).join(", ")}\`: ${i.kind}.`).join("\n")
       : "- None detected.")
@@ -749,11 +785,13 @@ function writeReport(state, args) {
       .filter(i => i.kind === "genuinely new")
       .map(i => `- \`${i.perBase.map(p => p.base).join(", ")}\`: kept as \`new data\`.`).join("\n") || "- None.")
     .replace("- Final count: `<n>` entries, `<n>` duplicate filenames.", `- Final count: ${names.length} entries, ${duplicates.length} duplicate filenames.`)
+    .replace("- Removed `<n>` replacement placeholders.", `- Removed ${classified.filter(i => i.kind.startsWith("replacement")).length} replacement placeholder(s).`)
+    .replace("| `<base>` | `<triggers>` | `<files>` |", mergeRows)
     .replace("- Final count: `<n>` bundles, `<n>` placeholders.", `- Final count: ${state.replies.length} bundles, ${placeholders.length} placeholders.`)
     .replace("Removed: `<n>` (replacement/completion).", `Removed: ${classified.filter(i => i.kind.startsWith("replacement")).length} placeholder(s) classified as replacement/completion (verify).`)
     .replace("Kept intentionally: `<n>` genuinely new placeholders:", `Kept intentionally: ${classified.filter(i => i.kind === "genuinely new").length} genuinely new placeholders:`)
     .replace("- List duplicate check: `<result>`.", `- List duplicate check: ${duplicates.length === 0 ? "passed" : `FAILED (${duplicates.join(", ")})`}.`)
-    .replace("- New AddData media referenced: `<result>`.", `- New AddData media referenced: ${refs.length} referenced, all present in list.`);
+    .replace("- New AddData media referenced: `<result>`.", addDataLine);
   fs.writeFileSync(out, filled, "utf8");
   console.log(`Report written to ${args.report} (review judgment calls before handoff).`);
 }
