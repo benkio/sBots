@@ -191,8 +191,8 @@ rule PagedListRejectsBadId {
 -- The engine remembers the last paged list shown in each chat (the "text mode" of a platform without buttons):
 -- an in-memory store of entries, one per chat, each the page as shown and the message that asked for it (the same
 -- input the command runs again with), when it was saved. A get returns the entry of the chat only while it is not
--- expired: extras/config.paged_list_text_mode_expiry after saved_at; when the store is full to
--- extras/config.paged_list_text_mode_max_chats chats the oldest entries are dropped. A chat without an entry, or
+-- expired: the SBotConfig.pagedListTextModeExpiry (sbots.allium) after saved_at; when the store is full to the
+-- SBotConfig.pagedListTextModeMaxChats it drops the oldest entries. A chat without an entry, or
 -- with an expired one, has no remembered list. The store is per engine and in memory only: a restart forgets it.
 -- The entry keeps the page as shown: the command of the list (run again for another page), the page and the items
 -- of the page (the picks), so the worst case is the bound of chats, each with one page of items.
