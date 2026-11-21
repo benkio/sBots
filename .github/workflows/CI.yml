@@ -58,7 +58,7 @@ jobs:
     - name: Unit tests with coverage
       # Read-only verification: no generators here. `sbt fix` is a local, mutating command that
       # regenerates triggers/calendars/instructions; CI only verifies the checked-in result.
-      run: sbt "dbSetup; coverage; test; coverageAggregate; coverageOff"
+      run: sbt "dbSetup; coverage; test; coverageReport; coverageAggregate; coverageOff"
   scalaIntegrationTests:
     runs-on: ubuntu-latest
     steps:

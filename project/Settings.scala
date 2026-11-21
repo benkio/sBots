@@ -43,7 +43,7 @@ object Settings {
       s"-Dsbots.repoRoot=${(ThisBuild / baseDirectory).value.getAbsolutePath}",
       s"-Dsbots.projectRoot=${baseDirectory.value.getAbsolutePath}"
     )
-  ) ++ lineCoverageThreshold(56)
+  ) ++ lineCoverageThreshold(56) // default threshold for modules without an explicit override
 
   lazy val assemblySettings = Seq(
     assembly / assemblyJarName       := name.value + ".jar",
@@ -73,7 +73,7 @@ object Settings {
   lazy val ChatDiscordAdapterSettings = Seq(
     name                := "chatDiscordAdapter",
     libraryDependencies := ChatDiscordAdapterDependencies
-  )
+  ) ++ lineCoverageThreshold(50) // measured baseline; raise as the Discord adapter coverage improves
 
   lazy val ChatIrcAdapterSettings = Seq(
     name                := "chatIrcAdapter",
@@ -105,9 +105,10 @@ object Settings {
   )
 
   /** Shared settings for all bot projects. Pass the project name (e.g. "CalandroBot") and its current line-coverage
-    * threshold (see `lineCoverageThreshold`).
+    * threshold (see `lineCoverageThreshold`). The default is the measured coverage of the data-only bot template; bots
+    * with custom logic raise it explicitly.
     */
-  def botProjectSettings(projectName: String, lineCoverage: Double = 10): Seq[Def.SettingsDefinition] = Seq(
+  def botProjectSettings(projectName: String, lineCoverage: Double = 35): Seq[Def.SettingsDefinition] = Seq(
     name                     := projectName,
     libraryDependencies      := BotDependencies,
     Test / resourceDirectory := (Compile / resourceDirectory).value
