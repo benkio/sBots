@@ -240,7 +240,7 @@ lazy val repliesEditorServer =
     .settings(
       Settings.RepliesEditorServer(repliesEditorUI)
     )
-    .dependsOn(chatCore % "compile->compile;test->test", main % "compile->compile")
+    .dependsOn(chatCore % "compile->compile;test->test")
 
 lazy val integration = (project in file("modules/integration-tests"))
   // This project has only src/test, no src/main; disable coverage instrumentation.

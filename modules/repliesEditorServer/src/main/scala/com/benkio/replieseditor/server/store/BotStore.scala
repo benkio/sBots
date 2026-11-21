@@ -3,6 +3,7 @@ package com.benkio.replieseditor.server.store
 import cats.effect.IO
 import cats.effect.Ref
 import cats.syntax.all.*
+import com.benkio.chatcore.dataentry.TriggerFileWriter
 import com.benkio.chatcore.messagefiltering.MessageMatches
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.BotAddedTrigger
@@ -13,7 +14,6 @@ import com.benkio.chatcore.model.RegexTextTriggerValue
 import com.benkio.chatcore.model.StringTextTriggerValue
 import com.benkio.chatcore.model.TextTrigger
 import com.benkio.chatcore.model.TextTriggerValue
-import com.benkio.main.GenerateTriggers
 import com.benkio.replieseditor.server.jsonio.ListJsonFile
 import com.benkio.replieseditor.server.jsonio.RepliesJsonFile
 import com.benkio.replieseditor.server.module.ApiBot
@@ -271,7 +271,7 @@ final class BotStore private (ref: Ref[IO, BotStore.State]) extends BotStoreApi 
                       val trimmedJson = trimmedReplies.asJson
                       for {
                         _ <- RepliesJsonFile.writePretty(b.files.repliesJson, trimmedJson.spaces2)
-                        _ <- GenerateTriggers.writeTriggerFile(b.files.triggersTxt, trimmedReplies)
+                        _ <- TriggerFileWriter.write(b.files.triggersTxt, trimmedReplies)
                         _ <- ref.update(_.updateReplies(botId, Right(trimmedJson)))
                       } yield Right(SaveOk(botId = botId, repliesCount = trimmedReplies.length))
                   }
@@ -300,7 +300,7 @@ final class BotStore private (ref: Ref[IO, BotStore.State]) extends BotStoreApi 
                   val json = trimmedReplies.asJson
                   for {
                     _ <- RepliesJsonFile.writePretty(bot.files.repliesJson, json.spaces2)
-                    _ <- GenerateTriggers.writeTriggerFile(bot.files.triggersTxt, trimmedReplies)
+                    _ <- TriggerFileWriter.write(bot.files.triggersTxt, trimmedReplies)
                     _ <- ref.update(_.updateReplies(botId, Right(json)))
                   } yield Right(SaveOk(botId = botId, repliesCount = trimmedReplies.length))
               }

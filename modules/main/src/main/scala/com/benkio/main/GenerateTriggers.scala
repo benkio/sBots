@@ -6,30 +6,18 @@ import cats.effect.IOApp
 import cats.effect.Resource
 import cats.implicits.*
 import com.benkio.chatcore.dataentry.DataEntry
+import com.benkio.chatcore.dataentry.TriggerFileWriter
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.Logger.given
 import com.benkio.main.BotRegistryEntry
 import log.effect.LogWriter
 
-import java.nio.charset.StandardCharsets
-import java.nio.file.Files
 import java.nio.file.Path
-import scala.jdk.CollectionConverters.*
 
 object GenerateTriggers extends IOApp {
 
-  val triggerFileHeader: String = s"""| File Name ${" " * 54} | Trigger ${" " * 179}|
-| ${"-" * 64} | ${"-" * 186} |"""
-
   // Trigger file generation ////////////////////////////////////////////////////
-
-  def writeTriggerFile(path: Path, triggers: List[ReplyBundleMessage]): IO[Unit] =
-    IO.blocking {
-      val lines = (triggerFileHeader :: triggers.map(_.prettyPrint().stripLineEnd)).asJava
-      Files.write(path, lines, StandardCharsets.UTF_8)
-      ()
-    }
 
   def generateTriggerFile(
       triggerFilePath: Path,
@@ -37,7 +25,7 @@ object GenerateTriggers extends IOApp {
   ): Resource[IO, Unit] = {
     for {
       _ <- Resource.eval(IO.println(s"[GenerateTriggers] Generate trigger file: $triggerFilePath"))
-      _ <- Resource.eval(writeTriggerFile(triggerFilePath, triggers))
+      _ <- Resource.eval(TriggerFileWriter.write(triggerFilePath, triggers))
       _ <- Resource.eval(IO.println(s"[GenerateTriggers] Generate $triggerFilePath done"))
     } yield ()
   }
