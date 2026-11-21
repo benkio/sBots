@@ -76,7 +76,9 @@ class NotifierResilienceSpec extends CatsEffectSuite {
       window    <- Deferred[IO, Unit]
       throttle  <- Throttle.withWindow[IO](window.get)
       notifier = Notifier.throttled(recording, throttle)
+      message  = Message(None, 0L, TestIds.chatId(1L), "private")
       _     <- notifier.info(botInfo, "started") >> notifier.info(botInfo, "started")
+      _     <- notifier.mediaError(message, Mp3File("a.mp3"), boom)
       infos <- recording.infos.get
     } yield assertEquals(infos.size, 2)
   }

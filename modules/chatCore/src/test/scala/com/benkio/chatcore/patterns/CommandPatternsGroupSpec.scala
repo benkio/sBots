@@ -1,0 +1,61 @@
+package com.benkio.chatcore.patterns
+
+import com.benkio.chatcore.model.CommandInstructionData
+import com.benkio.chatcore.model.CommandKey
+import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
+import munit.FunSuite
+import org.http4s.Uri
+
+class CommandPatternsGroupSpec extends FunSuite {
+
+  private val botInfo = SBotInfo(SBotInfo.SBotId("bot"), SBotInfo.SBotName("BotName"))
+
+  test("ShowGroup builds the show-related commands") {
+    val commands = CommandPatternsGroup.ShowGroup.group(botInfo)
+
+    assertEquals(
+      commands.map(_.trigger.command),
+      List(
+        CommandKey.SearchShow.asString,
+        CommandKey.Subscribe.asString,
+        CommandKey.Unsubscribe.asString,
+        CommandKey.Subscriptions.asString,
+        CommandKey.LoadCalendar.asString,
+        CommandKey.ShowCalendar.asString
+      )
+    )
+  }
+
+  test("MediaCommands builds the media-by-kind and random commands") {
+    val byKind = MediaCommands.MediaByKindCommand.mediaCommandByKind(
+      commandName = "audio",
+      instruction = CommandInstructionData.NoInstructions,
+      sBotInfo = botInfo
+    )
+    val random = MediaCommands.RandomDataCommand.randomDataReplyBundleCommand(botInfo)
+
+    assertEquals(byKind.trigger.command, "audio")
+    assertEquals(random.trigger.command, CommandKey.Random.asString)
+  }
+
+  test("TriggerGroup builds the trigger and settings commands") {
+    val commands = CommandPatternsGroup.TriggerGroup.group(
+      triggerFileUri = Uri.unsafeFromString("https://example.com/triggers.md"),
+      sBotInfo = botInfo,
+      messageRepliesData = List.empty[ReplyBundleMessage],
+      ignoreMessagePrefix = None
+    )
+
+    assertEquals(
+      commands.map(_.trigger.command),
+      List(
+        CommandKey.TriggerList.asString,
+        CommandKey.TriggerSearch.asString,
+        CommandKey.TopTwenty.asString,
+        CommandKey.SetTimeout.asString,
+        CommandKey.GetTimeout.asString
+      )
+    )
+  }
+}
