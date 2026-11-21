@@ -39,6 +39,11 @@ class ResourceRepositorySpec extends CatsEffectSuite {
     assertEquals(result, rootPath.resolve("src").resolve("main").resolve("resources").resolve(testfile))
   }
 
+  test("Repository - buildPath should treat a leading separator as relative to the stage resources root") {
+    val result = Repository.buildPath("/testdata/", Some("test"))
+    assertEquals(result, rootPath.resolve("src").resolve("test").resolve("resources").resolve("testdata/"))
+  }
+
   test("toTempFile should create a temporary file with the expected content and name") {
     val (inputFileName, inputContent) = ("test.txt", random.nextBytes(100))
 

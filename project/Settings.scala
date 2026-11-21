@@ -25,6 +25,9 @@ object Settings {
     coverageMinimumStmtTotal := pct
   )
 
+  private def sbotsPathOptions(repoRoot: String, projectRoot: String): Seq[String] =
+    Seq(s"-Dsbots.repoRoot=$repoRoot", s"-Dsbots.projectRoot=$projectRoot")
+
   lazy val settings = Seq(
     organization      := "com.benkio",
     publishMavenStyle := true,
@@ -34,14 +37,20 @@ object Settings {
     fork                   := true,
     Test / publishArtifact := false,
     // Forks inherit the launch directory unless paths are explicit. Inject them for every project so tests and
-    // `run` behave the same from sbt, an IDE or a different shell directory.
-    Test / javaOptions ++= Seq(
-      s"-Dsbots.repoRoot=${(ThisBuild / baseDirectory).value.getAbsolutePath}",
-      s"-Dsbots.projectRoot=${baseDirectory.value.getAbsolutePath}"
+    // `run` behave the same from sbt, an IDE or a different shell directory. `fullRunTask` reads javaOptions from the
+    // task scope, not from `run`: without the third entry `dbSetup` resolves the bot media JSONs relative to the
+    // launch directory and generates an empty media table.
+    Test / javaOptions ++= sbotsPathOptions(
+      (ThisBuild / baseDirectory).value.getAbsolutePath,
+      baseDirectory.value.getAbsolutePath
     ),
-    run / javaOptions ++= Seq(
-      s"-Dsbots.repoRoot=${(ThisBuild / baseDirectory).value.getAbsolutePath}",
-      s"-Dsbots.projectRoot=${baseDirectory.value.getAbsolutePath}"
+    run / javaOptions ++= sbotsPathOptions(
+      (ThisBuild / baseDirectory).value.getAbsolutePath,
+      baseDirectory.value.getAbsolutePath
+    ),
+    runMigrate / javaOptions ++= sbotsPathOptions(
+      (ThisBuild / baseDirectory).value.getAbsolutePath,
+      baseDirectory.value.getAbsolutePath
     )
   ) ++ lineCoverageThreshold(56) // default threshold for modules without an explicit override
 
