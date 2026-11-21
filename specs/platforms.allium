@@ -264,12 +264,12 @@ rule CallbackPagesKeyboard {
     ensures: press.keyboard.page = if press.kind = next_page: press.keyboard.page + 1 else: press.keyboard.page - 1
 }
 
--- known defect: a press on a stale button is not rejected: previous stops at the first page, but next past the last
--- page shows an empty page
+-- a press on a stale button is rejected: the message keyboard, and so its page, is left as it is. In particular a
+-- stale next past the last page no longer shows an empty page.
 rule CallbackOnStaleButton {
     when: press: CallbackPress.created
     requires: (press.kind = previous_page and not press.keyboard.has_prev) or (press.kind = next_page and not press.keyboard.has_next)
-    ensures: press.keyboard.page = if press.kind = next_page: press.keyboard.page + 1 else: 0
+    ensures: CallbackPressRejected(press: press)
 }
 
 rule CallbackDeliversMedia {
