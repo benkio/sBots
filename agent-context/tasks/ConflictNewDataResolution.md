@@ -25,23 +25,40 @@ Reusable, dependency-free helper:
 (usage: [`README.md`](../tools/conflict-resolution/README.md)).
 
 ```bash
-# Inventory: duplicates, new media, placeholders, candidate bundles
-node agent-context/tools/conflict-resolution/conflict-resolution.mjs --bot <botId> --analyze
+# 1. See exactly what AddData changed vs HEAD (triggers + added media)
+node agent-context/tools/conflict-resolution/conflict-resolution.mjs --bot <botId> --changes
 
-# Dry-run/apply a reviewed merge plan
-node agent-context/tools/conflict-resolution/conflict-resolution.mjs --bot <botId> --merge-plan /tmp/<botId>-plan.json
-node agent-context/tools/conflict-resolution/conflict-resolution.mjs --bot <botId> --merge-plan /tmp/<botId>-plan.json --write
+# 2. Classify placeholders and print a ready-to-review merge plan
+node agent-context/tools/conflict-resolution/conflict-resolution.mjs --bot <botId> --suggest
 
-# Keep only the AddData list entry for each filename
-node agent-context/tools/conflict-resolution/conflict-resolution.mjs --bot <botId> --dedupe-list --write
+# 3. One-shot dry run: dedupe list + safe merges + inputTest.txt additions
+node agent-context/tools/conflict-resolution/conflict-resolution.mjs --bot <botId> --resolve
 
-# Final consistency checks
+# 4. Apply once the printed plan is reviewed
+node agent-context/tools/conflict-resolution/conflict-resolution.mjs --bot <botId> --resolve --write
+
+# 5. Final consistency checks (includes inputTest.txt)
 node agent-context/tools/conflict-resolution/conflict-resolution.mjs --bot <botId> --validate
 ```
 
+For ambiguous cases (multiple candidate bundles, no unique trigger match), fall
+back to the manual path:
+
+```bash
+node agent-context/tools/conflict-resolution/conflict-resolution.mjs --bot <botId> --analyze
+node agent-context/tools/conflict-resolution/conflict-resolution.mjs --bot <botId> --merge-plan /tmp/<botId>-plan.json
+node agent-context/tools/conflict-resolution/conflict-resolution.mjs --bot <botId> --merge-plan /tmp/<botId>-plan.json --write
+node agent-context/tools/conflict-resolution/conflict-resolution.mjs --bot <botId> --dedupe-list --write
+```
+
+`--check-inputtest` checks expectations using the bot's exact matching logic
+(`ContainsOnce`: longest matching trigger wins; `ContainsAll`: sum of trigger
+lengths). `--report <path>` writes a first-draft report from the template.
+
 The helper writes circe `spaces2`-compatible JSON so untouched files stay
-byte-identical. It does not choose the primary bundle for you: use `--analyze`
-to inspect candidates and record the decision in the merge plan.
+byte-identical. It does not choose the primary bundle for you: `--suggest`
+reports ambiguous bases as `SKIPPED`, and `--resolve` leaves those placeholders
+untouched. Review the printed decisions before `--write`.
 
 ## Conflict Detection Rules
 
@@ -124,8 +141,11 @@ Run targeted checks after edits:
     commit `fd035d692`, "➖ new data. Finish later!"), and state which choice
     was made.
 - Ensure `inputTest.txt` is updated by addition only; if an existing
-  expectation must shrink, stop and report it to a human.
-- Optionally run the helper's `--validate` mode.
+  expectation must shrink, stop and report it to a human. The helper's
+  `--check-inputtest` / `--resolve` detect this and refuse to write a shrinking
+  expectation.
+- Run the helper's `--validate` mode (it now includes `inputTest.txt`; use
+  `--no-inputtest` only if you intentionally skipped that check).
 
 If a command fails, report the failure and likely cause clearly.
 
@@ -143,17 +163,20 @@ Provide a short report including:
 
 ## Checklist
 
-- [ ] Inspect the AddData diff for the affected bots.
-- [ ] Run the helper's `--analyze` and classify every placeholder as
-      replacement/completion or genuinely new.
-- [ ] Ask a human if the classification is uncertain.
-- [ ] Deduplicate `<bot_id>_list.json` (keep the AddData entry).
-- [ ] Apply the reviewed merge plan and remove replacement placeholders.
-- [ ] Leave genuinely new placeholders untouched.
-- [ ] Update `inputTest.txt` by addition only.
+- [ ] Inspect the AddData diff for the affected bots (`--changes`).
+- [ ] Run `--suggest` and classify every placeholder as replacement/completion
+      or genuinely new; review the printed merge plan.
+- [ ] Ask a human if the classification is uncertain (ambiguous cases appear
+      as `SKIPPED`).
+- [ ] Run `--resolve` as a dry run, then `--resolve --write` (dedupes the list,
+      applies safe merges, extends `inputTest.txt` by addition only).
+- [ ] Confirm `<bot_id>_list.json` has no duplicates (AddData entry kept) and
+      genuinely new placeholders are untouched.
+- [ ] Run the helper's `--validate`.
 - [ ] Run `sbt "fix"`.
 - [ ] Run `sbt "test"` and classify failures.
-- [ ] Write the temporary report and list any judgment calls.
+- [ ] Write the temporary report (`--report <path>` gives a first draft) and
+      list any judgment calls.
 
 ## Suggested Workflow With Developer
 
