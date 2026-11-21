@@ -81,7 +81,9 @@ class ITYouTubeServiceSpec extends CatsEffectSuite with Constants {
   test("YouTubeService.saveCaption should not fail") {
     assume(runTestsCondition)
     for {
-      tempDir <- IO.pure(Files.createTempDirectory(SBotPaths.projectRoot.resolve("target"), "ytdlpCaptions").toAbsolutePath())
+      tempDir <- IO.pure(
+        Files.createTempDirectory(SBotPaths.projectRoot.resolve("target"), "ytdlpCaptions").toAbsolutePath()
+      )
       videoId  = "CQi-0VJJSSs"
       language = "it"
       youTubeService <- buildYoutubeService

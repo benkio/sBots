@@ -6,8 +6,8 @@ import cats.effect.Resource
 import com.benkio.chatcore.http.DropboxClient
 import com.benkio.chatcore.http.HttpClients
 import com.benkio.chatcore.http.MegaClient
-import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.paths.SBotPaths
+import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBRepository
 import com.benkio.chatcore.repository.Repository
 import com.benkio.integration.Logger.given
@@ -47,12 +47,13 @@ object DBFixture {
 
   private val repoRoot: Path = SBotPaths.repoRoot
 
-  val dbName: String         = "botDB.sqlite3"
-  val resourcePath: String   = repoRoot.toString
-  val dbPath: String         = repoRoot.resolve(dbName).toString
-  val dbUrl: String          = s"jdbc:sqlite:$dbPath";
-  val deleteDB: Boolean      = false
-  val migrationPath: String  = "filesystem:" + repoRoot.resolve("modules/botDB/src/main/resources/db/migrations").toString
+  val dbName: String        = "botDB.sqlite3"
+  val resourcePath: String  = repoRoot.toString
+  val dbPath: String        = repoRoot.resolve(dbName).toString
+  val dbUrl: String         = s"jdbc:sqlite:$dbPath";
+  val deleteDB: Boolean     = false
+  val migrationPath: String =
+    "filesystem:" + repoRoot.resolve("modules/botDB/src/main/resources/db/migrations").toString
   val migrationTable: String = "FlywaySchemaHistory"
 
   def fixtureSetup(@unused testOptions: TestOptions)(using log: LogWriter[IO]): DBFixtureResources = {
