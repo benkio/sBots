@@ -38,7 +38,11 @@ final class FakePlatformAdapter private (
   override def send(replyValue: ReplyValue, message: Message, replyToMessage: Boolean): IO[Unit] =
     sent.update(_ :+ FakePlatformAdapter.Sent(replyValue, message, replyToMessage))
 
-  override def runEffectful(reply: EffectfulReply, message: Message): IO[ReplyValue] =
+  override def runEffectful(
+      reply: EffectfulReply,
+      message: Message,
+      overridePage: Option[Int] = None
+  ): IO[ReplyValue] =
     IO.pure(effectfulValue)
 }
 

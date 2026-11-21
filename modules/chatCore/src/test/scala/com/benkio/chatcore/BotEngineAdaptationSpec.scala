@@ -110,7 +110,7 @@ class BotEngineAdaptationSpec extends CatsEffectSuite {
 
   test("a paged list is sent as a numbered text to a platform without buttons") {
     received(text = "/list", capabilities = textOnly, effectful = items).map(sent =>
-      assertEquals(sent, List(Text("Headline\n1. first\n2. second")))
+      assertEquals(sent, List(Text("Headline\n1. first\n2. second\n/pick 1-2")))
     )
   }
 
