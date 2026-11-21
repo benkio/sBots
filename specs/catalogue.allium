@@ -94,7 +94,6 @@ config {
     run_show_fetching: Boolean = false
     run_show_caption_fetching: Boolean = false
     caption_tool_available: Boolean = true   -- yt-dlp found on the PATH
-    dry_run: Boolean = false   -- rebuild from YouTube: the show catalogue files are deleted and the stored set is empty
     caption_throttle: Duration = 5.seconds   -- random 5 to 9 s between caption downloads
 }
 
@@ -141,20 +140,13 @@ rule MediaCatalogueFails {
     ensures: run.status = failed
 }
 
--- dry run is not a preview: before the show step it deletes every source's catalogue file and empties the stored set.
--- On the YouTube path every listed video is then inserted and the files rewritten; on the file-only path nothing is
--- loaded and the deleted files are not regenerated (a destructive corner, kept as the current behavior).
-rule DryRunDiscardsStoredCatalogueFiles {
-    when: run: CatalogueRun.status transitions_to loading_shows
-    requires: config.dry_run
-    ensures: ShowCatalogueFilesDeleted(run: run)
-}
-
+-- a full rebuild is performed by emptying every source's show catalogue file before the run, not by a config flag:
+-- with fetching on, all listed videos are then inserted and the files rewritten; with fetching off, nothing is loaded.
+-- The .srt caption files are never deleted by the job: existing captions are reused and only missing ones are
+-- downloaded, so a caption rebuild requires a separate manual cleanup of those files.
 rule ShowsLoadedFromCatalogueFiles {
     when: run: CatalogueRun.status transitions_to loading_shows
     requires: not config.run_show_fetching
-    -- shows are read from each source's catalogue file; the dry run deletes the files first, so nothing is loaded
-    requires: not config.dry_run
     ensures:
         for src in ShowSource:
             for e in ShowFileEntry where e.file = src.catalogue_file:

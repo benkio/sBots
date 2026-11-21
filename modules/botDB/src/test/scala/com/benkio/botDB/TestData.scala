@@ -54,6 +54,6 @@ object TestData {
     migrationsLocations = List("db/migrations"),
     migrationsTable = "FlywaySchemaHistory",
     jsonLocation = List(JsonLocation(botId = testBotId, value = "/testdata")),
-    showConfig = ShowConfig(List(showSourceConfig), false, false, false, "sBots")
+    showConfig = ShowConfig(List(showSourceConfig), false, false, "sBots")
   )
 }
