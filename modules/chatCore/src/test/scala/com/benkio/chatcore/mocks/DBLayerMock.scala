@@ -6,7 +6,9 @@ import cats.effect.IO
 import cats.syntax.all.*
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.model.show.RandomQuery
 import com.benkio.chatcore.model.show.ShowQuery
+import com.benkio.chatcore.model.show.ShowQueryKeyword
 import com.benkio.chatcore.model.show.SimpleShowQuery
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.MessageId
@@ -203,6 +205,32 @@ object DBLayerMock {
   }
 
   final class DBShowMock(db: Ref[IO, List[DBShowData]]) extends DBShow[IO] {
+
+    // SQL `lower(column) LIKE %keyword%` is null for a null column, so a null field matches no keyword.
+    private def contains(value: Option[String], keyword: String): Boolean =
+      value.exists(_.toLowerCase.contains(keyword.toLowerCase))
+
+    private def matchesSimpleShowQuery(show: DBShowData, query: SimpleShowQuery): Boolean =
+      contains(Some(show.show_title), query.titleKeyword) ||
+        contains(show.show_description, query.descriptionKeyword) ||
+        contains(show.show_origin_automatic_caption, query.captionKeyword)
+
+    private def matchesShowQuery(show: DBShowData, query: ShowQuery): Boolean = query match {
+      case RandomQuery        => true
+      case q: SimpleShowQuery =>
+        contains(Some(show.show_title), q.titleKeyword) &&
+        contains(show.show_description, q.descriptionKeyword) &&
+        contains(show.show_origin_automatic_caption, q.captionKeyword)
+      case ShowQueryKeyword(titles, descriptions, captions, minDuration, maxDuration, minDate, maxDate) =>
+        titles.toList.flatten.forall(k => contains(Some(show.show_title), k)) &&
+        descriptions.toList.flatten.forall(k => contains(show.show_description, k)) &&
+        captions.toList.flatten.forall(k => contains(show.show_origin_automatic_caption, k)) &&
+        minDuration.forall(show.show_duration > _) &&
+        maxDuration.forall(show.show_duration < _) &&
+        minDate.forall(d => show.show_upload_date > d.atStartOfDay().format(DBShowData.dateTimeFormatter)) &&
+        maxDate.forall(d => show.show_upload_date < d.atStartOfDay().format(DBShowData.dateTimeFormatter))
+    }
+
     override def getShows(botId: SBotId): IO[List[DBShowData]] =
       db.get.map(_.filter(_.bot_id == botId.value))
 
@@ -216,9 +244,13 @@ object DBLayerMock {
         elem <- rnd.elementOf(subs.filter(_.bot_id == botId.value)).map(Some(_)).handleError(_ => None)
       } yield elem
 
-    override def getShowByShowQuery(query: ShowQuery, botId: SBotId): IO[List[DBShowData]] = ???
+    // Mirrors DBShow.getShowByShowQueryQuery: the bot filter and every keyword fragment are ANDed.
+    override def getShowByShowQuery(query: ShowQuery, botId: SBotId): IO[List[DBShowData]] =
+      db.get.map(_.filter(show => show.bot_id == botId.value && matchesShowQuery(show, query)))
 
-    override def getShowBySimpleShowQuery(query: SimpleShowQuery, botId: SBotId): IO[List[DBShowData]] = ???
+    // Mirrors DBShow.getShowBySimpleShowQueryQuery: the three keyword fragments are ORed.
+    override def getShowBySimpleShowQuery(query: SimpleShowQuery, botId: SBotId): IO[List[DBShowData]] =
+      db.get.map(_.filter(show => show.bot_id == botId.value && matchesSimpleShowQuery(show, query)))
 
     override def insertShow(dbShowData: DBShowData): IO[Unit] =
       for {
@@ -229,6 +261,7 @@ object DBLayerMock {
         _ <- db.update(_ :+ dbShowData)
       } yield ()
 
-    override def deleteShow(dbShowData: DBShowData): IO[Unit] = ???
+    override def deleteShow(dbShowData: DBShowData): IO[Unit] =
+      db.update(_.filterNot(_.show_id == dbShowData.show_id))
   }
 }
