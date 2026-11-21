@@ -180,7 +180,9 @@ class ReplyTransformerSpec extends ScalaCheckSuite {
   test("a paged list becomes a numbered text on a platform without buttons") {
     assertEquals(
       ReplyTransformer.transform(textOnly)(pagedList),
-      List(Text("Headline\n1. item 1\n2. item 2\n3. item 3\n4. item 4\n5. item 5\npage 1 of 2"))
+      List(
+        Text("Headline\n1. item 1\n2. item 2\n3. item 3\n4. item 4\n5. item 5\npage 1 of 2\n!next / !pick 1-5")
+      )
     )
   }
 

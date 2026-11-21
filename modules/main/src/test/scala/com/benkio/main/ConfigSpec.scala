@@ -1,6 +1,7 @@
 package com.benkio.main
 
 import cats.effect.IO
+import com.benkio.chatcore.Logger.logWriter
 import munit.CatsEffectSuite
 
 import scala.concurrent.duration.*
@@ -50,5 +51,14 @@ class ConfigSpec extends CatsEffectSuite {
       assertEquals(config.irc.reconnectDelay(0), 2.seconds)
       assertEquals(config.irc.messageDelay, 1200.millis)
     }
+  }
+
+  test("the text mode store of a bot is configurable in the application.conf of the bot's namespace") {
+    com.benkio.chatcore.initialization.Config
+      .loadConfig[IO]("rphjb")
+      .map { config =>
+        assertEquals(config.pagedListTextModeExpiry, 10.minutes)
+        assertEquals(config.pagedListTextModeMaxChats, 100)
+      }
   }
 }

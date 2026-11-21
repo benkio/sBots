@@ -54,7 +54,11 @@ class IrcPlatformAdapter[F[_]: Async: LogWriter: Notifier](
       IrcReplies[F](api, usableRepository, capabilities).sendAll(replyValues, message, replyToMessage)
     )
 
-  override def runEffectful(reply: EffectfulReply, message: Message): F[ReplyValue] =
+  override def runEffectful(
+      reply: EffectfulReply,
+      message: Message,
+      overridePage: Option[Int] = None
+  ): F[ReplyValue] =
     ComputeReply.runEffectfulReply[F](
       reply = reply,
       msg = message,
@@ -62,6 +66,7 @@ class IrcPlatformAdapter[F[_]: Async: LogWriter: Notifier](
       dbLayer = dbLayer,
       effectfulCallbacks = effectfulCallbacks,
       ttl = ttl,
-      commandSyntax = capabilities.commandSyntax
+      commandSyntax = capabilities.commandSyntax,
+      overridePage = overridePage
     )
 }

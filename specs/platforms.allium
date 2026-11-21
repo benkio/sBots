@@ -355,6 +355,10 @@ rule DiscordButtonOfUnknownList {
 -- limit is sent as its link; markdown files are sent in chunks of 2000 characters; other reply kinds send nothing.
 -- IRC: all replies of a request form one logical reply, markdown becomes plain text, text is split on line breaks and each
 -- line cut at 400 characters and bytes, capped at irc_max_lines_per_reply ("(K more lines not shown)"), paced by the send delay.
+-- IRC: the text of a paged list says how to move it: the text commands of the engine's text mode, with the prefix
+-- of the platform (`!next`/`!prev`, and `!pick 1-5` with the numbers of the items of the page). The lists are
+-- remembered by the engine: the commands act on the last paged list shown in each chat
+-- (extras/PagedListTextStoreEntry).
 rule IrcSendsReply {
     when: core/Reply.sent(chat, reply)
     ensures: IrcLinesSent(chat: chat)
@@ -372,6 +376,13 @@ invariant KeyboardsOnlyWhereSupported {
     for k in InlineKeyboards:
         for a in PlatformAdapters:
             a.platform = k.message.chat.platform implies a.capabilities.supports_buttons
+}
+
+-- the text commands of the text mode of a platform without buttons are not commands of the platforms with buttons
+invariant TextCommandsOnlyWithoutButtons {
+    for e in extras/PagedListTextStoreEntry:
+        for a in PlatformAdapters:
+            a.platform = e.chat.platform implies not a.capabilities.supports_buttons
 }
 
 open question "Media or Show delivery deletes the keyboard message, paging edits it in place: intended?"

@@ -3,6 +3,7 @@ package com.benkio.chatcore.model.reply
 import cats.data.NonEmptyList
 import com.benkio.chatcore.model.show.Show
 import com.benkio.chatcore.model.CommandKey
+import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.TestIds
@@ -93,6 +94,24 @@ class PagedListSpec extends FunSuite {
 
   test("toPlainText of an empty list is the headline") {
     assertEquals(PagedList.toPlainText(list(0, 0)), "Headline")
+  }
+
+  test("toPlainText of a text mode list says how to move it with the commands of the platform") {
+    val syntax = CommandSyntax(prefix = "!")
+    assertEquals(
+      PagedList.toPlainText(list(12, 0), Some(syntax)),
+      "Headline\n1. item 1\n2. item 2\n3. item 3\n4. item 4\n5. item 5\npage 1 of 3\n!next / !pick 1-5"
+    )
+    assertEquals(
+      PagedList.toPlainText(list(12, 1), Some(syntax)),
+      "Headline\n6. item 6\n7. item 7\n8. item 8\n9. item 9\n10. item 10\npage 2 of 3\n!next / !prev / !pick 1-5"
+    )
+  }
+
+  test("toPlainText of a text mode list shows the commands that apply to the page") {
+    val syntax = CommandSyntax(prefix = "!")
+    assertEquals(PagedList.toPlainText(list(2, 0), Some(syntax)), "Headline\n1. item 1\n2. item 2\n!pick 1-2")
+    assertEquals(PagedList.toPlainText(list(0, 0), Some(syntax)), "Headline")
   }
 
   test("the page size must be positive") {
