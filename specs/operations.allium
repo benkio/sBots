@@ -55,6 +55,10 @@ config {
     heartbeat_every: Duration = 10.minutes
 }
 
+-- operational tuning, not product decisions: the heartbeat cadence comes from `main.healthcheck-ping.cron` (10 minutes
+-- by default, no environment override) and the stats cadence is the hardcoded `StatsLogger.start` default (1 minute).
+-- `heartbeat_every` approximates the cron for this spec.
+
 -- Telegram (webhook or polling), Discord and IRC have runtimes; Slack is in the Platform enum but has none.
 surface OperatorShell {
     facing _: core/Operator
@@ -81,6 +85,9 @@ rule AppStarts {
     ensures: HealthSignalSent(kind: start)
 }
 
+-- production passes the whole bot registry to the webhook main; the polling main optionally accepts bot ids or names to
+-- run a subset, and aborts on an unknown name before the app starts. Both paths are already modelled by `bots`.
+
 rule AppRefusesBotWithoutRuntime {
     when: OperatorStartsApp(mode, bots)
     requires: bots.any(b => b.platforms.any(p => p = slack))
@@ -96,6 +103,10 @@ rule BotStopsOnConnectionPlatform {
     ensures: entry.status = lost
     ensures: HealthSignalSent(kind: fail)
 }
+
+-- intentional: there is no per-bot supervisor. A lost bot stays lost until the app restarts; the fail signal only alerts
+-- operators, and the process supervisor respawns the app only when the whole process exits. Connection losses handled by
+-- the platform libraries (JDA, Kitteh) are not bot failures.
 
 -- the heartbeat follows a wall-clock cron (every 10 minutes), not the start time; a failed ping sleeps the restart delay
 -- and then waits for the next cron tick
@@ -172,6 +183,5 @@ rule GeneratorsWriteBotFiles {
 }
 -- secrets (keystore password, health-check URL) are redacted from the configuration logged at startup
 
-open question "Are the heartbeat (10 min) and stats (1 min) intervals product decisions or tuning?"
-open question "Should the spec model choosing which bots run (MainPolling arguments)? Production runs every bot."
-open question "A bot that fails on Discord or IRC is not restarted (the health check does fail): acceptable?"
+-- all earlier open questions are resolved above: the intervals are operational tuning, bot selection is already
+-- modelled by the `bots` argument, and the absence of a per-bot supervisor is intentional.

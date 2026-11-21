@@ -6,6 +6,7 @@ import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.messagefiltering.*
+import com.benkio.chatcore.model.reply.PagedListAction
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.Message as ModelMessage
@@ -20,13 +21,13 @@ import com.benkio.chatcore.Notifier
 import com.benkio.chatcore.PlatformAdapter
 import com.benkio.chattelegramadapter.conversions.MessageConversions.*
 import com.benkio.chattelegramadapter.http.telegramreply.callbackreply.TelegramCallbackReply
+import com.benkio.chattelegramadapter.http.TelegramCallbackAnswer
 import com.benkio.chattelegramadapter.http.TelegramChatInfo
 import com.benkio.chattelegramadapter.initialization.BotSetup
 import com.benkio.chattelegramadapter.model.TelegramCallbackData
 import com.benkio.chattelegramadapter.model.TelegramToken.botId
 import log.effect.LogWriter
 import telegramium.bots.high.*
-import telegramium.bots.high.implicits.methodOps
 import telegramium.bots.CallbackQuery
 import telegramium.bots.InputPartFile
 import telegramium.bots.Message as TMessage
@@ -136,14 +137,26 @@ trait ISBot[F[_]: Async: LogWriter] {
 
   // Telegram only: the callbacks of the inline keyboards ////////////////////////////////////////////////////////
 
+  /** A callback whose data does not decode is rejected with a short answer and produces no other reply. */
   def onCallbackLogic(query: CallbackQuery): F[Unit] = {
     given Api[F]      = api
     given Notifier[F] = sBotSetup.notifier
+    query.data.traverse_(data => handleCallback(query, data))
+  }
+
+  private def handleCallback(query: CallbackQuery, data: String)(using Api[F], Notifier[F]): F[Unit] =
+    TelegramCallbackData.decode(data) match {
+      case None         => TelegramCallbackAnswer.reject(query.id, "This button is not valid.")
+      case Some(action) => answerAndReply(query, action)
+    }
+
+  private def answerAndReply(query: CallbackQuery, callbackData: PagedListAction)(using
+      Api[F],
+      Notifier[F]
+  ): F[Unit] =
     (for {
-      callbackDataString <- OptionT.fromOption(query.data)
-      callbackData = TelegramCallbackData.decode(callbackDataString)
       msg <- OptionT.fromOption(query.message)
-      _   <- OptionT.liftF(Methods.answerCallbackQuery(callbackQueryId = query.id).exec)
+      _   <- OptionT.liftF(TelegramCallbackAnswer.ack(query.id))
       _   <- OptionT.liftF(
         TelegramCallbackReply.reply(
           msg = msg,
@@ -157,5 +170,4 @@ trait ISBot[F[_]: Async: LogWriter] {
         )
       )
     } yield ()).value.void
-  }
 }

@@ -94,7 +94,7 @@ config {
     run_show_fetching: Boolean = false
     run_show_caption_fetching: Boolean = false
     caption_tool_available: Boolean = true   -- yt-dlp found on the PATH
-    dry_run: Boolean = false   -- on both show paths: the show catalogue files are deleted and the stored set is empty
+    dry_run: Boolean = false   -- rebuild from YouTube: the show catalogue files are deleted and the stored set is empty
     caption_throttle: Duration = 5.seconds   -- random 5 to 9 s between caption downloads
 }
 
@@ -128,13 +128,26 @@ rule MediaCatalogueLoaded {
     ensures: run.status = loading_shows
 }
 
+-- a re-run does not reset the send count of an existing media: the insert of a new row starts at 0, but the conflict path
+-- only refreshes its kinds and sources, and only a successful send increments the count.
+
 -- the run needs the YouTube API token even when it only reads files; config load and DB connection happen before migration
--- and a failure there, like a migration failure, crashes the process and is not a modelled transition
+-- and a failure there, like a migration failure, crashes the process and is not a modelled transition. This is treated as
+-- a job prerequisite, though it is stricter than the file-only path needs.
 -- an unparsable list file fails the whole run
 rule MediaCatalogueFails {
     when: run: CatalogueRun.status transitions_to loading_media
     requires: exists MediaListFile{parsable: false}
     ensures: run.status = failed
+}
+
+-- dry run is not a preview: before the show step it deletes every source's catalogue file and empties the stored set.
+-- On the YouTube path every listed video is then inserted and the files rewritten; on the file-only path nothing is
+-- loaded and the deleted files are not regenerated (a destructive corner, kept as the current behavior).
+rule DryRunDiscardsStoredCatalogueFiles {
+    when: run: CatalogueRun.status transitions_to loading_shows
+    requires: config.dry_run
+    ensures: ShowCatalogueFilesDeleted(run: run)
 }
 
 rule ShowsLoadedFromCatalogueFiles {
@@ -171,6 +184,8 @@ rule ShowsRefreshedFromYouTube {
     ensures: run.status = done
 }
 
+-- captions are downloaded only on the YouTube refresh path: the file-only path never fetches, but both paths parse the
+-- local caption file into the show. Setting run_show_caption_fetching on a file-only run is therefore a no-op.
 -- a caption is downloaded (with a throttle between downloads) for each show that YouTube lists a caption for and that has
 -- no local caption file yet; a failed download is logged and skipped
 rule CaptionsFetched {
@@ -204,11 +219,6 @@ invariant ShowIdsUniquePerCatalogue {
         for b in Shows:
             a != b and a.bot = b.bot implies a.id != b.id
 }
-
-open question "dry_run deletes the show catalogue files and loads no shows on both paths, even a file-only run: intended, or a misnamed behaviour?"
-open question "Does a re-run reset send counts of existing media (depends on DBLayer insert semantics)?"
-open question "A file-only run still needs the YouTube API token at startup: intended, or should it be optional?"
-open question "Captions are fetched only when run_show_fetching is true; the file-only path reads local captions. Intended asymmetry?"
 
 -- Captions are listed and downloaded only through the caption tool (yt-dlp); the YouTube API client builds no
 -- captions.list/captions.download requests.

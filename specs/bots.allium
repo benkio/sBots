@@ -48,5 +48,8 @@ rule BensonifyRewritesText {
 -- generic trigger rules in sbots.allium, not rules of their own.
 
 -- a media reply with several files sends one random file of them
-open question "What does media-by-kind reply when the kind has no media?"
-open question "Should the long-message alarm, welcome and farewell replies and Bensonify's substitution table be named in the spec, or stay generic data?"
+-- known defect: a media-by-kind command whose kind has no media raises in random selection, so no reply is sent and the
+-- ensures of BotRepliesWithMediaByKind holds only for a non-empty kind. The empty query result is cached, so the
+-- failure repeats until the cache expires. Left unchanged here: deciding a fallback is a product decision.
+-- The bot-specific content is named above for reviewers (cala's alarm, rphjb's welcome and farewell, Bensonify's table),
+-- but is realized as reply data and the generic trigger/callback rules, not as dedicated rules. Intentional.

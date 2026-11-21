@@ -544,8 +544,14 @@ invariant ProcessedOnce {
 }
 
 ------------------------------------------------------------
--- Open Questions
+-- Scope notes
 ------------------------------------------------------------
 
-open question "Data entry: should the spec state how the downloaded files reach the repository (Dropbox/Mega)?"
-open question "Effectful replies and platform adaptation (ReplyAdaptation, text-only platforms) are not specified yet"
+-- Binaries live in operator-managed Dropbox/Mega sync folders outside the repository. Data entry stores only the
+-- verified share URLs in the bot files, the catalogue loads those URLs into the DB and bots download the media at
+-- send time (see catalogue.allium). Cloud sync, link creation and file-id writeback are operations concerns, not bot
+-- behavior specified here.
+
+-- Effectful replies are computed at reply time and delivered through the same platform adaptation as plain replies.
+-- The key/callback registry is an implementation detail: the observable results live in bots.allium and the
+-- adaptation rules in platforms.allium (IRC is the only implemented text-only platform).

@@ -231,7 +231,8 @@ invariant OnePagedListTextStoreEntryPerChat {
         e.saved_at <= now
 }
 
-open question "Telegram treats an undecodable callback as a media file named by the raw data (platforms.allium): does it keep that fallback or reject the id like the neutral navigation?"
+-- Telegram follows PagedListRejectsBadId too: a callback whose data does not decode is answered with an error and
+-- produces no action. The raw data is never treated as a media filename (no legacy fallback).
 -- operator notifications (window 5 minutes, error text cut to 200 characters): an error with the same (bot, context, error) is notified once per window followed by one summary;
 -- infos and media errors are not throttled; a failing notification never breaks the caller
 
