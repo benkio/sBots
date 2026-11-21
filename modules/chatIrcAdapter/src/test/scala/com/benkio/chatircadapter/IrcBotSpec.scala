@@ -11,6 +11,7 @@ import com.benkio.chatcore.model.reply.TextReply
 import com.benkio.chatcore.model.CommandInstructionData
 import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chatcore.repository.db.DBMediaData
 import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.Logger.given
 import com.benkio.chatcore.Notifier
@@ -100,6 +101,55 @@ class IrcBotSpec extends CatsEffectSuite {
         assert(server.linesReceived.contains("PRIVMSG #sbots :hello"), server.linesReceived.toString)
         assert(server.linesReceived.contains("PRIVMSG bob :command reply"), server.linesReceived.toString)
         assert(server.linesReceived.exists(_.startsWith("NICK EngineBot")), server.linesReceived.toString)
+        assert(quitted, server.linesReceived.toString)
+      }
+    )
+  }
+
+  test("a paged list is browsed and an item picked with !next and !pick on IRC") {
+    val medias = (1 to 4).toList.map { i =>
+      DBMediaData(
+        media_name = s"eng_item$i.mp3",
+        bot_id = "eng",
+        kinds = "[]",
+        mime_type = "audio/mpeg",
+        media_sources = s"[\"https://eng.example/item$i.mp3\"]",
+        media_count = 100 - 10 * i,
+        created_at = "1700000000"
+      )
+    }
+    val core = BotCoreSetup[IO](
+      jsonDataRepository = JsonDataRepository[IO](),
+      dbLayer = DBLayerMock.mock(sBotInfo.botId, medias = medias),
+      repository = new RepositoryMock(),
+      sBotConfig = sBotConfig
+    )
+    FakeIrcServer.resource.use(server =>
+      for {
+        bot <- IrcBot
+          .runWith[IO](core, sBotConfig, None, Map.empty, config(server.port), Notifier.noop[IO])
+          .start
+        _      <- eventually(server.joined.nonEmpty)
+        _      <- server.push(":alice!a@host PRIVMSG #sbots :!toptwenty")
+        listed <- eventually(
+          server.linesReceived.exists(l => l.startsWith("PRIVMSG #sbots") && l.contains("-----Top 20 Triggers-----"))
+        )
+        _      <- server.push(":alice!a@host PRIVMSG #sbots :!pick 1")
+        picked <- eventually(server.linesReceived.exists(_.contains("https://eng.example/item1.mp3")))
+        _      <- server.push(":alice!a@host PRIVMSG #sbots :!pick 6")
+        out    <- eventually(
+          server.linesReceived.exists(l => l.contains("Nessun elemento con numero 6 nella pagina corrente"))
+        )
+        // the private chat has no list remembered
+        _          <- server.push(":alice!a@host PRIVMSG EngineBot :!next")
+        pmListGone <- eventually(server.linesReceived.exists(_.contains("Nessuna lista paginata in questa chat")))
+        _          <- bot.cancel
+        quitted    <- eventually(server.linesReceived.exists(_.startsWith("QUIT")))
+      } yield {
+        assert(listed, server.linesReceived.toString)
+        assert(picked, server.linesReceived.toString)
+        assert(out, server.linesReceived.toString)
+        assert(pmListGone, server.linesReceived.toString)
         assert(quitted, server.linesReceived.toString)
       }
     )

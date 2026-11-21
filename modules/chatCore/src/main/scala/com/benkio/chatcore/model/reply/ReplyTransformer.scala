@@ -40,7 +40,7 @@ object ReplyTransformer {
       else mediaLink(mediaFile).toList.flatMap(uri => textValues(capabilities, Text(uri.renderString)))
     case pagedList: PagedList =>
       if capabilities.supportsButtons then List(pagedList)
-      else textValues(capabilities, Text(PagedList.toPlainText(pagedList)))
+      else textValues(capabilities, Text(PagedList.toPlainText(pagedList, Some(capabilities.commandSyntax))))
     case other => List(other)
   }
 

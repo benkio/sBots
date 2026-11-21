@@ -51,7 +51,11 @@ class TelegramPlatformAdapter[F[_]: Async: LogWriter: Api: Notifier](
       )
       .void
 
-  override def runEffectful(reply: EffectfulReply, message: Message): F[ReplyValue] =
+  override def runEffectful(
+      reply: EffectfulReply,
+      message: Message,
+      overridePage: Option[Int] = None
+  ): F[ReplyValue] =
     ComputeReply.runEffectfulReply[F](
       reply = reply,
       msg = message,
@@ -59,6 +63,7 @@ class TelegramPlatformAdapter[F[_]: Async: LogWriter: Api: Notifier](
       dbLayer = dbLayer,
       effectfulCallbacks = effectfulCallbacks,
       ttl = ttl,
-      commandSyntax = capabilities.commandSyntax
+      commandSyntax = capabilities.commandSyntax,
+      overridePage = overridePage
     )
 }
