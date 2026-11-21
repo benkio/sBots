@@ -32,7 +32,11 @@ class SampleWebhookBot(
     override val sBotSetup: BotSetup[IO]
 ) extends ISBotWebhook[IO](sBotSetup) {
   override def postComputation: Message => IO[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
+    PostComputationPatterns.timeoutPostComputation(
+      dbTimeout = dbLayer.dbTimeout,
+      sBotInfo = sBotConfig.sBotInfo,
+      notifier = sBotSetup.notifier
+    )
   override def filteringMatchesMessages: (ReplyBundleMessage, Message) => IO[Boolean] =
     // In adapter unit tests we want selection to be deterministic and not gated by timeouts.
     (_: ReplyBundleMessage, _: Message) => IO.pure(true)

@@ -33,7 +33,7 @@ object RichTextReply {
         message <-
           Methods
             .sendRichMessage(
-              chatId = chatId,
+              chatId = Some(chatId),
               richMessage = richMessage,
               replyParameters = msg.replyParameters(replyToMessage)
             )

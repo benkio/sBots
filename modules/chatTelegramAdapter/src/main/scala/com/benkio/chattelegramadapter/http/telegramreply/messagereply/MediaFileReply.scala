@@ -154,7 +154,7 @@ object MediaFileReply {
       sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
         Methods
           .sendAudio(
-            chatId = chatId,
+            chatId = Some(chatId),
             audio = ifile,
             replyParameters = replyToMessageId
           )
@@ -177,7 +177,7 @@ object MediaFileReply {
       sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
         Methods
           .sendAnimation(
-            chatId = chatId,
+            chatId = Some(chatId),
             animation = ifile,
             replyParameters = replyToMessageId
           )
@@ -200,7 +200,7 @@ object MediaFileReply {
       sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
         Methods
           .sendPhoto(
-            chatId = chatId,
+            chatId = Some(chatId),
             photo = ifile,
             replyParameters = replyToMessageId
           )
@@ -223,7 +223,7 @@ object MediaFileReply {
       sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
         Methods
           .sendVideo(
-            chatId = chatId,
+            chatId = Some(chatId),
             video = ifile,
             replyParameters = replyToMessageId
           )
@@ -246,7 +246,7 @@ object MediaFileReply {
       sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
         Methods
           .sendDocument(
-            chatId = chatId,
+            chatId = Some(chatId),
             document = ifile,
             replyParameters = replyToMessageId
           )
@@ -269,7 +269,7 @@ object MediaFileReply {
       sendFileAPIMethod = (chatId, ifile, replyToMessageId) =>
         Methods
           .sendSticker(
-            chatId = chatId,
+            chatId = Some(chatId),
             sticker = ifile,
             replyParameters = replyToMessageId
           )

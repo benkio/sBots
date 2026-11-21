@@ -77,7 +77,11 @@ trait ISBot[F[_]: Async: LogWriter] {
   def filteringMatchesMessages: (ReplyBundleMessage, ModelMessage) => F[Boolean] =
     FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId)
   def postComputation: ModelMessage => F[Unit] =
-    PostComputationPatterns.timeoutPostComputation(dbTimeout = dbLayer.dbTimeout, sBotId = sBotConfig.sBotInfo.botId)
+    PostComputationPatterns.timeoutPostComputation(
+      dbTimeout = dbLayer.dbTimeout,
+      sBotInfo = sBotConfig.sBotInfo,
+      notifier = sBotSetup.notifier
+    )
 
   val commandEffectfulCallback: Map[String, EffectfulCallback[F]] = Map.empty
 

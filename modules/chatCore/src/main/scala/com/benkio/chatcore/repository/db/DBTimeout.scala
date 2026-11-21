@@ -58,17 +58,14 @@ object DBTimeout {
           .transact(transactor)
           .void
 
+    // A failed UPDATE is propagated instead of being replaced by a `setTimeout` of zero: that would overwrite the
+    // existing row (or create one) with a timeout that never puts the chat in timeout. The caller notifies the
+    // operators and leaves the stored row untouched.
     override def logLastInteraction(chatId: ChatId, botId: SBotId): F[Unit] =
       log.info(s"DB logging the last interaction for chat $chatId - $botId") *>
         logLastInteractionQuery(chatId, botId).run
           .transact(transactor)
-          .attemptSql
-          .flatMap {
-            case Left(e) =>
-              log.info(s"Sql Exception on logging last interaction: $e") *>
-                setTimeout(DBTimeoutData(Timeout(chatId, botId)))
-            case Right(_) => ().pure[F]
-          }
+          .void
   }
 
   def getOrDefaultQuery(chatId: ChatId, botId: SBotId): Query0[DBTimeoutData] =

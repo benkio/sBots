@@ -353,7 +353,8 @@ object BotEngine {
       filteringMatchesMessages = FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId),
       postComputation = PostComputationPatterns.timeoutPostComputation(
         dbTimeout = dbLayer.dbTimeout,
-        sBotId = sBotConfig.sBotInfo.botId
+        sBotInfo = sBotConfig.sBotInfo,
+        notifier = notifier
       ),
       notifier = notifier
     )

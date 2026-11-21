@@ -18,7 +18,7 @@ final class TelegramNotifier[F[_]: Async](opsChatId: Long)(using api: Api[F], lo
   private val chatId: ChatIntId = ChatIntId(id = opsChatId)
 
   private def sendText(text: String): F[Unit] =
-    Methods.sendMessage(chatId = chatId, text = text).exec.void
+    Methods.sendMessage(chatId = Some(chatId), text = text).exec.void
 
   override def info(sBotInfo: SBotInfo, message: String): F[Unit] =
     sendText(Notifier.formatInfo(sBotInfo, message))
