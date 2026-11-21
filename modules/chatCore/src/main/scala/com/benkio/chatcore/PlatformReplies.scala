@@ -21,9 +21,9 @@ trait PlatformReplies[F[_]] {
   ): F[Unit] =
     replyValues.traverse_(send(_, message, replyToMessage))
 
-  /** Computes the value of an effectful reply, e.g. the one of a command, for the chat of the message.
-    * `overridePage` is the page the reply runs at (the platform-neutral navigation of the paged lists, e.g. the text
-    * commands of the platforms without buttons).
+  /** Computes the value of an effectful reply, e.g. the one of a command, for the chat of the message. `overridePage`
+    * is the page the reply runs at (the platform-neutral navigation of the paged lists, e.g. the text commands of the
+    * platforms without buttons).
     */
   def runEffectful(
       reply: EffectfulReply,

@@ -1,10 +1,10 @@
 package com.benkio.chatcore
 
+import com.benkio.chatcore.model.reply.PagedItem
+import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
-import com.benkio.chatcore.model.reply.PagedItem
-import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.TestIds
 import munit.FunSuite
 
@@ -19,7 +19,8 @@ class PagedListTextStoreSpec extends FunSuite {
   private def request(chatId: ChatId, text: String): Message =
     Message(None, 0L, chatId, "private", text = Some(text))
 
-  private def pageItems(count: Int): List[PagedItem] = (1 to count).toList.map(n => PagedItem.ValueItem(Text(s"item $n")))
+  private def pageItems(count: Int): List[PagedItem] =
+    (1 to count).toList.map(n => PagedItem.ValueItem(Text(s"item $n")))
 
   test("a chat has one entry at most: a new entry replaces the old one") {
     val store = newStore()

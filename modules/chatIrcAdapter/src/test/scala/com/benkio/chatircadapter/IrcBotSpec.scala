@@ -11,8 +11,8 @@ import com.benkio.chatcore.model.reply.TextReply
 import com.benkio.chatcore.model.CommandInstructionData
 import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.SBotInfo
-import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.repository.db.DBMediaData
+import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.Logger.given
 import com.benkio.chatcore.Notifier
 import com.benkio.chatircadapter.connection.FakeIrcServer
@@ -131,16 +131,20 @@ class IrcBotSpec extends CatsEffectSuite {
           .start
         _      <- eventually(server.joined.nonEmpty)
         _      <- server.push(":alice!a@host PRIVMSG #sbots :!toptwenty")
-        listed <- eventually(server.linesReceived.exists(l => l.startsWith("PRIVMSG #sbots") && l.contains("-----Top 20 Triggers-----")))
+        listed <- eventually(
+          server.linesReceived.exists(l => l.startsWith("PRIVMSG #sbots") && l.contains("-----Top 20 Triggers-----"))
+        )
         _      <- server.push(":alice!a@host PRIVMSG #sbots :!pick 1")
         picked <- eventually(server.linesReceived.exists(_.contains("https://eng.example/item1.mp3")))
         _      <- server.push(":alice!a@host PRIVMSG #sbots :!pick 6")
-        out    <- eventually(server.linesReceived.exists(l => l.contains("Nessun elemento con numero 6 nella pagina corrente")))
+        out    <- eventually(
+          server.linesReceived.exists(l => l.contains("Nessun elemento con numero 6 nella pagina corrente"))
+        )
         // the private chat has no list remembered
-        _         <- server.push(":alice!a@host PRIVMSG EngineBot :!next")
+        _          <- server.push(":alice!a@host PRIVMSG EngineBot :!next")
         pmListGone <- eventually(server.linesReceived.exists(_.contains("Nessuna lista paginata in questa chat")))
-        _         <- bot.cancel
-        quitted   <- eventually(server.linesReceived.exists(_.startsWith("QUIT")))
+        _          <- bot.cancel
+        quitted    <- eventually(server.linesReceived.exists(_.startsWith("QUIT")))
       } yield {
         assert(listed, server.linesReceived.toString)
         assert(picked, server.linesReceived.toString)

@@ -12,8 +12,8 @@ import scala.concurrent.duration.FiniteDuration
   * platform-neutral [[PagedListNavigation]]: `!next`/`!prev` run the command of the list again at the next/previous
   * page (the navigation rule PagedListChangesPage), `!pick n` is the navigation rule PagedListPicksItem.
   *
-  * The answers when the chat has no remembered list, the list expired, or the number of the pick is out of the page
-  * or missing.
+  * The answers when the chat has no remembered list, the list expired, or the number of the pick is out of the page or
+  * missing.
   */
 object PagedListTextCommands {
 
@@ -31,10 +31,13 @@ object PagedListTextCommands {
 
   /** What the text commands of the message ask the engine to take on the remembered list. */
   enum Action {
+
     /** `!next`/`!prev`: the command of the list run again at the page: the reply is the new page of the list. */
     case Rerun(entry: PagedListTextStore.Entry, page: Int)
+
     /** The clear answer: no list remembered or expired, or the number of `!pick` out of the page or missing. */
     case Answer(text: String)
+
     /** `!pick n`: the replies of the item n of the page of the list. */
     case Pick(entry: PagedListTextStore.Entry, number: Int)
   }
@@ -57,9 +60,9 @@ object PagedListTextCommands {
         )
     }
 
-  /** The action the text commands of the message ask for on the remembered list of the chat: the list the commands
-    * can act on, or the clear answer when there is none, it expired or the number of `!pick` is out of the page.
-    * `None` when the message is not a text command.
+  /** The action the text commands of the message ask for on the remembered list of the chat: the list the commands can
+    * act on, or the clear answer when there is none, it expired or the number of `!pick` is out of the page. `None`
+    * when the message is not a text command.
     */
   def decide(
       msg: Message,
@@ -67,7 +70,7 @@ object PagedListTextCommands {
       botName: SBotName,
       store: PagedListTextStore.Store,
       now: FiniteDuration
-  ): Option[Action] = parse(msg, syntax, botName).flatMap { command =>
+  ): Option[Action] = parse(msg = msg, syntax = syntax, botName = botName).flatMap { command =>
     store.get(msg.chatId, now) match {
       case Some(entry) => decideOnEntry(command, entry)
       case None        =>
@@ -78,8 +81,8 @@ object PagedListTextCommands {
   }
 
   private def decideOnEntry(command: TextCommand, entry: PagedListTextStore.Entry): Option[Action] = command match {
-    case TextCommand.Next => Action.Rerun(entry, entry.page + 1).some
-    case TextCommand.Prev => Action.Rerun(entry, PagedListNavigation.previousPage(entry.page)).some
+    case TextCommand.Next         => Action.Rerun(entry, entry.page + 1).some
+    case TextCommand.Prev         => Action.Rerun(entry, PagedListNavigation.previousPage(entry.page)).some
     case TextCommand.Pick(number) =>
       number match {
         case Some(n) if n >= 1 && n <= entry.pageItems.size => Action.Pick(entry, n).some

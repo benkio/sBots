@@ -1,22 +1,22 @@
 package com.benkio.chatcore
 
+import com.benkio.chatcore.model.reply.PagedItem
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
-import com.benkio.chatcore.model.reply.PagedItem
 
 import scala.collection.mutable
 import scala.concurrent.duration.*
 
-/** The paged lists a platform without buttons showed in each chat: the basis of the text commands `!next`, `!prev`
-  * and `!pick` (see [[PagedListTextCommands]]). An entry is the page as shown: the command of the list (run again
-  * for another page), the page, the items of the page (the picks), and the message that asked for it (the same input
-  * the command runs again with).
+/** The paged lists a platform without buttons showed in each chat: the basis of the text commands `!next`, `!prev` and
+  * `!pick` (see [[PagedListTextCommands]]). An entry is the page as shown: the command of the list (run again for
+  * another page), the page, the items of the page (the picks), and the message that asked for it (the same input the
+  * command runs again with).
   *
   * The store is per bot engine and memory only: a restart forgets it. An entry expires after
   * [[PagedListTextStore.defaultExpiry]] (the `paged_list_text_mode_expiry` of the specs) from when it was saved, and
-  * the store keeps at most [[PagedListTextStore.defaultMaxChats]] chats (the `paged_list_text_mode_max_chats` of
-  * the specs): the oldest entries are dropped when the store is full.
+  * the store keeps at most [[PagedListTextStore.defaultMaxChats]] chats (the `paged_list_text_mode_max_chats` of the
+  * specs): the oldest entries are dropped when the store is full.
   */
 object PagedListTextStore {
 
@@ -35,8 +35,8 @@ object PagedListTextStore {
 
     private val entries = mutable.LinkedHashMap[ChatId, Entry]()
 
-    /** Saves the page of the chat: a new entry replaces the old one of the chat; when the store is full to
-      * `maxChats` chats the oldest entries are dropped.
+    /** Saves the page of the chat: a new entry replaces the old one of the chat; when the store is full to `maxChats`
+      * chats the oldest entries are dropped.
       */
     def save(
         chatId: ChatId,

@@ -1,12 +1,12 @@
 package com.benkio.chatcore
 
-import cats.ApplicativeThrow
 import cats.effect.Async
 import cats.effect.Clock
 import cats.effect.Sync
 import cats.syntax.all.*
-import com.benkio.chatcore.conversions.YouTubeTimestamp.finiteDurationToYoutubeTimestamp
+import cats.ApplicativeThrow
 import com.benkio.chatcore.config.SBotConfig
+import com.benkio.chatcore.conversions.YouTubeTimestamp.finiteDurationToYoutubeTimestamp
 import com.benkio.chatcore.messagefiltering.*
 import com.benkio.chatcore.model.reply.EffectfulReply
 import com.benkio.chatcore.model.reply.MarkdownFile
@@ -133,8 +133,7 @@ class BotEngine[F[_]: Async: LogWriter](
   private def textNavigationCommands(msg: Message)(using platform: PlatformAdapter[F]): F[Boolean] =
     if platform.capabilities.supportsButtons then false.pure[F]
     else
-      Clock[F]
-        .monotonic
+      Clock[F].monotonic
         .flatMap(now =>
           PagedListTextCommands
             .decide(
@@ -159,7 +158,9 @@ class BotEngine[F[_]: Async: LogWriter](
     case PagedListTextCommands.Action.Answer(text) =>
       deliver(replyValue = Text(text), msg = msg, replyToMessage = true).as(true)
     case PagedListTextCommands.Action.Pick(entry, number) =>
-      pickStoredItem(entry, number).flatMap(value => deliver(value, msg, replyToMessage = true)).as(true)
+      pickStoredItem(entry, number)
+        .flatMap(value => deliver(replyValue = value, msg = msg, replyToMessage = true))
+        .as(true)
   }
 
   /** The command of the remembered list run again at a page: the same input, the same bot (the navigation rule
@@ -199,8 +200,7 @@ class BotEngine[F[_]: Async: LogWriter](
   private def rememberPagedList(request: Message, replyValue: ReplyValue)(using platform: PlatformAdapter[F]): F[Unit] =
     replyValue match {
       case pagedList: PagedList if !platform.capabilities.supportsButtons =>
-        Clock[F]
-          .monotonic
+        Clock[F].monotonic
           .flatMap(now =>
             pagedListTextStore
               .save(

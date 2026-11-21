@@ -89,9 +89,9 @@ object PagedList {
     )
 
   /** The page as plain text, for the platforms with no buttons: the headline, the numbered items (the numbers go on
-    * across the pages) and the position among the pages. With `commandSyntax`, the text says how to move the list
-    * with its text commands: the `!next`/`!prev` of the next/previous page and the `!pick 1-n` of the items of the
-    * page (see [[PagedListTextCommands]]).
+    * across the pages) and the position among the pages. With `commandSyntax`, the text says how to move the list with
+    * its text commands: the `!next`/`!prev` of the next/previous page and the `!pick 1-n` of the items of the page (see
+    * [[PagedListTextCommands]]).
     */
   def toPlainText(pagedList: PagedList, commandSyntax: Option[CommandSyntax] = None): String = {
     val headline = pagedList.title.linesIterator.nextOption().getOrElse("")
@@ -104,8 +104,8 @@ object PagedList {
   }
 
   /** How to move the list with the text commands of the platform without buttons: `!next`, `!prev` and `!pick 1-5` —
-    * `!next`/`!prev` are shown only when there is a next/previous page, `!pick n` with the numbers of the items of
-    * the page (`!pick 1-5` when the page is full).
+    * `!next`/`!prev` are shown only when there is a next/previous page, `!pick n` with the numbers of the items of the
+    * page (`!pick 1-5` when the page is full).
     */
   def navigationHint(pagedList: PagedList, commandSyntax: CommandSyntax): Option[String] = {
     val move = List(
