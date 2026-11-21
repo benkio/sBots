@@ -1,10 +1,11 @@
 package com.benkio.chatcore.patterns
 
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.CommandInstructionData
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.SBotInfo
-import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import munit.FunSuite
+import org.http4s.syntax.literals.*
 import org.http4s.Uri
 
 class CommandPatternsGroupSpec extends FunSuite {
@@ -41,7 +42,7 @@ class CommandPatternsGroupSpec extends FunSuite {
 
   test("TriggerGroup builds the trigger and settings commands") {
     val commands = CommandPatternsGroup.TriggerGroup.group(
-      triggerFileUri = Uri.unsafeFromString("https://example.com/triggers.md"),
+      triggerFileUri = uri"https://example.com/triggers.md",
       sBotInfo = botInfo,
       messageRepliesData = List.empty[ReplyBundleMessage],
       ignoreMessagePrefix = None

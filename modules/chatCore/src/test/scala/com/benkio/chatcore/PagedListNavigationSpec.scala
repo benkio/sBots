@@ -66,8 +66,16 @@ class PagedListNavigationSpec extends CatsEffectSuite {
     )
 
     for {
-      next <- reply(List.empty, PagedListAction.NextPage(0, CommandKey.Random), List(commandReply))
-      prev <- reply(List.empty, PagedListAction.PreviousPage(2, CommandKey.Random), List(commandReply))
+      next <- reply(
+        dbShows = List.empty,
+        action = PagedListAction.NextPage(0, CommandKey.Random),
+        commands = List(commandReply)
+      )
+      prev <- reply(
+        dbShows = List.empty,
+        action = PagedListAction.PreviousPage(2, CommandKey.Random),
+        commands = List(commandReply)
+      )
     } yield {
       assertEquals(next, Text("page content"): ReplyValue)
       assertEquals(prev, Text("page content"): ReplyValue)
@@ -76,8 +84,8 @@ class PagedListNavigationSpec extends CatsEffectSuite {
 
   test("a page action for a command that does not exist fails") {
     for {
-      next <- reply(List.empty, PagedListAction.NextPage(0, CommandKey.Random)).attempt
-      prev <- reply(List.empty, PagedListAction.PreviousPage(2, CommandKey.Random)).attempt
+      next <- reply(dbShows = List.empty, action = PagedListAction.NextPage(0, CommandKey.Random)).attempt
+      prev <- reply(dbShows = List.empty, action = PagedListAction.PreviousPage(2, CommandKey.Random)).attempt
     } yield {
       assert(next.isLeft)
       assert(prev.isLeft)
