@@ -80,8 +80,8 @@ class BotEngine[F[_]: Async: LogWriter](
     */
   private val pagedListTextStore: PagedListTextStore.Store =
     new PagedListTextStore.Store(
-      expiry = PagedListTextStore.defaultExpiry,
-      maxChats = PagedListTextStore.defaultMaxChats
+      expiry = sBotConfig.pagedListTextModeExpiry,
+      maxChats = sBotConfig.pagedListTextModeMaxChats
     )
 
   // Bot logic ////////////////////////////////////////////////////////////

@@ -47,7 +47,9 @@ object BotCoreSetup {
       _      <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Configuration: $config"))
       effectiveSBotConfig = sBotConfig.copy(
         requestProcessingTimeout = config.requestProcessingTimeout,
-        startupCheck = config.startupCheck
+        startupCheck = config.startupCheck,
+        pagedListTextModeExpiry = config.pagedListTextModeExpiry,
+        pagedListTextModeMaxChats = config.pagedListTextModeMaxChats
       )
       dropboxClient <- Resource.eval(DropboxClient[F](httpClient, config.httpCache.dropbox))
       megaClient    <- Resource.eval(MegaClient[F](httpClient))
