@@ -213,6 +213,14 @@ SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' A
   the ssh port ~DEPLOY_PORT~, see [[*GitHub Deploy Workflow (current target)][GitHub Deploy Workflow]]). The details of
   the logs in Grafana are in [[docs/monitoring.md][docs/monitoring.md]].
 
+*** Path configuration
+
+  Runtime and tests resolve paths from explicit configuration, not from the directory they were launched from:
+  - ~sbots.repoRoot~ :: repository root (injected by sbt for tests and forked ~run~; set to ~DEPLOY_DIR~ in production).
+  - ~sbots.projectRoot~ :: root of the current sbt project/module; defaults to ~sbots.repoRoot~ when not set.
+  - ~sbots.logFile~ :: optional crash-history file. When unset, a crash is only logged and signalled: no ~log.txt~ is
+    created in the working directory. The deployed service sets it to ~DEPLOY_DIR/log.txt~.
+
 *** Where the logs are
 
   - *Grafana Cloud* (first choice, no SSH): [[https://glowingdate3125.grafana.net/explore][Explore]] with the
@@ -221,7 +229,8 @@ SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' A
   - *On the VM*, in ~DEPLOY_DIR~:
     - ~sbots.log~ :: the standard output of the service (the same lines as the ones in Grafana).
     - ~sbots.err.log~ :: the standard error of the service.
-    - ~log.txt~ :: the history of how the application ended (crashes with the stack trace), only grows.
+    - ~log.txt~ :: the history of how the application ended (crashes with the stack trace), only grows. Written only
+      because the service sets ~sbots.logFile~; it is not created by an unset/default launch.
     - ~oom.hprof~ :: the heap dump of an ~OutOfMemoryError~; it is deleted when the service is started again.
   - *Rotation*: ~logrotate~ (hourly, from ~/etc/periodic/hourly~) rotates ~sbots.log~, ~sbots.err.log~ and ~log.txt~ at
     20 MB, keeps 5 compressed files (~copytruncate~). Installed by the deploy workflow.

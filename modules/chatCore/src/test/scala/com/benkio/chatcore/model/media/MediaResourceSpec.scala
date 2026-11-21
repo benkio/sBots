@@ -7,14 +7,14 @@ import com.benkio.chatcore.model.media.MediaResource.MediaResourceFile
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceIFile
 import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.Platform
+import com.benkio.chatcore.paths.SBotPaths
 import munit.*
 
 import java.nio.file.Path
-import java.nio.file.Paths
 
 class MediaResourceSpec extends CatsEffectSuite {
   test("getMediaResourceFile should extract the file or return None") {
-    val path      = Paths.get(".")
+    val path      = SBotPaths.projectRoot.resolve("media-resource-test")
     val actual1   = MediaResourceFile(Resource.pure[IO, Path](path)).getMediaResourceFile.sequence
     val expected1 = Some(path)
 

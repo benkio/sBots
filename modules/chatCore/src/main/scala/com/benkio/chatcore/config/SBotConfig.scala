@@ -2,10 +2,10 @@ package com.benkio.chatcore.config
 
 import cats.syntax.all.*
 import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chatcore.paths.SBotPaths
 import com.benkio.chatcore.PagedListTextStore
 import org.http4s.Uri
 
-import java.nio.file.Files
 import java.nio.file.Path
 import scala.concurrent.duration.*
 
@@ -43,24 +43,9 @@ object SBotConfig {
     * performance tests.
     */
   val defaultRequestProcessingTimeout: FiniteDuration = 10.seconds
-  private def findProjectRoot(path: Path): Path       = {
-    val isProjectRoot =
-      Files.exists(path.resolve("build.sbt")) &&
-        Files.isDirectory(path.resolve("modules"))
-    if isProjectRoot then path
-    else
-      Option(path.getParent) match {
-        case Some(parent) => findProjectRoot(parent)
-        case None         => path
-      }
-  }
-
-  private lazy val projectRootPath: Path =
-    findProjectRoot(Path.of("").toAbsolutePath.normalize())
-
-  private def resolvePath(path: Path): Path =
+  private def resolvePath(path: Path): Path           =
     if path.isAbsolute then path.normalize()
-    else projectRootPath.resolve(path).normalize()
+    else SBotPaths.repoRoot.resolve(path).normalize()
 
   def apply(
       sBotInfo: SBotInfo,

@@ -6,6 +6,7 @@ import cats.syntax.all.*
 import com.benkio.chatcore.model.show.*
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.Timeout
+import com.benkio.chatcore.paths.SBotPaths
 import com.benkio.chatcore.Logger.given
 import com.benkio.chatcore.TestIds
 import doobie.implicits.*
@@ -17,7 +18,6 @@ import munit.CatsEffectSuite
 
 import java.nio.file.Files
 import java.nio.file.Path
-import java.nio.file.Paths
 import java.time.Instant
 import scala.util.Using
 
@@ -52,7 +52,14 @@ class DBRepositoriesCoverageSpec extends CatsEffectSuite {
       }
 
   private val migrationsDir: Path =
-    Paths.get("..", "botDB", "src", "main", "resources", "db", "migrations")
+    SBotPaths.repoRoot
+      .resolve("modules")
+      .resolve("botDB")
+      .resolve("src")
+      .resolve("main")
+      .resolve("resources")
+      .resolve("db")
+      .resolve("migrations")
 
   private def sqlStatements(fileContent: String): List[String] =
     fileContent.linesIterator

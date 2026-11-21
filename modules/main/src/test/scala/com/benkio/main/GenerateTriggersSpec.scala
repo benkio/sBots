@@ -1,6 +1,7 @@
 package com.benkio.main
 
 import cats.effect.ExitCode
+import com.benkio.chatcore.paths.SBotPaths
 import com.benkio.chattelegramadapter.SBot
 import munit.CatsEffectSuite
 
@@ -15,7 +16,11 @@ class GenerateTriggersSpec extends CatsEffectSuite {
   test("GenerateTriggers.run should modify the expected files") {
     val triggerFiles: List[Path] = BotRegistry.toList(BotRegistry.value).map { entry =>
       val config = SBot.buildSBotConfig(entry.sBotInfo)
-      Path.of(s"../bots/${entry.sBotInfo.botName.value}/${config.triggerFilename}")
+      SBotPaths.repoRoot
+        .resolve("modules")
+        .resolve("bots")
+        .resolve(entry.sBotInfo.botName.value)
+        .resolve(config.triggerFilename)
     }
     val fiveMinutesAgo = System.currentTimeMillis() - (5 * 60 * 1000)
     GenerateTriggers

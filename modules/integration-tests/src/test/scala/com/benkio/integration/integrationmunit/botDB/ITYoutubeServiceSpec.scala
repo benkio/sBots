@@ -7,17 +7,18 @@ import com.benkio.botDB.show.YouTubeBotDBShowDatas
 import com.benkio.botDB.show.YouTubeBotIds
 import com.benkio.botDB.show.YouTubeService
 import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.paths.SBotPaths
 import com.benkio.chatcore.repository.db.DBShowData
 import com.benkio.integration.Logger.given
 import munit.CatsEffectSuite
 
 import java.nio.file.Files
-import java.nio.file.Paths
+import java.nio.file.Path
 import scala.jdk.CollectionConverters.*
 
 class ITYouTubeServiceSpec extends CatsEffectSuite with Constants {
 
-  val youTubeApiKey     = Files.readAllLines(Paths.get(youTubeTokenFilenamePath)).asScala.headOption.get
+  val youTubeApiKey     = Files.readAllLines(Path.of(youTubeTokenFilenamePath)).asScala.headOption.get
   val ciEnvVar          = sys.env.get("CI")
   val runTestsCondition =
     (ciEnvVar.contains("false") || ciEnvVar.isEmpty) && youTubeApiKey != "PutYourYouTubeApiKeyHere"
@@ -80,7 +81,7 @@ class ITYouTubeServiceSpec extends CatsEffectSuite with Constants {
   test("YouTubeService.saveCaption should not fail") {
     assume(runTestsCondition)
     for {
-      tempDir <- IO.pure(Files.createTempDirectory(Paths.get("target"), "ytdlpCaptions").toAbsolutePath())
+      tempDir <- IO.pure(Files.createTempDirectory(SBotPaths.projectRoot.resolve("target"), "ytdlpCaptions").toAbsolutePath())
       videoId  = "CQi-0VJJSSs"
       language = "it"
       youTubeService <- buildYoutubeService

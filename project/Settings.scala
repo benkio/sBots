@@ -11,10 +11,10 @@ import Keys.*
 object Settings {
 
   // TASKS
-  lazy val mUnitTests              = taskKey[Unit]("Run MUnit tests (excludes live-network tests)")
-  lazy val mUnitLiveNetworkTests   = taskKey[Unit]("Run only the live-network MUnit tests (Dropbox/Mega)")
-  lazy val runMigrate              = taskKey[Unit]("Migrates the database schema.")
-  lazy val scalaTests              = taskKey[Unit]("Run ScalaTest tests")
+  lazy val mUnitTests            = taskKey[Unit]("Run MUnit tests (excludes live-network tests)")
+  lazy val mUnitLiveNetworkTests = taskKey[Unit]("Run only the live-network MUnit tests (Dropbox/Mega)")
+  lazy val runMigrate            = taskKey[Unit]("Migrates the database schema.")
+  lazy val scalaTests            = taskKey[Unit]("Run ScalaTest tests")
 
   /** Statement-coverage threshold, rounded down from each module's current measured coverage (with a small safety
     * margin) so coverage checks reflect reality instead of an arbitrary one-size-fits-all number. Raise per-module as
@@ -33,7 +33,17 @@ object Settings {
     semanticdbEnabled        := true,
     fork                     := true,
     Test / publishArtifact   := false,
-    coverageExcludedPackages := "com\\.benkio\\.chatcore\\.mocks\\..*"
+    coverageExcludedPackages := "com\\.benkio\\.chatcore\\.mocks\\..*",
+    // Forks inherit the launch directory unless paths are explicit. Inject them for every project so tests and
+    // `run` behave the same from sbt, an IDE or a different shell directory.
+    Test / javaOptions ++= Seq(
+      s"-Dsbots.repoRoot=${(ThisBuild / baseDirectory).value.getAbsolutePath}",
+      s"-Dsbots.projectRoot=${baseDirectory.value.getAbsolutePath}"
+    ),
+    run / javaOptions ++= Seq(
+      s"-Dsbots.repoRoot=${(ThisBuild / baseDirectory).value.getAbsolutePath}",
+      s"-Dsbots.projectRoot=${baseDirectory.value.getAbsolutePath}"
+    )
   ) ++ lineCoverageThreshold(56)
 
   lazy val assemblySettings = Seq(
@@ -78,9 +88,8 @@ object Settings {
     // These tests share a single botDB.sqlite3 file and in-memory caches; running them
     // concurrently races on that shared state and fails nondeterministically.
     Test / parallelExecution := false,
-    // Constants.scala needs these paths (previously found via the now-unreliable
-    // `getClass.getResource("/")`, see Constants.scala for why).
-    Test / javaOptions += s"-Dsbots.repoRoot=${(ThisBuild / baseDirectory).value.getAbsolutePath}",
+    // Constants.scala needs its own resources directory (previously found via the now-unreliable
+    // `getClass.getResource("/")`, see Constants.scala for why); the repo root is injected for every project above.
     Test / javaOptions += s"-Dsbots.integrationTestResourcesDirectory=${(Test / resourceDirectory).value.getAbsolutePath}/",
     // Live Dropbox/Mega tests are tagged LiveNetwork and excluded from the default verification
     // path: provider/network instability must not break a PR. Run them with
@@ -121,7 +130,6 @@ object Settings {
   def RepliesEditorServer(repliesEditorUI: ProjectReference) = Seq(
     name                := "repliesEditorServer",
     libraryDependencies := RepliesEditorServerDependencies,
-    run / javaOptions += s"-Dsbots.repoRoot=${(ThisBuild / baseDirectory).value.getAbsolutePath}",
     Compile / resourceGenerators += Def.task {
       val _        = (repliesEditorUI / Compile / fastLinkJS).value // ensure UI is linked before copying
       val uiOutDir = (repliesEditorUI / Compile / fastLinkJS / scalaJSLinkerOutputDirectory).value

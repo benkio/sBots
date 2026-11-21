@@ -2,8 +2,12 @@ package com.benkio.main
 
 import cats.effect.*
 import cats.syntax.all.*
+import com.benkio.chatcore.paths.SBotPaths
 import com.benkio.chatcore.Logger.given
 import munit.CatsEffectSuite
+
+import java.nio.file.Files
+import java.nio.file.Path
 
 // No timing involved on purpose: the failing resource/IO fail immediately and the log is written before
 // `logAndDie` completes, so there is nothing to wait for (a sleep/race here made the test flaky on slow CI).
@@ -77,6 +81,45 @@ class GeneralErrorHandlingSpec extends CatsEffectSuite {
       _       <- GeneralErrorHandling.logAndDie(failedIO, error => signals.update(_ :+ error))
       sent    <- signals.get
     } yield assertEquals(sent, List(expectedErrorMessage))
+  }
+
+  test("GeneralErrorHandling should not write a crash history when none is configured") {
+    val implicitLog: Path        = SBotPaths.workingDirectory.resolve("log.txt")
+    val propertyName: String     = SBotPaths.LogFileProperty
+    val previous: Option[String] = Option(System.getProperty(propertyName))
+
+    val unconfigured: Resource[IO, Unit] = Resource.make(
+      IO.delay {
+        System.clearProperty(propertyName)
+        Files.deleteIfExists(implicitLog)
+        ()
+      }
+    ) { _ =>
+      IO.delay {
+        previous match {
+          case Some(value) =>
+            System.setProperty(propertyName, value)
+            ()
+          case None =>
+            System.clearProperty(propertyName)
+            ()
+        }
+        Files.deleteIfExists(implicitLog)
+        ()
+      }
+    }
+
+    unconfigured.use { _ =>
+      for {
+        signals <- Ref.of[IO, List[String]](List.empty)
+        _       <- GeneralErrorHandling.logAndDie(failedIO, error => signals.update(_ :+ error)).attempt
+        sent    <- signals.get
+      } yield {
+        assertEquals(GeneralErrorHandling.logFile, None)
+        assertEquals(sent, List(expectedErrorMessage))
+        assert(Files.notExists(implicitLog), s"unexpected crash history at $implicitLog")
+      }
+    }
   }
 
   test("a crash is appended to the history with its stack trace, and the previous entries are kept") {
