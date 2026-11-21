@@ -4,11 +4,16 @@ on:
   push:
     branches:
         - "**"
+  # Dependency-update bots push to their own fork, so no push event fires here for their PRs and their required
+  # checks would never report. Run CI on their pull_request event instead. Jobs skip that event for same-repo PRs
+  # (which already get CI from push, including the App-pushed refresh-IDs branch) so checks are not duplicated.
+  pull_request:
   # Kept for the other workflows that dispatch CI explicitly (e.g. showUpdate.yml).
   workflow_dispatch:
 
 jobs:
   alliumSpecs:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -25,6 +30,7 @@ jobs:
     - name: Check the behavior specs
       run: sh scripts/checkSpecs.sh
   typescriptCode:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -40,6 +46,7 @@ jobs:
         npm run test
   # Each Scala job can be re-run on its own ("Re-run failed jobs"): a flaky one doesn't redo the others.
   scalaCheck:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v5
@@ -51,6 +58,7 @@ jobs:
         echo this workflow was triggered by ${{github.actor}}
         sbt "check; checkInstructions"
   scalaUnitTests:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v5
@@ -60,6 +68,7 @@ jobs:
       # regenerates triggers/calendars/instructions; CI only verifies the checked-in result.
       run: sbt "dbSetup; coverage; test; coverageReport; coverageAggregate; coverageOff"
   scalaIntegrationTests:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v5
@@ -68,6 +77,7 @@ jobs:
       # Live-network Dropbox/Mega tests carry the LiveNetwork tag and are excluded here.
       run: sbt "dbSetup; integration/mUnitTests"
   scalaAssembly:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v5
@@ -75,6 +85,7 @@ jobs:
     - name: Assembly
       run: sbt assembly
   dbMigration:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v5

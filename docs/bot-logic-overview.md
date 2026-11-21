@@ -210,6 +210,12 @@ as a GitHub App, so the push triggers `Scala CI` normally, no run approval is ne
 unattended. A push with `GITHUB_TOKEN` would trigger neither the push workflow nor an approval-free PR run. Auto-merge
 is enabled, so the PR merges once all required checks are green and stays open for a human when one fails.
 
+Dependency-update PRs from Scala Steward and Dependabot are handled by `.github/workflows/autoApproveMerge.yaml`, which
+approves them and enables the same native auto-merge. Those bots push to their own fork, so no `push` event fires in
+this repository and their required checks would never report. `CI.yml` therefore also runs on `pull_request`, with its
+jobs limited to cross-repository PRs; same-repository PRs keep using the `push` run, so checks are not duplicated. Once
+the fork PR's checks are green, auto-merge completes it unattended.
+
 Platforms that do not accept file references (Discord, IRC) keep using only URL sources: their repository is filtered to
 hide other platforms' tagged references, and they do not call the capture APIs. The same shape is checked in two places:
 `FileIdSourcesSpec` (Scala, CI) and the source schema of `filesCheck` (`MediaListSchema.ts`): a source is an url or
