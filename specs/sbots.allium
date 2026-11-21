@@ -165,6 +165,12 @@ config {
     reply_time_to_live: Duration? = 10.seconds
     processed_message_retention: Duration = 24.hours
     processed_message_cleanup_interval: Duration = 1.hour
+    -- SBotConfig.pagedListTextModeExpiry/pagedListTextModeMaxChats: the store of the text mode of the platforms
+    -- without buttons (the engine-extras PagedListTextStoreEntry): the entries expire paged_list_text_mode_expiry
+    -- after they were saved and the store keeps at most paged_list_text_mode_max_chats chats (the keys of the
+    -- application.conf of the bot's namespace)
+    paged_list_text_mode_expiry: Duration = 10.minutes
+    paged_list_text_mode_max_chats: Integer = 100
 }
 
 ------------------------------------------------------------

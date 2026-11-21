@@ -6,6 +6,7 @@ import cats.Show as CatsShow
 import com.benkio.chatcore.messagefiltering.getContent
 import com.benkio.chatcore.model.show.Show
 import com.benkio.chatcore.model.CommandKey
+import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Trigger
 
@@ -88,14 +89,30 @@ object PagedList {
     )
 
   /** The page as plain text, for the platforms with no buttons: the headline, the numbered items (the numbers go on
-    * across the pages) and the position among the pages.
+    * across the pages) and the position among the pages. With `commandSyntax`, the text says how to move the list with
+    * its text commands: the `!next`/`!prev` of the next/previous page and the `!pick 1-n` of the items of the page (see
+    * [[PagedListTextCommands]]).
     */
-  def toPlainText(pagedList: PagedList): String = {
+  def toPlainText(pagedList: PagedList, commandSyntax: Option[CommandSyntax] = None): String = {
     val headline = pagedList.title.linesIterator.nextOption().getOrElse("")
     val numbered = pagedList.pageItems.zipWithIndex.map { case (item, index) =>
       s"${pagedList.page * pagedList.pageSize + index + 1}. ${item.label}"
     }
     val position = Option.when(pagedList.totalPages > 1)(s"page ${pagedList.page + 1} of ${pagedList.totalPages}")
-    (headline :: numbered ++ position.toList).mkString("\n")
+    val hint     = commandSyntax.flatMap(PagedList.navigationHint(pagedList, _))
+    (headline :: numbered ++ position.toList ++ hint.toList).mkString("\n")
+  }
+
+  /** How to move the list with the text commands of the platform without buttons: `!next`, `!prev` and `!pick 1-5` —
+    * `!next`/`!prev` are shown only when there is a next/previous page, `!pick n` with the numbers of the items of the
+    * page (`!pick 1-5` when the page is full).
+    */
+  def navigationHint(pagedList: PagedList, commandSyntax: CommandSyntax): Option[String] = {
+    val move = List(
+      Option.when(pagedList.hasNext)(s"${commandSyntax.prefix}next"),
+      Option.when(pagedList.hasPrevious)(s"${commandSyntax.prefix}prev")
+    ).flatten
+    val pick = Option.when(pagedList.pageItems.nonEmpty)(s"${commandSyntax.prefix}pick 1-${pagedList.pageItems.size}")
+    Option.when((move ++ pick).nonEmpty)((move ++ pick).mkString(" / "))
   }
 }

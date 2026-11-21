@@ -2,6 +2,7 @@ package com.benkio.chatcore.config
 
 import cats.syntax.all.*
 import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chatcore.PagedListTextStore
 import org.http4s.Uri
 
 import java.nio.file.Files
@@ -23,7 +24,9 @@ case class SBotConfig(
     repliesJsonFilePath: Path,
     commandsJsonFilePath: Path,
     token: String,
-    startupCheck: StartupCheckConfig
+    startupCheck: StartupCheckConfig,
+    pagedListTextModeExpiry: FiniteDuration,
+    pagedListTextModeMaxChats: Int
 ) {
   def triggerFilename: String      = triggersFilePath.getFileName.toString
   def instructionsFilename: String = instructionsFilePath.getFileName.toString
@@ -89,7 +92,9 @@ object SBotConfig {
     repliesJsonFilePath = resolvePath(repliesJsonFilePath),
     commandsJsonFilePath = resolvePath(commandsJsonFilePath),
     token = token,
-    startupCheck = StartupCheckConfig()
+    startupCheck = StartupCheckConfig(),
+    pagedListTextModeExpiry = PagedListTextStore.defaultExpiry,
+    pagedListTextModeMaxChats = PagedListTextStore.defaultMaxChats
   )
 
   /** The config of a bot from its info: every file is named after the bot id and the bot name. */
@@ -147,7 +152,9 @@ object SBotConfig {
         resolvePath(botRoot.resolve("src").resolve("main").resolve("resources").resolve(repliesJsonFilename)),
       commandsJsonFilePath =
         resolvePath(botRoot.resolve("src").resolve("main").resolve("resources").resolve(commandsJsonFilename)),
-      token = token
+      token = token,
+      pagedListTextModeExpiry = PagedListTextStore.defaultExpiry,
+      pagedListTextModeMaxChats = PagedListTextStore.defaultMaxChats
     )
   }
 }
