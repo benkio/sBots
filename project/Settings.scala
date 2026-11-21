@@ -30,10 +30,9 @@ object Settings {
     publishMavenStyle := true,
     scalaModuleInfo ~= (_.map(_.withOverrideScalaVersion(true))),
     update / scalaModuleInfo ~= (_.map(_.withOverrideScalaVersion(true))),
-    semanticdbEnabled        := true,
-    fork                     := true,
-    Test / publishArtifact   := false,
-    coverageExcludedPackages := "com\\.benkio\\.chatcore\\.mocks\\..*",
+    semanticdbEnabled      := true,
+    fork                   := true,
+    Test / publishArtifact := false,
     // Forks inherit the launch directory unless paths are explicit. Inject them for every project so tests and
     // `run` behave the same from sbt, an IDE or a different shell directory.
     Test / javaOptions ++= Seq(

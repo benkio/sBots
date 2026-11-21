@@ -158,199 +158,174 @@ object Dependencies {
     val circeParserSjs1     = groups.circe   %% "circe-parser"      % versions.circe
   }
 
-  val ChatCoreDependencies: Seq[ModuleID] = Seq(
-    libs.catsCore,
-    libs.catsEffect,
-    libs.catsEffectKernel,
-    libs.catsEffectStd,
-    libs.catsFree,
-    libs.catsKernel,
-    libs.caseInsensitive,
-    libs.circeCore,
-    libs.circeGeneric,
-    libs.circeParser,
-    libs.cron4s,
-    libs.doobieCore,
-    libs.doobieFree,
-    libs.doobieMunit,
-    libs.flyway % groups.testScope,
-    libs.sqlite % groups.testScope,
-    libs.fs2Core,
-    libs.fs2Cron,
-    libs.fs2CronCore,
-    libs.http4sCirce,
-    libs.http4sClient,
-    libs.http4sCore,
-    libs.http4sDsl,
-    libs.http4sEmberClient % groups.testScope,
-    libs.http4sEmberServer % groups.testScope,
-    libs.logEffectsCore,
-    libs.logEffectsFs2,
-    libs.logbackClassic,
-    libs.logbackLogstash,
-    libs.mules,
-    libs.mulesCaffeine,
-    libs.mulesHttp4s,
-    libs.munit,
-    libs.munitCatsEffect,
-    libs.munitScalacheck,
-    libs.pureConfigCore,
-    libs.scalacheck,
-    libs.scalacheckEffectMunit,
-    libs.scalacheckGenRegexp,
-    libs.vault
-  )
+  /** Reusable dependency groups shared by the modules. Modules list only what is unique to them, so a stack upgrade
+    * (e.g. a new cats-effect module) happens in one place instead of drifting across duplicated lists.
+    */
+  private object stacks {
+    val catsCore: Seq[ModuleID]         = Seq(libs.catsCore, libs.catsEffect, libs.catsEffectKernel)
+    val catsStd: Seq[ModuleID]          = Seq(libs.catsEffectStd)
+    val circeCoreParser: Seq[ModuleID]  = Seq(libs.circeCore, libs.circeParser)
+    val http4sClientCore: Seq[ModuleID] = Seq(libs.http4sClient, libs.http4sCore)
+    val logging: Seq[ModuleID]          = Seq(libs.logEffectsCore, libs.logbackClassic, libs.logbackLogstash)
+    val logback: Seq[ModuleID]          = Seq(libs.logbackClassic, libs.logbackLogstash)
+    val testing: Seq[ModuleID]          = Seq(libs.munit, libs.munitCatsEffect)
+  }
 
-  val ChatTelegramAdapterDependencies: Seq[ModuleID] = Seq(
-    libs.catsCore,
-    libs.catsEffect,
-    libs.catsEffectKernel,
-    libs.catsEffectStd,
-    libs.circeCore,
-    libs.fs2Core,
-    libs.fs2IO,
-    libs.http4sClient,
-    libs.http4sCore,
-    libs.http4sEmberClient,
-    libs.http4sServer,
-    libs.logEffectsCore,
-    libs.logbackClassic,
-    libs.logbackLogstash,
-    libs.munit,
-    libs.munitCatsEffect,
-    libs.telegramiumCore,
-    libs.telegramiumHigh,
-    libs.vault
-  )
+  val ChatCoreDependencies: Seq[ModuleID] =
+    stacks.catsCore ++
+      stacks.catsStd ++
+      stacks.circeCoreParser ++
+      stacks.http4sClientCore ++
+      stacks.logging ++
+      stacks.testing ++
+      Seq(
+        libs.catsFree,
+        libs.catsKernel,
+        libs.caseInsensitive,
+        libs.circeGeneric,
+        libs.cron4s,
+        libs.doobieCore,
+        libs.doobieFree,
+        libs.doobieMunit,
+        libs.flyway % groups.testScope,
+        libs.sqlite % groups.testScope,
+        libs.fs2Core,
+        libs.fs2Cron,
+        libs.fs2CronCore,
+        libs.http4sCirce,
+        libs.http4sDsl,
+        libs.http4sEmberClient % groups.testScope,
+        libs.http4sEmberServer % groups.testScope,
+        libs.logEffectsFs2,
+        libs.mules,
+        libs.mulesCaffeine,
+        libs.mulesHttp4s,
+        libs.munitScalacheck,
+        libs.pureConfigCore,
+        libs.scalacheck,
+        libs.scalacheckEffectMunit,
+        libs.scalacheckGenRegexp,
+        libs.vault
+      )
 
-  val ChatDiscordAdapterDependencies: Seq[ModuleID] = Seq(
-    libs.catsCore,
-    libs.catsEffect,
-    libs.catsEffectKernel,
-    libs.catsEffectStd,
-    libs.http4sClient,
-    libs.jda,
-    libs.logEffectsCore,
-    libs.logbackClassic,
-    libs.logbackLogstash,
-    libs.munit,
-    libs.munitCatsEffect,
-    libs.pureConfigCore
-  )
+  val ChatTelegramAdapterDependencies: Seq[ModuleID] =
+    stacks.catsCore ++
+      stacks.catsStd ++
+      stacks.http4sClientCore ++
+      stacks.logging ++
+      stacks.testing ++
+      Seq(
+        libs.circeCore % groups.testScope,
+        libs.fs2Core,
+        libs.fs2IO,
+        libs.http4sEmberClient,
+        libs.http4sServer,
+        libs.telegramiumCore,
+        libs.telegramiumHigh,
+        libs.vault
+      )
 
-  val ChatIrcAdapterDependencies: Seq[ModuleID] = Seq(
-    libs.catsCore,
-    libs.catsEffect,
-    libs.catsEffectKernel,
-    libs.catsEffectStd,
-    libs.http4sClient,
-    libs.kitteh,
-    libs.logEffectsCore,
-    libs.logbackClassic,
-    libs.logbackLogstash,
-    libs.mbassador,
-    libs.munit,
-    libs.munitCatsEffect,
-    libs.pureConfigCore
-  )
+  val ChatDiscordAdapterDependencies: Seq[ModuleID] =
+    stacks.catsCore ++
+      stacks.catsStd ++
+      stacks.logging ++
+      stacks.testing ++
+      Seq(
+        libs.http4sClient,
+        libs.jda,
+        libs.pureConfigCore
+      )
+
+  val ChatIrcAdapterDependencies: Seq[ModuleID] =
+    stacks.catsCore ++
+      stacks.catsStd ++
+      stacks.logging ++
+      stacks.testing ++
+      Seq(
+        libs.http4sClient,
+        libs.kitteh,
+        libs.mbassador,
+        libs.pureConfigCore
+      )
 
   /** Shared dependencies for all bot projects. Use this in Settings.botProjectSettings. */
-  val BotDependencies: Seq[ModuleID] = Seq(
-    libs.catsCore,
-    libs.catsEffect,
-    libs.logbackClassic,
-    libs.logbackLogstash,
-    libs.munit,
-    libs.munitCatsEffect
-  )
+  val BotDependencies: Seq[ModuleID] =
+    Seq(libs.catsCore, libs.catsEffect) ++ stacks.logback ++ stacks.testing
 
   /** CalandroBot only needs logging and test deps at compile time. */
-  val CalandroBotDependencies: Seq[ModuleID] = Seq(
-    libs.logbackClassic,
-    libs.logbackLogstash,
-    libs.munit,
-    libs.munitCatsEffect
-  )
+  val CalandroBotDependencies: Seq[ModuleID] =
+    stacks.logback ++ stacks.testing
 
-  val MainDependencies: Seq[ModuleID] = Seq(
-    libs.catsCore,
-    libs.catsEffect,
-    libs.catsEffectKernel,
-    libs.catsEffectStd,
-    libs.circeCore,
-    libs.circeParser,
-    libs.cron4s,
-    libs.doobieCore,
-    libs.doobieFree,
-    libs.doobieMunit,
-    libs.fs2Core,
-    libs.fs2Cron,
-    libs.fs2CronCore,
-    libs.fs2IO,
-    libs.http4sClient,
-    libs.http4sCore,
-    libs.http4sEmberClient,
-    libs.http4sServer,
-    libs.logEffectsCore,
-    libs.logEffectsFs2,
-    libs.logbackClassic,
-    libs.logbackLogstash,
-    libs.loki4jLogback,
-    libs.munit,
-    libs.munitCatsEffect,
-    libs.pureConfigCore,
-    libs.pureConfigCron4s,
-    libs.pureConfigHttp4s,
-    libs.sqlite % Runtime,
-    libs.vault
-  )
+  val MainDependencies: Seq[ModuleID] =
+    stacks.catsCore ++
+      stacks.catsStd ++
+      stacks.circeCoreParser ++
+      stacks.http4sClientCore ++
+      stacks.logging ++
+      stacks.testing ++
+      Seq(
+        libs.cron4s,
+        libs.doobieCore,
+        libs.doobieFree,
+        libs.doobieMunit,
+        libs.fs2Core,
+        libs.fs2Cron,
+        libs.fs2CronCore,
+        libs.fs2IO,
+        libs.http4sEmberClient,
+        libs.http4sServer,
+        libs.logEffectsFs2,
+        libs.loki4jLogback,
+        libs.pureConfigCore,
+        libs.pureConfigCron4s,
+        libs.pureConfigHttp4s,
+        libs.sqlite % Runtime,
+        libs.vault
+      )
 
-  val BotDBDependencies: Seq[ModuleID] = Seq(
-    libs.catsCore,
-    libs.catsEffect,
-    libs.catsEffectKernel,
-    libs.catsKernel,
-    libs.circeCore,
-    libs.circeParser,
-    libs.doobieCore,
-    libs.doobieFree,
-    libs.flyway,
-    libs.googleApiClient,
-    libs.googleHttpClient,
-    libs.googleHttpClientGson,
-    libs.googleOauthClient % Runtime,
-    libs.googleYouTubeApi,
-    libs.http4sCore,
-    libs.logEffectsCore,
-    libs.logEffectsFs2,
-    libs.logbackClassic,
-    libs.logbackLogstash,
-    libs.munit,
-    libs.pureConfigCore,
-    libs.sqlite
-  )
+  val BotDBDependencies: Seq[ModuleID] =
+    stacks.catsCore ++
+      Seq(
+        libs.catsKernel,
+        libs.circeCore,
+        libs.circeParser,
+        libs.doobieCore,
+        libs.doobieFree,
+        libs.flyway,
+        libs.googleApiClient,
+        libs.googleHttpClient,
+        libs.googleHttpClientGson,
+        libs.googleOauthClient % Runtime,
+        libs.googleYouTubeApi,
+        libs.http4sCore,
+        libs.logEffectsCore,
+        libs.logEffectsFs2,
+        libs.logbackClassic,
+        libs.logbackLogstash,
+        libs.munit,
+        libs.pureConfigCore,
+        libs.sqlite
+      )
 
-  val RepliesEditorServerDependencies: Seq[ModuleID] = Seq(
-    libs.caseInsensitive,
-    libs.catsCore,
-    libs.catsEffect,
-    libs.catsEffectKernel,
-    libs.catsKernel,
-    libs.circeCore,
-    libs.circeGeneric,
-    libs.circeParser,
-    libs.fs2IO,
-    libs.http4sCirce,
-    libs.http4sCore,
-    libs.http4sDsl,
-    libs.http4sEmberServer,
-    libs.http4sServer,
-    libs.ip4sCore,
-    libs.logbackClassic,
-    libs.logbackLogstash,
-    libs.munit,
-    libs.munitCatsEffect
-  )
+  val RepliesEditorServerDependencies: Seq[ModuleID] =
+    stacks.catsCore ++
+      stacks.testing ++
+      Seq(
+        libs.catsKernel,
+        libs.caseInsensitive,
+        libs.circeCore,
+        libs.circeGeneric,
+        libs.circeParser,
+        libs.fs2IO,
+        libs.http4sCirce,
+        libs.http4sCore,
+        libs.http4sDsl,
+        libs.http4sEmberServer,
+        libs.http4sServer,
+        libs.ip4sCore,
+        libs.logbackClassic,
+        libs.logbackLogstash
+      )
 
   val RepliesEditorUiDependencies: Def.Initialize[Seq[ModuleID]] =
     Def.setting(
@@ -367,24 +342,23 @@ object Dependencies {
     )
 
   val IntegrationDependencies: Seq[ModuleID] =
-    Seq(
-      libs.catsCore   % groups.testScope,
-      libs.catsEffect % groups.testScope,
-      libs.cron4s     % groups.testScope,
-      libs.doobieCore % groups.testScope,
-      libs.doobieMunit,
-      libs.flyway            % groups.testScope,
-      libs.googleApiClient   % groups.testScope,
-      libs.googleOauthClient % groups.testScope,
-      libs.googleYouTubeApi  % groups.testScope,
-      libs.http4sEmberClient % groups.testScope,
-      libs.logEffectsCore    % groups.testScope,
-      libs.logbackClassic,
-      libs.logbackLogstash,
-      libs.munit,
-      libs.munitCatsEffect,
-      libs.scalatest,
-      libs.telegramiumCore % groups.testScope,
-      libs.testcontainers  % groups.testScope
-    )
+    stacks.testing ++
+      Seq(
+        libs.catsCore   % groups.testScope,
+        libs.catsEffect % groups.testScope,
+        libs.cron4s     % groups.testScope,
+        libs.doobieCore % groups.testScope,
+        libs.doobieMunit,
+        libs.flyway            % groups.testScope,
+        libs.googleApiClient   % groups.testScope,
+        libs.googleOauthClient % groups.testScope,
+        libs.googleYouTubeApi  % groups.testScope,
+        libs.http4sEmberClient % groups.testScope,
+        libs.logEffectsCore    % groups.testScope,
+        libs.logbackClassic,
+        libs.logbackLogstash,
+        libs.scalatest,
+        libs.telegramiumCore % groups.testScope,
+        libs.testcontainers  % groups.testScope
+      )
 }
