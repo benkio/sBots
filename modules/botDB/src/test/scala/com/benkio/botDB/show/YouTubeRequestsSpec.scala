@@ -41,31 +41,6 @@ class YouTubeRequestsSpec extends CatsEffectSuite {
     }
   }
 
-  test("YouTubeRequests.createYouTubeVideoCaptionRequest should set key/fields/videoId") {
-    val apiKey  = "test-api-key"
-    val videoId = "video-123"
-    for {
-      yt  <- mkYouTube("YouTubeRequestsSpec")
-      req <- YouTubeRequests.createYouTubeVideoCaptionRequest[IO](yt, videoId, apiKey)
-    } yield {
-      assertEquals(req.getKey, apiKey)
-      assertEquals(req.getVideoId, videoId)
-      assert(req.getFields.contains("items("))
-    }
-  }
-
-  test("YouTubeRequests.createYouTubeDownloadVideoCaptionRequest should set key/id") {
-    val apiKey    = "test-api-key"
-    val captionId = "caption-456"
-    for {
-      yt  <- mkYouTube("YouTubeRequestsSpec")
-      req <- YouTubeRequests.createYouTubeDownloadVideoCaptionRequest[IO](yt, captionId, apiKey)
-    } yield {
-      assertEquals(req.getKey, apiKey)
-      assertEquals(req.getId, captionId)
-    }
-  }
-
   test("YouTubeRequests.createYouTubePlaylistRequest should set playlistId and optional pageToken") {
     val apiKey     = "test-api-key"
     val playlistId = "PL_test"

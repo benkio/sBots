@@ -14,7 +14,7 @@ class TelegramCallbackDataSpec extends ScalaCheckSuite {
 
   property("toCallbackKey / apply should round-trip for generated CallbackData") {
     forAll { (callbackData: PagedListAction) =>
-      assertEquals(TelegramCallbackData.decode(callbackData.toId.get), callbackData)
+      assertEquals(TelegramCallbackData.decode(callbackData.toId.get), Some(callbackData))
     }
   }
 
@@ -33,31 +33,31 @@ class TelegramCallbackDataSpec extends ScalaCheckSuite {
     }
   }
 
-  property("non-pagination strings decode as Media") {
-    forAll(mediaCallbackPayloadGen) { (raw: String) =>
-      assertEquals(TelegramCallbackData.decode(raw), PagedListAction.Media(raw))
+  property("non-action strings are rejected") {
+    forAll(mediaCallbackPayloadGen.suchThat(s => s != "media" && s != "show")) { (raw: String) =>
+      assertEquals(TelegramCallbackData.decode(raw), None)
     }
   }
 
-  property("malformed pagination-like strings fall back to Media") {
+  property("malformed pagination-like strings are rejected") {
     forAll(Gen.alphaNumStr.suchThat(_.nonEmpty)) { (suffix: String) =>
       val raw = s"previousPage-notACommand-$suffix"
-      assertEquals(TelegramCallbackData.decode(raw), PagedListAction.Media(raw))
+      assertEquals(TelegramCallbackData.decode(raw), None)
     }
   }
 
   property("media/show callback payloads preserve dashes in IDs") {
     forAll(shortIdGen, shortIdGen) { (prefix, suffix) =>
       val payload = s"$prefix-$suffix"
-      assertEquals(TelegramCallbackData.decode(s"media-$payload"), PagedListAction.Media(payload))
-      assertEquals(TelegramCallbackData.decode(s"show-$payload"), PagedListAction.Show(payload, None))
+      assertEquals(TelegramCallbackData.decode(s"media-$payload"), Some(PagedListAction.Media(payload)))
+      assertEquals(TelegramCallbackData.decode(s"show-$payload"), Some(PagedListAction.Show(payload, None)))
     }
   }
 
   test("show callback payload should parse youtube timestamp when present") {
     assertEquals(
       TelegramCallbackData.decode("show-abc-123|1m2s"),
-      PagedListAction.Show("abc-123", Some("1m2s"))
+      Some(PagedListAction.Show("abc-123", Some("1m2s")))
     )
   }
 }

@@ -4,22 +4,17 @@ import cats.effect.Async
 import cats.effect.Clock
 import cats.effect.Sync
 import cats.syntax.all.*
-import cats.ApplicativeThrow
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.conversions.YouTubeTimestamp.finiteDurationToYoutubeTimestamp
 import com.benkio.chatcore.messagefiltering.*
 import com.benkio.chatcore.model.reply.EffectfulReply
 import com.benkio.chatcore.model.reply.MarkdownFile
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.MediaReply
-import com.benkio.chatcore.model.reply.PagedItem
-import com.benkio.chatcore.model.reply.PagedList
 import com.benkio.chatcore.model.reply.PlainReply
 import com.benkio.chatcore.model.reply.Reply
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.ReplyValue
-import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.TextReply
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageType
@@ -75,14 +70,14 @@ class BotEngine[F[_]: Async: LogWriter](
   lazy val allCommandRepliesData: List[ReplyBundleCommand] =
     commandRepliesData ++ fixedCommands
 
-  /** The paged lists a platform without buttons showed in each chat: the basis of the text commands `!next`, `!prev`
-    * and `!pick` (see [[PagedListTextCommands]]). Per bot engine, in memory only: a restart forgets it.
-    */
-  private val pagedListTextStore: PagedListTextStore.Store =
-    new PagedListTextStore.Store(
-      expiry = sBotConfig.pagedListTextModeExpiry,
-      maxChats = sBotConfig.pagedListTextModeMaxChats
-    )
+  /** The text-mode paging of platforms without buttons owns its remembered pages; the orchestrator holds no state. */
+  private lazy val textMode = new PagedListTextMode[F](
+    botName = sBotConfig.sBotInfo.botName,
+    allCommandRepliesData = () => allCommandRepliesData,
+    dbLayer = dbLayer,
+    expiry = sBotConfig.pagedListTextModeExpiry,
+    maxChats = sBotConfig.pagedListTextModeMaxChats
+  )
 
   // Bot logic ////////////////////////////////////////////////////////////
 
@@ -124,97 +119,8 @@ class BotEngine[F[_]: Async: LogWriter](
       )
       .flatMap {
         case Some(replied) => replied.pure[F]
-        case None          => textNavigationCommands(msg)
+        case None          => textMode.handleCommand(msg)
       }
-
-  /** The text commands `!next`, `!prev` and `!pick` of a platform without buttons (see [[PagedListTextCommands]]): the
-    * paged list remembered for the chat, rerun at the next/previous page, or the pick of one of its items.
-    */
-  private def textNavigationCommands(msg: Message)(using platform: PlatformAdapter[F]): F[Boolean] =
-    if platform.capabilities.supportsButtons then false.pure[F]
-    else
-      Clock[F].monotonic
-        .flatMap(now =>
-          PagedListTextCommands
-            .decide(
-              msg = msg,
-              syntax = platform.capabilities.commandSyntax,
-              botName = sBotConfig.sBotInfo.botName,
-              store = pagedListTextStore,
-              now = now
-            )
-            .fold(false.pure[F])(action => textNavigationAction(action, msg))
-        )
-
-  private def textNavigationAction(action: PagedListTextCommands.Action, msg: Message)(using
-      platform: PlatformAdapter[F]
-  ): F[Boolean] = action match {
-    case PagedListTextCommands.Action.Rerun(entry, page) =>
-      for {
-        replyValue <- rerunStoredCommand(entry, page)
-        _          <- rememberPagedList(request = entry.request, replyValue = replyValue)
-        _          <- deliver(replyValue = replyValue, msg = msg, replyToMessage = true)
-      } yield true
-    case PagedListTextCommands.Action.Answer(text) =>
-      deliver(replyValue = Text(text), msg = msg, replyToMessage = true).as(true)
-    case PagedListTextCommands.Action.Pick(entry, number) =>
-      pickStoredItem(entry, number)
-        .flatMap(value => deliver(replyValue = value, msg = msg, replyToMessage = true))
-        .as(true)
-  }
-
-  /** The command of the remembered list run again at a page: the same input, the same bot (the navigation rule
-    * PagedListChangesPage).
-    */
-  private def rerunStoredCommand(entry: PagedListTextStore.Entry, page: Int)(using
-      platform: PlatformAdapter[F]
-  ): F[ReplyValue] =
-    for {
-      commandReply <- ApplicativeThrow[F].fromOption(
-        ReplyBundleCommand.from(entry.commandKey, allCommandRepliesData),
-        new Throwable(s"[BotEngine] Command reply not found for commandKey: ${entry.commandKey}")
-      )
-      replyValue <- commandReply.reply match {
-        case effectfulReply: EffectfulReply => platform.runEffectful(effectfulReply, entry.request, Some(page))
-        case plainReply: PlainReply         => BotEngine.runPlainReply[F](plainReply, platform.capabilities)
-      }
-    } yield replyValue
-
-  /** The replies of an item picked on a remembered list, as if the item had been asked for directly (the navigation
-    * rule PagedListPicksItem).
-    */
-  private def pickStoredItem(entry: PagedListTextStore.Entry, number: Int): F[ReplyValue] =
-    entry.pageItems.lift(number - 1) match {
-      case Some(PagedItem.ShowItem(show)) =>
-        PagedListNavigation
-          .showText(show.id, show.timestamp.map(finiteDurationToYoutubeTimestamp), dbLayer.dbShow)
-          .widen
-      case Some(PagedItem.ValueItem(value)) => value.pure[F]
-      case None                             =>
-        Async[F].raiseError(new Throwable(s"[BotEngine] the item $number is out of the page of the remembered list"))
-    }
-
-  /** Saves the paged list a platform without buttons just showed in the text mode store (see
-    * [[PagedListTextCommands]]).
-    */
-  private def rememberPagedList(request: Message, replyValue: ReplyValue)(using platform: PlatformAdapter[F]): F[Unit] =
-    replyValue match {
-      case pagedList: PagedList if !platform.capabilities.supportsButtons =>
-        Clock[F].monotonic
-          .flatMap(now =>
-            pagedListTextStore
-              .save(
-                chatId = request.chatId,
-                commandKey = pagedList.commandKey,
-                page = pagedList.page,
-                pageItems = pagedList.pageItems,
-                request = request,
-                now = now
-              )
-              .pure[F]
-          )
-      case _ => ().pure[F]
-    }
 
   def fileRequestLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = fileRequestLogicReplied(msg).void
 
@@ -326,7 +232,7 @@ class BotEngine[F[_]: Async: LogWriter](
         case plainReply: PlainReply         => BotEngine.runPlainReply[F](plainReply, platform.capabilities)
         case effectfulReply: EffectfulReply => platform.runEffectful(effectfulReply, msg)
       }
-      _ <- rememberPagedList(request = msg, replyValue = replyValue)
+      _ <- textMode.remember(request = msg, replyValue = replyValue)
       _ <- deliver(replyValue = replyValue, msg = msg, replyToMessage = reply.replyToMessage)
     } yield ()
 
@@ -353,7 +259,8 @@ object BotEngine {
       filteringMatchesMessages = FilteringTimeout.filter(dbLayer, sBotConfig.sBotInfo.botId),
       postComputation = PostComputationPatterns.timeoutPostComputation(
         dbTimeout = dbLayer.dbTimeout,
-        sBotId = sBotConfig.sBotInfo.botId
+        sBotInfo = sBotConfig.sBotInfo,
+        notifier = notifier
       ),
       notifier = notifier
     )

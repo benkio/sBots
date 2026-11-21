@@ -262,9 +262,8 @@ rule BotRepliesToFileRequest {
 }
 
 -- After a reply the last interaction is logged: this is what the timeout is measured from. It only updates an existing
--- timeout row.
--- (if updating the row fails the code inserts a row with a zero timeout, which never puts the chat in timeout)
--- The welcome reply to the bot being added is not an interaction: the automatic timeout is measured from the join.
+-- timeout row. The welcome reply to the bot being added is not an interaction: the automatic timeout is measured from
+-- the join.
 rule PostComputationLogsInteraction {
     when: RequestIsDispatched(request)
 
@@ -273,6 +272,20 @@ rule PostComputationLogsInteraction {
     requires: exists ChatTimeout{chat: request.message.chat, bot: request.bot}
 
     ensures: ChatTimeout{chat: request.message.chat, bot: request.bot}.last_interaction = now
+}
+
+-- A failed update leaves the stored timeout untouched: inserting a zero-timeout row would silently disable the chat
+-- timeout. The message is still handled and the operators are told.
+external entity LastInteractionUpdateAttempt {
+    chat: Chat
+    bot: Bot
+    failed: Boolean
+}
+
+rule LastInteractionUpdateFails {
+    when: attempt: LastInteractionUpdateAttempt.failed = true
+
+    ensures: OperatorsNotified(bot: attempt.bot, reason: last_interaction_update_failed)
 }
 
 -- The duplicate check failing does not stop the message: it is processed and the operators are told.
@@ -531,8 +544,14 @@ invariant ProcessedOnce {
 }
 
 ------------------------------------------------------------
--- Open Questions
+-- Scope notes
 ------------------------------------------------------------
 
-open question "Data entry: should the spec state how the downloaded files reach the repository (Dropbox/Mega)?"
-open question "Effectful replies and platform adaptation (ReplyAdaptation, text-only platforms) are not specified yet"
+-- Binaries live in operator-managed Dropbox/Mega sync folders outside the repository. Data entry stores only the
+-- verified share URLs in the bot files, the catalogue loads those URLs into the DB and bots download the media at
+-- send time (see catalogue.allium). Cloud sync, link creation and file-id writeback are operations concerns, not bot
+-- behavior specified here.
+
+-- Effectful replies are computed at reply time and delivered through the same platform adaptation as plain replies.
+-- The key/callback registry is an implementation detail: the observable results live in bots.allium and the
+-- adaptation rules in platforms.allium (IRC is the only implemented text-only platform).

@@ -167,6 +167,33 @@ class DBRepositoriesCoverageSpec extends CatsEffectSuite {
     }
   }
 
+  test("DBTimeout logLastInteraction failure leaves the stored timeout unchanged") {
+    tempDb.use { xa =>
+      val botId  = SBotId("test")
+      val chatId = TestIds.chatId(1L)
+      val impl   = new DBTimeout.DBTimeoutImpl[IO](xa, summon)
+      val row    = DBTimeoutData(Timeout(chatId, botId)).copy(timeout_value = "15000", last_interaction = "100")
+      for {
+        _ <- setupSchema(xa)
+        _ <- impl.setTimeout(row)
+        // Force the UPDATE to fail: the old fallback replaced the row with a zero-timeout one here.
+        _ <- Fragment
+          .const(
+            "CREATE TRIGGER fail_timeout_update BEFORE UPDATE ON timeout BEGIN SELECT RAISE(ABORT, 'forced failure'); END"
+          )
+          .update
+          .run
+          .transact(xa)
+          .void
+        failed <- impl.logLastInteraction(chatId, botId).attempt
+        after  <- impl.getOrDefault(chatId, botId)
+      } yield {
+        assert(failed.isLeft)
+        assertEquals(after, row)
+      }
+    }
+  }
+
   test("DBTimeout getOrDefault/set/remove/logLastInteraction paths execute") {
     tempDb.use { xa =>
       val botId  = SBotId("test")

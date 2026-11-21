@@ -207,39 +207,26 @@ object ShowUpdater {
                 )
               )
           )
-      val deleteFiles: F[List[YouTubeBotDBShowDatas]] =
-        showFilesResource.use(showFiles =>
-          for {
-            _ <- LogWriter.info(s"[ShowUpdater] ✓ Dry Run. Delete show files: ${showFiles.map(_.file)}")
-            _ <- showFiles
-              .traverse_(showFile => Async[F].delay(Files.delete(showFile.file)))
-              .handleErrorWith(e => LogWriter.error(s"[ShowUpdater] 🚫 Error in delete file: ${e.getMessage()}"))
-          } yield List.empty
-        )
-      val getStoredDbShowDatas: F[List[YouTubeBotDBShowDatas]] =
-        showFilesResource.use(showFiles =>
-          LogWriter.info(s"[ShowUpdater] ❌ Dry Run. read show files: ${showFiles.map(_.file)}") >>
-            showFiles.traverse(showFile =>
-              for {
-                _                   <- LogWriter.info(s"[ShowUpdater] Parse show file content: ${showFile.file}")
-                showFileContentJson <- Async[F]
-                  .fromEither(parse(Source.fromFile(showFile.file.toFile()).mkString))
-                  .onError(e => LogWriter.error(s"[ShowUpdater] Error Reading File $showFile: $e"))
-                dbShowDatas <- Async[F]
-                  .fromEither(showFileContentJson.as[List[DBShowData]])
-                  .onError(e => LogWriter.error(s"[ShowUpdater] Error Parsing file $showFile: $e"))
-              } yield YouTubeBotDBShowDatas(
-                botId = showFile.botId,
-                outputFilePath = showFile.file.toString,
-                captionFolderPath = showFile.captionFolderPath,
-                captionLanguage = showFile.captionLanguage,
-                dbShowDatas = dbShowDatas.distinctBy(_.show_id)
-              )
+      showFilesResource.use(showFiles =>
+        LogWriter.info(s"[ShowUpdater] Read show files: ${showFiles.map(_.file)}") >>
+          showFiles.traverse(showFile =>
+            for {
+              _                   <- LogWriter.info(s"[ShowUpdater] Parse show file content: ${showFile.file}")
+              showFileContentJson <- Async[F]
+                .fromEither(parse(Source.fromFile(showFile.file.toFile()).mkString))
+                .onError(e => LogWriter.error(s"[ShowUpdater] Error Reading File $showFile: $e"))
+              dbShowDatas <- Async[F]
+                .fromEither(showFileContentJson.as[List[DBShowData]])
+                .onError(e => LogWriter.error(s"[ShowUpdater] Error Parsing file $showFile: $e"))
+            } yield YouTubeBotDBShowDatas(
+              botId = showFile.botId,
+              outputFilePath = showFile.file.toString,
+              captionFolderPath = showFile.captionFolderPath,
+              captionLanguage = showFile.captionLanguage,
+              dbShowDatas = dbShowDatas.distinctBy(_.show_id)
             )
-        )
-      if config.showConfig.dryRun
-      then deleteFiles
-      else getStoredDbShowDatas
+          )
+      )
     }
 
     private[show] def videoToDBShowData(video: Video, botId: SBotId): F[Option[DBShowData]] = {

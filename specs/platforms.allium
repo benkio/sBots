@@ -264,12 +264,12 @@ rule CallbackPagesKeyboard {
     ensures: press.keyboard.page = if press.kind = next_page: press.keyboard.page + 1 else: press.keyboard.page - 1
 }
 
--- known defect: a press on a stale button is not rejected: previous stops at the first page, but next past the last
--- page shows an empty page
+-- a press on a stale button is rejected: the message keyboard, and so its page, is left as it is. In particular a
+-- stale next past the last page no longer shows an empty page.
 rule CallbackOnStaleButton {
     when: press: CallbackPress.created
     requires: (press.kind = previous_page and not press.keyboard.has_prev) or (press.kind = next_page and not press.keyboard.has_next)
-    ensures: press.keyboard.page = if press.kind = next_page: press.keyboard.page + 1 else: 0
+    ensures: CallbackPressRejected(press: press)
 }
 
 rule CallbackDeliversMedia {
@@ -385,9 +385,18 @@ invariant TextCommandsOnlyWithoutButtons {
             a.platform = e.chat.platform implies not a.capabilities.supports_buttons
 }
 
-open question "Media or Show delivery deletes the keyboard message, paging edits it in place: intended?"
-open question "An unparsable callback is treated as a media file named by the raw data: intended fallback or accident?"
-open question "Text, rich-text and keyboard send failures are swallowed, only media failures reach operators: report them too?"
-open question "Is quoting the triggering message a domain requirement or a platform nicety?"
-open question "Discord with the message-content intent off: only slash commands work: intended default?"
-open question "IRC rate limit is a fixed window (up to 2N across a window edge) with no reply to the user: intended? Should the rate limit and line cap be platform-agnostic anti-flood rules?"
+-- intended: picking a Media or Show is terminal, so the keyboard message is deleted after the new message; paging
+-- edits the keyboard in place (CallbackPagesKeyboard, DiscordButtonPagesList).
+-- known defect: a pick deletes the list even when sending the item fails, because the senders log and swallow that
+-- failure, so a transient error loses the list. Keeping it on failure would be a product decision.
+-- an unparsable Telegram callback is rejected like any other bad id (extras/PagedListRejectsBadId): it is answered with
+-- an error and never treated as a media file named by the raw data.
+-- intended: only media send failures reach operators; text, rich-text, keyboard and list failures are logged only, to
+-- avoid spam from user input and missing rights (MediaSendFailureNotified).
+-- intended: quoting the triggering message is a per-reply, best-effort platform affordance (core/Reply.reply_to_message):
+-- a no-op without a message id and absent on IRC. It is presentation, not a domain requirement.
+-- intended: the Discord message-content intent is enabled by default (main.discord.message-content); with it off plain
+-- messages carry no text and only slash commands reach the bot. Slash-command registration is independent of it.
+-- intended: the IRC rate limit is a fixed window, so up to 2N lines can cross a window edge; over-limit lines are
+-- silently dropped with an info log. The 400-character and 20-line caps follow the IRC 512-byte line and flood limits,
+-- so they stay platform-specific; promoting them to platform-agnostic rules would be a product decision.

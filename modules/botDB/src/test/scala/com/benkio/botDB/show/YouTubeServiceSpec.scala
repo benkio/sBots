@@ -31,7 +31,6 @@ class YouTubeServiceSpec extends CatsEffectSuite {
         ),
         runShowFetching = false,
         runShowCaptionFetching = false,
-        dryRun = false,
         applicationName = "sBots-test"
       )
     )

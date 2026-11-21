@@ -31,38 +31,6 @@ object YouTubeRequests {
       )
     } yield request
 
-  def createYouTubeVideoCaptionRequest[F[_]: Async](youTubeService: YouTube, videoId: String, apiKeys: String)(using
-      log: LogWriter[F]
-  ): F[YouTube#Captions#List] =
-    for {
-      _       <- log.info(s"[YouTubeRequests] $videoId Create a YouTube Video Caption request")
-      request <- Async[F].delay(
-        youTubeService
-          .captions()
-          .list(List("id", "snippet").asJava, videoId)
-          .setKey(apiKeys)
-          .setFields("items(id,snippet/trackKind,snippet/language)")
-      )
-    } yield request
-
-  def createYouTubeDownloadVideoCaptionRequest[F[_]: Async](
-      youTubeService: YouTube,
-      captionId: String,
-      apiKeys: String
-  )(using
-      log: LogWriter[F]
-  ): F[YouTube#Captions#Download] =
-    for {
-      _       <- log.info(s"[YouTubeRequests] $captionId Create a Download YouTube Video Caption request")
-      request <- Async[F].delay(
-        youTubeService
-          .captions()
-          .download(captionId)
-          .setKey(apiKeys)
-          .setFields("items(id,snippet/trackKind,snippet/language)")
-      )
-    } yield request
-
   def createYouTubePlaylistRequest[F[_]: Async](
       youTubeService: YouTube,
       playlistId: String,
