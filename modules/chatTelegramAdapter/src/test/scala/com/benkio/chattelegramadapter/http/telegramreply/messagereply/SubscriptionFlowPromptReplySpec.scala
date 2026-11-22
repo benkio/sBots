@@ -138,4 +138,29 @@ class SubscriptionFlowPromptReplySpec extends CatsEffectSuite {
       assert(after.exists(_.savedAt > before.get.savedAt))
     }
   }
+
+  test("a not-modified edit failure is treated as success and keeps the handle") {
+    for {
+      store            <- IO.pure(SubscriptionFlowPromptStore.create[IO](1.minute, 10))
+      (api, recording) <- PayloadRecordingApi()
+      failed           <- Ref.of[IO, Boolean](false)
+      broken = failingEditApi(
+        delegate = api,
+        description =
+          "Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message",
+        failed = failed
+      )
+      _      <- SubscriptionFlowPromptReply.send[IO](firstPrompt, msg, false, store)(using Async[IO], api)
+      before <- store.byKey(key)
+      _      <- IO.sleep(10.millis)
+      result <- SubscriptionFlowPromptReply.send[IO](firstPrompt, msg, false, store)(using Async[IO], broken).attempt
+      calls  <- recording
+      after  <- store.byKey(key)
+    } yield {
+      assert(result.isRight, result.toString)
+      assertEquals(calls.map(_._1), List("sendMessage", "editMessageText"))
+      assertEquals(after.map(_.messageId), Some("0"))
+      assert(after.exists(_.savedAt > before.get.savedAt))
+    }
+  }
 }

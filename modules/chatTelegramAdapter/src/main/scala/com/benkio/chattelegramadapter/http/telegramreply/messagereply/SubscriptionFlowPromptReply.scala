@@ -35,6 +35,15 @@ object SubscriptionFlowPromptReply {
       case _ => false
     }
 
+  /** Telegram rejects an edit whose content and markup are identical to the current message. The prompt is already in
+    * the desired state, so the edit can be treated as a success.
+    */
+  private def isNotModified(error: Throwable): Boolean =
+    error match {
+      case FailedRequest(_, _, Some(description)) => description.toLowerCase.contains("message is not modified")
+      case _                                      => false
+    }
+
   /** The prompt text is the keyboard title and each button carries only the id of its neutral flow action. */
   def toKeyboard(prompt: SubscriptionFlowPrompt): TelegramInlineKeyboard = {
     val rows = prompt.buttons.map(
@@ -83,7 +92,9 @@ object SubscriptionFlowPromptReply {
           .as(List.empty[TMessage])
           .handleErrorWith {
             case error if isMissingMessage(error) => flowPrompts.remove(prompt.key) >> fresh
-            case other                            => Async[F].raiseError[List[TMessage]](other)
+            case error if isNotModified(error)    =>
+              flowPrompts.put(prompt.key, handle.messageId, prompt.key.requester).as(List.empty[TMessage])
+            case other => Async[F].raiseError[List[TMessage]](other)
           }
       case None => fresh
     }
