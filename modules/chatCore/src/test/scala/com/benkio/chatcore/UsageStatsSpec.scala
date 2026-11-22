@@ -56,7 +56,9 @@ class UsageStatsSpec extends FunSuite {
     assert(
       UsageStats
         .systemLine(0L, 0L, 0.seconds, None)
-        .endsWith("mem_total_mb=-1 mem_available_mb=-1 load1=-1.00 load5=-1.00 load15=-1.00 cpu_usage_pct=-1 mem_free_mb=-1 proc_rss_mb=-1")
+        .endsWith(
+          "mem_total_mb=-1 mem_available_mb=-1 load1=-1.00 load5=-1.00 load15=-1.00 cpu_usage_pct=-1 mem_free_mb=-1 proc_rss_mb=-1"
+        )
     )
   }
 }
