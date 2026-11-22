@@ -179,8 +179,9 @@ rule UserSubscribes {
 --             the trigger step also hints that /triggersearch can check the spelling first;
 --   confirm:  the type, readable schedule, generated cron, next occurrence (NextOccurrence(draft.schedule, now))
 --             and target (or "random"), with confirm, back and cancel.
--- A plain message maps to enter_cron only at the schedule step and to enter_target only at the target step; the random
--- button maps to enter_target with empty text. A plain message at any other step is not a flow action.
+-- A plain message maps to enter_cron only at the schedule step and to enter_target only at the target step, and only
+-- when it carries non-empty text; the random button maps to enter_target with empty text. A message without text (e.g.
+-- a media message) or a plain message at any other step is not a flow action.
 -- SubscriptionFlowError(chat, bot, reason) is a clear text for no active flow, an action that
 -- does not fit the step, an invalid cron (with the validation message), a too long target, a full store, a rejected
 -- creation or a cancellation. creation_rejected states the reason and also carries SubscriptionFlowCommand(draft):

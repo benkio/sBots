@@ -220,6 +220,33 @@ class SubscriptionFlowSpec extends CatsEffectSuite {
     }
   }
 
+  test("no text at the target step is not a flow answer: media and empty text neither pick random nor advance") {
+    val flow       = service()
+    val randomFlow = service()
+    val msg        = message("/subscribe")
+    for {
+      _     <- flow.start(msg, "alice")
+      _     <- flow.submit(msg, SubscriptionFlowAction.chooseType(SubscriptionType.Show), "alice")
+      _     <- flow.submit(msg, SubscriptionFlowAction.choosePreset(SubscriptionSchedulePreset.Hourly), "alice")
+      media <- flow.acceptPlainMessage(msg.copy(text = None, caption = Some("a photo")), "alice")
+      empty <- flow.acceptPlainMessage(msg.copy(text = Some("")), "alice")
+      typed <- flow.acceptPlainMessage(msg.copy(text = Some("pino scotto")), "alice")
+
+      _      <- randomFlow.start(msg, "alice")
+      _      <- randomFlow.submit(msg, SubscriptionFlowAction.chooseType(SubscriptionType.Show), "alice")
+      _      <- randomFlow.submit(msg, SubscriptionFlowAction.choosePreset(SubscriptionSchedulePreset.Hourly), "alice")
+      random <- randomFlow.submit(msg, SubscriptionFlowAction.enterTarget(""), "alice")
+    } yield {
+      assertEquals(media, None)
+      assertEquals(empty, None)
+      // both drafts were still on target: real text and the random button advance as before
+      assertEquals(prompt(typed.get).step, SubscriptionDraftStep.Confirm)
+      assert(prompt(typed.get).text.contains("target pino scotto"))
+      assertEquals(prompt(random).step, SubscriptionDraftStep.Confirm)
+      assert(prompt(random).text.contains("target random"))
+    }
+  }
+
   test("back clears the value of the step being left, cancel and errors drop the draft") {
     val flow = service()
     val msg  = message("/subscribe")

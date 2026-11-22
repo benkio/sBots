@@ -116,8 +116,10 @@ final class SubscriptionFlowService[F[_]: Async](
       case Some(draft) => applyAction(msg = msg, draft = draft, action = action)
     }
 
-  /** A plain message is a flow answer only at the schedule and target steps, and only for the draft owner. A rejection
-    * still refreshes the draft, so its outcome is emitted too: the adapter learns that the prompt is still live.
+  /** A plain message is a flow answer only at the schedule and target steps, and only for the draft owner. At the
+    * target step it must carry non-empty text: an empty target is reserved for the random button, so a media message or
+    * an empty-text message must not silently select random and advance the draft. A rejection still refreshes the
+    * draft, so its outcome is emitted too: the adapter learns that the prompt is still live.
     */
   def acceptPlainMessage(
       msg: Message,
@@ -134,7 +136,7 @@ final class SubscriptionFlowService[F[_]: Async](
               action = SubscriptionFlowAction.enterCron(msg.text.getOrElse("")),
               requester = requester
             ).map(Some(_))
-          case Some(draft) if draft.step == SubscriptionDraftStep.Target =>
+          case Some(draft) if draft.step == SubscriptionDraftStep.Target && msg.text.exists(_.nonEmpty) =>
             submitLocked(
               msg = msg,
               action = SubscriptionFlowAction.enterTarget(msg.text.getOrElse("")),
