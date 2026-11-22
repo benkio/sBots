@@ -15,7 +15,7 @@ import com.benkio.chatcore.model.reply.MarkdownFile
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.PhotoFile
-import com.benkio.chatcore.model.reply.Sticker as ChatSticker
+import com.benkio.chatcore.model.reply.TelegramSticker as ChatSticker
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.VideoFile
 import com.benkio.chatcore.model.Message

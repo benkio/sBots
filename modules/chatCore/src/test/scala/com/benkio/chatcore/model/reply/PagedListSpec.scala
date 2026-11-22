@@ -115,14 +115,26 @@ class PagedListSpec extends FunSuite {
     assertEquals(PagedList.toPlainText(list(0, 0), Some(syntax)), "Headline")
   }
 
-  test("trigger suggestions are one page and read as a plain text list without a keyboard") {
+  test("trigger suggestions are one page") {
     val suggestions = PagedList.triggerSuggestions("fransesimo", List("francesismo", "francofonia"))
     assertEquals(suggestions.commandKey, CommandKey.TriggerSearch)
     assertEquals(suggestions.page, 0)
     assert(!suggestions.hasNext && !suggestions.hasPrevious)
     assertEquals(suggestions.items.map(_.label), List("francesismo", "francofonia"))
+  }
+
+  test("trigger suggestions are numbered like the other lists when the platform has buttons") {
+    val suggestions = PagedList.triggerSuggestions("fransesimo", List("francesismo", "francofonia"))
     assertEquals(
-      PagedList.toPlainText(suggestions, Some(CommandSyntax(prefix = "!"))),
+      PagedList.toPlainText(suggestions),
+      "No exact match for 'fransesimo'. Did you mean:\n1. francesismo\n2. francofonia"
+    )
+  }
+
+  test("trigger suggestions are one line on a platform without buttons") {
+    val suggestions = PagedList.triggerSuggestions("fransesimo", List("francesismo", "francofonia"))
+    assertEquals(
+      PagedList.toTextOnly(suggestions, Some(CommandSyntax(prefix = "!"))),
       "No exact match for 'fransesimo'. Did you mean: francesismo, francofonia?"
     )
   }

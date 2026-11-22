@@ -53,7 +53,7 @@ class ReplyTransformerSpec extends ScalaCheckSuite {
     PhotoFile("a.jpg"),
     VideoFile("a.mp4"),
     Document("a.pdf"),
-    Sticker("a.sticker"),
+    TelegramSticker("a.sticker"),
     MarkdownFile("a.md")
   )
 

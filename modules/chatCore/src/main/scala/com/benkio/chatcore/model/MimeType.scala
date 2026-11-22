@@ -2,14 +2,14 @@ package com.benkio.chatcore.model
 
 import cats.Show
 enum MimeType(val value: String) {
-  case GIF     extends MimeType("image/gif")
-  case JPEG    extends MimeType("image/jpeg")
-  case PNG     extends MimeType("image/png")
-  case STICKER extends MimeType("image/sticker")
-  case MPEG    extends MimeType("audio/mpeg")
-  case MP4     extends MimeType("video/mp4")
-  case MD      extends MimeType("text/markdown")
-  case DOC     extends MimeType("application/octet-stream")
+  case GIF              extends MimeType("image/gif")
+  case JPEG             extends MimeType("image/jpeg")
+  case PNG              extends MimeType("image/png")
+  case TELEGRAM_STICKER extends MimeType("image/sticker")
+  case MPEG             extends MimeType("audio/mpeg")
+  case MP4              extends MimeType("video/mp4")
+  case MD               extends MimeType("text/markdown")
+  case DOC              extends MimeType("application/octet-stream")
 }
 
 object MimeTypeOps {
@@ -20,7 +20,7 @@ object MimeTypeOps {
     case "image/gif"                => Some(MimeType.GIF)
     case "image/jpeg"               => Some(MimeType.JPEG)
     case "image/png"                => Some(MimeType.PNG)
-    case "image/sticker"            => Some(MimeType.STICKER)
+    case "image/sticker"            => Some(MimeType.TELEGRAM_STICKER)
     case "audio/mpeg"               => Some(MimeType.MPEG)
     case "video/mp4"                => Some(MimeType.MP4)
     case "text/markdown"            => Some(MimeType.MD)
@@ -35,7 +35,7 @@ object MimeTypeOps {
       ".mp4"     -> MimeType.MP4,
       ".md"      -> MimeType.MD,
       ".mp3"     -> MimeType.MPEG,
-      ".sticker" -> MimeType.STICKER,
+      ".sticker" -> MimeType.TELEGRAM_STICKER,
       ".png"     -> MimeType.PNG,
       ".jpg"     -> MimeType.JPEG,
       ".gif"     -> MimeType.GIF

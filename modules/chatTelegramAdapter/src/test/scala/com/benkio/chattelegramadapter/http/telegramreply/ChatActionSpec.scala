@@ -11,7 +11,7 @@ import com.benkio.chatcore.model.reply.GifFile
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.PhotoFile
 import com.benkio.chatcore.model.reply.ReplyValue
-import com.benkio.chatcore.model.reply.Sticker
+import com.benkio.chatcore.model.reply.TelegramSticker
 import com.benkio.chatcore.model.reply.VideoFile
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Platform
@@ -40,7 +40,7 @@ class ChatActionSpec extends CatsEffectSuite {
     ("a photo", PhotoFile("a.jpg"), "upload_photo"),
     ("a video", VideoFile("a.mp4"), "upload_video"),
     ("a document", Document("a.pdf"), "upload_document"),
-    ("a sticker", Sticker("a.webp"), "choose_sticker")
+    ("a sticker", TelegramSticker("a.webp"), "choose_sticker")
   )
 
   private def chatActions(value: ReplyValue): IO[List[String]] =

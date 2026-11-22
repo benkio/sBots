@@ -23,7 +23,7 @@ class MimeTypeSpec extends ScalaCheckSuite {
 
   property("filename extension infers sticker and markdown mime types") {
     forAll(Gen.alphaNumStr.suchThat(_.nonEmpty)) { (prefix: String) =>
-      assertEquals(MimeTypeOps.mimeTypeOrDefault(s"$prefix.sticker", None), MimeType.STICKER)
+      assertEquals(MimeTypeOps.mimeTypeOrDefault(s"$prefix.sticker", None), MimeType.TELEGRAM_STICKER)
       assertEquals(MimeTypeOps.mimeTypeOrDefault(s"$prefix.md", None), MimeType.MD)
     }
   }

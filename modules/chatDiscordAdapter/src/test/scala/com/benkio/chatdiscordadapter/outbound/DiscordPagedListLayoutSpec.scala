@@ -4,6 +4,7 @@ import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.PagedItem
 import com.benkio.chatcore.model.reply.PagedList
 import com.benkio.chatcore.model.reply.PagedListAction
+import com.benkio.chatcore.model.reply.TelegramSticker
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatdiscordadapter.model.DiscordLimits
@@ -57,7 +58,40 @@ class DiscordPagedListLayoutSpec extends FunSuite {
       message.rows.head.map(b => PagedListAction.fromId(b.id)),
       List(Some(PagedListAction.Trigger("francesismo")), Some(PagedListAction.Trigger("francofonia")))
     )
-    assert(message.text.contains("Did you mean"))
+    assertEquals(
+      message.text,
+      "No exact match for 'fransesimo'. Did you mean:\n1. francesismo\n2. francofonia"
+    )
+  }
+
+  test("media Discord cannot send, like Telegram stickers, are left out of the text and the buttons") {
+    val list = PagedList(
+      title = "Top",
+      items = List(
+        PagedItem.ValueItem(Mp3File("a.mp3")),
+        PagedItem.ValueItem(TelegramSticker("b.sticker")),
+        PagedItem.ValueItem(Mp3File("c.mp3"))
+      ),
+      page = 0,
+      commandKey = CommandKey.TopTwenty
+    )
+    val message = DiscordPagedListLayout.render(list)
+    assertEquals(message.text, "Top\n1. a.mp3\n2. c.mp3")
+    assertEquals(message.rows.head.map(_.label), List("1", "2"))
+    assertEquals(
+      message.rows.head.map(b => PagedListAction.fromId(b.id)),
+      List(Some(PagedListAction.Media("a.mp3")), Some(PagedListAction.Media("c.mp3")))
+    )
+  }
+
+  test("a page past the end after filtering is clamped to the last page") {
+    val items =
+      PagedItem.ValueItem(TelegramSticker("s.sticker")) :: (1 to 10).toList.map(i =>
+        PagedItem.ValueItem(Mp3File(s"f$i.mp3"))
+      )
+    val message = DiscordPagedListLayout.render(PagedList("Top", items, page = 2, commandKey = CommandKey.TopTwenty))
+    assert(message.text.contains("page 2 of 2"))
+    assertEquals(message.rows.last.map(_.disabled), List(false, true))
   }
 
   test("the texts have nothing to pick, there is no empty row") {

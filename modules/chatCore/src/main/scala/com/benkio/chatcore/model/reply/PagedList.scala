@@ -102,23 +102,32 @@ object PagedList {
       commandKey = CommandKey.TopTwenty
     )
 
-  /** The page as plain text, for the platforms with no buttons: the headline, the numbered items (the numbers go on
-    * across the pages) and the position among the pages. With `commandSyntax`, the text says how to move the list with
-    * its text commands: the `!next`/`!prev` of the next/previous page and the `!pick 1-n` of the items of the page (see
+  /** The page as numbered text: the headline, the numbered items (the numbers go on across the pages) and the position
+    * among the pages. This is the reading of a platform with buttons too, where the buttons pick the numbered items.
+    * With `commandSyntax`, the text says how to move the list with the text commands of a platform without buttons: the
+    * `!next`/`!prev` of the next/previous page and the `!pick 1-n` of the items of the page (see
     * [[PagedListTextCommands]]).
     */
-  def toPlainText(pagedList: PagedList, commandSyntax: Option[CommandSyntax] = None): String =
-    if pagedList.items.nonEmpty && pagedList.items.forall(_.isInstanceOf[PagedItem.TriggerItem])
-    then s"${pagedList.title} ${pagedList.items.map(_.label).mkString(", ")}?"
-    else {
-      val headline = pagedList.title.linesIterator.nextOption().getOrElse("")
-      val numbered = pagedList.pageItems.zipWithIndex.map { case (item, index) =>
-        s"${pagedList.page * pagedList.pageSize + index + 1}. ${item.label}"
-      }
-      val position = Option.when(pagedList.totalPages > 1)(s"page ${pagedList.page + 1} of ${pagedList.totalPages}")
-      val hint     = commandSyntax.flatMap(PagedList.navigationHint(pagedList, _))
-      (headline :: numbered ++ position.toList ++ hint.toList).mkString("\n")
+  def toPlainText(pagedList: PagedList, commandSyntax: Option[CommandSyntax] = None): String = {
+    val headline = pagedList.title.linesIterator.nextOption().getOrElse("")
+    val numbered = pagedList.pageItems.zipWithIndex.map { case (item, index) =>
+      s"${pagedList.page * pagedList.pageSize + index + 1}. ${item.label}"
     }
+    val position = Option.when(pagedList.totalPages > 1)(s"page ${pagedList.page + 1} of ${pagedList.totalPages}")
+    val hint     = commandSyntax.flatMap(PagedList.navigationHint(pagedList, _))
+    (headline :: numbered ++ position.toList ++ hint.toList).mkString("\n")
+  }
+
+  /** The text of a paged list on a platform without buttons. Trigger suggestions stay on one line, as `Did you mean:
+    * c1, c2?`; every other list is numbered and carries its navigation hints.
+    */
+  def toTextOnly(pagedList: PagedList, commandSyntax: Option[CommandSyntax] = None): String =
+    if isTriggerSuggestions(pagedList)
+    then s"${pagedList.title} ${pagedList.items.map(_.label).mkString(", ")}?"
+    else toPlainText(pagedList, commandSyntax)
+
+  private def isTriggerSuggestions(pagedList: PagedList): Boolean =
+    pagedList.items.nonEmpty && pagedList.items.forall(_.isInstanceOf[PagedItem.TriggerItem])
 
   /** How to move the list with the text commands of the platform without buttons: `!next`, `!prev` and `!pick 1-5` —
     * `!next`/`!prev` are shown only when there is a next/previous page, `!pick n` with the numbers of the items of the

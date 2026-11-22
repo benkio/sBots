@@ -110,10 +110,10 @@ object ReplyBundleMessage {
   )(photoFiles: PhotoFile*): ReplyBundleMessage =
     textToMedia(triggers*)(photoFiles*)
 
-  def textToSticker(
+  def textToTelegramSticker(
       triggers: (String | RegexTextTriggerValue)*
-  )(photoFiles: Sticker*): ReplyBundleMessage =
-    textToMedia(triggers*)(photoFiles*)
+  )(telegramStickers: TelegramSticker*): ReplyBundleMessage =
+    textToMedia(triggers*)(telegramStickers*)
 
   def textToText(
       triggers: (String | RegexTextTriggerValue)*

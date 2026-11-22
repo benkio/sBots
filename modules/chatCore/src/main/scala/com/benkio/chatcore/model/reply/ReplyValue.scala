@@ -41,7 +41,7 @@ object ReplyValueCore {
           c.downField("MarkdownFile").as[MarkdownFile].map(mediaFile => mediaFile)
         )
         .orElse(c.downField("Document").as[Document].map(mediaFile => mediaFile))
-        .orElse(c.downField("Sticker").as[Sticker].map(mediaFile => mediaFile))
+        .orElse(c.downField("Sticker").as[TelegramSticker].map(mediaFile => mediaFile))
   }
 
   given Encoder[ReplyValueCore] = new Encoder[ReplyValueCore] {
@@ -54,7 +54,7 @@ object ReplyValueCore {
       case videoFile: VideoFile       => Json.obj("VideoFile" -> videoFile.asJson)
       case markdownFile: MarkdownFile => Json.obj("MarkdownFile" -> markdownFile.asJson)
       case document: Document         => Json.obj("Document" -> document.asJson)
-      case sticker: Sticker           => Json.obj("Sticker" -> sticker.asJson)
+      case sticker: TelegramSticker   => Json.obj("Sticker" -> sticker.asJson)
     }
   }
 
@@ -260,17 +260,40 @@ object Document {
   given Encoder[Document] = deriveEncoder[Document]
 }
 
-final case class Sticker(filepath: String, replyToMessage: Boolean = false) extends MediaFile {}
+/** A Telegram sticker. The data key stays `Sticker` and the extension stays `.sticker` for backward compatibility. */
+final case class TelegramSticker(filepath: String, replyToMessage: Boolean = false) extends MediaFile {}
 
-object Sticker {
-  given Decoder[Sticker] = deriveDecoder[Sticker]
-  given Encoder[Sticker] = deriveEncoder[Sticker]
+object TelegramSticker {
+  given Decoder[TelegramSticker] = deriveDecoder[TelegramSticker]
+  given Encoder[TelegramSticker] = deriveEncoder[TelegramSticker]
 }
 
 object MediaFile {
 
-  given Decoder[MediaFile] = deriveDecoder[MediaFile]
-  given Encoder[MediaFile] = deriveEncoder[MediaFile]
+  // Explicit codecs: the persisted key of TelegramSticker is the legacy "Sticker", not its Scala name.
+  given Decoder[MediaFile] = new Decoder[MediaFile] {
+    def apply(c: HCursor): Decoder.Result[MediaFile] =
+      c.downField("Mp3File")
+        .as[Mp3File]
+        .orElse(c.downField("GifFile").as[GifFile])
+        .orElse(c.downField("PhotoFile").as[PhotoFile])
+        .orElse(c.downField("VideoFile").as[VideoFile])
+        .orElse(c.downField("MarkdownFile").as[MarkdownFile])
+        .orElse(c.downField("Document").as[Document])
+        .orElse(c.downField("Sticker").as[TelegramSticker])
+  }
+
+  given Encoder[MediaFile] = new Encoder[MediaFile] {
+    def apply(mediaFile: MediaFile): Json = mediaFile match {
+      case mp3File: Mp3File           => Json.obj("Mp3File" -> mp3File.asJson)
+      case gifFile: GifFile           => Json.obj("GifFile" -> gifFile.asJson)
+      case photoFile: PhotoFile       => Json.obj("PhotoFile" -> photoFile.asJson)
+      case videoFile: VideoFile       => Json.obj("VideoFile" -> videoFile.asJson)
+      case markdownFile: MarkdownFile => Json.obj("MarkdownFile" -> markdownFile.asJson)
+      case document: Document         => Json.obj("Document" -> document.asJson)
+      case sticker: TelegramSticker   => Json.obj("Sticker" -> sticker.asJson)
+    }
+  }
 
   given showInstance: Show[MediaFile] = Show.show(_.filename)
 
@@ -282,7 +305,7 @@ object MediaFile {
       ".md"      -> (f => MarkdownFile(f)),
       ".jpg"     -> (f => PhotoFile(f)),
       ".png"     -> (f => PhotoFile(f)),
-      ".sticker" -> (f => Sticker(f))
+      ".sticker" -> (f => TelegramSticker(f))
     ).collectFirst {
       case (suffix, filenameConstructor) if filename.endsWith(suffix) =>
         filenameConstructor
@@ -290,25 +313,25 @@ object MediaFile {
   }
 
   def fromMimeType(media: Media, replyToMessage: Boolean = false): MediaFile = media.mimeType match {
-    case MimeType.GIF     => GifFile(media.mediaName, replyToMessage)
-    case MimeType.JPEG    => PhotoFile(media.mediaName, replyToMessage)
-    case MimeType.PNG     => PhotoFile(media.mediaName, replyToMessage)
-    case MimeType.MPEG    => Mp3File(media.mediaName, replyToMessage)
-    case MimeType.STICKER => Sticker(media.mediaName, replyToMessage)
-    case MimeType.MP4     => VideoFile(media.mediaName, replyToMessage)
-    case MimeType.MD      => MarkdownFile(media.mediaName, replyToMessage)
-    case MimeType.DOC     => Document(media.mediaName, replyToMessage)
+    case MimeType.GIF              => GifFile(media.mediaName, replyToMessage)
+    case MimeType.JPEG             => PhotoFile(media.mediaName, replyToMessage)
+    case MimeType.PNG              => PhotoFile(media.mediaName, replyToMessage)
+    case MimeType.MPEG             => Mp3File(media.mediaName, replyToMessage)
+    case MimeType.TELEGRAM_STICKER => TelegramSticker(media.mediaName, replyToMessage)
+    case MimeType.MP4              => VideoFile(media.mediaName, replyToMessage)
+    case MimeType.MD               => MarkdownFile(media.mediaName, replyToMessage)
+    case MimeType.DOC              => Document(media.mediaName, replyToMessage)
   }
 }
 
 extension (sc: StringContext) {
-  def mp3(args: Any*): Mp3File     = Mp3File(sc.s(args*))
-  def gif(args: Any*): GifFile     = GifFile(sc.s(args*))
-  def vid(args: Any*): VideoFile   = VideoFile(sc.s(args*))
-  def pho(args: Any*): PhotoFile   = PhotoFile(sc.s(args*))
-  def txt(args: Any*): Text        = Text(sc.s(args*))
-  def doc(args: Any*): Document    = Document(sc.s(args*))
-  def sticker(args: Any*): Sticker = Sticker(sc.s(args*))
+  def mp3(args: Any*): Mp3File                     = Mp3File(sc.s(args*))
+  def gif(args: Any*): GifFile                     = GifFile(sc.s(args*))
+  def vid(args: Any*): VideoFile                   = VideoFile(sc.s(args*))
+  def pho(args: Any*): PhotoFile                   = PhotoFile(sc.s(args*))
+  def txt(args: Any*): Text                        = Text(sc.s(args*))
+  def doc(args: Any*): Document                    = Document(sc.s(args*))
+  def telegramSticker(args: Any*): TelegramSticker = TelegramSticker(sc.s(args*))
 }
 
 extension (values: Iterable[String]) def toText: Set[Text] = values.map(Text(_)).toSet

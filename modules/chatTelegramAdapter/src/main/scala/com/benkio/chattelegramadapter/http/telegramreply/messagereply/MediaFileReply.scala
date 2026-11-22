@@ -8,7 +8,7 @@ import com.benkio.chatcore.model.reply.MarkdownFile
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.PhotoFile
-import com.benkio.chatcore.model.reply.Sticker
+import com.benkio.chatcore.model.reply.TelegramSticker
 import com.benkio.chatcore.model.reply.VideoFile
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.repository.Repository
@@ -76,7 +76,7 @@ object MediaFileReply {
           repository = repository,
           replyToMessage = replyToMessage && msg.messageId.nonEmpty
         )
-    case sticker: Sticker =>
+    case sticker: TelegramSticker =>
       LogWriter.trace(s"Send sticker: $sticker") >>
         sendSticker(
           reply = sticker,
@@ -255,7 +255,7 @@ object MediaFileReply {
   }
 
   def sendSticker[F[_]: Async: LogWriter: Api: Notifier](
-      reply: Sticker,
+      reply: TelegramSticker,
       msg: TMessage,
       repository: Repository[F],
       replyToMessage: Boolean

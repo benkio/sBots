@@ -6,23 +6,23 @@ import com.benkio.chatcore.model.reply.MarkdownFile
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.PhotoFile
-import com.benkio.chatcore.model.reply.Sticker
+import com.benkio.chatcore.model.reply.TelegramSticker
 import com.benkio.chatcore.model.reply.VideoFile
 
 /** The kinds of media a platform can send, one per [[MediaFile]] subtype. */
 enum MediaKind {
-  case Audio, Gif, Photo, Video, Document, Sticker, MarkdownFile
+  case Audio, Gif, Photo, Video, Document, TelegramSticker, MarkdownFile
 }
 
 object MediaKind {
   def of(mediaFile: MediaFile): MediaKind = mediaFile match {
-    case _: Mp3File      => MediaKind.Audio
-    case _: GifFile      => MediaKind.Gif
-    case _: PhotoFile    => MediaKind.Photo
-    case _: VideoFile    => MediaKind.Video
-    case _: Document     => MediaKind.Document
-    case _: Sticker      => MediaKind.Sticker
-    case _: MarkdownFile => MediaKind.MarkdownFile
+    case _: Mp3File         => MediaKind.Audio
+    case _: GifFile         => MediaKind.Gif
+    case _: PhotoFile       => MediaKind.Photo
+    case _: VideoFile       => MediaKind.Video
+    case _: Document        => MediaKind.Document
+    case _: TelegramSticker => MediaKind.TelegramSticker
+    case _: MarkdownFile    => MediaKind.MarkdownFile
   }
 }
 

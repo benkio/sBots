@@ -41,7 +41,8 @@ object RepliesJsonMapping {
             mediaReply    <- replyObj.hcursor.downField("MediaReply").focus
             mediaFilesArr <- mediaReply.hcursor.downField("mediaFiles").as[Vector[Json]].toOption
           } yield mediaFilesArr.flatMap { mf =>
-            val mc        = mf.hcursor
+            val mc = mf.hcursor
+            // "Sticker" is the persisted data key of TelegramSticker, kept for backward compatibility.
             val fileKinds = List("Mp3File", "GifFile", "VideoFile", "PhotoFile", "MarkdownFile", "Document", "Sticker")
             fileKinds.view
               .flatMap(k => mc.downField(k).downField("filepath").as[String].toOption)
