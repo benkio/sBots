@@ -57,8 +57,8 @@ final class SubscriptionFlowService[F[_]: Async](
       case Some(semaphore) => semaphore.pure[F]
       case None            =>
         Semaphore[F](1).map { created =>
-          slot.compareAndSet(None, Some(created))
-          slot.get().get
+          if slot.compareAndSet(None, Some(created)) then created
+          else slot.get().get
         }
     }
   }
