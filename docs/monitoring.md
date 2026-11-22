@@ -10,6 +10,7 @@ The bots ship their logs to Grafana Cloud Loki (free tier, 14 days of retention)
   The JSON is in [`docs/grafana/sbots-overview-dashboard.json`](grafana/sbots-overview-dashboard.json): after a change of the
   stats lines or of the queries below, edit the dashboard in Grafana, export it (Share, Export, Export as JSON) and commit it
   here. To restore it: Dashboards, New, Import, paste the file (the `be4zdbd` uid replaces the existing dashboard).
+  When a panel has more than one query, each query needs a distinct `refId` (`A`, `B`, `C`, ...): duplicated IDs crash the panel with a React error.
 - **Read the logs:** [Grafana Explore](https://glowingdate3125.grafana.net/explore) with the `grafanacloud-glowingdate3125-logs` data source, query `{app="sbots"}`.
   Anyone who needs access has to be invited to the Grafana Cloud stack (Administration, Users and access).
 - **Labels:** `app` (always `sbots`) and `level`. Everything else is in the JSON line; filter it with
@@ -24,8 +25,14 @@ dashboard depends on them.
 - `[stats] type=message bot=<bot> platform=<platform> outcome=<outcome> latency_ms=<n>`: one per message that reaches a bot
   (`BotEngine.onMessage`). `outcome` is `handled` (also when nothing matched), `duplicate` (skipped, #1432), `timeout`
   (dropped after the request timeout) or `failed` (an error ended the processing).
-- `[stats] type=system heap_used_mb=<n> heap_max_mb=<n> uptime_s=<n> db_mb=<n>`: once a minute (`db_mb=-1` when the DB file is
-  not found).
+- `[stats] type=system heap_used_mb=<n> heap_max_mb=<n> uptime_s=<n> db_mb=<n> mem_total_mb=<n> mem_available_mb=<n>
+  load1=<n.nn> load5=<n.nn> load15=<n.nn> cpu_usage_pct=<n> mem_free_mb=<n> proc_rss_mb=<n>`: once a minute. `db_mb=-1`
+  when the DB file is missing; `mem_total_mb=-1`, `mem_available_mb=-1`, `mem_free_mb=-1`, `proc_rss_mb=-1`, `load*=-1.00`
+  and `cpu_usage_pct=-1` when the OS value cannot be read. On Linux `mem_available_mb` is `MemAvailable` from
+  `/proc/meminfo` (memory usable by new processes, including reclaimable cache), `mem_free_mb` is its `MemFree` (unused
+  RAM, excluding the page cache) and `proc_rss_mb` is `VmRSS` from `/proc/self/status` (resident memory of the bot
+  process); the loads come from `/proc/loadavg`. Elsewhere the JDK MX bean provides the 1-minute load, free memory and
+  CPU load.
 
 Panels of the dashboard (the lines are JSON: the `regexp` parser reads the `[stats]` text inside, no `json` step needed). Use
 backticks for the regexp in the Grafana editor, so the backslashes are not escaped twice.
@@ -37,6 +44,14 @@ backticks for the regexp in the Grafana editor, so the backslashes are not escap
 | Duplicates skipped | ``sum by (bot) (count_over_time({app="sbots"} \|= "[stats] type=message" \|= "outcome=duplicate" \| regexp `bot=(?P<bot>\S+)` [$__interval]))`` |
 | Latency p95 | ``quantile_over_time(0.95, {app="sbots"} \|= "[stats] type=message" \| regexp `bot=(?P<bot>\S+).*latency_ms=(?P<l>\d+)` \| unwrap l [$__interval]) by (bot)`` |
 | Heap used (MB) | ``max_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `heap_used_mb=(?P<h>\d+)` \| unwrap h [$__interval])`` |
+| Memory available (MB) | ``min_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `mem_available_mb=(?P<m>-?\d+)` \| unwrap m [$__interval])`` (the lowest in the bucket, so pressure shows up) |
+| Memory total (MB) | ``max_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `mem_total_mb=(?P<t>-?\d+)` \| unwrap t [$__interval])`` |
+| Memory free (MB) | ``min_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `mem_free_mb=(?P<f>-?\d+)` \| unwrap f [$__interval])`` |
+| Process RSS (MB) | ``max_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `proc_rss_mb=(?P<r>-?\d+)` \| unwrap r [$__interval])`` |
+| System load (1m) | ``max_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `load1=(?P<l>-?\d+\.\d+)` \| unwrap l [$__interval])`` |
+| System load (5m) | ``max_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `load5=(?P<l>-?\d+\.\d+)` \| unwrap l [$__interval])`` |
+| System load (15m) | ``max_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `load15=(?P<l>-?\d+\.\d+)` \| unwrap l [$__interval])`` |
+| CPU usage (%) | ``max_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `cpu_usage_pct=(?P<c>-?\d+)` \| unwrap c [$__interval])`` |
 | Media errors | ``sum(count_over_time({app="sbots", level=~"ERROR\|WARN"} \|~ "(?i)media" [$__interval]))`` (approximate: it matches the log lines that mention media) |
 
 ## How it works
