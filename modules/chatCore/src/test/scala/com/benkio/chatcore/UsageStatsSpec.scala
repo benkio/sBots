@@ -21,6 +21,8 @@ class UsageStatsSpec extends FunSuite {
   private val host = UsageStats.HostStats(
     memTotalMb = 4096,
     memAvailableMb = 1024,
+    memFreeMb = 512,
+    procRssMb = 300,
     load1 = 0.5,
     load5 = 0.25,
     load15 = 0.125,
@@ -37,7 +39,7 @@ class UsageStatsSpec extends FunSuite {
         host = host
       ),
       "[stats] type=system heap_used_mb=100 heap_max_mb=256 uptime_s=90 db_mb=42 " +
-        "mem_total_mb=4096 mem_available_mb=1024 load1=0.50 load5=0.25 load15=0.13 cpu_usage_pct=7"
+        "mem_total_mb=4096 mem_available_mb=1024 load1=0.50 load5=0.25 load15=0.13 cpu_usage_pct=7 mem_free_mb=512 proc_rss_mb=300"
     )
   }
 
@@ -49,12 +51,14 @@ class UsageStatsSpec extends FunSuite {
   test("systemLine keeps every key when a machine value is unavailable") {
     assertEquals(
       UsageStats.systemLine(0L, 0L, 0.seconds, None).split(" ").length,
-      12
+      14
     )
     assert(
       UsageStats
         .systemLine(0L, 0L, 0.seconds, None)
-        .endsWith("mem_total_mb=-1 mem_available_mb=-1 load1=-1.00 load5=-1.00 load15=-1.00 cpu_usage_pct=-1")
+        .endsWith(
+          "mem_total_mb=-1 mem_available_mb=-1 load1=-1.00 load5=-1.00 load15=-1.00 cpu_usage_pct=-1 mem_free_mb=-1 proc_rss_mb=-1"
+        )
     )
   }
 }
