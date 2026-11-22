@@ -4,8 +4,8 @@ import cats.effect.Async
 import cats.syntax.all.*
 import com.benkio.chatcore.model.reply.PagedListAction
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
-import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.repository.db.DBLayer
+import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.Notifier
@@ -41,7 +41,7 @@ object Trigger {
     val modelMsg           = ModelMessageFromCallback.build(msg)
 
     for {
-      _ <- LogWriter.info(s"[Trigger.reply] reply to callback for trigger $triggerValue")
+      _          <- LogWriter.info(s"[Trigger.reply] reply to callback for trigger $triggerValue")
       replyValue <- PagedListNavigation.reply(
         action = PagedListAction.Trigger(triggerValue),
         msg = modelMsg,

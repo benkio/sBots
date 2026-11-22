@@ -84,7 +84,7 @@ object PagedListNavigation {
       runCommand(
         commandKey = CommandKey.TriggerSearch,
         page = Some(0),
-        msg = triggerSearchMessage(value, msg, capabilities.commandSyntax),
+        msg = triggerSearchMessage(triggerValue = value, msg = msg, commandSyntax = capabilities.commandSyntax),
         allCommandRepliesData = allCommandRepliesData,
         backgroundJobManager = backgroundJobManager,
         effectfulCallbacks = effectfulCallbacks,

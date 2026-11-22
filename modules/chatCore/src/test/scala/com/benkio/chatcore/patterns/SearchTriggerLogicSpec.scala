@@ -177,7 +177,8 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
         assertEquals(
           result,
           com.benkio.chatcore.model.reply.Text(
-            value = s"No exact match for 'fransesimo'. Closest trigger selected: 'francesismo'.\n${expectedSearchTriggerResponse(4)._2}"
+            value =
+              s"No exact match for 'fransesimo'. Closest trigger selected: 'francesismo'.\n${expectedSearchTriggerResponse(4)._2}"
           )
         )
       )
@@ -200,7 +201,9 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
     )
     TriggerSearchCommand
       .searchTriggerLogic[IO](mdr, msg, Some("!"), sBotInfo, ttl = None)
-      .map(result => assertEquals(result, com.benkio.chatcore.model.reply.Text(value = "No matching trigger for xyzzy")))
+      .map(result =>
+        assertEquals(result, com.benkio.chatcore.model.reply.Text(value = "No matching trigger for xyzzy"))
+      )
   }
 
   test("searchTriggerLogic should return the expected result when a trigger is found") {

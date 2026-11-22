@@ -88,14 +88,14 @@ object FuzzyCandidates {
   }
 
   sealed trait Decision
-  case object NoCandidates                                                                 extends Decision
+  case object NoCandidates extends Decision
   final case class AutoSelect(
       candidate: Candidate,
       score: Double,
       second: Option[Double],
       ranked: List[(Candidate, Double)]
   ) extends Decision
-  final case class Suggest(ranked: List[(Candidate, Double)])                              extends Decision
+  final case class Suggest(ranked: List[(Candidate, Double)]) extends Decision
 
   def decide(query: String, replyBundleMessages: List[com.benkio.chatcore.model.reply.ReplyBundleMessage]): Decision = {
     val cands = candidates(replyBundleMessages)

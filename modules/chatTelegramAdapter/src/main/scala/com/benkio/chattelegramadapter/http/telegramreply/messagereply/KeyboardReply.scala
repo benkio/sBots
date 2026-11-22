@@ -82,7 +82,7 @@ object KeyboardReply {
       perPage: Int = PagedList.defaultPageSize
   ): InlineKeyboardMarkup = {
     val selectedData = data.slice(page * perPage, (page + 1) * perPage)
-    val itemRows = selectedData
+    val itemRows     = selectedData
       .flatMap(d => summon[ToInlineButton[A]].toInlineKeyboardButton(d))
       .grouped(maxButtonsPerRow)
       .map(_.toList)

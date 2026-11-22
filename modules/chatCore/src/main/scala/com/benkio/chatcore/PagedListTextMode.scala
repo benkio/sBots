@@ -111,7 +111,7 @@ final class PagedListTextMode[F[_]: Async](
         PagedListNavigation
           .showText(show.id, show.timestamp.map(finiteDurationToYoutubeTimestamp), dbLayer.dbShow)
           .widen
-      case Some(PagedItem.ValueItem(value)) => value.pure[F]
+      case Some(PagedItem.ValueItem(value))   => value.pure[F]
       case Some(PagedItem.TriggerItem(value)) =>
         for {
           commandReply <- ApplicativeThrow[F].fromOption(

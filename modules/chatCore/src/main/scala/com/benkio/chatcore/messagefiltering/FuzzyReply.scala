@@ -23,10 +23,11 @@ object FuzzyReply {
         Result(Text(value = s"No matching trigger for $query", timeToLive = ttl), None)
 
       case FuzzyCandidates.AutoSelect(candidate, bestScore, secondScore, ranked) =>
-        val bestRbm = candidate.replyBundleMessage.getOrElse(replyBundleMessages.head)
-        val prefix  = s"No exact match for '$query'. Closest trigger selected: '${candidate.value}'."
-        val others  = ranked.tail.take(FuzzyTriggerSearch.MaxSuggestions - 1).map(_._1.value)
-        val replyValue = confidentReply(prefix, replyBundleTransformation(bestRbm), others, ttl)
+        val bestRbm    = candidate.replyBundleMessage.getOrElse(replyBundleMessages.head)
+        val prefix     = s"No exact match for '$query'. Closest trigger selected: '${candidate.value}'."
+        val others     = ranked.tail.take(FuzzyTriggerSearch.MaxSuggestions - 1).map(_._1.value)
+        val replyValue =
+          confidentReply(prefix = prefix, best = replyBundleTransformation(bestRbm), others = others, ttl = ttl)
         val log = Some(
           s"[FuzzyTriggerSearch] query=$query best=${candidate.value} score=$bestScore second=${secondScore.getOrElse(0.0)} decision=auto_select"
         )
@@ -36,7 +37,7 @@ object FuzzyReply {
         val bestScore   = ranked.headOption.map(_._2).getOrElse(0.0)
         val secondScore = ranked.lift(1).map(_._2)
         val replyValue  = PagedList.triggerSuggestions(query, ranked.map(_._1.value))
-        val log = Some(
+        val log         = Some(
           s"[FuzzyTriggerSearch] query=$query best=${ranked.headOption.map(_._1.value).getOrElse("")} score=$bestScore second=${secondScore.getOrElse(0.0)} decision=suggest_only"
         )
         Result(replyValue, log)
@@ -52,7 +53,7 @@ object FuzzyReply {
       others: List[String],
       ttl: Option[FiniteDuration]
   ): ReplyValue = best match {
-    case txt: Text => Text(value = s"$prefix\n${txt.value}", timeToLive = ttl)
+    case txt: Text            => Text(value = s"$prefix\n${txt.value}", timeToLive = ttl)
     case pagedList: PagedList =>
       val items = pagedList.items ++ others.map(PagedItem.TriggerItem(_))
       pagedList.copy(
@@ -69,5 +70,10 @@ object FuzzyReply {
       replyBundleTransformation: ReplyBundleMessage => ReplyValue,
       ttl: Option[FiniteDuration]
   ): ReplyValue =
-    build(query, replyBundleMessages, replyBundleTransformation, ttl).replyValue
+    build(
+      query = query,
+      replyBundleMessages = replyBundleMessages,
+      replyBundleTransformation = replyBundleTransformation,
+      ttl = ttl
+    ).replyValue
 }

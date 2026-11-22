@@ -4,9 +4,9 @@ import cats.effect.IO
 import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.FakePlatformAdapter
+import com.benkio.chatcore.model.reply.mp3
 import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.EffectfulReply
-import com.benkio.chatcore.model.reply.mp3
 import com.benkio.chatcore.model.reply.Mp3File
 import com.benkio.chatcore.model.reply.PagedList
 import com.benkio.chatcore.model.reply.PagedListAction
@@ -120,8 +120,8 @@ class PagedListNavigationSpec extends CatsEffectSuite {
   }
 
   test("picking a trigger candidate runs the exact trigger search for that candidate") {
-    val botInfo = SBotInfo(botName = SBotInfo.SBotName("Bot"), botId = botId)
-    val bundle  = ReplyBundleMessage.textToMedia("francesismo")(mp3"ytai_Francesismo.mp3")
+    val botInfo      = SBotInfo(botName = SBotInfo.SBotName("Bot"), botId = botId)
+    val bundle       = ReplyBundleMessage.textToMedia("francesismo")(mp3"ytai_Francesismo.mp3")
     val commandReply = ReplyBundleCommand(
       trigger = CommandTrigger(CommandKey.TriggerSearch.asString),
       reply = EffectfulReply(EffectfulKey.TriggerSearch(botInfo, List(bundle), None)),

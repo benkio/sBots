@@ -108,8 +108,8 @@ object PagedList {
     * [[PagedListTextCommands]]).
     */
   def toPlainText(pagedList: PagedList, commandSyntax: Option[CommandSyntax] = None): String =
-    if pagedList.items.nonEmpty && pagedList.items.forall(_.isInstanceOf[PagedItem.TriggerItem]) then
-      s"${pagedList.title} ${pagedList.items.map(_.label).mkString(", ")}?"
+    if pagedList.items.nonEmpty && pagedList.items.forall(_.isInstanceOf[PagedItem.TriggerItem])
+    then s"${pagedList.title} ${pagedList.items.map(_.label).mkString(", ")}?"
     else {
       val headline = pagedList.title.linesIterator.nextOption().getOrElse("")
       val numbered = pagedList.pageItems.zipWithIndex.map { case (item, index) =>
