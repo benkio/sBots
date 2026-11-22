@@ -20,6 +20,7 @@ import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.model.SubscribeArguments
 import com.benkio.chatcore.model.SubscriptionDraftStep
 import com.benkio.chatcore.model.SubscriptionFlowAction
+import com.benkio.chatcore.model.SubscriptionFlowKey
 import com.benkio.chatcore.model.SubscriptionFlowPrompt
 import com.benkio.chatcore.model.SubscriptionSchedulePreset
 import com.benkio.chatcore.model.SubscriptionType
@@ -116,6 +117,29 @@ class SubscriptionFlowSpec extends CatsEffectSuite {
         .map(_ -> created)
     }
   }
+
+  private val oneShotSubscribeCommand = ReplyBundleCommand(
+    trigger = CommandTrigger("subscribe"),
+    reply = TextReply.fromList("Input Required: insert a valid 〈cron time〉. Check the instructions")(true),
+    instruction = CommandInstructionData.NoInstructions
+  )
+
+  private def newEngine: BotEngine[IO] = new BotEngine[IO](
+    sBotConfig = sBotConfig,
+    dbLayer = DBLayerMock.mock(sBotInfo.botId, commandReplies = List(oneShotSubscribeCommand)),
+    filteringMatchesMessages = (_, _) => IO.pure(true),
+    postComputation = _ => IO.unit,
+    notifier = Notifier.noop[IO],
+    backgroundJobManager = BackgroundJobManagerMock.mock()
+  )
+
+  private val flowCapabilities = FakePlatformAdapter.textOnlyCapabilities.copy(
+    platform = com.benkio.chatcore.model.Platform.Telegram,
+    commandSyntax = CommandSyntax.Slash,
+    supportsButtons = true,
+    supportsEdit = true,
+    suppliesSenderId = true
+  )
 
   private val chooseShow: Right[String, SubscriptionFlowAction] =
     Right(SubscriptionFlowAction.chooseType(SubscriptionType.Show))
@@ -324,32 +348,75 @@ class SubscriptionFlowSpec extends CatsEffectSuite {
     }
   }
 
-  test("the engine starts the flow only where the platform supplies a requester and edits") {
-    val subscribe = ReplyBundleCommand(
-      trigger = CommandTrigger("subscribe"),
-      reply = TextReply.fromList("Input Required: insert a valid 〈cron time〉. Check the instructions")(true),
-      instruction = CommandInstructionData.NoInstructions
-    )
-    def engine: BotEngine[IO] = new BotEngine[IO](
-      sBotConfig = sBotConfig,
-      dbLayer = DBLayerMock.mock(sBotInfo.botId, commandReplies = List(subscribe)),
-      filteringMatchesMessages = (_, _) => IO.pure(true),
-      postComputation = _ => IO.unit,
-      notifier = Notifier.noop[IO],
-      backgroundJobManager = BackgroundJobManagerMock.mock()
-    )
-    val supported = FakePlatformAdapter.textOnlyCapabilities.copy(
-      platform = com.benkio.chatcore.model.Platform.Telegram,
-      commandSyntax = CommandSyntax.Slash,
-      supportsButtons = true,
-      supportsEdit = true,
-      suppliesSenderId = true
-    )
+  test("outcomes are delivered under the draft lock, so two presses cannot deliver out of order") {
+    val flow                                             = service()
+    val msg                                              = message("/subscribe")
+    val emitted                                          = Ref.unsafe[IO, List[String]](List.empty)
+    val active                                           = Ref.unsafe[IO, Int](0)
+    val peak                                             = Ref.unsafe[IO, Int](0)
+    def emit(outcome: SubscriptionFlowOutcome): IO[Unit] =
+      for {
+        n <- active.updateAndGet(_ + 1)
+        _ <- peak.updateAndGet(current => math.max(current, n))
+        _ <- emitted.update(_ :+ text(outcome))
+        _ <- IO.sleep(5.millis)
+        _ <- active.update(_ - 1)
+      } yield ()
     for {
-      telegram <- FakePlatformAdapter(capabilities = supported)
+      _ <- flow.start(msg, "alice")
+      _ <- List(
+        flow.submit(msg, SubscriptionFlowAction.cancel, "alice", emit),
+        flow.submit(msg, SubscriptionFlowAction.cancel, "alice", emit)
+      ).parSequence
+      peakSeen <- peak.get
+      order    <- emitted.get
+    } yield {
+      assertEquals(peakSeen, 1)
+      assertEquals(
+        order,
+        List(
+          "Subscription setup failed (cancelled): Subscription setup cancelled.",
+          "Subscription setup failed (no_active_flow): No active subscription setup. Start again with /subscribe."
+        )
+      )
+    }
+  }
+
+  test("every flow answer, including a rejected plain one, refreshes the adapter's prompt") {
+    val engine  = newEngine
+    val msg     = message("/subscribe")
+    val key     = SubscriptionFlowKey(msg.chatId, sBotInfo.botId, "alice")
+    val tooLong = msg.copy(messageId = Some(MessageId("2")), text = Some("x" * 201))
+    for {
+      telegram <- FakePlatformAdapter(capabilities = flowCapabilities)
+      _        <- engine.onMessage(msg)(using telegram)
+      _ <- engine.onSubscriptionFlowAction(msg, SubscriptionFlowAction.chooseType(SubscriptionType.Show), "alice")(using
+        telegram
+      )
+      _ <- engine.onSubscriptionFlowAction(
+        msg,
+        SubscriptionFlowAction.choosePreset(SubscriptionSchedulePreset.EveryMinute),
+        "alice"
+      )(using telegram)
+      _       <- engine.onMessage(tooLong)(using telegram)
+      touches <- telegram.touchedPrompts.get
+      sent    <- telegram.sent.get
+    } yield {
+      assertEquals(touches, List.fill(4)(key))
+      assert(sent.last.replyValue match {
+        case Text(value, _) => value.contains("target_too_long")
+        case _              => false
+      })
+    }
+  }
+
+  test("the engine starts the flow only where the platform supplies a requester and edits") {
+    val engine = newEngine
+    for {
+      telegram <- FakePlatformAdapter(capabilities = flowCapabilities)
       irc      <- FakePlatformAdapter()
       _        <- engine.onMessage(message("/subscribe"))(using telegram)
-      _        <- engine.onMessage(message("!subscribe"))(using irc)
+      _        <- engine.onMessage(message("!subscribe").copy(messageId = Some(MessageId("3"))))(using irc)
       sentT    <- telegram.sent.get
       sentI    <- irc.sent.get
     } yield {

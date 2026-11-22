@@ -35,13 +35,10 @@ object SubscriptionFlowCallbackReply {
           TelegramCallbackAnswer.reject(query.id, unavailableText)
         case Some(handle) if handle.owner != requester =>
           TelegramCallbackAnswer.reject(query.id, notOwnerText)
-        case Some(handle) =>
+        case Some(_) =>
           message.toModelMessage.fold(TelegramCallbackAnswer.reject(query.id, unavailableText)) { msg =>
             val model = msg.copy(authorId = requester.some)
-            TelegramCallbackAnswer.ack(query.id) *>
-              // an answer resets the draft's idle timer, so reset the prompt's too
-              flowPrompts.put(handle.key, handle.messageId, handle.owner) *>
-              submitAction(model, action, requester)
+            TelegramCallbackAnswer.ack(query.id) *> submitAction(model, action, requester)
           }
       }
     }

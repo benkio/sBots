@@ -21,6 +21,7 @@ import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageType
 import com.benkio.chatcore.model.PlatformCapabilities
 import com.benkio.chatcore.model.SubscriptionFlowAction
+import com.benkio.chatcore.model.SubscriptionFlowKey
 import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.chatcore.patterns.CommandPatternsGroup
 import com.benkio.chatcore.patterns.PostComputationPatterns
@@ -109,10 +110,9 @@ class BotEngine[F[_]: Async: LogWriter](
   /** Whether a reply was sent: a guided-flow answer, or a matching bundle that the filters let through. */
   private def messageLogicReplied(msg: Message)(using platform: PlatformAdapter[F]): F[Boolean] =
     guidedFlowRequester(msg, platform).fold(messageReplyBundles(msg)) { requester =>
-      subscriptionFlow.acceptPlainMessage(msg, requester).flatMap {
-        case Some(outcome) => deliverFlow(outcome, msg).as(true)
-        case None          => messageReplyBundles(msg)
-      }
+      subscriptionFlow
+        .acceptPlainMessage(msg, requester, deliverFlow(_, msg, requester))
+        .flatMap(outcome => outcome.fold(messageReplyBundles(msg))(_ => true.pure[F]))
     }
 
   private def messageReplyBundles(msg: Message)(using platform: PlatformAdapter[F]): F[Boolean] =
@@ -139,7 +139,7 @@ class BotEngine[F[_]: Async: LogWriter](
     guidedFlowRequester(msg, platform)
       .filter(_ => isBareSubscribeCommand(msg, platform))
       .fold(commandReplyBundles(msg)) { requester =>
-        subscriptionFlow.start(msg, requester).flatMap(outcome => deliverFlow(outcome, msg).as(true))
+        subscriptionFlow.start(msg, requester, deliverFlow(_, msg, requester)).as(true)
       }
 
   private def commandReplyBundles(msg: Message)(using platform: PlatformAdapter[F]): F[Boolean] =
@@ -181,15 +181,21 @@ class BotEngine[F[_]: Async: LogWriter](
   def onSubscriptionFlowAction(msg: Message, action: SubscriptionFlowAction, requester: String)(using
       platform: PlatformAdapter[F]
   ): F[Unit] =
-    subscriptionFlow.submit(msg, action, requester).flatMap(deliverFlow(_, msg))
+    subscriptionFlow.submit(msg, action, requester, deliverFlow(_, msg, requester)).void
 
-  private def deliverFlow(outcome: SubscriptionFlowOutcome, msg: Message)(using
+  /** Called by the flow service while it still holds the lock of the draft, so replies cannot overtake each other.
+    * Every answer, including one that only rejects the input, refreshes the adapter's prompt handle.
+    */
+  private def deliverFlow(outcome: SubscriptionFlowOutcome, msg: Message, requester: String)(using
       platform: PlatformAdapter[F]
-  ): F[Unit] =
-    outcome match {
-      case SubscriptionFlowOutcome.Prompt(value)  => deliver(replyValue = value, msg = msg, replyToMessage = false)
-      case SubscriptionFlowOutcome.Message(value) => deliver(replyValue = value, msg = msg, replyToMessage = false)
+  ): F[Unit] = {
+    val replyValue = outcome match {
+      case SubscriptionFlowOutcome.Prompt(value)  => value
+      case SubscriptionFlowOutcome.Message(value) => value
     }
+    platform.touchFlowPrompt(SubscriptionFlowKey(msg.chatId, sBotConfig.sBotInfo.botId, requester)) *>
+      deliver(replyValue = replyValue, msg = msg, replyToMessage = false)
+  }
 
   def fileRequestLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = fileRequestLogicReplied(msg).void
 

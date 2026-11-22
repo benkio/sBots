@@ -62,6 +62,24 @@ final class SubscriptionFlowPromptStore[F[_]: Monad: Clock](expiry: FiniteDurati
       Monad[F].unit
     }
 
+  /** Refreshes the idle timer of a live handle without changing the message it points at. The engine calls this when a
+    * plain answer refreshes a draft but produces no new prompt to edit.
+    */
+  def touch(key: SubscriptionFlowKey): F[Unit] =
+    Clock[F].realTime.flatMap { now =>
+      state.updateAndGet { previous =>
+        val current = live(previous, now)
+        current.byKey.get(key).fold(current) { handle =>
+          val refreshed = handle.copy(savedAt = now)
+          State(
+            byKey = current.byKey.updated(key, refreshed),
+            byMessageId = current.byMessageId.updated(handle.messageId, refreshed)
+          )
+        }
+      }
+      Monad[F].unit
+    }
+
   def byKey(key: SubscriptionFlowKey): F[Option[SubscriptionFlowPromptHandle]] =
     Clock[F].realTime.map { now =>
       state.updateAndGet(current => live(current, now)).byKey.get(key)

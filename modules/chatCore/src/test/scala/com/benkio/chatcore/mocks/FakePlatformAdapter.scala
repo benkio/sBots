@@ -3,6 +3,7 @@ package com.benkio.chatcore.mocks
 import cats.effect.kernel.Ref
 import cats.effect.IO
 import cats.syntax.all.*
+import cats.Applicative
 import com.benkio.chatcore.model.reply.EffectfulReply
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.Text
@@ -12,6 +13,7 @@ import com.benkio.chatcore.model.MediaKind
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.PlatformCapabilities
+import com.benkio.chatcore.model.SubscriptionFlowKey
 import com.benkio.chatcore.PlatformAdapter
 
 /** A platform without a network: [[run]] delivers the `inbound` messages to the handler set with [[onInbound]], what is
@@ -23,7 +25,8 @@ final class FakePlatformAdapter private (
     inbound: List[Message],
     handler: Ref[IO, Option[Message => IO[Unit]]],
     effectfulValue: ReplyValue,
-    val sent: Ref[IO, List[FakePlatformAdapter.Sent]]
+    val sent: Ref[IO, List[FakePlatformAdapter.Sent]],
+    val touchedPrompts: Ref[IO, List[SubscriptionFlowKey]]
 ) extends PlatformAdapter[IO] {
 
   def onInbound(onMessage: Message => IO[Unit]): IO[Unit] = handler.set(Some(onMessage))
@@ -34,6 +37,9 @@ final class FakePlatformAdapter private (
         inbound.traverse_(h)
       )
     )
+
+  override def touchFlowPrompt(key: SubscriptionFlowKey)(using Applicative[IO]): IO[Unit] =
+    touchedPrompts.update(_ :+ key)
 
   override def send(replyValue: ReplyValue, message: Message, replyToMessage: Boolean): IO[Unit] =
     sent.update(_ :+ FakePlatformAdapter.Sent(replyValue, message, replyToMessage))
@@ -69,7 +75,8 @@ object FakePlatformAdapter {
       capabilities: PlatformCapabilities = textOnlyCapabilities,
       effectfulValue: ReplyValue = Text("effectful")
   ): IO[FakePlatformAdapter] = for {
-    handler <- Ref.of[IO, Option[Message => IO[Unit]]](None)
-    sent    <- Ref.of[IO, List[Sent]](List.empty)
-  } yield new FakePlatformAdapter(capabilities, inbound, handler, effectfulValue, sent)
+    handler        <- Ref.of[IO, Option[Message => IO[Unit]]](None)
+    sent           <- Ref.of[IO, List[Sent]](List.empty)
+    touchedPrompts <- Ref.of[IO, List[SubscriptionFlowKey]](List.empty)
+  } yield new FakePlatformAdapter(capabilities, inbound, handler, effectfulValue, sent, touchedPrompts)
 }

@@ -32,9 +32,12 @@ Spec: `specs/engine-extras.allium` (Guided /subscribe) and `specs/platforms.alli
 
 - Discord packs prompt buttons into at most five rows of five and always reserves the last row for back/cancel: the five
   schedule presets used to push those buttons past the row budget.
-- Telegram refreshes the prompt handle after an edit, and both adapters refresh it on an owner press, so a prompt stays
-  usable for as long as the idle draft (a rejection refreshes a draft without emitting a new prompt).
-- `SubscriptionFlowService` serializes start/submit/plain answers per (chat, bot, requester) with a `Semaphore`, so two
-  parallel confirms cannot both create a subscription; `NotHandled` was dead and removed.
+- Telegram refreshes the prompt handle after an edit. The engine refreshes it for every flow answer through
+  `PlatformAdapter.touchFlowPrompt`, including a typed answer that is rejected (too-long target, empty cron) and emits
+  no new prompt, so a prompt stays usable for as long as the idle draft.
+- `SubscriptionFlowService` serializes start/submit/plain answers with 64 lazily created striped semaphores instead of a
+  lock per draft: bounded for the life of the bot, with collisions only costing a short serialization.
+- The outcome `emit` runs inside the same lock, so a second press cannot deliver its reply before the first one's prompt
+  edit; two parallel confirms cannot both create a subscription; `NotHandled` was dead and removed.
 - Left for later (review suggestions, non-blocking): inject a clock and parse the cron once; replace the
   `AtomicReference` update idiom in the stores; align the Telegram/Discord prompt-send failure policy.

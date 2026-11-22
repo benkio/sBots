@@ -10,7 +10,7 @@ import com.benkio.chatcore.patterns.SubscriptionCommands.SubscribeUnsubscribeCom
 import cron4s.Cron
 
 import java.time.LocalDateTime
-import java.util.concurrent.ConcurrentHashMap
+import java.util.concurrent.atomic.AtomicReference
 import scala.concurrent.duration.FiniteDuration
 
 /** What the engine does after a step of the guided subscription flow: show or edit a prompt, send a new message, or
@@ -21,6 +21,14 @@ sealed trait SubscriptionFlowOutcome
 object SubscriptionFlowOutcome {
   final case class Prompt(value: SubscriptionFlowPrompt) extends SubscriptionFlowOutcome
   final case class Message(value: ReplyValue)            extends SubscriptionFlowOutcome
+}
+
+object SubscriptionFlowService {
+
+  /** A fixed number of locks, chosen by hash: a lock per draft would live forever, long after the bounded stores have
+    * forgotten the draft. Collisions only serialize unrelated drafts for the length of one transition.
+    */
+  private val stripeCount = 64
 }
 
 /** The platform-neutral guided `/subscribe` flow. It owns the drafts and decides the next prompt; the adapters only
@@ -37,32 +45,61 @@ final class SubscriptionFlowService[F[_]: Async](
     createSubscription: (Message, SBotInfo, SubscribeArguments) => F[Either[Throwable, ReplyValue]]
 ) {
 
-  /** Presses of one draft can arrive on parallel fibers (a webhook or a button listener). Serializing the transitions
-    * of a triple keeps them atomic from the caller's point of view: in particular, two confirms cannot both see a live
-    * draft and create two subscriptions.
+  /** One lazily created semaphore per stripe, shared for the life of the engine. A losing racer uses the winner's
+    * semaphore, so every fiber landing on a stripe really shares the same lock.
     */
-  private val keyLocks = new ConcurrentHashMap[SubscriptionFlowKey, Semaphore[F]]()
+  private val stripes: Array[AtomicReference[Option[Semaphore[F]]]] =
+    Array.fill(SubscriptionFlowService.stripeCount)(new AtomicReference[Option[Semaphore[F]]](None))
 
-  private def withKeyLock[A](key: SubscriptionFlowKey)(body: F[A]): F[A] =
-    Option(keyLocks.get(key))
-      .fold(Semaphore[F](1).map(created => Option(keyLocks.putIfAbsent(key, created)).getOrElse(created)))(_.pure[F])
-      .flatMap(_.permit.use(_ => body))
-
-  def start(msg: Message, requester: String): F[SubscriptionFlowOutcome] =
-    withKeyLock(key(msg, requester)) {
-      Async[F].realTime.flatMap { now =>
-        val draft = SubscriptionDraft(key(msg, requester), SubscriptionDraftStep.Type, None, None, None, now)
-        store.start(draft).map {
-          case SubscriptionDraftStartResult.Started =>
-            prompt(draft)
-          case SubscriptionDraftStartResult.Full =>
-            SubscriptionFlowOutcome.Message(error(SubscriptionFlowFailure.StoreFull, storeFullText))
+  private def stripeFor(key: SubscriptionFlowKey): F[Semaphore[F]] = {
+    val slot = stripes(Math.floorMod(key.hashCode, stripes.length))
+    slot.get() match {
+      case Some(semaphore) => semaphore.pure[F]
+      case None            =>
+        Semaphore[F](1).map { created =>
+          slot.compareAndSet(None, Some(created))
+          slot.get().get
         }
-      }
+    }
+  }
+
+  /** Presses of one draft can arrive on parallel fibers (a webhook or a button listener). Serializing the transitions
+    * of a triple keeps them atomic: two confirms cannot both see a live draft and create two subscriptions. `emit` runs
+    * inside the lock too, so a second press cannot deliver its reply before the first one's prompt edit.
+    */
+  private def withKeyLock[A](key: SubscriptionFlowKey)(body: F[A]): F[A] =
+    stripeFor(key).flatMap(_.permit.use(_ => body))
+
+  private val noEmit: SubscriptionFlowOutcome => F[Unit] = _ => ().pure[F]
+
+  def start(
+      msg: Message,
+      requester: String,
+      emit: SubscriptionFlowOutcome => F[Unit] = noEmit
+  ): F[SubscriptionFlowOutcome] =
+    withKeyLock(key(msg, requester)) {
+      Async[F].realTime
+        .flatMap { now =>
+          val draft = SubscriptionDraft(key(msg, requester), SubscriptionDraftStep.Type, None, None, None, now)
+          store.start(draft).map {
+            case SubscriptionDraftStartResult.Started =>
+              prompt(draft)
+            case SubscriptionDraftStartResult.Full =>
+              SubscriptionFlowOutcome.Message(error(SubscriptionFlowFailure.StoreFull, storeFullText))
+          }
+        }
+        .flatTap(emit)
     }
 
-  def submit(msg: Message, action: SubscriptionFlowAction, requester: String): F[SubscriptionFlowOutcome] =
-    withKeyLock(key(msg, requester))(submitLocked(msg = msg, action = action, requester = requester))
+  def submit(
+      msg: Message,
+      action: SubscriptionFlowAction,
+      requester: String,
+      emit: SubscriptionFlowOutcome => F[Unit] = noEmit
+  ): F[SubscriptionFlowOutcome] =
+    withKeyLock(key(msg, requester))(
+      submitLocked(msg = msg, action = action, requester = requester).flatTap(emit)
+    )
 
   private def submitLocked(
       msg: Message,
@@ -79,24 +116,33 @@ final class SubscriptionFlowService[F[_]: Async](
       case Some(draft) => applyAction(msg = msg, draft = draft, action = action)
     }
 
-  /** A plain message is a flow answer only at the schedule and target steps, and only for the draft owner. */
-  def acceptPlainMessage(msg: Message, requester: String): F[Option[SubscriptionFlowOutcome]] =
+  /** A plain message is a flow answer only at the schedule and target steps, and only for the draft owner. A rejection
+    * still refreshes the draft, so its outcome is emitted too: the adapter learns that the prompt is still live.
+    */
+  def acceptPlainMessage(
+      msg: Message,
+      requester: String,
+      emit: SubscriptionFlowOutcome => F[Unit] = noEmit
+  ): F[Option[SubscriptionFlowOutcome]] =
     withKeyLock(key(msg, requester)) {
-      store.get(key(msg, requester)).flatMap {
-        case Some(draft) if draft.step == SubscriptionDraftStep.Schedule =>
-          submitLocked(
-            msg = msg,
-            action = SubscriptionFlowAction.enterCron(msg.text.getOrElse("")),
-            requester = requester
-          ).map(Some(_))
-        case Some(draft) if draft.step == SubscriptionDraftStep.Target =>
-          submitLocked(
-            msg = msg,
-            action = SubscriptionFlowAction.enterTarget(msg.text.getOrElse("")),
-            requester = requester
-          ).map(Some(_))
-        case _ => none[SubscriptionFlowOutcome].pure[F]
-      }
+      store
+        .get(key(msg, requester))
+        .flatMap {
+          case Some(draft) if draft.step == SubscriptionDraftStep.Schedule =>
+            submitLocked(
+              msg = msg,
+              action = SubscriptionFlowAction.enterCron(msg.text.getOrElse("")),
+              requester = requester
+            ).map(Some(_))
+          case Some(draft) if draft.step == SubscriptionDraftStep.Target =>
+            submitLocked(
+              msg = msg,
+              action = SubscriptionFlowAction.enterTarget(msg.text.getOrElse("")),
+              requester = requester
+            ).map(Some(_))
+          case _ => none[SubscriptionFlowOutcome].pure[F]
+        }
+        .flatTap(_.traverse_(emit))
     }
 
   private def key(msg: Message, requester: String): SubscriptionFlowKey =

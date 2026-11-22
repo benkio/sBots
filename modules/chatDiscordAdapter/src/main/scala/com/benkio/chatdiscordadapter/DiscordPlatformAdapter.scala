@@ -2,10 +2,12 @@ package com.benkio.chatdiscordadapter
 
 import cats.effect.Async
 import cats.syntax.all.*
+import cats.Applicative
 import com.benkio.chatcore.model.reply.EffectfulReply
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.PlatformCapabilities
+import com.benkio.chatcore.model.SubscriptionFlowKey
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
@@ -51,6 +53,9 @@ class DiscordPlatformAdapter[F[_]: Async: LogWriter: Notifier](
   private val usableRepository: Repository[F] = repository.usableFor(capabilities)
 
   override def run: F[Unit] = startGateway
+
+  override def touchFlowPrompt(key: SubscriptionFlowKey)(using Applicative[F]): F[Unit] =
+    flowPrompts.touch(key)
 
   override def send(replyValue: ReplyValue, message: Message, replyToMessage: Boolean): F[Unit] =
     discordApi.flatMap(api =>

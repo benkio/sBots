@@ -50,12 +50,10 @@ class SubscriptionFlowCallbackReplySpec extends CatsEffectSuite {
     }
   }
 
-  test("the owner's press is acknowledged, submitted with the requester as author and refreshes the prompt") {
+  test("the owner's press is acknowledged and submitted with the requester as author") {
     for {
       store            <- IO.pure(SubscriptionFlowPromptStore.create[IO](1.minute, 10))
       _                <- store.put(key, "42", "1")
-      before           <- store.byKey(key)
-      _                <- IO.sleep(10.millis)
       actions          <- Ref.of[IO, List[(Message, SubscriptionFlowAction, String)]](List.empty)
       (api, recording) <- PayloadRecordingApi()
       _                <- SubscriptionFlowCallbackReply.reply[IO](
@@ -66,13 +64,11 @@ class SubscriptionFlowCallbackReplySpec extends CatsEffectSuite {
       )(using Async[IO], api)
       calls       <- recording
       submissions <- actions.get
-      after       <- store.byKey(key)
     } yield {
       assertEquals(calls.map(_._1), List("answerCallbackQuery"))
       assertEquals(submissions.map(_._3), List("1"))
       assertEquals(submissions.head._2, SubscriptionFlowAction.back)
       assertEquals(submissions.head._1.authorId, Some("1"))
-      assert(after.exists(_.savedAt > before.get.savedAt))
     }
   }
 
