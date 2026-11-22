@@ -1406,13 +1406,51 @@
                     },
                     "refId": "B"
                   }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "grafanacloud-logs"
+                      },
+                      "group": "loki",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "expr": "min_over_time({app=\"sbots\"} |= \"[stats] type=system\" | regexp `mem_free_mb=(?P<f>-?\\d+)` | unwrap f [$__interval])",
+                        "legendFormat": "free"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "C"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "grafanacloud-logs"
+                      },
+                      "group": "loki",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "expr": "max_over_time({app=\"sbots\"} |= \"[stats] type=system\" | regexp `proc_rss_mb=(?P<r>-?\\d+)` | unwrap r [$__interval])",
+                        "legendFormat": "process"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "D"
+                  }
                 }
               ],
               "queryOptions": {},
               "transformations": []
             }
           },
-          "description": "mem_available is the lowest value in the bucket so memory pressure shows up; -1 means the OS value was unavailable.",
+          "description": "mem_available and mem_free are the lowest values in the bucket so memory pressure shows up; -1 means the OS value was unavailable.",
           "id": 13,
           "links": [],
           "title": "Host memory (MB)",

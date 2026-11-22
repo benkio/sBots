@@ -12,6 +12,8 @@ object UsageStats {
   final case class HostStats(
       memTotalMb: Long = -1,
       memAvailableMb: Long = -1,
+      memFreeMb: Long = -1,
+      procRssMb: Long = -1,
       load1: Double = -1,
       load5: Double = -1,
       load15: Double = -1,
@@ -48,7 +50,7 @@ object UsageStats {
       s"uptime_s=${uptime.toSeconds} db_mb=${dbSizeBytes.fold(-1L)(toMb)} " +
       s"mem_total_mb=${host.memTotalMb} mem_available_mb=${host.memAvailableMb} " +
       s"load1=${fixed(host.load1)} load5=${fixed(host.load5)} load15=${fixed(host.load15)} " +
-      s"cpu_usage_pct=${host.cpuUsagePct}"
+      s"cpu_usage_pct=${host.cpuUsagePct} mem_free_mb=${host.memFreeMb} proc_rss_mb=${host.procRssMb}"
 
   private def toMb(bytes: Long): Long = bytes / (1024 * 1024)
 
