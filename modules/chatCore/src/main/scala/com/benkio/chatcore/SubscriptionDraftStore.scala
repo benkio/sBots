@@ -29,18 +29,20 @@ final class SubscriptionDraftStore[F[_]: Monad: Clock](expiry: FiniteDuration, m
   private def live(current: Map[SubscriptionFlowKey, SubscriptionDraft], now: FiniteDuration) =
     current.filterNot { case (_, draft) => expired(draft, now) }
 
-  /** Starts or restarts the draft of a triple; `Full` when that triple has no draft and the store is at its bound. */
+  /** Starts or restarts the draft of a triple; `Full` when that triple has no draft and the store is at its bound.
+    * `updateAndGet` may run the update more than once under contention, so the result is read from the map it actually
+    * committed: a side effect on an earlier attempt would describe a map that was never installed. The full branch
+    * leaves the key out, so membership in the committed map tells the two outcomes apart.
+    */
   def start(draft: SubscriptionDraft): F[SubscriptionDraftStartResult] =
     Clock[F].realTime.map { now =>
-      var result: SubscriptionDraftStartResult = SubscriptionDraftStartResult.Full
-      drafts.updateAndGet { current =>
+      val committed = drafts.updateAndGet { current =>
         val currentLive = live(current, now)
-        if currentLive.contains(draft.key) || currentLive.size < maxDrafts then {
-          result = SubscriptionDraftStartResult.Started
-          currentLive.updated(draft.key, draft)
-        } else currentLive
+        if currentLive.contains(draft.key) || currentLive.size < maxDrafts then currentLive.updated(draft.key, draft)
+        else currentLive
       }
-      result
+      if committed.contains(draft.key) then SubscriptionDraftStartResult.Started
+      else SubscriptionDraftStartResult.Full
     }
 
   def get(key: SubscriptionFlowKey): F[Option[SubscriptionDraft]] =
