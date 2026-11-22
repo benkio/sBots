@@ -22,50 +22,47 @@ import scala.concurrent.duration.FiniteDuration
 /** The text mode of paged lists on a platform without buttons: owns the pages remembered per chat and handles the
   * `!next`, `!prev` and `!pick` commands, leaving a platform with buttons to the button navigation.
   *
-  * The store is in memory and per instance: a restart forgets it. Everything the commands need (the command replies,
-  * the shows and the platform) is given at construction or at the call, so the orchestrator holds no paging state.
+  * The remembered pages are persisted in the DB, so they survive restarts like other bot state. Everything the commands
+  * need (the command replies, the shows and the platform) is given at construction or at the call, so the orchestrator
+  * holds no paging state.
   */
 final class PagedListTextMode[F[_]: Async](
     botName: SBotName,
     allCommandRepliesData: () => List[ReplyBundleCommand],
-    dbLayer: DBLayer[F],
-    expiry: FiniteDuration,
-    maxChats: Int
+    dbLayer: DBLayer[F]
 ) {
 
-  private val store = new PagedListTextStore.Store(expiry = expiry, maxChats = maxChats)
+  private val store: PagedListTextStore.Store[F] = PagedListTextStore.db[F](dbLayer.dbPagedListText)
 
   /** Whether a text navigation command was handled and a reply sent. */
   def handleCommand(msg: Message)(using platform: PlatformAdapter[F]): F[Boolean] =
     if platform.capabilities.supportsButtons then false.pure[F]
     else
-      Clock[F].monotonic.flatMap { now =>
+      Clock[F].realTime.flatMap { now =>
         PagedListTextCommands
-          .decide(
+          .decide[F](
             msg = msg,
             syntax = platform.capabilities.commandSyntax,
             botName = botName,
             store = store,
             now = now
           )
-          .fold(false.pure[F])(handleAction(_, msg))
+          .flatMap(_.fold(false.pure[F])(handleAction(_, msg)))
       }
 
   /** Remembers the paged list just sent, so the text commands can act on it. */
   def remember(request: Message, replyValue: ReplyValue)(using platform: PlatformAdapter[F]): F[Unit] =
     replyValue match {
       case pagedList: PagedList if !platform.capabilities.supportsButtons =>
-        Clock[F].monotonic.flatMap { now =>
-          store
-            .save(
-              chatId = request.chatId,
-              commandKey = pagedList.commandKey,
-              page = pagedList.page,
-              pageItems = pagedList.pageItems,
-              request = request,
-              now = now
-            )
-            .pure[F]
+        Clock[F].realTime.flatMap { now =>
+          store.save(
+            chatId = request.chatId,
+            commandKey = pagedList.commandKey,
+            page = pagedList.page,
+            pageItems = pagedList.pageItems,
+            request = request,
+            now = now
+          )
         }
       case _ => ().pure[F]
     }

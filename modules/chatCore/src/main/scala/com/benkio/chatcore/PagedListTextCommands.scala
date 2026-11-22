@@ -1,6 +1,7 @@
 package com.benkio.chatcore
 
-import cats.syntax.option.*
+import cats.syntax.all.*
+import cats.Monad
 import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo.SBotName
@@ -64,20 +65,22 @@ object PagedListTextCommands {
     * act on, or the clear answer when there is none, it expired or the number of `!pick` is out of the page. `None`
     * when the message is not a text command.
     */
-  def decide(
+  def decide[F[_]: Monad](
       msg: Message,
       syntax: CommandSyntax,
       botName: SBotName,
-      store: PagedListTextStore.Store,
+      store: PagedListTextStore.Store[F],
       now: FiniteDuration
-  ): Option[Action] = parse(msg = msg, syntax = syntax, botName = botName).flatMap { command =>
-    store.get(msg.chatId, now) match {
-      case Some(entry) => decideOnEntry(command, entry)
-      case None        =>
-        Option
-          .when(store.isExpired(msg.chatId, now))(Action.Answer(expiredAnswer))
-          .orElse(Some(Action.Answer(noListAnswer)))
-    }
+  ): F[Option[Action]] = parse(msg = msg, syntax = syntax, botName = botName) match {
+    case None          => none[Action].pure[F]
+    case Some(command) =>
+      store.get(msg.chatId, now).flatMap {
+        case Some(entry) => decideOnEntry(command, entry).pure[F]
+        case None        =>
+          store.isExpired(msg.chatId, now).map { expired =>
+            Some(Action.Answer(if expired then expiredAnswer else noListAnswer))
+          }
+      }
   }
 
   private def decideOnEntry(command: TextCommand, entry: PagedListTextStore.Entry): Option[Action] = command match {

@@ -159,13 +159,13 @@ rule UserSubscribes {
 
 -- Guided /subscribe ----------------------------------------------------
 
--- The draft store is per engine and in memory only: a restart forgets every draft, and the next action gets the
--- no_active_flow reply offering /subscribe again. A new bare /subscribe replaces the draft of the same
--- (chat, bot, requester); there is at most one flow for those three values. A draft is never evicted to make room:
--- once SubscriptionDrafts.count reaches config.subscription_draft_max_drafts a new bare /subscribe from a requester
--- without a draft is declined with store_full, pointing at the one-shot command and asking them to wait and retry.
--- An idle draft
--- older than config.subscription_draft_expiry is silently forgotten, so it can no longer be resumed.
+-- The draft store is persisted in the shared bot DB, scoped by bot: a restart keeps drafts that are still within
+-- their idle TTL. A draft older than config.subscription_draft_expiry is silently forgotten, so it can no longer be
+-- resumed and the next action gets the no_active_flow reply offering /subscribe again. A new bare /subscribe replaces
+-- the draft of the same (chat, bot, requester); there is at most one flow for those three values. A draft is never
+-- evicted to make room: once the live drafts for the bot reach config.subscription_draft_max_drafts a new bare
+-- /subscribe from a requester without a draft is declined with store_full, pointing at the one-shot command and asking
+-- them to wait and retry.
 --
 -- Each step updates the same prompt message in place; the confirmation result is a new reply. The only replies that
 -- are not prompt updates are errors and the final subscription result.
@@ -520,13 +520,13 @@ rule PagedListRejectsBadId {
 -- Text-mode navigation of paged lists --------------------------------------------------------------
 
 -- The engine remembers the last paged list shown in each chat (the "text mode" of a platform without buttons):
--- an in-memory store of entries, one per chat, each the page as shown and the message that asked for it (the same
--- input the command runs again with), when it was saved. A get returns the entry of the chat only while it is not
--- expired: the SBotConfig.pagedListTextModeExpiry (sbots.allium) after saved_at; when the store is full to the
--- SBotConfig.pagedListTextModeMaxChats it drops the oldest entries. A chat without an entry, or
--- with an expired one, has no remembered list. The store is per engine and in memory only: a restart forgets it.
--- The entry keeps the page as shown: the command of the list (run again for another page), the page and the items
--- of the page (the picks), so the worst case is the bound of chats, each with one page of items.
+-- a store persisted in the shared bot DB, scoped by bot, of entries one per (bot, chat), each the page as shown and
+-- the message that asked for it (the same input the command runs again with), when it was saved. A get returns the
+-- entry of the chat only while it is not expired: the SBotConfig.pagedListTextModeExpiry (sbots.allium) after
+-- saved_at; when the store is full to the SBotConfig.pagedListTextModeMaxChats it drops the oldest entries. A chat
+-- without an entry, or with an expired one, has no remembered list. A restart keeps entries that are still within
+-- their TTL. The entry keeps the page as shown: the command of the list (run again for another page), the page and
+-- the items of the page (the picks), so the worst case is the bound of chats, each with one page of items.
 entity PagedListTextStoreEntry {
     engine: core/BotEngine
     chat: core/Chat

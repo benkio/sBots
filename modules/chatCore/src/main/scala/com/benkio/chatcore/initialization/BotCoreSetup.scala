@@ -26,16 +26,30 @@ final case class BotCoreSetup[F[_]](
 
 object BotCoreSetup {
 
-  def loadDB[F[_]: Async](config: DBConfig)(using log: LogWriter[F]): Resource[F, DBLayer[F]] =
+  def loadDB[F[_]: Async](
+      config: DBConfig,
+      botId: com.benkio.chatcore.model.SBotInfo.SBotId,
+      subscriptionDraftExpiry: scala.concurrent.duration.FiniteDuration =
+        com.benkio.chatcore.SubscriptionDraftStore.defaultExpiry,
+      subscriptionDraftMaxDrafts: Int = com.benkio.chatcore.SubscriptionDraftStore.defaultMaxDrafts,
+      pagedListTextModeExpiry: scala.concurrent.duration.FiniteDuration =
+        com.benkio.chatcore.PagedListTextStore.defaultExpiry,
+      pagedListTextModeMaxChats: Int = com.benkio.chatcore.PagedListTextStore.defaultMaxChats
+  )(using log: LogWriter[F]): Resource[F, DBLayer[F]] =
     Resource.eval(
-      DBLayer[F](
-        Transactor.fromDriverManager[F](
+      DBLayer.make[F](
+        transactor = Transactor.fromDriverManager[F](
           config.driver,
           config.url,
           "",
           "",
           None
-        )
+        ),
+        botId = botId,
+        subscriptionDraftExpiry = subscriptionDraftExpiry,
+        subscriptionDraftMaxDrafts = subscriptionDraftMaxDrafts,
+        pagedListTextModeExpiry = pagedListTextModeExpiry,
+        pagedListTextModeMaxChats = pagedListTextModeMaxChats
       )
     )
 
@@ -57,7 +71,14 @@ object BotCoreSetup {
       megaClient    <- Resource.eval(MegaClient[F](httpClient))
       clients            = HttpClients(dropboxClient = dropboxClient, megaClient = megaClient)
       jsonDataRepository = JsonDataRepository[F]()
-      dbLayer <- loadDB[F](config.db).evalMap(DBLayer.loadReplies[F](_, jsonDataRepository, effectiveSBotConfig))
+      dbLayer <- loadDB[F](
+        config = config.db,
+        botId = effectiveSBotConfig.sBotInfo.botId,
+        subscriptionDraftExpiry = effectiveSBotConfig.subscriptionDraftExpiry,
+        subscriptionDraftMaxDrafts = effectiveSBotConfig.subscriptionDraftMaxDrafts,
+        pagedListTextModeExpiry = effectiveSBotConfig.pagedListTextModeExpiry,
+        pagedListTextModeMaxChats = effectiveSBotConfig.pagedListTextModeMaxChats
+      ).evalMap(DBLayer.loadReplies[F](_, jsonDataRepository, effectiveSBotConfig))
     } yield BotCoreSetup(
       jsonDataRepository = jsonDataRepository,
       dbLayer = dbLayer,

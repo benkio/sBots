@@ -81,14 +81,12 @@ class BotEngine[F[_]: Async: LogWriter](
   private lazy val textMode = new PagedListTextMode[F](
     botName = sBotConfig.sBotInfo.botName,
     allCommandRepliesData = () => allCommandRepliesData,
-    dbLayer = dbLayer,
-    expiry = sBotConfig.pagedListTextModeExpiry,
-    maxChats = sBotConfig.pagedListTextModeMaxChats
+    dbLayer = dbLayer
   )
 
   /** The guided `/subscribe` flow owns its drafts here; the adapters only render its prompts and actions. */
   private lazy val subscriptionFlow = new SubscriptionFlowService[F](
-    store = SubscriptionDraftStore.create[F](sBotConfig.subscriptionDraftExpiry, sBotConfig.subscriptionDraftMaxDrafts),
+    store = SubscriptionDraftStore.db[F](dbLayer.dbSubscriptionDraft),
     sBotInfo = sBotConfig.sBotInfo,
     expiry = sBotConfig.subscriptionDraftExpiry,
     ttl = sBotConfig.messageTimeToLive,
@@ -183,18 +181,20 @@ class BotEngine[F[_]: Async: LogWriter](
   ): F[Unit] =
     subscriptionFlow.submit(msg, action, requester, deliverFlow(_, msg, requester)).void
 
-  /** Called by the flow service while it still holds the lock of the draft, so replies cannot overtake each other.
-    * Every answer, including one that only rejects the input, refreshes the adapter's prompt handle.
+  /** Called by the flow service while it still holds the lock of the draft, so replies cannot overtake each other. A
+    * prompt answer refreshes the adapter's prompt handle; a terminal message clears it so the next flow sends a fresh
+    * prompt instead of editing a stale one.
     */
   private def deliverFlow(outcome: SubscriptionFlowOutcome, msg: Message, requester: String)(using
       platform: PlatformAdapter[F]
   ): F[Unit] = {
-    val replyValue = outcome match {
-      case SubscriptionFlowOutcome.Prompt(value)  => value
-      case SubscriptionFlowOutcome.Message(value) => value
+    val key                              = SubscriptionFlowKey(msg.chatId, sBotConfig.sBotInfo.botId, requester)
+    val (replyValue, updatePromptHandle) = outcome match {
+      case SubscriptionFlowOutcome.Prompt(value)            => (value: ReplyValue, platform.touchFlowPrompt(key))
+      case SubscriptionFlowOutcome.Message(value, terminal) =>
+        (value: ReplyValue, if terminal then platform.clearFlowPrompt(key) else platform.touchFlowPrompt(key))
     }
-    platform.touchFlowPrompt(SubscriptionFlowKey(msg.chatId, sBotConfig.sBotInfo.botId, requester)) *>
-      deliver(replyValue = replyValue, msg = msg, replyToMessage = false)
+    updatePromptHandle *> deliver(replyValue = replyValue, msg = msg, replyToMessage = false)
   }
 
   def fileRequestLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = fileRequestLogicReplied(msg).void

@@ -31,7 +31,7 @@ object Main extends IOApp {
       _      <- Resource.eval(LogWriter.info(s"[Main - Initialization] Input Configuration: $config"))
       _      <- Resource.eval(LogWriter.info("[Main - Initialization] Connect to DB"))
       transactor = Config.buildTransactor(config = config)
-      dbLayer <- Resource.eval(DBLayer[IO](transactor))
+      dbLayer <- Resource.eval(DBLayer.make[IO](transactor, com.benkio.chatcore.model.SBotInfo.SBotId("botDB")))
       _       <- Resource.eval(LogWriter.info("[Main - Initialization] Repository"))
       repository = ResourcesRepository.fromResources[IO](args.lastOption)
       _ <- Resource.eval(LogWriter.info("[Main - Initialization] DBMigrator"))

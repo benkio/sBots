@@ -57,6 +57,9 @@ class DiscordPlatformAdapter[F[_]: Async: LogWriter: Notifier](
   override def touchFlowPrompt(key: SubscriptionFlowKey)(using Applicative[F]): F[Unit] =
     flowPrompts.touch(key)
 
+  override def clearFlowPrompt(key: SubscriptionFlowKey)(using Applicative[F]): F[Unit] =
+    flowPrompts.remove(key)
+
   override def send(replyValue: ReplyValue, message: Message, replyToMessage: Boolean): F[Unit] =
     discordApi.flatMap(api =>
       DiscordReplies[F](api, usableRepository, dbLayer, capabilities, lists, flowPrompts).send(

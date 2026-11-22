@@ -18,8 +18,6 @@ import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.TestIds
 import munit.CatsEffectSuite
 
-import scala.concurrent.duration.*
-
 /** The text mode owns the remembered pages: the commands act on the list the component itself stored. */
 class PagedListTextModeSpec extends CatsEffectSuite {
 
@@ -49,9 +47,7 @@ class PagedListTextModeSpec extends CatsEffectSuite {
   private def textMode = new PagedListTextMode[IO](
     botName = sBotInfo.botName,
     allCommandRepliesData = () => List(searchShowCommand),
-    dbLayer = DBLayerMock.mock(sBotInfo.botId, commandReplies = List(searchShowCommand)),
-    expiry = 10.minutes,
-    maxChats = 100
+    dbLayer = DBLayerMock.mock(sBotInfo.botId, commandReplies = List(searchShowCommand))
   )
 
   private val listText: Text =

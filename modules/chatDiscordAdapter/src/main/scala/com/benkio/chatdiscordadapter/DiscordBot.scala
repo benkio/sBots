@@ -80,10 +80,7 @@ object DiscordBot {
         random   <- Random.scalaUtilRandom[F]
         lists    <- DiscordButtonLists.create[F]()
         // the guided flow prompts are handles to the messages of the subscription setup: edited at every step
-        flowPrompts = SubscriptionFlowPromptStore.create[F](
-          effectiveSBotConfig.subscriptionDraftExpiry,
-          effectiveSBotConfig.subscriptionDraftMaxDrafts
-        )
+        flowPrompts = SubscriptionFlowPromptStore.db[F](core.dbLayer.dbSubscriptionFlowPrompt)
         // the subscriptions send to a chat without a message to reply to, once the connection is up
         sendToChat = (chatId: com.benkio.chatcore.model.ChatId, replyValue: ReplyValue, replyToMessage: Boolean) =>
           apiReady.get.flatMap(api =>

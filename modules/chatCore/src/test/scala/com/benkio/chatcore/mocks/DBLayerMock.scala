@@ -4,6 +4,7 @@ import cats.effect.kernel.Ref
 import cats.effect.std.Random
 import cats.effect.IO
 import cats.syntax.all.*
+import com.benkio.chatcore.model.reply.PagedItem
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.show.RandomQuery
@@ -11,9 +12,13 @@ import com.benkio.chatcore.model.show.ShowQuery
 import com.benkio.chatcore.model.show.ShowQueryKeyword
 import com.benkio.chatcore.model.show.SimpleShowQuery
 import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.CommandKey
+import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageId
 import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.model.SubscriptionDraft
+import com.benkio.chatcore.model.SubscriptionFlowKey
 import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.model.Timeout
 import com.benkio.chatcore.repository.db.DBCommandReplies
@@ -21,13 +26,20 @@ import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBMedia
 import com.benkio.chatcore.repository.db.DBMediaData
 import com.benkio.chatcore.repository.db.DBMessageReplies
+import com.benkio.chatcore.repository.db.DBPagedListText
 import com.benkio.chatcore.repository.db.DBProcessedMessage
 import com.benkio.chatcore.repository.db.DBShow
 import com.benkio.chatcore.repository.db.DBShowData
 import com.benkio.chatcore.repository.db.DBSubscription
 import com.benkio.chatcore.repository.db.DBSubscriptionData
+import com.benkio.chatcore.repository.db.DBSubscriptionDraft
+import com.benkio.chatcore.repository.db.DBSubscriptionFlowPrompt
 import com.benkio.chatcore.repository.db.DBTimeout
 import com.benkio.chatcore.repository.db.DBTimeoutData
+import com.benkio.chatcore.PagedListTextStore
+import com.benkio.chatcore.SubscriptionDraftPutResult
+import com.benkio.chatcore.SubscriptionDraftStartResult
+import com.benkio.chatcore.SubscriptionFlowPromptHandle
 
 import java.time.Instant
 import java.util.UUID
@@ -41,7 +53,10 @@ object DBLayerMock {
       shows: List[DBShowData] = List.empty,
       processedMessages: DBProcessedMessage[IO] = DBProcessedMessageMock(Ref.unsafe(Set.empty)),
       messageReplies: List[ReplyBundleMessage] = List.empty,
-      commandReplies: List[ReplyBundleCommand] = List.empty
+      commandReplies: List[ReplyBundleCommand] = List.empty,
+      dbSubscriptionDraft: DBSubscriptionDraft[IO] = DBSubscriptionDraftMock(Ref.unsafe(Map.empty)),
+      dbSubscriptionFlowPrompt: DBSubscriptionFlowPrompt[IO] = DBSubscriptionFlowPromptMock(Ref.unsafe(Map.empty)),
+      dbPagedListText: DBPagedListText[IO] = DBPagedListTextMock(Ref.unsafe(Map.empty))
   ): DBLayer[IO] =
     DBLayer(
       dbTimeout = DBTimeoutMock(Ref.unsafe(timeouts), botId),
@@ -49,6 +64,9 @@ object DBLayerMock {
       dbSubscription = DBSubscriptionMock(Ref.unsafe(subscriptions)),
       dbShow = DBShowMock(Ref.unsafe(shows)),
       dbProcessedMessage = processedMessages,
+      dbSubscriptionDraft = dbSubscriptionDraft,
+      dbSubscriptionFlowPrompt = dbSubscriptionFlowPrompt,
+      dbPagedListText = dbPagedListText,
       dbMessageReplies = DBMessageReplies(messageReplies),
       dbCommandReplies = DBCommandReplies(commandReplies)
     )
@@ -263,5 +281,58 @@ object DBLayerMock {
 
     override def deleteShow(dbShowData: DBShowData): IO[Unit] =
       db.update(_.filterNot(_.show_id == dbShowData.show_id))
+  }
+
+  final class DBSubscriptionDraftMock(db: Ref[IO, Map[SubscriptionFlowKey, SubscriptionDraft]])
+      extends DBSubscriptionDraft[IO] {
+    override def start(draft: SubscriptionDraft): IO[SubscriptionDraftStartResult] =
+      db.modify { current =>
+        if current.contains(draft.key) || current.size < 1000 then (
+          current.updated(draft.key, draft),
+          SubscriptionDraftStartResult.Started
+        )
+        else (current, SubscriptionDraftStartResult.Full)
+      }
+    override def get(key: SubscriptionFlowKey): IO[Option[SubscriptionDraft]]  = db.get.map(_.get(key))
+    override def put(draft: SubscriptionDraft): IO[SubscriptionDraftPutResult] =
+      start(draft).map {
+        case SubscriptionDraftStartResult.Started => SubscriptionDraftPutResult.Saved
+        case SubscriptionDraftStartResult.Full    => SubscriptionDraftPutResult.Full
+      }
+    override def remove(key: SubscriptionFlowKey): IO[Unit] = db.update(_ - key)
+    override def size: IO[Int]                              = db.get.map(_.size)
+  }
+
+  final class DBSubscriptionFlowPromptMock(db: Ref[IO, Map[SubscriptionFlowKey, SubscriptionFlowPromptHandle]])
+      extends DBSubscriptionFlowPrompt[IO] {
+    override def put(key: SubscriptionFlowKey, messageId: String, owner: String): IO[Unit] =
+      IO.realTime.flatMap(now => db.update(_.updated(key, SubscriptionFlowPromptHandle(key, messageId, owner, now))))
+    override def touch(key: SubscriptionFlowKey): IO[Unit] =
+      IO.realTime.flatMap(now => db.update(m => m.get(key).fold(m)(h => m.updated(key, h.copy(savedAt = now)))))
+    override def byKey(key: SubscriptionFlowKey): IO[Option[SubscriptionFlowPromptHandle]] =
+      db.get.map(_.get(key))
+    override def byMessageId(chatId: ChatId, messageId: String): IO[Option[SubscriptionFlowPromptHandle]] =
+      db.get.map(_.values.find(h => h.key.chatId == chatId && h.messageId == messageId))
+    override def remove(key: SubscriptionFlowKey): IO[Unit] = db.update(_ - key)
+  }
+
+  final class DBPagedListTextMock(db: Ref[IO, Map[ChatId, PagedListTextStore.Entry]]) extends DBPagedListText[IO] {
+    override def save(
+        chatId: ChatId,
+        commandKey: CommandKey,
+        page: Int,
+        pageItems: List[PagedItem],
+        request: Message,
+        now: scala.concurrent.duration.FiniteDuration
+    ): IO[Unit] =
+      db.update(_.updated(chatId, PagedListTextStore.Entry(commandKey, page, pageItems, request, now)))
+    override def get(
+        chatId: ChatId,
+        now: scala.concurrent.duration.FiniteDuration
+    ): IO[Option[PagedListTextStore.Entry]] =
+      db.get.map(_.get(chatId).filterNot(e => now - e.savedAt > scala.concurrent.duration.DurationInt(10).minutes))
+    override def isExpired(chatId: ChatId, now: scala.concurrent.duration.FiniteDuration): IO[Boolean] =
+      db.get.map(_.get(chatId).exists(e => now - e.savedAt > scala.concurrent.duration.DurationInt(10).minutes))
+    override def size: IO[Int] = db.get.map(_.size)
   }
 }

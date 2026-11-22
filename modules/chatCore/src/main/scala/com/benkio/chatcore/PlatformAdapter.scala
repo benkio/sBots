@@ -31,4 +31,9 @@ trait PlatformAdapter[F[_]] extends PlatformReplies[F] {
     * others have no prompt to refresh.
     */
   def touchFlowPrompt(@unused key: SubscriptionFlowKey)(using cats.Applicative[F]): F[Unit] = cats.Applicative[F].unit
+
+  /** Drops the stored prompt handle of a guided subscription draft once the flow reached a terminal outcome. The next
+    * flow for the same key should send a fresh prompt instead of editing a stale message buried in the chat.
+    */
+  def clearFlowPrompt(@unused key: SubscriptionFlowKey)(using cats.Applicative[F]): F[Unit] = cats.Applicative[F].unit
 }

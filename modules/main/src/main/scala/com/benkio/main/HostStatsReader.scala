@@ -20,12 +20,13 @@ object HostStatsReader {
   private val procStatus = Path.of("/proc/self/status")
   private val loadAvg    = Path.of("/proc/loadavg")
 
-  def read(): HostStats = {
+  def read(dbPath: Path = Path.of(".")): HostStats = {
     val mem    = readLines(memInfo).flatMap(parseMemInfo)
     val rss    = readLines(procStatus).flatMap(parseStatus)
     val load   = readLines(loadAvg).flatMap(lines => lines.headOption.flatMap(parseLoadAvg))
     val bean   = ManagementFactory.getOperatingSystemMXBean
     val freeMb = freeMemoryMb(bean)
+    val disk   = diskStatsMb(dbPath)
 
     HostStats(
       memTotalMb = mem.map(_._1).getOrElse(-1L),
@@ -35,7 +36,9 @@ object HostStatsReader {
       load1 = load.map(_._1).orElse(oneMinuteLoad(bean)).getOrElse(-1.0),
       load5 = load.map(_._2).getOrElse(-1.0),
       load15 = load.map(_._3).getOrElse(-1.0),
-      cpuUsagePct = cpuLoadPct(bean)
+      cpuUsagePct = cpuLoadPct(bean),
+      diskTotalMb = disk.map(_._1).getOrElse(-1L),
+      diskFreeMb = disk.map(_._2).getOrElse(-1L)
     )
   }
 
@@ -79,5 +82,17 @@ object HostStatsReader {
         .map(load => (load * 100).round.toInt)
         .getOrElse(-1)
     case _ => -1
+  }
+
+  private[main] def diskStatsMb(path: Path): Option[(Long, Long)] = {
+    val candidate =
+      if Files.exists(path) then Some(path)
+      else Option(path.getParent).filter(p => Files.exists(p)).orElse(Some(Path.of(".")))
+    candidate.flatMap { p =>
+      Try {
+        val store = Files.getFileStore(p)
+        (store.getTotalSpace / MiB, store.getUsableSpace / MiB)
+      }.toOption
+    }
   }
 }

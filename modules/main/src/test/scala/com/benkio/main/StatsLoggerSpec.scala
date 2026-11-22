@@ -25,6 +25,8 @@ class StatsLoggerSpec extends CatsEffectSuite {
       assert(line.contains(" cpu_usage_pct="), line)
       assert(line.contains(" mem_free_mb="), line)
       assert(line.contains(" proc_rss_mb="), line)
+      assert(line.contains(" disk_total_mb="), line)
+      assert(line.contains(" disk_free_mb="), line)
     }
   }
 

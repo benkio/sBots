@@ -95,8 +95,10 @@ object BotSetup {
     } yield TelegramToken(tokenFileContent)
   }
 
-  def loadDB[F[_]: Async](config: DBConfig)(using log: LogWriter[F]): Resource[F, DBLayer[F]] =
-    BotCoreSetup.loadDB[F](config)
+  def loadDB[F[_]: Async](config: DBConfig, botId: com.benkio.chatcore.model.SBotInfo.SBotId)(using
+      log: LogWriter[F]
+  ): Resource[F, DBLayer[F]] =
+    BotCoreSetup.loadDB[F](config, botId)
 
   def apply[F[_]: Async: Random](
       httpClient: Client[F],

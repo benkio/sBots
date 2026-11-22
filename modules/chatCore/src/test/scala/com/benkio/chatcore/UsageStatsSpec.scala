@@ -26,7 +26,9 @@ class UsageStatsSpec extends FunSuite {
     load1 = 0.5,
     load5 = 0.25,
     load15 = 0.125,
-    cpuUsagePct = 7
+    cpuUsagePct = 7,
+    diskTotalMb = 50000,
+    diskFreeMb = 12000
   )
 
   test("systemLine has the heap, the DB size, the machine memory and the load") {
@@ -39,7 +41,8 @@ class UsageStatsSpec extends FunSuite {
         host = host
       ),
       "[stats] type=system heap_used_mb=100 heap_max_mb=256 uptime_s=90 db_mb=42 " +
-        "mem_total_mb=4096 mem_available_mb=1024 load1=0.50 load5=0.25 load15=0.13 cpu_usage_pct=7 mem_free_mb=512 proc_rss_mb=300"
+        "mem_total_mb=4096 mem_available_mb=1024 load1=0.50 load5=0.25 load15=0.13 cpu_usage_pct=7 mem_free_mb=512 proc_rss_mb=300 " +
+        "disk_total_mb=50000 disk_free_mb=12000"
     )
   }
 
@@ -51,13 +54,14 @@ class UsageStatsSpec extends FunSuite {
   test("systemLine keeps every key when a machine value is unavailable") {
     assertEquals(
       UsageStats.systemLine(0L, 0L, 0.seconds, None).split(" ").length,
-      14
+      16
     )
     assert(
       UsageStats
         .systemLine(0L, 0L, 0.seconds, None)
         .endsWith(
-          "mem_total_mb=-1 mem_available_mb=-1 load1=-1.00 load5=-1.00 load15=-1.00 cpu_usage_pct=-1 mem_free_mb=-1 proc_rss_mb=-1"
+          "mem_total_mb=-1 mem_available_mb=-1 load1=-1.00 load5=-1.00 load15=-1.00 cpu_usage_pct=-1 mem_free_mb=-1 proc_rss_mb=-1 " +
+            "disk_total_mb=-1 disk_free_mb=-1"
         )
     )
   }

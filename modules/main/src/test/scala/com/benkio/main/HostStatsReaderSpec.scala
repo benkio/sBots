@@ -41,4 +41,13 @@ class HostStatsReaderSpec extends FunSuite {
   test("parseLoadAvg rejects a malformed line") {
     assertEquals(HostStatsReader.parseLoadAvg("0.42"), None)
   }
+
+  test("diskStatsMb reports total and free space for an existing path") {
+    val result = HostStatsReader.diskStatsMb(java.nio.file.Path.of("."))
+    assert(result.isDefined)
+    val (total, free) = result.get
+    assert(total >= 0L, s"total=$total")
+    assert(free >= 0L, s"free=$free")
+    assert(total >= free, s"total=$total free=$free")
+  }
 }

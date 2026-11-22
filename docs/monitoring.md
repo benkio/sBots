@@ -26,12 +26,13 @@ dashboard depends on them.
   (`BotEngine.onMessage`). `outcome` is `handled` (also when nothing matched), `duplicate` (skipped, #1432), `timeout`
   (dropped after the request timeout) or `failed` (an error ended the processing).
 - `[stats] type=system heap_used_mb=<n> heap_max_mb=<n> uptime_s=<n> db_mb=<n> mem_total_mb=<n> mem_available_mb=<n>
-  load1=<n.nn> load5=<n.nn> load15=<n.nn> cpu_usage_pct=<n> mem_free_mb=<n> proc_rss_mb=<n>`: once a minute. `db_mb=-1`
-  when the DB file is missing; `mem_total_mb=-1`, `mem_available_mb=-1`, `mem_free_mb=-1`, `proc_rss_mb=-1`, `load*=-1.00`
-  and `cpu_usage_pct=-1` when the OS value cannot be read. On Linux `mem_available_mb` is `MemAvailable` from
+  load1=<n.nn> load5=<n.nn> load15=<n.nn> cpu_usage_pct=<n> mem_free_mb=<n> proc_rss_mb=<n> disk_total_mb=<n> disk_free_mb=<n>`: once a minute. `db_mb=-1`
+  when the DB file is missing; `mem_total_mb=-1`, `mem_available_mb=-1`, `mem_free_mb=-1`, `proc_rss_mb=-1`, `load*=-1.00`,
+  `cpu_usage_pct=-1`, `disk_total_mb=-1` and `disk_free_mb=-1` when the OS value cannot be read. On Linux `mem_available_mb` is `MemAvailable` from
   `/proc/meminfo` (memory usable by new processes, including reclaimable cache), `mem_free_mb` is its `MemFree` (unused
   RAM, excluding the page cache) and `proc_rss_mb` is `VmRSS` from `/proc/self/status` (resident memory of the bot
-  process); the loads come from `/proc/loadavg`. Elsewhere the JDK MX bean provides the 1-minute load, free memory and
+  process); the loads come from `/proc/loadavg`. Disk total/free are read from the filesystem containing the DB file.
+  Elsewhere the JDK MX bean provides the 1-minute load, free memory and
   CPU load.
 
 Panels of the dashboard (the lines are JSON: the `regexp` parser reads the `[stats]` text inside, no `json` step needed). Use
@@ -44,6 +45,7 @@ backticks for the regexp in the Grafana editor, so the backslashes are not escap
 | Duplicates skipped | ``sum by (bot) (count_over_time({app="sbots"} \|= "[stats] type=message" \|= "outcome=duplicate" \| regexp `bot=(?P<bot>\S+)` [$__interval]))`` |
 | Latency p95 | ``quantile_over_time(0.95, {app="sbots"} \|= "[stats] type=message" \| regexp `bot=(?P<bot>\S+).*latency_ms=(?P<l>\d+)` \| unwrap l [$__interval]) by (bot)`` |
 | Heap used (MB) | ``max_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `heap_used_mb=(?P<h>\d+)` \| unwrap h [$__interval])`` |
+| DB and disk size (MB) | ``max_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `db_mb=(?P<d>-?\d+)` \| unwrap d [$__interval])`` (db), ``max_over_time(... \| regexp `disk_total_mb=(?P<d>-?\d+)` \| unwrap d [$__interval])`` (disk total), ``min_over_time(... \| regexp `disk_free_mb=(?P<d>-?\d+)` \| unwrap d [$__interval])`` (disk free) |
 | Memory available (MB) | ``min_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `mem_available_mb=(?P<m>-?\d+)` \| unwrap m [$__interval])`` (the lowest in the bucket, so pressure shows up) |
 | Memory total (MB) | ``max_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `mem_total_mb=(?P<t>-?\d+)` \| unwrap t [$__interval])`` |
 | Memory free (MB) | ``min_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `mem_free_mb=(?P<f>-?\d+)` \| unwrap f [$__interval])`` |

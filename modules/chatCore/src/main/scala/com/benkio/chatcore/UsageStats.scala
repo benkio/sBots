@@ -17,7 +17,9 @@ object UsageStats {
       load1: Double = -1,
       load5: Double = -1,
       load15: Double = -1,
-      cpuUsagePct: Int = -1
+      cpuUsagePct: Int = -1,
+      diskTotalMb: Long = -1,
+      diskFreeMb: Long = -1
   )
 
   /** What happened to a message. */
@@ -50,7 +52,8 @@ object UsageStats {
       s"uptime_s=${uptime.toSeconds} db_mb=${dbSizeBytes.fold(-1L)(toMb)} " +
       s"mem_total_mb=${host.memTotalMb} mem_available_mb=${host.memAvailableMb} " +
       s"load1=${fixed(host.load1)} load5=${fixed(host.load5)} load15=${fixed(host.load15)} " +
-      s"cpu_usage_pct=${host.cpuUsagePct} mem_free_mb=${host.memFreeMb} proc_rss_mb=${host.procRssMb}"
+      s"cpu_usage_pct=${host.cpuUsagePct} mem_free_mb=${host.memFreeMb} proc_rss_mb=${host.procRssMb} " +
+      s"disk_total_mb=${host.diskTotalMb} disk_free_mb=${host.diskFreeMb}"
 
   private def toMb(bytes: Long): Long = bytes / (1024 * 1024)
 

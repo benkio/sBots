@@ -1265,11 +1265,50 @@
                       "group": "loki",
                       "kind": "DataQuery",
                       "spec": {
-                        "expr": "max_over_time({app=\"sbots\"} |= \"[stats] type=system\" | regexp `db_mb=(?P<d>-?\\d+)` | unwrap d [$__interval])"
+                        "expr": "max_over_time({app=\"sbots\"} |= \"[stats] type=system\" | regexp `db_mb=(?P<d>-?\\d+)` | unwrap d [$__interval])",
+                        "legendFormat": "db"
                       },
                       "version": "v0"
                     },
                     "refId": "A"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "grafanacloud-logs"
+                      },
+                      "group": "loki",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "expr": "max_over_time({app=\"sbots\"} |= \"[stats] type=system\" | regexp `disk_total_mb=(?P<d>-?\\d+)` | unwrap d [$__interval])",
+                        "legendFormat": "disk_total"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "B"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "grafanacloud-logs"
+                      },
+                      "group": "loki",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "expr": "min_over_time({app=\"sbots\"} |= \"[stats] type=system\" | regexp `disk_free_mb=(?P<d>-?\\d+)` | unwrap d [$__interval])",
+                        "legendFormat": "disk_free"
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "C"
                   }
                 }
               ],
@@ -1277,10 +1316,10 @@
               "transformations": []
             }
           },
-          "description": "-1 means the DB file was not found.",
+          "description": "-1 means the value was not found/read.",
           "id": 12,
           "links": [],
-          "title": "DB file size (MB)",
+          "title": "DB and disk size (MB)",
           "vizConfig": {
             "group": "timeseries",
             "kind": "VizConfig",
