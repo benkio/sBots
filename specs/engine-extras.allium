@@ -189,9 +189,12 @@ rule UserSubscribes {
 -- target is null), so the user can run it directly. Every rejection other than creation_rejected and an invalid typed
 -- cron leaves the user on the same step; no rejection writes to the DB or schedules a job.
 
+-- a restart of an existing draft is allowed even when the store is at its bound: the old draft is replaced, so the
+-- number of drafts does not change. Only a new requester is turned away by SubscriptionFlowStoreFull.
 rule UserStartsSubscriptionFlow {
     when: UserStartsSubscription(chat, bot, requester)
     requires: SubscriptionDrafts.count < config.subscription_draft_max_drafts
+              or exists SubscriptionDraft{chat: chat, bot: bot, requester: requester}
     ensures:
         for old in SubscriptionDrafts where old.chat = chat and old.bot = bot and old.requester = requester:
             not exists old
@@ -357,6 +360,7 @@ rule SubscriptionFlowGoesBack {
     let previous_step = draft.step
     ensures:
         draft.step = if previous_step = schedule: type else: if previous_step = target: schedule else: target
+        if previous_step = schedule: draft.type = null
         if previous_step = target: draft.schedule = null
         if previous_step = confirm: draft.target = null
         draft.saved_at = now

@@ -11,6 +11,7 @@ import com.benkio.chattelegramadapter.model.TelegramIds.telegramId
 import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
 import telegramium.bots.high.implicits.methodOps
 import telegramium.bots.high.Api
+import telegramium.bots.high.FailedRequest
 import telegramium.bots.high.Methods
 import telegramium.bots.ChatIntId
 import telegramium.bots.InlineKeyboardButton
@@ -22,6 +23,17 @@ import telegramium.bots.Message as TMessage
   * the other reply senders.
   */
 object SubscriptionFlowPromptReply {
+
+  /** Telegram refuses to edit a message that was deleted with either of these descriptions. Such a failure is
+    * permanent: the stored handle has to be replaced, unlike every other edit failure.
+    */
+  private def isMissingMessage(error: Throwable): Boolean =
+    error match {
+      case FailedRequest(_, _, Some(description)) =>
+        val text = description.toLowerCase
+        text.contains("message to edit not found") || text.contains("message_id_invalid")
+      case _ => false
+    }
 
   /** The prompt text is the keyboard title and each button carries only the id of its neutral flow action. */
   def toKeyboard(prompt: SubscriptionFlowPrompt): TelegramInlineKeyboard = {
@@ -41,6 +53,22 @@ object SubscriptionFlowPromptReply {
       flowPrompts: SubscriptionFlowPromptStore[F]
   ): F[List[TMessage]] = {
     val keyboard = toKeyboard(prompt)
+
+    def fresh: F[List[TMessage]] =
+      Methods
+        .sendMessage(
+          chatId = Some(ChatIntId(msg.chatId.telegramId)),
+          text = prompt.text,
+          replyParameters = msg.replyParameters(replyToMessage),
+          replyMarkup = Some(keyboard.inlineKeyboard)
+        )
+        .exec
+        .flatMap(sent =>
+          flowPrompts
+            .put(prompt.key, sent.messageId.toString, prompt.key.requester)
+            .as(List(sent))
+        )
+
     flowPrompts.byKey(prompt.key).flatMap {
       case Some(handle) =>
         Methods
@@ -53,20 +81,11 @@ object SubscriptionFlowPromptReply {
           .exec
           .flatMap(_ => flowPrompts.put(prompt.key, handle.messageId, prompt.key.requester))
           .as(List.empty[TMessage])
-      case None =>
-        Methods
-          .sendMessage(
-            chatId = Some(ChatIntId(msg.chatId.telegramId)),
-            text = prompt.text,
-            replyParameters = msg.replyParameters(replyToMessage),
-            replyMarkup = Some(keyboard.inlineKeyboard)
-          )
-          .exec
-          .flatMap(sent =>
-            flowPrompts
-              .put(prompt.key, sent.messageId.toString, prompt.key.requester)
-              .as(List(sent))
-          )
+          .handleErrorWith {
+            case error if isMissingMessage(error) => flowPrompts.remove(prompt.key) >> fresh
+            case other                            => Async[F].raiseError[List[TMessage]](other)
+          }
+      case None => fresh
     }
   }
 }
