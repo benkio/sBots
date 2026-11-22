@@ -110,7 +110,7 @@ final class SubscriptionFlowService[F[_]: Async](
       case None =>
         SubscriptionFlowOutcome.Message(error(SubscriptionFlowFailure.NoActiveFlow, noActiveFlowText)).pure[F]
       case Some(draft) if !isAllowed(draft, action) =>
-        save(draft).as(
+        save(draft)(_ =>
           SubscriptionFlowOutcome.Message(error(SubscriptionFlowFailure.InvalidAction, invalidActionText))
         )
       case Some(draft) => applyAction(msg = msg, draft = draft, action = action)
@@ -173,20 +173,20 @@ final class SubscriptionFlowService[F[_]: Async](
     import SubscriptionFlowActionKind.*
     action.kind match {
       case Cancel     => finish(draft = draft, detail = cancelledText, reason = SubscriptionFlowFailure.Cancelled)
-      case Back       => save(goBack(draft)).map(prompt)
+      case Back       => save(goBack(draft))(prompt)
       case ChooseType =>
-        save(draft.copy(step = SubscriptionDraftStep.Schedule, subscriptionType = action.subscriptionType)).map(prompt)
+        save(draft.copy(step = SubscriptionDraftStep.Schedule, subscriptionType = action.subscriptionType))(prompt)
       case EnterTarget  => enterTarget(draft, action.text.getOrElse(""))
       case Confirm      => confirm(msg, draft)
       case ChoosePreset =>
         action.preset.fold(
-          save(draft).as(
+          save(draft)(_ =>
             SubscriptionFlowOutcome.Message(error(SubscriptionFlowFailure.InvalidAction, invalidActionText))
           )
         )(preset => setSchedule(draft = draft, cron = preset.cron, dropOnInvalid = false))
       case EnterCron =>
         action.text.fold(
-          save(draft).as(
+          save(draft)(_ =>
             SubscriptionFlowOutcome.Message(error(SubscriptionFlowFailure.InvalidAction, invalidActionText))
           )
         )(cron => setSchedule(draft = draft, cron = cron, dropOnInvalid = true))
@@ -204,7 +204,7 @@ final class SubscriptionFlowService[F[_]: Async](
   private def setSchedule(draft: SubscriptionDraft, cron: String, dropOnInvalid: Boolean): F[SubscriptionFlowOutcome] =
     validateCron(cron) match {
       case Right(_) =>
-        save(draft.copy(step = SubscriptionDraftStep.Target, schedule = Some(cron))).map(prompt)
+        save(draft.copy(step = SubscriptionDraftStep.Target, schedule = Some(cron)))(prompt)
       case Left(reason) =>
         val outcome = SubscriptionFlowOutcome.Message(
           error(
@@ -212,16 +212,16 @@ final class SubscriptionFlowService[F[_]: Async](
             s"Invalid schedule: ${Option(reason.getMessage).getOrElse(reason.toString)}"
           )
         )
-        if dropOnInvalid then store.remove(draft.key).as(outcome) else save(draft).as(outcome)
+        if dropOnInvalid then store.remove(draft.key).as(outcome) else save(draft)(_ => outcome)
     }
 
   private def enterTarget(draft: SubscriptionDraft, text: String): F[SubscriptionFlowOutcome] =
-    if text.length > SubscriptionRules.maxTargetLength then save(draft).as(
+    if text.length > SubscriptionRules.maxTargetLength then save(draft)(_ =>
       SubscriptionFlowOutcome.Message(error(SubscriptionFlowFailure.TargetTooLong, targetTooLongText))
     )
     else {
       val target = Option.when(text.nonEmpty)(text)
-      save(draft.copy(step = SubscriptionDraftStep.Confirm, target = target)).map(prompt)
+      save(draft.copy(step = SubscriptionDraftStep.Confirm, target = target))(prompt)
     }
 
   private def confirm(msg: Message, draft: SubscriptionDraft): F[SubscriptionFlowOutcome] = {
@@ -252,10 +252,19 @@ final class SubscriptionFlowService[F[_]: Async](
   ): F[SubscriptionFlowOutcome] =
     store.remove(draft.key).as(SubscriptionFlowOutcome.Message(error(reason, detail)))
 
-  private def save(draft: SubscriptionDraft): F[SubscriptionDraft] =
+  /** Saves a refreshed draft and hands it to `onSaved`. If the draft went missing or expired before the save and the
+    * store is full, the save is refused: report no active flow instead of showing a prompt for a draft that is gone.
+    */
+  private def save(draft: SubscriptionDraft)(
+      onSaved: SubscriptionDraft => SubscriptionFlowOutcome
+  ): F[SubscriptionFlowOutcome] =
     Async[F].realTime.flatMap { now =>
       val refreshed = draft.copy(savedAt = now)
-      store.put(refreshed).as(refreshed)
+      store.put(refreshed).map {
+        case SubscriptionDraftPutResult.Saved => onSaved(refreshed)
+        case SubscriptionDraftPutResult.Full  =>
+          SubscriptionFlowOutcome.Message(error(SubscriptionFlowFailure.NoActiveFlow, noActiveFlowText))
+      }
     }
 
   private def validateCron(cron: String): Either[Throwable, Unit] =

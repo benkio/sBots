@@ -15,6 +15,12 @@ enum SubscriptionDraftStartResult {
   case Full
 }
 
+/** Whether a draft could be stored by a save. */
+enum SubscriptionDraftPutResult {
+  case Saved
+  case Full
+}
+
 /** The guided subscription drafts of an engine, in memory: a restart forgets them. There is one draft per (chat, bot,
   * requester), a new bare `/subscribe` replaces the one of the same triple, and a draft is silently forgotten once idle
   * for `expiry`. A full store never evicts a draft to make room: the new flow is declined.
@@ -56,10 +62,15 @@ final class SubscriptionDraftStore[F[_]: Monad: Clock](expiry: FiniteDuration, m
       found
     }
 
-  /** Saves a draft after a valid answer or a rejection that keeps the user on the same step. */
-  def put(draft: SubscriptionDraft): F[Unit] =
-    Clock[F].realTime.flatMap { now =>
-      drafts.updateAndGet(current => live(current, now).updated(draft.key, draft)).pure[F].void
+  /** Saves a draft after a valid answer or a rejection that keeps the user on the same step. An existing live draft is
+    * always updated; a missing or expired key is inserted only while the live store has room. `Full` therefore means
+    * the caller's draft is gone and cannot be restored: a stale answer must not grow the store past its bound or revive
+    * an expired draft. The room check is the one `start` already uses, including its commit-based result.
+    */
+  def put(draft: SubscriptionDraft): F[SubscriptionDraftPutResult] =
+    start(draft).map {
+      case SubscriptionDraftStartResult.Started => SubscriptionDraftPutResult.Saved
+      case SubscriptionDraftStartResult.Full    => SubscriptionDraftPutResult.Full
     }
 
   def remove(key: SubscriptionFlowKey): F[Unit] =
