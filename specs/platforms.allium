@@ -37,7 +37,8 @@ entity SentMessage {
     deleted: Boolean
 }
 
--- Discord shows a paged list with message components (the Telegram layout of a row per item needs 6 rows, Discord allows 5)
+-- Discord shows a paged list with message components (Telegram gives every item button its own row, which needs 6 rows;
+-- Discord allows only 5)
 entity DiscordButtonList {
     message: SentMessage
     requested_by: String             -- the Discord user who asked for the list, the only one who can use its buttons
@@ -220,7 +221,7 @@ rule SentMessageExpires {
 }
 
 -- sources are tried in order (stored platform file ids first, then the downloadable file); the id that worked is cached
--- a reply value the platform cannot send (stickers on Discord, other unsupported kinds on Telegram) sends
+-- a reply value the platform cannot send (a Telegram sticker on Discord, other unsupported kinds on Telegram) sends
 -- nothing and only logs a warning (intended)
 -- while a file is sent the chat shows the action matching its kind (upload_voice, upload_photo, upload_video,
 -- upload_document for gifs and documents, choose_sticker for stickers)
@@ -284,9 +285,11 @@ rule CallbackDeliversShow {
     ensures: press.keyboard.message.deleted = true
 }
 
--- Discord: the message lists the items of the page as numbered text, cut to max_text_length; row 1 has one button per item
--- of the page that can be picked (a media file or a show), labelled with the number of the item in the text, row 2 has
--- previous and next (disabled at the first and at the last page), only when there is more than one page. The lists are
+-- Discord: the message lists the items of the page as numbered text, cut to max_text_length; the items Discord cannot
+-- send (Telegram stickers) are left out of the text and the buttons, with contiguous numbering. Row 1 has one button
+-- per item of the page that can be picked (a media file, a show or a trigger candidate), labelled with the number of
+-- the item in the text, row 2 has previous and next (disabled at the first and at the last page), only when there is
+-- more than one page. The lists are
 -- remembered in memory by the id of their message: they expire and a restart forgets them (the buttons then say the list
 -- is gone). The id of every button is the one of the platform-neutral PagedListAction (at most 100 characters, the label at
 -- most 80).
