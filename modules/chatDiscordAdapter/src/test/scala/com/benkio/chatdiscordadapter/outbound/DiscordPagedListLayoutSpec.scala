@@ -49,6 +49,17 @@ class DiscordPagedListLayoutSpec extends FunSuite {
     assertEquals(DiscordPagedListLayout.render(list(count = 3)).rows.map(_.size), List(3))
   }
 
+  test("trigger candidates are pick buttons and the one-page list has no navigation row") {
+    val suggestions = PagedList.triggerSuggestions("fransesimo", List("francesismo", "francofonia"))
+    val message     = DiscordPagedListLayout.render(suggestions)
+    assertEquals(message.rows.size, 1)
+    assertEquals(
+      message.rows.head.map(b => PagedListAction.fromId(b.id)),
+      List(Some(PagedListAction.Trigger("francesismo")), Some(PagedListAction.Trigger("francofonia")))
+    )
+    assert(message.text.contains("Did you mean"))
+  }
+
   test("the texts have nothing to pick, there is no empty row") {
     val texts = PagedList("t", List(PagedItem.ValueItem(Text("a"))), 0, CommandKey.TriggerSearch)
     assertEquals(DiscordPagedListLayout.render(texts).rows, List.empty)

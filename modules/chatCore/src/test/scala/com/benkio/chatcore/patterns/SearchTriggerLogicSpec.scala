@@ -5,7 +5,10 @@ import cats.syntax.all.*
 import com.benkio.chatcore.model.reply.gif
 import com.benkio.chatcore.model.reply.mp3
 import com.benkio.chatcore.model.reply.vid
+import com.benkio.chatcore.model.reply.PagedItem
+import com.benkio.chatcore.model.reply.PagedList
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message as ModelMessage
 import com.benkio.chatcore.model.RegexTextTriggerValue
 import com.benkio.chatcore.model.SBotInfo
@@ -146,7 +149,61 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
     )
     TriggerSearchCommand
       .searchTriggerLogic[IO](mdr, msg, Some("!"), sBotInfo, ttl = None)
-      .map(result => assertEquals(result, com.benkio.chatcore.model.reply.Text(value = "No matching trigger for foo")))
+      .map(result =>
+        assertEquals(
+          result,
+          PagedList(
+            title = "No exact match for 'foo'. Did you mean:",
+            items = List(PagedItem.TriggerItem("search")),
+            page = 0,
+            commandKey = CommandKey.TriggerSearch
+          ): com.benkio.chatcore.model.reply.ReplyValue
+        )
+      )
+  }
+
+  test("searchTriggerLogic should auto-select a high confidence typo") {
+    val mdr = List(ReplyBundleMessage.textToMedia("francesismo")(mp3"ytai_Francesismo.mp3"))
+    val msg = ModelMessage(
+      messageId = None,
+      date = Instant.now.getEpochSecond(),
+      chatId = TestIds.chatId(0L),
+      chatType = "test",
+      text = Some("/triggersearch fransesimo")
+    )
+    TriggerSearchCommand
+      .searchTriggerLogic[IO](mdr, msg, Some("!"), sBotInfo, ttl = None)
+      .map(result =>
+        assertEquals(
+          result,
+          com.benkio.chatcore.model.reply.Text(
+            value =
+              s"No exact match for 'fransesimo'. Closest trigger selected: 'francesismo'.\n${expectedSearchTriggerResponse(4)._2}"
+          )
+        )
+      )
+  }
+
+  test("searchTriggerLogic should keep the current reply when there are no candidates") {
+    val mdr = List(
+      ReplyBundleMessage(
+        trigger = com.benkio.chatcore.model.MessageLengthTrigger(1000),
+        reply = com.benkio.chatcore.model.reply.MediaReply.fromList(List(mp3"test.mp3")),
+        matcher = com.benkio.chatcore.messagefiltering.MessageMatches.ContainsOnce
+      )
+    )
+    val msg = ModelMessage(
+      messageId = None,
+      date = Instant.now.getEpochSecond(),
+      chatId = TestIds.chatId(0L),
+      chatType = "test",
+      text = Some("/triggersearch xyzzy")
+    )
+    TriggerSearchCommand
+      .searchTriggerLogic[IO](mdr, msg, Some("!"), sBotInfo, ttl = None)
+      .map(result =>
+        assertEquals(result, com.benkio.chatcore.model.reply.Text(value = "No matching trigger for xyzzy"))
+      )
   }
 
   test("searchTriggerLogic should return the expected result when a trigger is found") {

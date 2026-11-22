@@ -14,14 +14,16 @@ import com.benkio.chatcore.model.Trigger
 enum PagedItem {
   case ShowItem(show: Show)
   case ValueItem(value: ReplyValue)
+  case TriggerItem(value: String)
 
-  /** What the item is called: the title of the show, the text, the name of the media file. */
+  /** What the item is called: the title of the show, the text, the name of the media file, the trigger. */
   def label: String = this match {
     case ShowItem(show)                  => show.title
     case ValueItem(text: Text)           => text.value
     case ValueItem(markdown: Markdown)   => markdown.value
     case ValueItem(mediaFile: MediaFile) => mediaFile.filename
     case ValueItem(other)                => other.toString
+    case TriggerItem(value)              => value
   }
 }
 
@@ -80,6 +82,18 @@ object PagedList {
     )
   }
 
+  /** The one-page keyboard of trigger candidates offered when a trigger search has no confident match. Picking a
+    * candidate runs the trigger search again with that candidate as its exact input.
+    */
+  def triggerSuggestions(query: String, candidates: List[String]): PagedList =
+    PagedList(
+      title = s"No exact match for '$query'. Did you mean:",
+      items = candidates.take(defaultPageSize).map(PagedItem.TriggerItem(_)),
+      page = 0,
+      commandKey = CommandKey.TriggerSearch,
+      pageSize = defaultPageSize
+    )
+
   def topTwenty(mediaFiles: List[MediaFile], page: Int): PagedList =
     PagedList(
       title = "-----Top 20 Triggers-----",
@@ -93,15 +107,18 @@ object PagedList {
     * its text commands: the `!next`/`!prev` of the next/previous page and the `!pick 1-n` of the items of the page (see
     * [[PagedListTextCommands]]).
     */
-  def toPlainText(pagedList: PagedList, commandSyntax: Option[CommandSyntax] = None): String = {
-    val headline = pagedList.title.linesIterator.nextOption().getOrElse("")
-    val numbered = pagedList.pageItems.zipWithIndex.map { case (item, index) =>
-      s"${pagedList.page * pagedList.pageSize + index + 1}. ${item.label}"
+  def toPlainText(pagedList: PagedList, commandSyntax: Option[CommandSyntax] = None): String =
+    if pagedList.items.nonEmpty && pagedList.items.forall(_.isInstanceOf[PagedItem.TriggerItem])
+    then s"${pagedList.title} ${pagedList.items.map(_.label).mkString(", ")}?"
+    else {
+      val headline = pagedList.title.linesIterator.nextOption().getOrElse("")
+      val numbered = pagedList.pageItems.zipWithIndex.map { case (item, index) =>
+        s"${pagedList.page * pagedList.pageSize + index + 1}. ${item.label}"
+      }
+      val position = Option.when(pagedList.totalPages > 1)(s"page ${pagedList.page + 1} of ${pagedList.totalPages}")
+      val hint     = commandSyntax.flatMap(PagedList.navigationHint(pagedList, _))
+      (headline :: numbered ++ position.toList ++ hint.toList).mkString("\n")
     }
-    val position = Option.when(pagedList.totalPages > 1)(s"page ${pagedList.page + 1} of ${pagedList.totalPages}")
-    val hint     = commandSyntax.flatMap(PagedList.navigationHint(pagedList, _))
-    (headline :: numbered ++ position.toList ++ hint.toList).mkString("\n")
-  }
 
   /** How to move the list with the text commands of the platform without buttons: `!next`, `!prev` and `!pick 1-5` —
     * `!next`/`!prev` are shown only when there is a next/previous page, `!pick n` with the numbers of the items of the

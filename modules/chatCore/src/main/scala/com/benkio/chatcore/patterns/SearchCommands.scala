@@ -5,6 +5,7 @@ import cats.effect.std.Random
 import cats.implicits.*
 import cats.ApplicativeThrow
 import cats.MonadThrow
+import com.benkio.chatcore.messagefiltering.FuzzyTriggerSearch
 import com.benkio.chatcore.messagefiltering.MessageMatches
 import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.EffectfulReply
@@ -157,7 +158,8 @@ object SearchCommands {
         ttl: Option[FiniteDuration],
         replyBundleTransformation: ReplyBundleMessage => ReplyValue = replyBundleMessage =>
           Text(replyBundleMessage.prettyPrint()),
-        commandSyntax: CommandSyntax = CommandSyntax.Slash
+        commandSyntax: CommandSyntax = CommandSyntax.Slash,
+        log: Option[LogWriter[F]] = None
     ): F[ReplyValue] = {
 
       CommandPatterns.handleCommandWithInput[F](
@@ -175,7 +177,11 @@ object SearchCommands {
               -Trigger.triggerLongestString(trigger, replyBundleMessage.matcher)
             }
             .headOption
-          matches.fold(Text(value = s"No matching trigger for $t", timeToLive = ttl).pure[F]) { case (_, rbm) =>
+          matches.fold {
+            val fuzzyReply = FuzzyTriggerSearch.replyWithLog(t, mdr, replyBundleTransformation, ttl)
+            fuzzyReply.log.foreach(line => log.foreach(_.info(line)))
+            fuzzyReply.replyValue.pure[F]
+          } { case (_, rbm) =>
             replyBundleTransformation(rbm).pure[F]
           }
         },
@@ -183,7 +189,6 @@ object SearchCommands {
       )
     }
 
-    // TODO: #782 Return the closest match on failure
     private[patterns] def triggerSearchReplyBundleCommand(
         sBotInfo: SBotInfo,
         replyBundleMessage: List[ReplyBundleMessage],

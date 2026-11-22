@@ -67,6 +67,17 @@ object TelegramCallbackReply {
       case PagedListAction.Media(value)           => Media.reply(msg = msg, mediaName = value, repository = repository)
       case PagedListAction.Show(value, timestamp) =>
         Show.reply(msg = msg, showId = value, timestamp = timestamp, showDb = dbLayer.dbShow)
+      case PagedListAction.Trigger(value) =>
+        Trigger.reply(
+          msg = msg,
+          triggerValue = value,
+          repository = repository,
+          allCommandRepliesData = allCommandRepliesData,
+          backgroundJobManager = backgroundJobManager,
+          effectfulCallbacks = effectfulCallbacks,
+          dbLayer = dbLayer,
+          ttl = ttl
+        )
     }
   }
 }

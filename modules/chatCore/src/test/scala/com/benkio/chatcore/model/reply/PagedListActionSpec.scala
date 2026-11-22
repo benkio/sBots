@@ -12,7 +12,9 @@ class PagedListActionSpec extends FunSuite {
     PagedListAction.Media("rphjb_NudoFrocio.mp3"),
     PagedListAction.Media("a-name-with-dashes.mp3"),
     PagedListAction.Show("abc-123", None),
-    PagedListAction.Show("abc-123", Some("1m2s"))
+    PagedListAction.Show("abc-123", Some("1m2s")),
+    PagedListAction.Trigger("francesismo"),
+    PagedListAction.Trigger("a-name-with-dashes")
   )
 
   test("fromId should decode what toId encoded") {

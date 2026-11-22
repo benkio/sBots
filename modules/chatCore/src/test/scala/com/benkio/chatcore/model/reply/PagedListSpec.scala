@@ -53,6 +53,7 @@ class PagedListSpec extends FunSuite {
     assertEquals(PagedItem.ValueItem(Text("a text")).label, "a text")
     assertEquals(PagedItem.ValueItem(Markdown("**md**")).label, "**md**")
     assertEquals(PagedItem.ValueItem(Mp3File("dir/audio.mp3")).label, "audio.mp3")
+    assertEquals(PagedItem.TriggerItem("francesismo").label, "francesismo")
   }
 
   test("searchTitle gives the number of results, what was typed and what was searched") {
@@ -112,6 +113,24 @@ class PagedListSpec extends FunSuite {
     val syntax = CommandSyntax(prefix = "!")
     assertEquals(PagedList.toPlainText(list(2, 0), Some(syntax)), "Headline\n1. item 1\n2. item 2\n!pick 1-2")
     assertEquals(PagedList.toPlainText(list(0, 0), Some(syntax)), "Headline")
+  }
+
+  test("trigger suggestions are one page and read as a plain text list without a keyboard") {
+    val suggestions = PagedList.triggerSuggestions("fransesimo", List("francesismo", "francofonia"))
+    assertEquals(suggestions.commandKey, CommandKey.TriggerSearch)
+    assertEquals(suggestions.page, 0)
+    assert(!suggestions.hasNext && !suggestions.hasPrevious)
+    assertEquals(suggestions.items.map(_.label), List("francesismo", "francofonia"))
+    assertEquals(
+      PagedList.toPlainText(suggestions, Some(CommandSyntax(prefix = "!"))),
+      "No exact match for 'fransesimo'. Did you mean: francesismo, francofonia?"
+    )
+  }
+
+  test("trigger suggestions are capped to one page") {
+    val suggestions = PagedList.triggerSuggestions("q", (1 to 12).map(_.toString).toList)
+    assertEquals(suggestions.items.size, PagedList.defaultPageSize)
+    assert(!suggestions.hasNext)
   }
 
   test("the page size must be positive") {

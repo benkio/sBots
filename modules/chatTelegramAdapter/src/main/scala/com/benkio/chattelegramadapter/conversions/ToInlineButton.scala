@@ -34,8 +34,9 @@ object ToInlineButton {
   given pagedItemToInlineButton: ToInlineButton[PagedItem] with {
     extension (item: PagedItem) def toInlineKeyboardButton: Option[InlineKeyboardButton] =
       item match {
-        case PagedItem.ShowItem(show)   => showToInlineButton.toInlineKeyboardButton(show)
-        case PagedItem.ValueItem(value) => summon[ToInlineButton[ReplyValue]].toInlineKeyboardButton(value)
+        case PagedItem.ShowItem(show)       => showToInlineButton.toInlineKeyboardButton(show)
+        case PagedItem.ValueItem(value)     => summon[ToInlineButton[ReplyValue]].toInlineKeyboardButton(value)
+        case PagedItem.TriggerItem(trigger) => triggerToInlineButton.toInlineKeyboardButton(trigger)
       }
   }
 
@@ -52,6 +53,14 @@ object ToInlineButton {
       InlineKeyboardButton(
         text = mediaFile.filename,
         callbackData = PagedListAction.Media(mediaFile.filename).toId
+      ).some
+  }
+
+  given triggerToInlineButton: ToInlineButton[String] with {
+    extension (trigger: String) def toInlineKeyboardButton: Option[InlineKeyboardButton] =
+      InlineKeyboardButton(
+        text = trigger,
+        callbackData = PagedListAction.Trigger(trigger).toId
       ).some
   }
 

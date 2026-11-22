@@ -10,6 +10,8 @@ import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.show.addTimestamp
 import com.benkio.chatcore.model.show.Show
+import com.benkio.chatcore.model.CommandKey
+import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.PlatformCapabilities
 import com.benkio.chatcore.repository.db.DBLayer
@@ -26,6 +28,13 @@ object PagedListNavigation {
   def nextPage(currentPage: Int): Int = currentPage + 1
 
   def previousPage(currentPage: Int): Int = (currentPage - 1).max(0)
+
+  /** The message of the exact trigger search a picked candidate asks for. */
+  def triggerSearchMessage(triggerValue: String, msg: Message, commandSyntax: CommandSyntax): Message =
+    msg.copy(
+      text = Some(s"${commandSyntax.invocation(CommandKey.TriggerSearch.asString)} $triggerValue"),
+      caption = None
+    )
 
   /** The page the action moves to, `None` for the picks. */
   def newPage(action: PagedListAction): Option[Int] = action match {
@@ -64,6 +73,18 @@ object PagedListNavigation {
         commandKey = commandKey,
         page = newPage(action),
         msg = msg,
+        allCommandRepliesData = allCommandRepliesData,
+        backgroundJobManager = backgroundJobManager,
+        effectfulCallbacks = effectfulCallbacks,
+        dbLayer = dbLayer,
+        ttl = ttl,
+        capabilities = capabilities
+      )
+    case PagedListAction.Trigger(value) =>
+      runCommand(
+        commandKey = CommandKey.TriggerSearch,
+        page = Some(0),
+        msg = triggerSearchMessage(triggerValue = value, msg = msg, commandSyntax = capabilities.commandSyntax),
         allCommandRepliesData = allCommandRepliesData,
         backgroundJobManager = backgroundJobManager,
         effectfulCallbacks = effectfulCallbacks,
