@@ -2,6 +2,9 @@ package com.benkio.chatcore
 
 import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.PlatformCapabilities
+import com.benkio.chatcore.model.SubscriptionFlowKey
+
+import scala.annotation.unused
 
 /** The side of a platform (Telegram, IRC, Discord, Slack): the [[BotEngine]] knows nothing about it but this trait.
   *
@@ -22,4 +25,10 @@ trait PlatformAdapter[F[_]] extends PlatformReplies[F] {
     * connection ends.
     */
   def run: F[Unit]
+
+  /** Refreshes the idle timer of the prompt of a guided subscription draft. Adapters that show prompts keep their
+    * handle alive on every flow answer, including an answer that is rejected and keeps the user on the same step; the
+    * others have no prompt to refresh.
+    */
+  def touchFlowPrompt(@unused key: SubscriptionFlowKey)(using cats.Applicative[F]): F[Unit] = cats.Applicative[F].unit
 }

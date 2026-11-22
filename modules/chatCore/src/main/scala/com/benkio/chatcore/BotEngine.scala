@@ -16,13 +16,19 @@ import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.TextReply
+import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageType
 import com.benkio.chatcore.model.PlatformCapabilities
+import com.benkio.chatcore.model.SubscriptionFlowAction
+import com.benkio.chatcore.model.SubscriptionFlowKey
 import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
 import com.benkio.chatcore.patterns.CommandPatternsGroup
 import com.benkio.chatcore.patterns.PostComputationPatterns
+import com.benkio.chatcore.patterns.SubscriptionCommands.SubscribeUnsubscribeCommand
 import com.benkio.chatcore.repository.db.DBLayer
+import com.benkio.chatcore.SubscriptionFlowOutcome
+import com.benkio.chatcore.SubscriptionFlowService
 import com.benkio.chatcore.UsageStats.Outcome
 import log.effect.LogWriter
 
@@ -44,7 +50,8 @@ class BotEngine[F[_]: Async: LogWriter](
     dbLayer: DBLayer[F],
     filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean],
     postComputation: Message => F[Unit],
-    notifier: Notifier[F]
+    notifier: Notifier[F],
+    backgroundJobManager: BackgroundJobManager[F]
 ) {
 
   // Replies data ////////////////////////////////////////////////////////
@@ -79,12 +86,36 @@ class BotEngine[F[_]: Async: LogWriter](
     maxChats = sBotConfig.pagedListTextModeMaxChats
   )
 
+  /** The guided `/subscribe` flow owns its drafts here; the adapters only render its prompts and actions. */
+  private lazy val subscriptionFlow = new SubscriptionFlowService[F](
+    store = SubscriptionDraftStore.create[F](sBotConfig.subscriptionDraftExpiry, sBotConfig.subscriptionDraftMaxDrafts),
+    sBotInfo = sBotConfig.sBotInfo,
+    expiry = sBotConfig.subscriptionDraftExpiry,
+    ttl = sBotConfig.messageTimeToLive,
+    createSubscription = { (message, botInfo, arguments) =>
+      SubscribeUnsubscribeCommand.createSubscriptionReply[F](
+        backgroundJobManager = backgroundJobManager,
+        dbMessageReplies = dbLayer.dbMessageReplies,
+        m = message,
+        sBotInfo = botInfo,
+        arguments = arguments
+      )
+    }
+  )
+
   // Bot logic ////////////////////////////////////////////////////////////
 
   def messageLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = messageLogicReplied(msg).void
 
-  /** Whether a reply was sent: a matching bundle that the filters let through. */
+  /** Whether a reply was sent: a guided-flow answer, or a matching bundle that the filters let through. */
   private def messageLogicReplied(msg: Message)(using platform: PlatformAdapter[F]): F[Boolean] =
+    guidedFlowRequester(msg, platform).fold(messageReplyBundles(msg)) { requester =>
+      subscriptionFlow
+        .acceptPlainMessage(msg, requester, deliverFlow(_, msg, requester))
+        .flatMap(outcome => outcome.fold(messageReplyBundles(msg))(_ => true.pure[F]))
+    }
+
+  private def messageReplyBundles(msg: Message)(using platform: PlatformAdapter[F]): F[Boolean] =
     ReplyBundleMessage
       .selectReplyBundle(
         msg = msg,
@@ -105,6 +136,13 @@ class BotEngine[F[_]: Async: LogWriter](
   def commandLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = commandLogicReplied(msg).void
 
   private def commandLogicReplied(msg: Message)(using platform: PlatformAdapter[F]): F[Boolean] =
+    guidedFlowRequester(msg, platform)
+      .filter(_ => isBareSubscribeCommand(msg, platform))
+      .fold(commandReplyBundles(msg)) { requester =>
+        subscriptionFlow.start(msg, requester, deliverFlow(_, msg, requester)).as(true)
+      }
+
+  private def commandReplyBundles(msg: Message)(using platform: PlatformAdapter[F]): F[Boolean] =
     ReplyBundleCommand
       .selectCommandReplyBundle(
         msg = msg,
@@ -121,6 +159,43 @@ class BotEngine[F[_]: Async: LogWriter](
         case Some(replied) => replied.pure[F]
         case None          => textMode.handleCommand(msg)
       }
+
+  /** A guided flow needs an owner, buttons and in-place edits: Telegram and Discord only. */
+  private def guidedFlowRequester(msg: Message, platform: PlatformAdapter[F]): Option[String] =
+    Option
+      .when(
+        platform.capabilities.suppliesSenderId &&
+          platform.capabilities.supportsEdit &&
+          platform.capabilities.supportsButtons
+      )(msg.authorId)
+      .flatten
+
+  private def isBareSubscribeCommand(msg: Message, platform: PlatformAdapter[F]): Boolean =
+    msg.text.exists { text =>
+      val (word, rest) = text.trim.span(_ != ' ')
+      platform.capabilities.commandSyntax
+        .isCommandWord(word, CommandKey.Subscribe.asString, sBotConfig.sBotInfo.botName) && rest.trim.isEmpty
+    }
+
+  /** The entry point the adapters use for a press on a guided-flow prompt. */
+  def onSubscriptionFlowAction(msg: Message, action: SubscriptionFlowAction, requester: String)(using
+      platform: PlatformAdapter[F]
+  ): F[Unit] =
+    subscriptionFlow.submit(msg, action, requester, deliverFlow(_, msg, requester)).void
+
+  /** Called by the flow service while it still holds the lock of the draft, so replies cannot overtake each other.
+    * Every answer, including one that only rejects the input, refreshes the adapter's prompt handle.
+    */
+  private def deliverFlow(outcome: SubscriptionFlowOutcome, msg: Message, requester: String)(using
+      platform: PlatformAdapter[F]
+  ): F[Unit] = {
+    val replyValue = outcome match {
+      case SubscriptionFlowOutcome.Prompt(value)  => value
+      case SubscriptionFlowOutcome.Message(value) => value
+    }
+    platform.touchFlowPrompt(SubscriptionFlowKey(msg.chatId, sBotConfig.sBotInfo.botId, requester)) *>
+      deliver(replyValue = replyValue, msg = msg, replyToMessage = false)
+  }
 
   def fileRequestLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = fileRequestLogicReplied(msg).void
 
@@ -252,7 +327,12 @@ object BotEngine {
 
   /** The engine with the standard filtering (the timeout of the chat) and post computation (log the last interaction).
     */
-  def apply[F[_]: Async: LogWriter](sBotConfig: SBotConfig, dbLayer: DBLayer[F], notifier: Notifier[F]): BotEngine[F] =
+  def apply[F[_]: Async: LogWriter](
+      sBotConfig: SBotConfig,
+      dbLayer: DBLayer[F],
+      notifier: Notifier[F],
+      backgroundJobManager: BackgroundJobManager[F]
+  ): BotEngine[F] =
     new BotEngine[F](
       sBotConfig = sBotConfig,
       dbLayer = dbLayer,
@@ -262,7 +342,8 @@ object BotEngine {
         sBotInfo = sBotConfig.sBotInfo,
         notifier = notifier
       ),
-      notifier = notifier
+      notifier = notifier,
+      backgroundJobManager = backgroundJobManager
     )
 
   /** Picks one of the values of a reply that is just data. */

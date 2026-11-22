@@ -20,6 +20,7 @@ import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.Logger.given
+import com.benkio.chatcore.SubscriptionFlowPromptStore
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.KeyboardReply
 import com.benkio.chattelegramadapter.mocks.PayloadRecordingApi
 import com.benkio.chattelegramadapter.mocks.SampleWebhookBot
@@ -29,6 +30,8 @@ import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
 import io.circe.Json
 import munit.CatsEffectSuite
 import telegramium.bots.high.Api
+
+import scala.concurrent.duration.*
 
 class TelegramPlatformAdapterSpec extends CatsEffectSuite {
 
@@ -46,7 +49,8 @@ class TelegramPlatformAdapterSpec extends CatsEffectSuite {
       effectfulCallbacks = Map.empty,
       dbLayer = DBLayerMock.mock(SampleWebhookBot.sBotInfo.botId),
       ttl = None,
-      startUpdates = startUpdates
+      startUpdates = startUpdates,
+      flowPrompts = SubscriptionFlowPromptStore.create[IO](1.minute, 10)
     )(using summon, summon, api)
 
   private def callsOf(method: String, calls: List[(String, Json)]): List[Json] =

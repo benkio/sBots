@@ -19,6 +19,7 @@ object TelegramCapabilities {
     supportsEdit = true,
     supportsButtons = true,
     acceptsFileIds = true,
-    commandSyntax = CommandSyntax.Slash
+    commandSyntax = CommandSyntax.Slash,
+    suppliesSenderId = true
   )
 }

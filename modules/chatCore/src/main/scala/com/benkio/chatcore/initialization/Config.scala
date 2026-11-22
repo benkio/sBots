@@ -5,6 +5,7 @@ import cats.implicits.*
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.config.StartupCheckConfig
 import com.benkio.chatcore.PagedListTextStore
+import com.benkio.chatcore.SubscriptionDraftStore
 import log.effect.LogWriter
 import pureconfig.*
 
@@ -16,7 +17,9 @@ final case class Config(
     requestProcessingTimeout: Option[FiniteDuration] = Some(SBotConfig.defaultRequestProcessingTimeout),
     startupCheck: StartupCheckConfig = StartupCheckConfig(),
     pagedListTextModeExpiry: FiniteDuration = PagedListTextStore.defaultExpiry,
-    pagedListTextModeMaxChats: Int = PagedListTextStore.defaultMaxChats
+    pagedListTextModeMaxChats: Int = PagedListTextStore.defaultMaxChats,
+    subscriptionDraftExpiry: FiniteDuration = SubscriptionDraftStore.defaultExpiry,
+    subscriptionDraftMaxDrafts: Int = SubscriptionDraftStore.defaultMaxDrafts
 ) derives ConfigReader
 final case class DBConfig(
     driver: String,

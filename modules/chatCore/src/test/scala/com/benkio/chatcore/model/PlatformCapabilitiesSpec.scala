@@ -14,7 +14,8 @@ class PlatformCapabilitiesSpec extends FunSuite {
     supportsEdit = false,
     supportsButtons = false,
     acceptsFileIds = false,
-    commandSyntax = CommandSyntax(prefix = "!")
+    commandSyntax = CommandSyntax(prefix = "!"),
+    suppliesSenderId = false
   )
 
   test("MediaKind.of should give a kind to every media file") {

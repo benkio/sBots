@@ -2,10 +2,12 @@ package com.benkio.chattelegramadapter
 
 import cats.effect.Async
 import cats.syntax.all.*
+import cats.Applicative
 import com.benkio.chatcore.model.reply.EffectfulReply
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.PlatformCapabilities
+import com.benkio.chatcore.model.SubscriptionFlowKey
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.BackgroundJobManager
@@ -13,6 +15,7 @@ import com.benkio.chatcore.ComputeReply
 import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.Notifier
 import com.benkio.chatcore.PlatformAdapter
+import com.benkio.chatcore.SubscriptionFlowPromptStore
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.TelegramMessageReply
 import com.benkio.chattelegramadapter.model.TelegramCapabilities
 import log.effect.LogWriter
@@ -32,7 +35,8 @@ class TelegramPlatformAdapter[F[_]: Async: LogWriter: Api: Notifier](
     effectfulCallbacks: Map[String, EffectfulCallback[F]],
     dbLayer: DBLayer[F],
     ttl: Option[FiniteDuration],
-    startUpdates: F[Unit]
+    startUpdates: F[Unit],
+    flowPrompts: SubscriptionFlowPromptStore[F]
 ) extends PlatformAdapter[F] {
 
   override val capabilities: PlatformCapabilities = TelegramCapabilities.value
@@ -41,13 +45,17 @@ class TelegramPlatformAdapter[F[_]: Async: LogWriter: Api: Notifier](
 
   override def run: F[Unit] = startUpdates
 
+  override def touchFlowPrompt(key: SubscriptionFlowKey)(using Applicative[F]): F[Unit] =
+    flowPrompts.touch(key)
+
   override def send(replyValue: ReplyValue, message: Message, replyToMessage: Boolean): F[Unit] =
     TelegramMessageReply
       .sendReplyValue[F](
         replyValue = replyValue,
         msg = message,
         repository = usableRepository,
-        replyToMessage = replyToMessage
+        replyToMessage = replyToMessage,
+        flowPrompts = Some(flowPrompts)
       )
       .void
 

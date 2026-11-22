@@ -23,6 +23,7 @@ object IrcCapabilities {
     supportsEdit = false,
     supportsButtons = false,
     acceptsFileIds = false,
-    commandSyntax = CommandSyntax(prefix = "!")
+    commandSyntax = CommandSyntax(prefix = "!"),
+    suppliesSenderId = false
   )
 }

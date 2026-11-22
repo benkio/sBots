@@ -83,7 +83,6 @@ object IrcBot {
       for {
         apiReady <- Deferred[F, IrcApi[F]]
         random   <- Random.scalaUtilRandom[F]
-        engine = BotEngine[F](effectiveSBotConfig, core.dbLayer, notifier)
         // the subscriptions send to a chat without a message to reply to, once the connection is up
         sendToChat = (chatId: ChatId, replyValue: ReplyValue, replyToMessage: Boolean) =>
           apiReady.get.flatMap(api =>
@@ -104,6 +103,7 @@ object IrcBot {
             notifier = notifier
           )
         }
+        engine = BotEngine[F](effectiveSBotConfig, core.dbLayer, notifier, backgroundJobManager)
         _ <- {
           lazy val adapter: IrcPlatformAdapter[F] = new IrcPlatformAdapter[F](
             ircApi = apiReady.get,

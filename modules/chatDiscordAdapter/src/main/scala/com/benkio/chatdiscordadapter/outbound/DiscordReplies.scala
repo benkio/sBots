@@ -7,11 +7,13 @@ import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.reply.*
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.PlatformCapabilities
+import com.benkio.chatcore.model.SubscriptionFlowPrompt
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.MarkdownFiles
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.Notifier
 import com.benkio.chatcore.ReplyAdaptation
+import com.benkio.chatcore.SubscriptionFlowPromptStore
 import com.benkio.chatdiscordadapter.model.DiscordLimits
 import log.effect.LogWriter
 
@@ -35,7 +37,8 @@ class DiscordReplies[F[_]: Async: LogWriter: Notifier](
     repository: Repository[F],
     dbLayer: DBLayer[F],
     capabilities: PlatformCapabilities,
-    lists: DiscordButtonLists[F]
+    lists: DiscordButtonLists[F],
+    flowPrompts: SubscriptionFlowPromptStore[F]
 ) {
 
   def send(replyValue: ReplyValue, message: Message, replyToMessage: Boolean): F[Unit] = {
@@ -50,8 +53,9 @@ class DiscordReplies[F[_]: Async: LogWriter: Notifier](
         )
       case mediaFile: MediaFile =>
         guarded(message, mediaFile)(sendMediaFile(channelId = channelId, mediaFile = mediaFile, replyTo = replyTo))
-      case pagedList: PagedList => sendPagedList(message = message, pagedList = pagedList, replyTo = replyTo)
-      case other                =>
+      case pagedList: PagedList           => sendPagedList(message = message, pagedList = pagedList, replyTo = replyTo)
+      case prompt: SubscriptionFlowPrompt => sendPrompt(message = message, prompt = prompt, replyTo = replyTo)
+      case other                          =>
         LogWriter.warn(s"[DiscordReplies] Unsupported reply value ${other.getClass.getSimpleName}; sending nothing")
     }
   }
@@ -64,6 +68,37 @@ class DiscordReplies[F[_]: Async: LogWriter: Notifier](
         lists.put(sent, DiscordButtonList(requestedBy = message.authorId, request = message, pagedList = pagedList))
       )
       .handleErrorWith(e => LogWriter.error(s"[DiscordReplies] Error while sending the list ${pagedList.title}: $e"))
+
+  /** Each step edits the same prompt message in place. The handle is refreshed with the draft: a long flow does not
+    * lose its prompt while the draft is still active. If the message was deleted the edit fails permanently, so the
+    * stale handle is dropped and a fresh prompt is sent instead.
+    */
+  private def sendPrompt(message: Message, prompt: SubscriptionFlowPrompt, replyTo: Option[String]): F[Unit] = {
+    val rendered = DiscordSubscriptionFlowLayout.render(prompt)
+
+    def fresh: F[Unit] =
+      api
+        .sendButtons(message.chatId.id, rendered, replyTo)
+        .flatMap(sent => flowPrompts.put(prompt.key, sent, prompt.key.requester))
+
+    flowPrompts
+      .byKey(prompt.key)
+      .flatMap {
+        case Some(handle) =>
+          api
+            .editButtons(channelId = message.chatId.id, messageId = handle.messageId, message = rendered)
+            .flatMap(_ => flowPrompts.put(prompt.key, handle.messageId, prompt.key.requester))
+            .handleErrorWith {
+              case gone: DiscordUnknownMessage =>
+                LogWriter.warn(
+                  s"[DiscordReplies] The prompt message ${gone.messageId} of ${prompt.key} is gone; sending a new one"
+                ) >> flowPrompts.remove(prompt.key) >> fresh
+              case other => Async[F].raiseError[Unit](other)
+            }
+        case None => fresh
+      }
+      .handleErrorWith(e => LogWriter.error(s"[DiscordReplies] Error while sending the subscription prompt: $e"))
+  }
 
   private def sendText(
       channelId: String,

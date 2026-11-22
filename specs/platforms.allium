@@ -19,11 +19,12 @@ value PlatformCapabilities {
     supported_media: Set<String>
     supports_buttons: Boolean
     accepts_file_ids: Boolean
+    supplies_sender_id: Boolean
 }
 
--- telegram: "/", 4096, markdown yes, delete yes, buttons yes, file ids yes, every media kind
--- discord:  "/", 2000, markdown yes, delete yes, buttons yes, file ids no,  audio gif photo video document markdown_file
--- irc:      "!", 400,  markdown no,  delete no,  buttons no,  file ids no,  markdown_file only
+-- telegram: "/", 4096, markdown yes, delete yes, edit yes, buttons yes, sender id yes, file ids yes, every media kind
+-- discord:  "/", 2000, markdown yes, delete yes, edit yes, buttons yes, sender id yes, file ids no,  audio gif photo video document markdown_file
+-- irc:      "!", 400,  markdown no,  delete no,  edit no,  buttons no,  sender id no,  file ids no,  markdown_file only
 
 external entity PlatformAdapter {
     platform: core/Platform
@@ -386,6 +387,45 @@ invariant TextCommandsOnlyWithoutButtons {
     for e in extras/PagedListTextStoreEntry:
         for a in PlatformAdapters:
             a.platform = e.chat.platform implies not a.capabilities.supports_buttons
+}
+
+-- Guided /subscribe (extras/SubscriptionFlowActionRequested, extras/GuidedSubscriptionFlowAdapter): the engine owns
+-- the draft (extras/SubscriptionDraft), so a button carries only the step action. The flow needs a requester to own
+-- the draft and edit support to update the prompt; it therefore exists on Telegram and Discord only. On a platform
+-- with no sender id or no edit support (IRC) bare /subscribe keeps the one-shot usage error and no flow starts.
+-- A prompt press records the prompt's owner and the user who pressed; only the owner's press becomes a neutral action.
+-- A press by anyone else gets a private answer (a callback answer or an ephemeral message) and changes nothing.
+-- At the schedule step a plain message from the owner maps to an enter_cron action with that text (the typed custom
+-- cron); at the target step a plain message maps to enter_target, and a random button maps to enter_target with empty
+-- text. Plain messages at other steps are not flow actions. A command is never a plain message: bare /subscribe always
+-- starts or restarts the flow, even while another step is active.
+-- Each step edits the same prompt message in place; errors and the final subscription result are new replies.
+-- A prompt message deleted on the platform can no longer be edited: the adapter drops that handle and sends a fresh
+-- prompt, so the flow can go on from the current step.
+external entity SubscriptionFlowPromptPress {
+    chat: core/Chat
+    bot: core/Bot
+    action: extras/SubscriptionFlowAction
+    prompt_owner: String
+    user: String
+}
+
+rule SubscriptionFlowPromptPressIsAction {
+    when: press: SubscriptionFlowPromptPress.created
+    requires: press.user = press.prompt_owner
+    ensures: extras/SubscriptionFlowActionRequested(chat: press.chat, bot: press.bot, action: press.action, requester: press.user)
+}
+
+rule SubscriptionFlowPromptPressOfAnotherUser {
+    when: press: SubscriptionFlowPromptPress.created
+    requires: press.user != press.prompt_owner
+    ensures: SubscriptionFlowPromptPressRejected(press: press)   -- private answer only, no action
+}
+
+invariant GuidedFlowOnlyWhereRequesterAndEdit {
+    for p in SubscriptionFlowPromptPress:
+        for a in PlatformAdapters:
+            a.platform = p.chat.platform implies a.capabilities.supplies_sender_id and a.capabilities.supports_edit
 }
 
 -- intended: picking a Media or Show is terminal, so the keyboard message is deleted after the new message; paging
