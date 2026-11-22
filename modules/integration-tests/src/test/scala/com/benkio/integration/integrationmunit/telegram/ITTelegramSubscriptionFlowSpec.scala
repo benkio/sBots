@@ -23,7 +23,9 @@ import com.benkio.chatcore.model.SubscriptionFlowPrompt
 import com.benkio.chatcore.model.SubscriptionSchedulePreset
 import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.patterns.CommandPatternsGroup
+import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chatcore.BotEngine
+import com.benkio.chatcore.ComputeReply
 import com.benkio.chatcore.PlatformAdapter
 import com.benkio.chatcore.TestIds
 import com.benkio.chattelegramadapter.mocks.ApiMock.given
@@ -32,6 +34,7 @@ import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
 import com.benkio.integration.DBFixture
 import com.benkio.integration.Logger.given
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
+import _root_.log.effect.LogWriter
 import munit.CatsEffectSuite
 
 import java.util.UUID
@@ -59,8 +62,12 @@ class ITTelegramSubscriptionFlowSpec extends CatsEffectSuite with DBFixture {
 
   private final class RecordingTelegramAdapter(
       val sent: Ref[IO, List[Sent]],
-      val touched: Ref[IO, List[SubscriptionFlowKey]]
-  ) extends PlatformAdapter[IO] {
+      val touched: Ref[IO, List[SubscriptionFlowKey]],
+      backgroundJobManager: BackgroundJobManager[IO],
+      dbLayer: com.benkio.chatcore.repository.db.DBLayer[IO],
+      ttl: Option[scala.concurrent.duration.FiniteDuration]
+  )(using cats.effect.Async[IO], LogWriter[IO])
+      extends PlatformAdapter[IO] {
     override val capabilities: PlatformCapabilities                                         = telegramCapabilities
     override def run: IO[Unit]                                                              = IO.unit
     override def touchFlowPrompt(key: SubscriptionFlowKey)(using Applicative[IO]): IO[Unit] =
@@ -72,14 +79,27 @@ class ITTelegramSubscriptionFlowSpec extends CatsEffectSuite with DBFixture {
         message: Message,
         overridePage: Option[Int] = None
     ): IO[ReplyValue] =
-      IO.pure(Text("effectful"))
+      ComputeReply.runEffectfulReply[IO](
+        reply = reply,
+        msg = message,
+        backgroundJobManager = backgroundJobManager,
+        dbLayer = dbLayer,
+        effectfulCallbacks = Map.empty,
+        ttl = ttl,
+        commandSyntax = capabilities.commandSyntax,
+        overridePage = overridePage
+      )
   }
 
-  private def recordingAdapter: IO[RecordingTelegramAdapter] =
+  private def recordingAdapter(
+      backgroundJobManager: BackgroundJobManager[IO],
+      dbLayer: com.benkio.chatcore.repository.db.DBLayer[IO],
+      ttl: Option[scala.concurrent.duration.FiniteDuration]
+  ): IO[RecordingTelegramAdapter] =
     for {
       sent    <- Ref.of[IO, List[Sent]](List.empty)
       touched <- Ref.of[IO, List[SubscriptionFlowKey]](List.empty)
-    } yield new RecordingTelegramAdapter(sent, touched)
+    } yield new RecordingTelegramAdapter(sent, touched, backgroundJobManager, dbLayer, ttl)
 
   private def message(text: String, id: String, authorId: String = "alice"): Message =
     Message(
@@ -126,7 +146,7 @@ class ITTelegramSubscriptionFlowSpec extends CatsEffectSuite with DBFixture {
           ttl = sBotConfig.messageTimeToLive
         )
       )
-      adapter <- Resource.eval(recordingAdapter)
+      adapter <- Resource.eval(recordingAdapter(backgroundJobManager, dbLayer, sBotConfig.messageTimeToLive))
       engine = new BotEngine[IO](
         sBotConfig = sBotConfig,
         dbLayer = dbLayer,
