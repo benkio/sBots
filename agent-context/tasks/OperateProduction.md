@@ -20,3 +20,5 @@ restart, rollback). Grafana details: `docs/monitoring.md`.
 - A new file on the VM worth downloading: add it to `downloadDB.yml` and to the "Where the logs are" list of the README.
 - A table that is not needed anymore: drop it with a new Flyway migration, `DBMigration.sql` and `scripts/checkDBMigration.sh`
   in the same change (see `V11__DropLogTable.sql`).
+
+- Ephemeral flow/pagination state is persisted in DB (V12: `paged_list_text`, `subscription_draft`, `subscription_flow_prompt`), scoped by `bot_id` and bounded by TTL/max rows. Rows survive restart within TTL; they are safe to drop on rollback/migration troubleshooting, but active guided subscribe flows and text-mode paged lists will be forgotten.

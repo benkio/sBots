@@ -3,11 +3,22 @@ package com.benkio.chatcore.repository.db
 import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
+import com.benkio.chatcore.model.reply.PagedItem
+import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.show.*
+import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.CommandKey
+import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.model.SubscriptionDraft
+import com.benkio.chatcore.model.SubscriptionDraftStep
+import com.benkio.chatcore.model.SubscriptionFlowKey
+import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.model.Timeout
 import com.benkio.chatcore.paths.SBotPaths
 import com.benkio.chatcore.Logger.given
+import com.benkio.chatcore.SubscriptionDraftStartResult
 import com.benkio.chatcore.TestIds
 import doobie.implicits.*
 import doobie.util.fragment.Fragment
@@ -19,6 +30,7 @@ import munit.CatsEffectSuite
 import java.nio.file.Files
 import java.nio.file.Path
 import java.time.Instant
+import scala.concurrent.duration.*
 import scala.util.Using
 
 class DBRepositoriesCoverageSpec extends CatsEffectSuite {
@@ -214,6 +226,135 @@ class DBRepositoriesCoverageSpec extends CatsEffectSuite {
         assertEquals(d0.chat_id, chatId.id)
         assertEquals(d1.chat_id, chatId.id)
         assertEquals(d2.chat_id, chatId.id)
+      }
+    }
+  }
+
+  private def draft(key: SubscriptionFlowKey, savedAt: scala.concurrent.duration.FiniteDuration): SubscriptionDraft =
+    SubscriptionDraft(
+      key = key,
+      step = SubscriptionDraftStep.Type,
+      subscriptionType = Some(SubscriptionType.Show),
+      schedule = None,
+      target = None,
+      savedAt = savedAt
+    )
+
+  test("DBSubscriptionDraft persists, scopes by bot, enforces bounds and expiry") {
+    tempDb.use { xa =>
+      val botA = SBotId("botA")
+      val botB = SBotId("botB")
+      val chat = ChatId(Platform.Telegram, "1")
+      val keyA = SubscriptionFlowKey(chat, botA, "u1")
+      val keyB = SubscriptionFlowKey(chat, botB, "u1")
+      for {
+        _     <- setupSchema(xa)
+        now   <- IO.realTime
+        dbA   <- IO.pure(DBSubscriptionDraft[IO](xa, botA, 10.minutes, 1))
+        dbB   <- IO.pure(DBSubscriptionDraft[IO](xa, botB, 10.minutes, 1))
+        r1    <- dbA.start(draft(keyA, now))
+        r2    <- dbA.start(draft(SubscriptionFlowKey(chat, botA, "u2"), now + 1.second))
+        r3    <- dbB.start(draft(keyB, now))
+        gotA  <- dbA.get(keyA)
+        gotB  <- dbB.get(keyB)
+        sizeA <- dbA.size
+        sizeB <- dbB.size
+        // restart / new instance over same DB
+        dbA2  <- IO.pure(DBSubscriptionDraft[IO](xa, botA, 10.minutes, 1))
+        gotA2 <- dbA2.get(keyA)
+        _     <- dbA.remove(keyA)
+        gone  <- dbA.get(keyA)
+      } yield {
+        assertEquals(r1, SubscriptionDraftStartResult.Started)
+        assertEquals(r2, SubscriptionDraftStartResult.Full)
+        assertEquals(r3, SubscriptionDraftStartResult.Started)
+        assert(gotA.isDefined)
+        assert(gotB.isDefined)
+        assertEquals(sizeA, 1)
+        assertEquals(sizeB, 1)
+        assertEquals(gotA2.map(_.key), Some(keyA))
+        assertEquals(gone, None)
+      }
+    }
+  }
+
+  test("DBSubscriptionDraft expires by real-time TTL") {
+    tempDb.use { xa =>
+      val botId = SBotId("botA")
+      val key   = SubscriptionFlowKey(ChatId(Platform.Telegram, "1"), botId, "u1")
+      for {
+        _      <- setupSchema(xa)
+        now    <- IO.realTime
+        db     <- IO.pure(DBSubscriptionDraft[IO](xa, botId, 10.minutes, 10))
+        _      <- db.start(draft(key, now))
+        before <- db.get(key)
+        _      <- sql"""UPDATE subscription_draft SET saved_at_millis = 0 WHERE bot_id = ${botId.value}""".update.run
+          .transact(xa)
+        after <- db.get(key)
+      } yield {
+        assert(before.isDefined)
+        assertEquals(after, None)
+      }
+    }
+  }
+
+  test("DBSubscriptionFlowPrompt persists, scopes by bot, and message lookup is deterministic") {
+    tempDb.use { xa =>
+      val botA = SBotId("botA")
+      val botB = SBotId("botB")
+      val chat = ChatId(Platform.Telegram, "1")
+      val keyA = SubscriptionFlowKey(chat, botA, "u1")
+      val keyB = SubscriptionFlowKey(chat, botB, "u1")
+      for {
+        _    <- setupSchema(xa)
+        dbA  <- IO.pure(DBSubscriptionFlowPrompt[IO](xa, botA, 10.minutes, 10))
+        dbB  <- IO.pure(DBSubscriptionFlowPrompt[IO](xa, botB, 10.minutes, 10))
+        _    <- dbA.put(keyA, "42", "u1")
+        _    <- dbB.put(keyB, "43", "u1")
+        byA  <- dbA.byKey(keyA)
+        byB  <- dbB.byKey(keyB)
+        msgA <- dbA.byMessageId(chat, "42")
+        msgB <- dbB.byMessageId(chat, "43")
+        _    <- dbA.touch(keyA)
+        _    <- dbA.remove(keyA)
+        gone <- dbA.byKey(keyA)
+      } yield {
+        assertEquals(byA.map(_.messageId), Some("42"))
+        assertEquals(byB.map(_.messageId), Some("43"))
+        assertEquals(msgA.map(_.key), Some(keyA))
+        assertEquals(msgB.map(_.key), Some(keyB))
+        assertEquals(gone, None)
+      }
+    }
+  }
+
+  test("DBPagedListText persists across instances, scopes by bot, and enforces expiry/bounds") {
+    tempDb.use { xa =>
+      val botA  = SBotId("botA")
+      val botB  = SBotId("botB")
+      val chat  = ChatId(Platform.Telegram, "1")
+      val req   = Message(None, 0L, chat, "private", text = Some("!toptwenty"))
+      val items = List(PagedItem.ValueItem(Text("item 1")))
+      for {
+        _    <- setupSchema(xa)
+        dbA  <- IO.pure(DBPagedListText[IO](xa, botA, 10.minutes, 2))
+        dbB  <- IO.pure(DBPagedListText[IO](xa, botB, 10.minutes, 2))
+        now  <- IO.realTime
+        _    <- dbA.save(chat, CommandKey.TopTwenty, 0, items, req, now)
+        _    <- dbB.save(chat, CommandKey.TopTwenty, 1, items, req, now)
+        gotA <- dbA.get(chat, now)
+        gotB <- dbB.get(chat, now)
+        // restart/new instance over same DB
+        dbA2  <- IO.pure(DBPagedListText[IO](xa, botA, 10.minutes, 2))
+        gotA2 <- dbA2.get(chat, now)
+        exp   <- dbA.isExpired(chat, now + 11.minutes)
+        gone  <- dbA.get(chat, now + 11.minutes)
+      } yield {
+        assertEquals(gotA.map(_.page), Some(0))
+        assertEquals(gotB.map(_.page), Some(1))
+        assertEquals(gotA2.map(_.page), Some(0))
+        assertEquals(exp, true)
+        assertEquals(gone, None)
       }
     }
   }

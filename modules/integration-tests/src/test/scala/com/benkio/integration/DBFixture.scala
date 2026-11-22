@@ -66,8 +66,9 @@ object DBFixture {
       migrationsLocations = DBFixture.migrationPath
     )
     val transactor                                 = Transactor.fromConnection[IO](conn, None)
-    val dbLayerResource: Resource[IO, DBLayer[IO]] = Resource.eval(DBLayer[IO](transactor))
-    val httpClientResource                         = EmberClientBuilder
+    val dbLayerResource: Resource[IO, DBLayer[IO]] =
+      Resource.eval(DBLayer.make[IO](transactor, com.benkio.chatcore.model.SBotInfo.SBotId("test")))
+    val httpClientResource = EmberClientBuilder
       .default[IO]
       .withMaxResponseHeaderSize(8192)
       .build
@@ -121,6 +122,9 @@ object DBFixture {
     connection.createStatement().executeUpdate("DELETE FROM subscription;")
     connection.createStatement().executeUpdate("DELETE FROM chat;")
     connection.createStatement().executeUpdate("DELETE FROM processed_message;")
+    connection.createStatement().executeUpdate("DELETE FROM paged_list_text;")
+    connection.createStatement().executeUpdate("DELETE FROM subscription_draft;")
+    connection.createStatement().executeUpdate("DELETE FROM subscription_flow_prompt;")
     connection.createStatement().executeUpdate("UPDATE media SET media_count = 0;")
     ()
   }

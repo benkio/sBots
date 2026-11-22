@@ -81,14 +81,12 @@ class BotEngine[F[_]: Async: LogWriter](
   private lazy val textMode = new PagedListTextMode[F](
     botName = sBotConfig.sBotInfo.botName,
     allCommandRepliesData = () => allCommandRepliesData,
-    dbLayer = dbLayer,
-    expiry = sBotConfig.pagedListTextModeExpiry,
-    maxChats = sBotConfig.pagedListTextModeMaxChats
+    dbLayer = dbLayer
   )
 
   /** The guided `/subscribe` flow owns its drafts here; the adapters only render its prompts and actions. */
   private lazy val subscriptionFlow = new SubscriptionFlowService[F](
-    store = SubscriptionDraftStore.create[F](sBotConfig.subscriptionDraftExpiry, sBotConfig.subscriptionDraftMaxDrafts),
+    store = SubscriptionDraftStore.db[F](dbLayer.dbSubscriptionDraft),
     sBotInfo = sBotConfig.sBotInfo,
     expiry = sBotConfig.subscriptionDraftExpiry,
     ttl = sBotConfig.messageTimeToLive,

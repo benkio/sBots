@@ -6,7 +6,7 @@ Spec: `specs/engine-extras.allium` (Guided /subscribe) and `specs/platforms.alli
 
 - [x] Bare `/subscribe` starts the guided flow on Telegram/Discord; one-shot syntax unchanged.
 - [x] Draft key `(botId, requester, chatId)`; one flow per triple; two users get independent drafts.
-- [x] Store in memory, idle TTL + bound from config; full store declines with one-shot command + "wait/retry".
+- [x] Store persisted in shared bot DB, scoped by bot, idle TTL + bound from config; full store declines with one-shot command + "wait/retry". A restart keeps drafts still within TTL.
 - [x] Steps: type -> schedule -> target -> confirm; cancel everywhere, back from steps after the first only.
 - [x] Schedule: five presets as buttons; typed cron accepted; invalid typed cron drops the draft with the validation error.
 - [x] Target: free text plus random button (empty target); trigger step hints `/triggersearch`.
@@ -41,3 +41,7 @@ Spec: `specs/engine-extras.allium` (Guided /subscribe) and `specs/platforms.alli
   edit; two parallel confirms cannot both create a subscription; `NotHandled` was dead and removed.
 - Left for later (review suggestions, non-blocking): inject a clock and parse the cron once; replace the
   `AtomicReference` update idiom in the stores; align the Telegram/Discord prompt-send failure policy.
+
+## DB persistence note
+
+- Drafts, flow prompt handles, and paged-list text entries are persisted in the shared bot DB (V12), scoped by `bot_id`. They survive process restarts as long as they are still within their configured TTL.

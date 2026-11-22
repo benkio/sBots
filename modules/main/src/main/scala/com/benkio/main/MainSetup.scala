@@ -43,14 +43,15 @@ object MainSetup {
     httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
     _          <- Resource.eval(log.info("[Main] httpClient"))
     dbLayer    <- Resource.eval(
-      DBLayer[F](
+      DBLayer.make[F](
         Transactor.fromDriverManager[F](
           config.mainDB.driver,
           config.mainDB.url,
           "",
           "",
           None
-        )
+        ),
+        botId = com.benkio.chatcore.model.SBotInfo.SBotId("main")
       )
     )
     _           <- Resource.eval(log.info("[Main] dbLayer"))

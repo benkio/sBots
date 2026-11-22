@@ -5,9 +5,14 @@ import cats.implicits.*
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.repository.JsonDataRepository
+import com.benkio.chatcore.PagedListTextStore
+import com.benkio.chatcore.SubscriptionDraftStore
 import doobie.Transactor
 import log.effect.LogWriter
+
+import scala.concurrent.duration.FiniteDuration
 
 final case class DBLayer[F[_]](
     dbTimeout: DBTimeout[F],
@@ -15,6 +20,9 @@ final case class DBLayer[F[_]](
     dbSubscription: DBSubscription[F],
     dbShow: DBShow[F],
     dbProcessedMessage: DBProcessedMessage[F],
+    dbSubscriptionDraft: DBSubscriptionDraft[F],
+    dbSubscriptionFlowPrompt: DBSubscriptionFlowPrompt[F],
+    dbPagedListText: DBPagedListText[F],
     dbMessageReplies: DBMessageReplies = DBMessageReplies.empty,
     dbCommandReplies: DBCommandReplies = DBCommandReplies.empty
 )
@@ -36,8 +44,13 @@ object DBLayer {
     dbCommandReplies = DBCommandReplies(commandReplies)
   )
 
-  def apply[F[_]: Async](
-      transactor: Transactor[F]
+  def make[F[_]: Async](
+      transactor: Transactor[F],
+      botId: SBotInfo.SBotId,
+      subscriptionDraftExpiry: FiniteDuration = SubscriptionDraftStore.defaultExpiry,
+      subscriptionDraftMaxDrafts: Int = SubscriptionDraftStore.defaultMaxDrafts,
+      pagedListTextModeExpiry: FiniteDuration = PagedListTextStore.defaultExpiry,
+      pagedListTextModeMaxChats: Int = PagedListTextStore.defaultMaxChats
   )(using log: LogWriter[F]): F[DBLayer[F]] = for {
     dbMedia <- DBMedia[F](transactor)
     dbSubscription = DBSubscription[F](transactor)
@@ -52,6 +65,11 @@ object DBLayer {
     dbSubscription = dbSubscription,
     dbMedia = dbMedia,
     dbShow = dbShow,
-    dbProcessedMessage = dbProcessedMessage
+    dbProcessedMessage = dbProcessedMessage,
+    dbSubscriptionDraft =
+      DBSubscriptionDraft[F](transactor, botId, subscriptionDraftExpiry, subscriptionDraftMaxDrafts),
+    dbSubscriptionFlowPrompt =
+      DBSubscriptionFlowPrompt[F](transactor, botId, subscriptionDraftExpiry, subscriptionDraftMaxDrafts),
+    dbPagedListText = DBPagedListText[F](transactor, botId, pagedListTextModeExpiry, pagedListTextModeMaxChats)
   )
 }

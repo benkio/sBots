@@ -1,9 +1,11 @@
 package com.benkio.chatcore
 
+import cats.Applicative
 import com.benkio.chatcore.model.reply.PagedItem
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.repository.db.DBPagedListText
 
 import scala.collection.mutable
 import scala.concurrent.duration.*
@@ -13,10 +15,9 @@ import scala.concurrent.duration.*
   * another page), the page, the items of the page (the picks), and the message that asked for it (the same input the
   * command runs again with).
   *
-  * The store is per bot engine and memory only: a restart forgets it. An entry expires after
-  * [[PagedListTextStore.defaultExpiry]] (the `paged_list_text_mode_expiry` of the specs) from when it was saved, and
-  * the store keeps at most [[PagedListTextStore.defaultMaxChats]] chats (the `paged_list_text_mode_max_chats` of the
-  * specs): the oldest entries are dropped when the store is full.
+  * An entry expires after [[PagedListTextStore.defaultExpiry]] (the `paged_list_text_mode_expiry` of the specs) from
+  * when it was saved, and the store keeps at most [[PagedListTextStore.defaultMaxChats]] chats (the
+  * `paged_list_text_mode_max_chats` of the specs): the oldest entries are dropped when the store is full.
   */
 object PagedListTextStore {
 
@@ -31,13 +32,7 @@ object PagedListTextStore {
     def isExpired(now: FiniteDuration, expiry: FiniteDuration): Boolean = now - savedAt > expiry
   }
 
-  final class Store(expiry: FiniteDuration, maxChats: Int) {
-
-    private val entries = mutable.LinkedHashMap[ChatId, Entry]()
-
-    /** Saves the page of the chat: a new entry replaces the old one of the chat; when the store is full to `maxChats`
-      * chats the oldest entries are dropped.
-      */
+  trait Store[F[_]] {
     def save(
         chatId: ChatId,
         commandKey: CommandKey,
@@ -45,27 +40,62 @@ object PagedListTextStore {
         pageItems: List[PagedItem],
         request: Message,
         now: FiniteDuration
-    ): Unit = synchronized {
-      val _ = entries.remove(chatId)
-      entries(chatId) = Entry(commandKey, page, pageItems, request, now)
-      while entries.size > maxChats do {
-        val _ = entries.remove(entries.head._1)
+    ): F[Unit]
+    def get(chatId: ChatId, now: FiniteDuration): F[Option[Entry]]
+    def isExpired(chatId: ChatId, now: FiniteDuration): F[Boolean]
+    def size: F[Int]
+  }
+
+  def inMemory[F[_]: Applicative](expiry: FiniteDuration, maxChats: Int): Store[F] =
+    new InMemoryStore[F](expiry, maxChats)
+
+  def db[F[_]](dbPagedListText: DBPagedListText[F]): Store[F] =
+    new DbStore[F](dbPagedListText)
+
+  private final class DbStore[F[_]](dbPagedListText: DBPagedListText[F]) extends Store[F] {
+    override def save(
+        chatId: ChatId,
+        commandKey: CommandKey,
+        page: Int,
+        pageItems: List[PagedItem],
+        request: Message,
+        now: FiniteDuration
+    ): F[Unit] = dbPagedListText.save(chatId, commandKey, page, pageItems, request, now)
+    override def get(chatId: ChatId, now: FiniteDuration): F[Option[Entry]] = dbPagedListText.get(chatId, now)
+    override def isExpired(chatId: ChatId, now: FiniteDuration): F[Boolean] = dbPagedListText.isExpired(chatId, now)
+    override def size: F[Int]                                               = dbPagedListText.size
+  }
+
+  private final class InMemoryStore[F[_]: Applicative](expiry: FiniteDuration, maxChats: Int) extends Store[F] {
+
+    private val entries = mutable.LinkedHashMap[ChatId, Entry]()
+
+    override def save(
+        chatId: ChatId,
+        commandKey: CommandKey,
+        page: Int,
+        pageItems: List[PagedItem],
+        request: Message,
+        now: FiniteDuration
+    ): F[Unit] = Applicative[F].pure {
+      synchronized {
+        val _ = entries.remove(chatId)
+        entries(chatId) = Entry(commandKey, page, pageItems, request, now)
+        while entries.size > maxChats do {
+          val _ = entries.remove(entries.head._1)
+        }
       }
     }
 
-    /** The entry of the chat, `None` when there is none or it expired. */
-    def get(chatId: ChatId, now: FiniteDuration): Option[Entry] = synchronized {
-      entries.get(chatId).filterNot(_.isExpired(now, expiry))
+    override def get(chatId: ChatId, now: FiniteDuration): F[Option[Entry]] = Applicative[F].pure {
+      synchronized(entries.get(chatId).filterNot(_.isExpired(now, expiry)))
     }
 
-    /** Whether the chat has an entry that is expired: the commands answer it differently from the chat without any
-      * entry.
-      */
-    def isExpired(chatId: ChatId, now: FiniteDuration): Boolean = synchronized {
-      entries.get(chatId).exists(_.isExpired(now, expiry))
+    override def isExpired(chatId: ChatId, now: FiniteDuration): F[Boolean] = Applicative[F].pure {
+      synchronized(entries.get(chatId).exists(_.isExpired(now, expiry)))
     }
 
-    def size: Int = synchronized(entries.size)
+    override def size: F[Int] = Applicative[F].pure(synchronized(entries.size))
   }
 
   /** The `paged_list_text_mode_expiry` of the specs. */

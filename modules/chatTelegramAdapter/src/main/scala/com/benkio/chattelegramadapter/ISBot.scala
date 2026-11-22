@@ -90,7 +90,7 @@ trait ISBot[F[_]: Async: LogWriter] {
 
   /** The prompt messages of the guided `/subscribe` flow expire and are bounded like its drafts. */
   lazy val flowPrompts: SubscriptionFlowPromptStore[F] =
-    SubscriptionFlowPromptStore.create[F](sBotConfig.subscriptionDraftExpiry, sBotConfig.subscriptionDraftMaxDrafts)
+    SubscriptionFlowPromptStore.db[F](dbLayer.dbSubscriptionFlowPrompt)
 
   // The logic of the bot is platform agnostic: this is only the Telegram shell around it ////////////////////////
 
