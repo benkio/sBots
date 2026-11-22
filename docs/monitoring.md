@@ -10,6 +10,7 @@ The bots ship their logs to Grafana Cloud Loki (free tier, 14 days of retention)
   The JSON is in [`docs/grafana/sbots-overview-dashboard.json`](grafana/sbots-overview-dashboard.json): after a change of the
   stats lines or of the queries below, edit the dashboard in Grafana, export it (Share, Export, Export as JSON) and commit it
   here. To restore it: Dashboards, New, Import, paste the file (the `be4zdbd` uid replaces the existing dashboard).
+  When a panel has more than one query, each query needs a distinct `refId` (`A`, `B`, `C`, ...): duplicated IDs crash the panel with a React error.
 - **Read the logs:** [Grafana Explore](https://glowingdate3125.grafana.net/explore) with the `grafanacloud-glowingdate3125-logs` data source, query `{app="sbots"}`.
   Anyone who needs access has to be invited to the Grafana Cloud stack (Administration, Users and access).
 - **Labels:** `app` (always `sbots`) and `level`. Everything else is in the JSON line; filter it with
