@@ -10,6 +10,7 @@ external entity MediaListFile {
     entries: List<MediaListEntry>
 }
 
+-- The sticker kind is Telegram only; its persisted key stays "sticker".
 value MediaListEntry {
     filename: String
     kind: mp3 | gif | photo | video | document | sticker | markdown

@@ -29,9 +29,9 @@ class DiscordCapabilitiesSpec extends FunSuite {
     assert(capabilities.supports(PhotoFile("a.jpg")))
     assert(capabilities.supports(VideoFile("a.mp4")))
     assert(capabilities.supports(Document("a.pdf")))
-    assert(!capabilities.supports(Sticker("a.sticker")))
+    assert(!capabilities.supports(TelegramSticker("a.sticker")))
     assert(capabilities.supports(MarkdownFile("a.md")))
-    assertEquals(capabilities.supportedMedia, MediaKind.values.toSet - MediaKind.Sticker)
+    assertEquals(capabilities.supportedMedia, MediaKind.values.toSet - MediaKind.TelegramSticker)
   }
 
   test("the commands are slash commands, without a mention") {
@@ -50,7 +50,7 @@ class DiscordCapabilitiesSpec extends FunSuite {
 
   test("a media that Discord cannot upload becomes its link") {
     assertEquals(
-      ReplyTransformer.transform(capabilities, _ => Some(link))(Sticker("a.sticker")),
+      ReplyTransformer.transform(capabilities, _ => Some(link))(TelegramSticker("a.sticker")),
       List(Text(link.renderString))
     )
   }

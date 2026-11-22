@@ -8,7 +8,7 @@ import com.benkio.chatcore.model.media.getMediaResourceFile
 import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.reply.Mp3File
-import com.benkio.chatcore.model.reply.Sticker
+import com.benkio.chatcore.model.reply.TelegramSticker
 import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.repository.db.DBMediaData
 import com.benkio.chattelegramadapter.SBot
@@ -62,39 +62,40 @@ class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
     resourceAssert.use(IO.pure).assert
   }
 
-  databaseFixture.test("DBRepository.getResourceFile on a Sticker should return the expected content") { fixture =>
-    val resourceAssert = for {
-      dbMedia  <- fixture.resourceDBLayer.map(_.dbMedia)
-      preMedia <- Resource.eval(dbMedia.getMedia("ytai_PizzaYtancheio.sticker", false))
-      _ = println(s"debug preMedia: $preMedia")
-      dbRepository <- fixture.repositoryResource
-      mediaSource  <- dbRepository.getResourceFile(Sticker("ytai_PizzaYtancheio.sticker"))
-      _ = println(s"debug mediaSource: $mediaSource")
-      postMedia <- Resource.eval(dbMedia.getMedia("ytai_PizzaYtancheio.sticker", false))
-      _ = println(s"debug postMedia: $postMedia")
-      _            <- Resource.eval(dbRepository.registerSend(Sticker("ytai_PizzaYtancheio.sticker")))
-      sentMedia    <- Resource.eval(dbMedia.getMedia("ytai_PizzaYtancheio.sticker", false))
-      _            <- Resource.eval(dbMedia.decrementMediaCount("ytai_PizzaYtancheio.sticker"))
-      initialMedia <- Resource.eval(dbMedia.getMedia("ytai_PizzaYtancheio.sticker", false))
-    } yield {
-      // fetching the resources does not count, the send does
-      val assert1 = postMedia == preMedia && sentMedia == preMedia.map(x => x.copy(media_count = x.media_count + 1))
-      val assert2 = mediaSource == Right(
-        NonEmptyList.one(
-          MediaResource.MediaResourceIFile(
-            MediaSource.FileRef(
-              Platform.Telegram,
-              "CAACAgQAAxkBAAEC14Fnn4qAwqMd2BGYk0rsC5oTZvsMrAACzQEAAsMN4w3VywfrQeOnhTYE"
+  databaseFixture.test("DBRepository.getResourceFile on a TelegramSticker should return the expected content") {
+    fixture =>
+      val resourceAssert = for {
+        dbMedia  <- fixture.resourceDBLayer.map(_.dbMedia)
+        preMedia <- Resource.eval(dbMedia.getMedia("ytai_PizzaYtancheio.sticker", false))
+        _ = println(s"debug preMedia: $preMedia")
+        dbRepository <- fixture.repositoryResource
+        mediaSource  <- dbRepository.getResourceFile(TelegramSticker("ytai_PizzaYtancheio.sticker"))
+        _ = println(s"debug mediaSource: $mediaSource")
+        postMedia <- Resource.eval(dbMedia.getMedia("ytai_PizzaYtancheio.sticker", false))
+        _ = println(s"debug postMedia: $postMedia")
+        _            <- Resource.eval(dbRepository.registerSend(TelegramSticker("ytai_PizzaYtancheio.sticker")))
+        sentMedia    <- Resource.eval(dbMedia.getMedia("ytai_PizzaYtancheio.sticker", false))
+        _            <- Resource.eval(dbMedia.decrementMediaCount("ytai_PizzaYtancheio.sticker"))
+        initialMedia <- Resource.eval(dbMedia.getMedia("ytai_PizzaYtancheio.sticker", false))
+      } yield {
+        // fetching the resources does not count, the send does
+        val assert1 = postMedia == preMedia && sentMedia == preMedia.map(x => x.copy(media_count = x.media_count + 1))
+        val assert2 = mediaSource == Right(
+          NonEmptyList.one(
+            MediaResource.MediaResourceIFile(
+              MediaSource.FileRef(
+                Platform.Telegram,
+                "CAACAgQAAxkBAAEC14Fnn4qAwqMd2BGYk0rsC5oTZvsMrAACzQEAAsMN4w3VywfrQeOnhTYE"
+              )
             )
           )
         )
-      )
-      val assert3 = preMedia == initialMedia
-      if assert1 && assert2 && assert3 then ()
-      else println(s"[ITDBRepositorySpec:69] ERROR. $assert1 && $assert2 && $assert3")
-      assert1 && assert2 && assert3
-    }
-    resourceAssert.use(IO.pure).assert
+        val assert3 = preMedia == initialMedia
+        if assert1 && assert2 && assert3 then ()
+        else println(s"[ITDBRepositorySpec:69] ERROR. $assert1 && $assert2 && $assert3")
+        assert1 && assert2 && assert3
+      }
+      resourceAssert.use(IO.pure).assert
   }
 
   databaseFixture.test(

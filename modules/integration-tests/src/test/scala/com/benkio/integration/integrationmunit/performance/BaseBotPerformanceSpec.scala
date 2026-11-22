@@ -55,8 +55,14 @@ trait BaseBotPerformanceSpec extends CatsEffectSuite with DBFixture {
 
   private val testCapabilities: PlatformCapabilities = PlatformCapabilities(
     platform = Platform.Telegram,
-    supportedMedia =
-      Set(MediaKind.Audio, MediaKind.Video, MediaKind.Gif, MediaKind.Photo, MediaKind.Sticker, MediaKind.Document),
+    supportedMedia = Set(
+      MediaKind.Audio,
+      MediaKind.Video,
+      MediaKind.Gif,
+      MediaKind.Photo,
+      MediaKind.TelegramSticker,
+      MediaKind.Document
+    ),
     maxTextLength = 4096,
     markdown = MarkdownSupport.Native,
     supportsDelete = false,

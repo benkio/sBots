@@ -112,6 +112,21 @@ class KeyboardReplySpec extends FunSuite {
     }
   }
 
+  test("every item button has its own row, the pagination keeps a separate row") {
+    val medias   = (1 to 6).toList.map(n => Mp3File(s"m$n.mp3"))
+    val keyboard = KeyboardReply.toKeyboard(PagedList.topTwenty(medias, page = 0)).inlineKeyboard
+    assertEquals(keyboard.inlineKeyboard.take(5).map(_.size), List(1, 1, 1, 1, 1))
+    assertEquals(keyboard.inlineKeyboard.last.map(_.callbackData), List(Some("nextPage-toptwenty-0")))
+
+    val suggestions = KeyboardReply
+      .toKeyboard(
+        PagedList.triggerSuggestions("fransesimo", List("francesismo", "francofonia"))
+      )
+      .inlineKeyboard
+    assertEquals(suggestions.inlineKeyboard.take(2).map(_.size), List(1, 1))
+    assertEquals(suggestions.inlineKeyboard.last, List.empty[InlineKeyboardButton])
+  }
+
   test("keyboardOf gives the keyboard of a keyboard or of a paged list, and nothing for the other values") {
     val pagedList = PagedList.topTwenty(List(Mp3File("a.mp3")), page = 0)
     val keyboard  = KeyboardReply.toKeyboard(pagedList)

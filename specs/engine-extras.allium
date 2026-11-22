@@ -130,9 +130,10 @@ rule SubscriptionFireFails {
 }
 
 -- /triggersearch <input> first tries an exact trigger match; on a miss it returns the closest trigger when confidence
--- is high, otherwise a one-page keyboard of up to 5 candidate triggers (no pagination). On a platform without buttons
--- the candidates are written as text. Picking a candidate runs the trigger search again with that candidate as input,
--- so it gives the very same reply as typing /triggersearch <candidate>.
+-- is high, otherwise a one-page keyboard of up to 5 candidate triggers (no pagination). On platforms with buttons the
+-- candidates are numbered lines, each with its own pick button; without buttons they stay on one text line as
+-- "Did you mean: c1, c2?". Picking a candidate runs the trigger search again with that candidate as input, so it gives
+-- the very same reply as typing /triggersearch <candidate>.
 rule UserSearchesTriggers {
     when: UserSearchesTriggers(chat, bot, input)
     ensures: core/Reply.sent(chat: chat, reply: TriggerSearchResult(bot, input))

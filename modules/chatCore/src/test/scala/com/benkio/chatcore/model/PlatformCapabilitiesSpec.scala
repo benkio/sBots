@@ -24,7 +24,7 @@ class PlatformCapabilitiesSpec extends FunSuite {
       PhotoFile("a.jpg"),
       VideoFile("a.mp4"),
       Document("a.pdf"),
-      Sticker("a.sticker"),
+      TelegramSticker("a.sticker"),
       MarkdownFile("a.md")
     ).map(MediaKind.of)
     assertEquals(kinds, MediaKind.values.toList)

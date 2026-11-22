@@ -23,8 +23,6 @@ import telegramium.bots.Message as TMessage
 
 object KeyboardReply {
 
-  val maxButtonsPerRow: Int = 5
-
   def sendKeyboard[F[_]: Async: LogWriter: Api](
       reply: TelegramInlineKeyboard,
       msg: Message,
@@ -55,8 +53,8 @@ object KeyboardReply {
       )
   }
 
-  /** The paged list as the inline keyboard of Telegram: a button for every item of the page and the ones to move across
-    * the pages.
+  /** The paged list as the inline keyboard of Telegram: a button on its own row for every item of the page, then a row
+    * with the ones to move across the pages.
     */
   def toKeyboard(pagedList: PagedList): TelegramInlineKeyboard =
     TelegramInlineKeyboard(
@@ -81,12 +79,8 @@ object KeyboardReply {
       commandKey: CommandKey,
       perPage: Int = PagedList.defaultPageSize
   ): InlineKeyboardMarkup = {
-    val selectedData = data.slice(page * perPage, (page + 1) * perPage)
-    val itemRows     = selectedData
-      .flatMap(d => summon[ToInlineButton[A]].toInlineKeyboardButton(d))
-      .grouped(maxButtonsPerRow)
-      .map(_.toList)
-      .toList
+    val selectedData  = data.slice(page * perPage, (page + 1) * perPage)
+    val itemRows      = selectedData.flatMap(d => summon[ToInlineButton[A]].toInlineKeyboardButton(d).map(List(_)))
     val navigationRow = paginationButtons(
       page = page,
       perPage = perPage,

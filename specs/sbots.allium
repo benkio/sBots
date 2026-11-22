@@ -85,7 +85,8 @@ entity ProcessedMessage {
     processed_at: Timestamp
 }
 
--- A media file of a bot's catalogue (built by data entry, loaded by the catalogue job).
+-- A media file of a bot's catalogue (built by data entry, loaded by the catalogue job). The sticker kind is Telegram
+-- only: the other adapters never send it (their paged lists leave it out too).
 entity MediaFile {
     bot: Bot
     name: String                      -- prefixed with the bot id

@@ -12,7 +12,7 @@ import com.benkio.chatcore.model.reply.PhotoFile
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.ReplyValueCore
-import com.benkio.chatcore.model.reply.Sticker
+import com.benkio.chatcore.model.reply.TelegramSticker
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.VideoFile
 import com.benkio.chatcore.model.show.Show
@@ -64,18 +64,18 @@ trait Generators {
     ttl   <- Gen.option(Gen.finiteDuration)
     value <- Gen.alphaStr
   } yield Markdown(value = value, timeToLive = ttl)
-  val gifGen: Gen[GifFile]         = Gen.alphaStr.map(s => GifFile(s + "Gif.mp4"))
-  val mp3Gen: Gen[Mp3File]         = Gen.alphaStr.map(s => Mp3File(s + ".mp3"))
-  val photoGen: Gen[PhotoFile]     = Gen.alphaStr.map(s => PhotoFile(s + ".jpg"))
-  val videoGen: Gen[VideoFile]     = Gen.alphaStr.map(s => VideoFile(s + ".mp4"))
-  val stickerGen: Gen[Sticker]     = Gen.alphaStr.map(s => Sticker(s + ".sticker"))
-  val documentGen: Gen[Document]   = Gen.alphaStr.map(Document(_))
-  val mediaFileGen: Gen[MediaFile] = Gen.oneOf(
+  val gifGen: Gen[GifFile]                     = Gen.alphaStr.map(s => GifFile(s + "Gif.mp4"))
+  val mp3Gen: Gen[Mp3File]                     = Gen.alphaStr.map(s => Mp3File(s + ".mp3"))
+  val photoGen: Gen[PhotoFile]                 = Gen.alphaStr.map(s => PhotoFile(s + ".jpg"))
+  val videoGen: Gen[VideoFile]                 = Gen.alphaStr.map(s => VideoFile(s + ".mp4"))
+  val telegramStickerGen: Gen[TelegramSticker] = Gen.alphaStr.map(s => TelegramSticker(s + ".sticker"))
+  val documentGen: Gen[Document]               = Gen.alphaStr.map(Document(_))
+  val mediaFileGen: Gen[MediaFile]             = Gen.oneOf(
     gifGen,
     mp3Gen,
     photoGen,
     videoGen,
-    stickerGen,
+    telegramStickerGen,
     documentGen
   )
   val coreReplyValueCoreGen: Gen[ReplyValueCore] =

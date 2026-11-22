@@ -331,23 +331,24 @@ class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
   property("ReplyBundleMessage convenience constructors should build MediaReply payloads with ContainsOnce matcher") {
     val nonEmptyText = Gen.alphaNumStr.suchThat(_.nonEmpty)
     forAll(nonEmptyText) { (triggerText: String) =>
-      val videoBundle   = ReplyBundleMessage.textToVideo(triggerText)(VideoFile("clip.mp4"))
-      val mp3Bundle     = ReplyBundleMessage.textToMp3(triggerText)(Mp3File("track.mp3"))
-      val gifBundle     = ReplyBundleMessage.textToGif(triggerText)(GifFile("anim.Gif.mp4"))
-      val photoBundle   = ReplyBundleMessage.textToPhoto(triggerText)(PhotoFile("image.jpg"))
-      val stickerBundle = ReplyBundleMessage.textToSticker(triggerText)(Sticker("pack.sticker"))
+      val videoBundle           = ReplyBundleMessage.textToVideo(triggerText)(VideoFile("clip.mp4"))
+      val mp3Bundle             = ReplyBundleMessage.textToMp3(triggerText)(Mp3File("track.mp3"))
+      val gifBundle             = ReplyBundleMessage.textToGif(triggerText)(GifFile("anim.Gif.mp4"))
+      val photoBundle           = ReplyBundleMessage.textToPhoto(triggerText)(PhotoFile("image.jpg"))
+      val telegramStickerBundle =
+        ReplyBundleMessage.textToTelegramSticker(triggerText)(TelegramSticker("pack.sticker"))
 
       assertEquals(videoBundle.matcher, MessageMatches.ContainsOnce)
       assertEquals(mp3Bundle.matcher, MessageMatches.ContainsOnce)
       assertEquals(gifBundle.matcher, MessageMatches.ContainsOnce)
       assertEquals(photoBundle.matcher, MessageMatches.ContainsOnce)
-      assertEquals(stickerBundle.matcher, MessageMatches.ContainsOnce)
+      assertEquals(telegramStickerBundle.matcher, MessageMatches.ContainsOnce)
 
       assert(videoBundle.reply.isInstanceOf[MediaReply])
       assert(mp3Bundle.reply.isInstanceOf[MediaReply])
       assert(gifBundle.reply.isInstanceOf[MediaReply])
       assert(photoBundle.reply.isInstanceOf[MediaReply])
-      assert(stickerBundle.reply.isInstanceOf[MediaReply])
+      assert(telegramStickerBundle.reply.isInstanceOf[MediaReply])
     }
   }
 

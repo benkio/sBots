@@ -247,7 +247,7 @@ class ReplyValueSpec extends ScalaCheckSuite {
     assertEquals(MediaFile.fromString("animation.Gif.mp4"), GifFile("animation.Gif.mp4"))
     assertEquals(MediaFile.fromString("video.mp4"), VideoFile("video.mp4"))
     assertEquals(MediaFile.fromString("readme.md"), MarkdownFile("readme.md"))
-    assertEquals(MediaFile.fromString("note.sticker"), Sticker("note.sticker"))
+    assertEquals(MediaFile.fromString("note.sticker"), TelegramSticker("note.sticker"))
     assertEquals(MediaFile.fromString("document.txt"), Document("document.txt"))
   }
 
@@ -279,8 +279,8 @@ class ReplyValueSpec extends ScalaCheckSuite {
       GifFile("x.gif.mp4", false)
     )
     assertEquals(
-      MediaFile.fromMimeType(baseMedia.copy(mediaName = "x.sticker", mimeType = MimeType.STICKER)),
-      Sticker("x.sticker", false)
+      MediaFile.fromMimeType(baseMedia.copy(mediaName = "x.sticker", mimeType = MimeType.TELEGRAM_STICKER)),
+      TelegramSticker("x.sticker", false)
     )
     assertEquals(
       MediaFile.fromMimeType(baseMedia.copy(mediaName = "x.mp4", mimeType = MimeType.MP4)),
@@ -308,7 +308,7 @@ class ReplyValueSpec extends ScalaCheckSuite {
     assertEquals(pho"photo.jpg", PhotoFile("photo.jpg"))
     assertEquals(txt"hello world", Text("hello world"))
     assertEquals(doc"file.bin", Document("file.bin"))
-    assertEquals(sticker"emoji.sticker", Sticker("emoji.sticker"))
+    assertEquals(telegramSticker"emoji.sticker", TelegramSticker("emoji.sticker"))
   }
 
   test("ReplyValue.from should downcast to the requested ReplyValue subtype") {
@@ -323,8 +323,8 @@ class ReplyValueSpec extends ScalaCheckSuite {
         case videoFile: VideoFile       => assertEquals(ReplyValue.from[VideoFile](replyValue), Some(videoFile))
         case markdownFile: MarkdownFile =>
           assertEquals(ReplyValue.from[MarkdownFile](replyValue), Some(markdownFile))
-        case document: Document => assertEquals(ReplyValue.from[Document](replyValue), Some(document))
-        case sticker: Sticker   => assertEquals(ReplyValue.from[Sticker](replyValue), Some(sticker))
+        case document: Document       => assertEquals(ReplyValue.from[Document](replyValue), Some(document))
+        case sticker: TelegramSticker => assertEquals(ReplyValue.from[TelegramSticker](replyValue), Some(sticker))
       }
     }
   }
@@ -336,7 +336,7 @@ class ReplyValueSpec extends ScalaCheckSuite {
       assert(MediaFile.fromString(s"$prefix.png").isInstanceOf[PhotoFile])
       assert(MediaFile.fromString(s"${prefix}Gif.mp4").isInstanceOf[GifFile])
       assert(MediaFile.fromString(s"$prefix.md").isInstanceOf[MarkdownFile])
-      assert(MediaFile.fromString(s"$prefix.sticker").isInstanceOf[Sticker])
+      assert(MediaFile.fromString(s"$prefix.sticker").isInstanceOf[TelegramSticker])
       val videoName = if prefix.toLowerCase.endsWith("gif") then s"x$prefix.mp4" else s"$prefix.mp4"
       assert(MediaFile.fromString(videoName).isInstanceOf[VideoFile])
       assert(MediaFile.fromString(s"$prefix.bin").isInstanceOf[Document])
