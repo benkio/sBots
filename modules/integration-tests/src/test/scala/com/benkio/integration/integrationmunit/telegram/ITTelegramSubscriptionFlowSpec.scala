@@ -34,10 +34,11 @@ import com.benkio.chattelegramadapter.TelegramBackgroundJobManager
 import com.benkio.integration.DBFixture
 import com.benkio.integration.Logger.given
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
-import _root_.log.effect.LogWriter
 import munit.CatsEffectSuite
 
 import java.util.UUID
+
+import _root_.log.effect.LogWriter
 
 class ITTelegramSubscriptionFlowSpec extends CatsEffectSuite with DBFixture {
 
@@ -146,7 +147,13 @@ class ITTelegramSubscriptionFlowSpec extends CatsEffectSuite with DBFixture {
           ttl = sBotConfig.messageTimeToLive
         )
       )
-      adapter <- Resource.eval(recordingAdapter(backgroundJobManager, dbLayer, sBotConfig.messageTimeToLive))
+      adapter <- Resource.eval(
+        recordingAdapter(
+          backgroundJobManager = backgroundJobManager,
+          dbLayer = dbLayer,
+          ttl = sBotConfig.messageTimeToLive
+        )
+      )
       engine = new BotEngine[IO](
         sBotConfig = sBotConfig,
         dbLayer = dbLayer,
