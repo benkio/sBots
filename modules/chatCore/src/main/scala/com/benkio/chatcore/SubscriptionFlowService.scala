@@ -19,8 +19,8 @@ import scala.concurrent.duration.FiniteDuration
 sealed trait SubscriptionFlowOutcome
 
 object SubscriptionFlowOutcome {
-  final case class Prompt(value: SubscriptionFlowPrompt) extends SubscriptionFlowOutcome
-  final case class Message(value: ReplyValue)            extends SubscriptionFlowOutcome
+  final case class Prompt(value: SubscriptionFlowPrompt)                extends SubscriptionFlowOutcome
+  final case class Message(value: ReplyValue, terminal: Boolean = true) extends SubscriptionFlowOutcome
 }
 
 object SubscriptionFlowService {
@@ -72,6 +72,14 @@ final class SubscriptionFlowService[F[_]: Async](
 
   private val noEmit: SubscriptionFlowOutcome => F[Unit] = _ => ().pure[F]
 
+  private def isTerminal(outcome: SubscriptionFlowOutcome): Boolean = outcome match {
+    case SubscriptionFlowOutcome.Prompt(_)            => false
+    case SubscriptionFlowOutcome.Message(_, terminal) => terminal
+  }
+
+  private def clearDraftOnTerminal(key: SubscriptionFlowKey, outcome: SubscriptionFlowOutcome): F[Unit] =
+    if isTerminal(outcome) then store.remove(key) else ().pure[F]
+
   def start(
       msg: Message,
       requester: String,
@@ -88,6 +96,7 @@ final class SubscriptionFlowService[F[_]: Async](
               SubscriptionFlowOutcome.Message(error(SubscriptionFlowFailure.StoreFull, storeFullText))
           }
         }
+        .flatTap(outcome => clearDraftOnTerminal(key(msg, requester), outcome))
         .flatTap(emit)
     }
 
@@ -98,7 +107,9 @@ final class SubscriptionFlowService[F[_]: Async](
       emit: SubscriptionFlowOutcome => F[Unit] = noEmit
   ): F[SubscriptionFlowOutcome] =
     withKeyLock(key(msg, requester))(
-      submitLocked(msg = msg, action = action, requester = requester).flatTap(emit)
+      submitLocked(msg = msg, action = action, requester = requester)
+        .flatTap(outcome => clearDraftOnTerminal(key(msg, requester), outcome))
+        .flatTap(emit)
     )
 
   private def submitLocked(
@@ -111,7 +122,8 @@ final class SubscriptionFlowService[F[_]: Async](
         SubscriptionFlowOutcome.Message(error(SubscriptionFlowFailure.NoActiveFlow, noActiveFlowText)).pure[F]
       case Some(draft) if !isAllowed(draft, action) =>
         save(draft)(_ =>
-          SubscriptionFlowOutcome.Message(error(SubscriptionFlowFailure.InvalidAction, invalidActionText))
+          SubscriptionFlowOutcome
+            .Message(error(SubscriptionFlowFailure.InvalidAction, invalidActionText), terminal = false)
         )
       case Some(draft) => applyAction(msg = msg, draft = draft, action = action)
     }
@@ -144,6 +156,7 @@ final class SubscriptionFlowService[F[_]: Async](
             ).map(Some(_))
           case _ => none[SubscriptionFlowOutcome].pure[F]
         }
+        .flatTap(_.traverse_(outcome => clearDraftOnTerminal(key(msg, requester), outcome)))
         .flatTap(_.traverse_(emit))
     }
 
@@ -181,13 +194,15 @@ final class SubscriptionFlowService[F[_]: Async](
       case ChoosePreset =>
         action.preset.fold(
           save(draft)(_ =>
-            SubscriptionFlowOutcome.Message(error(SubscriptionFlowFailure.InvalidAction, invalidActionText))
+            SubscriptionFlowOutcome
+              .Message(error(SubscriptionFlowFailure.InvalidAction, invalidActionText), terminal = false)
           )
         )(preset => setSchedule(draft = draft, cron = preset.cron, dropOnInvalid = false))
       case EnterCron =>
         action.text.fold(
           save(draft)(_ =>
-            SubscriptionFlowOutcome.Message(error(SubscriptionFlowFailure.InvalidAction, invalidActionText))
+            SubscriptionFlowOutcome
+              .Message(error(SubscriptionFlowFailure.InvalidAction, invalidActionText), terminal = false)
           )
         )(cron => setSchedule(draft = draft, cron = cron, dropOnInvalid = true))
     }
@@ -206,18 +221,18 @@ final class SubscriptionFlowService[F[_]: Async](
       case Right(_) =>
         save(draft.copy(step = SubscriptionDraftStep.Target, schedule = Some(cron)))(prompt)
       case Left(reason) =>
-        val outcome = SubscriptionFlowOutcome.Message(
-          error(
-            SubscriptionFlowFailure.InvalidCron,
-            s"Invalid schedule: ${Option(reason.getMessage).getOrElse(reason.toString)}"
-          )
+        val reply = error(
+          SubscriptionFlowFailure.InvalidCron,
+          s"Invalid schedule: ${Option(reason.getMessage).getOrElse(reason.toString)}"
         )
-        if dropOnInvalid then store.remove(draft.key).as(outcome) else save(draft)(_ => outcome)
+        if dropOnInvalid then store.remove(draft.key).as(SubscriptionFlowOutcome.Message(reply, terminal = true))
+        else save(draft)(_ => SubscriptionFlowOutcome.Message(reply, terminal = false))
     }
 
   private def enterTarget(draft: SubscriptionDraft, text: String): F[SubscriptionFlowOutcome] =
     if text.length > SubscriptionRules.maxTargetLength then save(draft)(_ =>
-      SubscriptionFlowOutcome.Message(error(SubscriptionFlowFailure.TargetTooLong, targetTooLongText))
+      SubscriptionFlowOutcome
+        .Message(error(SubscriptionFlowFailure.TargetTooLong, targetTooLongText), terminal = false)
     )
     else {
       val target = Option.when(text.nonEmpty)(text)

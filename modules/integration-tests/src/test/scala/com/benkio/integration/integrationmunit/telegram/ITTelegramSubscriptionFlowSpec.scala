@@ -73,6 +73,9 @@ class ITTelegramSubscriptionFlowSpec extends CatsEffectSuite with DBFixture {
     override def run: IO[Unit]                                                              = IO.unit
     override def touchFlowPrompt(key: SubscriptionFlowKey)(using Applicative[IO]): IO[Unit] =
       touched.update(_ :+ key)
+
+    override def clearFlowPrompt(key: SubscriptionFlowKey)(using Applicative[IO]): IO[Unit] =
+      IO.unit
     override def send(replyValue: ReplyValue, message: Message, replyToMessage: Boolean): IO[Unit] =
       sent.update(_ :+ Sent(replyValue, message, replyToMessage))
     override def runEffectful(

@@ -69,8 +69,8 @@ class SubscriptionFlowSpec extends CatsEffectSuite {
 
   private def text(outcome: SubscriptionFlowOutcome): String =
     outcome match {
-      case SubscriptionFlowOutcome.Message(Text(value, _)) => value
-      case other                                           => fail(s"expected a text, got $other")
+      case SubscriptionFlowOutcome.Message(Text(value, _), _) => value
+      case other                                              => fail(s"expected a text, got $other")
     }
 
   private def emptyCreated: Ref[IO, List[SubscribeArguments]] =
@@ -325,15 +325,16 @@ class SubscriptionFlowSpec extends CatsEffectSuite {
       assertEquals(args.size, 1)
       assertEquals(
         results.count {
-          case SubscriptionFlowOutcome.Message(Text(value, _)) => value.contains("Subscription successfully scheduled.")
-          case _                                               => false
+          case SubscriptionFlowOutcome.Message(Text(value, _), _) =>
+            value.contains("Subscription successfully scheduled.")
+          case _ => false
         },
         1
       )
       assertEquals(
         results.count {
-          case SubscriptionFlowOutcome.Message(Text(value, _)) => value.contains("no_active_flow")
-          case _                                               => false
+          case SubscriptionFlowOutcome.Message(Text(value, _), _) => value.contains("no_active_flow")
+          case _                                                  => false
         },
         1
       )
@@ -434,6 +435,35 @@ class SubscriptionFlowSpec extends CatsEffectSuite {
         case Text(value, _) => value.contains("target_too_long")
         case _              => false
       })
+    }
+  }
+
+  test("terminal flow outcomes clear the draft from the in-memory store") {
+    val store   = SubscriptionDraftStore.create[IO](10.minutes, 10)
+    val created = emptyCreated
+    val flow    = service(store = store, created = created)
+    val msg     = message("/subscribe")
+    val key     = SubscriptionFlowKey(msg.chatId, sBotInfo.botId, "alice")
+
+    for {
+      _                <- flow.start(msg, "alice")
+      draftAfterStart  <- store.get(key)
+      _                <- flow.submit(msg, SubscriptionFlowAction.cancel, "alice")
+      draftAfterCancel <- store.get(key)
+      _                <- flow.start(msg.copy(messageId = Some(MessageId("2"))), "alice")
+      _                <- flow.submit(msg, SubscriptionFlowAction.chooseType(SubscriptionType.Show), "alice")
+      _                <- flow.submit(
+        msg,
+        SubscriptionFlowAction.choosePreset(SubscriptionSchedulePreset.EveryMinute),
+        "alice"
+      )
+      _                 <- flow.submit(msg, SubscriptionFlowAction.enterTarget("pino scotto"), "alice")
+      _                 <- flow.submit(msg, SubscriptionFlowAction.confirm, "alice")
+      draftAfterSuccess <- store.get(key)
+    } yield {
+      assert(draftAfterStart.isDefined, "draft should exist after start")
+      assertEquals(draftAfterCancel, None)
+      assertEquals(draftAfterSuccess, None)
     }
   }
 
