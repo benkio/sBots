@@ -64,7 +64,8 @@ object EffectfulKeyRunner {
           ignoreMessagePrefix = ignoreMessagePrefix,
           sBotInfo = sBotInfo,
           ttl = ttl,
-          replyBundleTransformation = replyBundleMessage => PagedList.triggers(msg, replyBundleMessage, page)
+          replyBundleTransformation = replyBundleMessage => PagedList.triggers(msg, replyBundleMessage, page),
+          log = Some(summon[LogWriter[F]])
         )
       )
     case EffectfulKey.Instructions(sBotInfo, instructionsUri) =>
