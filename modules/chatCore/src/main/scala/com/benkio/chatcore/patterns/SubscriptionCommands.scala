@@ -26,6 +26,7 @@ import com.benkio.chatcore.model.UnsubscribeArguments
 import com.benkio.chatcore.repository.db.*
 import com.benkio.chatcore.BackgroundJobManager
 import com.benkio.chatcore.SubscriptionKey
+import cron4s.expr.CronExpr
 import cron4s.lib.javatime.*
 import cron4s.syntax.all.*
 
@@ -177,6 +178,51 @@ object SubscriptionCommands {
           )
         )
 
+    /** The same text of the next occurrence for the one-shot command and the confirmation step of the guided flow. */
+    private[chatcore] def nextOccurrence(cron: CronExpr): String =
+      cron.next(LocalDateTime.now).fold("`Unknown next occurrence`")(date => s"`${date.toString}`")
+
+    /** The checks that both the one-shot command and the guided confirmation must pass before creating a subscription.
+      */
+    private[chatcore] def validateSubscriptionArguments(
+        arguments: SubscribeArguments
+    ): Either[Throwable, Unit] =
+      for {
+        _ <- Either.cond(
+          arguments.subscriptionType == SubscriptionType.Show || arguments.subscriptionType == SubscriptionType.Trigger,
+          (),
+          SubscriptionType.UnknownSubscriptionType(arguments.subscriptionType.asString)
+        )
+        _ <- SubscriptionRules.validateTarget(arguments.target)
+      } yield ()
+
+    /** Creates a subscription and returns the standard success reply, or the failure that a guided flow can explain.
+      * Nothing is written to the DB or scheduled when a check fails.
+      */
+    private[chatcore] def createSubscriptionReply[F[_]: Async](
+        backgroundJobManager: BackgroundJobManager[F],
+        dbMessageReplies: DBMessageReplies,
+        m: Message,
+        sBotInfo: SBotInfo,
+        arguments: SubscribeArguments
+    ): F[Either[Throwable, ReplyValue]] =
+      (for {
+        _            <- Async[F].fromEither(validateSubscriptionArguments(arguments))
+        _            <- validateTrigger[F](arguments = arguments, dbMessageReplies = dbMessageReplies, m = m)
+        subscription <- Subscription(
+          m.chatId,
+          sBotInfo.botId,
+          arguments.cron,
+          arguments.subscriptionType,
+          arguments.target
+        )
+        _ <- Async[F].fromEither(SubscriptionRules.validateInterval(subscription.cron, LocalDateTime.now))
+        _ <- backgroundJobManager.scheduleSubscription(subscription)
+        next = nextOccurrence(subscription.cron)
+      } yield Markdown(
+        s"Subscription successfully scheduled. Next occurrence of subscription is $next. Refer to this subscription with the ID: `${subscription.id}`"
+      ): ReplyValue).attempt
+
     def subscribeCommandLogic[F[_]: Async](
         backgroundJobManager: BackgroundJobManager[F],
         dbMessageReplies: DBMessageReplies,
@@ -187,23 +233,16 @@ object SubscriptionCommands {
     ): F[ReplyValue] = {
       val computation: String => F[ReplyValue] = (input: String) =>
         for {
-          arguments    <- Async[F].fromEither(SubscribeArguments.parse(input))
-          _            <- validateTrigger[F](arguments = arguments, dbMessageReplies = dbMessageReplies, m = m)
-          subscription <- Subscription(
-            m.chatId,
-            sBotInfo.botId,
-            arguments.cron,
-            arguments.subscriptionType,
-            arguments.target
+          arguments <- Async[F].fromEither(SubscribeArguments.parse(input))
+          result    <- createSubscriptionReply(
+            backgroundJobManager = backgroundJobManager,
+            dbMessageReplies = dbMessageReplies,
+            m = m,
+            sBotInfo = sBotInfo,
+            arguments = arguments
           )
-          _ <- Async[F].fromEither(SubscriptionRules.validateInterval(subscription.cron, LocalDateTime.now))
-          nextOccurrence = subscription.cron
-            .next(LocalDateTime.now)
-            .fold("`Unknown next occurrence`")(date => s"`${date.toString}`")
-          _ <- backgroundJobManager.scheduleSubscription(subscription)
-        } yield Markdown(
-          s"Subscription successfully scheduled. Next occurrence of subscription is $nextOccurrence. Refer to this subscription with the ID: `${subscription.id}`"
-        )
+          replyValue <- Async[F].fromEither(result)
+        } yield replyValue
       CommandPatterns.handleCommandWithInput[F](
         commandSyntax = commandSyntax,
         msg = m,

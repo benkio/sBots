@@ -58,7 +58,8 @@ final case class PlatformCapabilities(
     supportsEdit: Boolean,
     supportsButtons: Boolean,
     acceptsFileIds: Boolean,
-    commandSyntax: CommandSyntax
+    commandSyntax: CommandSyntax,
+    suppliesSenderId: Boolean = false
 ) {
   require(maxTextLength > 0, s"maxTextLength must be positive: $maxTextLength")
 

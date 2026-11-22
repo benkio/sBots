@@ -5,6 +5,7 @@ import cats.effect.Resource
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.http.HttpClients
 import com.benkio.chatcore.initialization.BotCoreSetup
+import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.mocks.FakePlatformAdapter
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandSyntax
@@ -69,7 +70,8 @@ trait BaseBotPerformanceSpec extends CatsEffectSuite with DBFixture {
     supportsEdit = false,
     supportsButtons = false,
     acceptsFileIds = true,
-    commandSyntax = CommandSyntax.Slash
+    commandSyntax = CommandSyntax.Slash,
+    suppliesSenderId = true
   )
 
   /** Override when the bot's SBotConfig needs custom path resolution (e.g. special layouts). */
@@ -115,7 +117,7 @@ trait BaseBotPerformanceSpec extends CatsEffectSuite with DBFixture {
       buildCore(fixture, sBotConfig).use { core =>
         for {
           adapter <- FakePlatformAdapter(capabilities = testCapabilities)
-          engine = BotEngine[IO](core.sBotConfig, core.dbLayer, Notifier.noop[IO])
+          engine = BotEngine[IO](core.sBotConfig, core.dbLayer, Notifier.noop[IO], BackgroundJobManagerMock.mock())
           start <- IO.monotonic
           _     <- engine.onMessage(message(pc.inputText))(using adapter)
           end   <- IO.monotonic

@@ -59,7 +59,8 @@ class RepositoryUsableForSpec extends CatsEffectSuite {
     supportsEdit = true,
     supportsButtons = true,
     acceptsFileIds = true,
-    commandSyntax = CommandSyntax.Slash
+    commandSyntax = CommandSyntax.Slash,
+    suppliesSenderId = true
   )
   private val withoutIds: PlatformCapabilities = withIds.copy(acceptsFileIds = false)
 

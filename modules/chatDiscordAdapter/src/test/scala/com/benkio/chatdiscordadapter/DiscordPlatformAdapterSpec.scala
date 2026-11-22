@@ -14,6 +14,7 @@ import com.benkio.chatcore.model.MessageId
 import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.Logger.given
+import com.benkio.chatcore.SubscriptionFlowPromptStore
 import com.benkio.chatdiscordadapter.outbound.DiscordApi
 import com.benkio.chatdiscordadapter.outbound.DiscordButtonLists
 import com.benkio.chatdiscordadapter.outbound.DiscordButtonMessage
@@ -53,7 +54,8 @@ class DiscordPlatformAdapterSpec extends CatsEffectSuite {
       dbLayer = DBLayerMock.mock(SBotId("bot")),
       ttl = None,
       startGateway = startGateway,
-      lists = new DiscordButtonLists[IO](Ref.unsafe(Map.empty), 1.minute, 10)
+      lists = new DiscordButtonLists[IO](Ref.unsafe(Map.empty), 1.minute, 10),
+      flowPrompts = SubscriptionFlowPromptStore.create[IO](1.minute, 10)
     )
 
   test("the adapter is the Discord platform") {

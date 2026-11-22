@@ -2,6 +2,7 @@ package com.benkio.chatcore
 
 import cats.effect.IO
 import com.benkio.chatcore.config.SBotConfig
+import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.FakePlatformAdapter
 import com.benkio.chatcore.model.reply.EffectfulKey
@@ -68,7 +69,8 @@ class BotEngineTextNavigationSpec extends CatsEffectSuite {
     dbLayer = DBLayerMock.mock(sBotInfo.botId, commandReplies = List(searchShowCommand)),
     filteringMatchesMessages = (_, _) => IO.pure(true),
     postComputation = _ => IO.unit,
-    notifier = Notifier.noop[IO]
+    notifier = Notifier.noop[IO],
+    backgroundJobManager = BackgroundJobManagerMock.mock()
   )
 
   // the paged list adapted to the platform without buttons: the text of the list, with the hint of how to move it

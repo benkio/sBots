@@ -49,7 +49,9 @@ object BotCoreSetup {
         requestProcessingTimeout = config.requestProcessingTimeout,
         startupCheck = config.startupCheck,
         pagedListTextModeExpiry = config.pagedListTextModeExpiry,
-        pagedListTextModeMaxChats = config.pagedListTextModeMaxChats
+        pagedListTextModeMaxChats = config.pagedListTextModeMaxChats,
+        subscriptionDraftExpiry = config.subscriptionDraftExpiry,
+        subscriptionDraftMaxDrafts = config.subscriptionDraftMaxDrafts
       )
       dropboxClient <- Resource.eval(DropboxClient[F](httpClient, config.httpCache.dropbox))
       megaClient    <- Resource.eval(MegaClient[F](httpClient))

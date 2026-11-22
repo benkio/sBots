@@ -54,7 +54,8 @@ object MessageConversions {
           m.newChatMembers.map((u: TelegramUser) => User(id = u.id, isBot = u.isBot, firstName = u.firstName)),
         leftChatMember =
           m.leftChatMember.map((u: TelegramUser) => User(id = u.id, isBot = u.isBot, firstName = u.firstName)),
-        isForward = m.forwardOrigin.nonEmpty
+        isForward = m.forwardOrigin.nonEmpty,
+        authorId = m.from.map(user => user.id.toString)
       )
   }
 

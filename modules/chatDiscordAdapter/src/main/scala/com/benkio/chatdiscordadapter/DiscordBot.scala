@@ -19,6 +19,7 @@ import com.benkio.chatcore.CronBackgroundJobManager
 import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.Notifier
 import com.benkio.chatcore.PagedListNavigation
+import com.benkio.chatcore.SubscriptionFlowPromptStore
 import com.benkio.chatdiscordadapter.gateway.DiscordGateway
 import com.benkio.chatdiscordadapter.gateway.DiscordGatewayConfig
 import com.benkio.chatdiscordadapter.gateway.DiscordToken
@@ -78,11 +79,15 @@ object DiscordBot {
         apiReady <- Deferred[F, DiscordApi[F]]
         random   <- Random.scalaUtilRandom[F]
         lists    <- DiscordButtonLists.create[F]()
-        engine = BotEngine[F](effectiveSBotConfig, core.dbLayer, notifier)
+        // the guided flow prompts are handles to the messages of the subscription setup: edited at every step
+        flowPrompts = SubscriptionFlowPromptStore.create[F](
+          effectiveSBotConfig.subscriptionDraftExpiry,
+          effectiveSBotConfig.subscriptionDraftMaxDrafts
+        )
         // the subscriptions send to a chat without a message to reply to, once the connection is up
         sendToChat = (chatId: com.benkio.chatcore.model.ChatId, replyValue: ReplyValue, replyToMessage: Boolean) =>
           apiReady.get.flatMap(api =>
-            DiscordReplies[F](api, repository, core.dbLayer, capabilities, lists)
+            DiscordReplies[F](api, repository, core.dbLayer, capabilities, lists, flowPrompts)
               .send(
                 replyValue,
                 Message(messageId = None, date = 0L, chatId = chatId, chatType = "private"),
@@ -100,6 +105,7 @@ object DiscordBot {
             notifier = notifier
           )
         }
+        engine = BotEngine[F](effectiveSBotConfig, core.dbLayer, notifier, backgroundJobManager)
         _ <- {
           lazy val adapter: DiscordPlatformAdapter[F] = new DiscordPlatformAdapter[F](
             discordApi = apiReady.get,
@@ -109,7 +115,8 @@ object DiscordBot {
             dbLayer = core.dbLayer,
             ttl = effectiveSBotConfig.messageTimeToLive,
             startGateway = startGateway,
-            lists = lists
+            lists = lists,
+            flowPrompts = flowPrompts
           )
           // deferred: the listener needs the adapter, which needs this
           def startGateway: F[Unit] = Async[F].defer {
@@ -142,7 +149,10 @@ object DiscordBot {
                         ttl = effectiveSBotConfig.messageTimeToLive,
                         capabilities = capabilities
                       ),
-                    replies = (replyValue, request) => adapter.send(replyValue, request, replyToMessage = false)
+                    replies = (replyValue, request) => adapter.send(replyValue, request, replyToMessage = false),
+                    flowPrompts = flowPrompts,
+                    onFlowAction =
+                      (msg, action, requester) => engine.onSubscriptionFlowAction(msg, action, requester)(using adapter)
                   ).decide(press)
                 )
             )

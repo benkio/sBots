@@ -19,7 +19,9 @@ import com.benkio.chatcore.BotEngine
 import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.Notifier
 import com.benkio.chatcore.PlatformAdapter
+import com.benkio.chatcore.SubscriptionFlowPromptStore
 import com.benkio.chattelegramadapter.conversions.MessageConversions.*
+import com.benkio.chattelegramadapter.http.telegramreply.callbackreply.SubscriptionFlowCallbackReply
 import com.benkio.chattelegramadapter.http.telegramreply.callbackreply.TelegramCallbackReply
 import com.benkio.chattelegramadapter.http.TelegramCallbackAnswer
 import com.benkio.chattelegramadapter.http.TelegramChatInfo
@@ -86,6 +88,10 @@ trait ISBot[F[_]: Async: LogWriter] {
 
   val commandEffectfulCallback: Map[String, EffectfulCallback[F]] = Map.empty
 
+  /** The prompt messages of the guided `/subscribe` flow expire and are bounded like its drafts. */
+  lazy val flowPrompts: SubscriptionFlowPromptStore[F] =
+    SubscriptionFlowPromptStore.create[F](sBotConfig.subscriptionDraftExpiry, sBotConfig.subscriptionDraftMaxDrafts)
+
   // The logic of the bot is platform agnostic: this is only the Telegram shell around it ////////////////////////
 
   lazy val engine: BotEngine[F] = new BotEngine[F](
@@ -93,7 +99,8 @@ trait ISBot[F[_]: Async: LogWriter] {
     dbLayer = dbLayer,
     filteringMatchesMessages = filteringMatchesMessages,
     postComputation = postComputation,
-    notifier = sBotSetup.notifier
+    notifier = sBotSetup.notifier,
+    backgroundJobManager = backgroundJobManager
   )
 
   def messageRepliesData: List[ReplyBundleMessage]    = engine.messageRepliesData
@@ -113,7 +120,8 @@ trait ISBot[F[_]: Async: LogWriter] {
       effectfulCallbacks = commandEffectfulCallback,
       dbLayer = dbLayer,
       ttl = sBotConfig.messageTimeToLive,
-      startUpdates = startUpdates
+      startUpdates = startUpdates,
+      flowPrompts = flowPrompts
     )(using summon[Async[F]], summon[LogWriter[F]], api, sBotSetup.notifier)
 
   def messageLogic(msg: ModelMessage): F[Unit] =
@@ -145,9 +153,20 @@ trait ISBot[F[_]: Async: LogWriter] {
   }
 
   private def handleCallback(query: CallbackQuery, data: String)(using Api[F], Notifier[F]): F[Unit] =
-    TelegramCallbackData.decode(data) match {
-      case None         => TelegramCallbackAnswer.reject(query.id, "This button is not valid.")
-      case Some(action) => answerAndReply(query, action)
+    TelegramCallbackData.decodeFlow(data) match {
+      case Some(action) =>
+        SubscriptionFlowCallbackReply.reply[F](
+          query = query,
+          action = action,
+          flowPrompts = flowPrompts,
+          submitAction =
+            (msg, action, requester) => engine.onSubscriptionFlowAction(msg, action, requester)(using platformAdapter)
+        )
+      case None =>
+        TelegramCallbackData.decode(data) match {
+          case None         => TelegramCallbackAnswer.reject(query.id, "This button is not valid.")
+          case Some(action) => answerAndReply(query, action)
+        }
     }
 
   private def answerAndReply(query: CallbackQuery, callbackData: PagedListAction)(using

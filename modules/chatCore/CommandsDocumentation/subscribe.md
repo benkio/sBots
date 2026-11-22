@@ -26,6 +26,19 @@ Crea una sottoscrizione periodica per la chat corrente. A ogni esecuzione pianif
 - Ogni giorno alle 09:30, la risposta al trigger "buongiorno": `/subscribe 0 30 9 * * ? trigger buongiorno`
 - Ogni giorno alle 09:30, una risposta casuale del bot: `/subscribe 0 30 9 * * ? trigger`
 
+### Procedura guidata (Telegram e Discord)
+
+- `/subscribe` senza argomenti avvia la procedura guidata: il bot mostra un messaggio con pulsanti che viene aggiornato a ogni passaggio.
+- Passaggi: tipo (`show` o `trigger`) → pianificazione (preset oppure un cron di 6 campi scritto direttamente) → target (testo libero oppure `random`) → conferma.
+- `back` torna al passaggio precedente e cancella la scelta fatta; non è disponibile al primo passaggio. `cancel` è disponibile sempre e interrompe tutto.
+- Ogni risposta o rifiuto fa ripartire il tempo di inattività: la bozza scade dopo 10 minuti, senza altri messaggi. Il primo messaggio indica il limite.
+- Esiste una sola bozza per chat, bot e utente: un altro `/subscribe` senza argomenti la sostituisce. Utenti diversi nella stessa chat hanno bozze separate.
+- Solo chi ha avviato la procedura può usare i pulsanti: gli altri ricevono una risposta privata e non modificano la bozza.
+- Se troppe procedure sono aperte, non viene eliminata nessuna bozza: la richiesta viene rifiutata con il suggerimento di usare il comando in una riga oppure di riprovare più tardi.
+- Un cron scritto a mano non valido chiude la procedura. Se la conferma fallisce, la bozza viene chiusa e il messaggio spiega il motivo e mostra il comando in una riga già pronto.
+- La conferma crea la sottoscrizione esattamente come il comando in una riga, con lo stesso ID e la stessa prossima esecuzione.
+- Su IRC non esiste la procedura guidata: `/subscribe` senza argomenti mostra il solito errore di utilizzo.
+
 ### Limiti
 
 - Intervallo minimo tra due esecuzioni: 1 minuto. Un cron che scatta più spesso viene rifiutato.
@@ -64,6 +77,19 @@ Create a periodic subscription for the current chat. On each scheduled execution
 - Every day at 09:30, one specific show: `/subscribe 0 30 9 * * ? show <show ID>`
 - Every day at 09:30, the reply to the trigger "buongiorno": `/subscribe 0 30 9 * * ? trigger buongiorno`
 - Every day at 09:30, a random reply of the bot: `/subscribe 0 30 9 * * ? trigger`
+
+### Guided setup (Telegram and Discord)
+
+- Bare `/subscribe` starts a guided setup: the bot shows a message with buttons that is edited in place at every step.
+- Steps: type (`show` or `trigger`) → schedule (a preset or a typed 6-field cron) → target (free text or `random`) → confirm.
+- `back` goes to the previous step and clears the choice made there; it is not offered at the first step. `cancel` is always available and stops the setup.
+- Every answer or rejection restarts the idle timer: a draft expires after 10 minutes, silently. The first prompt states the time limit.
+- There is one draft per chat, bot and user: another bare `/subscribe` replaces it. Different users in the same chat have separate drafts.
+- Only who started the setup can use its buttons: anyone else gets a private answer and cannot change the draft.
+- When too many setups are open, no draft is evicted: the new one is declined, with the one-line command suggested and a hint to wait and retry.
+- An invalid typed cron ends the setup. If confirmation fails, the draft is dropped and the reply explains why and shows the ready-to-run one-line command.
+- Confirmation creates the subscription exactly as the one-line command does, with the same ID and next occurrence.
+- On IRC there is no guided setup: bare `/subscribe` keeps the usual usage error.
 
 ### Limits
 

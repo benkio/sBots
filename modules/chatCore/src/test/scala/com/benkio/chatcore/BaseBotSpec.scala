@@ -4,6 +4,7 @@ import cats.effect.IO
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.messagefiltering.MessageMatches
+import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.model.media.MediaFileSource
 import com.benkio.chatcore.model.media.MediaSource
 import com.benkio.chatcore.model.reply.*
@@ -47,7 +48,7 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
   )(using LogWriter[IO]): IO[BotEngine[IO]] =
     DBLayer
       .loadReplies[IO](dbLayer, JsonDataRepository[IO](), sBotConfig)
-      .map(BotEngine[IO](sBotConfig, _, Notifier.noop[IO]))
+      .map(BotEngine[IO](sBotConfig, _, Notifier.noop[IO], BackgroundJobManagerMock.mock()))
 
   private def triggerFileContentForSearch(triggerContent: String): String =
     triggerContent.replace("""\|""", "|")

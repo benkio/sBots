@@ -12,10 +12,14 @@ import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Platform
+import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.model.SubscriptionFlowKey
 import com.benkio.chatcore.Logger.given
+import com.benkio.chatcore.SubscriptionFlowPromptStore
 import munit.CatsEffectSuite
 
 import java.nio.file.Path
+import scala.concurrent.duration.*
 
 class DiscordButtonHandlerSpec extends CatsEffectSuite {
 
@@ -38,14 +42,18 @@ class DiscordButtonHandlerSpec extends CatsEffectSuite {
   private case class Fixture(
       handler: DiscordButtonHandler[IO],
       calls: Ref[IO, List[String]],
-      lists: DiscordButtonLists[IO]
+      lists: DiscordButtonLists[IO],
+      actions: Ref[IO, List[String]]
   )
 
   private def fixture: IO[Fixture] =
     for {
-      calls <- Ref.of[IO, List[String]](List.empty)
-      lists <- DiscordButtonLists.create[IO]()
-      _     <- lists.put("m1", DiscordButtonList(Some("alice"), request, pagedList(0)))
+      calls   <- Ref.of[IO, List[String]](List.empty)
+      actions <- Ref.of[IO, List[String]](List.empty)
+      lists   <- DiscordButtonLists.create[IO]()
+      _       <- lists.put("m1", DiscordButtonList(Some("alice"), request, pagedList(0)))
+      flowPrompts = SubscriptionFlowPromptStore.create[IO](1.minute, 10)
+      _ <- flowPrompts.put(SubscriptionFlowKey(request.chatId, SBotId("bot"), "alice"), "prompt1", "alice")
       handler = new DiscordButtonHandler[IO](
         api = new RecordingApi(calls),
         lists = lists,
@@ -54,9 +62,11 @@ class DiscordButtonHandlerSpec extends CatsEffectSuite {
             newPage(action)
               .fold[ReplyValue](Text(s"picked $action"))(page => pagedList(page))
           ),
-        replies = (value, _) => calls.update(_ :+ s"reply:$value")
+        replies = (value, _) => calls.update(_ :+ s"reply:$value"),
+        flowPrompts = flowPrompts,
+        onFlowAction = (msg, action, owner) => actions.update(_ :+ s"${msg.chatId.id}:$owner:${action.kind.asString}")
       )
-    } yield Fixture(handler, calls, lists)
+    } yield Fixture(handler, calls, lists, actions)
 
   private def newPage(action: PagedListAction): Option[Int] =
     com.benkio.chatcore.PagedListNavigation.newPage(action)
@@ -108,6 +118,46 @@ class DiscordButtonHandlerSpec extends CatsEffectSuite {
     } yield {
       assertEquals(d.left.toOption, Some(f.handler.notYours))
       assertEquals(calls, List.empty)
+    }
+  }
+
+  private def flowPress(user: String, id: String, messageId: String = "prompt1"): DiscordButtonPress =
+    DiscordButtonPress("9", messageId, user, id)
+
+  test("a flow press by the owner submits a neutral action and nothing else") {
+    for {
+      f       <- fixture
+      d       <- f.handler.decide(flowPress(user = "alice", id = "flow-confirm"))
+      _       <- d.toOption.get
+      calls   <- f.calls.get
+      actions <- f.actions.get
+    } yield {
+      assertEquals(calls, List.empty)
+      assertEquals(actions, List("9:alice:confirm"))
+    }
+  }
+
+  test("a flow press by another user is rejected privately and reaches no action") {
+    for {
+      f       <- fixture
+      d       <- f.handler.decide(flowPress(user = "bob", id = "flow-confirm"))
+      actions <- f.actions.get
+      calls   <- f.calls.get
+    } yield {
+      assertEquals(d.left.toOption, Some(f.handler.flowNotYours))
+      assertEquals(actions, List.empty)
+      assertEquals(calls, List.empty)
+    }
+  }
+
+  test("a press on an expired prompt and an invalid flow button get a clear answer") {
+    for {
+      f     <- fixture
+      gone  <- f.handler.decide(flowPress(user = "alice", id = "flow-confirm", messageId = "other"))
+      wrong <- f.handler.decide(flowPress(user = "alice", id = "flow-nonsense"))
+    } yield {
+      assertEquals(gone.left.toOption, Some(f.handler.promptGone))
+      assertEquals(wrong.left.toOption, Some(f.handler.unknownButton))
     }
   }
 

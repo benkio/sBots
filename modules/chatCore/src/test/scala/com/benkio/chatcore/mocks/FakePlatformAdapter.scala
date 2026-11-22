@@ -60,7 +60,8 @@ object FakePlatformAdapter {
     supportsEdit = false,
     supportsButtons = false,
     acceptsFileIds = false,
-    commandSyntax = CommandSyntax(prefix = "!")
+    commandSyntax = CommandSyntax(prefix = "!"),
+    suppliesSenderId = false
   )
 
   def apply(

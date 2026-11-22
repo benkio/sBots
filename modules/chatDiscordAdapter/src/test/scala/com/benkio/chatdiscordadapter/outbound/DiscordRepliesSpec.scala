@@ -16,9 +16,15 @@ import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageId
 import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.model.SubscriptionDraftStep
+import com.benkio.chatcore.model.SubscriptionFlowAction
+import com.benkio.chatcore.model.SubscriptionFlowButton
+import com.benkio.chatcore.model.SubscriptionFlowKey
+import com.benkio.chatcore.model.SubscriptionFlowPrompt
 import com.benkio.chatcore.repository.db.DBMediaData
 import com.benkio.chatcore.repository.Repository.RepositoryError
 import com.benkio.chatcore.Logger.given
+import com.benkio.chatcore.SubscriptionFlowPromptStore
 import com.benkio.chatdiscordadapter.model.DiscordCapabilities
 import com.benkio.chatdiscordadapter.model.DiscordLimits
 import munit.CatsEffectSuite
@@ -57,7 +63,7 @@ class DiscordRepliesSpec extends CatsEffectSuite {
         )
         .as("sent3")
     override def editButtons(channelId: String, messageId: String, message: DiscordButtonMessage) =
-      IO.unit
+      calls.update(_ :+ s"edit:$messageId:${message.rows.map(_.map(_.label).mkString(",")).mkString("|")}")
   }
 
   private def tempFile(content: String): Path = {
@@ -90,14 +96,16 @@ class DiscordRepliesSpec extends CatsEffectSuite {
       calls    <- Ref.of[IO, List[String]](List.empty)
       notifier <- NotifierMock.recording
       lists    <- DiscordButtonLists.create[IO]()
-      replies = {
+      flowPrompts = SubscriptionFlowPromptStore.create[IO](1.minute, 10)
+      replies     = {
         given com.benkio.chatcore.Notifier[IO] = notifier
         DiscordReplies[IO](
           new RecordingApi(calls),
           repository,
           DBLayerMock.mock(botId, medias = medias),
           DiscordCapabilities.value,
-          lists
+          lists,
+          flowPrompts
         )
       }
       _      <- replies.send(value, msg, replyToMessage)
@@ -229,6 +237,47 @@ class DiscordRepliesSpec extends CatsEffectSuite {
       assertEquals(calls, List.empty)
       assertEquals(errors.map(_.mediaFile), List(Mp3File("bot_song.mp3")))
     })
+  }
+
+  private def promptFixture: IO[(Ref[IO, List[String]], SubscriptionFlowPromptStore[IO], DiscordReplies[IO])] =
+    for {
+      calls    <- Ref.of[IO, List[String]](List.empty)
+      lists    <- DiscordButtonLists.create[IO]()
+      notifier <- NotifierMock.recording
+      store   = SubscriptionFlowPromptStore.create[IO](1.minute, 10)
+      replies = {
+        given com.benkio.chatcore.Notifier[IO] = notifier
+        DiscordReplies[IO](
+          new RecordingApi(calls),
+          new RepositoryMock(),
+          DBLayerMock.mock(botId),
+          DiscordCapabilities.value,
+          lists,
+          store
+        )
+      }
+    } yield (calls, store, replies)
+
+  private def flowPrompt(step: SubscriptionDraftStep, label: String): SubscriptionFlowPrompt =
+    SubscriptionFlowPrompt(
+      key = SubscriptionFlowKey(message.chatId, botId, "alice"),
+      step = step,
+      text = s"step $step",
+      buttons = List(List(SubscriptionFlowButton(label, SubscriptionFlowAction.confirm)))
+    )
+
+  test("a subscription prompt is sent with buttons and its next step edits the same message") {
+    for {
+      (calls, store, replies) <- promptFixture
+      _                       <- replies.send(flowPrompt(SubscriptionDraftStep.Type, "show"), message, false)
+      _                       <- replies.send(flowPrompt(SubscriptionDraftStep.Confirm, "confirm"), message, false)
+      done                    <- calls.get
+      handle                  <- store.byKey(SubscriptionFlowKey(message.chatId, botId, "alice"))
+    } yield {
+      assertEquals(done, List("buttons:999:show:-", "edit:sent3:confirm"))
+      assertEquals(handle.map(_.messageId), Some("sent3"))
+      assertEquals(handle.map(_.owner), Some("alice"))
+    }
   }
 
   test("a markdown file is sent as text, split to the limit, replying only with the first part") {

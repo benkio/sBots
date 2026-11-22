@@ -13,6 +13,7 @@ import com.benkio.chatcore.ComputeReply
 import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.Notifier
 import com.benkio.chatcore.PlatformAdapter
+import com.benkio.chatcore.SubscriptionFlowPromptStore
 import com.benkio.chatdiscordadapter.model.DiscordCapabilities
 import com.benkio.chatdiscordadapter.outbound.DiscordApi
 import com.benkio.chatdiscordadapter.outbound.DiscordButtonLists
@@ -28,6 +29,8 @@ import scala.concurrent.duration.FiniteDuration
   *   after the connection
   * @param lists
   *   the lists with buttons that are on the channels, shared with the handler of the buttons
+  * @param flowPrompts
+  *   the guided subscription prompts on the channels, shared with the handler of the buttons
   * @param startGateway
   *   connects to the gateway and delivers the messages to the engine, until the connection ends
   */
@@ -39,7 +42,8 @@ class DiscordPlatformAdapter[F[_]: Async: LogWriter: Notifier](
     dbLayer: DBLayer[F],
     ttl: Option[FiniteDuration],
     startGateway: F[Unit],
-    lists: DiscordButtonLists[F]
+    lists: DiscordButtonLists[F],
+    flowPrompts: SubscriptionFlowPromptStore[F]
 ) extends PlatformAdapter[F] {
 
   override val capabilities: PlatformCapabilities = DiscordCapabilities.value
@@ -50,7 +54,11 @@ class DiscordPlatformAdapter[F[_]: Async: LogWriter: Notifier](
 
   override def send(replyValue: ReplyValue, message: Message, replyToMessage: Boolean): F[Unit] =
     discordApi.flatMap(api =>
-      DiscordReplies[F](api, usableRepository, dbLayer, capabilities, lists).send(replyValue, message, replyToMessage)
+      DiscordReplies[F](api, usableRepository, dbLayer, capabilities, lists, flowPrompts).send(
+        replyValue,
+        message,
+        replyToMessage
+      )
     )
 
   override def runEffectful(

@@ -1,6 +1,9 @@
 package com.benkio.chattelegramadapter.model
 
 import com.benkio.chatcore.model.reply.PagedListAction
+import com.benkio.chatcore.model.SubscriptionFlowAction
+import com.benkio.chatcore.model.SubscriptionSchedulePreset
+import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chattelegramadapter.Arbitraries.given
 import com.benkio.chattelegramadapter.Generators.mediaCallbackPayloadGen
 import munit.ScalaCheckSuite
@@ -62,5 +65,28 @@ class TelegramCallbackDataSpec extends ScalaCheckSuite {
       TelegramCallbackData.decode("show-abc-123|1m2s"),
       Some(PagedListAction.Show("abc-123", Some("1m2s")))
     )
+  }
+
+  test("decodeFlow decodes every guided-flow button id") {
+    val actions = List(
+      SubscriptionFlowAction.back,
+      SubscriptionFlowAction.cancel,
+      SubscriptionFlowAction.confirm,
+      SubscriptionFlowAction.chooseType(SubscriptionType.Show),
+      SubscriptionFlowAction.chooseType(SubscriptionType.Trigger),
+      SubscriptionFlowAction.choosePreset(SubscriptionSchedulePreset.Hourly),
+      SubscriptionFlowAction.enterTarget("")
+    )
+    actions.foreach { action =>
+      val id = SubscriptionFlowAction.toId(action).get
+      assertEquals(TelegramCallbackData.decodeFlow(id), Some(action))
+      assertEquals(TelegramCallbackData.decode(id), None)
+    }
+  }
+
+  test("decodeFlow rejects ids that are not guided-flow button ids") {
+    List("media-x", "flow-unknown", "flow-preset-nope", "flow-" + ("x" * 120)).foreach { id =>
+      assertEquals(TelegramCallbackData.decodeFlow(id), None)
+    }
   }
 }

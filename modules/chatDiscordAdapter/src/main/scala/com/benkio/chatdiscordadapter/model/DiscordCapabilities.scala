@@ -24,6 +24,7 @@ object DiscordCapabilities {
     supportsEdit = true,
     supportsButtons = true,
     acceptsFileIds = false,
-    commandSyntax = CommandSyntax(prefix = "/")
+    commandSyntax = CommandSyntax(prefix = "/"),
+    suppliesSenderId = true
   )
 }

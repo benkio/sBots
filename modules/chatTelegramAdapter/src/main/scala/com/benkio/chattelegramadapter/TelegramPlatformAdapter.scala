@@ -13,6 +13,7 @@ import com.benkio.chatcore.ComputeReply
 import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chatcore.Notifier
 import com.benkio.chatcore.PlatformAdapter
+import com.benkio.chatcore.SubscriptionFlowPromptStore
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.TelegramMessageReply
 import com.benkio.chattelegramadapter.model.TelegramCapabilities
 import log.effect.LogWriter
@@ -32,7 +33,8 @@ class TelegramPlatformAdapter[F[_]: Async: LogWriter: Api: Notifier](
     effectfulCallbacks: Map[String, EffectfulCallback[F]],
     dbLayer: DBLayer[F],
     ttl: Option[FiniteDuration],
-    startUpdates: F[Unit]
+    startUpdates: F[Unit],
+    flowPrompts: SubscriptionFlowPromptStore[F]
 ) extends PlatformAdapter[F] {
 
   override val capabilities: PlatformCapabilities = TelegramCapabilities.value
@@ -47,7 +49,8 @@ class TelegramPlatformAdapter[F[_]: Async: LogWriter: Api: Notifier](
         replyValue = replyValue,
         msg = message,
         repository = usableRepository,
-        replyToMessage = replyToMessage
+        replyToMessage = replyToMessage,
+        flowPrompts = Some(flowPrompts)
       )
       .void
 

@@ -15,8 +15,10 @@ import com.benkio.chatcore.model.reply.ReplyValueCore
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Platform
+import com.benkio.chatcore.model.SubscriptionFlowPrompt
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.Notifier
+import com.benkio.chatcore.SubscriptionFlowPromptStore
 import com.benkio.chattelegramadapter.conversions.MediaResourceConversions.*
 import com.benkio.chattelegramadapter.conversions.MessageConversions.toModel
 import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
@@ -151,7 +153,8 @@ object TelegramMessageReply {
       replyValue: ReplyValue,
       msg: Message,
       repository: Repository[F],
-      replyToMessage: Boolean
+      replyToMessage: Boolean,
+      flowPrompts: Option[SubscriptionFlowPromptStore[F]] = None
   ): F[List[TMessage]] = replyValue match {
     case core: ReplyValueCore =>
       core match {
@@ -190,6 +193,12 @@ object TelegramMessageReply {
         msg = msg,
         replyToMessage = replyToMessage
       )
+    case prompt: SubscriptionFlowPrompt =>
+      flowPrompts.fold(
+        LogWriter.warn(
+          s"[TelegramMessageReply] No prompt store for the guided flow prompt (${prompt.step.asString}); sending nothing"
+        ) *> List.empty[TMessage].pure[F]
+      )(store => SubscriptionFlowPromptReply.send(prompt, msg, replyToMessage, store))
     case other =>
       LogWriter
         .warn(

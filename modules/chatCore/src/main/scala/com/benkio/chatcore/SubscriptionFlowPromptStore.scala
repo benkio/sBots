@@ -1,0 +1,93 @@
+package com.benkio.chatcore
+
+import cats.effect.Clock
+import cats.syntax.all.*
+import cats.Monad
+import com.benkio.chatcore.model.SubscriptionFlowKey
+
+import java.util.concurrent.atomic.AtomicReference
+import scala.concurrent.duration.FiniteDuration
+
+/** The prompt message an adapter is showing for a guided subscription draft. The adapter needs it twice: to edit the
+  * same message at the next step, and to check that the user pressing a button is the owner of the draft.
+  */
+final case class SubscriptionFlowPromptHandle(
+    key: SubscriptionFlowKey,
+    messageId: String,
+    owner: String,
+    savedAt: FiniteDuration
+)
+
+/** The prompt handles of an adapter, in memory and bounded. Entries expire with the draft idle timeout: after that a
+  * press on the old message is answered by the adapter as a prompt that is not available anymore. When the bound is
+  * reached the oldest handle is dropped, since a prompt is only a handle to a message already on the platform.
+  */
+final class SubscriptionFlowPromptStore[F[_]: Monad: Clock](expiry: FiniteDuration, maxPrompts: Int) {
+
+  private final case class State(
+      byKey: Map[SubscriptionFlowKey, SubscriptionFlowPromptHandle] = Map.empty,
+      byMessageId: Map[String, SubscriptionFlowPromptHandle] = Map.empty
+  )
+
+  private val state = AtomicReference[State](State())
+
+  private def expired(handle: SubscriptionFlowPromptHandle, now: FiniteDuration): Boolean =
+    now - handle.savedAt >= expiry
+
+  private def live(current: State, now: FiniteDuration): State = {
+    val handles = current.byKey.values.filterNot(handle => expired(handle, now)).toList
+    State(handles.map(h => h.key -> h).toMap, handles.map(h => h.messageId -> h).toMap)
+  }
+
+  private def bounded(current: State): State =
+    if current.byKey.size <= maxPrompts then current
+    else {
+      val oldest = current.byKey.values.toList.sortBy(_.savedAt).head
+      State(current.byKey - oldest.key, current.byMessageId - oldest.messageId)
+    }
+
+  def put(key: SubscriptionFlowKey, messageId: String, owner: String): F[Unit] =
+    Clock[F].realTime.flatMap { now =>
+      state.updateAndGet { previous =>
+        val current  = live(previous, now)
+        val handle   = SubscriptionFlowPromptHandle(key, messageId, owner, now)
+        val staleIds = current.byKey.get(key).map(_.messageId).toList
+        bounded(
+          State(
+            byKey = current.byKey.updated(key, handle),
+            byMessageId = (current.byMessageId -- (messageId :: staleIds)).updated(messageId, handle)
+          )
+        )
+      }
+      Monad[F].unit
+    }
+
+  def byKey(key: SubscriptionFlowKey): F[Option[SubscriptionFlowPromptHandle]] =
+    Clock[F].realTime.map { now =>
+      state.updateAndGet(current => live(current, now)).byKey.get(key)
+    }
+
+  def byMessageId(messageId: String): F[Option[SubscriptionFlowPromptHandle]] =
+    Clock[F].realTime.map { now =>
+      state.updateAndGet(current => live(current, now)).byMessageId.get(messageId)
+    }
+
+  def remove(key: SubscriptionFlowKey): F[Unit] =
+    Clock[F].realTime.flatMap { now =>
+      state.updateAndGet { previous =>
+        val current = live(previous, now)
+        val stale   = current.byKey.get(key)
+        State(
+          byKey = current.byKey - key,
+          byMessageId = stale.fold(current.byMessageId)(h => current.byMessageId - h.messageId)
+        )
+      }
+      Monad[F].unit
+    }
+}
+
+object SubscriptionFlowPromptStore {
+
+  def create[F[_]: Monad: Clock](expiry: FiniteDuration, maxPrompts: Int): SubscriptionFlowPromptStore[F] =
+    new SubscriptionFlowPromptStore[F](expiry, maxPrompts)
+}

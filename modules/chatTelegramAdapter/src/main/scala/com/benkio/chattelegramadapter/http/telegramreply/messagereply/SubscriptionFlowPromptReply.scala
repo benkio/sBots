@@ -1,0 +1,71 @@
+package com.benkio.chattelegramadapter.http.telegramreply.messagereply
+
+import cats.effect.Async
+import cats.syntax.all.*
+import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.SubscriptionFlowAction
+import com.benkio.chatcore.model.SubscriptionFlowPrompt
+import com.benkio.chatcore.SubscriptionFlowPromptStore
+import com.benkio.chattelegramadapter.conversions.MessageConversions.replyParameters
+import com.benkio.chattelegramadapter.model.TelegramIds.telegramId
+import com.benkio.chattelegramadapter.model.TelegramInlineKeyboard
+import telegramium.bots.high.implicits.methodOps
+import telegramium.bots.high.Api
+import telegramium.bots.high.Methods
+import telegramium.bots.ChatIntId
+import telegramium.bots.InlineKeyboardButton
+import telegramium.bots.InlineKeyboardMarkup
+import telegramium.bots.Message as TMessage
+
+/** Renders a guided-subscription prompt as a Telegram keyboard and keeps the same message across all of its steps.
+  * Every step after the first edits the message in place; errors and the final result are ordinary new messages sent by
+  * the other reply senders.
+  */
+object SubscriptionFlowPromptReply {
+
+  /** The prompt text is the keyboard title and each button carries only the id of its neutral flow action. */
+  def toKeyboard(prompt: SubscriptionFlowPrompt): TelegramInlineKeyboard = {
+    val rows = prompt.buttons.map(
+      _.map(button =>
+        InlineKeyboardButton(text = button.label, callbackData = SubscriptionFlowAction.toId(button.action))
+      )
+    )
+    TelegramInlineKeyboard(keyboardTitle = prompt.text, inlineKeyboard = InlineKeyboardMarkup(rows))
+  }
+
+  /** Sends the first prompt of a key, then edits that same message for every later prompt of the key. */
+  def send[F[_]: Async: Api](
+      prompt: SubscriptionFlowPrompt,
+      msg: Message,
+      replyToMessage: Boolean,
+      flowPrompts: SubscriptionFlowPromptStore[F]
+  ): F[List[TMessage]] = {
+    val keyboard = toKeyboard(prompt)
+    flowPrompts.byKey(prompt.key).flatMap {
+      case Some(handle) =>
+        Methods
+          .editMessageText(
+            chatId = Some(ChatIntId(prompt.key.chatId.telegramId)),
+            messageId = Some(handle.messageId.toInt),
+            text = Some(prompt.text),
+            replyMarkup = Some(keyboard.inlineKeyboard)
+          )
+          .exec
+          .as(List.empty[TMessage])
+      case None =>
+        Methods
+          .sendMessage(
+            chatId = Some(ChatIntId(msg.chatId.telegramId)),
+            text = prompt.text,
+            replyParameters = msg.replyParameters(replyToMessage),
+            replyMarkup = Some(keyboard.inlineKeyboard)
+          )
+          .exec
+          .flatMap(sent =>
+            flowPrompts
+              .put(prompt.key, sent.messageId.toString, prompt.key.requester)
+              .as(List(sent))
+          )
+    }
+  }
+}

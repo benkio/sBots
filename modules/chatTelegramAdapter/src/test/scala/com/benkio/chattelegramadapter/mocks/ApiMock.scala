@@ -28,15 +28,17 @@ object ApiMock {
     ).asJson
 
   val expectedResponses: Map[String, Json] = Map(
-    "getMe"           -> User(id = 1, isBot = true, firstName = "apiMock", username = Some("apiMockBot")).asJson,
-    "sendChatAction"  -> Json.False,
-    "deleteMessage"   -> true.asJson,
-    "sendMessage"     -> messageResponse("[apiMock] sendMessage reply"),
-    "sendRichMessage" -> messageResponse("[apiMock] sendRichMessage reply"),
-    "sendVideo"       -> messageResponse("[apiMock] sendVideo reply"),
-    "sendAudio"       -> messageResponse("[apiMock] sendMp3 reply"),
-    "sendAnimation"   -> messageResponse("[apiMock] sendGif reply"),
-    "sendPhoto"       -> messageResponse("[apiMock] sendPhoto reply"),
-    "sendDocument"    -> messageResponse("[apiMock] sendDocument reply")
+    "getMe"               -> User(id = 1, isBot = true, firstName = "apiMock", username = Some("apiMockBot")).asJson,
+    "sendChatAction"      -> Json.False,
+    "deleteMessage"       -> true.asJson,
+    "answerCallbackQuery" -> true.asJson,
+    "editMessageText"     -> messageResponse("[apiMock] editMessageText reply"),
+    "sendMessage"         -> messageResponse("[apiMock] sendMessage reply"),
+    "sendRichMessage"     -> messageResponse("[apiMock] sendRichMessage reply"),
+    "sendVideo"           -> messageResponse("[apiMock] sendVideo reply"),
+    "sendAudio"           -> messageResponse("[apiMock] sendMp3 reply"),
+    "sendAnimation"       -> messageResponse("[apiMock] sendGif reply"),
+    "sendPhoto"           -> messageResponse("[apiMock] sendPhoto reply"),
+    "sendDocument"        -> messageResponse("[apiMock] sendDocument reply")
   )
 }
