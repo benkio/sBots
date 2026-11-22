@@ -9,7 +9,7 @@ config {
     max_subscriptions_per_chat: Integer = 50
     max_subscription_target_length: Integer = 200
     subscription_draft_expiry: Duration = 10.minutes     -- the guided /subscribe draft store: idle drafts expire
-    subscription_draft_max_chats: Integer = 100          -- the guided /subscribe draft store: the bound on chats
+    subscription_draft_max_drafts: Integer = 100         -- the guided /subscribe draft store: the bound on drafts in the engine
     top_media_count: Integer = 20
     auto_timeout_per_doubling: Duration = 5.seconds
     paged_list_page_size: Integer = 5
@@ -62,8 +62,8 @@ surface ChatCommands {
         UserSetsTimeout(chat, bot, value)
         UserRemovesTimeout(chat, bot)
         UserSubscribes(chat, bot, schedule, type, target)
-        UserStartsSubscription(chat, bot, requester?)           -- bare /subscribe: start the guided flow
-        SubscriptionFlowActionRequested(chat, bot, action, requester?)
+        UserStartsSubscription(chat, bot, requester)            -- bare /subscribe: start the guided flow
+        SubscriptionFlowActionRequested(chat, bot, action, requester)
         UserLoadsCalendar(chat, bot)
         UserUnsubscribes(chat, bot, selector)
         UserSearchesTriggers(chat, bot, input)
@@ -74,14 +74,16 @@ surface ChatCommands {
 
 enum SubscriptionType { show | trigger | calendar }
 
--- Guided /subscribe: the flow is platform neutral. The steps are the same everywhere; an adapter offers buttons where
--- the platform supports them and numbered text elsewhere, and maps either back to a SubscriptionFlowAction. A button
--- carries only the action, never any draft state: the draft lives here, keyed by (chat, bot) -- chat already carries
--- the platform, and bot the bot id -- so two bots in one group cannot overwrite each other's drafts.
+-- Guided /subscribe: the flow is platform neutral, but runs only on platforms that supply a requester and support
+-- editing a message: a draft needs an owner and each step updates one prompt message in place. An adapter offers the
+-- choices as buttons and maps a press to a SubscriptionFlowAction. A button carries only the action, never any draft
+-- state: the draft lives here, keyed by (chat, bot, requester) -- chat already carries the platform, and bot the bot id
+-- -- so two users in one chat and two bots in one group cannot overwrite each other's drafts. Where the platform
+-- supplies no requester or no edit support (IRC) there is no flow: bare /subscribe keeps the one-shot usage error.
 enum SubscriptionDraftStep { type | schedule | target | confirm }
 enum SubscriptionSchedulePreset { every_minute | every_15_minutes | hourly | daily_0930 | weekdays_1800 }
 enum SubscriptionFlowActionKind { choose_type | choose_preset | enter_cron | enter_target | back | cancel | confirm }
-enum SubscriptionFlowFailure { no_active_flow | wrong_user | invalid_action | invalid_cron | target_too_long | creation_rejected | cancelled }
+enum SubscriptionFlowFailure { no_active_flow | invalid_action | invalid_cron | target_too_long | store_full | creation_rejected | cancelled }
 
 value SubscriptionFlowAction {
     kind: SubscriptionFlowActionKind
@@ -90,14 +92,15 @@ value SubscriptionFlowAction {
     text: String?                          -- the custom cron for enter_cron, the free text for enter_target
 }
 
--- The adapter boundary of the guided flow: an adapter turns a button press or a typed answer into the same neutral
--- action, with the requester when the platform supplies one, and renders the engine's prompt or error reply.
+-- The adapter boundary of the guided flow: an adapter turns a button press into the same neutral action, with the
+-- requester of the press, and renders the engine's prompt or error reply. Only platforms that supply a requester and
+-- support editing run this flow; without a requester there is no draft to own and no prompt to edit.
 contract GuidedSubscriptionFlowAdapter {
-    submit_action: (chat: core/Chat, bot: core/Bot, action: SubscriptionFlowAction, requester: String?) -> core/Reply
-    show_result: (chat: core/Chat, reason: SubscriptionFlowFailure) -> core/Reply
+    submit_action: (chat: core/Chat, bot: core/Bot, action: SubscriptionFlowAction, requester: String) -> core/Reply
+    show_result: (chat: core/Chat, reason: SubscriptionFlowFailure, command: String?) -> core/Reply   -- command set for creation_rejected
 
     @invariant NeutralActions
-        -- An action carries no draft state: the draft stays in the engine store keyed by (chat, bot).
+        -- An action carries no draft state: the draft stays in the engine store keyed by (chat, bot, requester).
 }
 
 -- PresetCron(preset) is the six-field cron the preset fills in (all pass SubscriptionRules.validateInterval):
@@ -113,7 +116,7 @@ contract GuidedSubscriptionFlowAdapter {
 entity SubscriptionDraft {
     chat: core/Chat
     bot: core/Bot
-    requester: String?               -- null on platforms with no sender id: the draft is then chat level
+    requester: String                -- the platform id of the user who started the flow; mandatory
     step: SubscriptionDraftStep
     type: SubscriptionType?
     schedule: String?
@@ -157,28 +160,49 @@ rule UserSubscribes {
 -- Guided /subscribe ----------------------------------------------------
 
 -- The draft store is per engine and in memory only: a restart forgets every draft, and the next action gets the
--- no_active_flow reply offering /subscribe again. A new bare /subscribe replaces the draft of the same (chat, bot);
--- when the store is full to config.subscription_draft_max_chats the oldest draft is dropped. An idle draft older than
--- config.subscription_draft_expiry is forgotten, so it can no longer be resumed.
+-- no_active_flow reply offering /subscribe again. A new bare /subscribe replaces the draft of the same
+-- (chat, bot, requester); there is at most one flow for those three values. A draft is never evicted to make room:
+-- once SubscriptionDrafts.count reaches config.subscription_draft_max_drafts a new bare /subscribe from a requester
+-- without a draft is declined with store_full, pointing at the one-shot command and asking them to wait and retry.
+-- An idle draft
+-- older than config.subscription_draft_expiry is silently forgotten, so it can no longer be resumed.
 --
--- SubscriptionFlowPrompt(draft) is the prompt of draft.step, with back and cancel always available:
---   type:     "1. show" and "2. trigger" on text-only platforms, the same two choices as buttons elsewhere;
---   schedule: the five presets with readable labels, numbered 1..5 on text-only platforms, and "6. custom";
---   target:   a request for free text, empty meaning a random show or a random reply; the trigger step also hints
---             that /triggersearch can check the spelling first;
+-- Each step updates the same prompt message in place; the confirmation result is a new reply. The only replies that
+-- are not prompt updates are errors and the final subscription result.
+-- SubscriptionFlowPrompt(draft) is the prompt of draft.step, with cancel always available and back available from
+-- the schedule, target and confirm steps, but not at the first step:
+--   type:     "show" and "trigger" as buttons, plus the time limit: an idle draft expires after
+--             config.subscription_draft_expiry;
+--   schedule: the five presets with readable labels as buttons; the user can also type a 6-field cron instead of
+--             picking a preset -- a valid one is taken as a custom cron, an invalid one fails the draft;
+--   target:   a request for free text plus a random button for an empty target (a random show or a random reply);
+--             the trigger step also hints that /triggersearch can check the spelling first;
 --   confirm:  the type, readable schedule, generated cron, next occurrence (NextOccurrence(draft.schedule, now))
 --             and target (or "random"), with confirm, back and cancel.
--- SubscriptionFlowError(chat, bot, reason) is a clear text for no active flow, another user's draft, an action that
--- does not fit the step, an invalid cron (with the validation message), a too long target, a rejected creation or a
--- cancellation. Every rejection leaves the user on the same step; no rejection writes to the DB or schedules a job.
+-- A plain message maps to enter_cron only at the schedule step and to enter_target only at the target step; the random
+-- button maps to enter_target with empty text. A plain message at any other step is not a flow action.
+-- SubscriptionFlowError(chat, bot, reason) is a clear text for no active flow, an action that
+-- does not fit the step, an invalid cron (with the validation message), a too long target, a full store, a rejected
+-- creation or a cancellation. creation_rejected states the reason and also carries SubscriptionFlowCommand(draft):
+-- the ready to execute one-shot command "/subscribe <cron> <type> [<target>]" with the draft's values (no target when the draft's
+-- target is null), so the user can run it directly. Every rejection other than creation_rejected and an invalid typed
+-- cron leaves the user on the same step; no rejection writes to the DB or schedules a job.
 
 rule UserStartsSubscriptionFlow {
-    when: UserStartsSubscription(chat, bot, requester?)
+    when: UserStartsSubscription(chat, bot, requester)
+    requires: SubscriptionDrafts.count < config.subscription_draft_max_drafts
     ensures:
-        for old in SubscriptionDrafts where old.chat = chat and old.bot = bot:
+        for old in SubscriptionDrafts where old.chat = chat and old.bot = bot and old.requester = requester:
             not exists old
         let draft = SubscriptionDraft.created(chat: chat, bot: bot, requester: requester, step: type, saved_at: now)
         core/Reply.sent(chat: chat, reply: SubscriptionFlowPrompt(draft))
+}
+
+rule SubscriptionFlowStoreFull {
+    when: UserStartsSubscription(chat, bot, requester)
+    requires: SubscriptionDrafts.count >= config.subscription_draft_max_drafts
+    requires: not exists SubscriptionDraft{chat: chat, bot: bot, requester: requester}
+    ensures: core/Reply.sent(chat: chat, reply: SubscriptionFlowError(chat, bot, store_full))
 }
 
 rule SubscriptionFlowExpires {
@@ -188,27 +212,19 @@ rule SubscriptionFlowExpires {
 }
 
 rule SubscriptionFlowWithoutDraft {
-    when: SubscriptionFlowActionRequested(chat, bot, action, requester?)
-    requires: not exists SubscriptionDraft{chat: chat, bot: bot}
+    when: SubscriptionFlowActionRequested(chat, bot, action, requester)
+    requires: not exists SubscriptionDraft{chat: chat, bot: bot, requester: requester}
     ensures: core/Reply.sent(chat: chat, reply: SubscriptionFlowError(chat, bot, no_active_flow))
 }
 
-rule SubscriptionFlowOfAnotherUser {
-    when: SubscriptionFlowActionRequested(chat, bot, action, requester?)
-    let draft = SubscriptionDraft{chat: chat, bot: bot}
-    requires: exists draft
-    requires: draft.requester != null and draft.requester != requester
-    -- clear text visible only to the caller; the draft is untouched
-    ensures: core/Reply.sent(chat: chat, reply: SubscriptionFlowError(chat, bot, wrong_user))
-}
-
 rule SubscriptionFlowRejectsWrongAction {
-    when: SubscriptionFlowActionRequested(chat, bot, action, requester?)
-    let draft = SubscriptionDraft{chat: chat, bot: bot}
+    when: SubscriptionFlowActionRequested(chat, bot, action, requester)
+    let draft = SubscriptionDraft{chat: chat, bot: bot, requester: requester}
     requires: exists draft
-    requires: draft.requester = null or draft.requester = requester
+    requires: draft.requester = requester
     requires: not (
-        action.kind = back or action.kind = cancel
+        action.kind = cancel
+        or (action.kind = back and draft.step != type)
         or (action.kind = confirm and draft.step = confirm)
         or (draft.step = type and action.kind = choose_type
             and action.subscription_type != null
@@ -223,10 +239,10 @@ rule SubscriptionFlowRejectsWrongAction {
 }
 
 rule SubscriptionFlowChoosesType {
-    when: SubscriptionFlowActionRequested(chat, bot, action, requester?)
-    let draft = SubscriptionDraft{chat: chat, bot: bot}
+    when: SubscriptionFlowActionRequested(chat, bot, action, requester)
+    let draft = SubscriptionDraft{chat: chat, bot: bot, requester: requester}
     requires: exists draft
-    requires: draft.requester = null or draft.requester = requester
+    requires: draft.requester = requester
     requires: draft.step = type
     requires: action.kind = choose_type
     requires: action.subscription_type != null
@@ -239,10 +255,10 @@ rule SubscriptionFlowChoosesType {
 }
 
 rule SubscriptionFlowChoosesPreset {
-    when: SubscriptionFlowActionRequested(chat, bot, action, requester?)
-    let draft = SubscriptionDraft{chat: chat, bot: bot}
+    when: SubscriptionFlowActionRequested(chat, bot, action, requester)
+    let draft = SubscriptionDraft{chat: chat, bot: bot, requester: requester}
     requires: exists draft
-    requires: draft.requester = null or draft.requester = requester
+    requires: draft.requester = requester
     requires: draft.step = schedule
     requires: action.kind = choose_preset
     requires: action.preset != null
@@ -255,10 +271,10 @@ rule SubscriptionFlowChoosesPreset {
 }
 
 rule SubscriptionFlowRejectsPreset {
-    when: SubscriptionFlowActionRequested(chat, bot, action, requester?)
-    let draft = SubscriptionDraft{chat: chat, bot: bot}
+    when: SubscriptionFlowActionRequested(chat, bot, action, requester)
+    let draft = SubscriptionDraft{chat: chat, bot: bot, requester: requester}
     requires: exists draft
-    requires: draft.requester = null or draft.requester = requester
+    requires: draft.requester = requester
     requires: draft.step = schedule
     requires: action.kind = choose_preset
     requires: action.preset != null
@@ -269,10 +285,10 @@ rule SubscriptionFlowRejectsPreset {
 }
 
 rule SubscriptionFlowAcceptsCustomCron {
-    when: SubscriptionFlowActionRequested(chat, bot, action, requester?)
-    let draft = SubscriptionDraft{chat: chat, bot: bot}
+    when: SubscriptionFlowActionRequested(chat, bot, action, requester)
+    let draft = SubscriptionDraft{chat: chat, bot: bot, requester: requester}
     requires: exists draft
-    requires: draft.requester = null or draft.requester = requester
+    requires: draft.requester = requester
     requires: draft.step = schedule
     requires: action.kind = enter_cron
     requires: action.text != null and action.text != ""
@@ -284,25 +300,26 @@ rule SubscriptionFlowAcceptsCustomCron {
         core/Reply.sent(chat: chat, reply: SubscriptionFlowPrompt(draft))
 }
 
+-- a typed cron that is not valid ends the flow; the user can start again with a bare /subscribe
 rule SubscriptionFlowRejectsCustomCron {
-    when: SubscriptionFlowActionRequested(chat, bot, action, requester?)
-    let draft = SubscriptionDraft{chat: chat, bot: bot}
+    when: SubscriptionFlowActionRequested(chat, bot, action, requester)
+    let draft = SubscriptionDraft{chat: chat, bot: bot, requester: requester}
     requires: exists draft
-    requires: draft.requester = null or draft.requester = requester
+    requires: draft.requester = requester
     requires: draft.step = schedule
     requires: action.kind = enter_cron
     requires: action.text != null and action.text != ""
     requires: not ScheduleGapAtLeast(schedule: action.text, gap: config.subscription_min_interval)
     ensures:
-        draft.saved_at = now
+        not exists draft
         core/Reply.sent(chat: chat, reply: SubscriptionFlowError(chat, bot, invalid_cron))
 }
 
 rule SubscriptionFlowAcceptsTarget {
-    when: SubscriptionFlowActionRequested(chat, bot, action, requester?)
-    let draft = SubscriptionDraft{chat: chat, bot: bot}
+    when: SubscriptionFlowActionRequested(chat, bot, action, requester)
+    let draft = SubscriptionDraft{chat: chat, bot: bot, requester: requester}
     requires: exists draft
-    requires: draft.requester = null or draft.requester = requester
+    requires: draft.requester = requester
     requires: draft.step = target
     requires: action.kind = enter_target
     requires: action.text != null
@@ -315,10 +332,10 @@ rule SubscriptionFlowAcceptsTarget {
 }
 
 rule SubscriptionFlowRejectsLongTarget {
-    when: SubscriptionFlowActionRequested(chat, bot, action, requester?)
-    let draft = SubscriptionDraft{chat: chat, bot: bot}
+    when: SubscriptionFlowActionRequested(chat, bot, action, requester)
+    let draft = SubscriptionDraft{chat: chat, bot: bot, requester: requester}
     requires: exists draft
-    requires: draft.requester = null or draft.requester = requester
+    requires: draft.requester = requester
     requires: draft.step = target
     requires: action.kind = enter_target
     requires: action.text != null
@@ -328,12 +345,12 @@ rule SubscriptionFlowRejectsLongTarget {
         core/Reply.sent(chat: chat, reply: SubscriptionFlowError(chat, bot, target_too_long))
 }
 
--- back clears the value chosen at the step being left, so the user answers it again; back at the first step cancels.
+-- back clears the value chosen at the step being left, so the user answers it again; it is never offered at the first step.
 rule SubscriptionFlowGoesBack {
-    when: SubscriptionFlowActionRequested(chat, bot, action, requester?)
-    let draft = SubscriptionDraft{chat: chat, bot: bot}
+    when: SubscriptionFlowActionRequested(chat, bot, action, requester)
+    let draft = SubscriptionDraft{chat: chat, bot: bot, requester: requester}
     requires: exists draft
-    requires: draft.requester = null or draft.requester = requester
+    requires: draft.requester = requester
     requires: action.kind = back
     requires: draft.step != type
     let previous_step = draft.step
@@ -345,23 +362,11 @@ rule SubscriptionFlowGoesBack {
         core/Reply.sent(chat: chat, reply: SubscriptionFlowPrompt(draft))
 }
 
-rule SubscriptionFlowBackAtFirstStep {
-    when: SubscriptionFlowActionRequested(chat, bot, action, requester?)
-    let draft = SubscriptionDraft{chat: chat, bot: bot}
-    requires: exists draft
-    requires: draft.requester = null or draft.requester = requester
-    requires: action.kind = back
-    requires: draft.step = type
-    ensures:
-        not exists draft
-        core/Reply.sent(chat: chat, reply: SubscriptionFlowError(chat, bot, cancelled))
-}
-
 rule SubscriptionFlowCancels {
-    when: SubscriptionFlowActionRequested(chat, bot, action, requester?)
-    let draft = SubscriptionDraft{chat: chat, bot: bot}
+    when: SubscriptionFlowActionRequested(chat, bot, action, requester)
+    let draft = SubscriptionDraft{chat: chat, bot: bot, requester: requester}
     requires: exists draft
-    requires: draft.requester = null or draft.requester = requester
+    requires: draft.requester = requester
     requires: action.kind = cancel
     ensures:
         not exists draft
@@ -369,10 +374,10 @@ rule SubscriptionFlowCancels {
 }
 
 rule SubscriptionFlowConfirms {
-    when: SubscriptionFlowActionRequested(chat, bot, action, requester?)
-    let draft = SubscriptionDraft{chat: chat, bot: bot}
+    when: SubscriptionFlowActionRequested(chat, bot, action, requester)
+    let draft = SubscriptionDraft{chat: chat, bot: bot, requester: requester}
     requires: exists draft
-    requires: draft.requester = null or draft.requester = requester
+    requires: draft.requester = requester
     requires: action.kind = confirm
     requires: draft.step = confirm
     requires: draft.type != null and draft.schedule != null
@@ -384,17 +389,17 @@ rule SubscriptionFlowConfirms {
 }
 
 rule SubscriptionFlowRejectsConfirmation {
-    when: SubscriptionFlowActionRequested(chat, bot, action, requester?)
-    let draft = SubscriptionDraft{chat: chat, bot: bot}
+    when: SubscriptionFlowActionRequested(chat, bot, action, requester)
+    let draft = SubscriptionDraft{chat: chat, bot: bot, requester: requester}
     requires: exists draft
-    requires: draft.requester = null or draft.requester = requester
+    requires: draft.requester = requester
     requires: action.kind = confirm
     requires: draft.step = confirm
     requires: not (draft.type != null and draft.schedule != null
                    and SubscriptionCanBeCreated(chat: chat, bot: bot, schedule: draft.schedule, subscription_type: draft.type, target: draft.target))
     ensures:
-        draft.saved_at = now
-        core/Reply.sent(chat: chat, reply: SubscriptionFlowError(chat, bot, creation_rejected))
+        not exists draft
+        core/Reply.sent(chat: chat, reply: SubscriptionFlowError(chat, bot, creation_rejected, SubscriptionFlowCommand(draft)))
 }
 
 rule UserLoadsCalendar {
@@ -539,11 +544,11 @@ entity PagedListTextStoreEntry {
 --   - With no remembered list, or it expired, or the number is out of the page, the command answers with a clear
 --     text and changes nothing. The text of a list says how to move it (platforms.allium).
 
-invariant OneSubscriptionDraftPerChatAndBot {
+invariant OneSubscriptionDraftPerChatBotAndRequester {
     for d1 in SubscriptionDrafts:
         for d2 in SubscriptionDrafts:
-            d1 != d2 implies not (d1.chat = d2.chat and d1.bot = d2.bot)
-    SubscriptionDrafts.count <= config.subscription_draft_max_chats
+            d1 != d2 implies not (d1.chat = d2.chat and d1.bot = d2.bot and d1.requester = d2.requester)
+    SubscriptionDrafts.count <= config.subscription_draft_max_drafts
 }
 
 invariant SubscriptionDraftShape {
