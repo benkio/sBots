@@ -3,6 +3,7 @@ package com.benkio.chatcore
 import cats.effect.Clock
 import cats.syntax.all.*
 import cats.Monad
+import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.SubscriptionFlowKey
 
 import java.util.concurrent.atomic.AtomicReference
@@ -24,9 +25,14 @@ final case class SubscriptionFlowPromptHandle(
   */
 final class SubscriptionFlowPromptStore[F[_]: Monad: Clock](expiry: FiniteDuration, maxPrompts: Int) {
 
+  /** A message id identifies a prompt only inside its chat: Telegram numbers messages per chat, so the same raw id can
+    * belong to prompts of different chats. The reverse index must use both parts or one prompt hides the other.
+    */
+  private type MessageRef = (ChatId, String)
+
   private final case class State(
       byKey: Map[SubscriptionFlowKey, SubscriptionFlowPromptHandle] = Map.empty,
-      byMessageId: Map[String, SubscriptionFlowPromptHandle] = Map.empty
+      byMessageId: Map[MessageRef, SubscriptionFlowPromptHandle] = Map.empty
   )
 
   private val state = AtomicReference[State](State())
@@ -36,26 +42,27 @@ final class SubscriptionFlowPromptStore[F[_]: Monad: Clock](expiry: FiniteDurati
 
   private def live(current: State, now: FiniteDuration): State = {
     val handles = current.byKey.values.filterNot(handle => expired(handle, now)).toList
-    State(handles.map(h => h.key -> h).toMap, handles.map(h => h.messageId -> h).toMap)
+    State(handles.map(h => h.key -> h).toMap, handles.map(h => (h.key.chatId, h.messageId) -> h).toMap)
   }
 
   private def bounded(current: State): State =
     if current.byKey.size <= maxPrompts then current
     else {
       val oldest = current.byKey.values.toList.sortBy(_.savedAt).head
-      State(current.byKey - oldest.key, current.byMessageId - oldest.messageId)
+      State(current.byKey - oldest.key, current.byMessageId - ((oldest.key.chatId, oldest.messageId)))
     }
 
   def put(key: SubscriptionFlowKey, messageId: String, owner: String): F[Unit] =
     Clock[F].realTime.flatMap { now =>
       state.updateAndGet { previous =>
-        val current  = live(previous, now)
-        val handle   = SubscriptionFlowPromptHandle(key, messageId, owner, now)
-        val staleIds = current.byKey.get(key).map(_.messageId).toList
+        val current   = live(previous, now)
+        val handle    = SubscriptionFlowPromptHandle(key, messageId, owner, now)
+        val ref       = (key.chatId, messageId)
+        val staleRefs = current.byKey.get(key).map(h => (h.key.chatId, h.messageId)).toList
         bounded(
           State(
             byKey = current.byKey.updated(key, handle),
-            byMessageId = (current.byMessageId -- (messageId :: staleIds)).updated(messageId, handle)
+            byMessageId = (current.byMessageId -- (ref :: staleRefs)).updated(ref, handle)
           )
         )
       }
@@ -73,7 +80,7 @@ final class SubscriptionFlowPromptStore[F[_]: Monad: Clock](expiry: FiniteDurati
           val refreshed = handle.copy(savedAt = now)
           State(
             byKey = current.byKey.updated(key, refreshed),
-            byMessageId = current.byMessageId.updated(handle.messageId, refreshed)
+            byMessageId = current.byMessageId.updated((handle.key.chatId, handle.messageId), refreshed)
           )
         }
       }
@@ -85,9 +92,9 @@ final class SubscriptionFlowPromptStore[F[_]: Monad: Clock](expiry: FiniteDurati
       state.updateAndGet(current => live(current, now)).byKey.get(key)
     }
 
-  def byMessageId(messageId: String): F[Option[SubscriptionFlowPromptHandle]] =
+  def byMessageId(chatId: ChatId, messageId: String): F[Option[SubscriptionFlowPromptHandle]] =
     Clock[F].realTime.map { now =>
-      state.updateAndGet(current => live(current, now)).byMessageId.get(messageId)
+      state.updateAndGet(current => live(current, now)).byMessageId.get((chatId, messageId))
     }
 
   def remove(key: SubscriptionFlowKey): F[Unit] =
@@ -97,7 +104,7 @@ final class SubscriptionFlowPromptStore[F[_]: Monad: Clock](expiry: FiniteDurati
         val stale   = current.byKey.get(key)
         State(
           byKey = current.byKey - key,
-          byMessageId = stale.fold(current.byMessageId)(h => current.byMessageId - h.messageId)
+          byMessageId = stale.fold(current.byMessageId)(h => current.byMessageId - ((h.key.chatId, h.messageId)))
         )
       }
       Monad[F].unit

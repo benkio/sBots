@@ -72,6 +72,28 @@ class SubscriptionFlowCallbackReplySpec extends CatsEffectSuite {
     }
   }
 
+  test("a same-id prompt in another chat does not answer this chat's press") {
+    for {
+      store <- IO.pure(SubscriptionFlowPromptStore.create[IO](1.minute, 10))
+      other = SubscriptionFlowKey(TelegramIds.chatId(11L), SBotInfo.SBotId("bot"), "1")
+      _                <- store.put(other, "42", "1")
+      actions          <- Ref.of[IO, Int](0)
+      (api, recording) <- PayloadRecordingApi()
+      _                <- SubscriptionFlowCallbackReply.reply[IO](
+        query(1),
+        SubscriptionFlowAction.back,
+        store,
+        (_, _, _) => actions.update(_ + 1)
+      )(using Async[IO], api)
+      calls <- recording
+      count <- actions.get
+    } yield {
+      assertEquals(count, 0)
+      assertEquals(calls.map(_._1), List("answerCallbackQuery"))
+      assert(calls.head._2.noSpaces.contains("This prompt is not available anymore"), calls.head._2.noSpaces)
+    }
+  }
+
   test("a press on a prompt that is not in the store is rejected") {
     for {
       store            <- IO.pure(SubscriptionFlowPromptStore.create[IO](1.minute, 10))

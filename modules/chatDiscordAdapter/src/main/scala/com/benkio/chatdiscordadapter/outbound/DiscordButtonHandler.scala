@@ -48,7 +48,7 @@ class DiscordButtonHandler[F[_]: Async: LogWriter](
   def decide(press: DiscordButtonPress): F[Either[String, F[Unit]]] =
     SubscriptionFlowAction.fromId(press.id) match {
       case Some(action) =>
-        flowPrompts.byMessageId(press.messageId).map {
+        flowPrompts.byMessageId(ChatId(Platform.Discord, press.channelId), press.messageId).map {
           case None                                         => Left(promptGone)
           case Some(handle) if handle.owner != press.userId => Left(flowNotYours)
           case Some(handle)                                 =>

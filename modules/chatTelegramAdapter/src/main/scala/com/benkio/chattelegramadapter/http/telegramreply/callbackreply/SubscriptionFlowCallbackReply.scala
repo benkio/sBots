@@ -7,6 +7,7 @@ import com.benkio.chatcore.model.SubscriptionFlowAction
 import com.benkio.chatcore.SubscriptionFlowPromptStore
 import com.benkio.chattelegramadapter.conversions.MessageConversions.toModelMessage
 import com.benkio.chattelegramadapter.http.TelegramCallbackAnswer
+import com.benkio.chattelegramadapter.model.TelegramIds
 import com.benkio.chattelegramadapter.model.TelegramMessageIds
 import telegramium.bots.high.Api
 import telegramium.bots.CallbackQuery
@@ -29,8 +30,9 @@ object SubscriptionFlowCallbackReply {
   ): F[Unit] =
     query.message.fold(TelegramCallbackAnswer.reject(query.id, unavailableText)) { message =>
       val requester = query.from.id.toString
-      val messageId = TelegramMessageIds.getIds(message).messageId.toString
-      flowPrompts.byMessageId(messageId).flatMap {
+      val ids       = TelegramMessageIds.getIds(message)
+      val chatId    = TelegramIds.chatId(ids.chatId)
+      flowPrompts.byMessageId(chatId, ids.messageId.toString).flatMap {
         case None =>
           TelegramCallbackAnswer.reject(query.id, unavailableText)
         case Some(handle) if handle.owner != requester =>

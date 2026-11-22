@@ -150,6 +150,17 @@ class DiscordButtonHandlerSpec extends CatsEffectSuite {
     }
   }
 
+  test("a same-id prompt in another channel does not answer this channel's press") {
+    for {
+      f       <- fixture
+      d       <- f.handler.decide(DiscordButtonPress("other", "prompt1", "alice", "flow-confirm"))
+      actions <- f.actions.get
+    } yield {
+      assertEquals(d.left.toOption, Some(f.handler.promptGone))
+      assertEquals(actions, List.empty)
+    }
+  }
+
   test("a press on an expired prompt and an invalid flow button get a clear answer") {
     for {
       f     <- fixture
