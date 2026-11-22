@@ -400,6 +400,8 @@ invariant TextCommandsOnlyWithoutButtons {
 -- text. Plain messages at other steps are not flow actions. A command is never a plain message: bare /subscribe always
 -- starts or restarts the flow, even while another step is active.
 -- Each step edits the same prompt message in place; errors and the final subscription result are new replies.
+-- A prompt message deleted on the platform can no longer be edited: the adapter drops that handle and sends a fresh
+-- prompt, so the flow can go on from the current step.
 external entity SubscriptionFlowPromptPress {
     chat: core/Chat
     bot: core/Bot

@@ -2,6 +2,12 @@ package com.benkio.chatdiscordadapter.outbound
 
 import java.nio.file.Path
 
+/** The message a stored prompt points at no longer exists on Discord. Editing it can never succeed again, so the caller
+  * has to replace the handle with a newly sent prompt.
+  */
+final class DiscordUnknownMessage(val messageId: String)
+    extends RuntimeException(s"[DiscordApi] The message $messageId does not exist anymore")
+
 /** What the adapter does on Discord, with the ids as the strings they are in a [[com.benkio.chatcore.model.ChatId]] and
   * a [[com.benkio.chatcore.model.MessageId]]: the replies are written against it, and [[JdaDiscordApi]] is the real
   * one.

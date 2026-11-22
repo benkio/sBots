@@ -54,13 +54,13 @@ class SubscriptionFlowPromptStoreSpec extends CatsEffectSuite {
     val keyA  = key(1L, "alice")
     val keyB  = key(2L, "bob")
     for {
-      _      <- store.put(keyA, "42", "alice")
-      _      <- store.put(keyB, "42", "bob")
+      _       <- store.put(keyA, "42", "alice")
+      _       <- store.put(keyB, "42", "bob")
       beforeA <- store.byMessageId(keyA.chatId, "42")
       beforeB <- store.byMessageId(keyB.chatId, "42")
-      _      <- store.touch(keyA)
-      afterA <- store.byMessageId(keyA.chatId, "42")
-      afterB <- store.byMessageId(keyB.chatId, "42")
+      _       <- store.touch(keyA)
+      afterA  <- store.byMessageId(keyA.chatId, "42")
+      afterB  <- store.byMessageId(keyB.chatId, "42")
     } yield {
       assertEquals(afterA.map(_.key), Some(keyA))
       assert(beforeA.forall(b => afterA.exists(_.savedAt >= b.savedAt)))

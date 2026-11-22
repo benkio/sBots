@@ -5,16 +5,27 @@ import cats.syntax.all.*
 import net.dv8tion.jda.api.components.actionrow.ActionRow
 import net.dv8tion.jda.api.components.buttons.Button
 import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel
+import net.dv8tion.jda.api.exceptions.ErrorResponseException
+import net.dv8tion.jda.api.requests.ErrorResponse
 import net.dv8tion.jda.api.utils.FileUpload
 import net.dv8tion.jda.api.JDA
 
 import java.nio.file.Path
+import java.util.concurrent.CompletionException
 import scala.jdk.CollectionConverters.*
 
 /** [[DiscordApi]] with JDA. The channel has to be known to JDA: the channels of the servers the bot is in are, the DM
   * channels are once the bot has seen them (it always has, a reply follows a message).
   */
 class JdaDiscordApi[F[_]: Async](jda: JDA) extends DiscordApi[F] {
+
+  /** JDA reports a deleted message as the permanent UNKNOWN_MESSAGE error, sometimes wrapped by the future. */
+  private def isUnknownMessage(error: Throwable): Boolean =
+    error match {
+      case e: ErrorResponseException                    => e.getErrorResponse == ErrorResponse.UNKNOWN_MESSAGE
+      case e: CompletionException if e.getCause != null => isUnknownMessage(e.getCause)
+      case _                                            => false
+    }
 
   private def channel(channelId: String): F[MessageChannel] =
     Async[F].fromOption(
@@ -78,6 +89,9 @@ class JdaDiscordApi[F[_]: Async](jda: JDA) extends DiscordApi[F] {
           Async[F].delay(c.editMessageById(messageId, message.text).setComponents(rows(message)).submit())
         )
         .void
+        .adaptError {
+          case e if isUnknownMessage(e) => new DiscordUnknownMessage(messageId)
+        }
     )
 
   override def deleteMessage(channelId: String, messageId: String): F[Unit] =

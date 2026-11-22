@@ -258,6 +258,23 @@ class DiscordRepliesSpec extends CatsEffectSuite {
       }
     } yield (calls, store, replies)
 
+  /** Fails the first edit (after recording it) with a given error, then edits normally. */
+  private class EditFailingApi(calls: Ref[IO, List[String]], error: Throwable, failed: Ref[IO, Boolean])
+      extends RecordingApi(calls) {
+    override def editButtons(channelId: String, messageId: String, message: DiscordButtonMessage): IO[Unit] =
+      super.editButtons(channelId = channelId, messageId = messageId, message = message) >>
+        failed.get.flatMap(happened => if happened then IO.unit else failed.set(true) >> IO.raiseError(error))
+  }
+
+  private def promptReplies(store: SubscriptionFlowPromptStore[IO], api: DiscordApi[IO]): IO[DiscordReplies[IO]] =
+    for {
+      lists    <- DiscordButtonLists.create[IO]()
+      notifier <- NotifierMock.recording
+    } yield {
+      given com.benkio.chatcore.Notifier[IO] = notifier
+      DiscordReplies[IO](api, new RepositoryMock(), DBLayerMock.mock(botId), DiscordCapabilities.value, lists, store)
+    }
+
   private def flowPrompt(step: SubscriptionDraftStep, label: String): SubscriptionFlowPrompt =
     SubscriptionFlowPrompt(
       key = SubscriptionFlowKey(message.chatId, botId, "alice"),
@@ -277,6 +294,47 @@ class DiscordRepliesSpec extends CatsEffectSuite {
       assertEquals(done, List("buttons:999:show:-", "edit:sent3:confirm"))
       assertEquals(handle.map(_.messageId), Some("sent3"))
       assertEquals(handle.map(_.owner), Some("alice"))
+    }
+  }
+
+  test("a deleted prompt is replaced with a new message and the next step edits that one") {
+    val key = SubscriptionFlowKey(message.chatId, botId, "alice")
+    for {
+      calls  <- Ref.of[IO, List[String]](List.empty)
+      failed <- Ref.of[IO, Boolean](false)
+      store = SubscriptionFlowPromptStore.create[IO](1.minute, 10)
+      _       <- store.put(key, "old", "alice")
+      replies <- promptReplies(store, new EditFailingApi(calls, new DiscordUnknownMessage("old"), failed))
+      _       <- replies.send(flowPrompt(SubscriptionDraftStep.Confirm, "confirm"), message, false)
+      after   <- calls.get
+      handle  <- store.byKey(key)
+      oldRef  <- store.byMessageId(message.chatId, "old")
+      newRef  <- store.byMessageId(message.chatId, "sent3")
+      _       <- replies.send(flowPrompt(SubscriptionDraftStep.Type, "next"), message, false)
+      done    <- calls.get
+    } yield {
+      assertEquals(after, List("edit:old:confirm", "buttons:999:confirm:-"))
+      assertEquals(handle.map(_.messageId), Some("sent3"))
+      assertEquals(oldRef, None)
+      assertEquals(newRef.map(_.key), Some(key))
+      assertEquals(done, List("edit:old:confirm", "buttons:999:confirm:-", "edit:sent3:next"))
+    }
+  }
+
+  test("other prompt edit failures keep the handle and send no replacement") {
+    val key = SubscriptionFlowKey(message.chatId, botId, "alice")
+    for {
+      calls  <- Ref.of[IO, List[String]](List.empty)
+      failed <- Ref.of[IO, Boolean](false)
+      store = SubscriptionFlowPromptStore.create[IO](1.minute, 10)
+      _       <- store.put(key, "old", "alice")
+      replies <- promptReplies(store, new EditFailingApi(calls, new RuntimeException("boom"), failed))
+      _       <- replies.send(flowPrompt(SubscriptionDraftStep.Confirm, "confirm"), message, false)
+      done    <- calls.get
+      handle  <- store.byKey(key)
+    } yield {
+      assertEquals(done, List("edit:old:confirm"))
+      assertEquals(handle.map(_.messageId), Some("old"))
     }
   }
 

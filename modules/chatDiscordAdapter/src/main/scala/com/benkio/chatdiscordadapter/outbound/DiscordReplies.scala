@@ -70,25 +70,35 @@ class DiscordReplies[F[_]: Async: LogWriter: Notifier](
       .handleErrorWith(e => LogWriter.error(s"[DiscordReplies] Error while sending the list ${pagedList.title}: $e"))
 
   /** Each step edits the same prompt message in place. The handle is refreshed with the draft: a long flow does not
-    * lose its prompt while the draft is still active.
+    * lose its prompt while the draft is still active. If the message was deleted the edit fails permanently, so the
+    * stale handle is dropped and a fresh prompt is sent instead.
     */
-  private def sendPrompt(message: Message, prompt: SubscriptionFlowPrompt, replyTo: Option[String]): F[Unit] =
+  private def sendPrompt(message: Message, prompt: SubscriptionFlowPrompt, replyTo: Option[String]): F[Unit] = {
+    val rendered = DiscordSubscriptionFlowLayout.render(prompt)
+
+    def fresh: F[Unit] =
+      api
+        .sendButtons(message.chatId.id, rendered, replyTo)
+        .flatMap(sent => flowPrompts.put(prompt.key, sent, prompt.key.requester))
+
     flowPrompts
       .byKey(prompt.key)
       .flatMap {
         case Some(handle) =>
-          api.editButtons(
-            channelId = message.chatId.id,
-            messageId = handle.messageId,
-            message = DiscordSubscriptionFlowLayout.render(prompt)
-          ) >>
-            flowPrompts.put(prompt.key, handle.messageId, prompt.key.requester)
-        case None =>
           api
-            .sendButtons(message.chatId.id, DiscordSubscriptionFlowLayout.render(prompt), replyTo)
-            .flatMap(sent => flowPrompts.put(prompt.key, sent, prompt.key.requester))
+            .editButtons(channelId = message.chatId.id, messageId = handle.messageId, message = rendered)
+            .flatMap(_ => flowPrompts.put(prompt.key, handle.messageId, prompt.key.requester))
+            .handleErrorWith {
+              case gone: DiscordUnknownMessage =>
+                LogWriter.warn(
+                  s"[DiscordReplies] The prompt message ${gone.messageId} of ${prompt.key} is gone; sending a new one"
+                ) >> flowPrompts.remove(prompt.key) >> fresh
+              case other => Async[F].raiseError[Unit](other)
+            }
+        case None => fresh
       }
       .handleErrorWith(e => LogWriter.error(s"[DiscordReplies] Error while sending the subscription prompt: $e"))
+  }
 
   private def sendText(
       channelId: String,
