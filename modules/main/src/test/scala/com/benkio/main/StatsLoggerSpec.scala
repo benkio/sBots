@@ -16,7 +16,13 @@ class StatsLoggerSpec extends CatsEffectSuite {
       assert(line.startsWith("[stats] type=system heap_used_mb="), line)
       assert(line.contains(" heap_max_mb="), line)
       assert(line.contains(" uptime_s="), line)
-      assert(line.endsWith(" db_mb=-1"), line)
+      assert(line.contains(" db_mb=-1 "), line)
+      assert(line.contains(" mem_total_mb="), line)
+      assert(line.contains(" mem_available_mb="), line)
+      assert(line.contains(" load1="), line)
+      assert(line.contains(" load5="), line)
+      assert(line.contains(" load15="), line)
+      assert(line.contains(" cpu_usage_pct="), line)
     }
   }
 
@@ -26,7 +32,7 @@ class StatsLoggerSpec extends CatsEffectSuite {
 
     StatsLogger
       .systemLine[IO](file.toString)
-      .map(line => assert(line.endsWith(" db_mb=1"), line))
+      .map(line => assert(line.contains(" db_mb=1 "), line))
       .guarantee(IO.blocking(Files.deleteIfExists(file)).void)
   }
 }

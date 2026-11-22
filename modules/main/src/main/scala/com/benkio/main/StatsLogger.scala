@@ -12,7 +12,8 @@ import java.io.File
 import java.lang.management.ManagementFactory
 import scala.concurrent.duration.*
 
-/** Logs the `[stats] type=system` line (heap, uptime, size of the DB file) every minute, see [[UsageStats]]. */
+/** Logs the `[stats] type=system` line (heap, uptime, DB size and machine RAM/load) every minute, see [[UsageStats]].
+  */
 object StatsLogger {
 
   /** Starts logging in the background. An error is logged and does not stop the next lines. */
@@ -35,7 +36,8 @@ object StatsLogger {
       heapUsedBytes = runtime.totalMemory() - runtime.freeMemory(),
       heapMaxBytes = runtime.maxMemory(),
       uptime = ManagementFactory.getRuntimeMXBean.getUptime.millis,
-      dbSizeBytes = Option(new File(dbName)).filter(_.isFile).map(_.length())
+      dbSizeBytes = Option(new File(dbName)).filter(_.isFile).map(_.length()),
+      host = HostStatsReader.read()
     )
   }
 }

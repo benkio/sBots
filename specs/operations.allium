@@ -153,7 +153,8 @@ rule UsageStatsLine {
 rule SystemStatsLine {
     when: app: Application.last_system_stats + config.system_stats_every <= now
     requires: app.status = running
-    -- heap, uptime and db size (-1 when the DB file is missing); a failed collection is only a warning
+    -- heap, uptime, db size (-1 when the DB file is missing) and the host memory/load values (-1 when unreadable);
+    -- the keys are dashboard-dependent, so new ones are appended; a failed collection is only a warning
     ensures: StatsLineWritten(kind: system)
     ensures: app.last_system_stats = now
 }

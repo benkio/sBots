@@ -24,8 +24,11 @@ dashboard depends on them.
 - `[stats] type=message bot=<bot> platform=<platform> outcome=<outcome> latency_ms=<n>`: one per message that reaches a bot
   (`BotEngine.onMessage`). `outcome` is `handled` (also when nothing matched), `duplicate` (skipped, #1432), `timeout`
   (dropped after the request timeout) or `failed` (an error ended the processing).
-- `[stats] type=system heap_used_mb=<n> heap_max_mb=<n> uptime_s=<n> db_mb=<n>`: once a minute (`db_mb=-1` when the DB file is
-  not found).
+- `[stats] type=system heap_used_mb=<n> heap_max_mb=<n> uptime_s=<n> db_mb=<n> mem_total_mb=<n> mem_available_mb=<n>
+  load1=<n.nn> load5=<n.nn> load15=<n.nn> cpu_usage_pct=<n>`: once a minute. `db_mb=-1` when the DB file is missing;
+  `mem_total_mb=-1`, `mem_available_mb=-1`, `load*=-1.00` and `cpu_usage_pct=-1` when the OS value cannot be read.
+  On Linux `mem_available_mb` is `MemAvailable` from `/proc/meminfo` (not `MemFree`, which excludes the page cache) and
+  the loads come from `/proc/loadavg`; elsewhere the JDK MX bean provides the 1-minute load, free memory and CPU load.
 
 Panels of the dashboard (the lines are JSON: the `regexp` parser reads the `[stats]` text inside, no `json` step needed). Use
 backticks for the regexp in the Grafana editor, so the backslashes are not escaped twice.
@@ -37,6 +40,12 @@ backticks for the regexp in the Grafana editor, so the backslashes are not escap
 | Duplicates skipped | ``sum by (bot) (count_over_time({app="sbots"} \|= "[stats] type=message" \|= "outcome=duplicate" \| regexp `bot=(?P<bot>\S+)` [$__interval]))`` |
 | Latency p95 | ``quantile_over_time(0.95, {app="sbots"} \|= "[stats] type=message" \| regexp `bot=(?P<bot>\S+).*latency_ms=(?P<l>\d+)` \| unwrap l [$__interval]) by (bot)`` |
 | Heap used (MB) | ``max_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `heap_used_mb=(?P<h>\d+)` \| unwrap h [$__interval])`` |
+| Memory available (MB) | ``min_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `mem_available_mb=(?P<m>-?\d+)` \| unwrap m [$__interval])`` (the lowest in the bucket, so pressure shows up) |
+| Memory total (MB) | ``max_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `mem_total_mb=(?P<t>-?\d+)` \| unwrap t [$__interval])`` |
+| System load (1m) | ``max_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `load1=(?P<l>-?\d+\.\d+)` \| unwrap l [$__interval])`` |
+| System load (5m) | ``max_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `load5=(?P<l>-?\d+\.\d+)` \| unwrap l [$__interval])`` |
+| System load (15m) | ``max_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `load15=(?P<l>-?\d+\.\d+)` \| unwrap l [$__interval])`` |
+| CPU usage (%) | ``max_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `cpu_usage_pct=(?P<c>-?\d+)` \| unwrap c [$__interval])`` |
 | Media errors | ``sum(count_over_time({app="sbots", level=~"ERROR\|WARN"} \|~ "(?i)media" [$__interval]))`` (approximate: it matches the log lines that mention media) |
 
 ## How it works
