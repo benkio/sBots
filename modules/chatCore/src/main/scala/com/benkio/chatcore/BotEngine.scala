@@ -189,7 +189,6 @@ class BotEngine[F[_]: Async: LogWriter](
     outcome match {
       case SubscriptionFlowOutcome.Prompt(value)  => deliver(replyValue = value, msg = msg, replyToMessage = false)
       case SubscriptionFlowOutcome.Message(value) => deliver(replyValue = value, msg = msg, replyToMessage = false)
-      case SubscriptionFlowOutcome.NotHandled     => ().pure[F]
     }
 
   def fileRequestLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = fileRequestLogicReplied(msg).void

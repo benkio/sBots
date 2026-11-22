@@ -2,6 +2,7 @@ package com.benkio.chatcore
 
 import cats.effect.IO
 import cats.effect.Ref
+import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.mocks.DBLayerMock
@@ -20,6 +21,7 @@ import com.benkio.chatcore.model.SubscribeArguments
 import com.benkio.chatcore.model.SubscriptionDraftStep
 import com.benkio.chatcore.model.SubscriptionFlowAction
 import com.benkio.chatcore.model.SubscriptionFlowPrompt
+import com.benkio.chatcore.model.SubscriptionSchedulePreset
 import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.Logger.given
 import com.benkio.chatcore.Notifier
@@ -251,6 +253,39 @@ class SubscriptionFlowSpec extends CatsEffectSuite {
       assert(text(failed).contains("creation_rejected"))
       assert(text(failed).contains("/subscribe 0 0 * ? * * trigger buongiorno"))
       assert(text(after).contains("no_active_flow"))
+    }
+  }
+
+  test("two concurrent confirms create exactly one subscription") {
+    val created = emptyCreated
+    val flow    = service(created = created)
+    val msg     = message("/subscribe")
+    for {
+      _       <- flow.start(msg, "alice")
+      _       <- flow.submit(msg, SubscriptionFlowAction.chooseType(SubscriptionType.Show), "alice")
+      _       <- flow.submit(msg, SubscriptionFlowAction.choosePreset(SubscriptionSchedulePreset.EveryMinute), "alice")
+      _       <- flow.submit(msg, SubscriptionFlowAction.enterTarget("pino scotto"), "alice")
+      results <- List(
+        flow.submit(msg, SubscriptionFlowAction.confirm, "alice"),
+        flow.submit(msg, SubscriptionFlowAction.confirm, "alice")
+      ).parSequence
+      args <- created.get
+    } yield {
+      assertEquals(args.size, 1)
+      assertEquals(
+        results.count {
+          case SubscriptionFlowOutcome.Message(Text(value, _)) => value.contains("Subscription successfully scheduled.")
+          case _                                               => false
+        },
+        1
+      )
+      assertEquals(
+        results.count {
+          case SubscriptionFlowOutcome.Message(Text(value, _)) => value.contains("no_active_flow")
+          case _                                               => false
+        },
+        1
+      )
     }
   }
 

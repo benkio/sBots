@@ -51,6 +51,7 @@ object SubscriptionFlowPromptReply {
             replyMarkup = Some(keyboard.inlineKeyboard)
           )
           .exec
+          .flatMap(_ => flowPrompts.put(prompt.key, handle.messageId, prompt.key.requester))
           .as(List.empty[TMessage])
       case None =>
         Methods

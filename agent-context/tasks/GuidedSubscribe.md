@@ -27,3 +27,14 @@ Spec: `specs/engine-extras.allium` (Guided /subscribe) and `specs/platforms.alli
 - Expiry is silent; the first prompt states the time limit; every answer/rejection resets the timer.
 - Confirmation failure drops the draft and returns reason + executable one-shot command.
 - Text-only platforms are not supported; there is no numbered-text fallback.
+
+## Review follow-ups
+
+- Discord packs prompt buttons into at most five rows of five and always reserves the last row for back/cancel: the five
+  schedule presets used to push those buttons past the row budget.
+- Telegram refreshes the prompt handle after an edit, and both adapters refresh it on an owner press, so a prompt stays
+  usable for as long as the idle draft (a rejection refreshes a draft without emitting a new prompt).
+- `SubscriptionFlowService` serializes start/submit/plain answers per (chat, bot, requester) with a `Semaphore`, so two
+  parallel confirms cannot both create a subscription; `NotHandled` was dead and removed.
+- Left for later (review suggestions, non-blocking): inject a clock and parse the cron once; replace the
+  `AtomicReference` update idiom in the stores; align the Telegram/Discord prompt-send failure policy.

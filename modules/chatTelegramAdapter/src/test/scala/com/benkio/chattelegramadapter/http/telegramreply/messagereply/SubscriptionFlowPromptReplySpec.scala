@@ -62,4 +62,24 @@ class SubscriptionFlowPromptReplySpec extends CatsEffectSuite {
       assert(edit.contains("\"message_id\":0"), edit)
     }
   }
+
+  test("editing a prompt refreshes its handle so a long flow does not lose the prompt") {
+    for {
+      store            <- IO.pure(SubscriptionFlowPromptStore.create[IO](1.minute, 10))
+      (api, recording) <- PayloadRecordingApi()
+      _                <- SubscriptionFlowPromptReply.send[IO](firstPrompt, msg, false, store)(using Async[IO], api)
+      before           <- store.byKey(key)
+      _                <- IO.sleep(10.millis)
+      _ <- SubscriptionFlowPromptReply.send[IO](firstPrompt.copy(text = "later"), msg, false, store)(using
+        Async[IO],
+        api
+      )
+      after <- store.byKey(key)
+      calls <- recording
+    } yield {
+      assertEquals(calls.map(_._1), List("sendMessage", "editMessageText"))
+      assertEquals(after.map(_.messageId), before.map(_.messageId))
+      assert(after.exists(_.savedAt > before.get.savedAt))
+    }
+  }
 }

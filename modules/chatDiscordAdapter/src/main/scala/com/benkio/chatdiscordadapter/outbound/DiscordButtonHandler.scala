@@ -52,7 +52,11 @@ class DiscordButtonHandler[F[_]: Async: LogWriter](
           case None                                         => Left(promptGone)
           case Some(handle) if handle.owner != press.userId => Left(flowNotYours)
           case Some(handle)                                 =>
-            Right(onFlowAction(flowMessage(press, handle.owner), action, handle.owner))
+            Right(
+              // an answer resets the draft's idle timer, so reset the prompt's too
+              flowPrompts.put(handle.key, handle.messageId, handle.owner) *>
+                onFlowAction(flowMessage(press, handle.owner), action, handle.owner)
+            )
         }
       case None if press.id.startsWith("flow-") => Either.left[String, F[Unit]](unknownButton).pure[F]
       case None                                 =>

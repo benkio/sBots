@@ -1,5 +1,6 @@
 package com.benkio.chatcore
 
+import cats.effect.std.Semaphore
 import cats.effect.Async
 import cats.syntax.all.*
 import com.benkio.chatcore.model.*
@@ -9,6 +10,7 @@ import com.benkio.chatcore.patterns.SubscriptionCommands.SubscribeUnsubscribeCom
 import cron4s.Cron
 
 import java.time.LocalDateTime
+import java.util.concurrent.ConcurrentHashMap
 import scala.concurrent.duration.FiniteDuration
 
 /** What the engine does after a step of the guided subscription flow: show or edit a prompt, send a new message, or
@@ -19,7 +21,6 @@ sealed trait SubscriptionFlowOutcome
 object SubscriptionFlowOutcome {
   final case class Prompt(value: SubscriptionFlowPrompt) extends SubscriptionFlowOutcome
   final case class Message(value: ReplyValue)            extends SubscriptionFlowOutcome
-  case object NotHandled                                 extends SubscriptionFlowOutcome
 }
 
 /** The platform-neutral guided `/subscribe` flow. It owns the drafts and decides the next prompt; the adapters only
@@ -36,18 +37,38 @@ final class SubscriptionFlowService[F[_]: Async](
     createSubscription: (Message, SBotInfo, SubscribeArguments) => F[Either[Throwable, ReplyValue]]
 ) {
 
+  /** Presses of one draft can arrive on parallel fibers (a webhook or a button listener). Serializing the transitions
+    * of a triple keeps them atomic from the caller's point of view: in particular, two confirms cannot both see a live
+    * draft and create two subscriptions.
+    */
+  private val keyLocks = new ConcurrentHashMap[SubscriptionFlowKey, Semaphore[F]]()
+
+  private def withKeyLock[A](key: SubscriptionFlowKey)(body: F[A]): F[A] =
+    Option(keyLocks.get(key))
+      .fold(Semaphore[F](1).map(created => Option(keyLocks.putIfAbsent(key, created)).getOrElse(created)))(_.pure[F])
+      .flatMap(_.permit.use(_ => body))
+
   def start(msg: Message, requester: String): F[SubscriptionFlowOutcome] =
-    Async[F].realTime.flatMap { now =>
-      val draft = SubscriptionDraft(key(msg, requester), SubscriptionDraftStep.Type, None, None, None, now)
-      store.start(draft).map {
-        case SubscriptionDraftStartResult.Started =>
-          prompt(draft)
-        case SubscriptionDraftStartResult.Full =>
-          SubscriptionFlowOutcome.Message(error(SubscriptionFlowFailure.StoreFull, storeFullText))
+    withKeyLock(key(msg, requester)) {
+      Async[F].realTime.flatMap { now =>
+        val draft = SubscriptionDraft(key(msg, requester), SubscriptionDraftStep.Type, None, None, None, now)
+        store.start(draft).map {
+          case SubscriptionDraftStartResult.Started =>
+            prompt(draft)
+          case SubscriptionDraftStartResult.Full =>
+            SubscriptionFlowOutcome.Message(error(SubscriptionFlowFailure.StoreFull, storeFullText))
+        }
       }
     }
 
   def submit(msg: Message, action: SubscriptionFlowAction, requester: String): F[SubscriptionFlowOutcome] =
+    withKeyLock(key(msg, requester))(submitLocked(msg = msg, action = action, requester = requester))
+
+  private def submitLocked(
+      msg: Message,
+      action: SubscriptionFlowAction,
+      requester: String
+  ): F[SubscriptionFlowOutcome] =
     store.get(key(msg, requester)).flatMap {
       case None =>
         SubscriptionFlowOutcome.Message(error(SubscriptionFlowFailure.NoActiveFlow, noActiveFlowText)).pure[F]
@@ -60,14 +81,22 @@ final class SubscriptionFlowService[F[_]: Async](
 
   /** A plain message is a flow answer only at the schedule and target steps, and only for the draft owner. */
   def acceptPlainMessage(msg: Message, requester: String): F[Option[SubscriptionFlowOutcome]] =
-    store.get(key(msg, requester)).flatMap {
-      case Some(draft) if draft.step == SubscriptionDraftStep.Schedule =>
-        submit(msg = msg, action = SubscriptionFlowAction.enterCron(msg.text.getOrElse("")), requester = requester)
-          .map(Some(_))
-      case Some(draft) if draft.step == SubscriptionDraftStep.Target =>
-        submit(msg = msg, action = SubscriptionFlowAction.enterTarget(msg.text.getOrElse("")), requester = requester)
-          .map(Some(_))
-      case _ => none[SubscriptionFlowOutcome].pure[F]
+    withKeyLock(key(msg, requester)) {
+      store.get(key(msg, requester)).flatMap {
+        case Some(draft) if draft.step == SubscriptionDraftStep.Schedule =>
+          submitLocked(
+            msg = msg,
+            action = SubscriptionFlowAction.enterCron(msg.text.getOrElse("")),
+            requester = requester
+          ).map(Some(_))
+        case Some(draft) if draft.step == SubscriptionDraftStep.Target =>
+          submitLocked(
+            msg = msg,
+            action = SubscriptionFlowAction.enterTarget(msg.text.getOrElse("")),
+            requester = requester
+          ).map(Some(_))
+        case _ => none[SubscriptionFlowOutcome].pure[F]
+      }
     }
 
   private def key(msg: Message, requester: String): SubscriptionFlowKey =
