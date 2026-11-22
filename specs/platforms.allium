@@ -388,6 +388,13 @@ invariant TextCommandsOnlyWithoutButtons {
             a.platform = e.chat.platform implies not a.capabilities.supports_buttons
 }
 
+-- Guided /subscribe (extras/SubscriptionFlowActionRequested, extras/GuidedSubscriptionFlowAdapter): the engine owns
+-- the draft (extras/SubscriptionDraft), so a button carries only the step action. Telegram and Discord render the type
+-- and schedule steps as buttons; IRC and other text-only platforms render the same choices as numbered lines. A press
+-- or a typed `1`/`2`, `confirm`, `back` or `cancel` maps to the same neutral action, with the requester from the
+-- callback/button user or the message sender (null where the platform supplies no sender id). The target step stays
+-- free text everywhere; prompts and errors are delivered as ordinary replies.
+
 -- intended: picking a Media or Show is terminal, so the keyboard message is deleted after the new message; paging
 -- edits the keyboard in place (CallbackPagesKeyboard, DiscordButtonPagesList).
 -- known defect: a pick deletes the list even when sending the item fails, because the senders log and swallow that
