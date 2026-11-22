@@ -12,6 +12,7 @@ enum PagedListAction {
   case NextPage(currentPage: Int, commandKey: CommandKey)
   case Media(mediaFileName: String)
   case Show(showId: String, timestamp: Option[String])
+  case Trigger(triggerValue: String)
 
   /** The id of the action, `None` when it is longer than [[PagedListAction.maxIdLength]]. */
   def toId: Option[String] = Some(rawId).filter(_.length <= PagedListAction.maxIdLength)
@@ -21,6 +22,7 @@ enum PagedListAction {
     case NextPage(currentPage, commandKey)     => s"nextPage-${commandKey.asString}-$currentPage"
     case Media(value)                          => s"media-$value"
     case Show(value, timestamp)                => s"""show-$value|${timestamp.getOrElse("")}"""
+    case Trigger(value)                        => s"trigger-$value"
   }
 }
 
@@ -60,6 +62,7 @@ object PagedListAction {
       case "nextPage"     => parsePagination(split = split, commandSyntax = commandSyntax, build = NextPage.apply)
       case "media"        => Some(Media(split.drop(1).mkString("-")))
       case "show"         => Some(parseShow(id))
+      case "trigger"      => Some(Trigger(split.drop(1).mkString("-")))
       case _              => None
     }
   }

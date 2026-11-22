@@ -93,11 +93,15 @@ trait Generators extends com.benkio.chatcore.Generators {
       Gen.option(Gen.oneOf("7s", "1m2s", "2h3m4s")).map(timestamp => PagedListAction.Show(showId, timestamp))
     )
 
+  val triggerCallbackDataGen: Gen[PagedListAction] =
+    mediaCallbackPayloadGen.map(PagedListAction.Trigger.apply)
+
   val callbackDataGen: Gen[PagedListAction] = Gen.oneOf(
     previousPageCallbackDataGen,
     nextPageCallbackDataGen,
     mediaCallbackDataGen,
-    showCallbackDataGen
+    showCallbackDataGen,
+    triggerCallbackDataGen
   )
 }
 

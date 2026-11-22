@@ -89,7 +89,12 @@ object FuzzyCandidates {
 
   sealed trait Decision
   case object NoCandidates                                                                 extends Decision
-  final case class AutoSelect(candidate: Candidate, score: Double, second: Option[Double]) extends Decision
+  final case class AutoSelect(
+      candidate: Candidate,
+      score: Double,
+      second: Option[Double],
+      ranked: List[(Candidate, Double)]
+  ) extends Decision
   final case class Suggest(ranked: List[(Candidate, Double)])                              extends Decision
 
   def decide(query: String, replyBundleMessages: List[com.benkio.chatcore.model.reply.ReplyBundleMessage]): Decision = {
@@ -100,7 +105,7 @@ object FuzzyCandidates {
       val best      = ranked.headOption
       val second    = ranked.lift(1).map(_._2)
       val bestScore = best.map(_._2).getOrElse(0.0)
-      if FuzzyScoring.isConfident(bestScore, second) then AutoSelect(best.get._1, bestScore, second)
+      if FuzzyScoring.isConfident(bestScore, second) then AutoSelect(best.get._1, bestScore, second, ranked)
       else Suggest(ranked)
     }
   }

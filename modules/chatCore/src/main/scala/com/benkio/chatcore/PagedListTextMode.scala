@@ -12,6 +12,7 @@ import com.benkio.chatcore.model.reply.PlainReply
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.Text
+import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo.SBotName
 import com.benkio.chatcore.repository.db.DBLayer
@@ -102,14 +103,32 @@ final class PagedListTextMode[F[_]: Async](
     } yield replyValue
 
   /** The replies of an item picked on a remembered list, as if asked for directly (PagedListPicksItem). */
-  private def pickStoredItem(entry: PagedListTextStore.Entry, number: Int): F[ReplyValue] =
+  private def pickStoredItem(entry: PagedListTextStore.Entry, number: Int)(using
+      platform: PlatformAdapter[F]
+  ): F[ReplyValue] =
     entry.pageItems.lift(number - 1) match {
       case Some(PagedItem.ShowItem(show)) =>
         PagedListNavigation
           .showText(show.id, show.timestamp.map(finiteDurationToYoutubeTimestamp), dbLayer.dbShow)
           .widen
       case Some(PagedItem.ValueItem(value)) => value.pure[F]
-      case None                             =>
+      case Some(PagedItem.TriggerItem(value)) =>
+        for {
+          commandReply <- ApplicativeThrow[F].fromOption(
+            ReplyBundleCommand.from(CommandKey.TriggerSearch, allCommandRepliesData()),
+            new Throwable(s"[PagedListTextMode] Command reply not found for commandKey: ${CommandKey.TriggerSearch}")
+          )
+          synthetic = PagedListNavigation.triggerSearchMessage(
+            value,
+            entry.request,
+            platform.capabilities.commandSyntax
+          )
+          replyValue <- commandReply.reply match {
+            case effectfulReply: EffectfulReply => platform.runEffectful(effectfulReply, synthetic, Some(0))
+            case plainReply: PlainReply         => BotEngine.runPlainReply[F](plainReply, platform.capabilities)
+          }
+        } yield replyValue
+      case None =>
         Async[F].raiseError(
           new Throwable(s"[PagedListTextMode] the item $number is out of the page of the remembered list")
         )

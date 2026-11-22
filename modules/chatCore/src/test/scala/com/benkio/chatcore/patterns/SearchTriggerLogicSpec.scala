@@ -5,7 +5,10 @@ import cats.syntax.all.*
 import com.benkio.chatcore.model.reply.gif
 import com.benkio.chatcore.model.reply.mp3
 import com.benkio.chatcore.model.reply.vid
+import com.benkio.chatcore.model.reply.PagedItem
+import com.benkio.chatcore.model.reply.PagedList
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
+import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message as ModelMessage
 import com.benkio.chatcore.model.RegexTextTriggerValue
 import com.benkio.chatcore.model.SBotInfo
@@ -149,7 +152,12 @@ class SearchTriggerLogicSpec extends CatsEffectSuite {
       .map(result =>
         assertEquals(
           result,
-          com.benkio.chatcore.model.reply.Text(value = "No exact match for 'foo'. Did you mean: search?")
+          PagedList(
+            title = "No exact match for 'foo'. Did you mean:",
+            items = List(PagedItem.TriggerItem("search")),
+            page = 0,
+            commandKey = CommandKey.TriggerSearch
+          ): com.benkio.chatcore.model.reply.ReplyValue
         )
       )
   }

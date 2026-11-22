@@ -29,12 +29,14 @@ class TelegramCallbackDataSpec extends ScalaCheckSuite {
           assertEquals(callbackData.toId.get, s"media-$value")
         case PagedListAction.Show(value, timestamp) =>
           assertEquals(callbackData.toId.get, s"""show-$value|${timestamp.getOrElse("")}""")
+        case PagedListAction.Trigger(value) =>
+          assertEquals(callbackData.toId.get, s"trigger-$value")
       }
     }
   }
 
   property("non-action strings are rejected") {
-    forAll(mediaCallbackPayloadGen.suchThat(s => s != "media" && s != "show")) { (raw: String) =>
+    forAll(mediaCallbackPayloadGen.suchThat(s => s != "media" && s != "show" && s != "trigger")) { (raw: String) =>
       assertEquals(TelegramCallbackData.decode(raw), None)
     }
   }
@@ -46,11 +48,12 @@ class TelegramCallbackDataSpec extends ScalaCheckSuite {
     }
   }
 
-  property("media/show callback payloads preserve dashes in IDs") {
+  property("media/show/trigger callback payloads preserve dashes in IDs") {
     forAll(shortIdGen, shortIdGen) { (prefix, suffix) =>
       val payload = s"$prefix-$suffix"
       assertEquals(TelegramCallbackData.decode(s"media-$payload"), Some(PagedListAction.Media(payload)))
       assertEquals(TelegramCallbackData.decode(s"show-$payload"), Some(PagedListAction.Show(payload, None)))
+      assertEquals(TelegramCallbackData.decode(s"trigger-$payload"), Some(PagedListAction.Trigger(payload)))
     }
   }
 

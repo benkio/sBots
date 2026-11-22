@@ -130,7 +130,9 @@ rule SubscriptionFireFails {
 }
 
 -- /triggersearch <input> first tries an exact trigger match; on a miss it returns the closest trigger when confidence
--- is high, otherwise up to 5 suggestions.
+-- is high, otherwise a one-page keyboard of up to 5 candidate triggers (no pagination). On a platform without buttons
+-- the candidates are written as text. Picking a candidate runs the trigger search again with that candidate as input,
+-- so it gives the very same reply as typing /triggersearch <candidate>.
 rule UserSearchesTriggers {
     when: UserSearchesTriggers(chat, bot, input)
     ensures: core/Reply.sent(chat: chat, reply: TriggerSearchResult(bot, input))
@@ -152,10 +154,10 @@ rule MediaSentCounted {
 -- into a PagedListAction and sends back the replies. The action has an id (toId / fromId) of at most
 -- paged_list_action_id_max_length characters; the id of an action decodes to the same action (round trip).
 value PagedListAction {
-    kind: next_page | previous_page | pick_media | pick_show
+    kind: next_page | previous_page | pick_media | pick_show | pick_trigger
     command: String         -- the command that produced the list, run again for another page
     page: Integer           -- the page the user was looking at, from 0
-    item: String?           -- the media file or the show picked, only for pick_media and pick_show
+    item: String?           -- the media file, the show or the trigger candidate picked
 }
 
 -- the command runs again with the new page (the same input, the same bot, no timeout or dedup of its own)
@@ -174,9 +176,18 @@ rule PagedListChangesPage {
 -- the replies of the item picked, as if the item had been asked for directly
 rule PagedListPicksItem {
     when: PagedListActionRequested(chat, bot, action)
-    requires: action.kind = pick_media or action.kind = pick_show
+    requires: action.kind = pick_media or action.kind = pick_show or action.kind = pick_trigger
     requires: action.item != null
     ensures: PagedListItemReplied(chat: chat, bot: bot, item: action.item)
+}
+
+-- picking a fuzzy trigger candidate is an exact trigger search for that candidate: the reply bundle of the candidate
+-- is the one the user would get by typing /triggersearch <candidate>
+rule PagedListPicksTriggerCandidate {
+    when: PagedListActionRequested(chat, bot, action)
+    requires: action.kind = pick_trigger
+    requires: action.item != null
+    ensures: core/Reply.sent(chat: chat, reply: TriggerSearchResult(bot, action.item))
 }
 
 -- an id that does not decode (bad format or over the length limit) is not an action: the navigation rejects it with

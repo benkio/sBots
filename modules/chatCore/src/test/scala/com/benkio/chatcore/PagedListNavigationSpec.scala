@@ -4,9 +4,14 @@ import cats.effect.IO
 import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.FakePlatformAdapter
+import com.benkio.chatcore.model.reply.EffectfulKey
+import com.benkio.chatcore.model.reply.EffectfulReply
+import com.benkio.chatcore.model.reply.mp3
 import com.benkio.chatcore.model.reply.Mp3File
+import com.benkio.chatcore.model.reply.PagedList
 import com.benkio.chatcore.model.reply.PagedListAction
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
+import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.TextReply
@@ -111,6 +116,23 @@ class PagedListNavigationSpec extends CatsEffectSuite {
     reply(dbShows = List(showData("show-1")), action = PagedListAction.Show("show-1", Some("1m30s"))).map {
       case text: Text => assert(text.value.contains("&t=1m30s"), text.value)
       case other      => fail(s"expected a Text, got: $other")
+    }
+  }
+
+  test("picking a trigger candidate runs the exact trigger search for that candidate") {
+    val botInfo = SBotInfo(botName = SBotInfo.SBotName("Bot"), botId = botId)
+    val bundle  = ReplyBundleMessage.textToMedia("francesismo")(mp3"ytai_Francesismo.mp3")
+    val commandReply = ReplyBundleCommand(
+      trigger = CommandTrigger(CommandKey.TriggerSearch.asString),
+      reply = EffectfulReply(EffectfulKey.TriggerSearch(botInfo, List(bundle), None)),
+      instruction = CommandInstructionData.NoInstructions
+    )
+
+    reply(dbShows = List.empty, action = PagedListAction.Trigger("francesismo"), commands = List(commandReply)).map {
+      case pagedList: PagedList =>
+        assert(pagedList.title.contains("francesismo"), pagedList.title)
+        assertEquals(pagedList.items.size, 1)
+      case other => fail(s"expected a PagedList, got: $other")
     }
   }
 

@@ -2,6 +2,7 @@ package com.benkio.chattelegramadapter.conversions
 
 import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.reply.Mp3File
+import com.benkio.chatcore.model.reply.PagedItem
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.VideoFile
@@ -25,6 +26,13 @@ class ToInlineKeyboardButtonSpec extends FunSuite {
     assertEquals(
       mediaFile.toInlineKeyboardButton,
       Some(InlineKeyboardButton(text = "song.mp3", callbackData = Some("media-song.mp3")))
+    )
+  }
+
+  test("toInlineKeyboardButton[PagedItem] should map a trigger candidate to its trigger callback") {
+    assertEquals(
+      PagedItem.TriggerItem("francesismo").toInlineKeyboardButton,
+      Some(InlineKeyboardButton(text = "francesismo", callbackData = Some("trigger-francesismo")))
     )
   }
 
