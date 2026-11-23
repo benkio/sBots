@@ -39,6 +39,17 @@ class IrcInboundSpec extends FunSuite {
     )
   }
 
+  test("two IRC senders get distinct anonymous labels from their nicks") {
+    val alice   = IrcInbound.message(inChannel, ownNick).get
+    val bob     = IrcInbound.message(inChannel.copy(sender = "bob"), ownNick).get
+    val upperAl = IrcInbound.message(inChannel.copy(sender = "ALICE"), ownNick).get
+    assertEquals(alice.authorId, Some("alice"))
+    assertEquals(bob.authorId, Some("bob"))
+    assertEquals(alice.anonymisedAuthor("salt"), upperAl.anonymisedAuthor("salt"))
+    assertNotEquals(alice.anonymisedAuthor("salt"), bob.anonymisedAuthor("salt"))
+    assertNotEquals(alice.anonymisedAuthor("salt"), Some("alice"))
+  }
+
   test("the messages of the bot itself are ignored, whatever the case of its nick") {
     assertEquals(IrcInbound.message(inChannel.copy(sender = "TestBot"), ownNick), None)
     assertEquals(IrcInbound.message(inChannel.copy(sender = "testbot"), ownNick), None)

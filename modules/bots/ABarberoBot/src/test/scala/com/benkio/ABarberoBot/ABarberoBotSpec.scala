@@ -44,8 +44,8 @@ class ABarberoBotSpec extends BaseBotSpec {
   test("ABarberoBot should contain the expected number of commands") {
     assertIO(
       commandRepliesData.map(_.length),
-      13,
-      "ABarberoBot should have 11 commands"
+      14,
+      "ABarberoBot should have 14 commands"
     )
   }
 

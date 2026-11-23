@@ -3,6 +3,8 @@ package com.benkio.chatcore.llm
 import cats.syntax.all.*
 import cats.Applicative
 import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.SBotInfo.SBotId
+import doobie.util.transactor.Transactor
 
 /** The port behind the `/llm` command: the per-chat switches of the LLM answers. */
 trait LlmSettings[F[_]] {
@@ -17,6 +19,13 @@ trait LlmSettings[F[_]] {
 object LlmSettings {
 
   final case class Status(enabled: Boolean)
+
+  /** How a bot gets its settings from its own DB. chatCore owns the port and the shape of the factory; the doobie
+    * implementation is supplied by chatLlm through `main`, so this module never depends on it.
+    */
+  type Factory[F[_]] = (Transactor[F], SBotId) => LlmSettings[F]
+
+  def noopFactory[F[_]: Applicative]: Factory[F] = (_, _) => LlmSettings.noop[F]
 
   /** Does nothing and reports the LLM as disabled. */
   def noop[F[_]: Applicative]: LlmSettings[F] = new LlmSettings[F] {

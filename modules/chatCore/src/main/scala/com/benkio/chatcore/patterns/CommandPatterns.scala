@@ -14,7 +14,7 @@ import scala.concurrent.duration.*
   *
   * The aliases below keep the historical `CommandPatterns.<Command>` call sites working while the implementations live
   * in the dedicated modules: [[SearchCommands]], [[MediaCommands]], [[SubscriptionCommands]], [[TimeoutCommands]] and
-  * [[InstructionCommands]].
+  * [[InstructionCommands]] and [[LlmCommands]].
   */
 object CommandPatterns {
 
@@ -34,6 +34,8 @@ object CommandPatterns {
 
   val InstructionsCommand: InstructionCommands.InstructionsCommand.type = InstructionCommands.InstructionsCommand
   val TriggerListCommand: InstructionCommands.TriggerListCommand.type   = InstructionCommands.TriggerListCommand
+
+  val LlmCommand: LlmCommands.LlmCommand.type = LlmCommands.LlmCommand
 
   def handleCommandWithInput[F[_]: ApplicativeThrow](
       msg: Message,

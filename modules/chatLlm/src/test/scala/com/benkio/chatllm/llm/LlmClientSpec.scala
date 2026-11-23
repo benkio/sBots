@@ -58,7 +58,8 @@ class LlmClientSpec extends CatsEffectSuite {
 
   private val configText =
     s"""gemini { endpoint = "https://$geminiHost/generate", model = "gemini-test", api-key = "test-gemini-key" }
-       |openrouter { endpoint = "https://$openRouterHost/chat", model = "openrouter-test", api-key = "test-openrouter-key" }""".stripMargin
+       |openrouter { endpoint = "https://$openRouterHost/chat", model = "openrouter-test", api-key = "test-openrouter-key" }
+       |context.author-salt = test-only-salt""".stripMargin
 
   private def config(primary: String, extra: String = ""): LlmConfig =
     ConfigSource
@@ -657,7 +658,8 @@ class LlmClientSpec extends CatsEffectSuite {
       .string(
         s"""primary-provider = gemini
            |gemini { endpoint = "https://$geminiHost/generate", model = "gemini-test", api-key = "g-key" }
-           |openrouter { endpoint = "https://$openRouterHost/chat", model = "openrouter-test", api-key = "or-key" }""".stripMargin
+           |openrouter { endpoint = "https://$openRouterHost/chat", model = "openrouter-test", api-key = "or-key" }
+           |context.author-salt = test-only-salt""".stripMargin
       )
       .load[LlmConfig]
       .fold(err => throw new RuntimeException(err.prettyPrint()), identity)

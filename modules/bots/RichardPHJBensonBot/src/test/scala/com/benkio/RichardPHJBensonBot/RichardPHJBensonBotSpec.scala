@@ -79,7 +79,7 @@ class RichardPHJBensonBotSpec extends BaseBotSpec {
   )
 
   test("RichardPHJBensonBot should contain the expected number of commands") {
-    assertIO(commandRepliesData.map(_.length), 14)
+    assertIO(commandRepliesData.map(_.length), 15)
   }
 
   botJsonsAreValid(rphjbSBotConfig)

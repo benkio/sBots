@@ -11,6 +11,7 @@ import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.patterns.CommandPatterns.CalendarCommands
 import com.benkio.chatcore.patterns.CommandPatterns.GetTimeoutCommand
 import com.benkio.chatcore.patterns.CommandPatterns.InstructionsCommand
+import com.benkio.chatcore.patterns.CommandPatterns.LlmCommand
 import com.benkio.chatcore.patterns.CommandPatterns.MediaByKindCommand
 import com.benkio.chatcore.patterns.CommandPatterns.RandomDataCommand
 import com.benkio.chatcore.patterns.CommandPatterns.SearchShowCommand
@@ -151,6 +152,16 @@ object EffectfulKeyRunner {
         GetTimeoutCommand.getTimeoutLogic(
           msg = msg,
           dbTimeout = dbLayer.dbTimeout,
+          sBotInfo = sBotInfo,
+          ttl = ttl
+        )
+      )
+    case EffectfulKey.Llm(sBotInfo) =>
+      toReplyValue(
+        LlmCommand.llmCommandLogic(
+          commandSyntax = commandSyntax,
+          msg = msg,
+          llmSettings = dbLayer.llmSettings,
           sBotInfo = sBotInfo,
           ttl = ttl
         )

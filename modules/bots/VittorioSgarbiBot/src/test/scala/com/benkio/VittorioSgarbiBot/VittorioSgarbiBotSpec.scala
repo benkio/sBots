@@ -41,7 +41,7 @@ class VittorioSgarbiBotSpec extends BaseBotSpec {
   )
 
   test("VittorioSgarbiBot should return the expected number of commands") {
-    assertIO(commandRepliesData.map(_.length), 13)
+    assertIO(commandRepliesData.map(_.length), 14)
   }
 
   botJsonsAreValid(sgarSBotConfig)

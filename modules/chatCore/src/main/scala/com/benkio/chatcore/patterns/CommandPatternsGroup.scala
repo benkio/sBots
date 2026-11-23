@@ -42,7 +42,8 @@ object CommandPatternsGroup {
           ),
         StatisticsCommands.topTwentyReplyBundleCommand(sBotInfo = sBotInfo),
         SetTimeoutCommand.setTimeoutReplyBundleCommand(sBotInfo = sBotInfo),
-        GetTimeoutCommand.getTimeoutReplyBundleCommand(sBotInfo = sBotInfo)
+        GetTimeoutCommand.getTimeoutReplyBundleCommand(sBotInfo = sBotInfo),
+        LlmCommand.llmReplyBundleCommand(sBotInfo = sBotInfo)
       )
   }
 }

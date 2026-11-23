@@ -36,8 +36,8 @@ class Alessandro0rlandoBotSpec extends BaseBotSpec {
   test("Alessandro0rlandoBot should contain the expected number of commands") {
     assertIO(
       commandRepliesData.map(_.length),
-      13,
-      "Alessandro0rlandoBot should have 13 commands"
+      14,
+      "Alessandro0rlandoBot should have 14 commands"
     )
   }
 

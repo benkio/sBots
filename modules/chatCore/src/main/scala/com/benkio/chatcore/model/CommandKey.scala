@@ -18,6 +18,7 @@ enum CommandKey(val asString: String) {
   case TopTwenty     extends CommandKey("toptwenty")
   case SetTimeout    extends CommandKey("settimeout")
   case GetTimeout    extends CommandKey("gettimeout")
+  case Llm           extends CommandKey("llm")
 
   def trigger: CommandTrigger = CommandTrigger(asString)
 }

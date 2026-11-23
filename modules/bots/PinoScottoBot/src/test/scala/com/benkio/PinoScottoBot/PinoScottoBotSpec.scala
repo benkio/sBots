@@ -37,8 +37,8 @@ class PinoScottoBotSpec extends BaseBotSpec {
   test("PinoScottoBot should contain the expected number of commands") {
     assertIO(
       commandRepliesData.map(_.length),
-      13,
-      "PinoScottoBot should have 13 commands"
+      14,
+      "PinoScottoBot should have 14 commands"
     )
   }
 

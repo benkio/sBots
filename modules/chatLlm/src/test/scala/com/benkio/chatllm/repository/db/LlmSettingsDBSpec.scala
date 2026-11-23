@@ -139,6 +139,57 @@ class LlmSettingsDBSpec extends CatsEffectSuite {
     }
   }
 
+  // obligation: contract.LlmContextWindow.BoundedWindow
+  test("recent returns the newest messages, oldest first, even inside the same second") {
+    tempDb.use { xa =>
+      val store = LlmContextStore[IO](xa)
+      for {
+        _ <- setupSchema(xa)
+        _ <- List("one", "two", "three", "four").zipWithIndex.traverse_ { case (content, index) =>
+          LlmContextStore
+            .appendQuery(chat, botA, LlmContextRole.User, content, 100L + (index / 2))
+            .run
+            .transact(xa)
+            .void
+        }
+        window  <- store.recent(chat, botA, 3)
+        allRows <- store.all(chat, botA)
+      } yield {
+        assertEquals(window.map(_.content), List("two", "three", "four"))
+        assertEquals(allRows.map(_.content), List("one", "two", "three", "four"))
+      }
+    }
+  }
+
+  // obligation: rule.LlmContextCleanupDeletesExpired
+  test("deleteOlderThan removes only the expired rows, for every chat and bot") {
+    tempDb.use { xa =>
+      val store = LlmContextStore[IO](xa)
+      for {
+        _ <- setupSchema(xa)
+        _ <- List((chat, botA), (otherChat, botB)).traverse_ { case (c, b) =>
+          LlmContextStore
+            .appendQuery(c, b, LlmContextRole.User, "old", 100L)
+            .run
+            .transact(xa)
+            .void
+        }
+        _ <- LlmContextStore
+          .appendQuery(chat, botA, LlmContextRole.Assistant, "new", 101L)
+          .run
+          .transact(xa)
+          .void
+        deleted        <- store.deleteOlderThan(101L)
+        remaining      <- store.all(chat, botA)
+        otherRemaining <- store.all(otherChat, botB)
+      } yield {
+        assertEquals(deleted, 2)
+        assertEquals(remaining.map(_.content), List("new"))
+        assertEquals(otherRemaining, Nil)
+      }
+    }
+  }
+
   // obligation: rule.LlmEnabledForChat, rule.LlmDisabledForChat
   test("enable and disable stamp updated_at with the current clock") {
     tempDb.use { xa =>

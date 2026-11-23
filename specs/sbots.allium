@@ -29,7 +29,8 @@ entity Message {
     bot_added: Boolean    -- this bot is among the joined members
     left_member: Boolean
     content: text ?? caption
-    -- who wrote it, when the platform says (Telegram and Discord); the author_id can be anonymised, it is never shown
+    -- who wrote it: the platform id (Telegram and Discord) or the lowercased nick (IRC); the author_id can be
+    -- anonymised, it is never shown
     author_id: String?
     -- relative to the bot that receives the message, matched on the bot name, case insensitive:
     mentions_bot: Boolean      -- the bot is mentioned (Telegram entity, Discord mention, IRC "@name")
@@ -228,7 +229,7 @@ rule BotRepliesToCommand {
 
 -- Any "/word" is a command, known or not, so an unknown command gets no reply. The command is the first of
 -- [bot commands ++ fixed commands] invoked as "/cmd", "/cmd ..." or "/cmd@botName ...". Fixed commands: triggerlist,
--- triggersearch, toptwenty, settimeout, gettimeout, instructions. The show commands (searchshow, subscribe, unsubscribe,
+-- triggersearch, toptwenty, settimeout, gettimeout, llm, instructions. The show commands (searchshow, subscribe, unsubscribe,
 -- subscriptions, loadcalendar, showcalendar) are an opt-in group a bot adds itself.
 
 -- Message dispatch via reply bundles ------------------------------------

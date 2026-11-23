@@ -10,6 +10,7 @@ Per segnalare problemi, scrivere a: https://t.me/Benkio
 - /toptwenty - Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/toptwenty.md#it
 - /settimeout - Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/settimeout.md#it
 - /gettimeout - Documentazione: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/gettimeout.md#it
+- /llm - Abilita/disabilita le risposte LLM della chat: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/llm.md#it
 
 Se vuoi disabilitare il bot per un messaggio specifico, puoi iniziare il messaggio con il carattere: `!`
 
@@ -27,6 +28,7 @@ To report issues, write to: https://t.me/Benkio
 - /toptwenty - Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/toptwenty.md#en
 - /settimeout - Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/settimeout.md#en
 - /gettimeout - Documentation: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/gettimeout.md#en
+- /llm - Enable/disable the LLM replies of this chat: https://github.com/benkio/sBots/blob/main/modules/chatCore/CommandsDocumentation/llm.md#en
 
 If you want to disable the bot for a specific message, you can start the message with the character: `!`
 

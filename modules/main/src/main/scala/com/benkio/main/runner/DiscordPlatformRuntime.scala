@@ -31,7 +31,8 @@ object DiscordPlatformRuntime extends PlatformRuntime {
               sBotInfo = entry.sBotInfo,
               commandEffectfulCallback = entry.commandEffectfulCallback,
               gatewayConfig = mainSetup.discord,
-              notifier = Notifier.logging[IO]
+              notifier = Notifier.logging[IO],
+              llmSettingsFactory = Some(mainSetup.llmSettingsFactory)
             )
         )
       )

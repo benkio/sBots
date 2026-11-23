@@ -17,6 +17,7 @@ import telegramium.bots.InaccessibleMessage
 import telegramium.bots.MaybeInaccessibleMessage
 import telegramium.bots.MentionMessageEntity
 import telegramium.bots.Message as TelegramMessage
+import telegramium.bots.TextMentionMessageEntity
 import telegramium.bots.TextQuote
 import telegramium.bots.User as TelegramUser
 
@@ -78,11 +79,27 @@ class MessageConversionsSpec extends ScalaCheckSuite {
     )
 
     val model = message.toModel()
-    assertEquals(model.mentions, List(Mention(name = Some("SBotsBot"))))
+    assertEquals(model.mentions, List(Mention(name = Some("SBotsBot"), text = Some("@SBotsBot"))))
     assertEquals(model.replyTo.flatMap(_.authorName), Some("SBotsBot"))
     assertEquals(model.replyTo.flatMap(_.text), Some("earlier"))
     assertEquals(model.quote, Some("earlier"))
     assert(model.isDirectedAt(SBotName("SBotsBot")))
+  }
+
+  test("toModel keeps the visible span of a text mention, whose display name can differ from the username") {
+    val user    = TelegramUser(id = 7L, isBot = false, firstName = "Alice Smith", username = Some("alice"))
+    val message = TelegramMessage(
+      messageId = 7,
+      date = 0,
+      chat = Chat(id = 1L, `type` = "group"),
+      text = Some("ciao Alice Smith!"),
+      entities = List(OpenEnum.Known(TextMentionMessageEntity(offset = 5, length = 11, user = user)))
+    )
+
+    val model = message.toModel()
+    assertEquals(model.mentions, List(Mention(id = Some("7"), name = Some("alice"), text = Some("Alice Smith"))))
+    assert(!model.anonymisedContent("salt").contains("Alice Smith"))
+    assert(model.isDirectedAt(SBotName("alice"))) // the username is still there for dispatch
   }
 
   test("toModel of a plain message is not directed at the bot") {
