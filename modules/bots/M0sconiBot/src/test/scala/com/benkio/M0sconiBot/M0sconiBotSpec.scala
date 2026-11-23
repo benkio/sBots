@@ -42,7 +42,7 @@ class M0sconiBotSpec extends BaseBotSpec {
   )
 
   test("M0sconiBot should contain the expected number of commands") {
-    assertIO(commandRepliesData.map(_.length), 7)
+    assertIO(commandRepliesData.map(_.length), 8)
   }
 
   botJsonsAreValid(mosSBotConfig)

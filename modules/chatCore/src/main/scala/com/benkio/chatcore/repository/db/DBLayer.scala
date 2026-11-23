@@ -3,6 +3,7 @@ package com.benkio.chatcore.repository.db
 import cats.effect.Async
 import cats.implicits.*
 import com.benkio.chatcore.config.SBotConfig
+import com.benkio.chatcore.llm.LlmSettings
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.SBotInfo
@@ -23,6 +24,7 @@ final case class DBLayer[F[_]](
     dbSubscriptionDraft: DBSubscriptionDraft[F],
     dbSubscriptionFlowPrompt: DBSubscriptionFlowPrompt[F],
     dbPagedListText: DBPagedListText[F],
+    llmSettings: LlmSettings[F],
     dbMessageReplies: DBMessageReplies = DBMessageReplies.empty,
     dbCommandReplies: DBCommandReplies = DBCommandReplies.empty
 )
@@ -50,26 +52,31 @@ object DBLayer {
       subscriptionDraftExpiry: FiniteDuration = SubscriptionDraftStore.defaultExpiry,
       subscriptionDraftMaxDrafts: Int = SubscriptionDraftStore.defaultMaxDrafts,
       pagedListTextModeExpiry: FiniteDuration = PagedListTextStore.defaultExpiry,
-      pagedListTextModeMaxChats: Int = PagedListTextStore.defaultMaxChats
-  )(using log: LogWriter[F]): F[DBLayer[F]] = for {
-    dbMedia <- DBMedia[F](transactor)
-    dbSubscription = DBSubscription[F](transactor)
-    dbTimeout      = new DBTimeout.DBTimeoutImpl[F](
-      transactor,
-      log
+      pagedListTextModeMaxChats: Int = PagedListTextStore.defaultMaxChats,
+      llmSettingsFactory: Option[LlmSettings.Factory[F]] = None
+  )(using log: LogWriter[F]): F[DBLayer[F]] = {
+    val settingsFactory = llmSettingsFactory.getOrElse(LlmSettings.noopFactory[F])
+    for {
+      dbMedia <- DBMedia[F](transactor)
+      dbSubscription = DBSubscription[F](transactor)
+      dbTimeout      = new DBTimeout.DBTimeoutImpl[F](
+        transactor,
+        log
+      )
+      dbShow = DBShow(transactor)
+      dbProcessedMessage <- DBProcessedMessage[F](transactor)
+    } yield DBLayer[F](
+      dbTimeout = dbTimeout,
+      dbSubscription = dbSubscription,
+      dbMedia = dbMedia,
+      dbShow = dbShow,
+      dbProcessedMessage = dbProcessedMessage,
+      llmSettings = settingsFactory(transactor, botId),
+      dbSubscriptionDraft =
+        DBSubscriptionDraft[F](transactor, botId, subscriptionDraftExpiry, subscriptionDraftMaxDrafts),
+      dbSubscriptionFlowPrompt =
+        DBSubscriptionFlowPrompt[F](transactor, botId, subscriptionDraftExpiry, subscriptionDraftMaxDrafts),
+      dbPagedListText = DBPagedListText[F](transactor, botId, pagedListTextModeExpiry, pagedListTextModeMaxChats)
     )
-    dbShow = DBShow(transactor)
-    dbProcessedMessage <- DBProcessedMessage[F](transactor)
-  } yield DBLayer[F](
-    dbTimeout = dbTimeout,
-    dbSubscription = dbSubscription,
-    dbMedia = dbMedia,
-    dbShow = dbShow,
-    dbProcessedMessage = dbProcessedMessage,
-    dbSubscriptionDraft =
-      DBSubscriptionDraft[F](transactor, botId, subscriptionDraftExpiry, subscriptionDraftMaxDrafts),
-    dbSubscriptionFlowPrompt =
-      DBSubscriptionFlowPrompt[F](transactor, botId, subscriptionDraftExpiry, subscriptionDraftMaxDrafts),
-    dbPagedListText = DBPagedListText[F](transactor, botId, pagedListTextModeExpiry, pagedListTextModeMaxChats)
-  )
+  }
 }

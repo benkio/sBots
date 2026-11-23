@@ -6,6 +6,7 @@ import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.http.DropboxClient
 import com.benkio.chatcore.http.HttpClients
 import com.benkio.chatcore.http.MegaClient
+import com.benkio.chatcore.llm.LlmSettings
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBRepository
 import com.benkio.chatcore.repository.JsonDataRepository
@@ -34,7 +35,8 @@ object BotCoreSetup {
       subscriptionDraftMaxDrafts: Int = com.benkio.chatcore.SubscriptionDraftStore.defaultMaxDrafts,
       pagedListTextModeExpiry: scala.concurrent.duration.FiniteDuration =
         com.benkio.chatcore.PagedListTextStore.defaultExpiry,
-      pagedListTextModeMaxChats: Int = com.benkio.chatcore.PagedListTextStore.defaultMaxChats
+      pagedListTextModeMaxChats: Int = com.benkio.chatcore.PagedListTextStore.defaultMaxChats,
+      llmSettingsFactory: Option[LlmSettings.Factory[F]] = None
   )(using log: LogWriter[F]): Resource[F, DBLayer[F]] =
     Resource.eval(
       DBLayer.make[F](
@@ -49,13 +51,16 @@ object BotCoreSetup {
         subscriptionDraftExpiry = subscriptionDraftExpiry,
         subscriptionDraftMaxDrafts = subscriptionDraftMaxDrafts,
         pagedListTextModeExpiry = pagedListTextModeExpiry,
-        pagedListTextModeMaxChats = pagedListTextModeMaxChats
+        pagedListTextModeMaxChats = pagedListTextModeMaxChats,
+        llmSettingsFactory = llmSettingsFactory
       )
     )
 
-  def apply[F[_]: Async](httpClient: Client[F], sBotConfig: SBotConfig)(using
-      log: LogWriter[F]
-  ): Resource[F, BotCoreSetup[F]] =
+  def apply[F[_]: Async](
+      httpClient: Client[F],
+      sBotConfig: SBotConfig,
+      llmSettingsFactory: Option[LlmSettings.Factory[F]] = None
+  )(using log: LogWriter[F]): Resource[F, BotCoreSetup[F]] =
     for {
       config <- Resource.eval(Config.loadConfig[F](sBotConfig.sBotInfo.botId.value))
       _      <- Resource.eval(log.info(s"[${sBotConfig.sBotInfo.botId}] Configuration: $config"))
@@ -77,7 +82,8 @@ object BotCoreSetup {
         subscriptionDraftExpiry = effectiveSBotConfig.subscriptionDraftExpiry,
         subscriptionDraftMaxDrafts = effectiveSBotConfig.subscriptionDraftMaxDrafts,
         pagedListTextModeExpiry = effectiveSBotConfig.pagedListTextModeExpiry,
-        pagedListTextModeMaxChats = effectiveSBotConfig.pagedListTextModeMaxChats
+        pagedListTextModeMaxChats = effectiveSBotConfig.pagedListTextModeMaxChats,
+        llmSettingsFactory = llmSettingsFactory
       ).evalMap(DBLayer.loadReplies[F](_, jsonDataRepository, effectiveSBotConfig))
     } yield BotCoreSetup(
       jsonDataRepository = jsonDataRepository,

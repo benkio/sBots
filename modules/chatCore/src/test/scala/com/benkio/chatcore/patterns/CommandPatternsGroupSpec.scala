@@ -55,7 +55,8 @@ class CommandPatternsGroupSpec extends FunSuite {
         CommandKey.TriggerSearch.asString,
         CommandKey.TopTwenty.asString,
         CommandKey.SetTimeout.asString,
-        CommandKey.GetTimeout.asString
+        CommandKey.GetTimeout.asString,
+        CommandKey.Llm.asString
       )
     )
   }

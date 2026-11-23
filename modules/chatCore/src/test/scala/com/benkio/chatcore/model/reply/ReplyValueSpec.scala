@@ -190,6 +190,7 @@ class ReplyValueSpec extends ScalaCheckSuite {
       EffectfulKey.TopTwenty(sBotInfo, page = 6),
       EffectfulKey.SetTimeout(sBotInfo),
       EffectfulKey.GetTimeout(sBotInfo),
+      EffectfulKey.Llm(sBotInfo),
       EffectfulKey.MediaByKind("metal", sBotInfo),
       EffectfulKey.Callback("bensonify", sBotInfo)
     )

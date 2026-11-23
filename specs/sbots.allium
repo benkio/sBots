@@ -228,7 +228,7 @@ rule BotRepliesToCommand {
 
 -- Any "/word" is a command, known or not, so an unknown command gets no reply. The command is the first of
 -- [bot commands ++ fixed commands] invoked as "/cmd", "/cmd ..." or "/cmd@botName ...". Fixed commands: triggerlist,
--- triggersearch, toptwenty, settimeout, gettimeout, instructions. The show commands (searchshow, subscribe, unsubscribe,
+-- triggersearch, toptwenty, settimeout, gettimeout, llm, instructions. The show commands (searchshow, subscribe, unsubscribe,
 -- subscriptions, loadcalendar, showcalendar) are an opt-in group a bot adds itself.
 
 -- Message dispatch via reply bundles ------------------------------------
