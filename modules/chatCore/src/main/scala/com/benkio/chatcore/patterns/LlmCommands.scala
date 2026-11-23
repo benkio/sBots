@@ -22,8 +22,6 @@ object LlmCommands {
 
   object LlmCommand {
 
-    private val usage: String = "Usage: /llm on|off|status|forget"
-
     private[patterns] val llmCommandDescriptionIta: String =
       s"'/llm': Abilita/disabilita le risposte LLM della chat: ${CommandDocs.chatCoreCommandDocLink("llm", "it")}"
     private[patterns] val llmCommandDescriptionEng: String =
@@ -36,6 +34,8 @@ object LlmCommands {
         ttl: Option[FiniteDuration],
         commandSyntax: CommandSyntax = CommandSyntax.Slash
     ): F[ReplyValue] = {
+      val usage = s"Usage: ${commandSyntax.invocation(CommandKey.Llm.asString)} on|off|status|forget"
+
       def reply(value: String): F[ReplyValue] = Text(value = value, timeToLive = ttl).pure[F]
 
       val computation: String => F[ReplyValue] = (input: String) =>

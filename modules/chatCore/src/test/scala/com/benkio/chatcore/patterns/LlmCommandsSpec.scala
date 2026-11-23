@@ -103,10 +103,12 @@ class LlmCommandsSpec extends CatsEffectSuite {
       calls    <- Ref[IO].of(List.empty[String])
       noArg    <- run("/llm", settings(calls))
       wrongArg <- run("/llm maybe", settings(calls))
+      ircNoArg <- run("!llm", settings(calls), CommandSyntax(prefix = "!"))
       recorded <- calls.get
     } yield {
       assertEquals(noArg, Text("Usage: /llm on|off|status|forget"))
       assertEquals(wrongArg, noArg)
+      assertEquals(ircNoArg, Text("Usage: !llm on|off|status|forget"))
       assertEquals(recorded, Nil)
     }
   }
