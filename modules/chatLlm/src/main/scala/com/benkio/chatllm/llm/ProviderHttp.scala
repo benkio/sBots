@@ -18,8 +18,8 @@ private[llm] object ProviderHttp {
         .fromString(endpoint)
         .leftMap(err => new IllegalArgumentException(err.message))
         .flatMap { uri =>
-          if uri.scheme.contains(Uri.Scheme.http) && hasApiKey then Left(
-            new IllegalArgumentException("Refusing to send API key over http endpoint")
+          if hasApiKey && !uri.scheme.contains(Uri.Scheme.https) then Left(
+            new IllegalArgumentException("Refusing to send API key over non-https endpoint")
           )
           else Right(uri)
         }
