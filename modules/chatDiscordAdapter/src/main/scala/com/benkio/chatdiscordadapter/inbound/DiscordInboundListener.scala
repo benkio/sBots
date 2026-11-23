@@ -4,7 +4,10 @@ import cats.effect.std.Dispatcher
 import cats.effect.Async
 import cats.syntax.all.*
 import com.benkio.chatcore.model.CommandSyntax
+import com.benkio.chatcore.model.Mention
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.MessageId
+import com.benkio.chatcore.model.RepliedMessage
 import com.benkio.chatdiscordadapter.outbound.DiscordButtonPress
 import log.effect.LogWriter
 import net.dv8tion.jda.api.events.guild.GuildJoinEvent
@@ -42,7 +45,17 @@ class DiscordInboundListener[F[_]: Async: LogWriter](
           authorIsBot = event.getAuthor.isBot,
           authorId = event.getAuthor.getId,
           content = event.getMessage.getContentRaw,
-          createdAtEpochSecond = event.getMessage.getTimeCreated.toEpochSecond
+          createdAtEpochSecond = event.getMessage.getTimeCreated.toEpochSecond,
+          mentions = event.getMessage.getMentions.getUsers.asScala.toList
+            .map(u => Mention(id = Some(u.getId), name = Some(u.getName))),
+          replyTo = Option(event.getMessage.getReferencedMessage).map(r =>
+            RepliedMessage(
+              messageId = Some(MessageId(r.getId)),
+              authorId = Some(r.getAuthor.getId),
+              authorName = Some(r.getAuthor.getName),
+              text = Some(r.getContentRaw).filter(_.nonEmpty)
+            )
+          )
         )
       )
     )

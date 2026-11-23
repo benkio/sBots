@@ -124,6 +124,13 @@ config {
 
 -- The joined members of a Telegram message are split by the bot's own Telegram id, which never changes and is the
 -- numeric prefix of its Telegram token: the bot goes to bot_added, the others stay in new_members.
+-- Directed at the bot (core/Message.is_directed_at_bot), told per platform from what the adapter keeps of the event:
+--   Telegram: the "mention" and "text_mention" entities of the text or caption, the author of the replied message (by
+--     username) and the quote; the author id is the Telegram user id.
+--   Discord: the mentioned users and the referenced (replied) message with its author; the author id is the user id.
+--     Discord has no separate quote.
+--   IRC: the "@nick" words are the mentions and a text opening with "nick:" or "nick," calls the bot; IRC has no replies,
+--     quotes nor author ids.
 rule TelegramMessageBecomesMessage {
     when: update: TelegramUpdate.created
     requires: update.kind = message

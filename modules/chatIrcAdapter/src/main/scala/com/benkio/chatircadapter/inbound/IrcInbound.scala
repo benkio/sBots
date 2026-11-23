@@ -1,6 +1,7 @@
 package com.benkio.chatircadapter.inbound
 
 import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.Mention
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Platform
 
@@ -30,6 +31,14 @@ object IrcInbound {
   def stripFormatting(text: String): String =
     styleCodes.replaceAllIn(hexColors.replaceAllIn(colors.replaceAllIn(text, ""), ""), "")
 
+  private val mentionPattern = "(?:^|\\s)@([^\\s:,@]+)".r
+
+  /** IRC has no entities: the `@nick` words are the mentions. Calling a nick the IRC way (`nick: ...`) is told by
+    * [[Message.isDirectedAt]] from the text.
+    */
+  private def mentions(text: String): List[Mention] =
+    mentionPattern.findAllMatchIn(text).map(m => Mention(name = Some(m.group(1)))).toList
+
   /** The message, unless it is to be ignored: written by the bot itself (a server can echo it), or without text.
     *
     * The chat is the channel, or the sender for a private message: a nick or a channel is the same whatever the case,
@@ -44,7 +53,8 @@ object IrcInbound {
         date = event.createdAtEpochSecond,
         chatId = ChatId(Platform.Irc, event.channel.getOrElse(event.sender).toLowerCase),
         chatType = if event.channel.isDefined then "group" else "private",
-        text = Some(text)
+        text = Some(text),
+        mentions = mentions(text)
       )
     )
   }
