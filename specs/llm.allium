@@ -173,6 +173,7 @@ rule CompletionConsumesQuota {
 rule QuotaExhaustionNotifiedOnce {
     when: CompletionRequested(prompt)
     requires: config.credentials_complete
+    requires: prompt.length <= config.max_input_tokens * 4
     requires: (QuotaUsage).any(u => u.requests_this_minute >= config.max_requests_per_minute or u.requests_today >= config.max_requests_per_day)
     requires: (QuotaNotice where sent = false).count > 0
     ensures:

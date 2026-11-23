@@ -59,7 +59,12 @@ object LlmConfig {
     * client fails completions locally instead of sending anonymous requests that the providers reject.
     */
   def credentialsComplete(config: LlmConfig): Boolean =
-    config.gemini.apiKey.isDefined && config.openrouter.apiKey.isDefined
+    hasKey(config.gemini.apiKey) && hasKey(config.openrouter.apiKey)
+
+  /** A key counts only when it carries at least one non-whitespace character: a blank secret must not admit a request.
+    */
+  private def hasKey(key: Option[Sensitive]): Boolean =
+    key.exists(_.value.exists(c => !c.isWhitespace))
 
   /** Invalid tuning makes the startup fail instead of silently disabling the limits. */
   def validate(config: LlmConfig): Either[String, Unit] = {

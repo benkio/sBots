@@ -36,6 +36,15 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
       .load[LlmConfig]
       .fold(err => throw new RuntimeException(err.prettyPrint()), identity)
 
+  private def configWithBlankKeys: LlmConfig =
+    ConfigSource
+      .string(
+        s"""gemini { endpoint = "https://gemini.example/generate", model = "gemini-test", api-key = "   " }
+           |openrouter { endpoint = "https://openrouter.example/chat", model = "openrouter-test", api-key = "  " }""".stripMargin
+      )
+      .load[LlmConfig]
+      .fold(err => throw new RuntimeException(err.prettyPrint()), identity)
+
   private def failingNotifier(attempts: Ref[IO, Int]): Notifier[IO] =
     new Notifier[IO] {
       override def info(sBotInfo: SBotInfo, message: String): IO[Unit] =
@@ -167,6 +176,23 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
     } yield {
       assertEquals(first.status, CompletionStatus.Failed)
       assertEquals(second.status, CompletionStatus.Failed)
+      assertEquals(count, 0)
+      assertEquals(infos, Nil)
+    }
+  }
+
+  test("blank provider credentials fail locally without a provider call or a budget slot") {
+    val cfg = configWithBlankKeys
+    for {
+      calls    <- Ref.of[IO, Int](0)
+      notifier <- NotifierMock.recording
+      client   <- build(calls, cfg, notifier)
+      result   <- client.complete(prompt)
+      count    <- calls.get
+      infos    <- notifier.infos.get
+    } yield {
+      assert(!LlmConfig.credentialsComplete(cfg))
+      assertEquals(result.status, CompletionStatus.Failed)
       assertEquals(count, 0)
       assertEquals(infos, Nil)
     }
