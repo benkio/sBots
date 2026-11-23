@@ -24,6 +24,7 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
       .string(
         s"""gemini { endpoint = "https://gemini.example/generate", model = "gemini-test", api-key = "gemini-key" }
            |openrouter { endpoint = "https://openrouter.example/chat", model = "openrouter-test", api-key = "openrouter-key" }
+           |context.author-salt = test-salt
            |$extra""".stripMargin
       )
       .load[LlmConfig]
@@ -103,7 +104,43 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
     assertEquals(cfg.maxOutputTokens, 512)
     assertEquals(cfg.gemini.quota, LlmBudgetConfig(20, 50))
     assertEquals(cfg.openrouter.quota, LlmBudgetConfig(20, 50))
+    assertEquals(cfg.context, LlmContextConfig(authorSalt = Sensitive("test-salt")))
     assertEquals(LlmConfig.validate(cfg), Right(()))
+  }
+
+  // obligation: contract.LlmContextWindow.BoundedWindow, contract.LlmContextWindow.TtlPurge
+  test("invalid context tuning is rejected instead of silently disabling the window or the TTL") {
+    val cfg = config("context.max-tokens = 999999\ncontext.ttl = 0 seconds\ncontext.cleanup-cron = nope\n")
+    assert(LlmConfig.validate(cfg).isLeft)
+  }
+
+  // obligation: contract.LlmContextWindow.TtlPurge
+  test("a sub-second context TTL is rejected instead of purging every row immediately") {
+    val cfg   = config("context.ttl = 500 milliseconds\n")
+    val error = LlmConfig.validate(cfg).left.toOption
+    assert(clue(error).exists(_.contains("at least one second")))
+  }
+
+  // obligation: invariant.AnonymousSenders, config.context_author_salt
+  test("the configured author salt is redacted from the logged configuration") {
+    val cfg = config("context.author-salt = very-secret-salt\n")
+    assertEquals(cfg.context.authorSalt.value, "very-secret-salt")
+    assert(!cfg.toString.contains("very-secret-salt"))
+    assert(cfg.toString.contains("<redacted>"))
+  }
+
+  // obligation: invariant.AnonymousSenders, config.context_author_salt
+  test("the public example salt is rejected, so no deployment inherits a known secret") {
+    val cfg   = config("context.author-salt = sbots-llm\n")
+    val error = LlmConfig.validate(cfg).left.toOption
+    assert(clue(error).exists(_.contains("public example")))
+  }
+
+  // obligation: invariant.AnonymousSenders, config.context_author_salt
+  test("a blank author salt is rejected") {
+    val cfg   = config("context.author-salt = \"   \"\n")
+    val error = LlmConfig.validate(cfg).left.toOption
+    assert(clue(error).exists(_.contains("must not be blank")))
   }
 
   test("invalid tuning, including a provider quota, is rejected instead of silently disabling a limit") {

@@ -21,6 +21,7 @@ import com.benkio.chatcore.model.SubscriptionType
 import com.benkio.chatcore.patterns.CommandPatterns
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBSubscriptionData
+import cron4s.CronExpr
 import eu.timepit.fs2cron.cron4s.Cron4sScheduler
 import fs2.concurrent.SignallingRef
 import fs2.Stream
@@ -29,7 +30,7 @@ import log.effect.LogWriter
 import java.time.Instant
 import java.time.MonthDay
 import scala.collection.mutable.Map as MMap
-import scala.concurrent.duration.FiniteDuration
+import scala.concurrent.duration.*
 
 /** The [[BackgroundJobManager]] that fires the subscriptions of a bot on a cron schedule, whatever the platform: what
   * is sent goes through the injected `send`, adapted to the `capabilities` of the platform.
@@ -40,6 +41,41 @@ object CronBackgroundJobManager {
     * a thing): a subscription has no message to answer, it is up to the platform to deal with it.
     */
   type SendToChat[F[_]] = (ChatId, ReplyValue, Boolean) => F[Unit]
+
+  /** How long to wait before starting the scheduler again after a stream failure. */
+  private val restartDelay: FiniteDuration = 30.seconds
+
+  /** Registers a periodic job that is not a subscription (the LLM context TTL cleanup of #1489). It uses the same cron
+    * scheduler as the subscriptions; a failing run is logged and does not end the schedule, and a failing scheduler is
+    * started again with the job still attached. The caller owns the returned fiber and cancels it on shutdown.
+    */
+  def scheduleJob[F[_]: Async](cron: CronExpr, job: F[Unit])(using log: LogWriter[F]): F[Fiber[F, Throwable, Unit]] =
+    Async[F].start(resilientJob(cron, job).compile.drain)
+
+  private def resilientJob[F[_]: Async](cron: CronExpr, job: F[Unit])(using log: LogWriter[F]): Stream[F, Unit] =
+    resilientJob(Cron4sScheduler.systemDefault[F].awakeEvery(cron), job, restartDelay)
+
+  /** The schedule is defined once and every restart re-enters recovery with the job still attached: a bare restart
+    * would both drop the job and leave a later scheduler failure unhandled. The tick stream and the delay are
+    * parameters so the failure path can be tested without waiting for a real cron.
+    */
+  private[chatcore] def resilientJob[F[_]: Async](
+      ticks: Stream[F, Unit],
+      job: F[Unit],
+      restartDelay: FiniteDuration
+  )(using log: LogWriter[F]): Stream[F, Unit] = {
+    def scheduled: Stream[F, Unit] =
+      ticks.evalMap(_ => job.handleErrorWith(e => log.error(s"[BackgroundJobManager] scheduled job failed: $e")))
+
+    def resilient: Stream[F, Unit] =
+      scheduled.handleErrorWith(e =>
+        Stream.exec(log.error(s"[BackgroundJobManager] scheduler failed, starting it again: $e")) ++
+          Stream.sleep_[F](restartDelay) ++
+          resilient
+      )
+
+    resilient
+  }
 
   final case class SubscriptionIdNotFound(subscriptionId: SubscriptionId)
       extends Throwable(s"Subscription Id is not found: $subscriptionId")

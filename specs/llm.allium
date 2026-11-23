@@ -116,8 +116,8 @@ entity LlmChatSetting {
     updated_at: Timestamp
 }
 
--- #1487: the messages kept for a chat in the shape the prompt builder will consume. Only the role is stored, never the
--- sender's identity (#1489). The rolling window, TTL cleanup and prompt ordering are still open with #1489.
+-- #1487/#1489: the messages kept for a chat in the shape the prompt builder will consume. A user message carries a
+-- stable anonymous label in its content: the platform's sender id is salted and hashed, never shown as itself.
 entity LlmContextMessage {
     chat: core/Chat
     bot: core/Bot
@@ -136,6 +136,49 @@ config {
     max_input_tokens: Integer = 4096          -- prompts larger than this (4 characters per token) are refused
     max_output_tokens: Integer = 512          -- sent to the provider as its output limit
     credentials_complete: Boolean             -- both provider keys are configured; otherwise no request is admitted
+
+    -- #1489: the per-chat context window. The token budget uses the same four-characters-per-token estimate as the
+    -- input limit, and the TTL is applied by the cron job registered from main.
+    context_max_messages: Integer = 20
+    context_max_tokens: Integer = 2048
+    context_ttl: Duration = 7.days             -- at least one second: storage and cutoffs are epoch seconds
+    context_cleanup_cron: String              -- cron expression of the cleanup job, e.g. "0 0 * ? * *"
+    context_author_salt: String               -- deployment-specific secret, redacted from startup logs; no public
+                                              -- default: blank and the shipped example value are rejected at startup
+}
+
+-- #1489: the context service of chatLlm. It is the boundary the engine will use for remembering a message and building
+-- a prompt; the routing that calls it is still open with #1492.
+contract LlmContextWindow {
+    remember: (message: core/Message) -> Boolean
+    prompt: (chat: core/Chat, bot: core/Bot) -> String
+    delete_expired: (now: Timestamp) -> Integer
+
+    @invariant OnlyWhileEnabled
+        -- A message is remembered only for a (chat, bot) whose switch is on. A disabled chat stores nothing and a
+        -- previously enabled chat stops growing as soon as it is disabled.
+
+    @invariant BoundedWindow
+        -- A prompt uses at most config.context_max_messages messages, chosen newest first until the
+        -- config.context_max_tokens budget is spent (four characters per token), then kept in chronological order.
+        -- The budget is estimated on the rendered prompt, including the newline separators between the messages.
+
+    @invariant AnonymousSenders
+        -- A sender appears only as a stable label derived from the platform's sender id and
+        -- config.context_author_salt. The raw sender id and the platform's username or nick never reach a prompt.
+        -- anonymised_content(message, salt) is that label followed by the message text (or its caption) with every
+        -- mentioned name, its visible span when the platform gives mention offsets, "@nick" and Discord "<@id>"
+        -- replaced by a generic label, and every line break escaped:
+        -- CR, LF, U+0085, U+2028 and U+2029. User text can neither reveal a username nor forge a role-labelled line
+        -- in a flat prompt. The salt is deployment-specific and secret: knowing a public default would let anyone
+        -- map the labels back to senders.
+
+    @invariant TtlPurge
+        -- The cleanup job removes the messages older than config.context_ttl and keeps the newer ones, for every chat
+        -- and bot. The job is registered from main on the cron scheduler of chatCore's CronBackgroundJobManager. A
+        -- scheduler failure restarts the whole scheduled stream (ticks and job) and re-enters recovery on every
+        -- restart, so consecutive failures still leave later ticks pruning; the scheduler fiber is owned and
+        -- cancelled by main on shutdown.
 }
 
 ------------------------------------------------------------
@@ -369,6 +412,32 @@ rule LlmForgetPurgesContext {
     ensures: not exists LlmContextMessage{chat: chat, bot: bot}
 }
 
+-- #1489: a message is offered to the context only while the chat's switch is on. The ignored event is the port saying
+-- that nothing was stored: there is no context row for a chat that never enabled the LLM. The stored content is the
+-- message text (or caption) with usernames redacted and line breaks escaped, prefixed with the stable anonymous sender
+-- label: neither the raw sender identity nor a real username is persisted.
+rule LlmContextRemembersEnabledChat {
+    when: LlmContextMessageOffered(chat, bot, message)
+    requires: exists LlmChatSetting{chat: chat, bot: bot, enabled: true}
+    ensures:
+        let labelled = anonymised_content(message, config.context_author_salt)
+        LlmContextMessage.created(chat: chat, bot: bot, role: user, content: labelled, created_at: now)
+}
+
+rule LlmContextIgnoresDisabledChat {
+    when: LlmContextMessageOffered(chat, bot, message)
+    requires: not exists LlmChatSetting{chat: chat, bot: bot, enabled: true}
+    ensures: LlmContextIgnored(chat: chat, bot: bot)
+}
+
+-- #1489: the cleanup cron deletes the expired messages of every chat and bot, without touching the newer ones. Its
+-- scheduler fiber is owned by main and cancelled on shutdown, and a failing schedule is restarted with the job still
+-- attached.
+rule LlmContextCleanupDeletesExpired {
+    when: LlmContextCleanupTick()
+    ensures: not exists (LlmContextMessage where created_at < now - config.context_ttl)
+}
+
 -- #1488: /llm is a fixed command of every bot on every platform ("/llm" on Telegram and Discord, "!llm" on IRC). The
 -- argument chooses one call of the port; a missing or unrecognised argument (`unknown` below) only gets the usage
 -- reply, written with the command invocation of the platform.
@@ -455,6 +524,11 @@ actor LlmChatUser {
     identified_by: LlmChatUser where true
 }
 
+-- The cron scheduler of chatCore's CronBackgroundJobManager, registered from main: it is not a chat participant.
+actor LlmCleanupScheduler {
+    identified_by: LlmCleanupScheduler where true
+}
+
 ------------------------------------------------------------
 -- Surfaces
 ------------------------------------------------------------
@@ -496,10 +570,29 @@ surface LlmCommandSurface {
         LlmCommandResponded(chat, text)
 }
 
+-- The context service of #1489: the engine will offer messages to it with #1492.
+surface LlmContextSurface {
+    facing _: LlmChatUser
+
+    provides:
+        LlmContextMessageOffered(chat, bot, message)
+        LlmContextIgnored(chat, bot)
+
+    contracts:
+        fulfils LlmContextWindow
+}
+
+-- The TTL cleanup is not a user action: the tick comes from the cron scheduler registered by main.
+surface LlmCleanupSurface {
+    facing _: LlmCleanupScheduler
+
+    provides:
+        LlmContextCleanupTick()
+}
+
 ------------------------------------------------------------
 -- Open Questions
 ------------------------------------------------------------
 
 open question "Routing in BotEngine (#1492): the order between reply bundles and the LLM, and the directed-at-bot gate."
-open question "Per-chat context window, TTL cleanup and anonymous sender labels (#1489)."
 open question "Privacy note (#1483, #1498): the Gemini free tier may not be offered to minors or EEA/UK/CH users. #1485 only makes the provider switch configurable; it does not authorise a free-tier deployment."

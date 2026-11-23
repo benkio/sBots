@@ -33,6 +33,24 @@ final case class LlmBudgetConfig(
     maxPerDay: Int = 50
 ) derives ConfigReader
 
+/** #1489: the per-chat context window, its retention and the anonymous sender labels. The token budget uses the same
+  * four-characters-per-token estimate as the input limit, so a window can never make a prompt exceed that limit.
+  */
+final case class LlmContextConfig(
+    maxMessages: Int = LlmContextConfig.defaultMaxMessages,
+    maxTokens: Int = LlmContextConfig.defaultMaxTokens,
+    ttl: FiniteDuration = LlmContextConfig.defaultTtl,
+    cleanupCron: String = LlmContextConfig.defaultCleanupCron,
+    // Only a placeholder: validation rejects it, so a deployment cannot inherit a publicly known secret.
+    authorSalt: Sensitive = Sensitive(LlmContextConfig.publicExampleSalt)
+) derives ConfigReader {
+
+  // The salt is a secret: knowing it would let anyone with source or log access brute-force the sender hashes back to
+  // ids. It must come from the deployment, never from a shipped default.
+  override def toString: String =
+    s"LlmContextConfig($maxMessages,$maxTokens,$ttl,$cleanupCron,${LlmContextConfig.redacted})"
+}
+
 /** The section `main.llm` of the application configuration. */
 final case class LlmConfig(
     gemini: ProviderConnection,
@@ -40,8 +58,41 @@ final case class LlmConfig(
     primaryProvider: Option[String] = None,
     timeout: FiniteDuration = LlmConfig.defaultTimeout,
     maxInputTokens: Int = LlmConfig.defaultMaxInputTokens,
-    maxOutputTokens: Int = LlmConfig.defaultMaxOutputTokens
+    maxOutputTokens: Int = LlmConfig.defaultMaxOutputTokens,
+    context: LlmContextConfig = LlmContextConfig()
 ) derives ConfigReader
+
+object LlmContextConfig {
+
+  val defaultMaxMessages: Int    = 20
+  val defaultMaxTokens: Int      = 2048
+  val defaultTtl: FiniteDuration = 7.days
+  val defaultCleanupCron: String = "0 0 * ? * *"
+
+  /** Not a usable default: it is public, so validation rejects it. Every deployment must set its own salt. */
+  val publicExampleSalt: String = "sbots-llm"
+  private val redacted: String  = "<redacted>"
+
+  /** The salt must be stable across restarts: a changing salt would change every sender label and break the history. */
+  def validate(config: LlmContextConfig, maxInputTokens: Int): Either[String, Unit] = {
+    val problems = List(
+      if config.maxMessages <= 0 then Some("llm.context.max-messages must be positive") else None,
+      if config.maxTokens <= 0 then Some("llm.context.max-tokens must be positive") else None,
+      if config.maxTokens > maxInputTokens then Some("llm.context.max-tokens must not exceed llm.max-input-tokens")
+      else None,
+      if config.ttl < 1.second then Some("llm.context.ttl must be at least one second")
+      else None,
+      if cron4s.Cron(config.cleanupCron).isLeft then Some("llm.context.cleanup-cron must be a valid cron expression")
+      else None,
+      if config.authorSalt.value.isBlank then Some("llm.context.author-salt must not be blank")
+      else if config.authorSalt.value.trim == publicExampleSalt then Some(
+        "llm.context.author-salt must not be the public example value: set LLM_CONTEXT_AUTHOR_SALT"
+      )
+      else None
+    ).flatten
+    Either.cond(problems.isEmpty, (), problems.mkString(", "))
+  }
+}
 
 object LlmConfig {
 
@@ -87,7 +138,8 @@ object LlmConfig {
       else None,
       if config.openrouter.quota.maxPerDay <= 0 then Some("llm.openrouter.quota.max-per-day must be positive") else None
     ).flatten
-    Either.cond(problems.isEmpty, (), problems.mkString(", "))
+    if problems.nonEmpty then Left(problems.mkString(", "))
+    else LlmContextConfig.validate(config.context, config.maxInputTokens)
   }
 
   def load[F[_]: Async]: F[LlmConfig] =

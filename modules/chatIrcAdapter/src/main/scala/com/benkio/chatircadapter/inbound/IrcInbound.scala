@@ -42,18 +42,23 @@ object IrcInbound {
   /** The message, unless it is to be ignored: written by the bot itself (a server can echo it), or without text.
     *
     * The chat is the channel, or the sender for a private message: a nick or a channel is the same whatever the case,
-    * so the ids are lowercase and the same chat is always the same id. IRC has no message ids, nor a time for the
-    * messages: the one of the event is used.
+    * so the ids are lowercase and the same chat is always the same id. The author id is the lowercased nick too: it is
+    * not a stable platform id for guided flows (see `IrcCapabilities.suppliesSenderId`), but it distinguishes the
+    * anonymous labels of the LLM context. IRC has no message ids, nor a time for the messages: the one of the event is
+    * used.
     */
   def message(event: IrcMessageEvent, ownNick: String): Option[Message] = {
-    val text = stripFormatting(event.text).trim
+    val text   = stripFormatting(event.text).trim
+    val sender = event.sender.toLowerCase
+    val chat   = event.channel.getOrElse(sender).toLowerCase
     Option.when(!event.sender.equalsIgnoreCase(ownNick) && text.nonEmpty)(
       Message(
         messageId = None,
         date = event.createdAtEpochSecond,
-        chatId = ChatId(Platform.Irc, event.channel.getOrElse(event.sender).toLowerCase),
+        chatId = ChatId(Platform.Irc, chat),
         chatType = if event.channel.isDefined then "group" else "private",
         text = Some(text),
+        authorId = Some(sender),
         mentions = mentions(text)
       )
     )
