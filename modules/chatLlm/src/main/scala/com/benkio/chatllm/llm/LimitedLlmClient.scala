@@ -1,7 +1,6 @@
 package com.benkio.chatllm.llm
 
 import cats.effect.Async
-import cats.effect.Clock
 import cats.syntax.all.*
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.Notifier
@@ -38,8 +37,7 @@ object LimitedLlmClient {
               .pure[F]
             else
               for {
-                now      <- Clock[F].realTimeInstant
-                decision <- limiter.acquire(now)
+                decision <- limiter.acquire
                 result   <- decision match {
                   case RateLimitDecision.Allowed =>
                     underlying.complete(prompt).handleErrorWith { error =>

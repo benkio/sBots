@@ -29,6 +29,7 @@ jobs:
     env:
       DEPLOY_HOST: ${{ vars.DEPLOY_HOST }}
       DEPLOY_PORT: ${{ vars.DEPLOY_PORT }}
+      DEPLOY_HOST_KEY: ${{ vars.DEPLOY_HOST_KEY }}
       WEBHOOK_PUBLIC_HOST: ${{ vars.WEBHOOK_PUBLIC_HOST }}
       DEPLOY_USER: ${{ vars.DEPLOY_USER }}
       DEPLOY_DIR: ${{ vars.DEPLOY_DIR }}
@@ -78,12 +79,20 @@ jobs:
           install -m 700 -d ~/.ssh
           install -m 600 -D /dev/null ~/.ssh/id_ed25519
           printf '%s' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          # Pin the server's host key from an independent trusted source: DEPLOY_HOST_KEY holds the public key line
+          # (e.g. `ssh-ed25519 AAAA...` from the server's /etc/ssh/ssh_host_ed25519_key.pub, copied out-of-band).
+          # Every SSH/rsync call below verifies it with StrictHostKeyChecking=yes instead of trusting the first key
+          # offered, so a host impersonation cannot intercept the credentials or the transferred files.
+          test -n "$DEPLOY_HOST_KEY" || { echo "::error::Set the repository variable DEPLOY_HOST_KEY (the server's SSH host public key, from a trusted source)"; exit 1; }
+          printf '%s %s\n' "$DEPLOY_HOST" "$DEPLOY_HOST_KEY" > ~/.ssh/known_hosts
+          printf '[%s]:%s %s\n' "$DEPLOY_HOST" "$DEPLOY_PORT" "$DEPLOY_HOST_KEY" >> ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
       - name: Check Java & Install it on Server
         run: |
-          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'if ! java --version >/dev/null 2>&1; then echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S apk add --no-cache openjdk21-jre; fi'"
+          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'if ! java --version >/dev/null 2>&1; then echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S apk add --no-cache openjdk21-jre; fi'"
       - name: Install Sqlite on Server
         run: |
-          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S apk add --no-cache sqlite rsync'"
+          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S apk add --no-cache sqlite rsync'"
       - name: Install Log Rotation on Server
         run: |
           cat > /tmp/sbots-logrotate <<EOF
@@ -101,14 +110,14 @@ jobs:
           #!/bin/sh
           exec /usr/sbin/logrotate -s /var/lib/logrotate-sbots.status /etc/logrotate.d/sbots
           EOF
-          rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10' /tmp/sbots-logrotate /tmp/sbots-logrotate-cron ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:/tmp/
-          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S sh -c \"apk add --no-cache logrotate && install -m 644 /tmp/sbots-logrotate /etc/logrotate.d/sbots && install -m 755 /tmp/sbots-logrotate-cron /etc/periodic/hourly/sbots-logrotate && (rc-update add crond default || true) && (rc-service crond start || true) && logrotate -d /etc/logrotate.d/sbots\"'"
+          rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=yes -o ConnectTimeout=10' /tmp/sbots-logrotate /tmp/sbots-logrotate-cron ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:/tmp/
+          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S sh -c \"apk add --no-cache logrotate && install -m 644 /tmp/sbots-logrotate /etc/logrotate.d/sbots && install -m 755 /tmp/sbots-logrotate-cron /etc/periodic/hourly/sbots-logrotate && (rc-update add crond default || true) && (rc-service crond start || true) && logrotate -d /etc/logrotate.d/sbots\"'"
       - name: Ensure Deploy Directory
         run: |
-          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -c 'mkdir -p ${{ env.DEPLOY_DIR }}'"
+          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -c 'mkdir -p ${{ env.DEPLOY_DIR }}'"
       - name: Stop Current bots
         # The service is supervised (respawn): stop it first, a plain killall would be undone after respawn_delay.
-        run: ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'java --version; echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-service sbots stop || true; killall java || true'"
+        run: ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'java --version; echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-service sbots stop || true; killall java || true'"
       - name: Replace Bot's Jar
         run: |
           JAR_CANDIDATES=(/home/runner/work/sBots/sBots/target/out/jvm/scala-*/main/main.jar)
@@ -116,15 +125,15 @@ jobs:
             echo "Assembly jar not found under target/out/jvm/scala-*/main/main.jar"
             exit 1
           fi
-          rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10' "${JAR_CANDIDATES[0]}" ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/main.jar
+          rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=yes -o ConnectTimeout=10' "${JAR_CANDIDATES[0]}" ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/main.jar
       - name: Replace Migration DB Scripts
         run: |
-          rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10' /home/runner/work/sBots/sBots/DBMigration.sql /home/runner/work/sBots/sBots/scripts/updateProdDB.sh ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/
+          rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=yes -o ConnectTimeout=10' /home/runner/work/sBots/sBots/DBMigration.sql /home/runner/work/sBots/sBots/scripts/updateProdDB.sh ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/
       - name: Update DB
         # updateProdDB.sh migrates the production data and restores the production DB if the migration fails
         run: |
-          rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10' /home/runner/work/sBots/sBots/botDB.sqlite3 ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/botDBBase.sqlite3
-          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh ${{ env.DEPLOY_DIR }}/updateProdDB.sh ${{ env.DEPLOY_DIR }}"
+          rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=yes -o ConnectTimeout=10' /home/runner/work/sBots/sBots/botDB.sqlite3 ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:${{ env.DEPLOY_DIR }}/botDBBase.sqlite3
+          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh ${{ env.DEPLOY_DIR }}/updateProdDB.sh ${{ env.DEPLOY_DIR }}"
       - name: Install & Enable Bots Service
         env:
           # LOKI_URL and LOKI_USER are repository variables (not sensitive), only the token is a secret
@@ -190,23 +199,23 @@ jobs:
           }
           EOF
           chmod 600 /tmp/sbots-openrc
-          rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10' /tmp/sbots-openrc ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:/tmp/sbots-openrc
+          rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=yes -o ConnectTimeout=10' /tmp/sbots-openrc ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:/tmp/sbots-openrc
           rm -f /tmp/sbots-openrc
-          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S install -m 700 /tmp/sbots-openrc /etc/init.d/sbots; rm -f /tmp/sbots-openrc; if ! echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-update show default | grep -Eq \"^[[:space:]]*sbots[[:space:]]*$\"; then echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-update add sbots default; fi'"
+          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S install -m 700 /tmp/sbots-openrc /etc/init.d/sbots; rm -f /tmp/sbots-openrc; if ! echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-update show default | grep -Eq \"^[[:space:]]*sbots[[:space:]]*$\"; then echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-update add sbots default; fi'"
       - name: Ask for the post deploy test files
         # One marker per bot: the first start of each bot consumes its own and sends its configured test file to the ops chat (see StartupCheckConfig).
         # The remote command is single-quoted so $bot survives the runner's shell; the touch target is then
         # double-quoted so the remote shell expands it. The old single-quoted target created one file literally
         # named ${bot}_post-deploy-test.marker, so no bot ever found its own marker and no test file was sent.
         run: |
-          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" \
+          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" \
             'rm -f ${{ env.DEPLOY_DIR }}/*_post-deploy-test.marker; for bot in abar cala mos rphjb xah ytai pino orl sgar; do touch "${{ env.DEPLOY_DIR }}/${bot}_post-deploy-test.marker"; done'
       - name: Verify the per-bot markers
         run: |
-          count=$(ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "ls -1 ${{ env.DEPLOY_DIR }}/*_post-deploy-test.marker | wc -l")
+          count=$(ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "ls -1 ${{ env.DEPLOY_DIR }}/*_post-deploy-test.marker | wc -l")
           if [ "$count" -ne 9 ]; then
             echo "Expected 9 post-deploy markers, found $count"
             exit 1
           fi
       - name: Restart Bots
-        run: ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-service sbots restart || echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-service sbots start'"
+        run: ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-service sbots restart || echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-service sbots start'"

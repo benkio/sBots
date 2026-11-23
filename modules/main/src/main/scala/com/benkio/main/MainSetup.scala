@@ -49,7 +49,8 @@ object MainSetup {
     httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
     _          <- Resource.eval(log.info("[Main] httpClient"))
     llmClient  <- Resource.eval(
-      LlmClients.build[F](httpClient, config.llm, Notifier.guarded(Notifier.logging[F]))
+      // Not guarded: LimitedLlmClient must observe a failed quota notification so the next denial retries it.
+      LlmClients.build[F](httpClient, config.llm, Notifier.logging[F])
     )
     _       <- Resource.eval(log.info("[Main] llmClient"))
     dbLayer <- Resource.eval(

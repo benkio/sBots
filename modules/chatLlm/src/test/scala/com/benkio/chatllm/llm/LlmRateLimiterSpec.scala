@@ -103,6 +103,18 @@ class LlmRateLimiterSpec extends CatsEffectSuite {
     }
   }
 
+  test("acquire reads the current clock inside the atomic update") {
+    limiter(perMinute = 1, perDay = 10).flatMap { l =>
+      for {
+        first  <- l.acquire
+        second <- l.acquire
+      } yield {
+        assertEquals(first, RateLimitDecision.Allowed)
+        assertEquals(second, RateLimitDecision.Exhausted(BudgetWindow.Minute, firstNotice = true))
+      }
+    }
+  }
+
   test("acquire counts completions globally, independent of the provider") {
     limiter(perMinute = 2, perDay = 10).flatMap { l =>
       for {

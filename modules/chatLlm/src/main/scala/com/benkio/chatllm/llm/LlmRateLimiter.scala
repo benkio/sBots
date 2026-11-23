@@ -1,6 +1,7 @@
 package com.benkio.chatllm.llm
 
 import cats.effect.Async
+import cats.effect.Clock
 import cats.effect.Ref
 import cats.syntax.all.*
 
@@ -26,9 +27,12 @@ enum RateLimitDecision {
   */
 trait LlmRateLimiter[F[_]] {
 
-  /** Reserves one request at `at`, or refuses it. The time is passed in so the windows are testable without sleeping;
-    * the caller supplies the current instant.
+  /** Reserves one request at the current instant, or refuses it. The clock is read inside the atomic state update, so a
+    * retried update filters the windows and records the admission with a fresh timestamp.
     */
+  def acquire: F[RateLimitDecision]
+
+  /** Deterministic variant of [[acquire]]: the time is passed in so the windows are testable without sleeping. */
   def acquire(at: Instant): F[RateLimitDecision]
 
   /** Called when the ops notification for the first denial failed: the next denial may notify again. */
@@ -48,31 +52,44 @@ object LlmRateLimiter {
   def apply[F[_]: Async](config: LlmBudgetConfig): F[LlmRateLimiter[F]] =
     Ref.of[F, State](empty).map(states => new Impl[F](states, config))
 
-  private final class Impl[F[_]](states: Ref[F, State], config: LlmBudgetConfig) extends LlmRateLimiter[F] {
+  private final class Impl[F[_]: Async](states: Ref[F, State], config: LlmBudgetConfig) extends LlmRateLimiter[F] {
 
-    override def acquire(at: Instant): F[RateLimitDecision] = {
+    override def acquire: F[RateLimitDecision] = {
+      // access + compare-and-set keeps the update atomic while allowing an effectful clock read: each retry reads a
+      // fresh instant instead of reusing one captured before the update.
+      def attempt: F[RateLimitDecision] =
+        states.access.flatMap { case (state, set) =>
+          Clock[F].realTimeInstant.flatMap { at =>
+            val (next, decision) = decide(state, at)
+            set(next).ifM(decision.pure[F], attempt)
+          }
+        }
+      attempt
+    }
+
+    override def acquire(at: Instant): F[RateLimitDecision] =
+      states.modify(state => decide(state, at))
+
+    private def decide(state: State, at: Instant): (State, RateLimitDecision) = {
       val now      = at.toEpochMilli
       val minuteAt = at.minusSeconds(60).toEpochMilli
       val dayAt    = at.minus(1, ChronoUnit.DAYS).toEpochMilli
+      val minute   = state.thisMinute.filter(_ > minuteAt)
+      val today    = state.today.filter(_ > dayAt)
 
-      states.modify { state =>
-        val minute = state.thisMinute.filter(_ > minuteAt)
-        val today  = state.today.filter(_ > dayAt)
-
-        if minute.size >= config.maxPerMinute then (
-          state.copy(thisMinute = minute, today = today, notified = true),
-          RateLimitDecision.Exhausted(BudgetWindow.Minute, firstNotice = !state.notified)
+      if minute.size >= config.maxPerMinute then (
+        state.copy(thisMinute = minute, today = today, notified = true),
+        RateLimitDecision.Exhausted(BudgetWindow.Minute, firstNotice = !state.notified)
+      )
+      else if today.size >= config.maxPerDay then (
+        state.copy(thisMinute = minute, today = today, notified = true),
+        RateLimitDecision.Exhausted(BudgetWindow.Day, firstNotice = !state.notified)
+      )
+      else
+        (
+          State(now :: minute, now :: today, notified = false),
+          RateLimitDecision.Allowed
         )
-        else if today.size >= config.maxPerDay then (
-          state.copy(thisMinute = minute, today = today, notified = true),
-          RateLimitDecision.Exhausted(BudgetWindow.Day, firstNotice = !state.notified)
-        )
-        else
-          (
-            State(now :: minute, now :: today, notified = false),
-            RateLimitDecision.Allowed
-          )
-      }
     }
 
     override def notificationFailed: F[Unit] =
