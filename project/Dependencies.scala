@@ -259,7 +259,8 @@ object Dependencies {
         libs.circeGeneric,
         libs.doobieCore,
         libs.http4sCirce,
-        libs.pureConfigCore
+        libs.pureConfigCore,
+        libs.sqlite % groups.testScope
       )
 
   /** Shared dependencies for all bot projects. Use this in Settings.botProjectSettings. */

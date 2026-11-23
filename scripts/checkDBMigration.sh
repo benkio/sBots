@@ -17,6 +17,7 @@ BOT=$(sqlite3 "$WORK/botDB.sqlite3" "SELECT id FROM bot LIMIT 1")
 MEDIA=$(sqlite3 "$WORK/botDB.sqlite3" "SELECT media_name FROM media LIMIT 1")
 sqlite3 "$WORK/botDB.sqlite3" <<SQL
 DELETE FROM subscription; DELETE FROM timeout; DELETE FROM chat;
+DELETE FROM llm_chat_settings; DELETE FROM llm_context;
 INSERT INTO chat(platform, chat_id, chat_name, chat_url) VALUES ('telegram', '-100123', 'group', 'https://example.org');
 -- the production DB still has the log table dropped by V11: the migration must not carry it over
 CREATE TABLE IF NOT EXISTS log(log_time BIGINT NOT NULL, message TEXT NOT NULL, PRIMARY KEY(log_time));
@@ -28,6 +29,10 @@ INSERT INTO subscription(subscription_id, platform, chat_id, bot_id, subscriptio
   VALUES ('11111111-1111-1111-1111-111111111111', 'telegram', '-100123', '$BOT', 'calendar', NULL, '0 0 9 * * ?', '1700000000');
 INSERT INTO subscription(subscription_id, platform, chat_id, bot_id, subscription_type, target, cron, subscribed_at)
   VALUES ('22222222-2222-2222-2222-222222222222', 'irc', '#sbots', '$BOT', 'show', 'pino scotto', '0 30 9 * * ?', '1700000000');
+INSERT INTO llm_chat_settings(platform, chat_id, bot_id, enabled, updated_at) VALUES ('telegram', '-100123', '$BOT', 1, 1700000000);
+INSERT INTO llm_chat_settings(platform, chat_id, bot_id, enabled, updated_at) VALUES ('irc', '-100123', '$BOT', 0, 1700000000);
+INSERT INTO llm_context(platform, chat_id, bot_id, role, content, created_at) VALUES ('telegram', '-100123', '$BOT', 'user', 'ciao', 1700000000);
+INSERT INTO llm_context(platform, chat_id, bot_id, role, content, created_at) VALUES ('telegram', '-100123', '$BOT', 'assistant', 'buongiorno', 1700000001);
 UPDATE media SET media_count = 4242 WHERE media_name = '$MEDIA';
 SQL
 
@@ -43,7 +48,26 @@ q() { sqlite3 "$WORK/botDB.sqlite3" "$1"; }
 [ "$(q "SELECT count(*) FROM sqlite_master WHERE name = 'log'")" = 0 ] || fail "the dropped log table is still there"
 [ "$(q "SELECT count(*) FROM chat WHERE platform = 'telegram' AND chat_id = '-100123'")" = 1 ] || fail "chat not carried over"
 [ "$(q "SELECT media_count FROM media WHERE media_name = '$MEDIA'")" = 4242 ] || fail "media_count not carried over"
+[ "$(q "SELECT count(*) FROM llm_chat_settings")" = 2 ] || fail "LLM settings not carried over"
+[ "$(q "SELECT enabled FROM llm_chat_settings WHERE platform = 'irc' AND chat_id = '-100123'")" = 0 ] || fail "LLM settings platform lost"
+[ "$(q "SELECT updated_at FROM llm_chat_settings WHERE platform = 'telegram' AND chat_id = '-100123'")" = 1700000000 ] || fail "LLM settings updated_at lost"
+[ "$(q "SELECT count(*) FROM llm_context")" = 2 ] || fail "LLM context not carried over"
+[ "$(q "SELECT content FROM llm_context WHERE role = 'assistant'")" = "buongiorno" ] || fail "LLM context content lost"
+[ "$(q "SELECT created_at FROM llm_context WHERE role = 'assistant'")" = 1700000001 ] || fail "LLM context created_at lost"
 [ -f "$WORK/botDB.sqlite3.bak" ] || fail "previous production DB not kept as backup"
+
+# re-running the migration over a destination that already has the copied rows must not duplicate llm_context
+cp "$WORK/botDB.sqlite3" "$WORK/botDBBase.sqlite3"
+sh "$ROOT/scripts/updateProdDB.sh" "$WORK" > /dev/null
+[ "$(q "SELECT count(*) FROM llm_context")" = 2 ] || fail "re-running the migration duplicated LLM context"
+[ "$(q "SELECT count(*) FROM llm_chat_settings")" = 2 ] || fail "re-running the migration duplicated LLM settings"
+
+# a production DB from before V13 has no LLM tables: the guarded copy must still succeed, with empty tables
+cp "$GENERATED" "$WORK/botDBBase.sqlite3"
+sqlite3 "$WORK/botDB.sqlite3" "DROP TABLE llm_chat_settings; DROP TABLE llm_context;"
+sh "$ROOT/scripts/updateProdDB.sh" "$WORK" > /dev/null
+[ "$(q "SELECT count(*) FROM llm_chat_settings")" = 0 ] || fail "LLM settings invented for a legacy prod DB"
+[ "$(q "SELECT count(*) FROM llm_context")" = 0 ] || fail "LLM context invented for a legacy prod DB"
 
 # a failing migration must leave the production DB untouched
 cp "$WORK/botDB.sqlite3" "$WORK/prod.expected"

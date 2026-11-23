@@ -125,6 +125,8 @@ object DBFixture {
     connection.createStatement().executeUpdate("DELETE FROM paged_list_text;")
     connection.createStatement().executeUpdate("DELETE FROM subscription_draft;")
     connection.createStatement().executeUpdate("DELETE FROM subscription_flow_prompt;")
+    connection.createStatement().executeUpdate("DELETE FROM llm_chat_settings;")
+    connection.createStatement().executeUpdate("DELETE FROM llm_context;")
     connection.createStatement().executeUpdate("UPDATE media SET media_count = 0;")
     ()
   }

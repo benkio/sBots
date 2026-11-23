@@ -28,4 +28,45 @@ INSERT OR REPLACE INTO subscription(subscription_id, platform, chat_id, bot_id, 
 SELECT subscription_id, platform, chat_id, bot_id, subscription_type, target, cron, subscribed_at
 FROM prodDB.subscription;
 
+-- The LLM tables arrive with V13: a production DB from the previous deploy has no such tables. Create them in the
+-- attached old DB when missing (that file is replaced by the .bak at the end of updateProdDB.sh) so the copy below
+-- works on both an upgraded and a first-time deployment.
+CREATE TABLE IF NOT EXISTS prodDB.llm_chat_settings(
+  platform TEXT NOT NULL,
+  chat_id TEXT NOT NULL,
+  bot_id TEXT NOT NULL,
+  enabled BOOLEAN NOT NULL DEFAULT 0,
+  updated_at INTEGER NOT NULL,
+  PRIMARY KEY (platform, chat_id, bot_id)
+);
+
+CREATE TABLE IF NOT EXISTS prodDB.llm_context(
+  platform TEXT NOT NULL,
+  chat_id TEXT NOT NULL,
+  bot_id TEXT NOT NULL,
+  role TEXT NOT NULL,
+  content TEXT NOT NULL,
+  created_at INTEGER NOT NULL
+);
+
+INSERT OR REPLACE INTO llm_chat_settings(platform, chat_id, bot_id, enabled, updated_at)
+SELECT platform, chat_id, bot_id, enabled, updated_at
+FROM prodDB.llm_chat_settings;
+
+-- llm_context has no unique key, so INSERT OR REPLACE cannot protect a rerun. All the stored columns identify a
+-- copied message: skip rows the destination already has, leaving that existing data untouched.
+INSERT INTO llm_context(platform, chat_id, bot_id, role, content, created_at)
+SELECT p.platform, p.chat_id, p.bot_id, p.role, p.content, p.created_at
+FROM prodDB.llm_context p
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM llm_context d
+    WHERE d.platform = p.platform
+      AND d.chat_id = p.chat_id
+      AND d.bot_id = p.bot_id
+      AND d.role = p.role
+      AND d.content = p.content
+      AND d.created_at = p.created_at
+);
+
 DETACH DATABASE prodDB;
