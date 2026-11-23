@@ -531,6 +531,35 @@ class LlmClientSpec extends CatsEffectSuite {
     }
   }
 
+  test("a retryable failure from a fallback-first completion fails with the single fallback attempt recorded") {
+    // obligation: rule-failure.CompletionFailsAfterFallbackExhausted
+    val hosts  = ListBuffer.empty[String]
+    val client = stub(
+      gemini = (Status.Ok, geminiSuccess("ciao")),
+      openRouter = (Status.TooManyRequests, Json.obj()),
+      hosts,
+      ListBuffer.empty[String]
+    )
+    val cfg = config("primary-provider = gemini\ngemini.quota.max-per-minute = 1\n")
+    for {
+      notifier <- NotifierMock.recording
+      llm      <- LlmClients.build[IO](client, cfg, notifier)
+      first    <- llm.complete(prompt) // gemini uses its only slot
+      second   <- llm.complete(prompt) // gemini exhausted -> fallback asked first, and 429s
+      infos    <- notifier.infos.get
+    } yield {
+      assertEquals(first.status, CompletionStatus.Answered)
+      assertEquals(second.status, CompletionStatus.Failed)
+      assertEquals(second.reply, None)
+      assertEquals(
+        second.attempts.map(a => (a.provider, a.result)),
+        List((LlmProvider.OpenRouter, Some(ProviderResult.RateLimited)))
+      )
+      assertEquals(hosts.toList, List(geminiHost, openRouterHost))
+      assertEquals(infos, Nil)
+    }
+  }
+
   test("a primary timeout falls back to a successful reply") {
     // obligation: rule-success.RetryableProviderFailureFallsBack
     // obligation: rule-success.ProviderReturnsStructuredReply

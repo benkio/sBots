@@ -297,11 +297,14 @@ rule FallbackQuotaExhaustedAfterPrimaryFailure {
         completion.status = failed
 }
 
+-- A retryable result from the fallback ends the completion, whichever provider was asked first: after a primary failure
+-- there are two attempts, but when the primary's quota was exhausted the fallback is the only attempt made.
 rule CompletionFailsAfterFallbackExhausted {
     when: ProviderResponded(completion, provider, result, reply?)
     requires: completion.status = pending
     requires: result in {rate_limited, server_error, timeout}
-    requires: completion.attempts.count >= 2
+    requires: provider = completion.fallback_provider
+    requires: completion.attempts.any(a => a.provider = completion.fallback_provider)
     ensures:
         let attempt = ProviderAttempt{completion: completion, provider: provider}
         attempt.result = result
