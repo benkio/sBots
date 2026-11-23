@@ -2,15 +2,21 @@ package com.benkio.chatdiscordadapter.inbound
 
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandSyntax
+import com.benkio.chatcore.model.Mention
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageId
 import com.benkio.chatcore.model.Platform
+import com.benkio.chatcore.model.RepliedMessage
 
 /** A message written in a channel or in a DM, as the adapter needs it: no library types, so it is mapped by plain
   * functions.
   *
   * @param content
   *   the text; it is empty for what the bot is not allowed to read (the privileged message content intent is off)
+  * @param mentions
+  *   the users the message mentions
+  * @param replyTo
+  *   the message it replies to (Discord has no separate quote)
   */
 final case class DiscordMessageEvent(
     messageId: String,
@@ -19,7 +25,9 @@ final case class DiscordMessageEvent(
     authorIsBot: Boolean,
     authorId: String,
     content: String,
-    createdAtEpochSecond: Long
+    createdAtEpochSecond: Long,
+    mentions: List[Mention] = List.empty,
+    replyTo: Option[RepliedMessage] = None
 )
 
 /** A slash command (`/name arguments`): it arrives as an interaction, not as a message.
@@ -56,7 +64,9 @@ object DiscordInbound {
         chatId = chatId(event.channelId),
         chatType = chatType(event.isDirect),
         text = Some(event.content),
-        authorId = Some(event.authorId)
+        authorId = Some(event.authorId),
+        mentions = event.mentions,
+        replyTo = event.replyTo
       )
     )
 

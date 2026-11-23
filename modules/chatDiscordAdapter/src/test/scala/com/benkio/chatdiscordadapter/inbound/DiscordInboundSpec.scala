@@ -2,10 +2,13 @@ package com.benkio.chatdiscordadapter.inbound
 
 import com.benkio.chatcore.messagefiltering.messageType
 import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.Mention
 import com.benkio.chatcore.model.MessageId
 import com.benkio.chatcore.model.MessageType
 import com.benkio.chatcore.model.Platform
+import com.benkio.chatcore.model.RepliedMessage
 import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.model.SBotInfo.SBotName
 import com.benkio.chatdiscordadapter.model.DiscordCapabilities
 import munit.FunSuite
 
@@ -89,5 +92,17 @@ class DiscordInboundSpec extends FunSuite {
       Some(MessageType.Command)
     )
     assertEquals(DiscordInbound.message(written).map(_.messageType(botId, syntax)), Some(MessageType.Message))
+  }
+
+  test("a mention of the bot and a reply to one of its messages are directed at the bot") {
+    val bot       = SBotName("SBotsBot")
+    val mentioned =
+      DiscordInbound.message(written.copy(mentions = List(Mention(id = Some("1"), name = Some("SBotsBot"))))).get
+    assert(mentioned.isDirectedAt(bot))
+    val replied = DiscordInbound
+      .message(written.copy(replyTo = Some(RepliedMessage(authorId = Some("1"), authorName = Some("SBotsBot")))))
+      .get
+    assert(replied.isDirectedAt(bot))
+    assert(!DiscordInbound.message(written).get.isDirectedAt(bot))
   }
 }

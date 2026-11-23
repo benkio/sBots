@@ -29,6 +29,14 @@ entity Message {
     bot_added: Boolean    -- this bot is among the joined members
     left_member: Boolean
     content: text ?? caption
+    -- who wrote it, when the platform says (Telegram and Discord); the author_id can be anonymised, it is never shown
+    author_id: String?
+    -- relative to the bot that receives the message, matched on the bot name, case insensitive:
+    mentions_bot: Boolean      -- the bot is mentioned (Telegram entity, Discord mention, IRC "@name")
+    replies_to_bot: Boolean    -- it replies to (or quotes) a message written by the bot (Telegram and Discord)
+    calls_bot: Boolean         -- the text opens with the bot name followed by ":" or "," (the IRC way)
+    quote: String?             -- the quoted part of the replied message (Telegram only)
+    is_directed_at_bot: mentions_bot or replies_to_bot or calls_bot
     -- the first word of the text is a command of the platform's syntax; a caption is never a command
     is_command: Boolean
     -- a file request of the platform's syntax in the text, addressed to this bot; a caption is never a file request

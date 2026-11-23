@@ -1,0 +1,20 @@
+-- allium: 3
+-- llm.allium: the LLM replies of the bots (epic #1499). Only what is built is specified; the rest of the epic is listed
+-- as open questions. Code: modules/chatCore/llm (the ports), modules/chatLlm (the implementation, wired by main).
+
+use "./sbots.allium" as core
+
+-- The engine asks the responder to answer a message directed at the bot. The ports live in chatCore so the engine
+-- knows nothing of the provider; the default responder never answers.
+external entity LlmResponder {
+    answers: Boolean    -- false for the default (noop) responder: the feature is unconfigured
+}
+
+-- #1501 / #1484: nothing changes for the bots yet. A message directed at the bot (core/Message.is_directed_at_bot) is
+-- what the engine will offer to the responder; the engine does not call it yet, and the default responder never
+-- answers, so the reply bundles behave as before. The ports of the /llm command (LlmSettings: enable, disable, status,
+-- forget; the default reports disabled) are in chatCore too and get their entities with #1487.
+
+open question "Routing in BotEngine (#1492): the order between reply bundles and the LLM, and the directed-at-bot gate."
+open question "Per-chat settings and context tables (#1487, #1489), the /llm command (#1488)."
+open question "Provider choice and the privacy note (#1483, #1498): the Gemini free tier may not be offered to minors or EEA/UK/CH users."

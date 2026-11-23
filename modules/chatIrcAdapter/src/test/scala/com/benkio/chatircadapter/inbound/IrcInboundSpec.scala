@@ -2,9 +2,11 @@ package com.benkio.chatircadapter.inbound
 
 import com.benkio.chatcore.messagefiltering.messageType
 import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.Mention
 import com.benkio.chatcore.model.MessageType
 import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatcore.model.SBotInfo.SBotName
 import com.benkio.chatircadapter.model.IrcCapabilities
 import munit.FunSuite
 
@@ -64,5 +66,14 @@ class IrcInboundSpec extends FunSuite {
       Some(MessageType.Command)
     )
     assertEquals(IrcInbound.message(inChannel, ownNick).map(_.messageType(botId, syntax)), Some(MessageType.Message))
+  }
+
+  test("an @nick is a mention, and calling the bot by its nick is directed at it") {
+    val bot       = SBotName("TestBot")
+    val mentioned = IrcInbound.message(inChannel.copy(text = "hi @TestBot you"), ownNick).get
+    assertEquals(mentioned.mentions, List(Mention(name = Some("TestBot"))))
+    assert(mentioned.isDirectedAt(bot))
+    assert(IrcInbound.message(inChannel.copy(text = "TestBot: hi"), ownNick).get.isDirectedAt(bot))
+    assert(!IrcInbound.message(inChannel, ownNick).get.isDirectedAt(bot))
   }
 }

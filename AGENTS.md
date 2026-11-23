@@ -16,6 +16,7 @@ on bot logic read the relevant spec first, and update it in the same change as t
 - `engine-extras.allium`: per-chat timeout commands, subscriptions, media counts.
 - `bots.allium`: the individual bots and their special behaviours.
 - `platforms.allium`: the Telegram, Discord and IRC adapters (inbound mapping, reply delivery).
+- `llm.allium`: the LLM replies epic (ports built so far, open questions for the rest).
 - `operations.allium`: runtimes, health check, stats, startup checks, generators.
 - `catalogue.allium`: the botDB job loading media and show catalogues.
 

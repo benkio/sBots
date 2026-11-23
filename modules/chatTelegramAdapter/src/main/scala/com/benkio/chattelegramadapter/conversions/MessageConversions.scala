@@ -1,14 +1,19 @@
 package com.benkio.chattelegramadapter.conversions
 
+import com.benkio.chatcore.model.Mention
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.RepliedMessage
 import com.benkio.chatcore.model.User
 import com.benkio.chattelegramadapter.model.TelegramIds
 import com.benkio.chattelegramadapter.model.TelegramIds.telegramId
+import iozhik.OpenEnum
 import telegramium.bots.Chat as TelegramChat
 import telegramium.bots.InaccessibleMessage
 import telegramium.bots.MaybeInaccessibleMessage
+import telegramium.bots.MentionMessageEntity
 import telegramium.bots.Message as TelegramMessage
 import telegramium.bots.ReplyParameters
+import telegramium.bots.TextMentionMessageEntity
 import telegramium.bots.User as TelegramUser
 
 object MessageConversions {
@@ -55,8 +60,31 @@ object MessageConversions {
         leftChatMember =
           m.leftChatMember.map((u: TelegramUser) => User(id = u.id, isBot = u.isBot, firstName = u.firstName)),
         isForward = m.forwardOrigin.nonEmpty,
-        authorId = m.from.map(user => user.id.toString)
+        authorId = m.from.map(user => user.id.toString),
+        mentions = mentions,
+        replyTo = m.replyToMessage.map(r =>
+          RepliedMessage(
+            messageId = Some(TelegramIds.messageId(r.messageId)),
+            authorId = r.from.map(_.id.toString),
+            authorName = r.from.flatMap(_.username),
+            text = r.text.orElse(r.caption)
+          )
+        ),
+        quote = m.quote.map(_.text)
       )
+
+    /** The `@username` mentions of the text or caption, and the ones of users without a username. */
+    private def mentions: List[Mention] = {
+      val (content, entities) =
+        if m.text.isDefined then (m.text, m.entities) else (m.caption, m.captionEntities)
+      entities.flatMap {
+        case OpenEnum.Known(MentionMessageEntity(offset, length)) =>
+          content.map(c => Mention(name = Some(c.slice(offset, offset + length).stripPrefix("@"))))
+        case OpenEnum.Known(TextMentionMessageEntity(_, _, user)) =>
+          Some(Mention(id = Some(user.id.toString), name = user.username))
+        case _ => None
+      }
+    }
   }
 
   extension (msg: MaybeInaccessibleMessage) {
