@@ -12,7 +12,9 @@ import pureconfig.ConfigSource
 
 import scala.concurrent.duration.*
 
-/** The client shared by all the bots: budget, silence on exhaustion, one ops message, timeout and token limits. */
+/** The client shared by all the bots: local refusals, one ops message per silent exhaustion episode, unexpected-error
+  * reporting and token limits. Provider quotas and the fallback belong to the underlying client.
+  */
 class LimitedLlmClientSpec extends CatsEffectSuite {
 
   private val prompt = "ciao bot"
@@ -62,10 +64,16 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
       attempts = List(ProviderAttempt(LlmProvider.Gemini, Some(ProviderResult.Success)))
     )
 
-  private def fakeClient(calls: Ref[IO, Int], delay: FiniteDuration): LlmClientApi[IO] =
+  private def countingClient(calls: Ref[IO, Int], delay: FiniteDuration): LlmClientApi[IO] =
     new LlmClientApi[IO] {
       override def complete(prompt: String): IO[Completion] =
         calls.update(_ + 1) *> IO.sleep(delay).as(answered(prompt))
+    }
+
+  private val silentClient: LlmClientApi[IO] =
+    new LlmClientApi[IO] {
+      override def complete(prompt: String): IO[Completion] =
+        IO.pure(Completion.notRequested(prompt, LlmProvider.Gemini, CompletionStatus.Silent))
     }
 
   private def failingClient(error: Throwable): LlmClientApi[IO] =
@@ -74,48 +82,48 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
     }
 
   private def build(
+      underlying: LlmClientApi[IO],
+      cfg: LlmConfig,
+      notifier: Notifier[IO]
+  ): IO[LlmClientApi[IO]] =
+    LlmRateLimiter[IO](LlmConfig.quotaFor(cfg)).map(limiter => LimitedLlmClient[IO](underlying, cfg, limiter, notifier))
+
+  private def build(
       calls: Ref[IO, Int],
       cfg: LlmConfig,
-      notifier: com.benkio.chatcore.Notifier[IO],
+      notifier: Notifier[IO],
       delay: FiniteDuration = 0.millis
   ): IO[LlmClientApi[IO]] =
-    for {
-      limiter <- LlmRateLimiter[IO](cfg.budget)
-    } yield LimitedLlmClient[IO](fakeClient(calls, delay), cfg, limiter, notifier)
+    build(countingClient(calls, delay), cfg, notifier)
 
-  test("the default config has a timeout, token limits and a shared budget") {
+  test("the default config has a timeout, token limits and per-provider quotas") {
     val cfg = config("")
     assertEquals(cfg.timeout, 10.seconds)
     assertEquals(cfg.maxInputTokens, 4096)
     assertEquals(cfg.maxOutputTokens, 512)
-    assertEquals(cfg.budget, LlmBudgetConfig(20, 50))
+    assertEquals(cfg.gemini.quota, LlmBudgetConfig(20, 50))
+    assertEquals(cfg.openrouter.quota, LlmBudgetConfig(20, 50))
     assertEquals(LlmConfig.validate(cfg), Right(()))
   }
 
-  test("invalid tuning is rejected instead of silently disabling a limit") {
-    val cfg = config("timeout = 0 seconds\nmax-input-tokens = 0\nbudget {\nmax-per-day = -1\n}")
+  test("invalid tuning, including a provider quota, is rejected instead of silently disabling a limit") {
+    val cfg = config("timeout = 0 seconds\nmax-input-tokens = 0\ngemini.quota.max-per-day = -1\n")
     assert(LlmConfig.validate(cfg).isLeft)
   }
 
-  test("quota exhaustion stays silent and notifies ops only once") {
-    val cfg = config("budget {\nmax-per-minute = 1\nmax-per-day = 1\n}")
+  test("a silent completion stays silent and notifies ops only once per episode") {
+    val cfg = config("")
     for {
-      calls    <- Ref.of[IO, Int](0)
       notifier <- NotifierMock.recording
-      client   <- build(calls, cfg, notifier)
+      client   <- build(silentClient, cfg, notifier)
       first    <- client.complete(prompt)
       second   <- client.complete(prompt)
-      third    <- client.complete(prompt)
-      count    <- calls.get
       infos    <- notifier.infos.get
     } yield {
-      assertEquals(first.status, CompletionStatus.Answered)
+      assertEquals(first.status, CompletionStatus.Silent)
+      assertEquals(first.reply, None)
+      assertEquals(first.attempts, Nil)
       assertEquals(second.status, CompletionStatus.Silent)
-      assertEquals(second.reply, None)
-      assertEquals(second.attempts, Nil)
-      assertEquals(third.status, CompletionStatus.Silent)
-      // one client shared by all the bots: the single allowed request is the only provider call
-      assertEquals(count, 1)
       assertEquals(infos.size, 1)
       assert(clue(infos.head._2).contains("quota exhausted"))
       assertEquals(infos.head._1, LimitedLlmClient.opsBotInfo)
@@ -135,9 +143,22 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
     } yield {
       assertEquals(result.status, CompletionStatus.Failed)
       assertEquals(result.attempts, Nil)
-      // the refused prompt did not consume a budget slot: the next completion still reaches the provider
+      // the refused prompt did not consume a quota slot: the next completion still reaches the provider
       assertEquals(next.status, CompletionStatus.Answered)
       assertEquals(count, 1)
+      assertEquals(infos, Nil)
+    }
+  }
+
+  test("an answered completion produces no ops message") {
+    for {
+      calls    <- Ref.of[IO, Int](0)
+      notifier <- NotifierMock.recording
+      client   <- build(countingClient(calls, 0.millis), config(""), notifier)
+      result   <- client.complete(prompt)
+      infos    <- notifier.infos.get
+    } yield {
+      assertEquals(result.status, CompletionStatus.Answered)
       assertEquals(infos, Nil)
     }
   }
@@ -147,12 +168,11 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
     val cfg   = config("")
     val error = new RuntimeException("boom")
     for {
-      limiter  <- LlmRateLimiter[IO](cfg.budget)
       notifier <- NotifierMock.recording
-      client = LimitedLlmClient[IO](failingClient(error), cfg, limiter, notifier)
-      result <- client.complete(prompt).attempt
-      errors <- notifier.errors.get
-      infos  <- notifier.infos.get
+      client   <- build(failingClient(error), cfg, notifier)
+      result   <- client.complete(prompt).attempt
+      errors   <- notifier.errors.get
+      infos    <- notifier.infos.get
     } yield {
       assertEquals(result, Left(error))
       assertEquals(errors.map(_._1), List(LimitedLlmClient.opsBotInfo))
@@ -163,7 +183,7 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
     }
   }
 
-  test("missing provider credentials fail locally without a provider call or a budget slot") {
+  test("missing provider credentials fail locally without a provider call or an ops message") {
     val cfg = configWithoutGeminiKey
     for {
       calls    <- Ref.of[IO, Int](0)
@@ -181,7 +201,7 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
     }
   }
 
-  test("blank provider credentials fail locally without a provider call or a budget slot") {
+  test("blank provider credentials fail locally without a provider call or an ops message") {
     val cfg = configWithBlankKeys
     for {
       calls    <- Ref.of[IO, Int](0)
@@ -198,19 +218,17 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
     }
   }
 
-  test("a failed quota notification is retried on the next denial") {
-    val cfg = config("budget {\nmax-per-minute = 1\nmax-per-day = 1\n}")
+  test("a failed quota notification is retried on the next silent completion") {
     for {
       attempts <- Ref.of[IO, Int](0)
-      calls    <- Ref.of[IO, Int](0)
-      client   <- build(calls, cfg, failingNotifier(attempts))
-      _        <- client.complete(prompt)
+      notifier = failingNotifier(attempts)
+      client   <- build(silentClient, config(""), notifier)
+      first    <- client.complete(prompt)
       second   <- client.complete(prompt)
-      third    <- client.complete(prompt)
       notified <- attempts.get
     } yield {
+      assertEquals(first.status, CompletionStatus.Silent)
       assertEquals(second.status, CompletionStatus.Silent)
-      assertEquals(third.status, CompletionStatus.Silent)
       assertEquals(notified, 2)
     }
   }

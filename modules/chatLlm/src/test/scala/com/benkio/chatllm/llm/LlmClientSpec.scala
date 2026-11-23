@@ -163,9 +163,9 @@ class LlmClientSpec extends CatsEffectSuite {
       override val provider: LlmProvider                         = LlmProvider.Gemini
       override def generate(value: String): IO[ProviderResponse] = IO.pure(ProviderResponse.malformedJson)
     }
-    val client: LlmClientApi[IO] =
-      FallbackLlmClient(providerClient, providerClient, LlmConfig.defaultTimeout)
     for {
+      limiter <- LlmRateLimiter[IO](LlmConfig.quotaFor(config("")))
+      client: LlmClientApi[IO] = FallbackLlmClient(providerClient, providerClient, LlmConfig.defaultTimeout, limiter)
       completion <- client.complete(prompt)
       _          <- IO(assertEquals(completion.status, CompletionStatus.Failed))
       _          <- IO(assertEquals(completion.attempts.map(_.provider), List(LlmProvider.Gemini)))
@@ -440,7 +440,7 @@ class LlmClientSpec extends CatsEffectSuite {
       }
   }
 
-  test("a fallback attempt reuses the completion's budget slot") {
+  test("a fallback attempt consumes the fallback provider's quota, not the primary's") {
     val hosts  = ListBuffer.empty[String]
     val client = stub(
       gemini = (Status.TooManyRequests, Json.obj()),
@@ -448,7 +448,9 @@ class LlmClientSpec extends CatsEffectSuite {
       hosts,
       ListBuffer.empty[String]
     )
-    val cfg = config("primary-provider = gemini\nbudget { max-per-minute = 1\nmax-per-day = 1\n}\n")
+    val cfg = config(
+      "primary-provider = gemini\ngemini.quota.max-per-minute = 1\nopenrouter.quota.max-per-minute = 2\n"
+    )
     for {
       notifier <- NotifierMock.recording
       llm      <- LlmClients.build[IO](client, cfg, notifier)
@@ -456,14 +458,76 @@ class LlmClientSpec extends CatsEffectSuite {
       second   <- llm.complete(prompt)
       infos    <- notifier.infos.get
     } yield {
+      // first completion: primary + fallback, each admitted by its own quota
       assertEquals(first.status, CompletionStatus.Answered)
-      // two HTTP calls, but only one admitted completion
-      assertEquals(hosts.toList, List(geminiHost, openRouterHost))
-      assertEquals(second.status, CompletionStatus.Silent)
-      assertEquals(second.reply, None)
-      // the exhausted completion made no HTTP call
+      assertEquals(first.attempts.map(_.provider), List(LlmProvider.Gemini, LlmProvider.OpenRouter))
+      // second completion: the primary is exhausted, so the fallback (still has budget) is asked first
+      assertEquals(second.status, CompletionStatus.Answered)
+      assertEquals(second.attempts.map(_.provider), List(LlmProvider.OpenRouter))
+      assertEquals(hosts.toList, List(geminiHost, openRouterHost, openRouterHost))
+      assertEquals(infos, Nil)
+    }
+  }
+
+  test("both providers exhausted stays silent, makes no call and notifies ops once") {
+    val hosts  = ListBuffer.empty[String]
+    val client = stub(
+      gemini = (Status.Ok, geminiSuccess("ciao")),
+      openRouter = (Status.Ok, openRouterSuccess("bua")),
+      hosts,
+      ListBuffer.empty[String]
+    )
+    val cfg = config(
+      "primary-provider = gemini\ngemini.quota.max-per-minute = 1\nopenrouter.quota.max-per-minute = 1\n"
+    )
+    for {
+      notifier <- NotifierMock.recording
+      llm      <- LlmClients.build[IO](client, cfg, notifier)
+      first    <- llm.complete(prompt)
+      second   <- llm.complete(prompt)
+      third    <- llm.complete(prompt)
+      fourth   <- llm.complete(prompt)
+      infos    <- notifier.infos.get
+    } yield {
+      assertEquals(first.status, CompletionStatus.Answered)  // gemini's one call
+      assertEquals(second.status, CompletionStatus.Answered) // gemini exhausted -> openrouter's one call
+      assertEquals(third.status, CompletionStatus.Silent)
+      assertEquals(third.attempts, Nil)
+      assertEquals(fourth.status, CompletionStatus.Silent)
+      // no extra HTTP call for either exhausted completion
       assertEquals(hosts.toList, List(geminiHost, openRouterHost))
       assertEquals(infos.size, 1)
+    }
+  }
+
+  test("a retryable primary failure with an exhausted fallback quota fails without a fallback call") {
+    val hosts  = ListBuffer.empty[String]
+    val client = stub(
+      gemini = (Status.TooManyRequests, Json.obj()),
+      openRouter = (Status.Ok, openRouterSuccess("ok")),
+      hosts,
+      ListBuffer.empty[String]
+    )
+    val cfg = config(
+      "primary-provider = gemini\ngemini.quota.max-per-minute = 2\nopenrouter.quota.max-per-minute = 1\n"
+    )
+    for {
+      notifier <- NotifierMock.recording
+      llm      <- LlmClients.build[IO](client, cfg, notifier)
+      first    <- llm.complete(prompt) // gemini 429 -> openrouter answers, using its only slot
+      second   <- llm.complete(prompt) // gemini 429 again, but the fallback has no quota left
+      infos    <- notifier.infos.get
+    } yield {
+      assertEquals(first.status, CompletionStatus.Answered)
+      assertEquals(second.status, CompletionStatus.Failed)
+      // only the call that really happened is recorded; the pending fallback attempt is dropped
+      assertEquals(
+        second.attempts.map(a => (a.provider, a.result)),
+        List((LlmProvider.Gemini, Some(ProviderResult.RateLimited)))
+      )
+      assertEquals(hosts.toList, List(geminiHost, openRouterHost, geminiHost))
+      // this is a failure, not a silent exhaustion: no ops notice
+      assertEquals(infos, Nil)
     }
   }
 

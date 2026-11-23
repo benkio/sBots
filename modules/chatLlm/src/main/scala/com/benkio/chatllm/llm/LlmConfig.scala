@@ -15,17 +15,18 @@ object Sensitive {
 }
 
 /** Connection details for one provider. The endpoint is a full URI rather than a host, so both the public APIs and a
-  * local stub can be configured with the same shape.
+  * local stub can be configured with the same shape. Each provider carries its own quota: a fallback request counts
+  * against the fallback provider, never the primary.
   */
 final case class ProviderConnection(
     endpoint: String,
     model: Option[String] = None,
-    apiKey: Option[Sensitive] = None
+    apiKey: Option[Sensitive] = None,
+    quota: LlmBudgetConfig = LlmBudgetConfig()
 ) derives ConfigReader
 
-/** The client-side budget shared by every bot and every provider. Both windows slide: a request that is more than a
-  * minute (or a day) old no longer counts. One limiter guards the whole LLM feature, so a fallback attempt does not
-  * consume a second slot.
+/** The client-side quota of one provider. Both windows slide: a request that is more than a minute (or a day) old no
+  * longer counts. The values mirror the provider's documented free-tier limits and are revisable without code changes.
   */
 final case class LlmBudgetConfig(
     maxPerMinute: Int = 20,
@@ -39,8 +40,7 @@ final case class LlmConfig(
     primaryProvider: Option[String] = None,
     timeout: FiniteDuration = LlmConfig.defaultTimeout,
     maxInputTokens: Int = LlmConfig.defaultMaxInputTokens,
-    maxOutputTokens: Int = LlmConfig.defaultMaxOutputTokens,
-    budget: LlmBudgetConfig = LlmBudgetConfig()
+    maxOutputTokens: Int = LlmConfig.defaultMaxOutputTokens
 ) derives ConfigReader
 
 object LlmConfig {
@@ -51,9 +51,16 @@ object LlmConfig {
   val defaultMaxPerMinute: Int       = 20
   val defaultMaxPerDay: Int          = 50
 
-  /** The primary provider is only used to label completions: the budget is shared across providers too. */
+  /** The primary provider is the one asked first; each provider's own quota governs whether it may be called. */
   def primary(config: LlmConfig): Either[String, LlmProvider] =
     LlmProvider.fromString(config.primaryProvider)
+
+  /** The configured quota for a provider, used by the shared limiter to admit or refuse a provider call. */
+  def quotaFor(config: LlmConfig)(provider: LlmProvider): LlmBudgetConfig =
+    provider match {
+      case LlmProvider.Gemini     => config.gemini.quota
+      case LlmProvider.OpenRouter => config.openrouter.quota
+    }
 
   /** The fallback can call either provider, so both keys are needed before any request is admitted. Without them the
     * client fails completions locally instead of sending anonymous requests that the providers reject.
@@ -66,14 +73,19 @@ object LlmConfig {
   private def hasKey(key: Option[Sensitive]): Boolean =
     key.exists(_.value.exists(c => !c.isWhitespace))
 
-  /** Invalid tuning makes the startup fail instead of silently disabling the limits. */
+  /** Invalid tuning makes the startup fail instead of silently disabling the limits. Each provider's quota is checked
+    * separately so a bad override cannot disable one provider silently.
+    */
   def validate(config: LlmConfig): Either[String, Unit] = {
     val problems = List(
       if config.timeout.length <= 0 then Some("llm.timeout must be positive") else None,
       if config.maxInputTokens <= 0 then Some("llm.max-input-tokens must be positive") else None,
       if config.maxOutputTokens <= 0 then Some("llm.max-output-tokens must be positive") else None,
-      if config.budget.maxPerMinute <= 0 then Some("llm.budget.max-per-minute must be positive") else None,
-      if config.budget.maxPerDay <= 0 then Some("llm.budget.max-per-day must be positive") else None
+      if config.gemini.quota.maxPerMinute <= 0 then Some("llm.gemini.quota.max-per-minute must be positive") else None,
+      if config.gemini.quota.maxPerDay <= 0 then Some("llm.gemini.quota.max-per-day must be positive") else None,
+      if config.openrouter.quota.maxPerMinute <= 0 then Some("llm.openrouter.quota.max-per-minute must be positive")
+      else None,
+      if config.openrouter.quota.maxPerDay <= 0 then Some("llm.openrouter.quota.max-per-day must be positive") else None
     ).flatten
     Either.cond(problems.isEmpty, (), problems.mkString(", "))
   }

@@ -5,10 +5,10 @@ import cats.syntax.all.*
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.Notifier
 
-/** The client shared by all the bots: it checks credentials and the local budget before asking a provider. Missing
-  * credentials and oversized prompts are terminal `Failed` completions with no provider attempt; an exhausted quota is
-  * a `Silent` completion and tells ops once. Provider timeouts are terminal provider results recorded by the fallback
-  * client, so attempts are kept; unexpected errors are reported to ops and propagated.
+/** The client shared by all the bots: it refuses missing credentials and oversized prompts locally, and turns a silent
+  * completion (both providers' quotas exhausted) into exactly one ops message per exhaustion episode. Provider calls,
+  * their quotas and the fallback are owned by the underlying client. A provider timeout is already a terminal result;
+  * unexpected errors are reported to ops and propagated.
   */
 object LimitedLlmClient {
 
@@ -30,35 +30,37 @@ object LimitedLlmClient {
             LlmConfig.primary(config).leftMap(msg => new IllegalArgumentException(msg))
           )
           result <-
-            // Without both provider keys, or with an oversized prompt, no request is admitted: no provider is called
-            // and no budget slot is consumed.
+            // Without both provider keys, or with an oversized prompt, no provider is called and no quota is consumed.
             if !LlmConfig.credentialsComplete(config) || estimateTokens(prompt) > config.maxInputTokens then Completion
               .notRequested(prompt, provider, CompletionStatus.Failed)
               .pure[F]
             else
-              for {
-                decision <- limiter.acquire
-                result   <- decision match {
-                  case RateLimitDecision.Allowed =>
-                    underlying.complete(prompt).handleErrorWith { error =>
-                      // Only provider timeouts have already become terminal results. Anything else is unexpected:
-                      // report it, then let it propagate instead of silently pretending no provider was asked.
-                      notifier
-                        .error(opsBotInfo, "LLM completion failed", error)
-                        .attempt
-                        .void *> Async[F].raiseError[Completion](error)
-                    }
-                  case RateLimitDecision.Exhausted(window, firstNotice) =>
-                    val message = s"LLM quota exhausted (${window.toString.toLowerCase} budget): no reply sent"
-                    notifier
-                      .info(opsBotInfo, message)
-                      .whenA(firstNotice)
-                      // A failed notification must not consume the one-shot notice: the next denial retries it.
-                      .handleErrorWith(_ => limiter.notificationFailed)
-                      .as(Completion.notRequested(prompt, provider, CompletionStatus.Silent))
+              underlying
+                .complete(prompt)
+                .flatMap { completion =>
+                  if completion.status == CompletionStatus.Silent then notifyOnce.as(completion)
+                  else completion.pure[F]
                 }
-              } yield result
+                .handleErrorWith { error =>
+                  // Only provider timeouts have already become terminal results. Anything else is unexpected:
+                  // report it, then let it propagate instead of silently pretending no provider was asked.
+                  notifier
+                    .error(opsBotInfo, "LLM completion failed", error)
+                    .attempt
+                    .void *> Async[F].raiseError[Completion](error)
+                }
         } yield result
+
+      /** One ops message per exhaustion episode across both providers. A failed notification does not consume the
+        * one-shot notice: the next silent completion retries it.
+        */
+      private def notifyOnce: F[Unit] =
+        limiter.claimQuotaNotice.flatMap { claimed =>
+          notifier
+            .info(opsBotInfo, "LLM quota exhausted (both providers): no reply sent")
+            .whenA(claimed)
+            .handleErrorWith(_ => limiter.notificationFailed)
+        }
     }
 
   /** A cheap upper-bound-free estimate: four characters per token. The providers do the exact tokenisation; this only
