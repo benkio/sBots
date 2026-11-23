@@ -1,8 +1,12 @@
 -- allium: 3
 -- llm.allium: the LLM replies of the bots (epic #1499). Only what is built is specified; the rest of the epic is listed
--- as open questions. Code: modules/chatCore/llm (the ports), modules/chatLlm (the implementation, wired by main).
+-- as open questions. Code: modules/chatCore/llm (the ports), modules/chatLlm (the implementation; runtime wiring tracked separately).
 
 use "./sbots.allium" as core
+
+------------------------------------------------------------
+-- External Entities
+------------------------------------------------------------
 
 -- The engine asks the responder to answer a message directed at the bot. The ports live in chatCore so the engine
 -- knows nothing of the provider; the default responder never answers.
@@ -10,11 +14,218 @@ external entity LlmResponder {
     answers: Boolean    -- false for the default (noop) responder: the feature is unconfigured
 }
 
+------------------------------------------------------------
+-- Value Types
+------------------------------------------------------------
+
+-- The structured JSON object a provider returns for a completion. Only the reply text is consumed so far; the rest of
+-- the payload is provider-specific and not part of the bots' observable behaviour.
+value LlmReply {
+    text: String
+}
+
+------------------------------------------------------------
+-- Contracts
+------------------------------------------------------------
+
+-- The provider-agnostic client, internal to chatLlm. Whatever the provider's wire format, callers receive the same
+-- decoded reply inside the completion lifecycle; the active provider is chosen by config, not by the caller.
+contract LlmClient {
+    complete: (prompt: String) -> Completion
+
+    @invariant StructuredJsonOutput
+        -- The reply of an answered completion is the decoded structured JSON object of the provider's response. A
+        -- response that is not a valid JSON object with a reply text never produces an answered completion.
+}
+
+------------------------------------------------------------
+-- Enumerations
+------------------------------------------------------------
+
+enum LlmProvider { gemini | openrouter }
+
+enum ProviderResult { success | rate_limited | server_error | rejected | malformed_json }
+
+------------------------------------------------------------
+-- Entities and Variants
+------------------------------------------------------------
+
 -- #1501 / #1484: nothing changes for the bots yet. A message directed at the bot (core/Message.is_directed_at_bot) is
 -- what the engine will offer to the responder; the engine does not call it yet, and the default responder never
 -- answers, so the reply bundles behave as before. The ports of the /llm command (LlmSettings: enable, disable, status,
 -- forget; the default reports disabled) are in chatCore too and get their entities with #1487.
 
+-- #1485: one completion per client call. The fallback is always the other provider, so a config change alone switches
+-- the primary and the fallback together.
+entity Completion {
+    prompt: String
+    primary_provider: LlmProvider
+    fallback_provider: LlmProvider = if primary_provider = gemini: openrouter else: gemini
+    status: pending | answered | failed
+    reply: LlmReply?        -- present only when a provider returned a valid structured reply
+    attempts: ProviderAttempt with completion = this
+
+    transitions status {
+        pending -> answered
+        pending -> failed
+        terminal: answered, failed
+    }
+}
+
+entity ProviderAttempt {
+    completion: Completion
+    provider: LlmProvider
+    result: ProviderResult?     -- the provider's outcome, once it has responded
+}
+
+------------------------------------------------------------
+-- Config
+------------------------------------------------------------
+
+config {
+    primary_provider: LlmProvider = gemini    -- switching this value is the provider switch; no caller changes
+}
+
+------------------------------------------------------------
+-- Rules
+------------------------------------------------------------
+
+rule LlmClientUsesConfiguredProvider {
+    when: CompletionRequested(prompt)
+    ensures:
+        let completion = Completion.created(
+            prompt: prompt,
+            primary_provider: config.primary_provider,
+            status: pending
+        )
+        ProviderAttempt.created(completion: completion, provider: config.primary_provider)
+        ProviderRequested(completion, config.primary_provider)
+}
+
+rule ProviderReturnsStructuredReply {
+    when: ProviderResponded(completion, provider, result, reply?)
+    requires: completion.status = pending
+    requires: result = success
+    requires: reply != null
+    ensures:
+        let attempt = ProviderAttempt{completion: completion, provider: provider}
+        attempt.result = result
+        completion.status = answered
+        completion.reply = reply
+}
+
+rule MalformedProviderReplyFails {
+    when: ProviderResponded(completion, provider, result, reply?)
+    requires: completion.status = pending
+    requires: result = malformed_json
+    ensures:
+        let attempt = ProviderAttempt{completion: completion, provider: provider}
+        attempt.result = result
+        completion.status = failed
+}
+
+-- A provider can answer 200 with a payload that parses but carries no reply object: it is not a structured reply.
+rule SuccessWithoutReplyFails {
+    when: ProviderResponded(completion, provider, result, reply?)
+    requires: completion.status = pending
+    requires: result = success
+    requires: reply = null
+    ensures:
+        let attempt = ProviderAttempt{completion: completion, provider: provider}
+        attempt.result = result
+        completion.status = failed
+}
+
+rule NonRetryableProviderFailureFails {
+    when: ProviderResponded(completion, provider, result, reply?)
+    requires: completion.status = pending
+    requires: result = rejected
+    ensures:
+        let attempt = ProviderAttempt{completion: completion, provider: provider}
+        attempt.result = result
+        completion.status = failed
+}
+
+-- A 429 (rate limit) or a 5xx (server error) from the primary provider is retried once against the other provider.
+-- Other failures, and the same status from the fallback, are not retried.
+rule RateLimitedOrServerErrorFallsBack {
+    when: ProviderResponded(completion, provider, result, reply?)
+    requires: completion.status = pending
+    requires: result in {rate_limited, server_error}
+    requires: provider = completion.primary_provider
+    requires: not completion.attempts.any(a => a.provider = completion.fallback_provider)
+    ensures:
+        let attempt = ProviderAttempt{completion: completion, provider: provider}
+        attempt.result = result
+        ProviderAttempt.created(completion: completion, provider: completion.fallback_provider)
+        ProviderRequested(completion, completion.fallback_provider)
+}
+
+rule CompletionFailsAfterFallbackExhausted {
+    when: ProviderResponded(completion, provider, result, reply?)
+    requires: completion.status = pending
+    requires: result in {rate_limited, server_error}
+    requires: completion.attempts.count >= 2
+    ensures:
+        let attempt = ProviderAttempt{completion: completion, provider: provider}
+        attempt.result = result
+        completion.status = failed
+}
+
+------------------------------------------------------------
+-- Invariants
+------------------------------------------------------------
+
+invariant OneAttemptPerProvider {
+    for c in Completions:
+        for a in c.attempts:
+            for b in c.attempts:
+                a != b implies a.provider != b.provider
+}
+
+invariant ReplyOnlyWhenAnswered {
+    for c in Completions:
+        c.reply != null implies c.status = answered
+}
+
+------------------------------------------------------------
+-- Actor Declarations
+------------------------------------------------------------
+
+-- Both boundaries are code-to-code: the caller of the client and the provider's HTTP endpoint.
+actor LlmCaller {
+    identified_by: LlmCaller where true
+}
+
+actor LlmProviderEndpoint {
+    identified_by: LlmProviderEndpoint where true
+}
+
+------------------------------------------------------------
+-- Surfaces
+------------------------------------------------------------
+
+surface LlmClientSurface {
+    facing _: LlmCaller
+
+    provides:
+        CompletionRequested(prompt)
+
+    contracts:
+        fulfils LlmClient
+}
+
+surface LlmProviderBoundary {
+    facing _: LlmProviderEndpoint
+
+    provides:
+        ProviderResponded(completion, provider, result, reply?)
+}
+
+------------------------------------------------------------
+-- Open Questions
+------------------------------------------------------------
+
 open question "Routing in BotEngine (#1492): the order between reply bundles and the LLM, and the directed-at-bot gate."
 open question "Per-chat settings and context tables (#1487, #1489), the /llm command (#1488)."
-open question "Provider choice and the privacy note (#1483, #1498): the Gemini free tier may not be offered to minors or EEA/UK/CH users."
+open question "Privacy note (#1483, #1498): the Gemini free tier may not be offered to minors or EEA/UK/CH users. #1485 only makes the provider switch configurable; it does not authorise a free-tier deployment."
