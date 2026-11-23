@@ -37,6 +37,10 @@ contract LlmClient {
     @invariant StructuredJsonOutput
         -- The reply of an answered completion is the decoded structured JSON object of the provider's response. A
         -- response that is not a valid JSON object with a reply text never produces an answered completion.
+
+    @invariant UnexpectedErrorsReported
+        -- Only a provider timeout becomes a terminal result. Any other error is reported to the operators and
+        -- propagates to the caller; it is never rewritten as a completion with no attempts.
 }
 
 ------------------------------------------------------------
@@ -45,7 +49,7 @@ contract LlmClient {
 
 enum LlmProvider { gemini | openrouter }
 
-enum ProviderResult { success | rate_limited | server_error | rejected | malformed_json }
+enum ProviderResult { success | rate_limited | server_error | timeout | rejected | malformed_json }
 
 -- #1486: one record for the whole feature, shared by all the bots and both providers. The counters are the completions
 -- admitted by the limiter: a fallback attempt is part of the same completion and does not consume another slot. The
@@ -71,7 +75,7 @@ entity QuotaNotice {
 
 -- #1485: one completion per client call. The fallback is always the other provider, so a config change alone switches
 -- the primary and the fallback together. #1486: a completion can also be stopped before any provider is asked: `silent`
--- for an exhausted quota, `failed` for a prompt beyond the input limit, a timeout or missing credentials.
+-- for an exhausted quota, `failed` for a prompt beyond the input limit, a provider timeout or missing credentials.
 entity Completion {
     prompt: String
     primary_provider: LlmProvider
@@ -99,7 +103,7 @@ entity ProviderAttempt {
 
 config {
     primary_provider: LlmProvider = gemini    -- switching this value is the provider switch; no caller changes
-    timeout: Duration = 10.seconds            -- one completion is abandoned after this; no reply is sent
+    timeout: Duration = 10.seconds            -- one provider call is abandoned after this; the timeout is recorded as a provider result
     max_input_tokens: Integer = 4096          -- prompts larger than this (4 characters per token) are refused
     max_output_tokens: Integer = 512          -- sent to the provider as its output limit
     max_requests_per_minute: Integer = 20     -- one shared sliding window across all bots and providers
@@ -226,12 +230,12 @@ rule NonRetryableProviderFailureFails {
         completion.status = failed
 }
 
--- A 429 (rate limit) or a 5xx (server error) from the primary provider is retried once against the other provider.
--- Other failures, and the same status from the fallback, are not retried.
-rule RateLimitedOrServerErrorFallsBack {
+-- A 429 (rate limit), a 5xx (server error) or a timeout from the primary provider is retried once against the other
+-- provider. Other failures, and the same result from the fallback, are not retried.
+rule RetryableProviderFailureFallsBack {
     when: ProviderResponded(completion, provider, result, reply?)
     requires: completion.status = pending
-    requires: result in {rate_limited, server_error}
+    requires: result in {rate_limited, server_error, timeout}
     requires: provider = completion.primary_provider
     requires: not completion.attempts.any(a => a.provider = completion.fallback_provider)
     ensures:
@@ -244,7 +248,7 @@ rule RateLimitedOrServerErrorFallsBack {
 rule CompletionFailsAfterFallbackExhausted {
     when: ProviderResponded(completion, provider, result, reply?)
     requires: completion.status = pending
-    requires: result in {rate_limited, server_error}
+    requires: result in {rate_limited, server_error, timeout}
     requires: completion.attempts.count >= 2
     ensures:
         let attempt = ProviderAttempt{completion: completion, provider: provider}

@@ -1,15 +1,15 @@
 package com.benkio.chatllm.llm
 
-import cats.effect.implicits.*
 import cats.effect.Async
 import cats.effect.Clock
 import cats.syntax.all.*
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.Notifier
 
-/** The client shared by all the bots: it checks credentials and the local budget before asking a provider and applies
-  * the configured request timeout. Missing credentials, oversized prompts and timeouts are terminal `Failed`
-  * completions; an exhausted quota is a `Silent` completion and tells ops once.
+/** The client shared by all the bots: it checks credentials and the local budget before asking a provider. Missing
+  * credentials and oversized prompts are terminal `Failed` completions with no provider attempt; an exhausted quota is
+  * a `Silent` completion and tells ops once. Provider timeouts are terminal provider results recorded by the fallback
+  * client, so attempts are kept; unexpected errors are reported to ops and propagated.
   */
 object LimitedLlmClient {
 
@@ -42,10 +42,13 @@ object LimitedLlmClient {
                 decision <- limiter.acquire(now)
                 result   <- decision match {
                   case RateLimitDecision.Allowed =>
-                    underlying.complete(prompt).timeout(config.timeout).attempt.map {
-                      case Right(completion) => completion
-                      case Left(_)           =>
-                        Completion.notRequested(prompt, provider, CompletionStatus.Failed)
+                    underlying.complete(prompt).handleErrorWith { error =>
+                      // Only provider timeouts have already become terminal results. Anything else is unexpected:
+                      // report it, then let it propagate instead of silently pretending no provider was asked.
+                      notifier
+                        .error(opsBotInfo, "LLM completion failed", error)
+                        .attempt
+                        .void *> Async[F].raiseError[Completion](error)
                     }
                   case RateLimitDecision.Exhausted(window, firstNotice) =>
                     val message = s"LLM quota exhausted (${window.toString.toLowerCase} budget): no reply sent"

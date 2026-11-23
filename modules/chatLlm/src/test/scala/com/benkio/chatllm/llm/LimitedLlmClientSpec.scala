@@ -59,6 +59,11 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
         calls.update(_ + 1) *> IO.sleep(delay).as(answered(prompt))
     }
 
+  private def failingClient(error: Throwable): LlmClientApi[IO] =
+    new LlmClientApi[IO] {
+      override def complete(prompt: String): IO[Completion] = IO.raiseError(error)
+    }
+
   private def build(
       calls: Ref[IO, Int],
       cfg: LlmConfig,
@@ -128,18 +133,23 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
     }
   }
 
-  test("a completion that exceeds the timeout fails instead of waiting forever") {
-    val cfg = config("timeout = 10 milliseconds")
+  test("an unexpected provider error is reported to ops and propagated") {
+    // obligation: invariant.UnexpectedErrorsReported
+    val cfg   = config("")
+    val error = new RuntimeException("boom")
     for {
-      calls    <- Ref.of[IO, Int](0)
+      limiter  <- LlmRateLimiter[IO](cfg.budget)
       notifier <- NotifierMock.recording
-      client   <- build(calls, cfg, notifier, delay = 200.millis)
-      result   <- client.complete(prompt)
-      infos    <- notifier.infos.get
+      client = LimitedLlmClient[IO](failingClient(error), cfg, limiter, notifier)
+      result <- client.complete(prompt).attempt
+      errors <- notifier.errors.get
+      infos  <- notifier.infos.get
     } yield {
-      assertEquals(result.status, CompletionStatus.Failed)
-      assertEquals(result.reply, None)
-      assertEquals(result.attempts, Nil)
+      assertEquals(result, Left(error))
+      assertEquals(errors.map(_._1), List(LimitedLlmClient.opsBotInfo))
+      assert(clue(errors.head._2).contains("LLM completion failed"))
+      assertEquals(errors.head._3, error)
+      // an unexpected error is not a quota notice
       assertEquals(infos, Nil)
     }
   }
