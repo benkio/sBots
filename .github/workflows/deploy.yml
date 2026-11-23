@@ -138,13 +138,19 @@ jobs:
         run: |
           # Log shipping to Grafana Cloud Loki is enabled only when all the credentials are set (see logback-main.xml)
           loki_env=""
-          # Without both keys the LLM client stays configured but cannot complete a request; do not fail the deploy.
+          # Inject whichever keys are set; the client admits no request until both are configured, so no provider sees
+          # an anonymous request when a secret is missing.
           llm_env=""
-          if [ -n "$GEMINI_API_KEY" ] && [ -n "$OPENROUTER_API_KEY" ]; then
+          if [ -n "$GEMINI_API_KEY" ]; then
             llm_env="export GEMINI_API_KEY='$GEMINI_API_KEY'
-          export OPENROUTER_API_KEY='$OPENROUTER_API_KEY'"
-          else
-            echo "::warning::LLM API keys are not both set: LLM replies will be unavailable"
+          "
+          fi
+          if [ -n "$OPENROUTER_API_KEY" ]; then
+            llm_env="${llm_env}export OPENROUTER_API_KEY='$OPENROUTER_API_KEY'
+          "
+          fi
+          if [ -z "$GEMINI_API_KEY" ] || [ -z "$OPENROUTER_API_KEY" ]; then
+            echo "::warning::One or both LLM API keys are not set: LLM replies are disabled"
           fi
           # Grafana shows the base url of the stack: the push endpoint is appended unless it is already there
           case "$LOKI_URL" in */loki/api/*) ;; ?*) LOKI_URL="${LOKI_URL%/}/loki/api/v1/push" ;; esac
@@ -154,6 +160,8 @@ jobs:
           export LOKI_USER='$LOKI_USER'
           export LOKI_TOKEN='$LOKI_TOKEN'"
           fi
+          # The OpenRC file contains the provider keys: create it private and remove the staging copy after install.
+          umask 077
           cat > /tmp/sbots-openrc <<EOF
           #!/sbin/openrc-run
           name="sBots"
@@ -181,8 +189,10 @@ jobs:
             rm -f "${{ env.DEPLOY_DIR }}/oom.hprof"
           }
           EOF
+          chmod 600 /tmp/sbots-openrc
           rsync -av -e 'ssh -p ${{ env.DEPLOY_PORT }} -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10' /tmp/sbots-openrc ${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}:/tmp/sbots-openrc
-          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S install -m 700 /tmp/sbots-openrc /etc/init.d/sbots; if ! echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-update show default | grep -Eq \"^[[:space:]]*sbots[[:space:]]*$\"; then echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-update add sbots default; fi'"
+          rm -f /tmp/sbots-openrc
+          ssh -p "${{ env.DEPLOY_PORT }}" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -n "${{ env.DEPLOY_USER }}@${{ env.DEPLOY_HOST }}" "sh -lc 'echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S install -m 700 /tmp/sbots-openrc /etc/init.d/sbots; rm -f /tmp/sbots-openrc; if ! echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-update show default | grep -Eq \"^[[:space:]]*sbots[[:space:]]*$\"; then echo \"${{ secrets.DEPLOY_SUDO_PASSWORD }}\" | sudo -S rc-update add sbots default; fi'"
       - name: Ask for the post deploy test files
         # One marker per bot: the first start of each bot consumes its own and sends its configured test file to the ops chat (see StartupCheckConfig).
         # The remote command is single-quoted so $bot survives the runner's shell; the touch target is then

@@ -1,6 +1,7 @@
 package com.benkio.chatllm.llm
 
 import cats.effect.IO
+import com.benkio.chatcore.mocks.NotifierMock
 import com.benkio.chatllm.ChatLlm
 import io.circe.Json
 import io.circe.Printer
@@ -14,7 +15,7 @@ import pureconfig.ConfigSource
 
 import scala.collection.mutable.ListBuffer
 
-/** The behaviour of the provider-agnostic client, exercised through stubbed HTTP responses: no network, no API key.
+/** The behaviour of the provider-agnostic client, exercised through stubbed HTTP responses: no network, dummy keys.
   */
 class LlmClientSpec extends CatsEffectSuite {
 
@@ -55,8 +56,8 @@ class LlmClientSpec extends CatsEffectSuite {
     )
 
   private val configText =
-    s"""gemini { endpoint = "https://$geminiHost/generate", model = "gemini-test" }
-       |openrouter { endpoint = "https://$openRouterHost/chat", model = "openrouter-test" }""".stripMargin
+    s"""gemini { endpoint = "https://$geminiHost/generate", model = "gemini-test", api-key = "test-gemini-key" }
+       |openrouter { endpoint = "https://$openRouterHost/chat", model = "openrouter-test", api-key = "test-openrouter-key" }""".stripMargin
 
   private def config(primary: String, extra: String = ""): LlmConfig =
     ConfigSource
@@ -434,6 +435,33 @@ class LlmClientSpec extends CatsEffectSuite {
         assert(bodies.toList.head._2.contains("\"maxOutputTokens\":123"))
         assert(bodies.toList.last._2.contains("\"max_tokens\":123"))
       }
+  }
+
+  test("a fallback attempt reuses the completion's budget slot") {
+    val hosts  = ListBuffer.empty[String]
+    val client = stub(
+      gemini = (Status.TooManyRequests, Json.obj()),
+      openRouter = (Status.Ok, openRouterSuccess("ok")),
+      hosts,
+      ListBuffer.empty[String]
+    )
+    val cfg = config("primary-provider = gemini\nbudget { max-per-minute = 1\nmax-per-day = 1\n}\n")
+    for {
+      notifier <- NotifierMock.recording
+      llm      <- LlmClients.build[IO](client, cfg, notifier)
+      first    <- llm.complete(prompt)
+      second   <- llm.complete(prompt)
+      infos    <- notifier.infos.get
+    } yield {
+      assertEquals(first.status, CompletionStatus.Answered)
+      // two HTTP calls, but only one admitted completion
+      assertEquals(hosts.toList, List(geminiHost, openRouterHost))
+      assertEquals(second.status, CompletionStatus.Silent)
+      assertEquals(second.reply, None)
+      // the exhausted completion made no HTTP call
+      assertEquals(hosts.toList, List(geminiHost, openRouterHost))
+      assertEquals(infos.size, 1)
+    }
   }
 
   test("provider requests include the configured auth headers") {

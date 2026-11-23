@@ -4,8 +4,8 @@ import cats.effect.Async
 import cats.effect.Ref
 import cats.syntax.all.*
 
-import java.time.Instant
 import java.time.temporal.ChronoUnit
+import java.time.Instant
 
 /** Which of the two sliding windows stopped a completion. */
 enum BudgetWindow {
@@ -30,6 +30,9 @@ trait LlmRateLimiter[F[_]] {
     * the caller supplies the current instant.
     */
   def acquire(at: Instant): F[RateLimitDecision]
+
+  /** Called when the ops notification for the first denial failed: the next denial may notify again. */
+  def notificationFailed: F[Unit]
 }
 
 object LlmRateLimiter {
@@ -56,16 +59,14 @@ object LlmRateLimiter {
         val minute = state.thisMinute.filter(_ > minuteAt)
         val today  = state.today.filter(_ > dayAt)
 
-        if minute.size >= config.maxPerMinute then
-          (
-            state.copy(thisMinute = minute, today = today, notified = true),
-            RateLimitDecision.Exhausted(BudgetWindow.Minute, firstNotice = !state.notified)
-          )
-        else if today.size >= config.maxPerDay then
-          (
-            state.copy(thisMinute = minute, today = today, notified = true),
-            RateLimitDecision.Exhausted(BudgetWindow.Day, firstNotice = !state.notified)
-          )
+        if minute.size >= config.maxPerMinute then (
+          state.copy(thisMinute = minute, today = today, notified = true),
+          RateLimitDecision.Exhausted(BudgetWindow.Minute, firstNotice = !state.notified)
+        )
+        else if today.size >= config.maxPerDay then (
+          state.copy(thisMinute = minute, today = today, notified = true),
+          RateLimitDecision.Exhausted(BudgetWindow.Day, firstNotice = !state.notified)
+        )
         else
           (
             State(now :: minute, now :: today, notified = false),
@@ -73,5 +74,8 @@ object LlmRateLimiter {
           )
       }
     }
+
+    override def notificationFailed: F[Unit] =
+      states.update(state => state.copy(notified = false))
   }
 }

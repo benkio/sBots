@@ -1,14 +1,15 @@
 package com.benkio.chatllm.llm
 
+import cats.effect.implicits.*
 import cats.effect.Async
 import cats.effect.Clock
-import cats.effect.implicits.*
 import cats.syntax.all.*
-import com.benkio.chatcore.Notifier
 import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chatcore.Notifier
 
-/** The client shared by all the bots: it checks the local budget before asking a provider and applies the configured
-  * request timeout. When the quota is exhausted it stays silent and tells ops once.
+/** The client shared by all the bots: it checks credentials and the local budget before asking a provider and applies
+  * the configured request timeout. Missing credentials, oversized prompts and timeouts are terminal `Failed`
+  * completions; an exhausted quota is a `Silent` completion and tells ops once.
   */
 object LimitedLlmClient {
 
@@ -29,22 +30,33 @@ object LimitedLlmClient {
           provider <- Async[F].fromEither(
             LlmConfig.primary(config).leftMap(msg => new IllegalArgumentException(msg))
           )
-          // An oversized prompt is refused before admission control: it must not consume a budget slot.
-          oversized = estimateTokens(prompt) > config.maxInputTokens
-          decision <- if oversized then RateLimitDecision.Allowed.pure[F]
-                      else Clock[F].realTimeInstant.flatMap(limiter.acquire)
-          result <- decision match {
-            case RateLimitDecision.Allowed if oversized =>
-              Completion.notRequested(prompt, provider, CompletionStatus.Failed).pure[F]
-            case RateLimitDecision.Allowed =>
-              underlying.complete(prompt).timeout(config.timeout)
-            case RateLimitDecision.Exhausted(window, firstNotice) =>
-              val message = s"LLM quota exhausted (${window.toString.toLowerCase} budget): no reply sent"
-              notifier
-                .info(opsBotInfo, message)
-                .whenA(firstNotice)
-                .as(Completion.notRequested(prompt, provider, CompletionStatus.Silent))
-          }
+          result <-
+            // Without both provider keys, or with an oversized prompt, no request is admitted: no provider is called
+            // and no budget slot is consumed.
+            if !LlmConfig.credentialsComplete(config) || estimateTokens(prompt) > config.maxInputTokens then Completion
+              .notRequested(prompt, provider, CompletionStatus.Failed)
+              .pure[F]
+            else
+              for {
+                now      <- Clock[F].realTimeInstant
+                decision <- limiter.acquire(now)
+                result   <- decision match {
+                  case RateLimitDecision.Allowed =>
+                    underlying.complete(prompt).timeout(config.timeout).attempt.map {
+                      case Right(completion) => completion
+                      case Left(_)           =>
+                        Completion.notRequested(prompt, provider, CompletionStatus.Failed)
+                    }
+                  case RateLimitDecision.Exhausted(window, firstNotice) =>
+                    val message = s"LLM quota exhausted (${window.toString.toLowerCase} budget): no reply sent"
+                    notifier
+                      .info(opsBotInfo, message)
+                      .whenA(firstNotice)
+                      // A failed notification must not consume the one-shot notice: the next denial retries it.
+                      .handleErrorWith(_ => limiter.notificationFailed)
+                      .as(Completion.notRequested(prompt, provider, CompletionStatus.Silent))
+                }
+              } yield result
         } yield result
     }
 

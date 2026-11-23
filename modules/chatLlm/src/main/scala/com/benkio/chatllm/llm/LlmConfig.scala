@@ -55,6 +55,12 @@ object LlmConfig {
   def primary(config: LlmConfig): Either[String, LlmProvider] =
     LlmProvider.fromString(config.primaryProvider)
 
+  /** The fallback can call either provider, so both keys are needed before any request is admitted. Without them the
+    * client fails completions locally instead of sending anonymous requests that the providers reject.
+    */
+  def credentialsComplete(config: LlmConfig): Boolean =
+    config.gemini.apiKey.isDefined && config.openrouter.apiKey.isDefined
+
   /** Invalid tuning makes the startup fail instead of silently disabling the limits. */
   def validate(config: LlmConfig): Either[String, Unit] = {
     val problems = List(

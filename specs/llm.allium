@@ -1,6 +1,7 @@
 -- allium: 3
 -- llm.allium: the LLM replies of the bots (epic #1499). Only what is built is specified; the rest of the epic is listed
--- as open questions. Code: modules/chatCore/llm (the ports), modules/chatLlm (the implementation; runtime wiring tracked separately).
+-- as open questions. Code: modules/chatCore/llm (the ports), modules/chatLlm (the implementation) and modules/main
+-- (startup wiring); the responder and the engine routing are still open.
 
 use "./sbots.allium" as core
 
@@ -70,7 +71,7 @@ entity QuotaNotice {
 
 -- #1485: one completion per client call. The fallback is always the other provider, so a config change alone switches
 -- the primary and the fallback together. #1486: a completion can also be stopped before any provider is asked: `silent`
--- for an exhausted quota, `failed` for a prompt beyond the input limit.
+-- for an exhausted quota, `failed` for a prompt beyond the input limit, a timeout or missing credentials.
 entity Completion {
     prompt: String
     primary_provider: LlmProvider
@@ -103,6 +104,7 @@ config {
     max_output_tokens: Integer = 512          -- sent to the provider as its output limit
     max_requests_per_minute: Integer = 20     -- one shared sliding window across all bots and providers
     max_requests_per_day: Integer = 50        -- one shared sliding window across all bots and providers
+    credentials_complete: Boolean             -- both provider keys are configured; otherwise no request is admitted
 }
 
 ------------------------------------------------------------
@@ -111,6 +113,7 @@ config {
 
 rule LlmClientUsesConfiguredProvider {
     when: CompletionRequested(prompt)
+    requires: config.credentials_complete
     requires: prompt.length <= config.max_input_tokens * 4
     requires: (QuotaUsage).all(u => u.requests_this_minute < config.max_requests_per_minute and u.requests_today < config.max_requests_per_day)
     ensures:
@@ -133,6 +136,15 @@ rule PromptBeyondInputLimitFails {
         Completion.created(prompt: prompt, primary_provider: config.primary_provider, status: failed)
 }
 
+-- #1486 review: incomplete credentials are refused before admission control: no anonymous provider request, no budget
+-- slot, and a terminal failed completion. A timeout is also terminal failed rather than escaping as an exception.
+rule MissingCredentialsFail {
+    when: CompletionRequested(prompt)
+    requires: not config.credentials_complete
+    ensures:
+        Completion.created(prompt: prompt, primary_provider: config.primary_provider, status: failed)
+}
+
 rule QuotaExhaustedStaysSilent {
     when: CompletionRequested(prompt)
     requires: prompt.length <= config.max_input_tokens * 4
@@ -151,6 +163,7 @@ rule CompletionConsumesQuota {
         usage.requests_today = usage.requests_today + 1
 }
 
+-- A failed ops notification does not mark the notice as sent: the next denial tries again.
 rule QuotaExhaustionNotifiedOnce {
     when: CompletionRequested(prompt)
     requires: (QuotaUsage).any(u => u.requests_this_minute >= config.max_requests_per_minute or u.requests_today >= config.max_requests_per_day)

@@ -22,8 +22,7 @@ class LlmRateLimiterSpec extends CatsEffectSuite {
         first  <- l.acquire(start)
         second <- l.acquire(start.plusSeconds(1))
         third  <- l.acquire(start.plusSeconds(2))
-      }
-      yield {
+      } yield {
         assertEquals(first, RateLimitDecision.Allowed)
         assertEquals(second, RateLimitDecision.Allowed)
         assertEquals(third, RateLimitDecision.Allowed)
@@ -37,8 +36,7 @@ class LlmRateLimiterSpec extends CatsEffectSuite {
         _     <- l.acquire(start)
         _     <- l.acquire(start.plusMillis(1))
         third <- l.acquire(start.plusMillis(2))
-      }
-      yield assertEquals(third, RateLimitDecision.Exhausted(BudgetWindow.Minute, firstNotice = true))
+      } yield assertEquals(third, RateLimitDecision.Exhausted(BudgetWindow.Minute, firstNotice = true))
     }
   }
 
@@ -48,8 +46,7 @@ class LlmRateLimiterSpec extends CatsEffectSuite {
         _     <- l.acquire(start)
         _     <- l.acquire(start.plusSeconds(60))
         third <- l.acquire(start.plusSeconds(120))
-      }
-      yield assertEquals(third, RateLimitDecision.Exhausted(BudgetWindow.Day, firstNotice = true))
+      } yield assertEquals(third, RateLimitDecision.Exhausted(BudgetWindow.Day, firstNotice = true))
     }
   }
 
@@ -60,8 +57,7 @@ class LlmRateLimiterSpec extends CatsEffectSuite {
         second <- l.acquire(start.plusSeconds(30))
         third  <- l.acquire(start.plusSeconds(45)) // rejected
         fourth <- l.acquire(start.plusSeconds(60)) // first slot left the window
-      }
-      yield {
+      } yield {
         assertEquals(first, RateLimitDecision.Allowed)
         assertEquals(second, RateLimitDecision.Allowed)
         assertEquals(third, RateLimitDecision.Exhausted(BudgetWindow.Minute, firstNotice = true))
@@ -76,8 +72,7 @@ class LlmRateLimiterSpec extends CatsEffectSuite {
         _           <- l.acquire(start)
         firstLimit  <- l.acquire(start.plusMillis(1))
         secondLimit <- l.acquire(start.plusMillis(2))
-      }
-      yield {
+      } yield {
         assertEquals(firstLimit, RateLimitDecision.Exhausted(BudgetWindow.Minute, firstNotice = true))
         assertEquals(secondLimit, RateLimitDecision.Exhausted(BudgetWindow.Minute, firstNotice = false))
       }
@@ -91,8 +86,7 @@ class LlmRateLimiterSpec extends CatsEffectSuite {
         firstLimit <- l.acquire(start.plusMillis(1))
         _          <- l.acquire(start.plusSeconds(61))
         nextLimit  <- l.acquire(start.plusSeconds(62))
-      }
-      yield {
+      } yield {
         assertEquals(firstLimit, RateLimitDecision.Exhausted(BudgetWindow.Minute, firstNotice = true))
         assertEquals(nextLimit, RateLimitDecision.Exhausted(BudgetWindow.Minute, firstNotice = true))
       }
@@ -115,8 +109,7 @@ class LlmRateLimiterSpec extends CatsEffectSuite {
         first  <- l.acquire(start)
         second <- l.acquire(start.plusMillis(1))
         third  <- l.acquire(start.plusMillis(2))
-      }
-      yield {
+      } yield {
         assertEquals(first, RateLimitDecision.Allowed)
         assertEquals(second, RateLimitDecision.Allowed)
         assertEquals(third, RateLimitDecision.Exhausted(BudgetWindow.Minute, firstNotice = true))

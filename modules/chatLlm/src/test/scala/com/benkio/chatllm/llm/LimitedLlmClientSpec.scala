@@ -3,6 +3,10 @@ package com.benkio.chatllm.llm
 import cats.effect.IO
 import cats.effect.Ref
 import com.benkio.chatcore.mocks.NotifierMock
+import com.benkio.chatcore.model.reply.MediaFile
+import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.SBotInfo
+import com.benkio.chatcore.Notifier
 import munit.CatsEffectSuite
 import pureconfig.ConfigSource
 
@@ -16,12 +20,29 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
   private def config(extra: String): LlmConfig =
     ConfigSource
       .string(
-        s"""gemini { endpoint = "https://gemini.example/generate", model = "gemini-test" }
-           |openrouter { endpoint = "https://openrouter.example/chat", model = "openrouter-test" }
+        s"""gemini { endpoint = "https://gemini.example/generate", model = "gemini-test", api-key = "gemini-key" }
+           |openrouter { endpoint = "https://openrouter.example/chat", model = "openrouter-test", api-key = "openrouter-key" }
            |$extra""".stripMargin
       )
       .load[LlmConfig]
       .fold(err => throw new RuntimeException(err.prettyPrint()), identity)
+
+  private def configWithoutGeminiKey: LlmConfig =
+    ConfigSource
+      .string(
+        s"""gemini { endpoint = "https://gemini.example/generate", model = "gemini-test" }
+           |openrouter { endpoint = "https://openrouter.example/chat", model = "openrouter-test", api-key = "openrouter-key" }""".stripMargin
+      )
+      .load[LlmConfig]
+      .fold(err => throw new RuntimeException(err.prettyPrint()), identity)
+
+  private def failingNotifier(attempts: Ref[IO, Int]): Notifier[IO] =
+    new Notifier[IO] {
+      override def info(sBotInfo: SBotInfo, message: String): IO[Unit] =
+        attempts.update(_ + 1) *> IO.raiseError(new RuntimeException("notification failed"))
+      override def mediaError(message: Message, mediaFile: MediaFile, error: Throwable): IO[Unit] = IO.unit
+      override def error(sBotInfo: SBotInfo, context: String, error: Throwable): IO[Unit]         = IO.unit
+    }
 
   private def answered(prompt: String): Completion =
     Completion(
@@ -113,11 +134,48 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
       calls    <- Ref.of[IO, Int](0)
       notifier <- NotifierMock.recording
       client   <- build(calls, cfg, notifier, delay = 200.millis)
-      result   <- client.complete(prompt).attempt
+      result   <- client.complete(prompt)
       infos    <- notifier.infos.get
     } yield {
-      assert(result.isLeft)
+      assertEquals(result.status, CompletionStatus.Failed)
+      assertEquals(result.reply, None)
+      assertEquals(result.attempts, Nil)
       assertEquals(infos, Nil)
+    }
+  }
+
+  test("missing provider credentials fail locally without a provider call or a budget slot") {
+    val cfg = configWithoutGeminiKey
+    for {
+      calls    <- Ref.of[IO, Int](0)
+      notifier <- NotifierMock.recording
+      client   <- build(calls, cfg, notifier)
+      first    <- client.complete(prompt)
+      second   <- client.complete(prompt)
+      count    <- calls.get
+      infos    <- notifier.infos.get
+    } yield {
+      assertEquals(first.status, CompletionStatus.Failed)
+      assertEquals(second.status, CompletionStatus.Failed)
+      assertEquals(count, 0)
+      assertEquals(infos, Nil)
+    }
+  }
+
+  test("a failed quota notification is retried on the next denial") {
+    val cfg = config("budget {\nmax-per-minute = 1\nmax-per-day = 1\n}")
+    for {
+      attempts <- Ref.of[IO, Int](0)
+      calls    <- Ref.of[IO, Int](0)
+      client   <- build(calls, cfg, failingNotifier(attempts))
+      _        <- client.complete(prompt)
+      second   <- client.complete(prompt)
+      third    <- client.complete(prompt)
+      notified <- attempts.get
+    } yield {
+      assertEquals(second.status, CompletionStatus.Silent)
+      assertEquals(third.status, CompletionStatus.Silent)
+      assertEquals(notified, 2)
     }
   }
 }
