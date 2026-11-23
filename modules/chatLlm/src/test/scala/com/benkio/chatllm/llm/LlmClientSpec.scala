@@ -411,6 +411,31 @@ class LlmClientSpec extends CatsEffectSuite {
     }
   }
 
+  test("provider requests carry the configured output token limit") {
+    val bodies = ListBuffer.empty[(String, String)]
+    val client = Client.fromHttpApp(HttpApp[IO] { request =>
+      request.as[String].flatMap { body =>
+        val host = request.uri.host.map(_.value).getOrElse("")
+        bodies += ((host, body))
+        val response = host match {
+          case `geminiHost`     => (Status.TooManyRequests, Json.obj())
+          case `openRouterHost` => (Status.Ok, openRouterSuccess("ok"))
+          case _                => (Status.NotFound, Json.obj())
+        }
+        IO.pure(Response[IO](response._1).withEntity(response._2))
+      }
+    })
+    LlmClients
+      .build[IO](client, config("primary-provider = gemini\nmax-output-tokens = 123\n"))
+      .flatMap(_.complete(prompt))
+      .map { completion =>
+        assertEquals(completion.status, CompletionStatus.Answered)
+        assertEquals(bodies.map(_._1).toList, List(geminiHost, openRouterHost))
+        assert(bodies.toList.head._2.contains("\"maxOutputTokens\":123"))
+        assert(bodies.toList.last._2.contains("\"max_tokens\":123"))
+      }
+  }
+
   test("provider requests include the configured auth headers") {
     import org.typelevel.ci.CIString
     val geminiHeaders     = ListBuffer.empty[Option[String]]

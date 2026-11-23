@@ -45,9 +45,11 @@ object ProviderResponse {
 /** One provider attempt of a completion. The result is `None` while the provider has not answered yet. */
 final case class ProviderAttempt(provider: LlmProvider, result: Option[ProviderResult])
 
-/** The lifecycle of a completion. `Answered` and `Failed` are terminal. */
+/** The lifecycle of a completion. `Answered`, `Failed` and `Silent` are terminal: `Silent` is a completion that was
+  * stopped by the local quota before any provider was asked, so no reply is sent.
+  */
 enum CompletionStatus {
-  case Pending, Answered, Failed
+  case Pending, Answered, Failed, Silent
 }
 
 /** One completion per client call. The fallback is always the other provider: a config change switches both. */
@@ -73,6 +75,16 @@ object Completion {
       status = CompletionStatus.Pending,
       reply = None,
       attempts = List(ProviderAttempt(primaryProvider, None))
+    )
+
+  /** No provider was asked: the local budget is exhausted or the prompt exceeds the input limit. */
+  def notRequested(prompt: String, primaryProvider: LlmProvider, status: CompletionStatus): Completion =
+    Completion(
+      prompt = prompt,
+      primaryProvider = primaryProvider,
+      status = status,
+      reply = None,
+      attempts = Nil
     )
 
   /** Applies the rules of `llm.allium` to a provider response. Responses for a terminal completion are ignored.

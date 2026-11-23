@@ -3,8 +3,12 @@ package com.benkio.main
 import cats.effect.Async
 import cats.effect.Resource
 import com.benkio.chatcore.repository.db.DBLayer
+import com.benkio.chatcore.Notifier
 import com.benkio.chatdiscordadapter.gateway.DiscordGatewayConfig
 import com.benkio.chatircadapter.connection.IrcConfig
+import com.benkio.chatllm.llm.LlmClientApi
+import com.benkio.chatllm.llm.LlmClients
+import com.benkio.chatllm.llm.LlmConfig
 import cron4s.CronExpr
 import doobie.Transactor
 import fs2.io.net.Network
@@ -32,7 +36,9 @@ final case class MainSetup[F[_]](
     irc: IrcConfig,
     healthcheckEndpoint: Uri,
     healthcheckCron: CronExpr,
-    mainDBName: String
+    mainDBName: String,
+    llmConfig: LlmConfig,
+    llmClient: LlmClientApi[F]
 )
 
 object MainSetup {
@@ -42,7 +48,11 @@ object MainSetup {
     _          <- Resource.eval(log.info(s"[Main] Configuration: $config"))
     httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
     _          <- Resource.eval(log.info("[Main] httpClient"))
-    dbLayer    <- Resource.eval(
+    llmClient  <- Resource.eval(
+      LlmClients.build[F](httpClient, config.llm, Notifier.guarded(Notifier.logging[F]))
+    )
+    _       <- Resource.eval(log.info("[Main] llmClient"))
+    dbLayer <- Resource.eval(
       DBLayer.make[F](
         Transactor.fromDriverManager[F](
           config.mainDB.driver,
@@ -72,6 +82,8 @@ object MainSetup {
     irc = config.irc,
     healthcheckEndpoint = config.healthcheckPing.endpoint,
     healthcheckCron = config.healthcheckPing.cron,
-    mainDBName = config.mainDB.dbName
+    mainDBName = config.mainDB.dbName,
+    llmConfig = config.llm,
+    llmClient = llmClient
   )
 }
