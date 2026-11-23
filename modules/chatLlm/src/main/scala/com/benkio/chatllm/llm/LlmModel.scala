@@ -72,7 +72,7 @@ final case class Completion(
 object Completion {
 
   def started(prompt: String, primaryProvider: LlmProvider): Completion =
-    startedWith(prompt, primaryProvider, primaryProvider)
+    startedWith(prompt = prompt, primaryProvider = primaryProvider, firstProvider = primaryProvider)
 
   /** A completion whose first actual call goes to `firstProvider`. When the primary's quota is exhausted the fallback
     * is asked first, so the completion carries only the fallback attempt while keeping the configured primary label.

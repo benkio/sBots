@@ -34,12 +34,17 @@ object FallbackLlmClient {
     override def complete(prompt: String): F[Completion] =
       limiter.acquire(primary.provider).flatMap {
         case RateLimitDecision.Allowed =>
-          ask(Completion.started(prompt, primary.provider), primary, prompt).flatMap(afterPrimary(_, prompt))
+          ask(completion = Completion.started(prompt, primary.provider), client = primary, prompt = prompt)
+            .flatMap(afterPrimary(_, prompt))
         case RateLimitDecision.Exhausted(_) =>
           // Primary quota exhausted: skip it and ask the fallback, if it still has budget.
           limiter.acquire(fallback.provider).flatMap {
             case RateLimitDecision.Allowed =>
-              ask(Completion.startedWith(prompt, primary.provider, fallback.provider), fallback, prompt)
+              ask(
+                completion = Completion.startedWith(prompt, primary.provider, fallback.provider),
+                client = fallback,
+                prompt = prompt
+              )
             case RateLimitDecision.Exhausted(_) =>
               // Neither provider can be called: no request, no reply.
               Completion.notRequested(prompt, primary.provider, CompletionStatus.Silent).pure[F]
@@ -53,7 +58,7 @@ object FallbackLlmClient {
       completion.status match {
         case CompletionStatus.Pending =>
           limiter.acquire(fallback.provider).flatMap {
-            case RateLimitDecision.Allowed      => ask(completion, fallback, prompt)
+            case RateLimitDecision.Allowed      => ask(completion = completion, client = fallback, prompt = prompt)
             case RateLimitDecision.Exhausted(_) => Completion.failUnresolved(completion).pure[F]
           }
         case _ => completion.pure[F]

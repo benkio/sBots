@@ -43,7 +43,7 @@ object LlmContext {
   def apply[F[_]: Async](transactor: Transactor[F], botId: SBotId, config: LlmContextConfig)(using
       log: LogWriter[F]
   ): LlmContext[F] =
-    apply(LlmSettingsDB[F](transactor, botId), LlmContextStore[F](transactor), config)
+    apply(settings = LlmSettingsDB[F](transactor, botId), store = LlmContextStore[F](transactor), config = config)
 
   /** The pure instance, so a test can supply its own settings and store. */
   def apply[F[_]: Async](settings: LlmSettings[F], store: LlmContextStore[F], config: LlmContextConfig)(using

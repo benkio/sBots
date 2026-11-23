@@ -30,7 +30,7 @@ object LlmContextCleanup {
 
   /** One cleanup: drops what is older than the TTL and reports how much was removed. */
   def run[F[_]: Async](store: LlmContextStore[F], config: LlmContextConfig)(using log: LogWriter[F]): F[Int] =
-    Async[F].realTimeInstant.flatMap(now => runAt(store, config, now.getEpochSecond))
+    Async[F].realTimeInstant.flatMap(now => runAt(store = store, config = config, nowEpochSecond = now.getEpochSecond))
 
   /** The same cleanup with an explicit clock, so the cutoff can be asserted in a test. */
   def runAt[F[_]: Async](store: LlmContextStore[F], config: LlmContextConfig, nowEpochSecond: Long)(using

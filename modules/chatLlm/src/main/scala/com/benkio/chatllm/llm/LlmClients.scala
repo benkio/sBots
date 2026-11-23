@@ -18,7 +18,7 @@ object LlmClients {
     } yield llm
 
   def build[F[_]: Async](client: Client[F], config: LlmConfig): F[LlmClientApi[F]] =
-    build(client, config, Notifier.noop[F])
+    build(client = client, config = config, notifier = Notifier.noop[F])
 
   def build[F[_]: Async](
       client: Client[F],
@@ -30,7 +30,7 @@ object LlmClients {
       case Right(()) =>
         for {
           limiter    <- LlmRateLimiter[F](LlmConfig.quotaFor(config))
-          underlying <- buildProviderClient(client, config, limiter)
+          underlying <- buildProviderClient(client = client, config = config, limiter = limiter)
         } yield LimitedLlmClient[F](underlying, config, limiter, notifier)
     }
 

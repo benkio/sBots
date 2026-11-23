@@ -54,14 +54,22 @@ object LlmContextStore {
     override def append(chatId: ChatId, botId: SBotId, role: LlmContextRole, content: String): F[Unit] =
       Async[F]
         .delay(Instant.now().getEpochSecond)
-        .flatMap(now => appendQuery(chatId, botId, role, content, now).run.transact(transactor).void)
+        .flatMap(now =>
+          appendQuery(chatId = chatId, botId = botId, role = role, content = content, createdAt = now).run
+            .transact(transactor)
+            .void
+        )
 
     override def all(chatId: ChatId, botId: SBotId): F[List[LlmContextMessage]] =
       allQuery(chatId, botId).to[List].transact(transactor).flatMap(decode)
 
     override def recent(chatId: ChatId, botId: SBotId, limit: Int): F[List[LlmContextMessage]] = {
       require(limit >= 0, "the context window limit must not be negative")
-      recentQuery(chatId, botId, limit).to[List].transact(transactor).flatMap(decode).map(_.reverse)
+      recentQuery(chatId = chatId, botId = botId, limit = limit)
+        .to[List]
+        .transact(transactor)
+        .flatMap(decode)
+        .map(_.reverse)
     }
 
     override def deleteOlderThan(cutoff: Long): F[Int] =

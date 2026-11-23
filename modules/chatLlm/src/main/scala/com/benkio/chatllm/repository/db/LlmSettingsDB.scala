@@ -22,7 +22,7 @@ import java.time.Instant
 object LlmSettingsDB {
 
   def apply[F[_]: Async](transactor: Transactor[F], botId: SBotId)(using log: LogWriter[F]): LlmSettings[F] =
-    apply(transactor, botId, Async[F].delay(Instant.now().getEpochSecond))
+    apply(transactor = transactor, botId = botId, now = Async[F].delay(Instant.now().getEpochSecond))
 
   /** The clock is injectable so the `updated_at = now` rule of the spec can be tested without depending on sub-second
     * resolution; production uses epoch seconds.
@@ -55,7 +55,9 @@ object LlmSettingsDB {
 
     private def set(chatId: ChatId, enabled: Boolean): F[Unit] =
       now
-        .flatMap(timestamp => upsertQuery(chatId, botId, enabled, timestamp).run.transact(transactor))
+        .flatMap(timestamp =>
+          upsertQuery(chatId = chatId, botId = botId, enabled = enabled, updatedAt = timestamp).run.transact(transactor)
+        )
         .flatMap(_ => log.debug(s"LLM settings for $chatId / $botId: enabled = $enabled"))
         .void
   }

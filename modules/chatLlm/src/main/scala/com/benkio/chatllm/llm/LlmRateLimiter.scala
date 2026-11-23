@@ -68,7 +68,7 @@ object LlmRateLimiter {
       def attempt: F[RateLimitDecision] =
         states.access.flatMap { case (state, set) =>
           Clock[F].realTimeInstant.flatMap { at =>
-            val (next, decision) = decide(state, provider, at)
+            val (next, decision) = decide(state = state, provider = provider, at = at)
             set(next).ifM(decision.pure[F], attempt)
           }
         }
@@ -76,7 +76,7 @@ object LlmRateLimiter {
     }
 
     override def acquire(provider: LlmProvider, at: Instant): F[RateLimitDecision] =
-      states.modify(state => decide(state, provider, at))
+      states.modify(state => decide(state = state, provider = provider, at = at))
 
     private def decide(state: State, provider: LlmProvider, at: Instant): (State, RateLimitDecision) = {
       val now      = at.toEpochMilli

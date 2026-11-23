@@ -33,8 +33,8 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
   private def configWithoutGeminiKey: LlmConfig =
     ConfigSource
       .string(
-        s"""gemini { endpoint = "https://gemini.example/generate", model = "gemini-test" }
-           |openrouter { endpoint = "https://openrouter.example/chat", model = "openrouter-test", api-key = "openrouter-key" }""".stripMargin
+        """gemini { endpoint = "https://gemini.example/generate", model = "gemini-test" }
+          |openrouter { endpoint = "https://openrouter.example/chat", model = "openrouter-test", api-key = "openrouter-key" }""".stripMargin
       )
       .load[LlmConfig]
       .fold(err => throw new RuntimeException(err.prettyPrint()), identity)
@@ -42,8 +42,8 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
   private def configWithBlankKeys: LlmConfig =
     ConfigSource
       .string(
-        s"""gemini { endpoint = "https://gemini.example/generate", model = "gemini-test", api-key = "   " }
-           |openrouter { endpoint = "https://openrouter.example/chat", model = "openrouter-test", api-key = "  " }""".stripMargin
+        """gemini { endpoint = "https://gemini.example/generate", model = "gemini-test", api-key = "   " }
+          |openrouter { endpoint = "https://openrouter.example/chat", model = "openrouter-test", api-key = "  " }""".stripMargin
       )
       .load[LlmConfig]
       .fold(err => throw new RuntimeException(err.prettyPrint()), identity)
@@ -95,7 +95,7 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
       notifier: Notifier[IO],
       delay: FiniteDuration = 0.millis
   ): IO[LlmClientApi[IO]] =
-    build(countingClient(calls, delay), cfg, notifier)
+    build(underlying = countingClient(calls, delay), cfg = cfg, notifier = notifier)
 
   test("the default config has a timeout, token limits and per-provider quotas") {
     val cfg = config("")
@@ -152,7 +152,7 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
     val cfg = config("")
     for {
       notifier <- NotifierMock.recording
-      client   <- build(silentClient, cfg, notifier)
+      client   <- build(underlying = silentClient, cfg = cfg, notifier = notifier)
       first    <- client.complete(prompt)
       second   <- client.complete(prompt)
       infos    <- notifier.infos.get
@@ -172,7 +172,7 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
     for {
       calls    <- Ref.of[IO, Int](0)
       notifier <- NotifierMock.recording
-      client   <- build(calls, cfg, notifier)
+      client   <- build(calls = calls, cfg = cfg, notifier = notifier)
       result   <- client.complete("abcdefghij")
       next     <- client.complete(prompt)
       count    <- calls.get
@@ -191,7 +191,7 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
     for {
       calls    <- Ref.of[IO, Int](0)
       notifier <- NotifierMock.recording
-      client   <- build(countingClient(calls, 0.millis), config(""), notifier)
+      client   <- build(underlying = countingClient(calls, 0.millis), cfg = config(""), notifier = notifier)
       result   <- client.complete(prompt)
       infos    <- notifier.infos.get
     } yield {
@@ -206,7 +206,7 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
     val error = new RuntimeException("boom")
     for {
       notifier <- NotifierMock.recording
-      client   <- build(failingClient(error), cfg, notifier)
+      client   <- build(underlying = failingClient(error), cfg = cfg, notifier = notifier)
       result   <- client.complete(prompt).attempt
       errors   <- notifier.errors.get
       infos    <- notifier.infos.get
@@ -225,7 +225,7 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
     for {
       calls    <- Ref.of[IO, Int](0)
       notifier <- NotifierMock.recording
-      client   <- build(calls, cfg, notifier)
+      client   <- build(calls = calls, cfg = cfg, notifier = notifier)
       first    <- client.complete(prompt)
       second   <- client.complete(prompt)
       count    <- calls.get
@@ -243,7 +243,7 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
     for {
       calls    <- Ref.of[IO, Int](0)
       notifier <- NotifierMock.recording
-      client   <- build(calls, cfg, notifier)
+      client   <- build(calls = calls, cfg = cfg, notifier = notifier)
       result   <- client.complete(prompt)
       count    <- calls.get
       infos    <- notifier.infos.get
@@ -259,7 +259,7 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
     for {
       attempts <- Ref.of[IO, Int](0)
       notifier = failingNotifier(attempts)
-      client   <- build(silentClient, config(""), notifier)
+      client   <- build(underlying = silentClient, cfg = config(""), notifier = notifier)
       first    <- client.complete(prompt)
       second   <- client.complete(prompt)
       notified <- attempts.get
