@@ -1,7 +1,7 @@
 -- allium: 3
 -- llm.allium: the LLM replies of the bots (epic #1499). Only what is built is specified; the rest of the epic is listed
--- as open questions. Code: modules/chatCore/llm (the ports), modules/chatLlm (the implementation) and modules/main
--- (startup wiring); the responder and the engine routing are still open.
+-- as open questions. Code: modules/chatCore/llm (the ports), modules/chatLlm (the implementation and its doobie
+-- repositories) and modules/main (startup wiring); the responder and the engine routing are still open.
 
 use "./sbots.allium" as core
 
@@ -75,8 +75,11 @@ entity QuotaNotice {
 
 -- #1501 / #1484: nothing changes for the bots yet. A message directed at the bot (core/Message.is_directed_at_bot) is
 -- what the engine will offer to the responder; the engine does not call it yet, and the default responder never
--- answers, so the reply bundles behave as before. The ports of the /llm command (LlmSettings: enable, disable, status,
--- forget; the default reports disabled) are in chatCore too and get their entities with #1487.
+-- answers, so the reply bundles behave as before.
+--
+-- #1487: the /llm ports (LlmSettings: enable, disable, status, forget) are in chatCore; their doobie repositories live
+-- in chatLlm and only the port crosses back. The tables are V13 in botDB: the issue asked for V11, but V11 and V12 are
+-- already applied in production and Flyway does not allow out-of-order migrations.
 
 -- #1485: one completion per client call. The fallback is always the other provider, so a config change alone switches
 -- the primary and the fallback together. #1486/#1567: a completion can also be stopped before any provider is asked:
@@ -102,6 +105,25 @@ entity ProviderAttempt {
     completion: Completion
     provider: LlmProvider
     result: ProviderResult?     -- the provider's outcome, once it has responded
+}
+
+-- #1487: one setting per (chat, bot); the chat already carries the platform. A chat with no row is off, so enabling is
+-- explicit (#1488). The updated timestamp is epoch seconds and changes on both enable and disable.
+entity LlmChatSetting {
+    chat: core/Chat
+    bot: core/Bot
+    enabled: Boolean = false
+    updated_at: Timestamp
+}
+
+-- #1487: the messages kept for a chat in the shape the prompt builder will consume. Only the role is stored, never the
+-- sender's identity (#1489). The rolling window, TTL cleanup and prompt ordering are still open with #1489.
+entity LlmContextMessage {
+    chat: core/Chat
+    bot: core/Bot
+    role: user | assistant
+    content: String
+    created_at: Timestamp
 }
 
 ------------------------------------------------------------
@@ -311,6 +333,42 @@ rule CompletionFailsAfterFallbackExhausted {
         completion.status = failed
 }
 
+-- #1487: the /llm switches are stored per chat and bot, and a toggle always refreshes the timestamp. The command that
+-- raises these events is #1488; the storage behaviour is already observable through the LlmSettings port.
+rule LlmEnabledForChat {
+    when: UserEnablesLlm(chat, bot)
+    ensures:
+        let setting = LlmChatSetting{chat: chat, bot: bot}
+        setting.enabled = true
+        setting.updated_at = now
+}
+
+rule LlmDisabledForChat {
+    when: UserDisablesLlm(chat, bot)
+    ensures:
+        let setting = LlmChatSetting{chat: chat, bot: bot}
+        setting.enabled = false
+        setting.updated_at = now
+}
+
+rule LlmStatusIsOffWithoutSetting {
+    when: LlmStatusRequested(chat, bot)
+    requires: not exists LlmChatSetting{chat: chat, bot: bot}
+    ensures: LlmStatusReported(enabled: false)
+}
+
+rule LlmStatusReportsStoredSetting {
+    when: LlmStatusRequested(chat, bot)
+    requires: exists LlmChatSetting{chat: chat, bot: bot}
+    ensures: LlmStatusReported(enabled: (LlmChatSetting where chat = chat and bot = bot).any(s => s.enabled))
+}
+
+-- `forget` purges the remembered context of that chat and bot only: the switch, other chats and other bots are intact.
+rule LlmForgetPurgesContext {
+    when: UserForgetsLlmContext(chat, bot)
+    ensures: not exists LlmContextMessage{chat: chat, bot: bot}
+}
+
 ------------------------------------------------------------
 -- Invariants
 ------------------------------------------------------------
@@ -347,6 +405,12 @@ actor LlmProviderEndpoint {
     identified_by: LlmProviderEndpoint where true
 }
 
+-- The caller of the LlmSettings port: the /llm command of #1488 will be one such caller, but the storage rules below
+-- are already reachable through the port itself.
+actor LlmChatUser {
+    identified_by: LlmChatUser where true
+}
+
 ------------------------------------------------------------
 -- Surfaces
 ------------------------------------------------------------
@@ -368,10 +432,21 @@ surface LlmProviderBoundary {
         ProviderResponded(completion, provider, result, reply?)
 }
 
+-- The chatCore port, implemented by the doobie repositories of chatLlm (#1487).
+surface LlmSettingsSurface {
+    facing _: LlmChatUser
+
+    provides:
+        UserEnablesLlm(chat, bot)
+        UserDisablesLlm(chat, bot)
+        LlmStatusRequested(chat, bot)
+        UserForgetsLlmContext(chat, bot)
+}
+
 ------------------------------------------------------------
 -- Open Questions
 ------------------------------------------------------------
 
 open question "Routing in BotEngine (#1492): the order between reply bundles and the LLM, and the directed-at-bot gate."
-open question "Per-chat settings and context tables (#1487, #1489), the /llm command (#1488)."
+open question "Per-chat context window, TTL cleanup and anonymous sender labels (#1489); the /llm command surface (#1488)."
 open question "Privacy note (#1483, #1498): the Gemini free tier may not be offered to minors or EEA/UK/CH users. #1485 only makes the provider switch configurable; it does not authorise a free-tier deployment."
