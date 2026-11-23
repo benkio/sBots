@@ -72,15 +72,21 @@ final case class Completion(
 object Completion {
 
   def started(prompt: String, primaryProvider: LlmProvider): Completion =
+    startedWith(prompt, primaryProvider, primaryProvider)
+
+  /** A completion whose first actual call goes to `firstProvider`. When the primary's quota is exhausted the fallback
+    * is asked first, so the completion carries only the fallback attempt while keeping the configured primary label.
+    */
+  def startedWith(prompt: String, primaryProvider: LlmProvider, firstProvider: LlmProvider): Completion =
     Completion(
       prompt = prompt,
       primaryProvider = primaryProvider,
       status = CompletionStatus.Pending,
       reply = None,
-      attempts = List(ProviderAttempt(primaryProvider, None))
+      attempts = List(ProviderAttempt(firstProvider, None))
     )
 
-  /** No provider was asked: the local budget is exhausted, the prompt exceeds the input limit or credentials are
+  /** No provider was asked: both providers' quotas are exhausted, the prompt exceeds the input limit or credentials are
     * incomplete. A provider timeout is not built here: it is recorded as a provider result instead.
     */
   def notRequested(prompt: String, primaryProvider: LlmProvider, status: CompletionStatus): Completion =
@@ -90,6 +96,16 @@ object Completion {
       status = status,
       reply = None,
       attempts = Nil
+    )
+
+  /** The primary failed retryably but the fallback's quota is exhausted: drop the unresolved fallback attempt so only
+    * providers that were actually called are recorded, and fail the completion.
+    */
+  def failUnresolved(completion: Completion): Completion =
+    completion.copy(
+      status = CompletionStatus.Failed,
+      reply = None,
+      attempts = completion.attempts.filter(_.result.isDefined)
     )
 
   /** Applies the rules of `llm.allium` to a provider response. Responses for a terminal completion are ignored.

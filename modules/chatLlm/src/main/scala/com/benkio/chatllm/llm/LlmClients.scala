@@ -6,7 +6,7 @@ import com.benkio.chatcore.Notifier
 import org.http4s.client.Client
 
 /** Factory for the chat LLM client: the configured primary provider and its fallback are wired once, at startup. The
-  * returned client also owns the one limiter shared by all the bots.
+  * returned client also owns the one limiter shared by all the bots, with separate quotas for the two providers.
   */
 object LlmClients {
 
@@ -29,14 +29,15 @@ object LlmClients {
       case Left(err) => Async[F].raiseError(new IllegalArgumentException(err))
       case Right(()) =>
         for {
-          underlying <- buildProviderClient(client, config)
-          limiter    <- LlmRateLimiter[F](config.budget)
+          limiter    <- LlmRateLimiter[F](LlmConfig.quotaFor(config))
+          underlying <- buildProviderClient(client, config, limiter)
         } yield LimitedLlmClient[F](underlying, config, limiter, notifier)
     }
 
   private def buildProviderClient[F[_]: Async](
       client: Client[F],
-      config: LlmConfig
+      config: LlmConfig,
+      limiter: LlmRateLimiter[F]
   ): F[LlmClientApi[F]] =
     LlmConfig.primary(config) match {
       case Left(err)              => Async[F].raiseError(new IllegalArgumentException(err))
@@ -47,12 +48,12 @@ object LlmClients {
             for {
               primary  <- GeminiClient[F](client, config.gemini, maxOutputTokens)
               fallback <- OpenRouterClient[F](client, config.openrouter, maxOutputTokens)
-            } yield FallbackLlmClient[F](primary, fallback, config.timeout)
+            } yield FallbackLlmClient[F](primary, fallback, config.timeout, limiter)
           case LlmProvider.OpenRouter =>
             for {
               primary  <- OpenRouterClient[F](client, config.openrouter, maxOutputTokens)
               fallback <- GeminiClient[F](client, config.gemini, maxOutputTokens)
-            } yield FallbackLlmClient[F](primary, fallback, config.timeout)
+            } yield FallbackLlmClient[F](primary, fallback, config.timeout, limiter)
         }
     }
 }

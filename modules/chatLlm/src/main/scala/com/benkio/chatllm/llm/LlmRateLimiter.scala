@@ -8,89 +8,119 @@ import cats.syntax.all.*
 import java.time.temporal.ChronoUnit
 import java.time.Instant
 
-/** Which of the two sliding windows stopped a completion. */
+/** Which of the two sliding windows stopped a provider call. */
 enum BudgetWindow {
   case Minute, Day
 }
 
-/** The outcome of a budget check. `firstNotice` is true only for the first denial after a period in which requests were
-  * allowed: the ops notification must not be repeated for every message dropped while the quota is exhausted.
+/** The outcome of a provider quota check. The one-shot ops notice is tracked separately by the limiter, so a denial
+  * only needs to report which window was exhausted.
   */
 enum RateLimitDecision {
   case Allowed
-  case Exhausted(window: BudgetWindow, firstNotice: Boolean)
+  case Exhausted(window: BudgetWindow)
 }
 
-/** The shared client-side limiter: one instance is built at startup and used by every bot. Both windows slide, so a
-  * burst at a window boundary cannot double the configured allowance. A completion reserves one slot; the provider
-  * fallback of that completion is part of the same request and does not consume another one.
+/** The per-provider client-side limiter: one instance is built at startup and shared by every bot. Each provider has
+  * its own pair of sliding windows, so a fallback attempt consumes the fallback provider's quota, never the primary's.
+  * A notification episode is shared across both providers: it is claimed once when no provider can be called and resets
+  * as soon as any provider is admitted again.
   */
 trait LlmRateLimiter[F[_]] {
 
-  /** Reserves one request at the current instant, or refuses it. The clock is read inside the atomic state update, so a
-    * retried update filters the windows and records the admission with a fresh timestamp.
+  /** Reserves one call to `provider` at the current instant, or refuses it. The clock is read inside the atomic state
+    * update, so a retried update filters the windows and records the admission with a fresh timestamp.
     */
-  def acquire: F[RateLimitDecision]
+  def acquire(provider: LlmProvider): F[RateLimitDecision]
 
   /** Deterministic variant of [[acquire]]: the time is passed in so the windows are testable without sleeping. */
-  def acquire(at: Instant): F[RateLimitDecision]
+  def acquire(provider: LlmProvider, at: Instant): F[RateLimitDecision]
 
-  /** Called when the ops notification for the first denial failed: the next denial may notify again. */
+  /** Atomically claims the one-shot exhaustion notice. Returns true only for the first caller of an episode. */
+  def claimQuotaNotice: F[Boolean]
+
+  /** Called when the ops notification for the episode failed: the next denial may notify again. */
   def notificationFailed: F[Unit]
 }
 
 object LlmRateLimiter {
 
+  private final case class ProviderWindow(thisMinute: List[Long], today: List[Long])
+
   private final case class State(
-      thisMinute: List[Long],
-      today: List[Long],
+      gemini: ProviderWindow,
+      openrouter: ProviderWindow,
       notified: Boolean
   )
 
-  private val empty = State(Nil, Nil, notified = false)
+  private val empty = State(ProviderWindow(Nil, Nil), ProviderWindow(Nil, Nil), notified = false)
 
-  def apply[F[_]: Async](config: LlmBudgetConfig): F[LlmRateLimiter[F]] =
-    Ref.of[F, State](empty).map(states => new Impl[F](states, config))
+  /** `quotaFor` supplies each provider's configured limits. */
+  def apply[F[_]: Async](quotaFor: LlmProvider => LlmBudgetConfig): F[LlmRateLimiter[F]] =
+    Ref.of[F, State](empty).map(states => new Impl[F](states, quotaFor))
 
-  private final class Impl[F[_]: Async](states: Ref[F, State], config: LlmBudgetConfig) extends LlmRateLimiter[F] {
+  private final class Impl[F[_]: Async](states: Ref[F, State], quotaFor: LlmProvider => LlmBudgetConfig)
+      extends LlmRateLimiter[F] {
 
-    override def acquire: F[RateLimitDecision] = {
+    override def acquire(provider: LlmProvider): F[RateLimitDecision] = {
       // access + compare-and-set keeps the update atomic while allowing an effectful clock read: each retry reads a
       // fresh instant instead of reusing one captured before the update.
       def attempt: F[RateLimitDecision] =
         states.access.flatMap { case (state, set) =>
           Clock[F].realTimeInstant.flatMap { at =>
-            val (next, decision) = decide(state, at)
+            val (next, decision) = decide(state, provider, at)
             set(next).ifM(decision.pure[F], attempt)
           }
         }
       attempt
     }
 
-    override def acquire(at: Instant): F[RateLimitDecision] =
-      states.modify(state => decide(state, at))
+    override def acquire(provider: LlmProvider, at: Instant): F[RateLimitDecision] =
+      states.modify(state => decide(state, provider, at))
 
-    private def decide(state: State, at: Instant): (State, RateLimitDecision) = {
+    private def decide(state: State, provider: LlmProvider, at: Instant): (State, RateLimitDecision) = {
       val now      = at.toEpochMilli
       val minuteAt = at.minusSeconds(60).toEpochMilli
       val dayAt    = at.minus(1, ChronoUnit.DAYS).toEpochMilli
-      val minute   = state.thisMinute.filter(_ > minuteAt)
-      val today    = state.today.filter(_ > dayAt)
+      val current  = windowOf(state, provider)
+      val minute   = current.thisMinute.filter(_ > minuteAt)
+      val today    = current.today.filter(_ > dayAt)
+      val quota    = quotaFor(provider)
 
-      if minute.size >= config.maxPerMinute then (
-        state.copy(thisMinute = minute, today = today, notified = true),
-        RateLimitDecision.Exhausted(BudgetWindow.Minute, firstNotice = !state.notified)
+      def withWindow(window: ProviderWindow, notified: Boolean = state.notified): State =
+        provider match {
+          case LlmProvider.Gemini     => state.copy(gemini = window, notified = notified)
+          case LlmProvider.OpenRouter => state.copy(openrouter = window, notified = notified)
+        }
+
+      if minute.size >= quota.maxPerMinute then (
+        withWindow(ProviderWindow(minute, today)),
+        RateLimitDecision.Exhausted(BudgetWindow.Minute)
       )
-      else if today.size >= config.maxPerDay then (
-        state.copy(thisMinute = minute, today = today, notified = true),
-        RateLimitDecision.Exhausted(BudgetWindow.Day, firstNotice = !state.notified)
+      else if today.size >= quota.maxPerDay then (
+        withWindow(ProviderWindow(minute, today)),
+        RateLimitDecision.Exhausted(BudgetWindow.Day)
       )
-      else
+      else {
+        // A provider was admitted: this starts a new notification episode.
         (
-          State(now :: minute, now :: today, notified = false),
+          withWindow(ProviderWindow(now :: minute, now :: today), notified = false),
           RateLimitDecision.Allowed
         )
+      }
     }
+
+    private def windowOf(state: State, provider: LlmProvider): ProviderWindow =
+      provider match {
+        case LlmProvider.Gemini     => state.gemini
+        case LlmProvider.OpenRouter => state.openrouter
+      }
+
+    override val claimQuotaNotice: F[Boolean] =
+      states.modify(state =>
+        if state.notified then (state, false)
+        else (state.copy(notified = true), true)
+      )
 
     override def notificationFailed: F[Unit] =
       states.update(state => state.copy(notified = false))

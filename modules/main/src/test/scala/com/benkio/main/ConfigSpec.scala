@@ -53,13 +53,15 @@ class ConfigSpec extends CatsEffectSuite {
     }
   }
 
-  test("Config.loadConfig should load the LLM section with its timeout, token limits and shared budget") {
+  test("Config.loadConfig should load the LLM section with its timeout, token limits and per-provider quotas") {
     Config.loadConfig[IO].map { config =>
       assertEquals(config.llm.timeout, 10.seconds)
       assertEquals(config.llm.maxInputTokens, 4096)
       assertEquals(config.llm.maxOutputTokens, 512)
-      assertEquals(config.llm.budget.maxPerMinute, 20)
-      assertEquals(config.llm.budget.maxPerDay, 50)
+      assertEquals(config.llm.gemini.quota.maxPerMinute, 20)
+      assertEquals(config.llm.gemini.quota.maxPerDay, 50)
+      assertEquals(config.llm.openrouter.quota.maxPerMinute, 20)
+      assertEquals(config.llm.openrouter.quota.maxPerDay, 50)
     }
   }
 
