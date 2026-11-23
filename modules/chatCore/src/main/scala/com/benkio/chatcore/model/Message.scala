@@ -3,6 +3,7 @@ package com.benkio.chatcore.model
 import com.benkio.chatcore.model.SBotInfo.SBotName
 
 import java.security.MessageDigest
+import java.util.regex.Pattern
 
 /** Someone named in the text of a message with a mention: by the platform id and/or by the name (Telegram username,
   * Discord username, IRC nick), whichever the platform gives.
@@ -50,6 +51,14 @@ final case class Message(
         .mkString
     }
 
+  /** The content of this message in the form the LLM context stores it: a stable anonymous author label, no real
+    * usernames or nicks, and no embedded newline that could forge another labelled turn in a flat prompt.
+    */
+  def anonymisedContent(salt: String): String = {
+    val label = anonymisedAuthor(salt).map(id => s"user-$id").getOrElse("user")
+    s"$label: ${Message.singleLine(Message.redactMentions(text.orElse(caption).getOrElse(""), mentions))}"
+  }
+
   /** Whether the message is addressed to the bot: it is mentioned, one of its messages is replied to (or quoted), or
     * the text opens by calling it (`botName: ...`, the IRC way). The match is on the name, case insensitive.
     */
@@ -63,6 +72,36 @@ final case class Message(
 }
 
 object Message {
+
+  private val atMention      = "@[A-Za-z0-9_.-]+".r
+  private val discordMention = "<@!?\\d+>".r
+  private val anonymousUser  = "@user"
+
+  /** Replaces every real name the adapters could recognise with a generic label. The names come from the platform's
+    * mention data; the two patterns also catch `@nick` text and Discord's raw `<@id>` mentions when the adapter gives
+    * no name. Everything is case insensitive: platform names are.
+    */
+  def redactMentions(content: String, mentions: List[Mention]): String = {
+    val named        = mentions.flatMap(_.name).map(_.trim.stripPrefix("@")).filter(_.nonEmpty).distinct
+    val withoutNames = named.foldLeft(content) { (text, name) =>
+      text.replaceAll(s"(?i)(?<!\\w)@?${Pattern.quote(name)}(?!\\w)", anonymousUser)
+    }
+    atMention.replaceAllIn(discordMention.replaceAllIn(withoutNames, anonymousUser), anonymousUser)
+  }
+
+  /** Characters that can start a new line in a prompt. Besides CR and LF, this includes the Unicode separators that
+    * `String.linesIterator` does not split on, but a model's tokenizer may still treat as a line break.
+    */
+  private val lineTerminators: List[String] =
+    List("\r", "\n", 0x85.toChar.toString, 0x2028.toChar.toString, 0x2029.toChar.toString)
+
+  /** Keeps one message on one prompt line, so user text cannot introduce a `role: ` line of its own. Every terminator
+    * becomes its visible escape (`\r` for CR, `\n` for the others), including the Unicode separators.
+    */
+  def singleLine(content: String): String =
+    lineTerminators.foldLeft(content) { (text, terminator) =>
+      text.replace(terminator, if terminator == "\r" then "\\r" else "\\n")
+    }
 
   private def normaliseName(name: String): String = name.trim.stripPrefix("@").toLowerCase
 

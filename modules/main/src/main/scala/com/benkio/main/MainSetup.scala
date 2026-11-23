@@ -11,6 +11,7 @@ import com.benkio.chatllm.llm.LlmClientApi
 import com.benkio.chatllm.llm.LlmClients
 import com.benkio.chatllm.llm.LlmConfig
 import com.benkio.chatllm.ChatLlm
+import com.benkio.chatllm.LlmContextCleanup
 import cron4s.CronExpr
 import doobie.Transactor
 import fs2.io.net.Network
@@ -55,20 +56,24 @@ object MainSetup {
       // Not guarded: LimitedLlmClient must observe a failed quota notification so the next denial retries it.
       LlmClients.build[F](httpClient, config.llm, Notifier.logging[F])
     )
-    _       <- Resource.eval(log.info("[Main] llmClient"))
+    _ <- Resource.eval(log.info("[Main] llmClient"))
+    // The same database is shared by the bots; the cleanup job works on the whole llm_context table.
+    llmTransactor = Transactor.fromDriverManager[F](
+      config.mainDB.driver,
+      config.mainDB.url,
+      "",
+      "",
+      None
+    )
     dbLayer <- Resource.eval(
       DBLayer.make[F](
-        Transactor.fromDriverManager[F](
-          config.mainDB.driver,
-          config.mainDB.url,
-          "",
-          "",
-          None
-        ),
+        llmTransactor,
         botId = com.benkio.chatcore.model.SBotInfo.SBotId("main")
       )
     )
-    _           <- Resource.eval(log.info("[Main] dbLayer"))
+    _ <- Resource.eval(log.info("[Main] dbLayer"))
+    // #1489: the cleanup works on the whole llm_context table; main owns its fiber and cancels it on shutdown.
+    _           <- Resource.make(LlmContextCleanup.start[F](llmTransactor, config.llm.context))(_.cancel)
     certificate <- Resource.eval(
       Async[F].pure(config.telegram.webhookCertificate.map(fp => Paths.get(fp)))
     )

@@ -25,10 +25,12 @@ import com.benkio.chatcore.repository.db.DBMediaData
 import com.benkio.chatcore.repository.db.DBSubscriptionData
 import com.benkio.chatcore.Logger.given
 import cron4s.*
+import fs2.Stream
 import munit.CatsEffectSuite
 
 import java.time.Instant
 import java.util.UUID
+import scala.concurrent.duration.*
 
 class CronBackgroundJobManagerSpec extends CatsEffectSuite {
 
@@ -52,6 +54,33 @@ class CronBackgroundJobManagerSpec extends CatsEffectSuite {
       assertEquals(errors.map(_._1), List(sBotInfo))
       assertEquals(errors.map(_._3), List(boom))
       assert(errors.head._2.contains("subscription") && errors.head._2.contains(ircChat.id), errors.head._2)
+    }
+  }
+
+  test("a scheduler failure restarts the schedule with the job still attached") {
+    val boom = new RuntimeException("ticks failed")
+    for {
+      emitted <- Ref[IO].of(0)
+      calls   <- Ref[IO].of(0)
+      // One failing tick, two ticks after the restart, then a clean halt. The stream is re-evaluated on restart, so
+      // the failure must be driven by the ref rather than baked into the stream's structure.
+      ticks = {
+        def stream: Stream[IO, Unit] =
+          Stream.eval(emitted.get).flatMap { n =>
+            if n >= 3 then Stream.empty[IO]
+            else
+              (Stream.eval(emitted.update(_ + 1)) >> Stream.emit(())) ++
+                (if n == 0 then Stream.raiseError[IO](boom)
+                 else Stream.sleep_[IO](5.millis) ++ stream)
+          }
+        stream
+      }
+      _     <- CronBackgroundJobManager.resilientJob[IO](ticks, calls.update(_ + 1), 5.millis).compile.drain
+      seen  <- emitted.get
+      count <- calls.get
+    } yield {
+      assertEquals(seen, 3)
+      assertEquals(count, 3)
     }
   }
 
