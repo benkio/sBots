@@ -15,7 +15,9 @@ import org.typelevel.ci.CIString
 object GeminiClient {
 
   def apply[F[_]: Concurrent](client: Client[F], connection: ProviderConnection): F[LlmProviderClientApi[F]] =
-    ProviderHttp.parseUri[F](connection.endpoint).map(uri => new GeminiClientImpl[F](client, connection, uri))
+    ProviderHttp
+      .parseUri[F](connection.endpoint, connection.apiKey.isDefined)
+      .map(uri => new GeminiClientImpl[F](client, connection, uri))
 
   private final class GeminiClientImpl[F[_]: Concurrent](
       client: Client[F],

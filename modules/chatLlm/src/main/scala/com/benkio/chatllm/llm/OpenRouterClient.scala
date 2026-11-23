@@ -17,7 +17,7 @@ object OpenRouterClient {
 
   def apply[F[_]: Concurrent](client: Client[F], connection: ProviderConnection): F[LlmProviderClientApi[F]] =
     for {
-      uri   <- ProviderHttp.parseUri[F](connection.endpoint)
+      uri   <- ProviderHttp.parseUri[F](connection.endpoint, connection.apiKey.isDefined)
       model <- Concurrent[F].fromOption(
         connection.model.map(_.trim).filter(_.nonEmpty),
         new IllegalArgumentException("OpenRouter model is required")

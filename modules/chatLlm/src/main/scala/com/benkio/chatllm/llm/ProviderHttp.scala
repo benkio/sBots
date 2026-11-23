@@ -12,9 +12,17 @@ import org.http4s.Uri
 
 private[llm] object ProviderHttp {
 
-  def parseUri[F[_]: Concurrent](endpoint: String): F[Uri] =
+  def parseUri[F[_]: Concurrent](endpoint: String, hasApiKey: Boolean): F[Uri] =
     Concurrent[F].fromEither(
-      Uri.fromString(endpoint).leftMap(err => new IllegalArgumentException(err.message))
+      Uri
+        .fromString(endpoint)
+        .leftMap(err => new IllegalArgumentException(err.message))
+        .flatMap { uri =>
+          if uri.scheme.contains(Uri.Scheme.http) && hasApiKey then Left(
+            new IllegalArgumentException("Refusing to send API key over http endpoint")
+          )
+          else Right(uri)
+        }
     )
 
   /** Shared mapping of the HTTP status and of the nested JSON payload to the provider-independent result. */

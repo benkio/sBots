@@ -87,6 +87,7 @@ object Completion {
       response: ProviderResponse
   ): Completion =
     if completion.status != CompletionStatus.Pending then completion
+    else if !completion.attempts.exists(_.provider == provider) then completion
     else {
       val withResult = completion.attempts.map { attempt =>
         if attempt.provider == provider then attempt.copy(result = Some(response.result)) else attempt
