@@ -46,7 +46,7 @@ class LlmCommandsSpec extends CatsEffectSuite {
   test("/llm on enables the chat and confirms") {
     for {
       calls    <- Ref[IO].of(List.empty[String])
-      result   <- run("/llm on", settings(calls))
+      result   <- run(text = "/llm on", port = settings(calls))
       recorded <- calls.get
     } yield {
       assertEquals(result, Text("LLM replies enabled for this chat"))
@@ -57,7 +57,7 @@ class LlmCommandsSpec extends CatsEffectSuite {
   test("/llm off disables the chat and confirms") {
     for {
       calls    <- Ref[IO].of(List.empty[String])
-      result   <- run("/llm off", settings(calls))
+      result   <- run(text = "/llm off", port = settings(calls))
       recorded <- calls.get
     } yield {
       assertEquals(result, Text("LLM replies disabled for this chat"))
@@ -68,7 +68,7 @@ class LlmCommandsSpec extends CatsEffectSuite {
   test("/llm status reports the stored state without changing it") {
     for {
       calls    <- Ref[IO].of(List.empty[String])
-      result   <- run("/llm status", settings(calls, enabled = true))
+      result   <- run(text = "/llm status", port = settings(calls, enabled = true))
       recorded <- calls.get
     } yield {
       assertEquals(result, Text("LLM replies are enabled for this chat"))
@@ -79,7 +79,7 @@ class LlmCommandsSpec extends CatsEffectSuite {
   test("/llm status reports disabled when no setting is stored") {
     for {
       calls    <- Ref[IO].of(List.empty[String])
-      result   <- run("/llm status", settings(calls))
+      result   <- run(text = "/llm status", port = settings(calls))
       recorded <- calls.get
     } yield {
       assertEquals(result, Text("LLM replies are disabled for this chat"))
@@ -90,7 +90,7 @@ class LlmCommandsSpec extends CatsEffectSuite {
   test("/llm forget purges the context without changing the switch") {
     for {
       calls    <- Ref[IO].of(List.empty[String])
-      result   <- run("/llm forget", settings(calls))
+      result   <- run(text = "/llm forget", port = settings(calls))
       recorded <- calls.get
     } yield {
       assertEquals(result, Text("LLM context forgotten for this chat"))
@@ -101,9 +101,9 @@ class LlmCommandsSpec extends CatsEffectSuite {
   test("missing or unknown arguments show the usage and change nothing") {
     for {
       calls    <- Ref[IO].of(List.empty[String])
-      noArg    <- run("/llm", settings(calls))
-      wrongArg <- run("/llm maybe", settings(calls))
-      ircNoArg <- run("!llm", settings(calls), CommandSyntax(prefix = "!"))
+      noArg    <- run(text = "/llm", port = settings(calls))
+      wrongArg <- run(text = "/llm maybe", port = settings(calls))
+      ircNoArg <- run(text = "!llm", port = settings(calls), syntax = CommandSyntax(prefix = "!"))
       recorded <- calls.get
     } yield {
       assertEquals(noArg, Text("Usage: /llm on|off|status|forget"))
@@ -116,7 +116,7 @@ class LlmCommandsSpec extends CatsEffectSuite {
   test("the command works with the IRC syntax too") {
     for {
       calls    <- Ref[IO].of(List.empty[String])
-      result   <- run("!llm ON", settings(calls), CommandSyntax(prefix = "!"))
+      result   <- run(text = "!llm ON", port = settings(calls), syntax = CommandSyntax(prefix = "!"))
       recorded <- calls.get
     } yield {
       assertEquals(result, Text("LLM replies enabled for this chat"))

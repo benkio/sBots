@@ -315,6 +315,10 @@ SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' A
   - ~SSH_PRIVATE_KEY~ :: private key used by GitHub Actions to connect via SSH
   - ~DEPLOY_SUDO_PASSWORD~ :: password used for ~sudo~ while installing/updating runtime packages
   - bot tokens (eg ~ABAR_TOKEN~, ~CALA_TOKEN~, etc.) as already used by the workflow
+  - ~LLM_CONTEXT_AUTHOR_SALT~ :: secret used to hash sender ids in LLM chats. The app *refuses to start* without it,
+    and the deploy fails early if it is missing. Generate it once (eg ~openssl rand -hex 32~), set it as a repository
+    secret, and keep it stable: changing it rewrites every anonymous sender label in the stored conversations.
+  - ~GEMINI_API_KEY~ and ~OPENROUTER_API_KEY~ (optional: without both, LLM replies are disabled)
   - ~LOKI_TOKEN~ (optional, with ~LOKI_URL~ and ~LOKI_USER~: without all three the logs are not shipped)
 
   Notes:

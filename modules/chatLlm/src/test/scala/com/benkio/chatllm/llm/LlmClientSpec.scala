@@ -102,7 +102,10 @@ class LlmClientSpec extends CatsEffectSuite {
       bodies: ListBuffer[String]
   ): IO[Completion] =
     LlmClients
-      .build[IO](stub(gemini, openRouter, hosts, bodies), config("", s"primary-provider = ${primary(chosen)}\n"))
+      .build[IO](
+        stub(gemini = gemini, openRouter = openRouter, hosts = hosts, bodies = bodies),
+        config("", s"primary-provider = ${primary(chosen)}\n")
+      )
       .flatMap(_.complete(prompt))
 
   test("the provider and result enums keep their alternatives distinct") {
@@ -201,11 +204,11 @@ class LlmClientSpec extends CatsEffectSuite {
     val hosts  = ListBuffer.empty[String]
     val bodies = ListBuffer.empty[String]
     completeWith(
-      LlmProvider.Gemini,
-      (Status.Ok, geminiSuccess("ciao")),
-      (Status.Ok, openRouterSuccess("bua")),
-      hosts,
-      bodies
+      chosen = LlmProvider.Gemini,
+      gemini = (Status.Ok, geminiSuccess("ciao")),
+      openRouter = (Status.Ok, openRouterSuccess("bua")),
+      hosts = hosts,
+      bodies = bodies
     )
       .map { completion =>
         assertEquals(completion.status, CompletionStatus.Answered)
@@ -223,11 +226,11 @@ class LlmClientSpec extends CatsEffectSuite {
     val hosts  = ListBuffer.empty[String]
     val bodies = ListBuffer.empty[String]
     completeWith(
-      LlmProvider.OpenRouter,
-      (Status.Ok, geminiSuccess("ciao")),
-      (Status.Ok, openRouterSuccess("bua")),
-      hosts,
-      bodies
+      chosen = LlmProvider.OpenRouter,
+      gemini = (Status.Ok, geminiSuccess("ciao")),
+      openRouter = (Status.Ok, openRouterSuccess("bua")),
+      hosts = hosts,
+      bodies = bodies
     )
       .map { completion =>
         assertEquals(completion.status, CompletionStatus.Answered)
@@ -245,11 +248,11 @@ class LlmClientSpec extends CatsEffectSuite {
     val hosts  = ListBuffer.empty[String]
     val bodies = ListBuffer.empty[String]
     completeWith(
-      LlmProvider.Gemini,
-      (Status.TooManyRequests, Json.obj()),
-      (Status.Ok, openRouterSuccess("bua")),
-      hosts,
-      bodies
+      chosen = LlmProvider.Gemini,
+      gemini = (Status.TooManyRequests, Json.obj()),
+      openRouter = (Status.Ok, openRouterSuccess("bua")),
+      hosts = hosts,
+      bodies = bodies
     ).map { completion =>
       assertEquals(completion.status, CompletionStatus.Answered)
       assertEquals(completion.reply, Some(LlmReply("bua")))
@@ -264,11 +267,11 @@ class LlmClientSpec extends CatsEffectSuite {
     val hosts  = ListBuffer.empty[String]
     val bodies = ListBuffer.empty[String]
     completeWith(
-      LlmProvider.Gemini,
-      (Status.InternalServerError, Json.obj()),
-      (Status.Ok, openRouterSuccess("bua")),
-      hosts,
-      bodies
+      chosen = LlmProvider.Gemini,
+      gemini = (Status.InternalServerError, Json.obj()),
+      openRouter = (Status.Ok, openRouterSuccess("bua")),
+      hosts = hosts,
+      bodies = bodies
     ).map { completion =>
       assertEquals(completion.status, CompletionStatus.Answered)
       assertEquals(completion.reply, Some(LlmReply("bua")))
@@ -283,11 +286,11 @@ class LlmClientSpec extends CatsEffectSuite {
     val hosts  = ListBuffer.empty[String]
     val bodies = ListBuffer.empty[String]
     completeWith(
-      LlmProvider.Gemini,
-      (Status.TooManyRequests, Json.obj()),
-      (Status.ServiceUnavailable, Json.obj()),
-      hosts,
-      bodies
+      chosen = LlmProvider.Gemini,
+      gemini = (Status.TooManyRequests, Json.obj()),
+      openRouter = (Status.ServiceUnavailable, Json.obj()),
+      hosts = hosts,
+      bodies = bodies
     ).map { completion =>
       assertEquals(completion.status, CompletionStatus.Failed)
       assertEquals(completion.reply, None)
@@ -304,11 +307,11 @@ class LlmClientSpec extends CatsEffectSuite {
     val hosts  = ListBuffer.empty[String]
     val bodies = ListBuffer.empty[String]
     completeWith(
-      LlmProvider.Gemini,
-      (Status.BadRequest, Json.obj()),
-      (Status.Ok, openRouterSuccess("bua")),
-      hosts,
-      bodies
+      chosen = LlmProvider.Gemini,
+      gemini = (Status.BadRequest, Json.obj()),
+      openRouter = (Status.Ok, openRouterSuccess("bua")),
+      hosts = hosts,
+      bodies = bodies
     )
       .map { completion =>
         assertEquals(completion.status, CompletionStatus.Failed)
@@ -323,7 +326,13 @@ class LlmClientSpec extends CatsEffectSuite {
     // obligation: rule-failure.ProviderReturnsStructuredReply.3
     val hosts  = ListBuffer.empty[String]
     val bodies = ListBuffer.empty[String]
-    completeWith(LlmProvider.Gemini, (Status.Ok, Json.obj()), (Status.Ok, openRouterSuccess("bua")), hosts, bodies)
+    completeWith(
+      chosen = LlmProvider.Gemini,
+      gemini = (Status.Ok, Json.obj()),
+      openRouter = (Status.Ok, openRouterSuccess("bua")),
+      hosts = hosts,
+      bodies = bodies
+    )
       .map { completion =>
         assertEquals(completion.status, CompletionStatus.Failed)
         assertEquals(completion.reply, None)
@@ -403,11 +412,11 @@ class LlmClientSpec extends CatsEffectSuite {
     val hosts  = ListBuffer.empty[String]
     val bodies = ListBuffer.empty[String]
     completeWith(
-      LlmProvider.OpenRouter,
-      (Status.Ok, geminiSuccess("bua")),
-      (Status.TooManyRequests, Json.obj()),
-      hosts,
-      bodies
+      chosen = LlmProvider.OpenRouter,
+      gemini = (Status.Ok, geminiSuccess("bua")),
+      openRouter = (Status.TooManyRequests, Json.obj()),
+      hosts = hosts,
+      bodies = bodies
     ).map { completion =>
       assertEquals(completion.status, CompletionStatus.Answered)
       assertEquals(completion.reply, Some(LlmReply("bua")))
@@ -446,8 +455,8 @@ class LlmClientSpec extends CatsEffectSuite {
     val client = stub(
       gemini = (Status.TooManyRequests, Json.obj()),
       openRouter = (Status.Ok, openRouterSuccess("ok")),
-      hosts,
-      ListBuffer.empty[String]
+      hosts = hosts,
+      bodies = ListBuffer.empty[String]
     )
     val cfg = config(
       "primary-provider = gemini\ngemini.quota.max-per-minute = 1\nopenrouter.quota.max-per-minute = 2\n"
@@ -475,8 +484,8 @@ class LlmClientSpec extends CatsEffectSuite {
     val client = stub(
       gemini = (Status.Ok, geminiSuccess("ciao")),
       openRouter = (Status.Ok, openRouterSuccess("bua")),
-      hosts,
-      ListBuffer.empty[String]
+      hosts = hosts,
+      bodies = ListBuffer.empty[String]
     )
     val cfg = config(
       "primary-provider = gemini\ngemini.quota.max-per-minute = 1\nopenrouter.quota.max-per-minute = 1\n"
@@ -506,8 +515,8 @@ class LlmClientSpec extends CatsEffectSuite {
     val client = stub(
       gemini = (Status.TooManyRequests, Json.obj()),
       openRouter = (Status.Ok, openRouterSuccess("ok")),
-      hosts,
-      ListBuffer.empty[String]
+      hosts = hosts,
+      bodies = ListBuffer.empty[String]
     )
     val cfg = config(
       "primary-provider = gemini\ngemini.quota.max-per-minute = 2\nopenrouter.quota.max-per-minute = 1\n"
@@ -538,8 +547,8 @@ class LlmClientSpec extends CatsEffectSuite {
     val client = stub(
       gemini = (Status.Ok, geminiSuccess("ciao")),
       openRouter = (Status.TooManyRequests, Json.obj()),
-      hosts,
-      ListBuffer.empty[String]
+      hosts = hosts,
+      bodies = ListBuffer.empty[String]
     )
     val cfg = config("primary-provider = gemini\ngemini.quota.max-per-minute = 1\n")
     for {

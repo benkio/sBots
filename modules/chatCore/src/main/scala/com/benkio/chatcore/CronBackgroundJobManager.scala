@@ -53,7 +53,7 @@ object CronBackgroundJobManager {
     Async[F].start(resilientJob(cron, job).compile.drain)
 
   private def resilientJob[F[_]: Async](cron: CronExpr, job: F[Unit])(using log: LogWriter[F]): Stream[F, Unit] =
-    resilientJob(Cron4sScheduler.systemDefault[F].awakeEvery(cron), job, restartDelay)
+    resilientJob(ticks = Cron4sScheduler.systemDefault[F].awakeEvery(cron), job = job, restartDelay = restartDelay)
 
   /** The schedule is defined once and every restart re-enters recovery with the job still attached: a bare restart
     * would both drop the job and leave a later scheduler failure unhandled. The tick stream and the delay are
