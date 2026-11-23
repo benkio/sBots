@@ -371,7 +371,7 @@ rule LlmForgetPurgesContext {
 
 -- #1488: /llm is a fixed command of every bot on every platform ("/llm" on Telegram and Discord, "!llm" on IRC). The
 -- argument chooses one call of the port; a missing or unrecognised argument (`unknown` below) only gets the usage
--- reply.
+-- reply, written with the command invocation of the platform.
 rule LlmCommandOn {
     when: UserRunsLlmCommand(chat, bot, argument)
     requires: argument = on
@@ -402,7 +402,15 @@ rule LlmCommandForget {
 rule LlmCommandUsage {
     when: UserRunsLlmCommand(chat, bot, argument)
     requires: argument = unknown
+    requires: chat.platform != irc
     ensures: LlmCommandResponded(chat: chat, text: "Usage: /llm on|off|status|forget")
+}
+
+rule LlmCommandIrcUsage {
+    when: UserRunsLlmCommand(chat, bot, argument)
+    requires: argument = unknown
+    requires: chat.platform = irc
+    ensures: LlmCommandResponded(chat: chat, text: "Usage: !llm on|off|status|forget")
 }
 
 ------------------------------------------------------------
