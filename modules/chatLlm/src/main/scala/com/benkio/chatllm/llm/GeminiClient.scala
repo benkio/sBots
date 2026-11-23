@@ -14,15 +14,20 @@ import org.typelevel.ci.CIString
 /** Gemini implementation of [[LlmProviderClientApi]], over the same http4s client used by the rest of the project. */
 object GeminiClient {
 
-  def apply[F[_]: Concurrent](client: Client[F], connection: ProviderConnection): F[LlmProviderClientApi[F]] =
+  def apply[F[_]: Concurrent](
+      client: Client[F],
+      connection: ProviderConnection,
+      maxOutputTokens: Int = LlmConfig.defaultMaxOutputTokens
+  ): F[LlmProviderClientApi[F]] =
     ProviderHttp
       .parseUri[F](connection.endpoint, connection.apiKey.isDefined)
-      .map(uri => new GeminiClientImpl[F](client, connection, uri))
+      .map(uri => new GeminiClientImpl[F](client, connection, uri, maxOutputTokens))
 
   private final class GeminiClientImpl[F[_]: Concurrent](
       client: Client[F],
       connection: ProviderConnection,
-      uri: Uri
+      uri: Uri,
+      maxOutputTokens: Int
   ) extends LlmProviderClientApi[F] {
 
     override val provider: LlmProvider = LlmProvider.Gemini
@@ -55,7 +60,8 @@ object GeminiClient {
             "type"       -> Json.fromString("OBJECT"),
             "properties" -> Json.obj("text" -> Json.obj("type" -> Json.fromString("STRING"))),
             "required"   -> Json.arr(Json.fromString("text"))
-          )
+          ),
+          "maxOutputTokens" -> Json.fromInt(maxOutputTokens)
         )
       )
 

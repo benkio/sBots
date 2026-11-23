@@ -15,20 +15,25 @@ import org.typelevel.ci.CIString
   */
 object OpenRouterClient {
 
-  def apply[F[_]: Concurrent](client: Client[F], connection: ProviderConnection): F[LlmProviderClientApi[F]] =
+  def apply[F[_]: Concurrent](
+      client: Client[F],
+      connection: ProviderConnection,
+      maxOutputTokens: Int = LlmConfig.defaultMaxOutputTokens
+  ): F[LlmProviderClientApi[F]] =
     for {
       uri   <- ProviderHttp.parseUri[F](connection.endpoint, connection.apiKey.isDefined)
       model <- Concurrent[F].fromOption(
         connection.model.map(_.trim).filter(_.nonEmpty),
         new IllegalArgumentException("OpenRouter model is required")
       )
-    } yield new OpenRouterClientImpl[F](client, connection, uri, model)
+    } yield new OpenRouterClientImpl[F](client, connection, uri, model, maxOutputTokens)
 
   private final class OpenRouterClientImpl[F[_]: Concurrent](
       client: Client[F],
       connection: ProviderConnection,
       uri: Uri,
-      model: String
+      model: String,
+      maxOutputTokens: Int
   ) extends LlmProviderClientApi[F] {
 
     override val provider: LlmProvider = LlmProvider.OpenRouter
@@ -51,7 +56,8 @@ object OpenRouterClient {
         "messages" -> Json.arr(
           Json.obj("role" -> Json.fromString("user"), "content" -> Json.fromString(value))
         ),
-        "response_format" -> Json.obj("type" -> Json.fromString("json_object"))
+        "response_format" -> Json.obj("type" -> Json.fromString("json_object")),
+        "max_tokens"      -> Json.fromInt(maxOutputTokens)
       )
 
       val request = Request[F](method = Method.POST, uri = uri).withEntity(body)

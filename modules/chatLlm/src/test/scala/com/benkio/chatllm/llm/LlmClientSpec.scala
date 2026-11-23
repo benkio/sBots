@@ -1,6 +1,7 @@
 package com.benkio.chatllm.llm
 
 import cats.effect.IO
+import com.benkio.chatcore.mocks.NotifierMock
 import com.benkio.chatllm.ChatLlm
 import io.circe.Json
 import io.circe.Printer
@@ -13,8 +14,9 @@ import org.http4s.Status
 import pureconfig.ConfigSource
 
 import scala.collection.mutable.ListBuffer
+import scala.concurrent.duration.*
 
-/** The behaviour of the provider-agnostic client, exercised through stubbed HTTP responses: no network, no API key.
+/** The behaviour of the provider-agnostic client, exercised through stubbed HTTP responses: no network, dummy keys.
   */
 class LlmClientSpec extends CatsEffectSuite {
 
@@ -55,8 +57,8 @@ class LlmClientSpec extends CatsEffectSuite {
     )
 
   private val configText =
-    s"""gemini { endpoint = "https://$geminiHost/generate", model = "gemini-test" }
-       |openrouter { endpoint = "https://$openRouterHost/chat", model = "openrouter-test" }""".stripMargin
+    s"""gemini { endpoint = "https://$geminiHost/generate", model = "gemini-test", api-key = "test-gemini-key" }
+       |openrouter { endpoint = "https://$openRouterHost/chat", model = "openrouter-test", api-key = "test-openrouter-key" }""".stripMargin
 
   private def config(primary: String, extra: String = ""): LlmConfig =
     ConfigSource
@@ -112,6 +114,7 @@ class LlmClientSpec extends CatsEffectSuite {
         ProviderResult.Success,
         ProviderResult.RateLimited,
         ProviderResult.ServerError,
+        ProviderResult.Timeout,
         ProviderResult.Rejected,
         ProviderResult.MalformedJson
       )
@@ -160,7 +163,8 @@ class LlmClientSpec extends CatsEffectSuite {
       override val provider: LlmProvider                         = LlmProvider.Gemini
       override def generate(value: String): IO[ProviderResponse] = IO.pure(ProviderResponse.malformedJson)
     }
-    val client: LlmClientApi[IO] = FallbackLlmClient(providerClient, providerClient)
+    val client: LlmClientApi[IO] =
+      FallbackLlmClient(providerClient, providerClient, LlmConfig.defaultTimeout)
     for {
       completion <- client.complete(prompt)
       _          <- IO(assertEquals(completion.status, CompletionStatus.Failed))
@@ -234,8 +238,8 @@ class LlmClientSpec extends CatsEffectSuite {
   }
 
   test("a 429 from Gemini falls back to OpenRouter") {
-    // obligation: rule-success.RateLimitedOrServerErrorFallsBack
-    // obligation: rule-entity-creation.RateLimitedOrServerErrorFallsBack.1
+    // obligation: rule-success.RetryableProviderFailureFallsBack
+    // obligation: rule-entity-creation.RetryableProviderFailureFallsBack.1
     // obligation: rule-failure.ProviderReturnsStructuredReply.2
     val hosts  = ListBuffer.empty[String]
     val bodies = ListBuffer.empty[String]
@@ -274,7 +278,7 @@ class LlmClientSpec extends CatsEffectSuite {
   test("a 429 from the fallback fails the completion without a third attempt") {
     // obligation: rule-success.CompletionFailsAfterFallbackExhausted
     // obligation: transition-edge.Completion.pending.failed
-    // obligation: rule-failure.RateLimitedOrServerErrorFallsBack.4
+    // obligation: rule-failure.RetryableProviderFailureFallsBack.4
     val hosts  = ListBuffer.empty[String]
     val bodies = ListBuffer.empty[String]
     completeWith(
@@ -294,7 +298,7 @@ class LlmClientSpec extends CatsEffectSuite {
   test("a rejected request fails without a fallback") {
     // obligation: rule-success.NonRetryableProviderFailureFails
     // obligation: rule-failure.NonRetryableProviderFailureFails.2
-    // obligation: rule-failure.RateLimitedOrServerErrorFallsBack.2
+    // obligation: rule-failure.RetryableProviderFailureFallsBack.2
     // obligation: rule-failure.CompletionFailsAfterFallbackExhausted.2
     val hosts  = ListBuffer.empty[String]
     val bodies = ListBuffer.empty[String]
@@ -331,9 +335,9 @@ class LlmClientSpec extends CatsEffectSuite {
     // obligation: rule-failure.ProviderReturnsStructuredReply.1
     // obligation: rule-failure.MalformedProviderReplyFails.1
     // obligation: rule-failure.NonRetryableProviderFailureFails.1
-    // obligation: rule-failure.RateLimitedOrServerErrorFallsBack.1
+    // obligation: rule-failure.RetryableProviderFailureFallsBack.1
     // obligation: rule-failure.CompletionFailsAfterFallbackExhausted.1
-    // obligation: rule-failure.RateLimitedOrServerErrorFallsBack.3
+    // obligation: rule-failure.RetryableProviderFailureFallsBack.3
     // obligation: rule-success.SuccessWithoutReplyFails
     // obligation: rule-failure.SuccessWithoutReplyFails.1
     // obligation: rule-failure.SuccessWithoutReplyFails.2
@@ -408,6 +412,133 @@ class LlmClientSpec extends CatsEffectSuite {
       assertEquals(completion.reply, Some(LlmReply("bua")))
       assertEquals(completion.attempts.map(_.provider), List(LlmProvider.OpenRouter, LlmProvider.Gemini))
       assertEquals(completion.attempts.flatMap(_.result), List(ProviderResult.RateLimited, ProviderResult.Success))
+    }
+  }
+
+  test("provider requests carry the configured output token limit") {
+    val bodies = ListBuffer.empty[(String, String)]
+    val client = Client.fromHttpApp(HttpApp[IO] { request =>
+      request.as[String].flatMap { body =>
+        val host = request.uri.host.map(_.value).getOrElse("")
+        bodies += ((host, body))
+        val response = host match {
+          case `geminiHost`     => (Status.TooManyRequests, Json.obj())
+          case `openRouterHost` => (Status.Ok, openRouterSuccess("ok"))
+          case _                => (Status.NotFound, Json.obj())
+        }
+        IO.pure(Response[IO](response._1).withEntity(response._2))
+      }
+    })
+    LlmClients
+      .build[IO](client, config("primary-provider = gemini\nmax-output-tokens = 123\n"))
+      .flatMap(_.complete(prompt))
+      .map { completion =>
+        assertEquals(completion.status, CompletionStatus.Answered)
+        assertEquals(bodies.map(_._1).toList, List(geminiHost, openRouterHost))
+        assert(bodies.toList.head._2.contains("\"maxOutputTokens\":123"))
+        assert(bodies.toList.last._2.contains("\"max_tokens\":123"))
+      }
+  }
+
+  test("a fallback attempt reuses the completion's budget slot") {
+    val hosts  = ListBuffer.empty[String]
+    val client = stub(
+      gemini = (Status.TooManyRequests, Json.obj()),
+      openRouter = (Status.Ok, openRouterSuccess("ok")),
+      hosts,
+      ListBuffer.empty[String]
+    )
+    val cfg = config("primary-provider = gemini\nbudget { max-per-minute = 1\nmax-per-day = 1\n}\n")
+    for {
+      notifier <- NotifierMock.recording
+      llm      <- LlmClients.build[IO](client, cfg, notifier)
+      first    <- llm.complete(prompt)
+      second   <- llm.complete(prompt)
+      infos    <- notifier.infos.get
+    } yield {
+      assertEquals(first.status, CompletionStatus.Answered)
+      // two HTTP calls, but only one admitted completion
+      assertEquals(hosts.toList, List(geminiHost, openRouterHost))
+      assertEquals(second.status, CompletionStatus.Silent)
+      assertEquals(second.reply, None)
+      // the exhausted completion made no HTTP call
+      assertEquals(hosts.toList, List(geminiHost, openRouterHost))
+      assertEquals(infos.size, 1)
+    }
+  }
+
+  test("a primary timeout falls back to a successful reply") {
+    // obligation: rule-success.RetryableProviderFailureFallsBack
+    // obligation: rule-success.ProviderReturnsStructuredReply
+    val hosts  = ListBuffer.empty[String]
+    val client = Client.fromHttpApp(HttpApp[IO] { request =>
+      val host = request.uri.host.map(_.value).getOrElse("")
+      hosts += host
+      host match {
+        case `geminiHost` =>
+          IO.sleep(200.millis).as(Response[IO](Status.TooManyRequests).withEntity(Json.obj()))
+        case `openRouterHost` =>
+          IO.pure(Response[IO](Status.Ok).withEntity(openRouterSuccess("ok")))
+        case _ =>
+          IO.pure(Response[IO](Status.NotFound).withEntity(Json.obj()))
+      }
+    })
+    val cfg = config("primary-provider = gemini\ntimeout = 10 milliseconds\n")
+    for {
+      notifier   <- NotifierMock.recording
+      llm        <- LlmClients.build[IO](client, cfg, notifier)
+      completion <- llm.complete(prompt)
+      errors     <- notifier.errors.get
+    } yield {
+      assertEquals(completion.status, CompletionStatus.Answered)
+      assertEquals(completion.reply, Some(LlmReply("ok")))
+      assertEquals(
+        completion.attempts.map(attempt => (attempt.provider, attempt.result)),
+        List(
+          (LlmProvider.Gemini, Some(ProviderResult.Timeout)),
+          (LlmProvider.OpenRouter, Some(ProviderResult.Success))
+        )
+      )
+      assertEquals(hosts.toList, List(geminiHost, openRouterHost))
+      assertEquals(errors, Nil)
+    }
+  }
+
+  test("a timeout after a primary 429 fails with both attempts recorded") {
+    // obligation: rule-success.RetryableProviderFailureFallsBack
+    // obligation: rule-success.CompletionFailsAfterFallbackExhausted
+    val hosts  = ListBuffer.empty[String]
+    val client = Client.fromHttpApp(HttpApp[IO] { request =>
+      val host = request.uri.host.map(_.value).getOrElse("")
+      hosts += host
+      host match {
+        case `geminiHost` =>
+          IO.pure(Response[IO](Status.TooManyRequests).withEntity(Json.obj()))
+        case `openRouterHost` =>
+          IO.sleep(200.millis).as(Response[IO](Status.Ok).withEntity(openRouterSuccess("too late")))
+        case _ =>
+          IO.pure(Response[IO](Status.NotFound).withEntity(Json.obj()))
+      }
+    })
+    val cfg = config("primary-provider = gemini\ntimeout = 10 milliseconds\n")
+    for {
+      notifier   <- NotifierMock.recording
+      llm        <- LlmClients.build[IO](client, cfg, notifier)
+      completion <- llm.complete(prompt)
+      errors     <- notifier.errors.get
+    } yield {
+      assertEquals(completion.status, CompletionStatus.Failed)
+      assertEquals(completion.reply, None)
+      assertEquals(
+        completion.attempts.map(attempt => (attempt.provider, attempt.result)),
+        List(
+          (LlmProvider.Gemini, Some(ProviderResult.RateLimited)),
+          (LlmProvider.OpenRouter, Some(ProviderResult.Timeout))
+        )
+      )
+      // the fallback was really called; a timeout is a recorded result, not an unreported error
+      assertEquals(hosts.toList, List(geminiHost, openRouterHost))
+      assertEquals(errors, Nil)
     }
   }
 

@@ -1,6 +1,7 @@
 -- allium: 3
 -- llm.allium: the LLM replies of the bots (epic #1499). Only what is built is specified; the rest of the epic is listed
--- as open questions. Code: modules/chatCore/llm (the ports), modules/chatLlm (the implementation; runtime wiring tracked separately).
+-- as open questions. Code: modules/chatCore/llm (the ports), modules/chatLlm (the implementation) and modules/main
+-- (startup wiring); the responder and the engine routing are still open.
 
 use "./sbots.allium" as core
 
@@ -36,6 +37,10 @@ contract LlmClient {
     @invariant StructuredJsonOutput
         -- The reply of an answered completion is the decoded structured JSON object of the provider's response. A
         -- response that is not a valid JSON object with a reply text never produces an answered completion.
+
+    @invariant UnexpectedErrorsReported
+        -- Only a provider timeout becomes a terminal result. Any other error is reported to the operators and
+        -- propagates to the caller; it is never rewritten as a completion with no attempts.
 }
 
 ------------------------------------------------------------
@@ -44,7 +49,20 @@ contract LlmClient {
 
 enum LlmProvider { gemini | openrouter }
 
-enum ProviderResult { success | rate_limited | server_error | rejected | malformed_json }
+enum ProviderResult { success | rate_limited | server_error | timeout | rejected | malformed_json }
+
+-- #1486: one record for the whole feature, shared by all the bots and both providers. The counters are the completions
+-- admitted by the limiter: a fallback attempt is part of the same completion and does not consume another slot. The
+-- two sliding windows (a minute and a day) are operational detail; the observable fact is when the budget is exhausted.
+external entity QuotaUsage {
+    requests_this_minute: Integer
+    requests_today: Integer
+}
+
+-- One record for the whole feature, not per bot: exhaustion produces one ops message until quota is available again.
+entity QuotaNotice {
+    sent: Boolean
+}
 
 ------------------------------------------------------------
 -- Entities and Variants
@@ -56,19 +74,20 @@ enum ProviderResult { success | rate_limited | server_error | rejected | malform
 -- forget; the default reports disabled) are in chatCore too and get their entities with #1487.
 
 -- #1485: one completion per client call. The fallback is always the other provider, so a config change alone switches
--- the primary and the fallback together.
+-- the primary and the fallback together. #1486: a completion can also be stopped before any provider is asked: `silent`
+-- for an exhausted quota, `failed` for a prompt beyond the input limit, a provider timeout or missing credentials.
 entity Completion {
     prompt: String
     primary_provider: LlmProvider
     fallback_provider: LlmProvider = if primary_provider = gemini: openrouter else: gemini
-    status: pending | answered | failed
+    status: pending | answered | failed | silent
     reply: LlmReply?        -- present only when a provider returned a valid structured reply
     attempts: ProviderAttempt with completion = this
 
     transitions status {
         pending -> answered
         pending -> failed
-        terminal: answered, failed
+        terminal: answered, failed, silent
     }
 }
 
@@ -84,6 +103,12 @@ entity ProviderAttempt {
 
 config {
     primary_provider: LlmProvider = gemini    -- switching this value is the provider switch; no caller changes
+    timeout: Duration = 10.seconds            -- one provider call is abandoned after this; the timeout is recorded as a provider result
+    max_input_tokens: Integer = 4096          -- prompts larger than this (4 characters per token) are refused
+    max_output_tokens: Integer = 512          -- sent to the provider as its output limit
+    max_requests_per_minute: Integer = 20     -- one shared sliding window across all bots and providers
+    max_requests_per_day: Integer = 50        -- one shared sliding window across all bots and providers
+    credentials_complete: Boolean             -- both provider keys are configured; otherwise no request is admitted
 }
 
 ------------------------------------------------------------
@@ -92,6 +117,9 @@ config {
 
 rule LlmClientUsesConfiguredProvider {
     when: CompletionRequested(prompt)
+    requires: config.credentials_complete
+    requires: prompt.length <= config.max_input_tokens * 4
+    requires: (QuotaUsage).all(u => u.requests_this_minute < config.max_requests_per_minute and u.requests_today < config.max_requests_per_day)
     ensures:
         let completion = Completion.created(
             prompt: prompt,
@@ -100,6 +128,66 @@ rule LlmClientUsesConfiguredProvider {
         )
         ProviderAttempt.created(completion: completion, provider: config.primary_provider)
         ProviderRequested(completion, config.primary_provider)
+}
+
+-- #1486: the client-side limiter is admission control, not a provider response: it never asks the provider when a
+-- budget is exhausted, and the completion is silent (no reply of any kind).
+-- An oversized prompt is refused before admission control, so it never consumes a budget slot.
+rule PromptBeyondInputLimitFails {
+    when: CompletionRequested(prompt)
+    requires: config.credentials_complete
+    requires: prompt.length > config.max_input_tokens * 4
+    ensures:
+        Completion.created(prompt: prompt, primary_provider: config.primary_provider, status: failed)
+}
+
+-- #1486 review: incomplete credentials are refused before admission control: no anonymous provider request, no budget
+-- slot, and a terminal failed completion. A timeout is also terminal failed rather than escaping as an exception.
+rule MissingCredentialsFail {
+    when: CompletionRequested(prompt)
+    requires: not config.credentials_complete
+    ensures:
+        Completion.created(prompt: prompt, primary_provider: config.primary_provider, status: failed)
+}
+
+rule QuotaExhaustedStaysSilent {
+    when: CompletionRequested(prompt)
+    requires: config.credentials_complete
+    requires: prompt.length <= config.max_input_tokens * 4
+    requires: (QuotaUsage).any(u => u.requests_this_minute >= config.max_requests_per_minute or u.requests_today >= config.max_requests_per_day)
+    ensures:
+        Completion.created(prompt: prompt, primary_provider: config.primary_provider, status: silent)
+}
+
+-- One slot per completion: the fallback request belongs to the same completion and must not consume another one.
+rule CompletionConsumesQuota {
+    when: ProviderRequested(completion, provider)
+    requires: provider = completion.primary_provider
+    ensures:
+        let usage = QuotaUsage
+        usage.requests_this_minute = usage.requests_this_minute + 1
+        usage.requests_today = usage.requests_today + 1
+}
+
+-- A failed ops notification does not mark the notice as sent: the next denial tries again.
+rule QuotaExhaustionNotifiedOnce {
+    when: CompletionRequested(prompt)
+    requires: config.credentials_complete
+    requires: prompt.length <= config.max_input_tokens * 4
+    requires: (QuotaUsage).any(u => u.requests_this_minute >= config.max_requests_per_minute or u.requests_today >= config.max_requests_per_day)
+    requires: (QuotaNotice where sent = false).count > 0
+    ensures:
+        OperatorsNotified(reason: llm_quota_exhausted)
+        for notice in QuotaNotice where notice.sent = false:
+            notice.sent = true
+}
+
+rule QuotaNoticeResetsWhenQuotaReturns {
+    when: CompletionRequested(prompt)
+    requires: (QuotaUsage).all(u => u.requests_this_minute < config.max_requests_per_minute and u.requests_today < config.max_requests_per_day)
+    ensures:
+        for notice in QuotaNotice where notice.sent = true:
+            notice.sent = false
 }
 
 rule ProviderReturnsStructuredReply {
@@ -146,12 +234,12 @@ rule NonRetryableProviderFailureFails {
         completion.status = failed
 }
 
--- A 429 (rate limit) or a 5xx (server error) from the primary provider is retried once against the other provider.
--- Other failures, and the same status from the fallback, are not retried.
-rule RateLimitedOrServerErrorFallsBack {
+-- A 429 (rate limit), a 5xx (server error) or a timeout from the primary provider is retried once against the other
+-- provider. Other failures, and the same result from the fallback, are not retried.
+rule RetryableProviderFailureFallsBack {
     when: ProviderResponded(completion, provider, result, reply?)
     requires: completion.status = pending
-    requires: result in {rate_limited, server_error}
+    requires: result in {rate_limited, server_error, timeout}
     requires: provider = completion.primary_provider
     requires: not completion.attempts.any(a => a.provider = completion.fallback_provider)
     ensures:
@@ -164,7 +252,7 @@ rule RateLimitedOrServerErrorFallsBack {
 rule CompletionFailsAfterFallbackExhausted {
     when: ProviderResponded(completion, provider, result, reply?)
     requires: completion.status = pending
-    requires: result in {rate_limited, server_error}
+    requires: result in {rate_limited, server_error, timeout}
     requires: completion.attempts.count >= 2
     ensures:
         let attempt = ProviderAttempt{completion: completion, provider: provider}
@@ -186,6 +274,13 @@ invariant OneAttemptPerProvider {
 invariant ReplyOnlyWhenAnswered {
     for c in Completions:
         c.reply != null implies c.status = answered
+}
+
+-- A silent completion never reached a provider: no attempt, no reply, no fallback.
+invariant SilentCompletionWasNotRequested {
+    for c in Completions where c.status = silent:
+        c.attempts.count = 0
+        c.reply = null
 }
 
 ------------------------------------------------------------

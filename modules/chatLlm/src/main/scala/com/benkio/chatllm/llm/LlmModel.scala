@@ -26,9 +26,11 @@ object LlmProvider {
 /** The structured reply of a provider: only the text is consumed so far. */
 final case class LlmReply(text: String)
 
-/** The outcome of one provider call. These are all singleton cases, so they can be compared and enumerated. */
+/** The outcome of one provider call. These are all singleton cases, so they can be compared and enumerated. A timeout
+  * is a result rather than an exception so the attempts that led to it are kept in the completion.
+  */
 enum ProviderResult {
-  case Success, RateLimited, ServerError, Rejected, MalformedJson
+  case Success, RateLimited, ServerError, Timeout, Rejected, MalformedJson
 }
 
 /** What a provider boundary returned: a result, and the reply only when the result is a success. */
@@ -37,6 +39,7 @@ final case class ProviderResponse(result: ProviderResult, reply: Option[LlmReply
 object ProviderResponse {
   val rateLimited: ProviderResponse              = ProviderResponse(ProviderResult.RateLimited, None)
   val serverError: ProviderResponse              = ProviderResponse(ProviderResult.ServerError, None)
+  val timeout: ProviderResponse                  = ProviderResponse(ProviderResult.Timeout, None)
   val rejected: ProviderResponse                 = ProviderResponse(ProviderResult.Rejected, None)
   val malformedJson: ProviderResponse            = ProviderResponse(ProviderResult.MalformedJson, None)
   def success(reply: LlmReply): ProviderResponse = ProviderResponse(ProviderResult.Success, Some(reply))
@@ -45,9 +48,11 @@ object ProviderResponse {
 /** One provider attempt of a completion. The result is `None` while the provider has not answered yet. */
 final case class ProviderAttempt(provider: LlmProvider, result: Option[ProviderResult])
 
-/** The lifecycle of a completion. `Answered` and `Failed` are terminal. */
+/** The lifecycle of a completion. `Answered`, `Failed` and `Silent` are terminal: `Silent` is a completion that was
+  * stopped by the local quota before any provider was asked, so no reply is sent.
+  */
 enum CompletionStatus {
-  case Pending, Answered, Failed
+  case Pending, Answered, Failed, Silent
 }
 
 /** One completion per client call. The fallback is always the other provider: a config change switches both. */
@@ -75,11 +80,23 @@ object Completion {
       attempts = List(ProviderAttempt(primaryProvider, None))
     )
 
+  /** No provider was asked: the local budget is exhausted, the prompt exceeds the input limit or credentials are
+    * incomplete. A provider timeout is not built here: it is recorded as a provider result instead.
+    */
+  def notRequested(prompt: String, primaryProvider: LlmProvider, status: CompletionStatus): Completion =
+    Completion(
+      prompt = prompt,
+      primaryProvider = primaryProvider,
+      status = status,
+      reply = None,
+      attempts = Nil
+    )
+
   /** Applies the rules of `llm.allium` to a provider response. Responses for a terminal completion are ignored.
     *
-    * A rate limit or server error is retried only when it comes from the primary provider and the fallback has not been
-    * attempted yet: this creates the fallback attempt and keeps the completion pending. The same result from the
-    * fallback (or any other non-retryable result) fails the completion.
+    * A rate limit, server error or timeout is retried only when it comes from the primary provider and the fallback has
+    * not been attempted yet: this creates the fallback attempt and keeps the completion pending. The same result from
+    * the fallback (or any other non-retryable result) fails the completion.
     */
   def acceptResponse(
       completion: Completion,
@@ -104,7 +121,7 @@ object Completion {
           completion.copy(status = CompletionStatus.Failed, attempts = withResult)
         case ProviderResult.MalformedJson | ProviderResult.Rejected =>
           completion.copy(status = CompletionStatus.Failed, attempts = withResult)
-        case ProviderResult.RateLimited | ProviderResult.ServerError =>
+        case ProviderResult.RateLimited | ProviderResult.ServerError | ProviderResult.Timeout =>
           val providerHasAttempt = withResult.exists(_.provider == provider)
           if provider == completion.primaryProvider && !withResult.exists(_.provider == completion.fallbackProvider)
           then

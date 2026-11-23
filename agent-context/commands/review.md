@@ -95,4 +95,115 @@ Look for concrete issues involving:
 - Incorrect fiber management and cancellation.
 - Resource leaks.
 - Unnecessary allocations, repeated computations, or inefficient data structures.
-- Performance regress
+- Performance regressions on frequently executed paths.
+
+For every concurrency or performance finding, explain the execution scenario that causes the problem.
+
+Do not report theoretical risks without a credible execution path.
+
+### 5. Review tests and behavioral correctness
+
+Compare the changed behavior against existing tests and identify meaningful coverage gaps.
+
+Consider:
+
+- Unit tests for individual bots, triggers, and filters.
+- Integration tests covering dispatch and platform adapters.
+- Negative cases and error paths.
+- Boundary conditions and edge cases.
+- Concurrent execution where relevant.
+- Resource cleanup and cancellation where relevant.
+- Property-based tests when meaningful algebraic laws or invariants exist.
+- Regression tests for previously problematic behavior.
+
+Distinguish between:
+
+- Missing tests that could expose a concrete defect.
+- Missing tests that protect important behavioral invariants.
+- Redundant tests that add little value.
+
+When recommending tests, specify the exact behavior, input, and expected outcome.
+
+Do not demand tests for implementation details that do not represent meaningful behavior.
+
+### 6. Review architecture and module boundaries
+
+Evaluate:
+
+- Dependency direction and dependency inversion.
+- Ownership and placement of domain types.
+- Separation of domain logic and infrastructure effects.
+- Abstraction leaks between modules.
+- Circular or inappropriate dependencies.
+- Cohesion and responsibility boundaries.
+- Public API size and compatibility.
+- Exposure of implementation details.
+- Whether abstractions are reusable and justified.
+
+Pay particular attention to whether modules depend on concepts they should not need to know about.
+
+### 7. Apply SOLID and KISS
+
+Identify:
+
+- Responsibilities that should be separated or consolidated.
+- Unnecessary indirection and abstraction layers.
+- Over-engineering.
+- Duplicated logic that genuinely warrants consolidation.
+- Excessive coupling.
+- Unnecessary complexity in types, effects, and control flow.
+- Abstractions that make the implementation harder to understand without providing meaningful value.
+
+Prefer the simplest implementation that preserves correctness, type safety, modularity, and testability.
+
+Do not recommend design patterns merely because they are available.
+
+### 8. Validate findings
+
+Before reporting a finding:
+
+- Verify that the relevant code actually exhibits the problem.
+- Trace the execution path that triggers it.
+- Check whether existing safeguards already prevent it.
+- Check whether the behavior is intentional or specified.
+- Confirm that the issue was introduced or materially affected by the changes under review.
+
+Do not report speculative issues, subjective preferences, or unrelated pre-existing problems.
+
+If a finding depends on an assumption, state that assumption explicitly.
+
+Do not claim to have executed tests, compiled code, or verified behavior unless you actually did so.
+
+## Output
+
+Group findings by severity:
+
+- **Critical**: Severe correctness, security, or data-integrity issues that can cause major failures.
+- **High**: Significant bugs, concurrency problems, architectural violations, or behavioral regressions.
+- **Medium**: Meaningful maintainability, performance, design, or test-coverage problems.
+- **Low**: Minor issues with a concrete improvement and reasonable benefit.
+
+For each finding provide:
+
+1. **Title**: Short description of the problem.
+2. **Location**: `file:line`.
+3. **Scenario**: A concrete execution path or condition that triggers the issue.
+4. **Impact**: Why it matters.
+5. **Recommendation**: A specific, actionable fix.
+
+Only include findings that are actionable and supported by evidence.
+
+If a severity category has no findings, omit it.
+
+After the findings, provide a short summary covering:
+
+- Overall assessment.
+- Most important risks.
+- Important missing tests.
+- Architectural observations worth considering.
+
+If no actionable issues are found, explicitly state that.
+
+Be direct, precise, and technically rigorous. Prioritize signal over volume.
+
+Do not edit files.
