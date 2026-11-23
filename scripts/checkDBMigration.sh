@@ -50,8 +50,10 @@ q() { sqlite3 "$WORK/botDB.sqlite3" "$1"; }
 [ "$(q "SELECT media_count FROM media WHERE media_name = '$MEDIA'")" = 4242 ] || fail "media_count not carried over"
 [ "$(q "SELECT count(*) FROM llm_chat_settings")" = 2 ] || fail "LLM settings not carried over"
 [ "$(q "SELECT enabled FROM llm_chat_settings WHERE platform = 'irc' AND chat_id = '-100123'")" = 0 ] || fail "LLM settings platform lost"
+[ "$(q "SELECT updated_at FROM llm_chat_settings WHERE platform = 'telegram' AND chat_id = '-100123'")" = 1700000000 ] || fail "LLM settings updated_at lost"
 [ "$(q "SELECT count(*) FROM llm_context")" = 2 ] || fail "LLM context not carried over"
 [ "$(q "SELECT content FROM llm_context WHERE role = 'assistant'")" = "buongiorno" ] || fail "LLM context content lost"
+[ "$(q "SELECT created_at FROM llm_context WHERE role = 'assistant'")" = 1700000001 ] || fail "LLM context created_at lost"
 [ -f "$WORK/botDB.sqlite3.bak" ] || fail "previous production DB not kept as backup"
 
 # a production DB from before V13 has no LLM tables: the guarded copy must still succeed, with empty tables

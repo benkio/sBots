@@ -21,12 +21,18 @@ import java.time.Instant
   */
 object LlmSettingsDB {
 
-  def apply[F[_]: Async](transactor: Transactor[F], botId: SBotId)(using
+  def apply[F[_]: Async](transactor: Transactor[F], botId: SBotId)(using log: LogWriter[F]): LlmSettings[F] =
+    apply(transactor, botId, Async[F].delay(Instant.now().getEpochSecond))
+
+  /** The clock is injectable so the `updated_at = now` rule of the spec can be tested without depending on sub-second
+    * resolution; production uses epoch seconds.
+    */
+  def apply[F[_]: Async](transactor: Transactor[F], botId: SBotId, now: F[Long])(using
       log: LogWriter[F]
   ): LlmSettings[F] =
-    new LlmSettingsDBImpl[F](transactor, botId)
+    new LlmSettingsDBImpl[F](transactor, botId, now)
 
-  private class LlmSettingsDBImpl[F[_]: Async](transactor: Transactor[F], botId: SBotId)(using
+  private class LlmSettingsDBImpl[F[_]: Async](transactor: Transactor[F], botId: SBotId, now: F[Long])(using
       log: LogWriter[F]
   ) extends LlmSettings[F] {
 
@@ -48,11 +54,8 @@ object LlmSettingsDB {
         .void
 
     private def set(chatId: ChatId, enabled: Boolean): F[Unit] =
-      Async[F]
-        .delay(Instant.now().getEpochSecond)
-        .flatMap { now =>
-          upsertQuery(chatId, botId, enabled, now).run.transact(transactor)
-        }
+      now
+        .flatMap(timestamp => upsertQuery(chatId, botId, enabled, timestamp).run.transact(transactor))
         .flatMap(_ => log.debug(s"LLM settings for $chatId / $botId: enabled = $enabled"))
         .void
   }
@@ -67,4 +70,9 @@ object LlmSettingsDB {
     sql"""SELECT enabled FROM llm_chat_settings
           WHERE platform = ${chatId.platform.id} AND chat_id = ${chatId.id} AND bot_id = ${botId.value}"""
       .query[Boolean]
+
+  def updatedAtQuery(chatId: ChatId, botId: SBotId): Query0[Long] =
+    sql"""SELECT updated_at FROM llm_chat_settings
+          WHERE platform = ${chatId.platform.id} AND chat_id = ${chatId.id} AND bot_id = ${botId.value}"""
+      .query[Long]
 }

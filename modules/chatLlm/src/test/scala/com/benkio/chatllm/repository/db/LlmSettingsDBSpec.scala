@@ -1,6 +1,7 @@
 package com.benkio.chatllm.repository.db
 
 import cats.effect.IO
+import cats.effect.Ref
 import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.chatcore.llm.LlmSettings
@@ -134,6 +135,27 @@ class LlmSettingsDBSpec extends CatsEffectSuite {
         assertEquals(otherChatContext.map(_.content), List("other chat"))
         assertEquals(switchAfterForget, LlmSettings.Status(enabled = true))
         assertEquals(disabled, LlmSettings.Status(enabled = false))
+      }
+    }
+  }
+
+  // obligation: rule.LlmEnabledForChat, rule.LlmDisabledForChat
+  test("enable and disable stamp updated_at with the current clock") {
+    tempDb.use { xa =>
+      for {
+        _     <- setupSchema(xa)
+        clock <- Ref[IO].of(1700000000L)
+        settings = LlmSettingsDB[IO](xa, botA, now = clock.get)
+        before       <- LlmSettingsDB.updatedAtQuery(chat, botA).option.transact(xa)
+        _            <- settings.enable(chat)
+        afterEnable  <- LlmSettingsDB.updatedAtQuery(chat, botA).option.transact(xa)
+        _            <- clock.set(1700000001L)
+        _            <- settings.disable(chat)
+        afterDisable <- LlmSettingsDB.updatedAtQuery(chat, botA).option.transact(xa)
+      } yield {
+        assertEquals(before, None)
+        assertEquals(afterEnable, Some(1700000000L))
+        assertEquals(afterDisable, Some(1700000001L))
       }
     }
   }
