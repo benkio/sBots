@@ -118,6 +118,7 @@ lazy val sBots =
       chatTelegramAdapter,
       chatDiscordAdapter,
       chatIrcAdapter,
+      chatLlm,
       repliesEditorServer,
       repliesEditorUI
     )
@@ -147,6 +148,13 @@ lazy val chatIrcAdapter =
   Project("chatIrcAdapter", file("modules/chatIrcAdapter"))
     .settings(Settings.settings *)
     .settings(Settings.ChatIrcAdapterSettings *)
+    .dependsOn(chatCore % "compile->compile;test->test")
+    .disablePlugins(AssemblyPlugin)
+
+lazy val chatLlm =
+  Project("chatLlm", file("modules/chatLlm"))
+    .settings(Settings.settings *)
+    .settings(Settings.ChatLlmSettings *)
     .dependsOn(chatCore % "compile->compile;test->test")
     .disablePlugins(AssemblyPlugin)
 
@@ -215,7 +223,8 @@ lazy val main = project
     chatCore            % "compile->compile;test->test",
     chatTelegramAdapter % "compile->compile;test->test",
     chatDiscordAdapter  % "compile->compile;test->test",
-    chatIrcAdapter      % "compile->compile;test->test"
+    chatIrcAdapter      % "compile->compile;test->test",
+    chatLlm             % "compile->compile;test->test"
   )
   .dependsOn(botProjects.map(_ % "compile->compile;test->test") *)
 

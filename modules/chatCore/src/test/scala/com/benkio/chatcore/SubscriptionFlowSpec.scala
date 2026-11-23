@@ -4,6 +4,7 @@ import cats.effect.IO
 import cats.effect.Ref
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
+import com.benkio.chatcore.llm.LlmResponder
 import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.FakePlatformAdapter
@@ -130,7 +131,8 @@ class SubscriptionFlowSpec extends CatsEffectSuite {
     filteringMatchesMessages = (_, _) => IO.pure(true),
     postComputation = _ => IO.unit,
     notifier = Notifier.noop[IO],
-    backgroundJobManager = BackgroundJobManagerMock.mock()
+    backgroundJobManager = BackgroundJobManagerMock.mock(),
+    llmResponder = LlmResponder.noop[IO]
   )
 
   private val flowCapabilities = FakePlatformAdapter.textOnlyCapabilities.copy(

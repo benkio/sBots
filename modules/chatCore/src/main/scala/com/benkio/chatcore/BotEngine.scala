@@ -5,6 +5,7 @@ import cats.effect.Clock
 import cats.effect.Sync
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
+import com.benkio.chatcore.llm.LlmResponder
 import com.benkio.chatcore.messagefiltering.*
 import com.benkio.chatcore.model.reply.EffectfulReply
 import com.benkio.chatcore.model.reply.MarkdownFile
@@ -44,6 +45,8 @@ import scala.concurrent.duration.FiniteDuration
   *   what to do after a message is handled, e.g. logging the last interaction of the chat
   * @param notifier
   *   tells the operators about the requests that time out and the checks that fail
+  * @param llmResponder
+  *   answers the messages directed to the bot with the LLM; the `noop` default never answers
   */
 class BotEngine[F[_]: Async: LogWriter](
     val sBotConfig: SBotConfig,
@@ -51,7 +54,8 @@ class BotEngine[F[_]: Async: LogWriter](
     filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean],
     postComputation: Message => F[Unit],
     notifier: Notifier[F],
-    backgroundJobManager: BackgroundJobManager[F]
+    backgroundJobManager: BackgroundJobManager[F],
+    val llmResponder: LlmResponder[F]
 ) {
 
   // Replies data ////////////////////////////////////////////////////////
@@ -325,13 +329,27 @@ object BotEngine {
   final case class RequestTimedOut(timeout: FiniteDuration)
       extends Throwable(s"the request processing timed out after $timeout")
 
+  def apply[F[_]: Async: LogWriter](
+      sBotConfig: SBotConfig,
+      dbLayer: DBLayer[F],
+      notifier: Notifier[F],
+      backgroundJobManager: BackgroundJobManager[F]
+  ): BotEngine[F] = apply[F](
+    sBotConfig = sBotConfig,
+    dbLayer = dbLayer,
+    notifier = notifier,
+    backgroundJobManager = backgroundJobManager,
+    llmResponder = LlmResponder.noop[F]
+  )
+
   /** The engine with the standard filtering (the timeout of the chat) and post computation (log the last interaction).
     */
   def apply[F[_]: Async: LogWriter](
       sBotConfig: SBotConfig,
       dbLayer: DBLayer[F],
       notifier: Notifier[F],
-      backgroundJobManager: BackgroundJobManager[F]
+      backgroundJobManager: BackgroundJobManager[F],
+      llmResponder: LlmResponder[F]
   ): BotEngine[F] =
     new BotEngine[F](
       sBotConfig = sBotConfig,
@@ -343,7 +361,8 @@ object BotEngine {
         notifier = notifier
       ),
       notifier = notifier,
-      backgroundJobManager = backgroundJobManager
+      backgroundJobManager = backgroundJobManager,
+      llmResponder = llmResponder
     )
 
   /** Picks one of the values of a reply that is just data. */

@@ -248,6 +248,20 @@ object Dependencies {
         libs.pureConfigCore
       )
 
+  val ChatLlmDependencies: Seq[ModuleID] =
+    stacks.catsCore ++
+      stacks.catsStd ++
+      stacks.circeCoreParser ++
+      stacks.http4sClientCore ++
+      stacks.logging ++
+      stacks.testing ++
+      Seq(
+        libs.circeGeneric,
+        libs.doobieCore,
+        libs.http4sCirce,
+        libs.pureConfigCore
+      )
+
   /** Shared dependencies for all bot projects. Use this in Settings.botProjectSettings. */
   val BotDependencies: Seq[ModuleID] =
     Seq(libs.catsCore, libs.catsEffect) ++ stacks.logback ++ stacks.testing

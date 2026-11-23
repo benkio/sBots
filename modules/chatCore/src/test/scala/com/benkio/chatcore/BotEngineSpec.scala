@@ -4,6 +4,7 @@ import cats.effect.kernel.Ref
 import cats.effect.IO
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
+import com.benkio.chatcore.llm.LlmResponder
 import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.FakePlatformAdapter
@@ -92,7 +93,8 @@ class BotEngineSpec extends CatsEffectSuite {
     filteringMatchesMessages = (_, _) => IO.pure(filter),
     postComputation = postComputation,
     notifier = notifier,
-    backgroundJobManager = BackgroundJobManagerMock.mock()
+    backgroundJobManager = BackgroundJobManagerMock.mock(),
+    llmResponder = LlmResponder.noop[IO]
   )
 
   // A text only platform that writes the commands like Telegram, as `/command`
