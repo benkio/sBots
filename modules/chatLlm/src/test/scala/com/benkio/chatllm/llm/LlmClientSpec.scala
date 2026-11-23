@@ -467,6 +467,43 @@ class LlmClientSpec extends CatsEffectSuite {
     }
   }
 
+  test("a primary timeout falls back to a successful reply") {
+    // obligation: rule-success.RetryableProviderFailureFallsBack
+    // obligation: rule-success.ProviderReturnsStructuredReply
+    val hosts  = ListBuffer.empty[String]
+    val client = Client.fromHttpApp(HttpApp[IO] { request =>
+      val host = request.uri.host.map(_.value).getOrElse("")
+      hosts += host
+      host match {
+        case `geminiHost` =>
+          IO.sleep(200.millis).as(Response[IO](Status.TooManyRequests).withEntity(Json.obj()))
+        case `openRouterHost` =>
+          IO.pure(Response[IO](Status.Ok).withEntity(openRouterSuccess("ok")))
+        case _ =>
+          IO.pure(Response[IO](Status.NotFound).withEntity(Json.obj()))
+      }
+    })
+    val cfg = config("primary-provider = gemini\ntimeout = 10 milliseconds\n")
+    for {
+      notifier   <- NotifierMock.recording
+      llm        <- LlmClients.build[IO](client, cfg, notifier)
+      completion <- llm.complete(prompt)
+      errors     <- notifier.errors.get
+    } yield {
+      assertEquals(completion.status, CompletionStatus.Answered)
+      assertEquals(completion.reply, Some(LlmReply("ok")))
+      assertEquals(
+        completion.attempts.map(attempt => (attempt.provider, attempt.result)),
+        List(
+          (LlmProvider.Gemini, Some(ProviderResult.Timeout)),
+          (LlmProvider.OpenRouter, Some(ProviderResult.Success))
+        )
+      )
+      assertEquals(hosts.toList, List(geminiHost, openRouterHost))
+      assertEquals(errors, Nil)
+    }
+  }
+
   test("a timeout after a primary 429 fails with both attempts recorded") {
     // obligation: rule-success.RetryableProviderFailureFallsBack
     // obligation: rule-success.CompletionFailsAfterFallbackExhausted

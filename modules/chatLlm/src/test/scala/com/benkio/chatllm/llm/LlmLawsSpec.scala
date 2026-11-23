@@ -15,6 +15,7 @@ class LlmLawsSpec extends ScalaCheckSuite {
       Gen.alphaStr.map(text => ProviderResponse.success(LlmReply(text))),
       Gen.const(ProviderResponse.rateLimited),
       Gen.const(ProviderResponse.serverError),
+      Gen.const(ProviderResponse.timeout),
       Gen.const(ProviderResponse.rejected),
       Gen.const(ProviderResponse.malformedJson),
       Gen.const(ProviderResponse(ProviderResult.Success, None))
