@@ -53,8 +53,20 @@ INSERT OR REPLACE INTO llm_chat_settings(platform, chat_id, bot_id, enabled, upd
 SELECT platform, chat_id, bot_id, enabled, updated_at
 FROM prodDB.llm_chat_settings;
 
-INSERT OR REPLACE INTO llm_context(platform, chat_id, bot_id, role, content, created_at)
-SELECT platform, chat_id, bot_id, role, content, created_at
-FROM prodDB.llm_context;
+-- llm_context has no unique key, so INSERT OR REPLACE cannot protect a rerun. All the stored columns identify a
+-- copied message: skip rows the destination already has, leaving that existing data untouched.
+INSERT INTO llm_context(platform, chat_id, bot_id, role, content, created_at)
+SELECT p.platform, p.chat_id, p.bot_id, p.role, p.content, p.created_at
+FROM prodDB.llm_context p
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM llm_context d
+    WHERE d.platform = p.platform
+      AND d.chat_id = p.chat_id
+      AND d.bot_id = p.bot_id
+      AND d.role = p.role
+      AND d.content = p.content
+      AND d.created_at = p.created_at
+);
 
 DETACH DATABASE prodDB;

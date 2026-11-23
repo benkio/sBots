@@ -56,6 +56,12 @@ q() { sqlite3 "$WORK/botDB.sqlite3" "$1"; }
 [ "$(q "SELECT created_at FROM llm_context WHERE role = 'assistant'")" = 1700000001 ] || fail "LLM context created_at lost"
 [ -f "$WORK/botDB.sqlite3.bak" ] || fail "previous production DB not kept as backup"
 
+# re-running the migration over a destination that already has the copied rows must not duplicate llm_context
+cp "$WORK/botDB.sqlite3" "$WORK/botDBBase.sqlite3"
+sh "$ROOT/scripts/updateProdDB.sh" "$WORK" > /dev/null
+[ "$(q "SELECT count(*) FROM llm_context")" = 2 ] || fail "re-running the migration duplicated LLM context"
+[ "$(q "SELECT count(*) FROM llm_chat_settings")" = 2 ] || fail "re-running the migration duplicated LLM settings"
+
 # a production DB from before V13 has no LLM tables: the guarded copy must still succeed, with empty tables
 cp "$GENERATED" "$WORK/botDBBase.sqlite3"
 sqlite3 "$WORK/botDB.sqlite3" "DROP TABLE llm_chat_settings; DROP TABLE llm_context;"
