@@ -16,6 +16,9 @@ This folder contains persistent context for AI agents across sessions and tools.
 - `tasks/`: folder containing recurring activities, checklists, and useful commands.
 - `tools/`: reusable helper scripts referenced by the task files (for example
   `tools/conflict-resolution/`).
+- `commands/`: shared slash-command prompts. `review.md` is the `/review` prompt used by both Claude Code and
+  OpenCode; the files under `.claude/commands/` and `.opencode/commands/` symlink to it. Update it here when changing
+  the review checklist.
 
 ## Maintenance Rules
 
