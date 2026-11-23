@@ -1,7 +1,7 @@
 package com.benkio.chatcore.llm
 
-import cats.Applicative
 import cats.syntax.all.*
+import cats.Applicative
 import com.benkio.chatcore.model.reply.Reply
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.Message

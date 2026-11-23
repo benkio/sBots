@@ -12,7 +12,10 @@ class ChatLlmSpec extends CatsEffectSuite {
   test("the unconfigured responder never answers") {
     ChatLlm
       .responder[IO]
-      .respond(Message(messageId = None, date = 0L, chatId = ChatId(Platform.Telegram, "1"), chatType = "private"), List.empty)
+      .respond(
+        Message(messageId = None, date = 0L, chatId = ChatId(Platform.Telegram, "1"), chatType = "private"),
+        List.empty
+      )
       .assertEquals(None)
   }
 
