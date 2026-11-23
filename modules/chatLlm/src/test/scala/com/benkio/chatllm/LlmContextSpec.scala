@@ -213,6 +213,24 @@ class LlmContextSpec extends CatsEffectSuite {
     } yield assertEquals(prompt, s"user: $long")
   }
 
+  // obligation: contract.LlmContextWindow.BoundedWindow
+  test("the token budget counts the newline separators of the rendered prompt") {
+    for {
+      enabled <- Ref[IO].of(true)
+      store   <- Ref[IO].of(List.empty[(ChatId, SBotId, LlmContextMessage)]).map(new Store(_))
+      ctx = context(enabled, store, config.copy(maxTokens = 12))
+      // "user: " + 18 chars = 24 chars = 6 tokens each: two cost 12 on their own, but the joining
+      // newline makes the rendered prompt 49 chars, i.e. 13 tokens.
+      text = "x" * 18
+      _      <- ctx.remember(message(text), botId)
+      _      <- ctx.remember(message(text), botId)
+      prompt <- ctx.prompt(chatId, botId)
+    } yield {
+      assertEquals(prompt, s"user: $text")
+      assert(LlmContext.estimateTokens(prompt) <= 12)
+    }
+  }
+
   // obligation: contract.LlmContextWindow.TtlPurge
   test("deleteExpired removes only the messages older than the TTL") {
     for {

@@ -81,7 +81,11 @@ object LlmContext {
     override def window(chatId: ChatId, botId: SBotId): F[List[LlmContextMessage]] =
       store.recent(chatId, botId, config.maxMessages).map { chronological =>
         val newestFirst = chronological.reverse
-        val cumulative  = newestFirst.scanLeft(0)((tokens, message) => tokens + estimateTokens(message.content)).tail
+        // The prompt joins the window with newlines: estimate each candidate on that rendered prefix, so the
+        // separators count towards the budget. Selection stays newest-first.
+        val cumulative = newestFirst.indices.map { i =>
+          estimateTokens(newestFirst.take(i + 1).map(_.content).mkString("\n"))
+        }.toList
         newestFirst
           .zip(cumulative)
           .takeWhile { case (_, tokens) => tokens <= config.maxTokens }

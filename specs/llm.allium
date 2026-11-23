@@ -161,12 +161,14 @@ contract LlmContextWindow {
     @invariant BoundedWindow
         -- A prompt uses at most config.context_max_messages messages, chosen newest first until the
         -- config.context_max_tokens budget is spent (four characters per token), then kept in chronological order.
+        -- The budget is estimated on the rendered prompt, including the newline separators between the messages.
 
     @invariant AnonymousSenders
         -- A sender appears only as a stable label derived from the platform's sender id and
         -- config.context_author_salt. The raw sender id and the platform's username or nick never reach a prompt.
         -- anonymised_content(message, salt) is that label followed by the message text (or its caption) with every
-        -- mentioned name, "@nick" and Discord "<@id>" replaced by a generic label, and every line break escaped:
+        -- mentioned name, its visible span when the platform gives mention offsets, "@nick" and Discord "<@id>"
+        -- replaced by a generic label, and every line break escaped:
         -- CR, LF, U+0085, U+2028 and U+2029. User text can neither reveal a username nor forge a role-labelled line
         -- in a flat prompt. The salt is deployment-specific and secret: knowing a public default would let anyone
         -- map the labels back to senders.
@@ -174,8 +176,9 @@ contract LlmContextWindow {
     @invariant TtlPurge
         -- The cleanup job removes the messages older than config.context_ttl and keeps the newer ones, for every chat
         -- and bot. The job is registered from main on the cron scheduler of chatCore's CronBackgroundJobManager. A
-        -- scheduler failure restarts the whole scheduled stream (ticks and job), so later ticks still prune; the
-        -- scheduler fiber is owned and cancelled by main on shutdown.
+        -- scheduler failure restarts the whole scheduled stream (ticks and job) and re-enters recovery on every
+        -- restart, so consecutive failures still leave later ticks pruning; the scheduler fiber is owned and
+        -- cancelled by main on shutdown.
 }
 
 ------------------------------------------------------------

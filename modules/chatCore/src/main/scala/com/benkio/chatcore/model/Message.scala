@@ -6,9 +6,15 @@ import java.security.MessageDigest
 import java.util.regex.Pattern
 
 /** Someone named in the text of a message with a mention: by the platform id and/or by the name (Telegram username,
-  * Discord username, IRC nick), whichever the platform gives.
+  * Discord username, IRC nick), whichever the platform gives. `text` is the exact visible span the platform marked as a
+  * mention, when it gives offsets: the name can differ from what the reader sees (a Telegram text mention shows the
+  * user's display name, not necessarily its username).
   */
-final case class Mention(id: Option[String] = None, name: Option[String] = None)
+final case class Mention(
+    id: Option[String] = None,
+    name: Option[String] = None,
+    text: Option[String] = None
+)
 
 /** The message another one replies to.
   *
@@ -77,13 +83,16 @@ object Message {
   private val discordMention = "<@!?\\d+>".r
   private val anonymousUser  = "@user"
 
-  /** Replaces every real name the adapters could recognise with a generic label. The names come from the platform's
-    * mention data; the two patterns also catch `@nick` text and Discord's raw `<@id>` mentions when the adapter gives
-    * no name. Everything is case insensitive: platform names are.
+  /** Replaces every real name the adapters could recognise with a generic label. The visible spans come from the
+    * platform's mention offsets and are removed literally first, since the displayed text need not match the name; the
+    * names come from the same mention data; the two patterns also catch `@nick` text and Discord's raw `<@id>` mentions
+    * when the adapter gives neither. Name matching is case insensitive: platform names are.
     */
   def redactMentions(content: String, mentions: List[Mention]): String = {
+    val spans        = mentions.flatMap(_.text).map(_.trim).filter(_.nonEmpty).distinct
     val named        = mentions.flatMap(_.name).map(_.trim.stripPrefix("@")).filter(_.nonEmpty).distinct
-    val withoutNames = named.foldLeft(content) { (text, name) =>
+    val withoutSpans = spans.foldLeft(content)(_.replace(_, anonymousUser))
+    val withoutNames = named.foldLeft(withoutSpans) { (text, name) =>
       text.replaceAll(s"(?i)(?<!\\w)@?${Pattern.quote(name)}(?!\\w)", anonymousUser)
     }
     atMention.replaceAllIn(discordMention.replaceAllIn(withoutNames, anonymousUser), anonymousUser)

@@ -73,15 +73,22 @@ object MessageConversions {
         quote = m.quote.map(_.text)
       )
 
-    /** The `@username` mentions of the text or caption, and the ones of users without a username. */
+    /** The `@username` mentions of the text or caption, and the ones of users without a username. The visible span is
+      * kept for redaction: a text mention can show a display name that differs from the username.
+      */
     private def mentions: List[Mention] = {
       val (content, entities) =
         if m.text.isDefined then (m.text, m.entities) else (m.caption, m.captionEntities)
       entities.flatMap {
         case OpenEnum.Known(MentionMessageEntity(offset, length)) =>
-          content.map(c => Mention(name = Some(c.slice(offset, offset + length).stripPrefix("@"))))
-        case OpenEnum.Known(TextMentionMessageEntity(_, _, user)) =>
-          Some(Mention(id = Some(user.id.toString), name = user.username))
+          content.map { c =>
+            val span = c.slice(offset, offset + length)
+            Mention(name = Some(span.stripPrefix("@")), text = Some(span))
+          }
+        case OpenEnum.Known(TextMentionMessageEntity(offset, length, user)) =>
+          content.map { c =>
+            Mention(id = Some(user.id.toString), name = user.username, text = Some(c.slice(offset, offset + length)))
+          }
         case _ => None
       }
     }

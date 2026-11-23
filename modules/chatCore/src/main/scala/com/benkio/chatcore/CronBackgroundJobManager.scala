@@ -55,8 +55,9 @@ object CronBackgroundJobManager {
   private def resilientJob[F[_]: Async](cron: CronExpr, job: F[Unit])(using log: LogWriter[F]): Stream[F, Unit] =
     resilientJob(Cron4sScheduler.systemDefault[F].awakeEvery(cron), job, restartDelay)
 
-  /** The schedule is defined once and resumed on failure: restarting a bare tick stream would emit ticks with no job.
-    * The tick stream and the delay are parameters so the failure path can be tested without waiting for a real cron.
+  /** The schedule is defined once and every restart re-enters recovery with the job still attached: a bare restart
+    * would both drop the job and leave a later scheduler failure unhandled. The tick stream and the delay are
+    * parameters so the failure path can be tested without waiting for a real cron.
     */
   private[chatcore] def resilientJob[F[_]: Async](
       ticks: Stream[F, Unit],
@@ -66,11 +67,14 @@ object CronBackgroundJobManager {
     def scheduled: Stream[F, Unit] =
       ticks.evalMap(_ => job.handleErrorWith(e => log.error(s"[BackgroundJobManager] scheduled job failed: $e")))
 
-    scheduled.handleErrorWith(e =>
-      Stream.exec(log.error(s"[BackgroundJobManager] scheduler failed, starting it again: $e")) ++
-        Stream.sleep_[F](restartDelay) ++
-        scheduled
-    )
+    def resilient: Stream[F, Unit] =
+      scheduled.handleErrorWith(e =>
+        Stream.exec(log.error(s"[BackgroundJobManager] scheduler failed, starting it again: $e")) ++
+          Stream.sleep_[F](restartDelay) ++
+          resilient
+      )
+
+    resilient
   }
 
   final case class SubscriptionIdNotFound(subscriptionId: SubscriptionId)

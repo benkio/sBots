@@ -100,6 +100,18 @@ class MessageSpec extends FunSuite {
     assertEquals(content.linesIterator.toList.size, 1)
   }
 
+  test("anonymisedContent redacts a mention's visible span, keeping the name for dispatch") {
+    val m = plain.copy(
+      text = Some("ciao Alice Smith, guarda qui"),
+      mentions = List(Mention(name = Some("alice"), text = Some("Alice Smith")))
+    )
+    val content = m.anonymisedContent("s")
+    assert(!content.contains("Alice Smith"), content)
+    assert(!content.contains("alice"), content)
+    assert(content.contains("@user"), content)
+    assert(m.isDirectedAt(com.benkio.chatcore.model.SBotInfo.SBotName("alice")))
+  }
+
   test("singleLine escapes CR, LF and every Unicode line separator") {
     val separators = List("\n", "\r", 0x85.toChar.toString, 0x2028.toChar.toString, 0x2029.toChar.toString)
     separators.foreach { separator =>
