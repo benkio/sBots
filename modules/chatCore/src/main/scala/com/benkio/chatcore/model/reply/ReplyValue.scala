@@ -117,6 +117,7 @@ enum EffectfulKey(val sBotInfo: SBotInfo) {
   case TopTwenty(override val sBotInfo: SBotInfo, page: Int = 0) extends EffectfulKey(sBotInfo)
   case SetTimeout(override val sBotInfo: SBotInfo)               extends EffectfulKey(sBotInfo)
   case GetTimeout(override val sBotInfo: SBotInfo)               extends EffectfulKey(sBotInfo)
+  case Llm(override val sBotInfo: SBotInfo)                      extends EffectfulKey(sBotInfo)
   case MediaByKind(key: String, override val sBotInfo: SBotInfo) extends EffectfulKey(sBotInfo)
   case Callback(key: String, override val sBotInfo: SBotInfo)    extends EffectfulKey(sBotInfo)
 }
@@ -137,6 +138,7 @@ object EffectfulKey {
   private given topTwentyDecoder: Decoder[EffectfulKey.TopTwenty]         = deriveDecoder[EffectfulKey.TopTwenty]
   private given setTimeoutDecoder: Decoder[EffectfulKey.SetTimeout]       = deriveDecoder[EffectfulKey.SetTimeout]
   private given getTimeoutDecoder: Decoder[EffectfulKey.GetTimeout]       = deriveDecoder[EffectfulKey.GetTimeout]
+  private given llmDecoder: Decoder[EffectfulKey.Llm]                     = deriveDecoder[EffectfulKey.Llm]
   private given mediaByKindDecoder: Decoder[EffectfulKey.MediaByKind]     = deriveDecoder[EffectfulKey.MediaByKind]
   private given callbackDecoder: Decoder[EffectfulKey.Callback]           = deriveDecoder[EffectfulKey.Callback]
 
@@ -154,6 +156,7 @@ object EffectfulKey {
       .orElse(c.downField("TopTwenty").as[EffectfulKey.TopTwenty])
       .orElse(c.downField("SetTimeout").as[EffectfulKey.SetTimeout])
       .orElse(c.downField("GetTimeout").as[EffectfulKey.GetTimeout])
+      .orElse(c.downField("Llm").as[EffectfulKey.Llm])
       .orElse(c.downField("MediaByKind").as[EffectfulKey.MediaByKind])
       .orElse(c.downField("Callback").as[EffectfulKey.Callback])
       .map(identity)
@@ -172,6 +175,7 @@ object EffectfulKey {
   private given topTwentyEncoder: Encoder[EffectfulKey.TopTwenty]         = deriveEncoder[EffectfulKey.TopTwenty]
   private given setTimeoutEncoder: Encoder[EffectfulKey.SetTimeout]       = deriveEncoder[EffectfulKey.SetTimeout]
   private given getTimeoutEncoder: Encoder[EffectfulKey.GetTimeout]       = deriveEncoder[EffectfulKey.GetTimeout]
+  private given llmEncoder: Encoder[EffectfulKey.Llm]                     = deriveEncoder[EffectfulKey.Llm]
   private given mediaByKindEncoder: Encoder[EffectfulKey.MediaByKind]     = deriveEncoder[EffectfulKey.MediaByKind]
   private given callbackEncoder: Encoder[EffectfulKey.Callback]           = deriveEncoder[EffectfulKey.Callback]
 
@@ -188,6 +192,7 @@ object EffectfulKey {
     case k: EffectfulKey.TopTwenty     => Json.obj("TopTwenty" -> k.asJson)
     case k: EffectfulKey.SetTimeout    => Json.obj("SetTimeout" -> k.asJson)
     case k: EffectfulKey.GetTimeout    => Json.obj("GetTimeout" -> k.asJson)
+    case k: EffectfulKey.Llm           => Json.obj("Llm" -> k.asJson)
     case k: EffectfulKey.MediaByKind   => Json.obj("MediaByKind" -> k.asJson)
     case k: EffectfulKey.Callback      => Json.obj("Callback" -> k.asJson)
   }

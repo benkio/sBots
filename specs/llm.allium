@@ -1,7 +1,7 @@
 -- allium: 3
 -- llm.allium: the LLM replies of the bots (epic #1499). Only what is built is specified; the rest of the epic is listed
--- as open questions. Code: modules/chatCore/llm (the ports), modules/chatLlm (the implementation and its doobie
--- repositories) and modules/main (startup wiring); the responder and the engine routing are still open.
+-- as open questions. Code: modules/chatCore/llm and patterns (the ports and /llm), modules/chatLlm (the implementation
+-- and its doobie repositories) and modules/main (startup wiring); the responder and the engine routing are still open.
 
 use "./sbots.allium" as core
 
@@ -333,8 +333,8 @@ rule CompletionFailsAfterFallbackExhausted {
         completion.status = failed
 }
 
--- #1487: the /llm switches are stored per chat and bot, and a toggle always refreshes the timestamp. The command that
--- raises these events is #1488; the storage behaviour is already observable through the LlmSettings port.
+-- #1487/#1488: the /llm switches are stored per chat and bot, and a toggle always refreshes the timestamp. The command
+-- raises these events through the LlmSettings port; the storage behaviour is observable through that port.
 rule LlmEnabledForChat {
     when: UserEnablesLlm(chat, bot)
     ensures:
@@ -367,6 +367,42 @@ rule LlmStatusReportsStoredSetting {
 rule LlmForgetPurgesContext {
     when: UserForgetsLlmContext(chat, bot)
     ensures: not exists LlmContextMessage{chat: chat, bot: bot}
+}
+
+-- #1488: /llm is a fixed command of every bot on every platform ("/llm" on Telegram and Discord, "!llm" on IRC). The
+-- argument chooses one call of the port; a missing or unrecognised argument (`unknown` below) only gets the usage
+-- reply.
+rule LlmCommandOn {
+    when: UserRunsLlmCommand(chat, bot, argument)
+    requires: argument = on
+    ensures: UserEnablesLlm(chat, bot)
+    ensures: LlmCommandResponded(chat: chat, text: "LLM replies enabled for this chat")
+}
+
+rule LlmCommandOff {
+    when: UserRunsLlmCommand(chat, bot, argument)
+    requires: argument = off
+    ensures: UserDisablesLlm(chat, bot)
+    ensures: LlmCommandResponded(chat: chat, text: "LLM replies disabled for this chat")
+}
+
+rule LlmCommandStatus {
+    when: UserRunsLlmCommand(chat, bot, argument)
+    requires: argument = status
+    ensures: LlmStatusRequested(chat, bot)
+}
+
+rule LlmCommandForget {
+    when: UserRunsLlmCommand(chat, bot, argument)
+    requires: argument = forget
+    ensures: UserForgetsLlmContext(chat, bot)
+    ensures: LlmCommandResponded(chat: chat, text: "LLM context forgotten for this chat")
+}
+
+rule LlmCommandUsage {
+    when: UserRunsLlmCommand(chat, bot, argument)
+    requires: argument = unknown
+    ensures: LlmCommandResponded(chat: chat, text: "Usage: /llm on|off|status|forget")
 }
 
 ------------------------------------------------------------
@@ -405,8 +441,8 @@ actor LlmProviderEndpoint {
     identified_by: LlmProviderEndpoint where true
 }
 
--- The caller of the LlmSettings port: the /llm command of #1488 will be one such caller, but the storage rules below
--- are already reachable through the port itself.
+-- The caller of the LlmSettings port: the /llm command of #1488 is one such caller, and the storage rules are also
+-- reachable through the port itself.
 actor LlmChatUser {
     identified_by: LlmChatUser where true
 }
@@ -443,10 +479,19 @@ surface LlmSettingsSurface {
         UserForgetsLlmContext(chat, bot)
 }
 
+-- The fixed command of #1488, available to every bot and every platform.
+surface LlmCommandSurface {
+    facing _: LlmChatUser
+
+    provides:
+        UserRunsLlmCommand(chat, bot, argument)
+        LlmCommandResponded(chat, text)
+}
+
 ------------------------------------------------------------
 -- Open Questions
 ------------------------------------------------------------
 
 open question "Routing in BotEngine (#1492): the order between reply bundles and the LLM, and the directed-at-bot gate."
-open question "Per-chat context window, TTL cleanup and anonymous sender labels (#1489); the /llm command surface (#1488)."
+open question "Per-chat context window, TTL cleanup and anonymous sender labels (#1489)."
 open question "Privacy note (#1483, #1498): the Gemini free tier may not be offered to minors or EEA/UK/CH users. #1485 only makes the provider switch configurable; it does not authorise a free-tier deployment."

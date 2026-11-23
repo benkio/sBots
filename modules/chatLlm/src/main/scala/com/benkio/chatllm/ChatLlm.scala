@@ -13,8 +13,8 @@ import log.effect.LogWriter
 /** The LLM support of the bots: provider clients, rate limiting, prompt building and the implementation of the
   * `LlmResponder` / `LlmSettings` ports of chatCore. Only `main` depends on this module.
   *
-  * `settings` is still the `noop` port: the feature is unconfigured. `dbSettings` and `contextStore` are the real
-  * doobie-backed implementations, ready for the engine wiring of #1488/#1489.
+  * `settings` is still the `noop` port: the feature is unconfigured. `dbSettings` is wired by `main` behind the `/llm`
+  * command (#1488); `contextStore` is the real doobie-backed context, ready for the engine routing of #1489.
   */
 object ChatLlm {
 

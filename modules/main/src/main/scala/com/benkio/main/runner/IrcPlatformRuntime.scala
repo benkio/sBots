@@ -31,7 +31,8 @@ object IrcPlatformRuntime extends PlatformRuntime {
               sBotInfo = entry.sBotInfo,
               commandEffectfulCallback = entry.commandEffectfulCallback,
               config = mainSetup.irc,
-              notifier = Notifier.logging[IO]
+              notifier = Notifier.logging[IO],
+              llmSettingsFactory = Some(mainSetup.llmSettingsFactory)
             )
         )
       )

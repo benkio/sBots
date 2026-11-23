@@ -2,6 +2,7 @@ package com.benkio.main
 
 import cats.effect.Async
 import cats.effect.Resource
+import com.benkio.chatcore.llm.LlmSettings
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.Notifier
 import com.benkio.chatdiscordadapter.gateway.DiscordGatewayConfig
@@ -9,6 +10,7 @@ import com.benkio.chatircadapter.connection.IrcConfig
 import com.benkio.chatllm.llm.LlmClientApi
 import com.benkio.chatllm.llm.LlmClients
 import com.benkio.chatllm.llm.LlmConfig
+import com.benkio.chatllm.ChatLlm
 import cron4s.CronExpr
 import doobie.Transactor
 import fs2.io.net.Network
@@ -38,7 +40,8 @@ final case class MainSetup[F[_]](
     healthcheckCron: CronExpr,
     mainDBName: String,
     llmConfig: LlmConfig,
-    llmClient: LlmClientApi[F]
+    llmClient: LlmClientApi[F],
+    llmSettingsFactory: LlmSettings.Factory[F]
 )
 
 object MainSetup {
@@ -85,6 +88,8 @@ object MainSetup {
     healthcheckCron = config.healthcheckPing.cron,
     mainDBName = config.mainDB.dbName,
     llmConfig = config.llm,
-    llmClient = llmClient
+    llmClient = llmClient,
+    // The doobie implementation lives in chatLlm; each bot's transactor and id are supplied at its setup.
+    llmSettingsFactory = ChatLlm.dbSettings[F]
   )
 }
