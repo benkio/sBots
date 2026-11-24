@@ -82,7 +82,9 @@ object ProviderResponse {
 final case class ProviderAttempt(
     provider: LlmProvider,
     result: Option[ProviderResult],
-    failure: Option[ProviderFailure] = None
+    failure: Option[ProviderFailure] = None,
+    // how long the provider call took (a timeout included), for the logs only
+    latencyMs: Option[Long] = None
 )
 
 /** The lifecycle of a completion. `Answered`, `Failed` and `Silent` are terminal: `Silent` is a completion that was
@@ -175,7 +177,8 @@ object Completion {
   def acceptResponse(
       completion: Completion,
       provider: LlmProvider,
-      response: ProviderResponse
+      response: ProviderResponse,
+      latencyMs: Option[Long] = None
   ): Completion =
     if completion.status != CompletionStatus.Pending then completion
     else if !completion.attempts.exists(_.provider == provider) then completion
@@ -184,7 +187,11 @@ object Completion {
         completion.copy(raw = Some(RawResponse(provider, text, response.stripped, response.model)))
       )
       val withResult = traced.attempts.map { attempt =>
-        if attempt.provider == provider then attempt.copy(result = Some(response.result), failure = response.failure)
+        if attempt.provider == provider then attempt.copy(
+          result = Some(response.result),
+          failure = response.failure,
+          latencyMs = latencyMs
+        )
         else attempt
       }
       response.result match {
