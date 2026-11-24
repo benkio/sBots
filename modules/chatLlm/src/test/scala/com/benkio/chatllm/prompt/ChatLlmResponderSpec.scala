@@ -262,8 +262,9 @@ class ChatLlmResponderSpec extends CatsEffectSuite {
     assert(builder.build("", Nil, "", msg).contains(""""action":"reuse""""))
   }
 
-  test("redacting mentions keeps an email address and replaces a bare @nick") {
+  test("redacting mentions keeps an email address and replaces a bare @nick, also right after a period") {
     assertEquals(Message.redactMentions("scrivi a a@b.it o a @mario", Nil), "scrivi a a@b.it o a @user")
+    assertEquals(Message.redactMentions("ciao.@mario e ciao @mario", Nil), "ciao.@user e ciao @user")
   }
 
   test("a message of the Telegram maximum length is capped to its reserve in the prompt") {

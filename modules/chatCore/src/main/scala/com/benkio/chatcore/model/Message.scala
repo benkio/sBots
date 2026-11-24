@@ -80,7 +80,7 @@ final case class Message(
 
 object Message {
 
-  private val atMention      = "(?<![\\w.])@[A-Za-z0-9_.-]+".r
+  private val atMention      = "(?<!\\w)@[A-Za-z0-9_.-]+".r
   private val discordMention = "<@!?\\d+>".r
   private val anonymousUser  = "@user"
 

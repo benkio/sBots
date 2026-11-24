@@ -1,5 +1,6 @@
 package com.benkio.chatllm.llm
 
+import cats.effect.syntax.monadCancel.*
 import cats.effect.Async
 import cats.syntax.all.*
 import com.benkio.chatcore.model.SBotInfo
@@ -77,8 +78,16 @@ object LimitedLlmClient {
       private def rejectedKey(provider: LlmProvider): String = s"rejected:${provider.toString}"
 
       private def notifyKeyed(key: String, cooldown: Option[FiniteDuration], message: String): F[Unit] =
-        limiter.claimNotice(key, cooldown).flatMap { claimed =>
-          notifier.info(opsBotInfo, message).whenA(claimed).handleErrorWith(_ => limiter.releaseNotice(key))
+        // The claim and the cleanup are one uncancelable section, so cancellation cannot leak a claimed key. Only a key
+        // this fiber claimed is released, on a failed notification and on cancellation while it is sent.
+        Async[F].uncancelable { poll =>
+          limiter.claimNotice(key, cooldown).flatMap { claimed =>
+            if !claimed then Async[F].unit
+            else
+              poll(notifier.info(opsBotInfo, message))
+                .onCancel(limiter.releaseNotice(key))
+                .handleErrorWith(_ => limiter.releaseNotice(key))
+          }
         }
 
       /** One ops message per exhaustion episode across both providers. A failed notification does not consume the

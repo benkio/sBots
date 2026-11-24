@@ -51,9 +51,10 @@ class LlmContextSpec extends CatsEffectSuite {
 
     override def trim(chatId: ChatId, botId: SBotId, keep: Int): IO[Int] =
       rows.modify { allRows =>
-        val mine    = allRows.filter { case (c, b, _) => c == chatId && b == botId }
-        val dropped = mine.dropRight(keep)
-        (allRows.filterNot(dropped.contains), dropped.size)
+        // by position, so equal rows are told apart
+        val mine    = allRows.zipWithIndex.collect { case ((c, b, _), i) if c == chatId && b == botId => i }
+        val dropped = mine.dropRight(keep).toSet
+        (allRows.zipWithIndex.collect { case (row, i) if !dropped.contains(i) => row }, dropped.size)
       }
 
     override def deleteOlderThan(cutoff: Long): IO[Int] =
@@ -112,6 +113,24 @@ class LlmContextSpec extends CatsEffectSuite {
       _      <- (1 to 30).toList.traverse_(i => ctx.remember(message(s"m$i"), botId))
       stored <- store.all(chatId, botId)
     } yield assertEquals(stored.size, small.retainedMessages)
+  }
+
+  test("trimming identical messages removes only the excess and keeps other chats") {
+    val other = ChatId(Platform.Telegram, "999")
+    for {
+      store <- Ref[IO].of(List.empty[(ChatId, SBotId, LlmContextMessage)]).map(new Store(_))
+      _     <- List
+        .fill(3)(store.append(chatId = chatId, botId = botId, role = LlmContextRole.User, content = "same"))
+        .sequence_
+      _       <- store.append(chatId = other, botId = botId, role = LlmContextRole.User, content = "same")
+      removed <- store.trim(chatId = chatId, botId = botId, keep = 2)
+      mine    <- store.all(chatId, botId)
+      theirs  <- store.all(other, botId)
+    } yield {
+      assertEquals(removed, 1)
+      assertEquals(mine.size, 2)
+      assertEquals(theirs.size, 1)
+    }
   }
 
   test("an expired message is not in the window even before the cleanup runs") {

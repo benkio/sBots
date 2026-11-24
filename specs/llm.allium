@@ -28,6 +28,9 @@ value LlmReply {
     reply_id: String?            -- #1491: the catalogue id picked by a reuse
     -- Derived by the output guard: not empty, no line starting with / or !, no @name or <@id> mention.
     text_acceptable: Boolean
+    -- The text actually sent: trimmed; when longer than the 500 character cap (counted in code points) it is cut to the
+    -- first 499 characters, trimmed, followed by "…". A shorter accepted text is unchanged.
+    reply_text: String
 }
 
 -- The reply the engine offers as a candidate, described to the model by its catalogue entry (id and one-line summary).
@@ -145,7 +148,8 @@ entity LlmContextMessage {
 config {
     primary_provider: LlmProvider = gemini    -- switching this value is the provider switch; no caller changes
     timeout: Duration = 10.seconds            -- one provider call is abandoned after this; the timeout is recorded as a provider result
-    max_input_tokens: Integer = 4096          -- prompts larger than this (4 characters per token) are refused
+    max_input_tokens: Integer = 18432         -- prompts larger than this (4 characters per token) are refused; startup also
+                                              -- requires room for a persona next to the template, catalogue, message and context
     max_output_tokens: Integer = 512          -- sent to the provider as its output limit
     credentials_complete: Boolean             -- both provider keys are configured; otherwise no request is admitted
 
@@ -621,7 +625,7 @@ rule ResponderAnswersWithText {
     requires: completion.status = answered
     requires: completion.reply.action = text
     requires: completion.reply.text_acceptable
-    ensures: ResponderReplied(msg, completion.reply.text)
+    ensures: ResponderReplied(msg, completion.reply.reply_text)
 }
 
 -- A reuse sends the chosen candidate's own reply, unchanged, through the normal reply path.
@@ -635,8 +639,7 @@ rule ResponderReusesCandidate {
 }
 
 -- Anything else is silent: the silent action, a reuse of an id that is not an offered candidate, a failed completion,
--- a client error, or a text that is not acceptable. A text over the cap (500 characters, counted in code points) is
--- truncated, not dropped. A provider reply without a valid action, or with a non-string text or reply id, is already
+-- a client error, or a text that is not acceptable. A text over the cap is truncated (see reply_text), not dropped. A provider reply without a valid action, or with a non-string text or reply id, is already
 -- malformed at the provider boundary. The reply language is the one the persona states (Italian when it states none); this is required by the prompt only, not checked.
 rule ResponderStaysSilent {
     when: ResponderAsked(msg, candidates, completion)
