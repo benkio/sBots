@@ -541,8 +541,8 @@ rule LlmCommandIrcUsage {
 -- known defect: the rule above offers the responder the matching bundles as candidates, but the engine asks the LLM only
 -- when the reactive logic left the message unmatched (MessageUnmatchedByReactiveLogic), so `candidates` is empty in the
 -- code: no catalogue entry is offered and ResponderReusesCandidate cannot hold yet. Also, a matching bundle blocked by the
--- chat timeout is remembered and never asked. Deciding whether the LLM should also be asked when a bundle matched
--- (offering it as the candidate) is open.
+-- chat timeout is remembered and never asked (the engine now logs `reason=reactive_blocked` for it). Deciding whether
+-- the LLM should also be asked when a bundle matched (offering it as the candidate) is open.
 rule LlmAnswersDirectedMessage {
     when: MessageUnmatchedByReactiveLogic(chat, bot, message, candidates)
     requires: LlmResponder.answers
@@ -725,10 +725,23 @@ rule ResponderStaysSilent {
 -- reuse or silent), reused reply id, failure reason, provider attempts and their results, whether a fallback provider was
 -- asked, whether the structured reply needed fence/prose stripping, and the local rejection (oversized prompt, missing
 -- credentials). The failure reasons are what the dashboard counts: local rejections, quota exhaustion, a provider
--- result, an output the guard or the reuse check turned into silence, and a client call that threw (status `error`,
+-- result (including `success_without_reply` when a provider answered 200 without a structured reply), an output the
+-- guard or the reuse check turned into silence, and a client call that threw (status `error`,
 -- failure `client_error:<exception class>`; never the exception message, which may hold chat content), and a call that was
 -- cancelled before it ended, by the engine's timeout or a shutdown (status and failure `cancelled`). Keys without a
--- value are omitted. The line holds no chat content. Logging never fails the reply, not even when logging itself fails.
+-- value are omitted. The line holds no chat content. Logging never fails the reply, not even when logging itself fails;
+-- the interaction line, the malformed-reply error lines and the trace are written independently, so one failing sink
+-- cannot drop the others. Failures of a sink are logged by exception class only: the message can hold chat content.
+--
+-- A message that never reaches the responder has no interaction line. The engine writes one INFO line
+-- `LLM not asked (chatId=...): reason=<reason>` with reason `responder_off`, `not_directed`, `forwarded`, `too_old`,
+-- `ignored_prefix`, `disabled`, `reactive_blocked` (a matching bundle blocked by the chat timeout), `in_timeout`,
+-- `in_flight` (a call for the chat is already running) or `no_reply` (the responder did not produce a reply).
+-- A second INFO line from the responder reports every decision: the chosen text/reuse, or `no reply: <reason>`, where
+-- the reason is the interaction's failure, with the output-guard rule appended as `output_rejected:<rule>` (empty text,
+-- command, mention or raw mention), or `silent_action` when the model chose silence. It also reports how many candidates
+-- were offered and how many were reusable, so an empty catalogue is visible. A failure to build the prompt is logged
+-- with its exception class before it becomes no reply.
 --
 -- The responder reports each interaction to the observer as an observation: who (the chat hash and the bot), the prompt
 -- version, the full prompt and, when the client returned, the completion with its raw model text.

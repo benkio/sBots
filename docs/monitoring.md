@@ -62,6 +62,20 @@ One JSON log line per completion the responder asked for (`LlmInteractionLog`): 
 object, so it needs no regexp. Keep the keys stable (the LLM row of the dashboard depends on them). A key without a value
 (`reply_id`, `failure`, `local_rejection`, `provider_errors`, `provider_error`) is omitted: in Loki a missing label means "none".
 
+Two plain INFO lines explain a non-reply that has no `llm_interaction` at all:
+
+- `LLM not asked (chatId=...): reason=<reason>` from the engine, with `reason` one of `responder_off`, `not_directed`,
+  `forwarded`, `too_old`, `ignored_prefix`, `disabled`, `reactive_blocked` (a matching bundle blocked by the chat
+  timeout), `in_timeout`, `in_flight` (another call for the chat is running) and `no_reply` (the responder chose silence
+  or failed). Filter with `{app="sbots"} |= "LLM not asked"`.
+- `[ChatLlmResponder] <chatId>: no reply: <reason>` from the responder for every interaction that ends without a reply.
+  The reason is the `failure` of the JSON line, with the output-guard rule appended as `output_rejected:<rule>` (for
+  example `command`, `mention`, `empty_text`). A deliberate `silent` action reports `silent_action`. The responder also
+  logs how many candidates were offered and how many were reusable, which makes an empty catalogue visible.
+
+A failure to build the prompt, to log the interaction or to store the trace writes a WARN/ERROR line with the exception
+class only; neither a logging failure nor a busy database can drop the other record or fail the reply.
+
 ```json
 {"type":"llm_interaction","chat":"<hash>","bot":"<bot>","model":"<model>","prompt_version":"v1","prompt_tokens":471,
  "response_tokens":11,"latency_ms":820,"status":"answered","action":"text","reply_id":"<id>","failure":"<reason>",
@@ -79,8 +93,9 @@ object, so it needs no regexp. Keep the keys stable (the LLM row of the dashboar
 - `gemini_ms` and `openrouter_ms` are how long the call to that provider took (a failed or timed-out call included); a
   provider that was not asked has no key. Their sum is close to `latency_ms`, so they tell which provider is slow.
 - A provider reply that cannot be read as the structured reply also writes one ERROR line:
-  `[LlmMalformedJson] provider=<p> model=<m> bot=<b> got: <what it returned>`, capped at 500 characters.
-  For OpenRouter the line also carries the provider's own diagnosis, from the documented fields of the first choice:
+  `[LlmMalformedJson] provider=<p> model=<m> bot=<b> got: <what it returned>`, with the full raw model text (not
+  capped, so a malformed JSON body can be examined). For OpenRouter the line also carries the provider's own diagnosis,
+  from the documented fields of the first choice:
   `[finish_reason=length content=null choice_error=502 …]` after the text, or `no model text: …` when there was none
   (`length` is a token limit hit, `content_filter` a block, `content=null` an empty answer, e.g. a reasoning model that
   spent its tokens thinking). The text is the
@@ -90,11 +105,12 @@ object, so it needs no regexp. Keep the keys stable (the LLM row of the dashboar
 - Tokens are estimates (4 characters per token): the providers report no usage through the client boundary.
 - `status`: `answered`, `failed`, `silent` (quota), `pending`, `error` (the client call threw) or `cancelled` (the call was
   cancelled before it ended: the engine timeout, a shutdown).
-- `failure`: `oversized_prompt`, `missing_credentials` (local rejections, no provider asked), `quota_exhausted`, the result
-  of the last provider call (`ratelimited`, `servererror`, `timeout`, `rejected`, `malformedjson`), `output_rejected`
-  (the output guard dropped a text), `reuse_without_id`, `reuse_not_offered`, `client_error:<ExceptionClass>` (the client
-  call threw; the exception message is never logged here, it may hold chat content), `cancelled`. Omitted when it answered or the model
-  chose silence.
+- `failure`: `oversized_prompt`, `missing_credentials` (local rejections, no provider asked), `quota_exhausted` (both
+  providers, or the fallback after a retryable primary failure), the result of the last provider call (`ratelimited`,
+  `servererror`, `timeout`, `rejected`, `malformedjson`), `success_without_reply` (a 200 with no structured reply),
+  `output_rejected` (the output guard dropped a text), `reuse_without_id`, `reuse_not_offered`,
+  `client_error:<ExceptionClass>` (the client call threw; the exception message is never logged here, it may hold chat
+  content), `cancelled`. Omitted when it answered or the model chose silence.
 - `fallback=true`: the provider other than the configured primary was asked. `stripped=true`: the reply parsed only after the
   fence/prose around the JSON object was cut away.
 

@@ -16,6 +16,7 @@ import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatllm.llm.Completion
 import com.benkio.chatllm.llm.CompletionStatus
 import com.benkio.chatllm.llm.LlmClientApi
+import com.benkio.chatllm.observability.LlmInteraction
 import com.benkio.chatllm.observability.LlmObservation
 import com.benkio.chatllm.observability.LlmObserver
 import com.benkio.chatllm.observability.LlmOutcome
@@ -48,9 +49,19 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
     val offered: Map[String, ReplyBundleMessage] =
       withIds.groupBy(_._1).collect { case (id, List((_, bundle))) => id -> bundle }
     val entries = offered.keys.toList.sorted.flatMap(summaries.get)
+    // The engine offers no candidates today (see the known defect in specs/llm.allium): a `reuse` decision can only
+    // end as silence, and this line makes the empty catalogue visible without a debug trace.
+    val candidatesLine =
+      s"[ChatLlmResponder] ${msg.chatId}: ${candidates.size} candidates, ${offered.size} reusable, prompt ${builder.version}"
 
     (for {
-      window <- context.prompt(msg.chatId, botId)
+      _ <- LogWriter.info(candidatesLine)
+      // The prompt is built before the client call, so a failure here has no interaction line: log the phase and the
+      // exception class (the message may hold chat content), then let the outer handler turn it into no reply.
+      window <- context.prompt(msg.chatId, botId).handleErrorWith(error =>
+        log.error(s"[ChatLlmResponder] could not build the prompt for ${msg.chatId}: ${error.getClass.getSimpleName}") *>
+          MonadThrow[F].raiseError[String](error)
+      )
       prompt = builder.build(persona, entries, window, msg)
       started <- Clock[F].monotonic
       // A cancelled call (the engine's own timeout, a shutdown) is recorded too, exactly once: the hook only covers the
@@ -86,7 +97,9 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
           answer(msg = msg, prompt = prompt, latencyMs = latency, completion = completion, offered = offered)
       }
     } yield reply).handleErrorWith { error =>
-      log.error(s"[ChatLlmResponder] failed: ${error.getMessage}").as(none[Reply])
+      // Never the message: an exception from the client or the store can carry chat content. The phase-specific line
+      // above, the observer's `client_error` and the engine's log give the rest of the context.
+      log.error(s"[ChatLlmResponder] failed: ${error.getClass.getSimpleName}").as(none[Reply])
     }
   }
 
@@ -110,6 +123,7 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
           completion.attempts.map(a => s"${a.provider}=${a.result.fold("none")(_.toString)}").mkString("[", ", ", "]")
       )
       .whenA(completion.status != CompletionStatus.Answered && completion.status != CompletionStatus.Silent) *>
+      LogWriter.info(decisionLine(msg, completion, decision, reuseOffered)) *>
       observe(
         msg = msg,
         prompt = prompt,
@@ -118,6 +132,35 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
       ).as(
         toReply(decision, offered)
       )
+  }
+
+  /** The decision in plain text, including why there was no reply. The interaction line has the same facts in JSON;
+    * this one is readable without a LogQL pipeline and carries the output-guard rule that dropped a text.
+    */
+  private def decisionLine(
+      msg: Message,
+      completion: Completion,
+      decision: LlmDecision,
+      reuseOffered: Boolean
+  ): String = {
+    val outcome = decision match {
+      case LlmDecision.Text(_)                 => "text reply"
+      case LlmDecision.Reuse(id) if reuseOffered => s"reuse $id"
+      case LlmDecision.Reuse(id)               => s"no reply: reuse_not_offered ($id)"
+      case LlmDecision.Silent                  => s"no reply: ${silenceReason(completion, decision, reuseOffered)}"
+    }
+    s"[ChatLlmResponder] ${msg.chatId}: $outcome"
+  }
+
+  private def silenceReason(completion: Completion, decision: LlmDecision, reuseOffered: Boolean): String = {
+    val guardReason = completion.reply
+      .filter(r => r.action == com.benkio.chatllm.llm.LlmAction.Text && decision == LlmDecision.Silent)
+      .flatMap(r => OutputGuard.check(r.text, builder.maxReplyChars).left.toOption)
+      .map(reason => s"output_rejected:$reason")
+    guardReason
+      .orElse(LlmInteraction.failureOf(completion, decision, reuseOffered))
+      // the model chose the `silent` action: that is a decision, not a failure
+      .getOrElse("silent_action")
   }
 
   private def observe(msg: Message, prompt: String, latencyMs: Long, outcome: LlmOutcome): F[Unit] =

@@ -21,6 +21,8 @@ import com.benkio.chatcore.model.RepliedMessage
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.Logger.given
 import com.benkio.chatcore.TestIds
+import _root_.log.effect.LogLevel
+import _root_.log.effect.internal.Show
 import munit.CatsEffectSuite
 import org.http4s.syntax.literals.*
 
@@ -62,6 +64,11 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
 
   private final case class Run(sent: List[ReplyValue], calls: Int, typings: Int, interactions: Int)
 
+  private def recordingLog(lines: Ref[IO, List[String]]): LogWriter[IO] = new LogWriter[IO] {
+    override def write[A](level: LogLevel, a: => A)(implicit show: Show[A]): IO[Unit] =
+      lines.update(_ :+ show.show(a))
+  }
+
   /** What the platform receives, how many times the responder was called, typing actions and post computations. */
   private def runAll(
       messages: List[Message],
@@ -71,7 +78,8 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
       requestTimeout: Option[FiniteDuration] = None,
       filter: IO[Boolean] = IO.pure(true),
       stallInteraction: Boolean = false,
-      config: SBotConfig => SBotConfig = identity
+      config: SBotConfig => SBotConfig = identity,
+      log: LogWriter[IO] = summon[LogWriter[IO]]
   ): IO[Run] = for {
     adapter      <- FakePlatformAdapter()
     calls        <- Ref.of[IO, Int](0)
@@ -94,7 +102,7 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
       backgroundJobManager = BackgroundJobManagerMock.mock(),
       llmResponder = counting,
       llmTimeout = llmTimeout
-    )
+    )(using log)
     _    <- messages.parTraverse_(engine.onMessage(_)(using adapter))
     sent <- adapter.sent.get
     n    <- calls.get
@@ -102,10 +110,45 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
     i    <- interactions.get
   } yield Run(sent.map(_.replyValue), n, t, i)
 
-  private def run(text: String, enabled: Boolean = true, responder: LlmResponder[IO] = llmAnswer): IO[Run] =
-    runAll(messages = List(message(text)), enabled = enabled, responder = responder)
+  private def run(
+      text: String,
+      enabled: Boolean = true,
+      responder: LlmResponder[IO] = llmAnswer,
+      log: LogWriter[IO] = summon[LogWriter[IO]]
+  ): IO[Run] =
+    runAll(messages = List(message(text)), enabled = enabled, responder = responder, log = log)
 
   private val noReply: LlmResponder[IO] = (_, _) => IO.pure(None)
+
+  /** The engine logs a skip reason instead of an interaction line, so capture the plain log to explain a non-reply. */
+  private def runMessageWithLog(
+      msg: Message,
+      enabled: Boolean = true,
+      responder: LlmResponder[IO] = llmAnswer,
+      filter: IO[Boolean] = IO.pure(true),
+      config: SBotConfig => SBotConfig = identity
+  ): IO[List[String]] =
+    for {
+      lines <- Ref.of[IO, List[String]](List.empty)
+      _ <- runAll(
+        messages = List(msg),
+        enabled = enabled,
+        responder = responder,
+        filter = filter,
+        config = config,
+        log = recordingLog(lines)
+      )
+      seen <- lines.get
+    } yield seen.filter(_.contains("LLM not asked"))
+
+  private def runWithLog(
+      text: String,
+      enabled: Boolean = true,
+      responder: LlmResponder[IO] = llmAnswer,
+      filter: IO[Boolean] = IO.pure(true),
+      config: SBotConfig => SBotConfig = identity
+  ): IO[List[String]] =
+    runMessageWithLog(message(text), enabled, responder, filter, config)
 
   test("a directed message with no reactive match gets the LLM reply, after a typing action") {
     run(text = "EngineBot: how are you?").map { case Run(sent, calls, typings, _) =>
@@ -195,6 +238,46 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
     runAll(messages = List(forwarded, old, ignored), config = _.copy(disableForward = true)).map(r =>
       assertEquals(r.calls, 0)
     )
+  }
+
+  test("each engine gate logs why the LLM was not asked") {
+    val directed = "EngineBot: how are you?"
+    val ignored  = message("zzz hello").copy(mentions = List(Mention(name = Some("EngineBot"))))
+    for {
+      notDirected  <- runWithLog("how are you?")
+      disabled     <- runWithLog(directed, enabled = false)
+      forwarded    <- runMessageWithLog(message(directed).copy(isForward = true))
+      old          <- runMessageWithLog(message(directed).copy(date = Instant.now.getEpochSecond - 1.day.toSeconds))
+      ignoredLine  <- runMessageWithLog(ignored, config = _.copy(ignoreMessagePrefix = Some("zzz")))
+      responderOff <- runWithLog(directed, responder = LlmResponder.noop[IO])
+      blocked      <- runWithLog("EngineBot: ping", filter = IO.pure(false))
+      silent       <- runWithLog(directed, responder = noReply)
+    } yield {
+      def only(lines: List[String], reason: String): Boolean =
+        lines.size == 1 && lines.head.contains(s"reason=$reason")
+      assert(only(notDirected, "not_directed"), notDirected.toString)
+      assert(only(disabled, "disabled"), disabled.toString)
+      assert(only(forwarded, "forwarded"), forwarded.toString)
+      assert(only(old, "too_old"), old.toString)
+      assert(only(ignoredLine, "ignored_prefix"), ignoredLine.toString)
+      assert(only(responderOff, "responder_off"), responderOff.toString)
+      assert(only(blocked, "reactive_blocked"), blocked.toString)
+      assert(only(silent, "no_reply"), silent.toString)
+    }
+  }
+
+  test("a second directed message of a chat logs the in-flight skip") {
+    val slow: LlmResponder[IO] =
+      (_, _) => IO.sleep(200.millis).as(Some(TextReply.fromList("late")(replyToMessage = true)))
+    for {
+      lines <- Ref.of[IO, List[String]](List.empty)
+      _ <- runAll(
+        messages = List(message("EngineBot: one"), message("EngineBot: two")),
+        responder = slow,
+        log = recordingLog(lines)
+      )
+      seen <- lines.get
+    } yield assertEquals(seen.filter(_.contains("reason=in_flight")).size, 1)
   }
 
   test("a duplicate message reaches the LLM once") {

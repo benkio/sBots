@@ -33,6 +33,7 @@ import com.benkio.chatcore.patterns.CommandPatternsGroup
 import com.benkio.chatcore.patterns.PostComputationPatterns
 import com.benkio.chatcore.patterns.SubscriptionCommands.SubscribeUnsubscribeCommand
 import com.benkio.chatcore.repository.db.DBLayer
+import com.benkio.chatcore.BotEngine.LlmSkip
 import com.benkio.chatcore.BotEngine.Reactive
 import com.benkio.chatcore.BotEngine.Stage
 import com.benkio.chatcore.SubscriptionFlowOutcome
@@ -295,6 +296,12 @@ class BotEngine[F[_]: Async: LogWriter](
     replied = reactive == Reactive.Done(true)
     // the last interaction (what the chat timeout is measured from) is logged only after a reply
     _ <- postComputation(msg).whenA(replied)
+    // A bundle that matched but was blocked by the filters (the chat timeout in production) never reaches the LLM:
+    // say so, or that no-reply has no explanation at all (the known defect in specs/llm.allium).
+    _ <- logLlmSkip(msg, LlmSkip.ReactiveBlocked).whenA(
+      reactive == Reactive.Done(false) &&
+        msg.messageType(sBotConfig.sBotInfo.botId, platform.capabilities.commandSyntax) == MessageType.Message
+    )
   } yield
     if msg.messageType(sBotConfig.sBotInfo.botId, platform.capabilities.commandSyntax) != MessageType.Message
     then Stage.Nothing
@@ -320,7 +327,9 @@ class BotEngine[F[_]: Async: LogWriter](
     * not part of its own prompt, followed by the answer that was sent.
     */
   private def llmStage(msg: Message, stage: Stage)(using platform: PlatformAdapter[F]): F[Unit] =
-    Option.when(stage != Stage.Nothing && llmResponder.answers)(stage).traverse_ { _ =>
+    if stage == Stage.Nothing then Applicative[F].unit
+    else if !llmResponder.answers then logLlmSkip(msg, LlmSkip.ResponderOff)
+    else {
       val sent: F[Option[(Reply, List[ReplyBundleMessage])]] =
         if stage == Stage.Ask then llmLogic(msg) else none[(Reply, List[ReplyBundleMessage])].pure[F]
       sent.flatMap { answered =>
@@ -341,6 +350,12 @@ class BotEngine[F[_]: Async: LogWriter](
           )
       }
     }
+
+  /** A skipped LLM interaction has no observer line, so the reason has to be logged here to explain a non-reply. */
+  private def logLlmSkip(msg: Message, reason: LlmSkip): F[Unit] =
+    LogWriter.info(
+      s"${sBotConfig.sBotInfo.botName}: LLM not asked (chatId=${msg.chatId.id}): reason=${reason.label}"
+    )
 
   /** The reply sent by the LLM, if any, with the candidates it was offered. */
   private def llmLogic(msg: Message)(using
@@ -374,34 +389,42 @@ class BotEngine[F[_]: Async: LogWriter](
       Async[F].uncancelable { poll =>
         claimLlmChat(msg.chatId).ifM(
           poll(bounded).guarantee(releaseLlmChat(msg.chatId)),
-          Applicative[F].unit
+          logLlmSkip(msg, LlmSkip.InFlight)
         )
       }
     }
-    if !isLlmCandidate(msg) then none_
-    else
-      for {
-        delivered <- Ref.of[F, Option[(Reply, List[ReplyBundleMessage])]](None)
-        _         <- stage(delivered).handleErrorWith(e =>
-          LogWriter.error(s"$botName: the LLM reply failed and was dropped (chatId=${msg.chatId.id}): $e")
-        )
-        answered <- delivered.get
-      } yield answered
+    llmCandidateSkip(msg) match {
+      case Some(reason) => logLlmSkip(msg, reason) *> none_
+      case None         =>
+        for {
+          delivered <- Ref.of[F, Option[(Reply, List[ReplyBundleMessage])]](None)
+          _         <- stage(delivered).handleErrorWith(e =>
+            LogWriter.error(s"$botName: the LLM reply failed and was dropped (chatId=${msg.chatId.id}): $e")
+          )
+          answered <- delivered.get
+        } yield answered
+    }
   }
 
-  private def isLlmCandidate(msg: Message): Boolean =
-    msg.isDirectedAt(sBotConfig.sBotInfo.botName) &&
-      FilteringForward.filter(msg, sBotConfig.disableForward) &&
-      FilteringOlder.filter(msg) &&
-      !sBotConfig.ignoreMessagePrefix.exists(prefix => msg.text.exists(_.startsWith(prefix)))
+  /** The first filter that keeps a message away from the responder, if any. */
+  private def llmCandidateSkip(msg: Message): Option[LlmSkip] =
+    if !msg.isDirectedAt(sBotConfig.sBotInfo.botName) then Some(LlmSkip.NotDirected)
+    else if !FilteringForward.filter(msg, sBotConfig.disableForward) then Some(LlmSkip.Forwarded)
+    else if !FilteringOlder.filter(msg) then Some(LlmSkip.TooOld)
+    else if sBotConfig.ignoreMessagePrefix.exists(prefix => msg.text.exists(_.startsWith(prefix))) then
+      Some(LlmSkip.IgnoredPrefix)
+    else None
 
   private def llmChatReady(msg: Message): F[Boolean] =
     dbLayer.llmSettings
       .status(msg.chatId)
       .map(_.enabled)
       .ifM(
-        FilteringTimeout.chatAllowed(dbLayer, sBotConfig.sBotInfo.botId).apply(msg),
-        false.pure[F]
+        FilteringTimeout.chatAllowed(dbLayer, sBotConfig.sBotInfo.botId).apply(msg).ifM(
+          true.pure[F],
+          logLlmSkip(msg, LlmSkip.InTimeout).as(false)
+        ),
+        logLlmSkip(msg, LlmSkip.Disabled).as(false)
       )
 
   /** The reply sent, with the candidates it was offered. */
@@ -421,7 +444,8 @@ class BotEngine[F[_]: Async: LogWriter](
       answer  <- Async[F].timeoutTo(asked, llmTimeout, none[Option[Reply]].pure[F]).attempt
       replied <- answer match {
         case Right(Some(Some(llmReply))) => reply(llmReply, msg).as(Some((llmReply, candidates)))
-        case Right(Some(None))           => none[(Reply, List[ReplyBundleMessage])].pure[F]
+        case Right(Some(None))           =>
+          logLlmSkip(msg, LlmSkip.NoReply) *> none[(Reply, List[ReplyBundleMessage])].pure[F]
         case Right(None)                 =>
           LogWriter
             .warn(
@@ -507,6 +531,22 @@ object BotEngine {
   private enum Reactive {
     case Done(replied: Boolean)
     case Unmatched
+  }
+
+  /** Why the engine did not ask the LLM about a message. Logged at info level: a non-reply is otherwise invisible
+    * because no responder interaction exists to produce an `llm_interaction` line.
+    */
+  private enum LlmSkip(val label: String) {
+    case ResponderOff extends LlmSkip("responder_off")
+    case NotDirected  extends LlmSkip("not_directed")
+    case Forwarded    extends LlmSkip("forwarded")
+    case TooOld       extends LlmSkip("too_old")
+    case IgnoredPrefix extends LlmSkip("ignored_prefix")
+    case Disabled     extends LlmSkip("disabled")
+    case ReactiveBlocked extends LlmSkip("reactive_blocked")
+    case InTimeout    extends LlmSkip("in_timeout")
+    case InFlight     extends LlmSkip("in_flight")
+    case NoReply      extends LlmSkip("no_reply")
   }
 
   final case class RequestTimedOut(timeout: FiniteDuration)

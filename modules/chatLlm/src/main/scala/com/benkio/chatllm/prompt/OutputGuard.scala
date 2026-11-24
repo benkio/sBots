@@ -13,15 +13,20 @@ object OutputGuard {
   // are rejected too, while "!!! che bello" or "1/2" are plain text.
   private val command = "(?m)^\\s*[/!]+\\p{L}".r
 
-  def sanitise(raw: String, maxChars: Int): Option[String] = {
+  def sanitise(raw: String, maxChars: Int): Option[String] =
+    check(raw, maxChars).toOption
+
+  /** The same decision as [[sanitise]], with the rule that rejected the text. The reason is safe to log: the text is
+    * not.
+    */
+  def check(raw: String, maxChars: Int): Either[String, String] = {
     val text = raw.trim
-    Option.when(
-      maxChars > 0 &&
-        text.nonEmpty &&
-        command.findFirstIn(text).isEmpty &&
-        mention.findFirstIn(text).isEmpty &&
-        rawMention.findFirstIn(text).isEmpty
-    )(truncate(text, maxChars))
+    if maxChars <= 0 then Left("no_capacity")
+    else if text.isEmpty then Left("empty_text")
+    else if command.findFirstIn(text).nonEmpty then Left("command")
+    else if mention.findFirstIn(text).nonEmpty then Left("mention")
+    else if rawMention.findFirstIn(text).nonEmpty then Left("raw_mention")
+    else Right(truncate(text, maxChars))
   }
 
   /** Caps by code points, so an emoji (a surrogate pair) is never cut in half. */

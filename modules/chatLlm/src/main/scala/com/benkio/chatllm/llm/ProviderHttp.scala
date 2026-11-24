@@ -97,13 +97,17 @@ private[llm] object ProviderHttp {
     * gave one (finish reason, an error object, a null content), else the capped body.
     */
   private def unreadable(body: String, diagnosis: Option[String] = None): ProviderResponse =
-    ProviderResponse.malformedJson.copy(failure =
-      Some(
-        ProviderFailure(
-          httpStatus = 200,
-          message = Some(diagnosis.fold(s"unreadable response: ${excerpt(body)}")(d => s"no model text: $d"))
+    ProviderResponse.malformedJson.copy(
+      // Keep the whole body: the malformed-reply error line prints it, and the interesting part of a bad payload is
+      // often beyond the provider's diagnosis (or past the old 500-character log cap).
+      raw = Some(body),
+      failure =
+        Some(
+          ProviderFailure(
+            httpStatus = 200,
+            message = Some(diagnosis.fold(s"unreadable response: ${excerpt(body)}")(d => s"no model text: $d"))
+          )
         )
-      )
     )
 
   /** Untrusted and unbounded text, on one line and capped, for the logs. */

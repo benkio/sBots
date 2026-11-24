@@ -393,7 +393,7 @@
                       "group": "loki",
                       "kind": "DataQuery",
                       "spec": {
-                        "expr": "{app=\"sbots\"}"
+                        "expr": "{app=\"sbots\"} != \"[stats]\" != \"[HealthcheckPing] heartbeat\""
                       },
                       "version": "v0"
                     },

@@ -44,12 +44,9 @@ trait LlmObserver[F[_]] {
 
 object LlmObserver {
 
-  /** The longest model reply put in the error log of a malformed reply. */
-  val MaxLoggedChars: Int = 500
-
   /** An ERROR line per provider that answered with something the structured reply could not be read from, with what it
-    * returned (capped), so the cause is visible without the debug trace. The text is the model's reply and may echo
-    * chat content: it is capped and stays in the server logs.
+    * returned, so the cause is visible without the debug trace. The text is the model's reply and may echo
+    * chat content: it is logged in full and stays in the server logs.
     */
   def malformedReplyLines(o: LlmObservation, modelOf: LlmProvider => Option[String]): List[String] =
     o.outcome match {
@@ -59,12 +56,12 @@ object LlmObserver {
           .map { a =>
             val raw       = c.raw.filter(_.provider == a.provider)
             val diagnosis = a.failure.flatMap(_.message)
-            val text      = raw.map(_.text).map(_.replaceAll("\\s+", " ").trim.take(MaxLoggedChars))
+            val text      = raw.map(_.text).map(_.replaceAll("\\s+", " "))
             // the provider's diagnosis (finish reason, error object) goes with the text it explains
             val got = (text, diagnosis) match {
               case (Some(t), Some(d)) => s"$t [$d]"
               case (Some(t), None)    => t
-              case (None, Some(d))    => d.take(MaxLoggedChars)
+              case (None, Some(d))    => d
               case (None, None)       => "nothing readable"
             }
             val model = raw.flatMap(_.model).orElse(modelOf(a.provider)).getOrElse("-")
@@ -83,7 +80,6 @@ object LlmObserver {
     new LlmObserver[F] {
       override def observe(o: LlmObservation): F[Unit] = {
         val interaction = interactionOf(o)
-        val line        = log.info(LlmInteractionLog.line(interaction)) *> malformedReplies(o)
         val trace       =
           if !traceEnabled then Monad[F].unit
           else
@@ -106,14 +102,22 @@ object LlmObserver {
                 )
               )
             )
-        // Recording never fails the reply: not even when the warning about a failed recording cannot be logged.
-        (line *> trace).handleErrorWith(e =>
-          log.warn(s"[llm] could not record the interaction: ${e.getMessage}").handleError(_ => ())
+        // Each sink is independent: a failed log line must not prevent the trace, the malformed-reply lines or the
+        // other way round, and none may fail the reply, not even when the warning about the failure cannot be logged.
+        // Only the exception class is logged: its message can carry chat content.
+        val line = bestEffort(log.info(LlmInteractionLog.line(interaction)), "record the interaction")
+        val malformed = malformedReplyLines(o, modelOf).traverse_(l =>
+          bestEffort(log.error(l), "log a malformed reply")
         )
+        line *> malformed *> bestEffort(trace, "store the trace")
       }
 
-      private def malformedReplies(o: LlmObservation): F[Unit] =
-        malformedReplyLines(o, modelOf).traverse_(log.error(_))
+      private def bestEffort(action: F[Unit], what: String): F[Unit] =
+        action.attempt.flatMap {
+          case Right(_) => Monad[F].unit
+          case Left(e)  =>
+            log.warn(s"[llm] could not $what: ${e.getClass.getSimpleName}").handleError(_ => ())
+        }
 
       private def interactionOf(o: LlmObservation): LlmInteraction = {
         val base = LlmInteraction(

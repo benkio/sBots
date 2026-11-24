@@ -210,7 +210,7 @@ class LlmObservabilitySpec extends CatsEffectSuite {
     assertEquals(after.raw, Some(RawResponse(LlmProvider.Gemini, "sure! {oops", stripped = true)))
   }
 
-  test("a malformed reply writes an error line with what the provider returned, capped") {
+  test("a malformed reply writes an error line with the full raw text the provider returned") {
     val started = Completion.started("p", LlmProvider.Gemini)
     val first   = Completion.acceptResponse(
       started,
@@ -226,8 +226,7 @@ class LlmObservabilitySpec extends CatsEffectSuite {
     val lines = LlmObserver.malformedReplyLines(obs, _ => Some("m"))
     assertEquals(lines.size, 2)
     assert(lines.head.startsWith("[LlmMalformedJson] provider=gemini model=m bot="))
-    assert(lines.head.contains("got: sure! {oops xxx"))
-    assertEquals(lines.head.split("got: ").last.length, LlmObserver.MaxLoggedChars)
+    assertEquals(lines.head.split("got: ").last, "sure! {oops " + ("x" * 900))
     assert(lines(1).endsWith("got: unreadable response: <html>"))
   }
 

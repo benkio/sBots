@@ -34,10 +34,15 @@ object LimitedLlmClient {
           )
           result <-
             // Without both provider keys, or with an oversized prompt, no provider is called and no quota is consumed.
-            if !LlmConfig.credentialsComplete(config) then Completion
-              .notRequested(prompt, provider, CompletionStatus.Failed)
-              .copy(localRejection = Some(LocalRejection.MissingCredentials))
-              .pure[F]
+            if !LlmConfig.credentialsComplete(config) then notifyKeyed(
+              key = MissingCredentialsKey,
+              cooldown = Some(OversizedCooldown),
+              message = "LLM credentials are incomplete: no reply sent"
+            ).as(
+              Completion
+                .notRequested(prompt, provider, CompletionStatus.Failed)
+                .copy(localRejection = Some(LocalRejection.MissingCredentials))
+            )
             else if estimateTokens(prompt) > config.maxInputTokens then notifyKeyed(
               key = OversizedKey,
               cooldown = Some(OversizedCooldown),
@@ -73,6 +78,14 @@ object LimitedLlmClient {
             s": HTTP ${f.httpStatus.toString}${f.message.fold("")(m => s" $m")}"
           }
         val answered = completion.attempts.filter(_.result.contains(ProviderResult.Success)).map(_.provider).distinct
+        // After a retryable primary failure the fallback is skipped when its own quota is gone. That completion is
+        // `Failed`, not `Silent`, so the quota notice would otherwise never fire for it.
+        val fallbackQuotaBlocked =
+          completion.status == CompletionStatus.Failed &&
+            completion.localRejection.isEmpty &&
+            completion.attempts.size == 1 &&
+            completion.attempts.head.provider == completion.primaryProvider &&
+            completion.attempts.head.result.exists(_ != ProviderResult.Success)
         answered.traverse_(p => limiter.releaseNotice(rejectedKey(p))) *>
           rejected.traverse_(p =>
             notifyKeyed(
@@ -82,7 +95,8 @@ object LimitedLlmClient {
                 s"LLM provider ${p.toString} rejected the request${detailOf(p)} (check its key, its model, and whether the prompt exceeds its input size)"
             )
           ) *>
-          (if completion.status == CompletionStatus.Silent then notifyOnce else Async[F].unit)
+          (if completion.status == CompletionStatus.Silent || fallbackQuotaBlocked then notifyOnce
+           else Async[F].unit)
       }
 
       private def rejectedKey(provider: LlmProvider): String = s"rejected:${provider.toString}"
@@ -112,7 +126,8 @@ object LimitedLlmClient {
         }
     }
 
-  private val OversizedKey = "oversized-prompt"
+  private val OversizedKey          = "oversized-prompt"
+  private val MissingCredentialsKey = "missing-credentials"
 
   /** Whether a prompt is oversized depends on the chat and the message, so the notice is rate limited by time instead
     * of released by the next normal prompt. The responder logs the chat of every failed completion.

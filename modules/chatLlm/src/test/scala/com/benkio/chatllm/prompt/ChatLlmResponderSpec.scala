@@ -16,6 +16,9 @@ import com.benkio.chatllm.repository.db.LlmContextMessage
 import com.benkio.chatllm.LlmContext
 import io.circe.parser.parse
 import munit.CatsEffectSuite
+import _root_.log.effect.LogLevel
+import _root_.log.effect.internal.Show
+import _root_.log.effect.LogWriter
 
 class ChatLlmResponderSpec extends CatsEffectSuite {
 
@@ -41,11 +44,17 @@ class ChatLlmResponderSpec extends CatsEffectSuite {
 
   private val builder = PromptBuilder(500).fold(e => fail(e), identity)
 
+  private def recordingLog(lines: Ref[IO, List[String]]): LogWriter[IO] = new LogWriter[IO] {
+    override def write[A](level: LogLevel, a: => A)(implicit show: Show[A]): IO[Unit] =
+      lines.update(_ :+ show.show(a))
+  }
+
   /** A stubbed client answering `reply` (or the given completion) and recording the prompts it received. */
   private def responder(
       answer: Completion,
       prompts: Ref[IO, List[String]],
-      observer: Option[LlmObserver[IO]] = None
+      observer: Option[LlmObserver[IO]] = None,
+      log: LogWriter[IO] = summon[LogWriter[IO]]
   ): ChatLlmResponder[IO] =
     new ChatLlmResponder[IO](
       client = new LlmClientApi[IO] {

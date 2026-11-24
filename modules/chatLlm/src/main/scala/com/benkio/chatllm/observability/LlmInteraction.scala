@@ -74,9 +74,22 @@ object LlmInteraction {
       case CompletionStatus.Silent  => Some("quota_exhausted")
       case CompletionStatus.Pending => Some("pending")
       case CompletionStatus.Failed  =>
+        // A provider can report success with no structured reply: that is a failure of the output contract, not a
+        // successful attempt, so it must not appear in the dashboard as `failure=success`.
         completion.localRejection
           .map(_.label)
-          .orElse(completion.attempts.flatMap(_.result).lastOption.map(r => r.toString.toLowerCase))
+          .orElse(
+            completion.attempts
+              .flatMap(_.result)
+              .filter(_ != ProviderResult.Success)
+              .lastOption
+              .map(r => r.toString.toLowerCase)
+          )
+          .orElse(
+            completion.attempts
+              .find(_.result.contains(ProviderResult.Success))
+              .map(_ => "success_without_reply")
+          )
           .orElse(Some("failed"))
       case CompletionStatus.Answered =>
         (completion.reply.map(_.action), decision) match {
