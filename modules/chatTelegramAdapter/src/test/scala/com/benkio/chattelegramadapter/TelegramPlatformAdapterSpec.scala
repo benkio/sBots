@@ -72,6 +72,19 @@ class TelegramPlatformAdapterSpec extends CatsEffectSuite {
     } yield assertEquals(count, 1)
   }
 
+  test("sendTyping sends the typing chat action to the chat of the message") {
+    for {
+      apiAndRecording <- PayloadRecordingApi()
+      (api, recorded) = apiAndRecording
+      _     <- adapter(api).sendTyping(message)
+      calls <- recorded
+    } yield {
+      val actions = callsOf("sendChatAction", calls)
+      assertEquals(actions.size, 1)
+      assertEquals(actions.head.hcursor.downField("action").as[String], Right("typing"))
+    }
+  }
+
   test("send should send a text through the Telegram API") {
     for {
       apiAndRecording <- PayloadRecordingApi()

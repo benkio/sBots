@@ -32,7 +32,7 @@ object IrcPlatformRuntime extends PlatformRuntime {
               commandEffectfulCallback = entry.commandEffectfulCallback,
               config = mainSetup.irc,
               notifier = Notifier.logging[IO],
-              llmSettingsFactory = Some(mainSetup.llmSettingsFactory)
+              llmWiring = Some(mainSetup.llmWiring)
             )
         )
       )

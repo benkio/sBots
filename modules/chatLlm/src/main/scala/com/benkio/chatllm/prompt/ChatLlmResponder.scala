@@ -1,6 +1,7 @@
 package com.benkio.chatllm.prompt
 
 import cats.syntax.all.*
+import cats.Applicative
 import cats.MonadThrow
 import com.benkio.chatcore.llm.LlmResponder
 import com.benkio.chatcore.model.reply.Reply
@@ -55,6 +56,29 @@ final class ChatLlmResponder[F[_]: MonadThrow](
       log.error(s"[ChatLlmResponder] failed: ${error.getMessage}").as(none[Reply])
     }
   }
+
+  override def remember(msg: Message)(using Applicative[F]): F[Unit] =
+    context.remember(msg, botId).void.handleErrorWith(rememberFailed("message", msg))
+
+  /** A text reply is remembered as the text sent; a reused reply by the summary of its catalogue entry. */
+  override def rememberAnswer(msg: Message, reply: Reply, candidates: List[ReplyBundleMessage])(using
+      Applicative[F]
+  ): F[Unit] = {
+    // a reused reply is told apart first: it can be a text reply too, and then it is the catalogue summary that counts
+    val reused = candidates
+      .find(_.reply == reply)
+      .flatMap(ReplyCatalogue.reusableId)
+      .flatMap(summaries.get)
+      .map(_.summary)
+    val content = reused.orElse(reply match {
+      case TextReply(texts, _) => texts.headOption.map(_.value)
+      case _                   => None
+    })
+    content.traverse_(text => context.rememberAssistant(msg.chatId, botId, text).void)
+  }.handleErrorWith(rememberFailed("answer", msg))
+
+  private def rememberFailed(what: String, msg: Message)(error: Throwable): F[Unit] =
+    log.warn(s"[ChatLlmResponder] could not remember the $what of ${msg.chatId}: ${error.getMessage}")
 
   private def toReply(decision: LlmDecision, offered: Map[String, ReplyBundleMessage]): Option[Reply] =
     decision match {

@@ -2,7 +2,7 @@ package com.benkio.main
 
 import cats.effect.Async
 import cats.effect.Resource
-import com.benkio.chatcore.llm.LlmSettings
+import com.benkio.chatcore.llm.LlmWiring
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.Notifier
 import com.benkio.chatdiscordadapter.gateway.DiscordGatewayConfig
@@ -42,7 +42,7 @@ final case class MainSetup[F[_]](
     mainDBName: String,
     llmConfig: LlmConfig,
     llmClient: LlmClientApi[F],
-    llmSettingsFactory: LlmSettings.Factory[F]
+    llmWiring: LlmWiring[F]
 )
 
 object MainSetup {
@@ -94,7 +94,8 @@ object MainSetup {
     mainDBName = config.mainDB.dbName,
     llmConfig = config.llm,
     llmClient = llmClient,
-    // The doobie implementation lives in chatLlm; each bot's transactor and id are supplied at its setup.
-    llmSettingsFactory = ChatLlm.dbSettings[F]
+    // The implementations live in chatLlm; each bot's transactor and id are supplied at its setup. Without the API
+    // keys, or the persona and catalogue of a bot, that bot gets the noop responder.
+    llmWiring = ChatLlm.wiring[F](config.llm, llmClient)
   )
 }

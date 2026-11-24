@@ -3,6 +3,7 @@ package com.benkio.integration.integrationmunit.chatcore.patterns
 import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
+import com.benkio.chatcore.llm.LlmWiring
 import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.EffectfulReply
@@ -54,7 +55,7 @@ class ITLlmCommandSpec extends CatsEffectSuite with DBFixture {
         DBLayer.make[IO](
           transactor = fixture.transactor,
           botId = botId,
-          llmSettingsFactory = Some(ChatLlm.dbSettings[IO])
+          llmWiring = Some(LlmWiring.noop[IO].copy(settings = ChatLlm.dbSettings[IO]))
         )
       )
       contextStore = ChatLlm.contextStore[IO](fixture.transactor)

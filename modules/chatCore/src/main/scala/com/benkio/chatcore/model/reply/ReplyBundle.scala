@@ -65,11 +65,29 @@ object ReplyBundleMessage {
       ignoreMessagePrefix = None
     )
 
+  /** Every reply bundle matching the message, the best match (the longest trigger) first. The forward and age filters
+    * of a live message (see [[selectReplyBundle]]) are the caller's gate. The LLM is offered these as the candidates it
+    * can reuse.
+    */
+  def matchingReplyBundles(
+      msg: Message,
+      messageRepliesData: List[ReplyBundleMessage],
+      ignoreMessagePrefix: Option[String]
+  ): List[ReplyBundleMessage] =
+    matches(msg = msg, messageRepliesData = messageRepliesData, ignoreMessagePrefix = ignoreMessagePrefix)
+
   private def bestMatch(
       msg: Message,
       messageRepliesData: List[ReplyBundleMessage],
       ignoreMessagePrefix: Option[String]
   ): Option[ReplyBundleMessage] =
+    matches(msg = msg, messageRepliesData = messageRepliesData, ignoreMessagePrefix = ignoreMessagePrefix).headOption
+
+  private def matches(
+      msg: Message,
+      messageRepliesData: List[ReplyBundleMessage],
+      ignoreMessagePrefix: Option[String]
+  ): List[ReplyBundleMessage] =
     messageRepliesData
       .mapFilter(messageReplyBundle =>
         MessageMatches
@@ -78,7 +96,6 @@ object ReplyBundleMessage {
       .sortBy { case (trigger, replyBundleMessage) =>
         -Trigger.triggerLongestString(trigger, replyBundleMessage.matcher)
       }
-      .headOption
       .map(_._2)
 
   def textToMedia(

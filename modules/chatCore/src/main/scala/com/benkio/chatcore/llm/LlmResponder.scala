@@ -11,6 +11,11 @@ import com.benkio.chatcore.model.Message
   */
 trait LlmResponder[F[_]] {
 
+  /** Whether this responder can ever answer. The engine skips the whole LLM stage (settings lookup, typing action) when
+    * it cannot, as the `noop` default.
+    */
+  def answers: Boolean = true
+
   /** @param msg
     *   the directed message to answer
     * @param candidates
@@ -19,12 +24,31 @@ trait LlmResponder[F[_]] {
     *   the reply, or none when the responder does not answer (disabled, rate limited, failed)
     */
   def respond(msg: Message, candidates: List[ReplyBundleMessage]): F[Option[Reply]]
+
+  /** The engine hands over every plain message once it is handled, after [[respond]] if the LLM was asked, so the
+    * message is not part of its own prompt. What is kept (and whether the chat enabled it) is up to the responder.
+    */
+  def remember(msg: Message)(using Applicative[F]): F[Unit] = {
+    val _ = msg
+    ().pure[F]
+  }
+
+  /** The engine hands over the reply the LLM stage sent (after [[remember]] of the message it answers), with the
+    * candidates it was offered, so a reused reply can be remembered by what it is, not as media.
+    */
+  def rememberAnswer(msg: Message, reply: Reply, candidates: List[ReplyBundleMessage])(using
+      Applicative[F]
+  ): F[Unit] = {
+    val _ = (msg, reply, candidates)
+    ().pure[F]
+  }
 }
 
 object LlmResponder {
 
   /** Never answers: the behavior of a bot with the feature unconfigured. */
   def noop[F[_]: Applicative]: LlmResponder[F] = new LlmResponder[F] {
+    override val answers: Boolean                                                              = false
     override def respond(msg: Message, candidates: List[ReplyBundleMessage]): F[Option[Reply]] =
       none[Reply].pure[F]
   }

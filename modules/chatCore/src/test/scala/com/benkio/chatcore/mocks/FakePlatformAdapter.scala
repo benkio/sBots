@@ -27,7 +27,8 @@ final class FakePlatformAdapter private (
     effectfulValue: ReplyValue,
     val sent: Ref[IO, List[FakePlatformAdapter.Sent]],
     val touchedPrompts: Ref[IO, List[SubscriptionFlowKey]],
-    val clearedPrompts: Ref[IO, List[SubscriptionFlowKey]]
+    val clearedPrompts: Ref[IO, List[SubscriptionFlowKey]],
+    val typings: Ref[IO, Int]
 ) extends PlatformAdapter[IO] {
 
   def onInbound(onMessage: Message => IO[Unit]): IO[Unit] = handler.set(Some(onMessage))
@@ -44,6 +45,8 @@ final class FakePlatformAdapter private (
 
   override def clearFlowPrompt(key: SubscriptionFlowKey)(using Applicative[IO]): IO[Unit] =
     clearedPrompts.update(_ :+ key)
+
+  override def sendTyping(message: Message)(using Applicative[IO]): IO[Unit] = typings.update(_ + 1)
 
   override def send(replyValue: ReplyValue, message: Message, replyToMessage: Boolean): IO[Unit] =
     sent.update(_ :+ FakePlatformAdapter.Sent(replyValue, message, replyToMessage))
@@ -83,5 +86,15 @@ object FakePlatformAdapter {
     sent           <- Ref.of[IO, List[Sent]](List.empty)
     touchedPrompts <- Ref.of[IO, List[SubscriptionFlowKey]](List.empty)
     clearedPrompts <- Ref.of[IO, List[SubscriptionFlowKey]](List.empty)
-  } yield new FakePlatformAdapter(capabilities, inbound, handler, effectfulValue, sent, touchedPrompts, clearedPrompts)
+    typings        <- Ref.of[IO, Int](0)
+  } yield new FakePlatformAdapter(
+    capabilities,
+    inbound,
+    handler,
+    effectfulValue,
+    sent,
+    touchedPrompts,
+    clearedPrompts,
+    typings
+  )
 }

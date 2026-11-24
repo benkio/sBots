@@ -8,7 +8,7 @@ import cats.MonadThrow
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.initialization.BotCoreSetup
 import com.benkio.chatcore.initialization.DBConfig
-import com.benkio.chatcore.llm.LlmSettings
+import com.benkio.chatcore.llm.LlmWiring
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceFile
 import com.benkio.chatcore.model.reply.Document
 import com.benkio.chatcore.repository.db.DBLayer
@@ -106,13 +106,13 @@ object BotSetup {
       sBotConfig: SBotConfig,
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       opsChatId: Long,
-      llmSettingsFactory: Option[LlmSettings.Factory[F]] = None
+      llmWiring: Option[LlmWiring[F]] = None
   )(using log: LogWriter[F]): Resource[F, BotSetup[F]] = {
 
     val resourceRepository = ResourcesRepository.fromResources[F]()
     for {
       tk   <- token[F](sBotConfig.token, resourceRepository)
-      core <- BotCoreSetup[F](httpClient, sBotConfig, llmSettingsFactory)
+      core <- BotCoreSetup[F](httpClient, sBotConfig, llmWiring)
       jsonDataRepository  = core.jsonDataRepository
       dbLayer             = core.dbLayer
       repository          = core.repository

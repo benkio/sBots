@@ -32,7 +32,7 @@ object DiscordPlatformRuntime extends PlatformRuntime {
               commandEffectfulCallback = entry.commandEffectfulCallback,
               gatewayConfig = mainSetup.discord,
               notifier = Notifier.logging[IO],
-              llmSettingsFactory = Some(mainSetup.llmSettingsFactory)
+              llmWiring = Some(mainSetup.llmWiring)
             )
         )
       )
