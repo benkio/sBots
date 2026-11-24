@@ -107,7 +107,11 @@ object LlmObserver {
           case LlmOutcome.Completed(c, decision, reuseOffered) =>
             val (action, reused) = LlmInteraction.actionOf(decision, reuseOffered)
             base.copy(
-              model = LlmInteraction.responsibleProvider(c).flatMap(modelOf).getOrElse("-"),
+              // the model the provider says it used (the free router picks one per request), else the configured one
+              model = LlmInteraction
+                .servedModel(c)
+                .orElse(LlmInteraction.responsibleProvider(c).flatMap(modelOf))
+                .getOrElse("-"),
               responseTokens =
                 c.raw.fold(LlmInteraction.replyText(c.reply))(r => LlmInteraction.estimateTokens(r.text)),
               status = c.status.toString.toLowerCase,

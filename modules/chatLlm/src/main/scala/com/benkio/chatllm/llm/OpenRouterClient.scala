@@ -24,6 +24,20 @@ object OpenRouterClient {
   def modelFor(connection: ProviderConnection): String =
     connection.model.map(_.trim).filter(_.nonEmpty).getOrElse(DefaultModel)
 
+  /** Free models are the free router and the ids ending in `:free`. */
+  def isFree(model: String): Boolean = model == DefaultModel || model.endsWith(":free")
+
+  /** A configured model that is not free: it is allowed (it is the operator's choice) but it bills every fallback call,
+    * and an old `OPENROUTER_MODEL` left in a deployment would do so unnoticed, so startup warns about it.
+    */
+  def paidModelWarning(connection: ProviderConnection): Option[String] = {
+    val model = modelFor(connection)
+    Option.when(!isFree(model))(
+      s"[Main] llm: the OpenRouter model '$model' is not a free model (no ':free' suffix): every fallback call may be billed. " +
+        "Leave openrouter.model / OPENROUTER_MODEL empty to use openrouter/free"
+    )
+  }
+
   def apply[F[_]: Concurrent](
       client: Client[F],
       connection: ProviderConnection,
@@ -44,7 +58,7 @@ object OpenRouterClient {
     override val provider: LlmProvider = LlmProvider.OpenRouter
 
     override def generate(value: String): F[ProviderResponse] =
-      ProviderHttp.post(client, buildRequest(uri, value), extractText)
+      ProviderHttp.post(client, buildRequest(uri, value), extractText, extractModel)
 
     /** The reply text of OpenRouter lives at `choices[0].message.content`. */
     private val extractText: Json => Option[String] = json =>
@@ -54,6 +68,11 @@ object OpenRouterClient {
         message <- choice.asObject.flatMap(_("message"))
         content <- message.asObject.flatMap(_("content")).flatMap(_.asString)
       } yield content
+
+    /** OpenRouter reports the model that served the request at the top level `model`: with the free router it is the
+      * one the router picked.
+      */
+    private val extractModel: Json => Option[String] = json => json.asObject.flatMap(_("model")).flatMap(_.asString)
 
     private def buildRequest(uri: Uri, value: String): Request[F] = {
       val body = Json.obj(

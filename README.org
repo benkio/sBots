@@ -295,7 +295,10 @@ editing the file.
   its context window and speed are not under our control and may be smaller or slower than ~LLM_TIMEOUT~ allows with a large
   persona. There is one input limit for both providers (a per-provider limit is not implemented), so keep the persona small
   enough for the smallest free model you can tolerate, or set ~OPENROUTER_MODEL~ to a model with at least that window. A model
-  without the ~:free~ suffix is *paid*. Free models may also log prompts (see the privacy notes above).
+  without the ~:free~ suffix is *paid*: startup logs a warning for it, because an old ~OPENROUTER_MODEL~ left in a deployment would
+  bill every fallback call. The router may also choose a model that lacks a feature the request uses (the request asks for JSON
+  output): a refused request shows as ~failure=rejected~, so watch it in the dashboard after a rollout. Free models may also log
+  prompts (see the privacy notes above).
 - *The timeout is one value used twice.* ~LLM_TIMEOUT~ bounds each provider call and, in the engine, the whole LLM answer. A
   primary that /times out/ therefore leaves no time for the fallback within the same message: the fallback helps for
   fast failures (a 429, a 5xx, a malformed or rejected reply), not for a slow primary. A timeout still spends the quota of

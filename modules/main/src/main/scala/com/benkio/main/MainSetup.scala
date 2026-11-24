@@ -2,6 +2,7 @@ package com.benkio.main
 
 import cats.effect.Async
 import cats.effect.Resource
+import cats.syntax.foldable.*
 import com.benkio.chatcore.llm.LlmWiring
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.Notifier
@@ -10,6 +11,7 @@ import com.benkio.chatircadapter.connection.IrcConfig
 import com.benkio.chatllm.llm.LlmClientApi
 import com.benkio.chatllm.llm.LlmClients
 import com.benkio.chatllm.llm.LlmConfig
+import com.benkio.chatllm.llm.OpenRouterClient
 import com.benkio.chatllm.ChatLlm
 import com.benkio.chatllm.LlmContextCleanup
 import cron4s.CronExpr
@@ -57,6 +59,7 @@ object MainSetup {
       LlmClients.build[F](httpClient, config.llm, Notifier.logging[F])
     )
     _ <- Resource.eval(log.info("[Main] llmClient"))
+    _ <- Resource.eval(OpenRouterClient.paidModelWarning(config.llm.openrouter).traverse_(w => log.warn(w)))
     // The same database is shared by the bots; the cleanup job works on the whole llm_context table.
     llmTransactor = Transactor.fromDriverManager[F](
       config.mainDB.driver,

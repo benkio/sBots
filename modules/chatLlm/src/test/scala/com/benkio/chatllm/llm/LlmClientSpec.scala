@@ -426,6 +426,17 @@ class LlmClientSpec extends CatsEffectSuite {
     }
   }
 
+  test("the model OpenRouter reports as the one that served the request is kept with the raw text") {
+    val body   = openRouterSuccess("ciao").deepMerge(Json.obj("model" -> Json.fromString("vendor/picked:free")))
+    val client = Client.fromHttpApp(HttpApp[IO](_ => IO.pure(Response[IO](Status.Ok).withEntity(body))))
+    LlmClients.build[IO](client, config("", "primary-provider = openrouter\n")).flatMap(_.complete(prompt)).map {
+      completion =>
+        assertEquals(completion.status, CompletionStatus.Answered)
+        assertEquals(completion.raw.flatMap(_.model), Some("vendor/picked:free"))
+        assertEquals(completion.raw.map(_.provider), Some(LlmProvider.OpenRouter))
+    }
+  }
+
   test("a 429 from OpenRouter primary falls back to Gemini") {
     val hosts  = ListBuffer.empty[String]
     val bodies = ListBuffer.empty[String]
@@ -728,5 +739,16 @@ class LlmClientSpec extends CatsEffectSuite {
     assertEquals(OpenRouterClient.modelFor(conn(Some(""))), "openrouter/free")
     assertEquals(OpenRouterClient.modelFor(conn(Some("   "))), "openrouter/free")
     assertEquals(OpenRouterClient.modelFor(conn(Some(" vendor/model:free "))), "vendor/model:free")
+  }
+
+  test("a configured model that is not free is reported at startup, the free ones are not") {
+    def warn(model: Option[String]) =
+      OpenRouterClient.paidModelWarning(ProviderConnection(endpoint = "https://o.example", model = model))
+    assertEquals(warn(None), None)
+    assertEquals(warn(Some("")), None)
+    assertEquals(warn(Some("openrouter/free")), None)
+    assertEquals(warn(Some("vendor/model:free")), None)
+    assert(warn(Some("google/gemini-2.5-flash")).exists(_.contains("google/gemini-2.5-flash")))
+    assert(warn(Some("vendor/model:free-ish")).isDefined)
   }
 }
