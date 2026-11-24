@@ -14,6 +14,20 @@ import org.typelevel.ci.CIString
 /** Gemini implementation of [[LlmProviderClientApi]], over the same http4s client used by the rest of the project. */
 object GeminiClient {
 
+  /** The output contract asked of the model: `action` is required, `text` and `replyId` depend on the action. */
+  private[llm] val responseSchema: Json = Json.obj(
+    "type"       -> Json.fromString("OBJECT"),
+    "properties" -> Json.obj(
+      "text"   -> Json.obj("type" -> Json.fromString("STRING")),
+      "action" -> Json.obj(
+        "type" -> Json.fromString("STRING"),
+        "enum" -> Json.arr(Json.fromString("text"), Json.fromString("reuse"), Json.fromString("silent"))
+      ),
+      "replyId" -> Json.obj("type" -> Json.fromString("STRING"))
+    ),
+    "required" -> Json.arr(Json.fromString("action"))
+  )
+
   def apply[F[_]: Concurrent](
       client: Client[F],
       connection: ProviderConnection,
@@ -56,12 +70,8 @@ object GeminiClient {
         ),
         "generationConfig" -> Json.obj(
           "responseMimeType" -> Json.fromString("application/json"),
-          "responseSchema"   -> Json.obj(
-            "type"       -> Json.fromString("OBJECT"),
-            "properties" -> Json.obj("text" -> Json.obj("type" -> Json.fromString("STRING"))),
-            "required"   -> Json.arr(Json.fromString("text"))
-          ),
-          "maxOutputTokens" -> Json.fromInt(maxOutputTokens)
+          "responseSchema"   -> responseSchema,
+          "maxOutputTokens"  -> Json.fromInt(maxOutputTokens)
         )
       )
 

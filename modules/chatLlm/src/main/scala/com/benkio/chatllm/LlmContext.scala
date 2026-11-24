@@ -49,7 +49,16 @@ object LlmContext {
   def apply[F[_]: Async](settings: LlmSettings[F], store: LlmContextStore[F], config: LlmContextConfig)(using
       log: LogWriter[F]
   ): LlmContext[F] =
-    new LlmContextImpl[F](settings, store, config)
+    apply(settings = settings, store = store, config = config, now = Async[F].realTimeInstant.map(_.getEpochSecond))
+
+  /** With an explicit clock (epoch second), so a test can fix the TTL cutoff. */
+  def apply[F[_]: Async](
+      settings: LlmSettings[F],
+      store: LlmContextStore[F],
+      config: LlmContextConfig,
+      now: F[Long]
+  )(using log: LogWriter[F]): LlmContext[F] =
+    new LlmContextImpl[F](settings, store, config, now)
 
   /** The same estimate the input limit uses in `LimitedLlmClient`: four characters per token. */
   private[chatllm] def estimateTokens(content: String): Int =
@@ -58,14 +67,16 @@ object LlmContext {
   private final class LlmContextImpl[F[_]: Async](
       settings: LlmSettings[F],
       store: LlmContextStore[F],
-      config: LlmContextConfig
+      config: LlmContextConfig,
+      now: F[Long]
   )(using log: LogWriter[F])
       extends LlmContext[F] {
 
     override def remember(msg: Message, botId: SBotId): F[Boolean] =
       enabled(msg.chatId).ifM(
         store
-          .append(msg.chatId, botId, LlmContextRole.User, msg.anonymisedContent(config.authorSalt.value))
+          .append(msg.chatId, botId, LlmContextRole.User, capped(msg.anonymisedContent(config.authorSalt.value)))
+          .productR(store.trim(msg.chatId, botId, config.retainedMessages))
           .as(true),
         log.debug(s"[LlmContext] ${msg.chatId} is disabled: message not remembered").as(false)
       )
@@ -73,13 +84,14 @@ object LlmContext {
     override def rememberAssistant(chatId: ChatId, botId: SBotId, content: String): F[Boolean] =
       enabled(chatId).ifM(
         store
-          .append(chatId, botId, LlmContextRole.Assistant, s"assistant: ${Message.singleLine(content)}")
+          .append(chatId, botId, LlmContextRole.Assistant, capped(s"assistant: ${Message.singleLine(content)}"))
+          .productR(store.trim(chatId, botId, config.retainedMessages))
           .as(true),
         log.debug(s"[LlmContext] $chatId is disabled: answer not remembered").as(false)
       )
 
     override def window(chatId: ChatId, botId: SBotId): F[List[LlmContextMessage]] =
-      store.recent(chatId, botId, config.maxMessages).map { chronological =>
+      now.flatMap(at => store.recent(chatId, botId, config.maxMessages, config.cutoff(at))).map { chronological =>
         val newestFirst = chronological.reverse
         // The prompt joins the window with newlines: estimate each candidate on that rendered prefix, so the
         // separators count towards the budget. Selection stays newest-first.
@@ -97,7 +109,12 @@ object LlmContext {
       window(chatId, botId).map(_.map(_.content).mkString("\n"))
 
     override def deleteExpired(nowEpochSecond: Long): F[Int] =
-      store.deleteOlderThan(nowEpochSecond - config.ttl.toSeconds)
+      store.deleteOlderThan(config.cutoff(nowEpochSecond))
+
+    /** A long paste is cut when stored (in UTF-16 chars, like the window's estimate), so it can never fill the window
+      * on its own.
+      */
+    private def capped(content: String): String = Truncate.utf16(content, config.maxMessageChars)
 
     private def enabled(chatId: ChatId): F[Boolean] =
       settings.status(chatId).map(_.enabled)

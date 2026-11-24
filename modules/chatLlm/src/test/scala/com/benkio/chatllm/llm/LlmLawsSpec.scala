@@ -12,7 +12,7 @@ class LlmLawsSpec extends ScalaCheckSuite {
 
   private val responseGen: Gen[ProviderResponse] =
     Gen.oneOf(
-      Gen.alphaStr.map(text => ProviderResponse.success(LlmReply(text))),
+      Gen.alphaStr.map(text => ProviderResponse.success(LlmReply(text, LlmAction.Text))),
       Gen.const(ProviderResponse.rateLimited),
       Gen.const(ProviderResponse.serverError),
       Gen.const(ProviderResponse.timeout),

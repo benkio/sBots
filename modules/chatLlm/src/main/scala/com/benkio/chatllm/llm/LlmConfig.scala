@@ -1,6 +1,7 @@
 package com.benkio.chatllm.llm
 
 import cats.effect.Async
+import com.benkio.chatllm.prompt.PromptBudget
 import pureconfig.*
 
 import scala.concurrent.duration.*
@@ -45,6 +46,21 @@ final case class LlmContextConfig(
     authorSalt: Sensitive = Sensitive(LlmContextConfig.publicExampleSalt)
 ) derives ConfigReader {
 
+  /** The epoch second before which a message is expired: the single definition used by the cleanup, the window and
+    * `deleteExpired`.
+    */
+  def cutoff(nowEpochSecond: Long): Long = nowEpochSecond - ttl.toSeconds
+
+  /** The rows kept per chat and bot: older ones are trimmed on write, so the table cannot grow without bound inside the
+    * TTL. Far above the window, so the trim never shortens what a prompt can use.
+    */
+  def retainedMessages: Int = maxMessages * LlmContextConfig.retentionFactor
+
+  /** The longest stored message, in characters: the whole token budget, so the newest message alone can never exceed
+    * the window and erase it (a message is cut, not dropped).
+    */
+  def maxMessageChars: Int = math.max(1, maxTokens * 4)
+
   // The salt is a secret: knowing it would let anyone with source or log access brute-force the sender hashes back to
   // ids. It must come from the deployment, never from a shipped default.
   override def toString: String =
@@ -64,6 +80,7 @@ final case class LlmConfig(
 
 object LlmContextConfig {
 
+  val retentionFactor: Int       = 10
   val defaultMaxMessages: Int    = 20
   val defaultMaxTokens: Int      = 2048
   val defaultTtl: FiniteDuration = 7.days
@@ -79,6 +96,11 @@ object LlmContextConfig {
       if config.maxMessages <= 0 then Some("llm.context.max-messages must be positive") else None,
       if config.maxTokens <= 0 then Some("llm.context.max-tokens must be positive") else None,
       if config.maxTokens > maxInputTokens then Some("llm.context.max-tokens must not exceed llm.max-input-tokens")
+      else None,
+      if PromptBudget.personaMaxBytes(maxInputTokens, config.maxTokens) <= 0 then Some(
+        "llm.max-input-tokens leaves no room for a persona next to the template, the catalogue, the message and " +
+          "llm.context.max-tokens: raise llm.max-input-tokens or lower llm.context.max-tokens"
+      )
       else None,
       if config.ttl < 1.second then Some("llm.context.ttl must be at least one second")
       else None,
@@ -97,7 +119,7 @@ object LlmContextConfig {
 object LlmConfig {
 
   val defaultTimeout: FiniteDuration = 10.seconds
-  val defaultMaxInputTokens: Int     = 4096
+  val defaultMaxInputTokens: Int     = 18432
   val defaultMaxOutputTokens: Int    = 512
   val defaultMaxPerMinute: Int       = 20
   val defaultMaxPerDay: Int          = 50

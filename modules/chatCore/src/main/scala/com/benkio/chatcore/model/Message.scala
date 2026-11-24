@@ -4,6 +4,7 @@ import com.benkio.chatcore.model.SBotInfo.SBotName
 
 import java.security.MessageDigest
 import java.util.regex.Pattern
+import scala.util.matching.Regex
 
 /** Someone named in the text of a message with a mention: by the platform id and/or by the name (Telegram username,
   * Discord username, IRC nick), whichever the platform gives. `text` is the exact visible span the platform marked as a
@@ -40,7 +41,8 @@ final case class Message(
     botAdded: Boolean = false,               // the bot itself is among the joined members
     leftChatMember: Option[User] = None,
     isForward: Boolean = false,
-    authorId: Option[String] = None,        // who wrote it, when the platform says (Discord): the id of the user
+    authorId: Option[String] =
+      None, // who wrote it, when the platform says: the id of the user (Discord, Telegram) or the nick (IRC)
     mentions: List[Mention] = List.empty,   // who the text mentions
     replyTo: Option[RepliedMessage] = None, // the message this one replies to
     quote: Option[String] = None            // the part of the replied message that is quoted
@@ -79,7 +81,10 @@ final case class Message(
 
 object Message {
 
-  private val atMention      = "@[A-Za-z0-9_.-]+".r
+  // An email address (local part, `@`, a domain with at least one dot) is matched first so it is kept whole; any other
+  // `@nick` is a mention, also when a word character precedes it (`ciao@mario`), since a nick has no dotted domain.
+  private val emailOrMention =
+    "[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\\.[A-Za-z0-9-]+)+|@[A-Za-z0-9_.-]+".r
   private val discordMention = "<@!?\\d+>".r
   private val anonymousUser  = "@user"
 
@@ -95,7 +100,10 @@ object Message {
     val withoutNames = named.foldLeft(withoutSpans) { (text, name) =>
       text.replaceAll(s"(?i)(?<!\\w)@?${Pattern.quote(name)}(?!\\w)", anonymousUser)
     }
-    atMention.replaceAllIn(discordMention.replaceAllIn(withoutNames, anonymousUser), anonymousUser)
+    emailOrMention.replaceAllIn(
+      discordMention.replaceAllIn(withoutNames, anonymousUser),
+      m => Regex.quoteReplacement(if m.matched.startsWith("@") then anonymousUser else m.matched)
+    )
   }
 
   /** Characters that can start a new line in a prompt. Besides CR and LF, this includes the Unicode separators that

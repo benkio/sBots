@@ -7,6 +7,7 @@ import com.benkio.chatcore.model.reply.MediaFile
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.Notifier
+import com.benkio.chatllm.prompt.PromptBudget
 import munit.CatsEffectSuite
 import pureconfig.ConfigSource
 
@@ -61,7 +62,7 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
       prompt = prompt,
       primaryProvider = LlmProvider.Gemini,
       status = CompletionStatus.Answered,
-      reply = Some(LlmReply("ok")),
+      reply = Some(LlmReply("ok", LlmAction.Text)),
       attempts = List(ProviderAttempt(LlmProvider.Gemini, Some(ProviderResult.Success)))
     )
 
@@ -100,7 +101,7 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
   test("the default config has a timeout, token limits and per-provider quotas") {
     val cfg = config("")
     assertEquals(cfg.timeout, 10.seconds)
-    assertEquals(cfg.maxInputTokens, 4096)
+    assertEquals(cfg.maxInputTokens, 18432)
     assertEquals(cfg.maxOutputTokens, 512)
     assertEquals(cfg.gemini.quota, LlmBudgetConfig(20, 50))
     assertEquals(cfg.openrouter.quota, LlmBudgetConfig(20, 50))
@@ -167,7 +168,28 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
     }
   }
 
-  test("a prompt beyond the input limit fails without a provider call or an ops message") {
+  test("the default limits leave room for a persona, a small input limit does not") {
+    assert(
+      PromptBudget.personaMaxBytes(LlmConfig.defaultMaxInputTokens, LlmContextConfig.defaultMaxTokens) >= 24 * 1024
+    )
+    val tooSmall = config("max-input-tokens = 4096\ncontext.max-tokens = 2048")
+    assert(LlmConfig.validate(tooSmall).left.exists(_.contains("room for a persona")))
+  }
+
+  test("the oversized notice is not repeated by a normal prompt in between") {
+    val cfg = config("max-input-tokens = 8")
+    for {
+      calls    <- Ref.of[IO, Int](0)
+      notifier <- NotifierMock.recording
+      client   <- build(calls = calls, cfg = cfg, notifier = notifier)
+      _        <- client.complete("a" * 100)
+      _        <- client.complete("ok")
+      _        <- client.complete("b" * 100)
+      infos    <- notifier.infos.get
+    } yield assertEquals(infos.size, 1)
+  }
+
+  test("a prompt beyond the input limit fails without a provider call and notifies the operators once") {
     val cfg = config("max-input-tokens = 2")
     for {
       calls    <- Ref.of[IO, Int](0)
@@ -183,7 +205,32 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
       // the refused prompt did not consume a quota slot: the next completion still reaches the provider
       assertEquals(next.status, CompletionStatus.Answered)
       assertEquals(count, 1)
-      assertEquals(infos, Nil)
+      // one ops message tells the operators the prompt does not fit, and it is not repeated
+      assertEquals(infos.size, 1)
+      assert(infos.head.toString.contains("exceeds the input limit"))
+    }
+  }
+
+  test("a rejecting provider is reported once until it answers again") {
+    val rejected = Completion(
+      prompt = prompt,
+      primaryProvider = LlmProvider.Gemini,
+      status = CompletionStatus.Failed,
+      reply = None,
+      attempts = List(ProviderAttempt(LlmProvider.Gemini, Some(ProviderResult.Rejected)))
+    )
+    val rejecting = new LlmClientApi[IO] {
+      def complete(prompt: String): IO[Completion] = IO.pure(rejected)
+    }
+    for {
+      notifier <- NotifierMock.recording
+      client   <- build(underlying = rejecting, cfg = config(""), notifier = notifier)
+      _        <- client.complete(prompt)
+      _        <- client.complete(prompt)
+      infos    <- notifier.infos.get
+    } yield {
+      assertEquals(infos.size, 1)
+      assert(infos.head.toString.contains("rejected the request"))
     }
   }
 

@@ -23,8 +23,25 @@ object LlmProvider {
     }
 }
 
-/** The structured reply of a provider: only the text is consumed so far. */
-final case class LlmReply(text: String)
+/** The structured reply of a provider. `action` is required on the wire; `text` and `replyId` are the optional fields
+  * of the output contract of the prompt builder (#1491); `text` is empty (set by `StructuredReply` when the field is
+  * absent) for the other actions.
+  */
+final case class LlmReply(text: String, action: LlmAction, replyId: Option[String] = None)
+
+/** The `action` of the output contract. A value outside these is rejected when the provider reply is parsed. */
+enum LlmAction {
+  case Text, Reuse, Silent
+}
+
+object LlmAction {
+  def parse(raw: String): Option[LlmAction] = raw.trim.toLowerCase match {
+    case "text"   => Some(Text)
+    case "reuse"  => Some(Reuse)
+    case "silent" => Some(Silent)
+    case _        => None
+  }
+}
 
 /** The outcome of one provider call. These are all singleton cases, so they can be compared and enumerated. A timeout
   * is a result rather than an exception so the attempts that led to it are kept in the completion.
@@ -110,9 +127,10 @@ object Completion {
 
   /** Applies the rules of `llm.allium` to a provider response. Responses for a terminal completion are ignored.
     *
-    * A rate limit, server error or timeout is retried only when it comes from the primary provider and the fallback has
-    * not been attempted yet: this creates the fallback attempt and keeps the completion pending. The same result from
-    * the fallback (or any other non-retryable result) fails the completion.
+    * A rate limit, server error, timeout, malformed reply or rejection (a revoked key, a removed model) is retried only
+    * when it comes from the primary provider and the fallback has not been attempted yet: this creates the fallback
+    * attempt and keeps the completion pending. The same result from the fallback (or any other non-retryable result)
+    * fails the completion.
     */
   def acceptResponse(
       completion: Completion,
@@ -135,9 +153,8 @@ object Completion {
         case ProviderResult.Success =>
           // A success without a reply is not a structured reply: it fails the completion.
           completion.copy(status = CompletionStatus.Failed, attempts = withResult)
-        case ProviderResult.MalformedJson | ProviderResult.Rejected =>
-          completion.copy(status = CompletionStatus.Failed, attempts = withResult)
-        case ProviderResult.RateLimited | ProviderResult.ServerError | ProviderResult.Timeout =>
+        case ProviderResult.RateLimited | ProviderResult.ServerError | ProviderResult.Timeout |
+            ProviderResult.MalformedJson | ProviderResult.Rejected =>
           val providerHasAttempt = withResult.exists(_.provider == provider)
           if provider == completion.primaryProvider && !withResult.exists(_.provider == completion.fallbackProvider)
           then
