@@ -437,6 +437,25 @@ class LlmClientSpec extends CatsEffectSuite {
     }
   }
 
+  test("the model of Gemini's response is kept, and a very long reported model is capped") {
+    val gemini = geminiSuccess("ciao").deepMerge(Json.obj("modelVersion" -> Json.fromString("gemini-2.5-flash")))
+    val long   = openRouterSuccess("ciao").deepMerge(Json.obj("model" -> Json.fromString("m" * 500)))
+    def answer(body: Json, primary: String) =
+      LlmClients
+        .build[IO](
+          Client.fromHttpApp(HttpApp[IO](_ => IO.pure(Response[IO](Status.Ok).withEntity(body)))),
+          config("", s"primary-provider = $primary\n")
+        )
+        .flatMap(_.complete(prompt))
+    for {
+      g <- answer(gemini, "gemini")
+      o <- answer(long, "openrouter")
+    } yield {
+      assertEquals(g.raw.flatMap(_.model), Some("gemini-2.5-flash"))
+      assertEquals(o.raw.flatMap(_.model).map(_.length), Some(ProviderHttp.MaxModelChars))
+    }
+  }
+
   test("a 429 from OpenRouter primary falls back to Gemini") {
     val hosts  = ListBuffer.empty[String]
     val bodies = ListBuffer.empty[String]

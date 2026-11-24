@@ -68,8 +68,9 @@ object, so it needs no regexp. Keep the keys stable (the LLM row of the dashboar
  "attempts":"gemini:ratelimited,openrouter:success","fallback":true,"parsed":true,"stripped":false,"local_rejection":"<reason>"}
 ```
 
-- `model` is the model the provider reported for the request (OpenRouter reports the one the free router picked), else the
-  configured model of the provider (`openrouter/free` by default; Gemini has none configured, so `-`).
+- `model` is the model the provider reported for the request (OpenRouter reports the one the free router picked, Gemini its
+  `modelVersion`; capped at 100 characters), else the configured model of the provider (`openrouter/free` by default for
+  OpenRouter). With the free router `model` has many values over time: do not chart it with an unbounded `by (model)`.
 - `chat` is a salted hash (`llm.context.author-salt`), never the chat id. The line holds no chat content.
 - Tokens are estimates (4 characters per token): the providers report no usage through the client boundary.
 - `status`: `answered`, `failed`, `silent` (quota), `pending`, `error` (the client call threw) or `cancelled` (the call was

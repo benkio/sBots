@@ -12,6 +12,9 @@ import org.http4s.Uri
 
 private[llm] object ProviderHttp {
 
+  /** The longest model name kept from a provider response. */
+  val MaxModelChars: Int = 100
+
   def parseUri[F[_]: Concurrent](endpoint: String, hasApiKey: Boolean): F[Uri] =
     Concurrent[F].fromEither(
       Uri
@@ -51,7 +54,8 @@ private[llm] object ProviderHttp {
               case Left(_) =>
                 Concurrent[F].pure(ProviderResponse.malformedJson)
               case Right(json) =>
-                val served = extractModel(json).map(_.trim).filter(_.nonEmpty)
+                // untrusted and unbounded: capped, so a log line and a panel grouped by model stay small
+                val served = extractModel(json).map(_.trim.take(MaxModelChars)).filter(_.nonEmpty)
                 extractText(json)
                   .fold(ProviderResponse.malformedJson) { raw =>
                     StructuredReply
