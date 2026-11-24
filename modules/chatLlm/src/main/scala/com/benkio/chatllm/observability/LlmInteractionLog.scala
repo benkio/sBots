@@ -1,9 +1,9 @@
 package com.benkio.chatllm.observability
 
 /** The `[llm]` line of an interaction, in the `logfmt` style of the `[stats]` lines (`docs/monitoring.md`): it travels
-  * through the Mon pipeline to Loki and is read with the `regexp` parser. Keep the keys stable: the dashboard depends on
-  * them. New keys are appended at the end. A key is always present, `-` meaning "no value", so a regexp can rely on the
-  * order.
+  * through the Mon pipeline to Loki and is read with the `regexp` parser. Keep the keys stable: the dashboard depends
+  * on them. New keys are appended at the end. A key is always present, `-` meaning "no value", so a regexp can rely on
+  * the order.
   */
 object LlmInteractionLog {
 

@@ -57,7 +57,7 @@ class LlmObservabilitySpec extends CatsEffectSuite {
         "salt",
         { case LlmProvider.Gemini => Some("gemini-x"); case LlmProvider.OpenRouter => Some("or-y") }
       )
-      builder = PromptBuilder(500).fold(e => fail(e), identity)
+      builder   = PromptBuilder(500).fold(e => fail(e), identity)
       responder = new ChatLlmResponder[IO](
         client = new LlmClientApi[IO] { def complete(prompt: String): IO[Completion] = IO.pure(answer) },
         context = context,
@@ -103,7 +103,12 @@ class LlmObservabilitySpec extends CatsEffectSuite {
   test("the trace is stored with the full prompt and the raw response when enabled") {
     val raw = "```json\n{\"action\":\"text\",\"text\":\"Ciao!\"}\n```"
     run(
-      completion(status = CompletionStatus.Answered, reply = Some(LlmReply("Ciao!", com.benkio.chatllm.llm.LlmAction.Text)), attempts = ok, raw = Some(RawResponse(LlmProvider.Gemini, raw, stripped = true))),
+      completion(
+        status = CompletionStatus.Answered,
+        reply = Some(LlmReply("Ciao!", com.benkio.chatllm.llm.LlmAction.Text)),
+        attempts = ok,
+        raw = Some(RawResponse(LlmProvider.Gemini, raw, stripped = true))
+      ),
       traceEnabled = true
     ).map { stored =>
       assertEquals(stored.size, 1)
@@ -117,7 +122,11 @@ class LlmObservabilitySpec extends CatsEffectSuite {
 
   test("nothing is stored when the trace is off") {
     run(
-      completion(status = CompletionStatus.Answered, reply = Some(LlmReply("Ciao!", com.benkio.chatllm.llm.LlmAction.Text)), attempts = ok),
+      completion(
+        status = CompletionStatus.Answered,
+        reply = Some(LlmReply("Ciao!", com.benkio.chatllm.llm.LlmAction.Text)),
+        attempts = ok
+      ),
       traceEnabled = false
     ).map(stored => assertEquals(stored, Nil))
   }
@@ -126,10 +135,21 @@ class LlmObservabilitySpec extends CatsEffectSuite {
     val text = Some(LlmReply("/start", com.benkio.chatllm.llm.LlmAction.Text))
     def reason(c: Completion, d: LlmDecision, offered: Boolean = false) = LlmInteraction.failureOf(c, d, offered)
     assertEquals(
-      reason(c = completion(status = CompletionStatus.Failed, reply = None, attempts = Nil, rejection = Some(LocalRejection.OversizedPrompt)), d = LlmDecision.Silent),
+      reason(
+        c = completion(
+          status = CompletionStatus.Failed,
+          reply = None,
+          attempts = Nil,
+          rejection = Some(LocalRejection.OversizedPrompt)
+        ),
+        d = LlmDecision.Silent
+      ),
       Some("oversized_prompt")
     )
-    assertEquals(reason(c = completion(status = CompletionStatus.Silent, reply = None, attempts = Nil), d = LlmDecision.Silent), Some("quota_exhausted"))
+    assertEquals(
+      reason(c = completion(status = CompletionStatus.Silent, reply = None, attempts = Nil), d = LlmDecision.Silent),
+      Some("quota_exhausted")
+    )
     assertEquals(
       reason(
         c = completion(
@@ -144,8 +164,17 @@ class LlmObservabilitySpec extends CatsEffectSuite {
       ),
       Some("malformedjson")
     )
-    assertEquals(reason(c = completion(status = CompletionStatus.Answered, reply = text, attempts = ok), d = LlmDecision.Silent), Some("output_rejected"))
-    assertEquals(reason(c = completion(status = CompletionStatus.Answered, reply = text, attempts = ok), d = LlmDecision.Text("x")), None)
+    assertEquals(
+      reason(c = completion(status = CompletionStatus.Answered, reply = text, attempts = ok), d = LlmDecision.Silent),
+      Some("output_rejected")
+    )
+    assertEquals(
+      reason(
+        c = completion(status = CompletionStatus.Answered, reply = text, attempts = ok),
+        d = LlmDecision.Text("x")
+      ),
+      None
+    )
   }
 
   test("a fallback is reported when the other provider was asked") {
@@ -181,7 +210,8 @@ class LlmObservabilitySpec extends CatsEffectSuite {
     assertEquals(LlmInteraction.responsibleProvider(after), Some(LlmProvider.Gemini))
     // without any raw text, the last provider asked is the one reported
     val noRaw = Completion.acceptResponse(
-      Completion.acceptResponse(Completion.started("p", LlmProvider.Gemini), LlmProvider.Gemini, ProviderResponse.timeout),
+      Completion
+        .acceptResponse(Completion.started("p", LlmProvider.Gemini), LlmProvider.Gemini, ProviderResponse.timeout),
       LlmProvider.OpenRouter,
       ProviderResponse.timeout
     )
@@ -192,7 +222,7 @@ class LlmObservabilitySpec extends CatsEffectSuite {
     def observed(answer: Completion): IO[LlmObservation] =
       for {
         seen <- Ref[IO].of(List.empty[LlmObservation])
-        observer = new LlmObserver[IO] { def observe(o: LlmObservation): IO[Unit] = seen.update(_ :+ o) }
+        observer  = new LlmObserver[IO] { def observe(o: LlmObservation): IO[Unit] = seen.update(_ :+ o) }
         responder = new ChatLlmResponder[IO](
           client = new LlmClientApi[IO] { def complete(prompt: String): IO[Completion] = IO.pure(answer) },
           context = context,
@@ -206,7 +236,11 @@ class LlmObservabilitySpec extends CatsEffectSuite {
         all <- seen.get
       } yield all.head
     val reuse = (id: String) =>
-      completion(status = CompletionStatus.Answered, reply = Some(LlmReply("", com.benkio.chatllm.llm.LlmAction.Reuse, Some(id))), attempts = ok)
+      completion(
+        status = CompletionStatus.Answered,
+        reply = Some(LlmReply("", com.benkio.chatllm.llm.LlmAction.Reuse, Some(id))),
+        attempts = ok
+      )
     for {
       offered    <- observed(reuse(ReplyCatalogue.idOf(greeting)))
       notOffered <- observed(reuse("unknown"))
@@ -226,7 +260,12 @@ class LlmObservabilitySpec extends CatsEffectSuite {
       openrouter = ProviderConnection("https://o.example"),
       context = LlmContextConfig(authorSalt = Sensitive("s3cret"))
     )
-    assert(LlmConfig.validate(cfg.copy(trace = LlmTraceConfig(ttl = scala.concurrent.duration.FiniteDuration(0, "seconds")))).left.exists(_.contains("llm.trace.ttl")))
+    assert(
+      LlmConfig
+        .validate(cfg.copy(trace = LlmTraceConfig(ttl = scala.concurrent.duration.FiniteDuration(0, "seconds"))))
+        .left
+        .exists(_.contains("llm.trace.ttl"))
+    )
     assertEquals(LlmConfig.validate(cfg), Right(()))
   }
 }

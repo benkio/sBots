@@ -6,8 +6,8 @@ import doobie.*
 import doobie.implicits.*
 import doobie.util.transactor.Transactor
 
-/** One row of `llm_trace`: the full prompt and raw response of a completion, joined to its `[llm]` log line by the
-  * chat hash, the bot and the time.
+/** One row of `llm_trace`: the full prompt and raw response of a completion, joined to its `[llm]` log line by the chat
+  * hash, the bot and the time.
   */
 final case class LlmTrace(
     createdAt: Long,

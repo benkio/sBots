@@ -44,7 +44,8 @@ final case class LlmInteraction(
 
 object LlmInteraction {
 
-  /** A stable anonymous label of a chat: the salted SHA-256 prefix, the same technique as the anonymous author label. */
+  /** A stable anonymous label of a chat: the salted SHA-256 prefix, the same technique as the anonymous author label.
+    */
   def chatHash(chatId: ChatId, salt: String): String =
     MessageDigest
       .getInstance("SHA-256")
@@ -58,8 +59,8 @@ object LlmInteraction {
   /** The action the responder takes for the decision, and the reply id of a reuse that was really offered. */
   def actionOf(decision: LlmDecision, reusable: Boolean): (ReplyAction, Option[String]) =
     decision match {
-      case LlmDecision.Text(_)                 => (ReplyAction.Text, None)
-      case LlmDecision.Reuse(id) if reusable   => (ReplyAction.Reuse, Some(id))
+      case LlmDecision.Text(_)                       => (ReplyAction.Text, None)
+      case LlmDecision.Reuse(id) if reusable         => (ReplyAction.Reuse, Some(id))
       case LlmDecision.Reuse(_) | LlmDecision.Silent => (ReplyAction.Silent, None)
     }
 
@@ -75,8 +76,8 @@ object LlmInteraction {
           .orElse(Some("failed"))
       case CompletionStatus.Answered =>
         (completion.reply.map(_.action), decision) match {
-          case (Some(com.benkio.chatllm.llm.LlmAction.Text), LlmDecision.Silent)   => Some("output_rejected")
-          case (Some(com.benkio.chatllm.llm.LlmAction.Reuse), LlmDecision.Silent)  => Some("reuse_without_id")
+          case (Some(com.benkio.chatllm.llm.LlmAction.Text), LlmDecision.Silent)  => Some("output_rejected")
+          case (Some(com.benkio.chatllm.llm.LlmAction.Reuse), LlmDecision.Silent) => Some("reuse_without_id")
           case (Some(com.benkio.chatllm.llm.LlmAction.Reuse), LlmDecision.Reuse(_)) if !reuseOffered =>
             Some("reuse_not_offered")
           case _ => None
