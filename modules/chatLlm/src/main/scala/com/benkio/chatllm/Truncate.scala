@@ -1,7 +1,7 @@
 package com.benkio.chatllm
 
-/** Length caps counted in UTF-16 chars, the unit `estimateTokens` and the input limit use, so a capped text can never be
-  * longer than its cap in the budget's own terms. A surrogate pair is never cut in half.
+/** Length caps counted in UTF-16 chars, the unit `estimateTokens` and the input limit use, so a capped text can never
+  * be longer than its cap in the budget's own terms. A surrogate pair is never cut in half.
   */
 private[chatllm] object Truncate {
   def utf16(content: String, max: Int): String =
