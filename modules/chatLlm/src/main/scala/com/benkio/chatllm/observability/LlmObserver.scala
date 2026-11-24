@@ -8,6 +8,7 @@ import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatllm.llm.Completion
 import com.benkio.chatllm.llm.LlmProvider
+import com.benkio.chatllm.llm.ProviderResult
 import com.benkio.chatllm.prompt.LlmDecision
 import log.effect.LogWriter
 
@@ -43,6 +44,30 @@ trait LlmObserver[F[_]] {
 
 object LlmObserver {
 
+  /** The longest model reply put in the error log of a malformed reply. */
+  val MaxLoggedChars: Int = 500
+
+  /** An ERROR line per provider that answered with something the structured reply could not be read from, with what it
+    * returned (capped), so the cause is visible without the debug trace. The text is the model's reply and may echo
+    * chat content: it is capped and stays in the server logs.
+    */
+  def malformedReplyLines(o: LlmObservation, modelOf: LlmProvider => Option[String]): List[String] =
+    o.outcome match {
+      case LlmOutcome.Completed(c, _, _) =>
+        c.attempts
+          .filter(_.result.contains(ProviderResult.MalformedJson))
+          .map { a =>
+            val raw = c.raw.filter(_.provider == a.provider)
+            val got = raw
+              .map(_.text)
+              .orElse(a.failure.flatMap(_.message))
+              .fold("nothing readable")(_.replaceAll("\\s+", " ").trim.take(MaxLoggedChars))
+            val model = raw.flatMap(_.model).orElse(modelOf(a.provider)).getOrElse("-")
+            s"[LlmMalformedJson] provider=${a.provider.toString.toLowerCase} model=$model bot=${o.botId.value} got: $got"
+          }
+      case _ => Nil
+    }
+
   /** `modelOf` names the model configured for a provider; `salt` is the secret of the anonymous labels. */
   def apply[F[_]: MonadThrow: Clock](
       traces: LlmTraceStore[F],
@@ -53,7 +78,7 @@ object LlmObserver {
     new LlmObserver[F] {
       override def observe(o: LlmObservation): F[Unit] = {
         val interaction = interactionOf(o)
-        val line        = log.info(LlmInteractionLog.line(interaction))
+        val line        = log.info(LlmInteractionLog.line(interaction)) *> malformedReplies(o)
         val trace       =
           if !traceEnabled then Monad[F].unit
           else
@@ -81,6 +106,9 @@ object LlmObserver {
           log.warn(s"[llm] could not record the interaction: ${e.getMessage}").handleError(_ => ())
         )
       }
+
+      private def malformedReplies(o: LlmObservation): F[Unit] =
+        malformedReplyLines(o, modelOf).traverse_(log.error(_))
 
       private def interactionOf(o: LlmObservation): LlmInteraction = {
         val base = LlmInteraction(

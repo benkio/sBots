@@ -55,12 +55,12 @@ private[llm] object ProviderHttp {
           case Right(body) =>
             parser.parse(body) match {
               case Left(_) =>
-                Concurrent[F].pure(ProviderResponse.malformedJson)
+                Concurrent[F].pure(unreadable(body))
               case Right(json) =>
                 // untrusted and unbounded: capped, so a log line and a panel grouped by model stay small
                 val served = extractModel(json).map(_.trim.take(MaxModelChars)).filter(_.nonEmpty)
                 extractText(json)
-                  .fold(ProviderResponse.malformedJson) { raw =>
+                  .fold(unreadable(body)) { raw =>
                     StructuredReply
                       .parseDetailed(raw)
                       .fold(
@@ -80,6 +80,15 @@ private[llm] object ProviderHttp {
         failed(response, ProviderResponse.rejected)
     }
 
+  /** A 200 whose body is not JSON or holds no model text: the capped body is kept as the failure message. */
+  private def unreadable(body: String): ProviderResponse =
+    ProviderResponse.malformedJson.copy(failure =
+      Some(ProviderFailure(httpStatus = 200, message = Some(s"unreadable response: ${excerpt(body)}")))
+    )
+
+  /** Untrusted and unbounded text, on one line and capped, for the logs. */
+  def excerpt(text: String): String = text.replaceAll("\\s+", " ").trim.take(MaxErrorChars)
+
   /** A non-2xx response: the result plus the status and the provider's own error message (`error.message`, the shape of
     * both Gemini and OpenRouter), read best effort and capped. The body holds no prompt or key.
     */
@@ -91,7 +100,7 @@ private[llm] object ProviderHttp {
         val message = body.toOption
           .flatMap(parser.parse(_).toOption)
           .flatMap(_.hcursor.downField("error").get[String]("message").toOption)
-          .map(_.replaceAll("\\s+", " ").trim.take(MaxErrorChars))
+          .map(excerpt)
           .filter(_.nonEmpty)
         base.copy(failure = Some(ProviderFailure(httpStatus = response.status.code, message = message)))
       }

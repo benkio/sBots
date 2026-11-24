@@ -75,6 +75,10 @@ object, so it needs no regexp. Keep the keys stable (the LLM row of the dashboar
 - `provider_errors` lists the provider calls that failed over HTTP as `provider:status` (`gemini:404` is a retired model,
   `openrouter:401` a bad key); `provider_error` is the first provider message, capped at 200 characters (the same text and
   status are in the ops notice when a provider rejects the request). Both are omitted when no call failed over HTTP.
+- A provider reply that cannot be read as the structured reply also writes one ERROR line:
+  `[LlmMalformedJson] provider=<p> model=<m> bot=<b> got: <what it returned>`, capped at 500 characters. The text is the
+  model's reply and may echo chat content: it goes to the server logs (and Loki), unlike the prompt. The "sbots warnings
+  and errors" panel of the Logs row (`{app="sbots"} | level=~"WARN|ERROR"`) lists these lines.
 - `chat` is a salted hash (`llm.context.author-salt`), never the chat id. The line holds no chat content.
 - Tokens are estimates (4 characters per token): the providers report no usage through the client boundary.
 - `status`: `answered`, `failed`, `silent` (quota), `pending`, `error` (the client call threw) or `cancelled` (the call was
