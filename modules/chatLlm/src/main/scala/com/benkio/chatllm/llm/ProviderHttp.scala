@@ -101,13 +101,12 @@ private[llm] object ProviderHttp {
       // Keep the whole body: the malformed-reply error line prints it, and the interesting part of a bad payload is
       // often beyond the provider's diagnosis (or past the old 500-character log cap).
       raw = Some(body),
-      failure =
-        Some(
-          ProviderFailure(
-            httpStatus = 200,
-            message = Some(diagnosis.fold(s"unreadable response: ${excerpt(body)}")(d => s"no model text: $d"))
-          )
+      failure = Some(
+        ProviderFailure(
+          httpStatus = 200,
+          message = Some(diagnosis.fold(s"unreadable response: ${excerpt(body)}")(d => s"no model text: $d"))
         )
+      )
     )
 
   /** Untrusted and unbounded text, on one line and capped, for the logs. */

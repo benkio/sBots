@@ -505,6 +505,8 @@ class LlmClientSpec extends CatsEffectSuite {
           completion.attempts.flatMap(_.result),
           List(ProviderResult.MalformedJson, ProviderResult.MalformedJson)
         )
+        // the full raw body survives for the malformed-reply error line, beyond the old 500-character cap
+        assertEquals(completion.raw.map(_.text), Some("not json"))
         assertEquals(hosts.toList, List(geminiHost, openRouterHost))
     }
   }
@@ -669,8 +671,9 @@ class LlmClientSpec extends CatsEffectSuite {
         List((LlmProvider.Gemini, Some(ProviderResult.RateLimited)))
       )
       assertEquals(hosts.toList, List(geminiHost, openRouterHost, geminiHost))
-      // this is a failure, not a silent exhaustion: no ops notice
-      assertEquals(infos, Nil)
+      // the fallback's exhausted quota is still a no-reply the operators must see, even though the completion is Failed
+      assertEquals(infos.size, 1)
+      assert(infos.head.toString.contains("quota exhausted"))
     }
   }
 

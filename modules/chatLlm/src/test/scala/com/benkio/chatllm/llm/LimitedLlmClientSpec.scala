@@ -268,7 +268,7 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
     }
   }
 
-  test("missing provider credentials fail locally without a provider call or an ops message") {
+  test("missing provider credentials fail locally and notify ops once") {
     val cfg = configWithoutGeminiKey
     for {
       calls    <- Ref.of[IO, Int](0)
@@ -283,11 +283,12 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
       assertEquals(second.status, CompletionStatus.Failed)
       assertEquals(first.localRejection, Some(LocalRejection.MissingCredentials))
       assertEquals(count, 0)
-      assertEquals(infos, Nil)
+      assertEquals(infos.size, 1)
+      assert(infos.head.toString.contains("credentials are incomplete"))
     }
   }
 
-  test("blank provider credentials fail locally without a provider call or an ops message") {
+  test("blank provider credentials fail locally and notify ops once") {
     val cfg = configWithBlankKeys
     for {
       calls    <- Ref.of[IO, Int](0)
@@ -300,7 +301,8 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
       assert(!LlmConfig.credentialsComplete(cfg))
       assertEquals(result.status, CompletionStatus.Failed)
       assertEquals(count, 0)
-      assertEquals(infos, Nil)
+      assertEquals(infos.size, 1)
+      assert(infos.head.toString.contains("credentials are incomplete"))
     }
   }
 

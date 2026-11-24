@@ -16,8 +16,9 @@ import com.benkio.chatllm.repository.db.LlmContextMessage
 import com.benkio.chatllm.LlmContext
 import io.circe.parser.parse
 import munit.CatsEffectSuite
-import _root_.log.effect.LogLevel
+
 import _root_.log.effect.internal.Show
+import _root_.log.effect.LogLevel
 import _root_.log.effect.LogWriter
 
 class ChatLlmResponderSpec extends CatsEffectSuite {
@@ -66,7 +67,7 @@ class ChatLlmResponderSpec extends CatsEffectSuite {
       persona = "# Persona\nSei Calandro.",
       catalogue = catalogue,
       observer = observer
-    )(using log)
+    )(using summon[cats.effect.Concurrent[IO]], summon[cats.effect.Clock[IO]], log)
 
   private def answered(reply: LlmReply): Completion =
     Completion("p", LlmProvider.Gemini, CompletionStatus.Answered, Some(reply), Nil)
@@ -84,8 +85,8 @@ class ChatLlmResponderSpec extends CatsEffectSuite {
     for {
       lines   <- Ref.of[IO, List[String]](List.empty)
       prompts <- Ref.of[IO, List[String]](List.empty)
-      _ <- responder(answer = answer, prompts = prompts, log = recordingLog(lines)).respond(msg, candidates)
-      seen <- lines.get
+      _       <- responder(answer = answer, prompts = prompts, log = recordingLog(lines)).respond(msg, candidates)
+      seen    <- lines.get
     } yield seen.filter(_.startsWith("[ChatLlmResponder]"))
 
   test("text action answers with a text reply to the message") {
@@ -146,6 +147,82 @@ class ChatLlmResponderSpec extends CatsEffectSuite {
   test("text with a command, a mention or no content is silent") {
     List("/start", "!ban tutti", "ciao @mario", "ciao <@123456>", "   ").traverse_ { text =>
       run(answered(LlmReply(text, LlmAction.Text))).map { case (reply, _) => assertEquals(reply, None, text) }
+    }
+  }
+
+  test("OutputGuard.check names the rule that rejected a text") {
+    assertEquals(OutputGuard.check("ciao", 10), Right("ciao"))
+    assertEquals(OutputGuard.check("ciao", 0), Left("no_capacity"))
+    assertEquals(OutputGuard.check("   ", 10), Left("empty_text"))
+    assertEquals(OutputGuard.check("/start", 10), Left("command"))
+    assertEquals(OutputGuard.check("ciao @mario", 20), Left("mention"))
+    assertEquals(OutputGuard.check("ciao <@123>", 20), Left("raw_mention"))
+  }
+
+  test("the responder logs candidates, the decision and why a silence happened") {
+    val missingCredentials =
+      Completion(
+        "p",
+        LlmProvider.Gemini,
+        CompletionStatus.Failed,
+        None,
+        Nil,
+        None,
+        Some(LocalRejection.MissingCredentials)
+      )
+    val successWithoutReply = Completion(
+      "p",
+      LlmProvider.Gemini,
+      CompletionStatus.Failed,
+      None,
+      List(ProviderAttempt(LlmProvider.Gemini, Some(ProviderResult.Success)))
+    )
+    for {
+      text           <- runWithLog(answered(LlmReply("ciao", LlmAction.Text)))
+      silent         <- runWithLog(answered(LlmReply("", LlmAction.Silent)))
+      command        <- runWithLog(answered(LlmReply("/start", LlmAction.Text)))
+      notOffered     <- runWithLog(answered(LlmReply("", LlmAction.Reuse, Some("unknown"))))
+      localRejection <- runWithLog(missingCredentials)
+      successNoReply <- runWithLog(successWithoutReply)
+    } yield {
+      assert(text.exists(_.contains("2 candidates, 2 reusable, prompt v1")), text.toString)
+      assert(text.exists(_.endsWith("text reply")), text.toString)
+      assert(silent.exists(_.endsWith("no reply: silent_action")), silent.toString)
+      assert(command.exists(_.endsWith("no reply: output_rejected:command")), command.toString)
+      assert(notOffered.exists(_.endsWith("no reply: reuse_not_offered (unknown)")), notOffered.toString)
+      assert(localRejection.exists(_.endsWith("no reply: missing_credentials")), localRejection.toString)
+      assert(successNoReply.exists(_.endsWith("no reply: success_without_reply")), successNoReply.toString)
+    }
+  }
+
+  test("a failing prompt build is logged by phase and exception class, without the message") {
+    val broken = new LlmContext[IO] {
+      def remember(msg: Message, botId: SBotId): IO[Boolean]                       = IO.pure(false)
+      def rememberAssistant(chatId: ChatId, botId: SBotId, c: String): IO[Boolean] = IO.pure(false)
+      def window(chatId: ChatId, botId: SBotId): IO[List[LlmContextMessage]]       = IO.pure(Nil)
+      def prompt(chatId: ChatId, botId: SBotId): IO[String] = IO.raiseError(new RuntimeException("secret chat text"))
+      def deleteExpired(nowEpochSecond: Long): IO[Int]      = IO.pure(0)
+    }
+    for {
+      lines <- Ref.of[IO, List[String]](List.empty)
+      responder = new ChatLlmResponder[IO](
+        new LlmClientApi[IO] {
+          def complete(prompt: String): IO[Completion] = IO.pure(answered(LlmReply("x", LlmAction.Text)))
+        },
+        broken,
+        builder,
+        botId,
+        "p",
+        catalogue
+      )(using summon[cats.effect.Concurrent[IO]], summon[cats.effect.Clock[IO]], recordingLog(lines))
+      reply <- responder.respond(msg, List(greeting))
+      seen  <- lines.get
+    } yield {
+      assertEquals(reply, None)
+      assert(seen.exists(_.contains("could not build the prompt")), seen.toString)
+      assert(seen.exists(_.contains("RuntimeException")), seen.toString)
+      assert(seen.exists(_.contains("failed: RuntimeException")), seen.toString)
+      assert(seen.forall(!_.contains("secret chat text")), seen.toString)
     }
   }
 

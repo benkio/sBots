@@ -118,9 +118,12 @@ final case class Completion(
     reply: Option[LlmReply],
     attempts: List[ProviderAttempt],
     // Observability only (#1493): the last raw model text, whether it needed fence/prose stripping, and why no
-    // provider was asked when that was decided locally.
+    // provider was asked when that was decided locally. `fallbackQuotaExhausted` marks the failed completion produced
+    // when a retryable primary result found the fallback out of quota: no fallback call happened, so the shared quota
+    // notice must still fire even though the status is `Failed` rather than `Silent`.
     raw: Option[RawResponse] = None,
-    localRejection: Option[LocalRejection] = None
+    localRejection: Option[LocalRejection] = None,
+    fallbackQuotaExhausted: Boolean = false
 ) {
   def fallbackProvider: LlmProvider = primaryProvider match {
     case LlmProvider.Gemini     => LlmProvider.OpenRouter
@@ -158,13 +161,15 @@ object Completion {
     )
 
   /** The primary failed retryably but the fallback's quota is exhausted: drop the unresolved fallback attempt so only
-    * providers that were actually called are recorded, and fail the completion.
+    * providers that were actually called are recorded, fail the completion, and mark the reason so the shared quota
+    * notice still fires.
     */
   def failUnresolved(completion: Completion): Completion =
     completion.copy(
       status = CompletionStatus.Failed,
       reply = None,
-      attempts = completion.attempts.filter(_.result.isDefined)
+      attempts = completion.attempts.filter(_.result.isDefined),
+      fallbackQuotaExhausted = true
     )
 
   /** Applies the rules of `llm.allium` to a provider response. Responses for a terminal completion are ignored.

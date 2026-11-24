@@ -78,14 +78,6 @@ object LimitedLlmClient {
             s": HTTP ${f.httpStatus.toString}${f.message.fold("")(m => s" $m")}"
           }
         val answered = completion.attempts.filter(_.result.contains(ProviderResult.Success)).map(_.provider).distinct
-        // After a retryable primary failure the fallback is skipped when its own quota is gone. That completion is
-        // `Failed`, not `Silent`, so the quota notice would otherwise never fire for it.
-        val fallbackQuotaBlocked =
-          completion.status == CompletionStatus.Failed &&
-            completion.localRejection.isEmpty &&
-            completion.attempts.size == 1 &&
-            completion.attempts.head.provider == completion.primaryProvider &&
-            completion.attempts.head.result.exists(_ != ProviderResult.Success)
         answered.traverse_(p => limiter.releaseNotice(rejectedKey(p))) *>
           rejected.traverse_(p =>
             notifyKeyed(
@@ -95,7 +87,7 @@ object LimitedLlmClient {
                 s"LLM provider ${p.toString} rejected the request${detailOf(p)} (check its key, its model, and whether the prompt exceeds its input size)"
             )
           ) *>
-          (if completion.status == CompletionStatus.Silent || fallbackQuotaBlocked then notifyOnce
+          (if completion.status == CompletionStatus.Silent || completion.fallbackQuotaExhausted then notifyOnce
            else Async[F].unit)
       }
 

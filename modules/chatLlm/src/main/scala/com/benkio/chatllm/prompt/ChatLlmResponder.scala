@@ -58,10 +58,14 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
       _ <- LogWriter.info(candidatesLine)
       // The prompt is built before the client call, so a failure here has no interaction line: log the phase and the
       // exception class (the message may hold chat content), then let the outer handler turn it into no reply.
-      window <- context.prompt(msg.chatId, botId).handleErrorWith(error =>
-        log.error(s"[ChatLlmResponder] could not build the prompt for ${msg.chatId}: ${error.getClass.getSimpleName}") *>
-          MonadThrow[F].raiseError[String](error)
-      )
+      window <- context
+        .prompt(msg.chatId, botId)
+        .handleErrorWith(error =>
+          log.error(
+            s"[ChatLlmResponder] could not build the prompt for ${msg.chatId}: ${error.getClass.getSimpleName}"
+          ) *>
+            MonadThrow[F].raiseError[String](error)
+        )
       prompt = builder.build(persona, entries, window, msg)
       started <- Clock[F].monotonic
       // A cancelled call (the engine's own timeout, a shutdown) is recorded too, exactly once: the hook only covers the
@@ -144,10 +148,10 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
       reuseOffered: Boolean
   ): String = {
     val outcome = decision match {
-      case LlmDecision.Text(_)                 => "text reply"
+      case LlmDecision.Text(_)                   => "text reply"
       case LlmDecision.Reuse(id) if reuseOffered => s"reuse $id"
-      case LlmDecision.Reuse(id)               => s"no reply: reuse_not_offered ($id)"
-      case LlmDecision.Silent                  => s"no reply: ${silenceReason(completion, decision, reuseOffered)}"
+      case LlmDecision.Reuse(id)                 => s"no reply: reuse_not_offered ($id)"
+      case LlmDecision.Silent                    => s"no reply: ${silenceReason(completion, decision, reuseOffered)}"
     }
     s"[ChatLlmResponder] ${msg.chatId}: $outcome"
   }

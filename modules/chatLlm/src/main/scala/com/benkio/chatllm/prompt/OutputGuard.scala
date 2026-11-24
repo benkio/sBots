@@ -24,8 +24,9 @@ object OutputGuard {
     if maxChars <= 0 then Left("no_capacity")
     else if text.isEmpty then Left("empty_text")
     else if command.findFirstIn(text).nonEmpty then Left("command")
-    else if mention.findFirstIn(text).nonEmpty then Left("mention")
+    // A Discord-style raw mention also matches the plain mention pattern, so name the more specific rule first.
     else if rawMention.findFirstIn(text).nonEmpty then Left("raw_mention")
+    else if mention.findFirstIn(text).nonEmpty then Left("mention")
     else Right(truncate(text, maxChars))
   }
 

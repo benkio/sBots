@@ -16,6 +16,11 @@ import munit.CatsEffectSuite
 
 import scala.concurrent.duration.*
 
+import _root_.log.effect.internal.Show
+import _root_.log.effect.LogLevel
+import _root_.log.effect.LogLevels
+import _root_.log.effect.LogWriter
+
 // obligation: rule.LlmInteractionLogged, rule.LlmTraceStoredWhenEnabled
 class LlmObservabilitySpec extends CatsEffectSuite {
 
@@ -38,6 +43,18 @@ class LlmObservabilitySpec extends CatsEffectSuite {
     def append(trace: LlmTrace): IO[Unit]                        = ref.update(_ :+ trace)
     def recent(chatHash: String, limit: Int): IO[List[LlmTrace]] = ref.get
     def deleteOlderThan(cutoff: Long): IO[Int]                   = IO.pure(0)
+  }
+
+  private def recordingLog(lines: Ref[IO, List[String]]): LogWriter[IO] = new LogWriter[IO] {
+    override def write[A](level: LogLevel, a: => A)(implicit show: Show[A]): IO[Unit] =
+      lines.update(_ :+ show.show(a))
+  }
+
+  /** Fails only the interaction line, so the other sinks can be checked independently. */
+  private def failingInfoLog(lines: Ref[IO, List[String]]): LogWriter[IO] = new LogWriter[IO] {
+    override def write[A](level: LogLevel, a: => A)(implicit show: Show[A]): IO[Unit] =
+      if level == LogLevels.Info then IO.raiseError(new IllegalStateException("secret chat text"))
+      else lines.update(_ :+ show.show(a))
   }
 
   private def completion(
@@ -175,6 +192,17 @@ class LlmObservabilitySpec extends CatsEffectSuite {
         d = LlmDecision.Silent
       ),
       Some("malformedjson")
+    )
+    assertEquals(
+      reason(
+        c = completion(
+          status = CompletionStatus.Failed,
+          reply = None,
+          attempts = List(ProviderAttempt(LlmProvider.Gemini, Some(ProviderResult.Success)))
+        ),
+        d = LlmDecision.Silent
+      ),
+      Some("success_without_reply")
     )
     assertEquals(
       reason(c = completion(status = CompletionStatus.Answered, reply = text, attempts = ok), d = LlmDecision.Silent),
@@ -347,14 +375,55 @@ class LlmObservabilitySpec extends CatsEffectSuite {
     }
   }
 
-  test("a failing trace store does not make observe fail") {
+  test("a failing trace store does not make observe fail or drop the interaction line") {
     val failing = new LlmTraceStore[IO] {
       def append(trace: LlmTrace): IO[Unit]                        = IO.raiseError(new RuntimeException("SQLITE_BUSY"))
       def recent(chatHash: String, limit: Int): IO[List[LlmTrace]] = IO.pure(Nil)
       def deleteOlderThan(cutoff: Long): IO[Int]                   = IO.pure(0)
     }
-    LlmObserver[IO](failing, traceEnabled = true, salt = "s", modelOf = _ => None)
-      .observe(LlmObservation(chatId, botId, "v1", "p", 1L, LlmOutcome.ClientFailed("X")))
+    for {
+      lines <- Ref.of[IO, List[String]](List.empty)
+      observer = LlmObserver[IO](failing, traceEnabled = true, salt = "s", modelOf = _ => None)(using
+        summon[cats.MonadThrow[IO]],
+        summon[cats.effect.Clock[IO]],
+        recordingLog(lines)
+      )
+      _    <- observer.observe(LlmObservation(chatId, botId, "v1", "p", 1L, LlmOutcome.ClientFailed("X")))
+      seen <- lines.get
+    } yield {
+      assert(seen.exists(_.contains("\"type\":\"llm_interaction\"")), seen.toString)
+      assert(seen.exists(_.contains("could not store the trace: RuntimeException")), seen.toString)
+      assert(seen.forall(!_.contains("SQLITE_BUSY")), seen.toString)
+    }
+  }
+
+  test("a failing interaction log does not drop the malformed lines or the trace") {
+    val malformed = completion(
+      status = CompletionStatus.Failed,
+      reply = None,
+      attempts = List(ProviderAttempt(LlmProvider.Gemini, Some(ProviderResult.MalformedJson))),
+      raw = Some(RawResponse(LlmProvider.Gemini, "bad {oops", stripped = false))
+    )
+    for {
+      lines  <- Ref.of[IO, List[String]](List.empty)
+      traces <- Ref.of[IO, List[LlmTrace]](List.empty)
+      observer = LlmObserver[IO](new MemoryTraces(traces), traceEnabled = true, salt = "s", modelOf = _ => Some("m"))(
+        using
+        summon[cats.MonadThrow[IO]],
+        summon[cats.effect.Clock[IO]],
+        failingInfoLog(lines)
+      )
+      _ <- observer.observe(
+        LlmObservation(chatId, botId, "v1", "p", 1L, LlmOutcome.Completed(malformed, LlmDecision.Silent, false))
+      )
+      stored <- traces.get
+      seen   <- lines.get
+    } yield {
+      assertEquals(stored.size, 1)
+      assert(seen.exists(_.contains("[LlmMalformedJson]")), seen.toString)
+      assert(seen.exists(_.contains("could not record the interaction: IllegalStateException")), seen.toString)
+      assert(seen.forall(!_.contains("secret chat text")), seen.toString)
+    }
   }
 
   test("the trace TTL is validated") {

@@ -45,8 +45,8 @@ trait LlmObserver[F[_]] {
 object LlmObserver {
 
   /** An ERROR line per provider that answered with something the structured reply could not be read from, with what it
-    * returned, so the cause is visible without the debug trace. The text is the model's reply and may echo
-    * chat content: it is logged in full and stays in the server logs.
+    * returned, so the cause is visible without the debug trace. The text is the model's reply and may echo chat
+    * content: it is logged in full and stays in the server logs.
     */
   def malformedReplyLines(o: LlmObservation, modelOf: LlmProvider => Option[String]): List[String] =
     o.outcome match {
@@ -105,10 +105,9 @@ object LlmObserver {
         // Each sink is independent: a failed log line must not prevent the trace, the malformed-reply lines or the
         // other way round, and none may fail the reply, not even when the warning about the failure cannot be logged.
         // Only the exception class is logged: its message can carry chat content.
-        val line = bestEffort(log.info(LlmInteractionLog.line(interaction)), "record the interaction")
-        val malformed = malformedReplyLines(o, modelOf).traverse_(l =>
-          bestEffort(log.error(l), "log a malformed reply")
-        )
+        val line      = bestEffort(log.info(LlmInteractionLog.line(interaction)), "record the interaction")
+        val malformed =
+          malformedReplyLines(o, modelOf).traverse_(l => bestEffort(log.error(l), "log a malformed reply"))
         line *> malformed *> bestEffort(trace, "store the trace")
       }
 

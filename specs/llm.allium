@@ -117,6 +117,7 @@ entity Completion {
     status: pending | answered | failed | silent
     reply: LlmReply?        -- present only when a provider returned a valid structured reply
     attempts: ProviderAttempt with completion = this
+    fallback_quota_exhausted: Boolean = false  -- a retryable primary result found the fallback out of quota
 
     transitions status {
         pending -> answered
@@ -155,7 +156,7 @@ entity LlmContextMessage {
 ------------------------------------------------------------
 
 config {
-    primary_provider: LlmProvider = openrouter -- switching this value is the provider switch; no caller changes
+    primary_provider: LlmProvider = gemini     -- the provider asked first; OpenRouter's smaller free daily quota keeps it as fallback
     timeout: Duration = 10.seconds            -- one provider call is abandoned after this; the timeout is recorded as a provider result
     max_input_tokens: Integer = 18432         -- prompts larger than this (4 characters per token) are refused; startup also
                                               -- requires room for a persona next to the template, catalogue, message and context
@@ -288,9 +289,9 @@ rule CompletionConsumesQuota {
         usage.requests_today = usage.requests_today + 1
 }
 
--- The notice is tied to the silent outcome (both providers exhausted), so a single episode produces one ops message
--- even when both budgets run out together. A failed notification does not mark the notice as sent: the next denial
--- tries again.
+-- The notice is tied to the two no-reply quota outcomes: the silent one (both providers exhausted) and the failed one
+-- where a retryable primary result found the fallback out of quota. A single episode produces one ops message. A failed
+-- notification does not mark the notice as sent: the next denial tries again.
 rule QuotaExhaustionNotifiedOnce {
     when: CompletionRequested(prompt)
     requires: config.credentials_complete
@@ -299,6 +300,23 @@ rule QuotaExhaustionNotifiedOnce {
     requires: (QuotaUsage where provider != config.primary_provider).any(u => u.requests_this_minute >= u.max_per_minute or u.requests_today >= u.max_per_day)
     requires: (QuotaNotice where sent = false).count > 0
     ensures:
+        OperatorsNotified(reason: llm_quota_exhausted)
+        for notice in QuotaNotice where notice.sent = false:
+            notice.sent = true
+}
+
+-- The same one-shot notice covers the failed completion left when the fallback's quota is gone after a retryable
+-- primary result: no provider was available to answer, so the operators must see it even though the status is failed.
+rule FallbackQuotaExhaustionNotifiedOnce {
+    when: ProviderResponded(completion, provider, result, reply?)
+    requires: completion.status = pending
+    requires: result in {rate_limited, server_error, timeout, malformed_json, rejected}
+    requires: provider = completion.primary_provider
+    requires: not completion.attempts.any(a => a.provider = completion.fallback_provider)
+    requires: (QuotaUsage where provider = completion.fallback_provider).any(u => u.requests_this_minute >= u.max_per_minute or u.requests_today >= u.max_per_day)
+    requires: (QuotaNotice where sent = false).count > 0
+    ensures:
+        completion.fallback_quota_exhausted = true
         OperatorsNotified(reason: llm_quota_exhausted)
         for notice in QuotaNotice where notice.sent = false:
             notice.sent = true

@@ -21,13 +21,15 @@ import com.benkio.chatcore.model.RepliedMessage
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.Logger.given
 import com.benkio.chatcore.TestIds
-import _root_.log.effect.LogLevel
-import _root_.log.effect.internal.Show
 import munit.CatsEffectSuite
 import org.http4s.syntax.literals.*
 
 import java.time.Instant
 import scala.concurrent.duration.*
+
+import _root_.log.effect.internal.Show
+import _root_.log.effect.LogLevel
+import _root_.log.effect.LogWriter
 
 /** The routing of a message: the reactive replies first, then the LLM for the messages directed at the bot. */
 class BotEngineLlmRoutingSpec extends CatsEffectSuite {
@@ -102,7 +104,7 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
       backgroundJobManager = BackgroundJobManagerMock.mock(),
       llmResponder = counting,
       llmTimeout = llmTimeout
-    )(using log)
+    )(using IO.asyncForIO, log)
     _    <- messages.parTraverse_(engine.onMessage(_)(using adapter))
     sent <- adapter.sent.get
     n    <- calls.get
@@ -130,7 +132,7 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
   ): IO[List[String]] =
     for {
       lines <- Ref.of[IO, List[String]](List.empty)
-      _ <- runAll(
+      _     <- runAll(
         messages = List(msg),
         enabled = enabled,
         responder = responder,
@@ -271,7 +273,7 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
       (_, _) => IO.sleep(200.millis).as(Some(TextReply.fromList("late")(replyToMessage = true)))
     for {
       lines <- Ref.of[IO, List[String]](List.empty)
-      _ <- runAll(
+      _     <- runAll(
         messages = List(message("EngineBot: one"), message("EngineBot: two")),
         responder = slow,
         log = recordingLog(lines)

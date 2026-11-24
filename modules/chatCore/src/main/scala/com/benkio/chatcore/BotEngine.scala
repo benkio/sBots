@@ -411,8 +411,9 @@ class BotEngine[F[_]: Async: LogWriter](
     if !msg.isDirectedAt(sBotConfig.sBotInfo.botName) then Some(LlmSkip.NotDirected)
     else if !FilteringForward.filter(msg, sBotConfig.disableForward) then Some(LlmSkip.Forwarded)
     else if !FilteringOlder.filter(msg) then Some(LlmSkip.TooOld)
-    else if sBotConfig.ignoreMessagePrefix.exists(prefix => msg.text.exists(_.startsWith(prefix))) then
-      Some(LlmSkip.IgnoredPrefix)
+    else if sBotConfig.ignoreMessagePrefix.exists(prefix => msg.text.exists(_.startsWith(prefix))) then Some(
+      LlmSkip.IgnoredPrefix
+    )
     else None
 
   private def llmChatReady(msg: Message): F[Boolean] =
@@ -420,10 +421,13 @@ class BotEngine[F[_]: Async: LogWriter](
       .status(msg.chatId)
       .map(_.enabled)
       .ifM(
-        FilteringTimeout.chatAllowed(dbLayer, sBotConfig.sBotInfo.botId).apply(msg).ifM(
-          true.pure[F],
-          logLlmSkip(msg, LlmSkip.InTimeout).as(false)
-        ),
+        FilteringTimeout
+          .chatAllowed(dbLayer, sBotConfig.sBotInfo.botId)
+          .apply(msg)
+          .ifM(
+            true.pure[F],
+            logLlmSkip(msg, LlmSkip.InTimeout).as(false)
+          ),
         logLlmSkip(msg, LlmSkip.Disabled).as(false)
       )
 
@@ -446,7 +450,7 @@ class BotEngine[F[_]: Async: LogWriter](
         case Right(Some(Some(llmReply))) => reply(llmReply, msg).as(Some((llmReply, candidates)))
         case Right(Some(None))           =>
           logLlmSkip(msg, LlmSkip.NoReply) *> none[(Reply, List[ReplyBundleMessage])].pure[F]
-        case Right(None)                 =>
+        case Right(None) =>
           LogWriter
             .warn(
               s"${sBotConfig.sBotInfo.botName}: the LLM did not answer within $llmTimeout, dropped (chatId=${msg.chatId.id})"
@@ -537,16 +541,16 @@ object BotEngine {
     * because no responder interaction exists to produce an `llm_interaction` line.
     */
   private enum LlmSkip(val label: String) {
-    case ResponderOff extends LlmSkip("responder_off")
-    case NotDirected  extends LlmSkip("not_directed")
-    case Forwarded    extends LlmSkip("forwarded")
-    case TooOld       extends LlmSkip("too_old")
-    case IgnoredPrefix extends LlmSkip("ignored_prefix")
-    case Disabled     extends LlmSkip("disabled")
+    case ResponderOff    extends LlmSkip("responder_off")
+    case NotDirected     extends LlmSkip("not_directed")
+    case Forwarded       extends LlmSkip("forwarded")
+    case TooOld          extends LlmSkip("too_old")
+    case IgnoredPrefix   extends LlmSkip("ignored_prefix")
+    case Disabled        extends LlmSkip("disabled")
     case ReactiveBlocked extends LlmSkip("reactive_blocked")
-    case InTimeout    extends LlmSkip("in_timeout")
-    case InFlight     extends LlmSkip("in_flight")
-    case NoReply      extends LlmSkip("no_reply")
+    case InTimeout       extends LlmSkip("in_timeout")
+    case InFlight        extends LlmSkip("in_flight")
+    case NoReply         extends LlmSkip("no_reply")
   }
 
   final case class RequestTimedOut(timeout: FiniteDuration)
