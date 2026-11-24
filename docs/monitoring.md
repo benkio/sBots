@@ -60,17 +60,21 @@ backticks for the regexp in the Grafana editor, so the backslashes are not escap
 
 One JSON log line per completion the responder asked for (`LlmInteractionLog`): the `message` of the log record is a JSON
 object, so it needs no regexp. Keep the keys stable (the LLM row of the dashboard depends on them). A key without a value
-(`reply_id`, `failure`, `local_rejection`) is omitted: in Loki a missing label means "none".
+(`reply_id`, `failure`, `local_rejection`, `provider_errors`, `provider_error`) is omitted: in Loki a missing label means "none".
 
 ```json
 {"type":"llm_interaction","chat":"<hash>","bot":"<bot>","model":"<model>","prompt_version":"v1","prompt_tokens":471,
  "response_tokens":11,"latency_ms":820,"status":"answered","action":"text","reply_id":"<id>","failure":"<reason>",
- "attempts":"gemini:ratelimited,openrouter:success","fallback":true,"parsed":true,"stripped":false,"local_rejection":"<reason>"}
+ "attempts":"gemini:ratelimited,openrouter:success","fallback":true,"parsed":true,"stripped":false,"local_rejection":"<reason>",
+ "provider_errors":"gemini:404","provider_error":"<provider message, capped at 200 characters>"}
 ```
 
 - `model` is the model the provider reported for the request (OpenRouter reports the one the free router picked, Gemini its
   `modelVersion`; capped at 100 characters), else the configured model of the provider (`openrouter/free` by default for
   OpenRouter). With the free router `model` has many values over time: do not chart it with an unbounded `by (model)`.
+- `provider_errors` lists the provider calls that failed over HTTP as `provider:status` (`gemini:404` is a retired model,
+  `openrouter:401` a bad key); `provider_error` is the first provider message, capped at 200 characters (the same text and
+  status are in the ops notice when a provider rejects the request). Both are omitted when no call failed over HTTP.
 - `chat` is a salted hash (`llm.context.author-salt`), never the chat id. The line holds no chat content.
 - Tokens are estimates (4 characters per token): the providers report no usage through the client boundary.
 - `status`: `answered`, `failed`, `silent` (quota), `pending`, `error` (the client call threw) or `cancelled` (the call was
@@ -106,6 +110,7 @@ levels, and the keys above become labels. `BASE` below is
 | LLM replies by action | ``sum by (action) (count_over_time(BASE [$__interval]))`` |
 | LLM failures by reason | ``sum by (failure) (count_over_time(BASE \| failure!="" [$__interval]))`` |
 | LLM fallbacks and local rejections | ``sum(count_over_time(BASE \| fallback="true" [$__interval]))`` (A) and ``sum(count_over_time(BASE \| local_rejection!="" [$__interval]))`` (B) |
+| LLM provider HTTP errors | ``sum by (provider_errors) (count_over_time(BASE \| provider_errors!="" [$__interval]))`` |
 | LLM prompt tokens (estimated) | ``sum by (bot) (sum_over_time(BASE \| unwrap prompt_tokens [$__interval]))`` |
 
 **Quota alert** (Grafana alert rule, created in the UI like the other three): fire when

@@ -2,6 +2,7 @@ package com.benkio.chatllm.llm
 
 import cats.effect.IO
 import com.benkio.chatcore.mocks.NotifierMock
+import com.benkio.chatllm.observability.LlmInteraction
 import com.benkio.chatllm.ChatLlm
 import io.circe.Json
 import io.circe.Printer
@@ -318,6 +319,27 @@ class LlmClientSpec extends CatsEffectSuite {
         assertEquals(completion.status, CompletionStatus.Answered)
         assertEquals(completion.attempts.flatMap(_.result), List(ProviderResult.Rejected, ProviderResult.Success))
         assertEquals(hosts.toList, List(geminiHost, openRouterHost))
+      }
+  }
+
+  test("a rejected request keeps the HTTP status and the capped error message of the provider") {
+    val message = "This model models/gemini-2.5-flash is no longer available to new users."
+    completeWith(
+      chosen = LlmProvider.Gemini,
+      gemini = (
+        Status.NotFound,
+        Json.obj("error" -> Json.obj("code" -> Json.fromInt(404), "message" -> Json.fromString(message + ("x" * 500))))
+      ),
+      openRouter = (Status.Ok, openRouterSuccess("bua")),
+      hosts = ListBuffer.empty[String],
+      bodies = ListBuffer.empty[String]
+    )
+      .map { completion =>
+        val failure = completion.attempts.flatMap(_.failure).headOption
+        assertEquals(failure.map(_.httpStatus), Some(404))
+        assert(failure.flatMap(_.message).exists(_.startsWith(message)))
+        assertEquals(failure.flatMap(_.message).map(_.length), Some(ProviderHttp.MaxErrorChars))
+        assertEquals(LlmInteraction.providerErrors(completion), List("gemini:404"))
       }
   }
 

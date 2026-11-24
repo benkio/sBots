@@ -6,7 +6,7 @@ import io.circe.Json
 /** The log line of an interaction: one JSON object, which is the `message` of the log record, so it travels through the
   * Mon pipeline to Loki and is read with `| json | line_format "{{.message}}" | json` (`docs/monitoring.md`). Keep the
   * keys stable: the dashboard depends on them. New keys are appended at the end. The keys without a value (`reply_id`,
-  * `failure`, `local_rejection`) are omitted, so a missing label means "none".
+  * `failure`, `local_rejection`, `provider_errors`, `provider_error`) are omitted, so a missing label means "none".
   */
 object LlmInteractionLog {
 
@@ -31,7 +31,9 @@ object LlmInteractionLog {
         "fallback"        -> i.fallback.asJson,
         "parsed"          -> i.parsed.asJson,
         "stripped"        -> i.stripped.asJson,
-        "local_rejection" -> i.localRejection.asJson
+        "local_rejection" -> i.localRejection.asJson,
+        "provider_errors" -> (if i.providerErrors.isEmpty then None else Some(i.providerErrors.mkString(","))).asJson,
+        "provider_error"  -> i.providerErrorMessage.asJson
       )
       .dropNullValues
 

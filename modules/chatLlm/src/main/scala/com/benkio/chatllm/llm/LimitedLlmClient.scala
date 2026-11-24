@@ -66,7 +66,12 @@ object LimitedLlmClient {
         * the request (a revoked key, a removed model), once per provider until it answers again.
         */
       private def report(completion: Completion): F[Unit] = {
-        val rejected = completion.attempts.filter(_.result.contains(ProviderResult.Rejected)).map(_.provider).distinct
+        val rejectedAttempts = completion.attempts.filter(_.result.contains(ProviderResult.Rejected))
+        val rejected         = rejectedAttempts.map(_.provider).distinct
+        val detailOf         = (p: LlmProvider) =>
+          rejectedAttempts.find(_.provider == p).flatMap(_.failure).fold("") { f =>
+            s": HTTP ${f.httpStatus.toString}${f.message.fold("")(m => s" $m")}"
+          }
         val answered = completion.attempts.filter(_.result.contains(ProviderResult.Success)).map(_.provider).distinct
         answered.traverse_(p => limiter.releaseNotice(rejectedKey(p))) *>
           rejected.traverse_(p =>
@@ -74,7 +79,7 @@ object LimitedLlmClient {
               key = rejectedKey(p),
               cooldown = None,
               message =
-                s"LLM provider ${p.toString} rejected the request (check its key, its model, and whether the prompt exceeds its input size)"
+                s"LLM provider ${p.toString} rejected the request${detailOf(p)} (check its key, its model, and whether the prompt exceeds its input size)"
             )
           ) *>
           (if completion.status == CompletionStatus.Silent then notifyOnce else Async[F].unit)

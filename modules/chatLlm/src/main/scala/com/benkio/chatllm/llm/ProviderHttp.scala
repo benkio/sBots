@@ -15,6 +15,9 @@ private[llm] object ProviderHttp {
   /** The longest model name kept from a provider response. */
   val MaxModelChars: Int = 100
 
+  /** The longest provider error message kept for the logs: the body is untrusted and unbounded. */
+  val MaxErrorChars: Int = 200
+
   def parseUri[F[_]: Concurrent](endpoint: String, hasApiKey: Boolean): F[Uri] =
     Concurrent[F].fromEither(
       Uri
@@ -70,10 +73,26 @@ private[llm] object ProviderHttp {
             }
         }
       case Status.TooManyRequests =>
-        Concurrent[F].pure(ProviderResponse.rateLimited)
+        failed(response, ProviderResponse.rateLimited)
       case status if status.code >= 500 && status.code < 600 =>
-        Concurrent[F].pure(ProviderResponse.serverError)
+        failed(response, ProviderResponse.serverError)
       case _ =>
-        Concurrent[F].pure(ProviderResponse.rejected)
+        failed(response, ProviderResponse.rejected)
     }
+
+  /** A non-2xx response: the result plus the status and the provider's own error message (`error.message`, the shape of
+    * both Gemini and OpenRouter), read best effort and capped. The body holds no prompt or key.
+    */
+  private def failed[F[_]: Concurrent](response: Response[F], base: ProviderResponse): F[ProviderResponse] =
+    response
+      .as[String]
+      .attempt
+      .map { body =>
+        val message = body.toOption
+          .flatMap(parser.parse(_).toOption)
+          .flatMap(_.hcursor.downField("error").get[String]("message").toOption)
+          .map(_.replaceAll("\\s+", " ").trim.take(MaxErrorChars))
+          .filter(_.nonEmpty)
+        base.copy(failure = Some(ProviderFailure(httpStatus = response.status.code, message = message)))
+      }
 }

@@ -39,7 +39,9 @@ final case class LlmInteraction(
     fallback: Boolean,
     parsed: Boolean,
     stripped: Boolean,
-    localRejection: Option[String]
+    localRejection: Option[String],
+    providerErrors: List[String] = Nil,
+    providerErrorMessage: Option[String] = None
 )
 
 object LlmInteraction {
@@ -87,6 +89,14 @@ object LlmInteraction {
   /** The attempts as `provider=result`, in order; a provider asked but never answered is `none`. */
   def attemptLabels(completion: Completion): List[String] =
     completion.attempts.map(a => s"${a.provider.toString.toLowerCase}:${a.result.fold("none")(_.toString.toLowerCase)}")
+
+  /** The HTTP failures of the attempts as `provider:status`, e.g. `gemini:404`; the messages stay in the log line. */
+  def providerErrors(completion: Completion): List[String] =
+    completion.attempts.flatMap(a => a.failure.map(f => s"${a.provider.toString.toLowerCase}:${f.httpStatus}"))
+
+  /** The first provider error message (capped), the one that explains why the fallback was needed. */
+  def providerErrorMessage(completion: Completion): Option[String] =
+    completion.attempts.flatMap(_.failure).flatMap(_.message).headOption
 
   /** The fallback was used when the completion did not start and end with its configured primary alone. */
   def usedFallback(completion: Completion): Boolean =

@@ -99,7 +99,9 @@ object LlmObserver {
           fallback = false,
           parsed = false,
           stripped = false,
-          localRejection = None
+          localRejection = None,
+          providerErrors = Nil,
+          providerErrorMessage = None
         )
         o.outcome match {
           case LlmOutcome.ClientFailed(reason) => base.copy(failure = Some(s"client_error:$reason"))
@@ -122,7 +124,9 @@ object LlmObserver {
               fallback = LlmInteraction.usedFallback(c),
               parsed = c.reply.isDefined,
               stripped = c.raw.exists(_.stripped),
-              localRejection = c.localRejection.map(_.label)
+              localRejection = c.localRejection.map(_.label),
+              providerErrors = LlmInteraction.providerErrors(c),
+              providerErrorMessage = LlmInteraction.providerErrorMessage(c)
             )
         }
       }

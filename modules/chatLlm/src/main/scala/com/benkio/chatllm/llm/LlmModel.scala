@@ -60,8 +60,14 @@ final case class ProviderResponse(
     reply: Option[LlmReply],
     raw: Option[String] = None,
     stripped: Boolean = false,
-    model: Option[String] = None
+    model: Option[String] = None,
+    failure: Option[ProviderFailure] = None
 )
+
+/** Why a provider call failed over HTTP: the status code and the (capped) error message of the response body, so a
+  * retired model or a revoked key is visible in the logs instead of only as a `rejected` label.
+  */
+final case class ProviderFailure(httpStatus: Int, message: Option[String])
 
 object ProviderResponse {
   val rateLimited: ProviderResponse              = ProviderResponse(ProviderResult.RateLimited, None)
@@ -73,7 +79,11 @@ object ProviderResponse {
 }
 
 /** One provider attempt of a completion. The result is `None` while the provider has not answered yet. */
-final case class ProviderAttempt(provider: LlmProvider, result: Option[ProviderResult])
+final case class ProviderAttempt(
+    provider: LlmProvider,
+    result: Option[ProviderResult],
+    failure: Option[ProviderFailure] = None
+)
 
 /** The lifecycle of a completion. `Answered`, `Failed` and `Silent` are terminal: `Silent` is a completion that was
   * stopped by the local quota before any provider was asked, so no reply is sent.
@@ -174,7 +184,8 @@ object Completion {
         completion.copy(raw = Some(RawResponse(provider, text, response.stripped, response.model)))
       )
       val withResult = traced.attempts.map { attempt =>
-        if attempt.provider == provider then attempt.copy(result = Some(response.result)) else attempt
+        if attempt.provider == provider then attempt.copy(result = Some(response.result), failure = response.failure)
+        else attempt
       }
       response.result match {
         case ProviderResult.Success if response.reply.nonEmpty =>
