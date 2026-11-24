@@ -15,6 +15,9 @@ private[llm] object ProviderHttp {
   /** The longest model name kept from a provider response. */
   val MaxModelChars: Int = 100
 
+  /** The most bytes read from the body of a failed call: it is untrusted and only used for the error message. */
+  val MaxErrorBodyBytes: Int = 8192
+
   /** The longest provider error message kept for the logs: the body is untrusted and unbounded. */
   val MaxErrorChars: Int = 200
 
@@ -36,16 +39,20 @@ private[llm] object ProviderHttp {
       client: Client[F],
       request: Request[F],
       extractText: Json => Option[String],
-      extractModel: Json => Option[String] = _ => None
+      extractModel: Json => Option[String] = _ => None,
+      diagnose: Json => Option[String] = _ => None
   ): F[ProviderResponse] =
     client
       .run(request)
-      .use(response => fromResponse(response = response, extractText = extractText, extractModel = extractModel))
+      .use(response =>
+        fromResponse(response = response, extractText = extractText, extractModel = extractModel, diagnose = diagnose)
+      )
 
   private def fromResponse[F[_]: Concurrent](
       response: Response[F],
       extractText: Json => Option[String],
-      extractModel: Json => Option[String]
+      extractModel: Json => Option[String],
+      diagnose: Json => Option[String]
   ): F[ProviderResponse] =
     response.status match {
       case Status.Ok =>
@@ -58,13 +65,19 @@ private[llm] object ProviderHttp {
                 Concurrent[F].pure(unreadable(body))
               case Right(json) =>
                 // untrusted and unbounded: capped, so a log line and a panel grouped by model stay small
-                val served = extractModel(json).map(_.trim.take(MaxModelChars)).filter(_.nonEmpty)
+                val served    = extractModel(json).map(_.trim.take(MaxModelChars)).filter(_.nonEmpty)
+                val diagnosis = diagnose(json).map(excerpt).filter(_.nonEmpty)
                 extractText(json)
-                  .fold(unreadable(body)) { raw =>
+                  .fold(unreadable(body, diagnosis)) { raw =>
                     StructuredReply
                       .parseDetailed(raw)
                       .fold(
-                        _ => ProviderResponse.malformedJson.copy(raw = Some(raw), model = served),
+                        _ =>
+                          ProviderResponse.malformedJson.copy(
+                            raw = Some(raw),
+                            model = served,
+                            failure = diagnosis.map(d => ProviderFailure(httpStatus = 200, message = Some(d)))
+                          ),
                         (reply, stripped) =>
                           ProviderResponse.success(reply).copy(raw = Some(raw), stripped = stripped, model = served)
                       )
@@ -80,10 +93,17 @@ private[llm] object ProviderHttp {
         failed(response, ProviderResponse.rejected)
     }
 
-  /** A 200 whose body is not JSON or holds no model text: the capped body is kept as the failure message. */
-  private def unreadable(body: String): ProviderResponse =
+  /** A 200 whose body is not JSON or holds no model text. The failure message is the provider's own diagnosis when it
+    * gave one (finish reason, an error object, a null content), else the capped body.
+    */
+  private def unreadable(body: String, diagnosis: Option[String] = None): ProviderResponse =
     ProviderResponse.malformedJson.copy(failure =
-      Some(ProviderFailure(httpStatus = 200, message = Some(s"unreadable response: ${excerpt(body)}")))
+      Some(
+        ProviderFailure(
+          httpStatus = 200,
+          message = Some(diagnosis.fold(s"unreadable response: ${excerpt(body)}")(d => s"no model text: $d"))
+        )
+      )
     )
 
   /** Untrusted and unbounded text, on one line and capped, for the logs. */
@@ -93,8 +113,11 @@ private[llm] object ProviderHttp {
     * both Gemini and OpenRouter), read best effort and capped. The body holds no prompt or key.
     */
   private def failed[F[_]: Concurrent](response: Response[F], base: ProviderResponse): F[ProviderResponse] =
-    response
-      .as[String]
+    response.body
+      .take(MaxErrorBodyBytes.toLong)
+      .through(fs2.text.utf8.decode)
+      .compile
+      .string
       .attempt
       .map { body =>
         val message = body.toOption

@@ -57,11 +57,16 @@ object LlmObserver {
         c.attempts
           .filter(_.result.contains(ProviderResult.MalformedJson))
           .map { a =>
-            val raw = c.raw.filter(_.provider == a.provider)
-            val got = raw
-              .map(_.text)
-              .orElse(a.failure.flatMap(_.message))
-              .fold("nothing readable")(_.replaceAll("\\s+", " ").trim.take(MaxLoggedChars))
+            val raw       = c.raw.filter(_.provider == a.provider)
+            val diagnosis = a.failure.flatMap(_.message)
+            val text      = raw.map(_.text).map(_.replaceAll("\\s+", " ").trim.take(MaxLoggedChars))
+            // the provider's diagnosis (finish reason, error object) goes with the text it explains
+            val got = (text, diagnosis) match {
+              case (Some(t), Some(d)) => s"$t [$d]"
+              case (Some(t), None)    => t
+              case (None, Some(d))    => d.take(MaxLoggedChars)
+              case (None, None)       => "nothing readable"
+            }
             val model = raw.flatMap(_.model).orElse(modelOf(a.provider)).getOrElse("-")
             s"[LlmMalformedJson] provider=${a.provider.toString.toLowerCase} model=$model bot=${o.botId.value} got: $got"
           }

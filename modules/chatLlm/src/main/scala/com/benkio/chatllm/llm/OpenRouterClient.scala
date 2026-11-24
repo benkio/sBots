@@ -15,6 +15,27 @@ import org.typelevel.ci.CIString
   */
 object OpenRouterClient {
 
+  /** The diagnosis of a response without usable text (see the client). Pure, so it is tested on plain JSON. */
+  private[llm] def diagnose(json: Json): Option[String] = {
+    val cursor  = json.hcursor
+    val choice  = cursor.downField("choices").downN(0)
+    val finish  = choice.get[String]("finish_reason").toOption.map(f => s"finish_reason=$f")
+    val content = choice.downField("message").downField("content").focus.flatMap { c =>
+      if c.isNull then Some("content=null")
+      else c.asString.filter(_.isBlank).as("content=empty")
+    }
+    val choiceError = choice.downField("error").focus.map(errorText).map(e => s"choice_error=$e")
+    val topError    = cursor.downField("error").focus.map(errorText).map(e => s"error=$e")
+    val parts       = List(finish, content, choiceError, topError).flatten
+    Option.when(parts.nonEmpty)(parts.mkString(" "))
+  }
+
+  private def errorText(error: Json): String = {
+    val code    = error.hcursor.get[Int]("code").toOption.map(_.toString)
+    val message = error.hcursor.get[String]("message").toOption
+    List(code, message).flatten.mkString(" ").trim
+  }
+
   /** The model asked when none is configured: OpenRouter's free router, which picks a free model per request. */
   val DefaultModel: String = "openrouter/free"
 
@@ -58,7 +79,7 @@ object OpenRouterClient {
     override val provider: LlmProvider = LlmProvider.OpenRouter
 
     override def generate(value: String): F[ProviderResponse] =
-      ProviderHttp.post(client, buildRequest(uri, value), extractText, extractModel)
+      ProviderHttp.post(client, buildRequest(uri, value), extractText, extractModel, diagnose)
 
     /** The reply text of OpenRouter lives at `choices[0].message.content`. */
     private val extractText: Json => Option[String] = json =>
@@ -68,6 +89,13 @@ object OpenRouterClient {
         message <- choice.asObject.flatMap(_("message"))
         content <- message.asObject.flatMap(_("content")).flatMap(_.asString)
       } yield content
+
+    /** Why a reply carries no usable text, from the documented fields of the first choice: the normalized
+      * `finish_reason` (`length` is a token limit hit, `content_filter` a block, `error` a provider failure), a null or
+      * empty `message.content`, the choice's `error` object and a top-level `error`. Only these fields are read: never
+      * the prompt or the content itself.
+      */
+    private[llm] val diagnose: Json => Option[String] = OpenRouterClient.diagnose
 
     /** OpenRouter reports the model that served the request at the top level `model`: with the free router it is the
       * one the router picked.

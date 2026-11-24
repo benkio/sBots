@@ -317,7 +317,11 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
         case (regexTrigger: RegexTextTriggerValue, replyBundle) =>
           property(s"""🔎 Only one reply bundle replies to: "${regexTrigger.trigger.toString}"""") {
             forAll(RegexpGen.from(regexTrigger.trigger.toString)) {
-              case regexMatchString: String if regexTrigger.trigger.findFirstMatchIn(regexMatchString).isDefined =>
+              // The bot matches the lowercased text (`MessageMatches.doesMatch`), and a few generated characters change
+              // length when lowercased (`İ` becomes two characters), so the input counts only if it still matches then.
+              case regexMatchString: String
+                  if regexTrigger.trigger.findFirstMatchIn(regexMatchString).isDefined &&
+                    regexTrigger.trigger.findFirstMatchIn(regexMatchString.toLowerCase).isDefined =>
                 val exactStringMessage = ModelMessage(
                   messageId = None,
                   date = 0L,

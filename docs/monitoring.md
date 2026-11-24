@@ -79,7 +79,11 @@ object, so it needs no regexp. Keep the keys stable (the LLM row of the dashboar
 - `gemini_ms` and `openrouter_ms` are how long the call to that provider took (a failed or timed-out call included); a
   provider that was not asked has no key. Their sum is close to `latency_ms`, so they tell which provider is slow.
 - A provider reply that cannot be read as the structured reply also writes one ERROR line:
-  `[LlmMalformedJson] provider=<p> model=<m> bot=<b> got: <what it returned>`, capped at 500 characters. The text is the
+  `[LlmMalformedJson] provider=<p> model=<m> bot=<b> got: <what it returned>`, capped at 500 characters.
+  For OpenRouter the line also carries the provider's own diagnosis, from the documented fields of the first choice:
+  `[finish_reason=length content=null choice_error=502 …]` after the text, or `no model text: …` when there was none
+  (`length` is a token limit hit, `content_filter` a block, `content=null` an empty answer, e.g. a reasoning model that
+  spent its tokens thinking). The text is the
   model's reply and may echo chat content: it goes to the server logs (and Loki), unlike the prompt. The "sbots warnings
   and errors" panel of the Logs row (`{app="sbots"} | level=~"WARN|ERROR"`) lists these lines.
 - `chat` is a salted hash (`llm.context.author-salt`), never the chat id. The line holds no chat content.
