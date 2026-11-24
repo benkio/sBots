@@ -54,7 +54,7 @@ addCommandAlias("compileAll", "compile; Test/compile; integration/Test/compile")
 addCommandAlias(
   "fix",
   // Ensure SemanticDB exists for all scopes before semantic scalafix rules run.
-  "cleanFull; compileAll; scalafixAll; scalafmtAll; integration/scalafixAll; integration/scalafmtAll; scalafmtSbt; generateTriggerDocumentation; generateCalendar; generateInstructions;"
+  "cleanFull; compileAll; scalafixAll; scalafmtAll; integration/scalafixAll; integration/scalafmtAll; scalafmtSbt; generateTriggerDocumentation; generateCalendar; generateInstructions; generatePersonaCatalogues;"
 )
 addCommandAlias(
   "check",
@@ -64,11 +64,13 @@ addCommandAlias("generateTriggerDocumentation", "main/runMain com.benkio.main.Ge
 addCommandAlias("generateCalendar", "main/runMain com.benkio.main.GenerateCalendar")
 addCommandAlias("generateInstructions", "main/runMain com.benkio.main.GenerateInstructions")
 addCommandAlias("checkInstructions", "main/runMain com.benkio.main.GenerateInstructions --check")
+addCommandAlias("generatePersonaCatalogues", "main/runMain com.benkio.main.PersonaTool --generate-catalogues")
+addCommandAlias("checkPersona", "main/runMain com.benkio.main.PersonaTool --check")
 // Read-only verification. Never include `fix` or the generators here: CI must be able to check a
 // change without rewriting tracked files. Live-network integration tests are opt-in (see below).
 addCommandAlias(
   "verify",
-  "check; checkInstructions; dbSetup; coverage; test; coverageReport; integration/mUnitTests; coverageAggregate; coverageOff; assembly"
+  "check; checkInstructions; checkPersona; dbSetup; coverage; test; coverageReport; integration/mUnitTests; coverageAggregate; coverageOff; assembly"
 )
 // Backwards-compatible alias. `validate` used to run `fix` first; it is now purely read-only.
 addCommandAlias("validate", "verify")
