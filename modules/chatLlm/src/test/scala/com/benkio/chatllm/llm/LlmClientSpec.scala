@@ -322,6 +322,21 @@ class LlmClientSpec extends CatsEffectSuite {
       }
   }
 
+  test("each provider attempt records how long its call took") {
+    completeWith(
+      chosen = LlmProvider.Gemini,
+      gemini = (Status.ServiceUnavailable, Json.obj()),
+      openRouter = (Status.Ok, openRouterSuccess("bua")),
+      hosts = ListBuffer.empty[String],
+      bodies = ListBuffer.empty[String]
+    )
+      .map { completion =>
+        assertEquals(completion.attempts.map(_.provider), List(LlmProvider.Gemini, LlmProvider.OpenRouter))
+        assert(completion.attempts.forall(_.latencyMs.exists(_ >= 0L)))
+        assert(LlmInteraction.providerLatencyMs(completion, LlmProvider.OpenRouter).isDefined)
+      }
+  }
+
   test("a rejected request keeps the HTTP status and the capped error message of the provider") {
     val message = "This model models/gemini-2.5-flash is no longer available to new users."
     completeWith(

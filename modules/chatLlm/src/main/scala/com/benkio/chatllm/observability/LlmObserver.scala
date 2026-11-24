@@ -129,7 +129,9 @@ object LlmObserver {
           stripped = false,
           localRejection = None,
           providerErrors = Nil,
-          providerErrorMessage = None
+          providerErrorMessage = None,
+          geminiMs = None,
+          openRouterMs = None
         )
         o.outcome match {
           case LlmOutcome.ClientFailed(reason) => base.copy(failure = Some(s"client_error:$reason"))
@@ -154,7 +156,9 @@ object LlmObserver {
               stripped = c.raw.exists(_.stripped),
               localRejection = c.localRejection.map(_.label),
               providerErrors = LlmInteraction.providerErrors(c),
-              providerErrorMessage = LlmInteraction.providerErrorMessage(c)
+              providerErrorMessage = LlmInteraction.providerErrorMessage(c),
+              geminiMs = LlmInteraction.providerLatencyMs(c, LlmProvider.Gemini),
+              openRouterMs = LlmInteraction.providerLatencyMs(c, LlmProvider.OpenRouter)
             )
         }
       }

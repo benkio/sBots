@@ -250,8 +250,8 @@ that states none.
 *** Privacy
 
 - *Enabled chats may send their messages to both Gemini (Google) and OpenRouter.* ~LLM_PRIMARY_PROVIDER~ (default
-  ~gemini~) chooses the primary; the other provider is always the fallback and gets the same prompt when the primary fails
-  or is out of quota. With the defaults that is Google first, OpenRouter second. The prompt holds the persona, the candidate
+  ~openrouter~) chooses the primary; the other provider is always the fallback and gets the same prompt when the primary fails
+  or is out of quota. With the defaults that is OpenRouter first, Google second. The prompt holds the persona, the candidate
   replies, the recent conversation of the chat and the message.
 - Senders are never sent: each one is a salted hash (~user-ab12cd34~), mentions and usernames are replaced by a generic
   label. The salt is ~LLM_CONTEXT_AUTHOR_SALT~: keep it secret and stable.
@@ -277,10 +277,10 @@ editing the file.
 
 | Variable | Default | Meaning |
 |---|---|---|
-| ~LLM_PRIMARY_PROVIDER~ | ~gemini~ | the other provider is always the fallback; switching is only this value |
+| ~LLM_PRIMARY_PROVIDER~ | ~openrouter~ | the other provider is always the fallback; switching is only this value |
 | ~LLM_TIMEOUT~ | ~10 seconds~ | one provider call *and* the whole LLM answer of the engine (see below) |
 | ~LLM_MAX_INPUT_TOKENS~ | ~18432~ | prompts above this (4 characters per token) are refused locally, with an ops notice |
-| ~LLM_MAX_OUTPUT_TOKENS~ | ~512~ | output limit sent to the provider |
+| ~LLM_MAX_OUTPUT_TOKENS~ | ~1024~ | output limit sent to the provider |
 | ~LLM_CONTEXT_MAX_MESSAGES~ / ~LLM_CONTEXT_MAX_TOKENS~ | ~20~ / ~2048~ | the conversation window of a prompt |
 | ~LLM_CONTEXT_TTL~ / ~LLM_CONTEXT_CLEANUP_CRON~ | ~7 days~ / hourly | retention and its cleanup job |
 | ~GEMINI_MAX_PER_MINUTE~, ~GEMINI_MAX_PER_DAY~ (same for ~OPENROUTER_~) | ~20~ / ~50~ | client-side quota of each provider, shared by all the bots. The OpenRouter values are the documented free-tier limits; *the Gemini ones are provisional* (#1483 did not measure them), so check them against your key |

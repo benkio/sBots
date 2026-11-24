@@ -66,7 +66,8 @@ object, so it needs no regexp. Keep the keys stable (the LLM row of the dashboar
 {"type":"llm_interaction","chat":"<hash>","bot":"<bot>","model":"<model>","prompt_version":"v1","prompt_tokens":471,
  "response_tokens":11,"latency_ms":820,"status":"answered","action":"text","reply_id":"<id>","failure":"<reason>",
  "attempts":"gemini:ratelimited,openrouter:success","fallback":true,"parsed":true,"stripped":false,"local_rejection":"<reason>",
- "provider_errors":"gemini:404","provider_error":"<provider message, capped at 200 characters>"}
+ "provider_errors":"gemini:404","provider_error":"<provider message, capped at 200 characters>",
+ "gemini_ms":850,"openrouter_ms":9200}
 ```
 
 - `model` is the model the provider reported for the request (OpenRouter reports the one the free router picked, Gemini its
@@ -75,6 +76,8 @@ object, so it needs no regexp. Keep the keys stable (the LLM row of the dashboar
 - `provider_errors` lists the provider calls that failed over HTTP as `provider:status` (`gemini:404` is a retired model,
   `openrouter:401` a bad key); `provider_error` is the first provider message, capped at 200 characters (the same text and
   status are in the ops notice when a provider rejects the request). Both are omitted when no call failed over HTTP.
+- `gemini_ms` and `openrouter_ms` are how long the call to that provider took (a failed or timed-out call included); a
+  provider that was not asked has no key. Their sum is close to `latency_ms`, so they tell which provider is slow.
 - A provider reply that cannot be read as the structured reply also writes one ERROR line:
   `[LlmMalformedJson] provider=<p> model=<m> bot=<b> got: <what it returned>`, capped at 500 characters. The text is the
   model's reply and may echo chat content: it goes to the server logs (and Loki), unlike the prompt. The "sbots warnings
@@ -114,6 +117,7 @@ levels, and the keys above become labels. `BASE` below is
 | LLM replies by action | ``sum by (action) (count_over_time(BASE [$__interval]))`` |
 | LLM failures by reason | ``sum by (failure) (count_over_time(BASE \| failure!="" [$__interval]))`` |
 | LLM fallbacks and local rejections | ``sum(count_over_time(BASE \| fallback="true" [$__interval]))`` (A) and ``sum(count_over_time(BASE \| local_rejection!="" [$__interval]))`` (B) |
+| LLM provider latency p95 (ms) | ``quantile_over_time(0.95, BASE \| unwrap gemini_ms [$__interval])`` (A) and the same with ``openrouter_ms`` (B) |
 | LLM provider HTTP errors | ``sum by (provider_errors) (count_over_time(BASE \| provider_errors!="" [$__interval]))`` |
 | LLM prompt tokens (estimated) | ``sum by (bot) (sum_over_time(BASE \| unwrap prompt_tokens [$__interval]))`` |
 

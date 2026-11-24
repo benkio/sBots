@@ -155,11 +155,11 @@ entity LlmContextMessage {
 ------------------------------------------------------------
 
 config {
-    primary_provider: LlmProvider = gemini    -- switching this value is the provider switch; no caller changes
+    primary_provider: LlmProvider = openrouter -- switching this value is the provider switch; no caller changes
     timeout: Duration = 10.seconds            -- one provider call is abandoned after this; the timeout is recorded as a provider result
     max_input_tokens: Integer = 18432         -- prompts larger than this (4 characters per token) are refused; startup also
                                               -- requires room for a persona next to the template, catalogue, message and context
-    max_output_tokens: Integer = 512          -- sent to the provider as its output limit
+    max_output_tokens: Integer = 1024         -- sent to the provider as its output limit
     openrouter_model: String = ""             -- empty (the default) or blank: the free router `openrouter/free`; a model without
                                               -- the `:free` suffix is the operator's choice and is paid: startup logs a warning
     credentials_complete: Boolean             -- both provider keys are configured; otherwise no request is admitted

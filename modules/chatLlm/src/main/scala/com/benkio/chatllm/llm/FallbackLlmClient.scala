@@ -65,14 +65,20 @@ object FallbackLlmClient {
       }
 
     private def ask(completion: Completion, client: LlmProviderClientApi[F], prompt: String): F[Completion] =
-      client.generate(prompt).timeout(timeout).attempt.flatMap {
-        case Right(response) =>
-          Completion.acceptResponse(completion, client.provider, response).pure[F]
-        case Left(_: TimeoutException) =>
-          // Terminal for this provider, but kept in the completion: the fallback decision still applies.
-          Completion.acceptResponse(completion, client.provider, ProviderResponse.timeout).pure[F]
-        case Left(error) =>
-          Temporal[F].raiseError(error)
+      Temporal[F].monotonic.flatMap { start =>
+        client.generate(prompt).timeout(timeout).attempt.flatMap { outcome =>
+          Temporal[F].monotonic.map(end => Some((end - start).toMillis)).flatMap { took =>
+            outcome match {
+              case Right(response) =>
+                Completion.acceptResponse(completion, client.provider, response, took).pure[F]
+              case Left(_: TimeoutException) =>
+                // Terminal for this provider, but kept in the completion: the fallback decision still applies.
+                Completion.acceptResponse(completion, client.provider, ProviderResponse.timeout, took).pure[F]
+              case Left(error) =>
+                Temporal[F].raiseError(error)
+            }
+          }
+        }
       }
   }
 }

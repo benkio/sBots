@@ -41,7 +41,9 @@ final case class LlmInteraction(
     stripped: Boolean,
     localRejection: Option[String],
     providerErrors: List[String] = Nil,
-    providerErrorMessage: Option[String] = None
+    providerErrorMessage: Option[String] = None,
+    geminiMs: Option[Long] = None,
+    openRouterMs: Option[Long] = None
 )
 
 object LlmInteraction {
@@ -97,6 +99,10 @@ object LlmInteraction {
   /** The first provider error message (capped), the one that explains why the fallback was needed. */
   def providerErrorMessage(completion: Completion): Option[String] =
     completion.attempts.flatMap(_.failure).flatMap(_.message).headOption
+
+  /** How long the call to `provider` took, when it was asked. */
+  def providerLatencyMs(completion: Completion, provider: LlmProvider): Option[Long] =
+    completion.attempts.find(_.provider == provider).flatMap(_.latencyMs)
 
   /** The fallback was used when the completion did not start and end with its configured primary alone. */
   def usedFallback(completion: Completion): Boolean =
