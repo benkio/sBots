@@ -66,7 +66,7 @@ class ChatLlmResponderSpec extends CatsEffectSuite {
       persona = "# Persona\nSei Calandro.",
       catalogue = catalogue,
       observer = observer
-    )
+    )(using log)
 
   private def answered(reply: LlmReply): Completion =
     Completion("p", LlmProvider.Gemini, CompletionStatus.Answered, Some(reply), Nil)
@@ -75,6 +75,18 @@ class ChatLlmResponderSpec extends CatsEffectSuite {
     Ref[IO]
       .of(List.empty[String])
       .flatMap(p => responder(answer = answer, prompts = p).respond(msg, candidates).map(_ -> p))
+
+  /** The plain decision line is the only evidence for a silence: capture it with the candidate-count line. */
+  private def runWithLog(
+      answer: Completion,
+      candidates: List[ReplyBundleMessage] = List(greeting, other)
+  ): IO[List[String]] =
+    for {
+      lines   <- Ref.of[IO, List[String]](List.empty)
+      prompts <- Ref.of[IO, List[String]](List.empty)
+      _ <- responder(answer = answer, prompts = prompts, log = recordingLog(lines)).respond(msg, candidates)
+      seen <- lines.get
+    } yield seen.filter(_.startsWith("[ChatLlmResponder]"))
 
   test("text action answers with a text reply to the message") {
     run(answered(LlmReply("Buongiorno a te!", LlmAction.Text))).map { case (reply, _) =>
