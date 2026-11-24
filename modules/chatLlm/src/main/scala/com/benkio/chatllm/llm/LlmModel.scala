@@ -51,15 +51,17 @@ enum ProviderResult {
 }
 
 /** What a provider boundary returned: a result, and the reply only when the result is a success. `raw` is the text the
-  * model produced (kept also when it was malformed, to trace a weird reply) and `stripped` tells that the reply parsed
-  * only after the fence/prose around the JSON object was cut away, and `model` is the model the provider says it used
-  * (with `openrouter/free` the router picks one per request), when the response carries it (#1493).
+  * model produced (kept also when it was malformed, to trace a weird reply), `stripped` tells that the reply parsed
+  * only after the fence/prose around the JSON object was cut away, and `truncated` that a `text` reply was recovered
+  * from an object cut by the provider's output-token limit. `model` is the model the provider says it used (with
+  * `openrouter/free` the router picks one per request), when the response carries it (#1493).
   */
 final case class ProviderResponse(
     result: ProviderResult,
     reply: Option[LlmReply],
     raw: Option[String] = None,
     stripped: Boolean = false,
+    truncated: Boolean = false,
     model: Option[String] = None,
     failure: Option[ProviderFailure] = None
 )
@@ -101,7 +103,8 @@ final case class RawResponse(
     provider: LlmProvider,
     text: String,
     stripped: Boolean,
-    model: Option[String] = None
+    model: Option[String] = None,
+    truncated: Boolean = false
 )
 
 /** Why a prompt was refused before any provider was asked. */
@@ -189,7 +192,11 @@ object Completion {
     else if !completion.attempts.exists(_.provider == provider) then completion
     else {
       val traced = response.raw.fold(completion)(text =>
-        completion.copy(raw = Some(RawResponse(provider, text, response.stripped, response.model)))
+        completion.copy(
+          raw = Some(
+            RawResponse(provider, text, response.stripped, response.model, truncated = response.truncated)
+          )
+        )
       )
       val withResult = traced.attempts.map { attempt =>
         if attempt.provider == provider then attempt.copy(

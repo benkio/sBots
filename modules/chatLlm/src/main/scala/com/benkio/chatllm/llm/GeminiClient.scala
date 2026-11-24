@@ -28,6 +28,20 @@ object GeminiClient {
     "required" -> Json.arr(Json.fromString("action"))
   )
 
+  /** Why the candidate stopped, when its text cannot be used. `MAX_TOKENS` confirms a reply cut by the output limit;
+    * the other reasons distinguish a safety block from a malformed generation. Pure, so it is tested on plain JSON.
+    */
+  private[llm] def diagnose(json: Json): Option[String] = {
+    val cursor    = json.hcursor
+    val candidate = cursor.downField("candidates").downN(0)
+    val finish    = candidate.get[String]("finishReason").toOption.map(f => s"finish_reason=$f")
+    val tokens    =
+      cursor.downField("usageMetadata").get[Int]("candidatesTokenCount").toOption.map(t => s"candidates_tokens=$t")
+    val blocked = cursor.downField("promptFeedback").get[String]("blockReason").toOption.map(b => s"block_reason=$b")
+    val parts   = List(finish, tokens, blocked).flatten
+    Option.when(parts.nonEmpty)(parts.mkString(" "))
+  }
+
   def apply[F[_]: Concurrent](
       client: Client[F],
       connection: ProviderConnection,
@@ -47,7 +61,7 @@ object GeminiClient {
     override val provider: LlmProvider = LlmProvider.Gemini
 
     override def generate(value: String): F[ProviderResponse] =
-      ProviderHttp.post(client, buildRequest(uri, value), extractText, extractModel)
+      ProviderHttp.post(client, buildRequest(uri, value), extractText, extractModel, diagnose = diagnose)
 
     /** The reply text of Gemini lives at `candidates[0].content.parts[0].text`. */
     private val extractText: Json => Option[String] = json =>

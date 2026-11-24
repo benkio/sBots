@@ -1,5 +1,6 @@
 package com.benkio.chatllm.observability
 
+import cats.syntax.all.*
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatllm.llm.Completion
 import com.benkio.chatllm.llm.CompletionStatus
@@ -43,7 +44,9 @@ final case class LlmInteraction(
     providerErrors: List[String] = Nil,
     providerErrorMessage: Option[String] = None,
     geminiMs: Option[Long] = None,
-    openRouterMs: Option[Long] = None
+    openRouterMs: Option[Long] = None,
+    // A `text` reply recovered from an object cut by the provider's output-token limit, still guarded before sending.
+    truncated: Boolean = false
 )
 
 object LlmInteraction {
@@ -88,7 +91,7 @@ object LlmInteraction {
           .orElse(
             completion.attempts
               .find(_.result.contains(ProviderResult.Success))
-              .map(_ => "success_without_reply")
+              .as("success_without_reply")
           )
           .orElse(Some("failed"))
       case CompletionStatus.Answered =>

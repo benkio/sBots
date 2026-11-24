@@ -486,10 +486,69 @@ class LlmClientSpec extends CatsEffectSuite {
     val expected = Right(LlmReply("ciao", LlmAction.Text))
     assertEquals(StructuredReply.parse("```json\n{\"action\":\"text\",\"text\":\"ciao\"}\n```"), expected)
     assertEquals(StructuredReply.parse("Ecco: {\"action\":\"text\",\"text\":\"ciao\"} spero vada bene"), expected)
-    assertEquals(StructuredReply.parseDetailed("{\"action\":\"silent\"}").map(_._2), Right(false))
-    assertEquals(StructuredReply.parseDetailed("Ecco: {\"action\":\"silent\"} ok").map(_._2), Right(true))
+    assertEquals(
+      StructuredReply.parseDetailed("{\"action\":\"silent\"}").map(_.repair),
+      Right(StructuredReply.Repair.AsIs)
+    )
+    assertEquals(
+      StructuredReply.parseDetailed("Ecco: {\"action\":\"silent\"} ok").map(_.repair),
+      Right(StructuredReply.Repair.Stripped)
+    )
     assert(StructuredReply.parse("nessun json qui").isLeft)
     assert(StructuredReply.parse("```json\n{\"action\":\"shout\"}\n```").isLeft)
+  }
+
+  test("structured reply: a text object cut by the output-token limit is recovered, other cuts are not") {
+    val cut = "{\"action\":\"text\",\"text\":\"Cari amici, questa è una risposta lunga che il modello non ha chiuso"
+    assertEquals(
+      StructuredReply.parseDetailed(cut),
+      Right(
+        StructuredReply.Parsed(
+          LlmReply("Cari amici, questa è una risposta lunga che il modello non ha chiuso", LlmAction.Text),
+          StructuredReply.Repair.Truncated
+        )
+      )
+    )
+    // escapes and a trailing unpaired backslash are not guessed
+    assertEquals(
+      StructuredReply.parse("{\"action\":\"text\",\"text\":\"una \\\"citazione\\\" e un backslash \\"),
+      Right(LlmReply("una \"citazione\" e un backslash ", LlmAction.Text))
+    )
+    // no trustworthy action/id in a cut reuse, and no repair of a plain malformed body
+    assert(StructuredReply.parse("{\"action\":\"reuse\",\"replyId\":\"r1\"").isLeft)
+    assert(StructuredReply.parse("{\"action\":\"text\",\"text\":\"ciao\"").isRight)
+    assert(StructuredReply.parse("testo senza json").isLeft)
+  }
+
+  test("a cut Gemini reply is answered with a truncated marker instead of a malformed failure") {
+    val raw  = "{\"action\":\"text\",\"text\":\"Ciao ragazzi, parliamo di musica"
+    val body = Json.obj(
+      "candidates" -> Json.arr(
+        Json.obj(
+          "content"      -> Json.obj("parts" -> Json.arr(Json.obj("text" -> Json.fromString(raw)))),
+          "finishReason" -> Json.fromString("MAX_TOKENS")
+        )
+      ),
+      "modelVersion" -> Json.fromString("gemini-3.5-flash-lite")
+    )
+    val client = Client.fromHttpApp(HttpApp[IO](_ => IO.pure(Response[IO](Status.Ok).withEntity(body))))
+    LlmClients.build[IO](client, config("", "primary-provider = gemini\n")).flatMap(_.complete(prompt)).map {
+      completion =>
+        assertEquals(completion.status, CompletionStatus.Answered)
+        assertEquals(completion.reply.map(_.text), Some("Ciao ragazzi, parliamo di musica"))
+        assertEquals(completion.raw.map(_.truncated), Some(true))
+        assertEquals(completion.raw.flatMap(_.model), Some("gemini-3.5-flash-lite"))
+        assertEquals(completion.attempts.map(_.result), List(Some(ProviderResult.Success)))
+    }
+  }
+
+  test("Gemini's finish reason and token count diagnose a response without usable text") {
+    val body = Json.obj(
+      "candidates"    -> Json.arr(Json.obj("finishReason" -> Json.fromString("MAX_TOKENS"))),
+      "usageMetadata" -> Json.obj("candidatesTokenCount" -> Json.fromInt(1024))
+    )
+    assertEquals(GeminiClient.diagnose(body), Some("finish_reason=MAX_TOKENS candidates_tokens=1024"))
+    assertEquals(GeminiClient.diagnose(Json.obj()), None)
   }
 
   test("a non-JSON 200 response is treated as malformed JSON") {

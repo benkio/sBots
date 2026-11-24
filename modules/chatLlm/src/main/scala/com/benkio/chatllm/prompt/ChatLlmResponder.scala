@@ -127,7 +127,9 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
           completion.attempts.map(a => s"${a.provider}=${a.result.fold("none")(_.toString)}").mkString("[", ", ", "]")
       )
       .whenA(completion.status != CompletionStatus.Answered && completion.status != CompletionStatus.Silent) *>
-      LogWriter.info(decisionLine(msg = msg, completion = completion, decision = decision, reuseOffered = reuseOffered)) *>
+      LogWriter.info(
+        decisionLine(msg = msg, completion = completion, decision = decision, reuseOffered = reuseOffered)
+      ) *>
       observe(
         msg = msg,
         prompt = prompt,
@@ -151,7 +153,8 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
       case LlmDecision.Text(_)                   => "text reply"
       case LlmDecision.Reuse(id) if reuseOffered => s"reuse $id"
       case LlmDecision.Reuse(id)                 => s"no reply: reuse_not_offered ($id)"
-      case LlmDecision.Silent                    => s"no reply: ${silenceReason(completion = completion, decision = decision, reuseOffered = reuseOffered)}"
+      case LlmDecision.Silent                    =>
+        s"no reply: ${silenceReason(completion = completion, decision = decision, reuseOffered = reuseOffered)}"
     }
     s"[ChatLlmResponder] ${msg.chatId}: $outcome"
   }

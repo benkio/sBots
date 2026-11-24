@@ -7,7 +7,7 @@ import io.circe.Json
   * Mon pipeline to Loki and is read with `| json | line_format "{{.message}}" | json` (`docs/monitoring.md`). Keep the
   * keys stable: the dashboard depends on them. New keys are appended at the end. The keys without a value (`reply_id`,
   * `failure`, `local_rejection`, `provider_errors`, `provider_error`, `gemini_ms`, `openrouter_ms`) are omitted, so a
-  * missing label means "none".
+  * missing label means "none"; `truncated` is likewise absent unless a cut reply was recovered.
   */
 object LlmInteractionLog {
 
@@ -36,7 +36,9 @@ object LlmInteractionLog {
         "provider_errors" -> (if i.providerErrors.isEmpty then None else Some(i.providerErrors.mkString(","))).asJson,
         "provider_error"  -> i.providerErrorMessage.asJson,
         "gemini_ms"       -> i.geminiMs.asJson,
-        "openrouter_ms"   -> i.openRouterMs.asJson
+        "openrouter_ms"   -> i.openRouterMs.asJson,
+        // appended so dashboards of existing lines keep working; absent on every reply that needed no repair
+        "truncated" -> (if i.truncated then Some(true) else None).asJson
       )
       .dropNullValues
 

@@ -246,10 +246,10 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
     val directed = "EngineBot: how are you?"
     val ignored  = message("zzz hello").copy(mentions = List(Mention(name = Some("EngineBot"))))
     for {
-      notDirected  <- runWithLog(text = "how are you?")
-      disabled     <- runWithLog(text = directed, enabled = false)
-      forwarded    <- runMessageWithLog(msg = message(directed).copy(isForward = true))
-      old          <- runMessageWithLog(msg = message(directed).copy(date = Instant.now.getEpochSecond - 1.day.toSeconds))
+      notDirected <- runWithLog(text = "how are you?")
+      disabled    <- runWithLog(text = directed, enabled = false)
+      forwarded   <- runMessageWithLog(msg = message(directed).copy(isForward = true))
+      old <- runMessageWithLog(msg = message(directed).copy(date = Instant.now.getEpochSecond - 1.day.toSeconds))
       ignoredLine  <- runMessageWithLog(msg = ignored, config = _.copy(ignoreMessagePrefix = Some("zzz")))
       responderOff <- runWithLog(text = directed, responder = LlmResponder.noop[IO])
       blocked      <- runWithLog(text = "EngineBot: ping", filter = IO.pure(false))

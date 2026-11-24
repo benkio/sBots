@@ -78,8 +78,15 @@ private[llm] object ProviderHttp {
                             model = served,
                             failure = diagnosis.map(d => ProviderFailure(httpStatus = 200, message = Some(d)))
                           ),
-                        (reply, stripped) =>
-                          ProviderResponse.success(reply).copy(raw = Some(raw), stripped = stripped, model = served)
+                        parsed =>
+                          ProviderResponse
+                            .success(parsed.reply)
+                            .copy(
+                              raw = Some(raw),
+                              stripped = parsed.repair == StructuredReply.Repair.Stripped,
+                              truncated = parsed.repair == StructuredReply.Repair.Truncated,
+                              model = served
+                            )
                       )
                   }
                   .pure[F]

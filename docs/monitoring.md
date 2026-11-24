@@ -94,11 +94,11 @@ class only; neither a logging failure nor a busy database can drop the other rec
   provider that was not asked has no key. Their sum is close to `latency_ms`, so they tell which provider is slow.
 - A provider reply that cannot be read as the structured reply also writes one ERROR line:
   `[LlmMalformedJson] provider=<p> model=<m> bot=<b> got: <what it returned>`, with the full raw model text (not
-  capped, so a malformed JSON body can be examined). For OpenRouter the line also carries the provider's own diagnosis,
-  from the documented fields of the first choice:
-  `[finish_reason=length content=null choice_error=502 …]` after the text, or `no model text: …` when there was none
-  (`length` is a token limit hit, `content_filter` a block, `content=null` an empty answer, e.g. a reasoning model that
-  spent its tokens thinking). The text is the
+  capped, so a malformed JSON body can be examined). The line also carries the provider's own diagnosis after the text:
+  for Gemini `[finish_reason=MAX_TOKENS candidates_tokens=1024]` (`MAX_TOKENS` is a reply cut by the output limit,
+  `RECITATION` a repeated-text stop), for OpenRouter `[finish_reason=length content=null choice_error=502 …]`, or
+  `no model text: …` when there was none (`length` is a token limit hit, `content_filter` a block, `content=null` an
+  empty answer, e.g. a reasoning model that spent its tokens thinking). The text is the
   model's reply and may echo chat content: it goes to the server logs (and Loki), unlike the prompt. The "sbots warnings
   and errors" panel of the Logs row (`{app="sbots"} | level=~"WARN|ERROR"`) lists these lines.
 - `chat` is a salted hash (`llm.context.author-salt`), never the chat id. The line holds no chat content.
@@ -112,7 +112,11 @@ class only; neither a logging failure nor a busy database can drop the other rec
   `client_error:<ExceptionClass>` (the client call threw; the exception message is never logged here, it may hold chat
   content), `cancelled`. Omitted when it answered or the model chose silence.
 - `fallback=true`: the provider other than the configured primary was asked. `stripped=true`: the reply parsed only after the
-  fence/prose around the JSON object was cut away.
+  fence/prose around the JSON object was cut away. `truncated=true`: the reply was recovered from a `text` object cut by
+  the provider's output-token limit (the model looped and never closed the JSON); the recovered text still passed the
+  output guard, so it is capped at 500 characters and never a command or a mention. The key is absent otherwise.
+  WORKAROUND/TODO: in principle a malformed reply should fail as before; this recovery is only a temporary
+  usability/stability measure. Remove it and the marker once generation is fixed at the source.
 
 **Trace a weird reply.** Find the line in Loki (below, plus `| chat="<hash>"`): it gives the prompt version, the model and the
 time. With the debug trace on, the full prompt and the raw model text are in `llm_trace` (joined by `chat_hash`, `bot_id`

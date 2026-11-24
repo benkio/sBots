@@ -162,6 +162,7 @@ object LlmObserver {
               fallback = LlmInteraction.usedFallback(c),
               parsed = c.reply.isDefined,
               stripped = c.raw.exists(_.stripped),
+              truncated = c.raw.exists(_.truncated),
               localRejection = c.localRejection.map(_.label),
               providerErrors = LlmInteraction.providerErrors(c),
               providerErrorMessage = LlmInteraction.providerErrorMessage(c),

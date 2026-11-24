@@ -241,8 +241,11 @@ or on IRC the text starts with ~botname:~), that matched no reactive reply, in a
 chat timeout (the cooldown that also limits the reactive replies). A matching reactive reply blocked by the timeout does
 not fall through to the LLM: a message that matched a reply bundle, also a blocked one, is never asked. The model can answer
 with a new text or stay silent; it can also /reuse/ one of the bot's known replies (sent as is), but that needs candidate
-replies and today none are offered (see [[file:docs/bot-logic-overview.md][bot-logic-overview]]). Anything malformed, unsafe
-(a command, a mention, empty) or failed is dropped without a reply.
+replies and today none are offered (see [[file:docs/bot-logic-overview.md][bot-logic-overview]]). A ~text~ reply cut by the
+provider's output-token limit is recovered (marked ~truncated=true~ in the log) and still capped and guarded; this is a
+temporary usability/stability workaround until generation is fixed at the source: the intended contract is a
+well-structured reply, and malformed output should fail as before. Anything else malformed, unsafe (a command, a mention,
+empty) or failed is dropped without a reply.
 
 The reply language is the one the *persona* states (~xah~ is English only); Italian is only the default for a persona
 that states none.

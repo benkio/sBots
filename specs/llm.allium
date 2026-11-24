@@ -720,6 +720,13 @@ rule ResponderReusesCandidate {
 -- A provider reply without a valid action, or with a non-string text or reply id, is already malformed at the provider
 -- boundary. A JSON null `text` or `replyId` counts as absent, not malformed: a reuse without a reply id is therefore an
 -- accepted reply that the responder turns into a silent decision, with no malformed-reply fallback.
+-- A `text` object cut by the provider's output-token limit is recovered when the prefix already names that action and
+-- the value decodes as a JSON string (a lone trailing escape is dropped, never guessed): the recovered text goes
+-- through the same output guard and the interaction reports `truncated=true`. A cut `reuse`, or any other unreadable
+-- object, stays malformed and follows the fallback path.
+-- WORKAROUND/TODO: in principle a provider must return a well-structured reply; malformed output should fail as before.
+-- This recovery is only a temporary usability/stability measure until generation is fixed at the source. Remove both the
+-- rule and the `truncated` observability key once no completion needs them.
 -- The reply language is the one the persona states (Italian when it states none); this is required by the prompt only,
 -- not checked.
 rule ResponderStaysSilent {
@@ -741,8 +748,8 @@ rule ResponderStaysSilent {
 -- differs per request; else the configured one), the provider the evidence belongs to, prompt version, estimated prompt and response
 -- tokens (four characters per token: the providers report no usage), latency, completion status, action taken (text,
 -- reuse or silent), reused reply id, failure reason, provider attempts and their results, whether a fallback provider was
--- asked, whether the structured reply needed fence/prose stripping, and the local rejection (oversized prompt, missing
--- credentials). The failure reasons are what the dashboard counts: local rejections, quota exhaustion, a provider
+-- asked, whether the structured reply needed fence/prose stripping or was recovered from a truncated `text`
+-- (`truncated=true`), and the local rejection (oversized prompt, missing credentials). The failure reasons are what the dashboard counts: local rejections, quota exhaustion, a provider
 -- result (including `success_without_reply` when a provider answered 200 without a structured reply), an output the
 -- guard or the reuse check turned into silence, and a client call that threw (status `error`,
 -- failure `client_error:<exception class>`; never the exception message, which may hold chat content), and a call that was
