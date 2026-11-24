@@ -279,7 +279,7 @@ editing the file.
 | ~LLM_MAX_OUTPUT_TOKENS~ | ~512~ | output limit sent to the provider |
 | ~LLM_CONTEXT_MAX_MESSAGES~ / ~LLM_CONTEXT_MAX_TOKENS~ | ~20~ / ~2048~ | the conversation window of a prompt |
 | ~LLM_CONTEXT_TTL~ / ~LLM_CONTEXT_CLEANUP_CRON~ | ~7 days~ / hourly | retention and its cleanup job |
-| ~GEMINI_MAX_PER_MINUTE~, ~GEMINI_MAX_PER_DAY~ (same for ~OPENROUTER_~) | ~20~ / ~50~ | client-side quota of each provider, shared by all the bots |
+| ~GEMINI_MAX_PER_MINUTE~, ~GEMINI_MAX_PER_DAY~ (same for ~OPENROUTER_~) | ~20~ / ~50~ | client-side quota of each provider, shared by all the bots. The OpenRouter values are the documented free-tier limits; *the Gemini ones are provisional* (#1483 did not measure them), so check them against your key |
 | ~LLM_TRACE_ENABLED~ / ~LLM_TRACE_TTL~ | ~false~ / ~1 day~ | opt-in debug trace of the full prompt and raw response, see [[file:docs/monitoring.md][monitoring]] |
 
 *** Sizing the prompt, the persona and the timeout together
