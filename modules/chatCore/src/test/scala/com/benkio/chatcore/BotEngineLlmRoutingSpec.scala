@@ -150,7 +150,7 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
       filter: IO[Boolean] = IO.pure(true),
       config: SBotConfig => SBotConfig = identity
   ): IO[List[String]] =
-    runMessageWithLog(message(text), enabled, responder, filter, config)
+    runMessageWithLog(msg = message(text), enabled = enabled, responder = responder, filter = filter, config = config)
 
   test("a directed message with no reactive match gets the LLM reply, after a typing action") {
     run(text = "EngineBot: how are you?").map { case Run(sent, calls, typings, _) =>
@@ -246,14 +246,14 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
     val directed = "EngineBot: how are you?"
     val ignored  = message("zzz hello").copy(mentions = List(Mention(name = Some("EngineBot"))))
     for {
-      notDirected  <- runWithLog("how are you?")
-      disabled     <- runWithLog(directed, enabled = false)
-      forwarded    <- runMessageWithLog(message(directed).copy(isForward = true))
-      old          <- runMessageWithLog(message(directed).copy(date = Instant.now.getEpochSecond - 1.day.toSeconds))
-      ignoredLine  <- runMessageWithLog(ignored, config = _.copy(ignoreMessagePrefix = Some("zzz")))
-      responderOff <- runWithLog(directed, responder = LlmResponder.noop[IO])
-      blocked      <- runWithLog("EngineBot: ping", filter = IO.pure(false))
-      silent       <- runWithLog(directed, responder = noReply)
+      notDirected  <- runWithLog(text = "how are you?")
+      disabled     <- runWithLog(text = directed, enabled = false)
+      forwarded    <- runMessageWithLog(msg = message(directed).copy(isForward = true))
+      old          <- runMessageWithLog(msg = message(directed).copy(date = Instant.now.getEpochSecond - 1.day.toSeconds))
+      ignoredLine  <- runMessageWithLog(msg = ignored, config = _.copy(ignoreMessagePrefix = Some("zzz")))
+      responderOff <- runWithLog(text = directed, responder = LlmResponder.noop[IO])
+      blocked      <- runWithLog(text = "EngineBot: ping", filter = IO.pure(false))
+      silent       <- runWithLog(text = directed, responder = noReply)
     } yield {
       def only(lines: List[String], reason: String): Boolean =
         lines.size == 1 && lines.head.contains(s"reason=$reason")
