@@ -10,10 +10,12 @@ import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.TextReply
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo.SBotId
+import com.benkio.chatllm.llm.Completion
 import com.benkio.chatllm.llm.CompletionStatus
 import com.benkio.chatllm.llm.LlmClientApi
 import com.benkio.chatllm.observability.LlmObservation
 import com.benkio.chatllm.observability.LlmObserver
+import com.benkio.chatllm.observability.LlmOutcome
 import com.benkio.chatllm.LlmContext
 import log.effect.LogWriter
 
@@ -47,39 +49,71 @@ final class ChatLlmResponder[F[_]: MonadThrow: Clock](
     (for {
       window <- context.prompt(msg.chatId, botId)
       prompt = builder.build(persona, entries, window, msg)
-      started    <- Clock[F].monotonic
-      completion <- client.complete(prompt)
-      finished   <- Clock[F].monotonic
-      _          <- log
-        .warn(
-          s"[ChatLlmResponder] no answer for ${msg.chatId}: ${completion.status}, attempts " +
-            completion.attempts.map(a => s"${a.provider}=${a.result.fold("none")(_.toString)}").mkString("[", ", ", "]")
-        )
-        .whenA(completion.status != CompletionStatus.Answered && completion.status != CompletionStatus.Silent)
-      decision = completion.reply
-        .filter(_ => completion.status == CompletionStatus.Answered)
-        .fold[LlmDecision](LlmDecision.Silent)(LlmDecision.from(_, builder.maxReplyChars))
-      _ <- observer.traverse_(
-        _.observe(
-          LlmObservation(
-            chatId = msg.chatId,
-            botId = botId,
-            promptVersion = builder.version,
+      started   <- Clock[F].monotonic
+      attempted <- client.complete(prompt).attempt
+      finished  <- Clock[F].monotonic
+      latency = (finished - started).toMillis
+      reply <- attempted match {
+        case Left(error) =>
+          // The failure is recorded (class only: the message may hold chat content), then handled as before below.
+          observe(
+            msg = msg,
             prompt = prompt,
-            completion = completion,
-            decision = decision,
-            reuseOffered = decision match {
-              case LlmDecision.Reuse(id) => offered.contains(id)
-              case _                     => false
-            },
-            latencyMs = (finished - started).toMillis
-          )
-        )
-      )
-    } yield toReply(decision, offered)).handleErrorWith { error =>
+            latencyMs = latency,
+            outcome = LlmOutcome.ClientFailed(error.getClass.getSimpleName)
+          ) *>
+            MonadThrow[F].raiseError[Option[Reply]](error)
+        case Right(completion) =>
+          answer(msg = msg, prompt = prompt, latencyMs = latency, completion = completion, offered = offered)
+      }
+    } yield reply).handleErrorWith { error =>
       log.error(s"[ChatLlmResponder] failed: ${error.getMessage}").as(none[Reply])
     }
   }
+
+  private def answer(
+      msg: Message,
+      prompt: String,
+      latencyMs: Long,
+      completion: Completion,
+      offered: Map[String, ReplyBundleMessage]
+  ): F[Option[Reply]] = {
+    val decision = completion.reply
+      .filter(_ => completion.status == CompletionStatus.Answered)
+      .fold[LlmDecision](LlmDecision.Silent)(LlmDecision.from(_, builder.maxReplyChars))
+    val reuseOffered = decision match {
+      case LlmDecision.Reuse(id) => offered.contains(id)
+      case _                     => false
+    }
+    log
+      .warn(
+        s"[ChatLlmResponder] no answer for ${msg.chatId}: ${completion.status}, attempts " +
+          completion.attempts.map(a => s"${a.provider}=${a.result.fold("none")(_.toString)}").mkString("[", ", ", "]")
+      )
+      .whenA(completion.status != CompletionStatus.Answered && completion.status != CompletionStatus.Silent) *>
+      observe(
+        msg = msg,
+        prompt = prompt,
+        latencyMs = latencyMs,
+        outcome = LlmOutcome.Completed(completion, decision, reuseOffered)
+      ).as(
+        toReply(decision, offered)
+      )
+  }
+
+  private def observe(msg: Message, prompt: String, latencyMs: Long, outcome: LlmOutcome): F[Unit] =
+    observer.traverse_(
+      _.observe(
+        LlmObservation(
+          chatId = msg.chatId,
+          botId = botId,
+          promptVersion = builder.version,
+          prompt = prompt,
+          latencyMs = latencyMs,
+          outcome = outcome
+        )
+      )
+    )
 
   override def remember(msg: Message)(using Applicative[F]): F[Unit] =
     context.remember(msg, botId).void.handleErrorWith(rememberFailed("message", msg))

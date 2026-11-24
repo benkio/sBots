@@ -1861,7 +1861,7 @@
                       "group": "loki",
                       "kind": "DataQuery",
                       "spec": {
-                        "expr": "quantile_over_time(0.95, {app=\"sbots\"} |= \"[llm] type=interaction\" | regexp `bot=(?P<bot>\\S+).*latency_ms=(?P<l>\\d+)` | unwrap l [$__interval]) by (bot)",
+                        "expr": "quantile_over_time(0.95, {app=\"sbots\"} |= \"llm_interaction\" | json | line_format \"{{.message}}\" | json | unwrap latency_ms [$__interval]) by (bot)",
                         "legendFormat": "{{bot}}"
                       },
                       "version": "v0"
@@ -1977,7 +1977,7 @@
                       "group": "loki",
                       "kind": "DataQuery",
                       "spec": {
-                        "expr": "sum(count_over_time({app=\"sbots\"} |= \"[llm] type=interaction\" |= \"failure=quota_exhausted\" [$__interval]))",
+                        "expr": "sum(count_over_time({app=\"sbots\"} |= \"llm_interaction\" | json | line_format \"{{.message}}\" | json | failure=\"quota_exhausted\" [$__interval]))",
                         "legendFormat": "quota exhausted"
                       },
                       "version": "v0"
@@ -2093,7 +2093,7 @@
                       "group": "loki",
                       "kind": "DataQuery",
                       "spec": {
-                        "expr": "sum by (action) (count_over_time({app=\"sbots\"} |= \"[llm] type=interaction\" | regexp `action=(?P<action>\\S+)` [$__interval]))",
+                        "expr": "sum by (action) (count_over_time({app=\"sbots\"} |= \"llm_interaction\" | json | line_format \"{{.message}}\" | json [$__interval]))",
                         "legendFormat": "{{action}}"
                       },
                       "version": "v0"
@@ -2209,7 +2209,7 @@
                       "group": "loki",
                       "kind": "DataQuery",
                       "spec": {
-                        "expr": "sum by (failure) (count_over_time({app=\"sbots\"} |= \"[llm] type=interaction\" |~ \"failure=[^-]\" | regexp `failure=(?P<failure>\\S+)` [$__interval]))",
+                        "expr": "sum by (failure) (count_over_time({app=\"sbots\"} |= \"llm_interaction\" | json | line_format \"{{.message}}\" | json | failure!=\"\" [$__interval]))",
                         "legendFormat": "{{failure}}"
                       },
                       "version": "v0"
@@ -2325,7 +2325,7 @@
                       "group": "loki",
                       "kind": "DataQuery",
                       "spec": {
-                        "expr": "sum(count_over_time({app=\"sbots\"} |= \"[llm] type=interaction\" |= \"fallback=true\" [$__interval]))",
+                        "expr": "sum(count_over_time({app=\"sbots\"} |= \"llm_interaction\" | json | line_format \"{{.message}}\" | json | fallback=\"true\" [$__interval]))",
                         "legendFormat": "fallback"
                       },
                       "version": "v0"
@@ -2344,14 +2344,13 @@
                       "group": "loki",
                       "kind": "DataQuery",
                       "spec": {
-                        "expr": "sum(count_over_time({app=\"sbots\"} |= \"[llm] type=interaction\" |~ \"local_rejection=[^-]\" [$__interval]))",
+                        "expr": "sum(count_over_time({app=\"sbots\"} |= \"llm_interaction\" | json | line_format \"{{.message}}\" | json | local_rejection!=\"\" [$__interval]))",
                         "legendFormat": "local rejection"
                       },
                       "version": "v0"
                     },
-                    "refId": "A"
-                  },
-                  "refId": "B"
+                    "refId": "B"
+                  }
                 }
               ],
               "queryOptions": {},
@@ -2461,7 +2460,7 @@
                       "group": "loki",
                       "kind": "DataQuery",
                       "spec": {
-                        "expr": "sum by (bot) (sum_over_time({app=\"sbots\"} |= \"[llm] type=interaction\" | regexp `bot=(?P<bot>\\S+).*prompt_tokens=(?P<t>\\d+)` | unwrap t [$__interval]))",
+                        "expr": "sum by (bot) (sum_over_time({app=\"sbots\"} |= \"llm_interaction\" | json | line_format \"{{.message}}\" | json | unwrap prompt_tokens [$__interval]))",
                         "legendFormat": "{{bot}}"
                       },
                       "version": "v0"

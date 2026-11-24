@@ -92,11 +92,21 @@ class LlmObservabilitySpec extends CatsEffectSuite {
       stripped = true,
       localRejection = None
     )
-    val line = LlmInteractionLog.line(i)
-    assert(line.startsWith("[llm] type=interaction chat="), line)
-    assert(line.contains("model=gemini_x"), line)
-    assert(line.contains("latency_ms=123 status=answered action=reuse reply_id=id1 failure=-"), line)
-    assert(!line.contains("42"), "the raw chat id must not appear")
+    val line             = LlmInteractionLog.line(i)
+    val json             = io.circe.parser.parse(line).fold(e => fail(e.getMessage), identity)
+    def field(k: String) = json.hcursor.downField(k)
+    assertEquals(field("type").as[String], Right("llm_interaction"))
+    assertEquals(field("bot").as[String], Right("bot"))
+    assertEquals(field("model").as[String], Right("gemini x"))
+    assertEquals(field("latency_ms").as[Long], Right(123L))
+    assertEquals(field("action").as[String], Right("reuse"))
+    assertEquals(field("reply_id").as[String], Right("id1"))
+    assertEquals(field("prompt_tokens").as[Int], Right(10))
+    assertEquals(field("stripped").as[Boolean], Right(true))
+    // the keys without a value are omitted, not null
+    assert(!line.contains("failure"), line)
+    assert(!line.contains("local_rejection"), line)
+    assert(!line.contains("\"42\""), "the raw chat id must not appear")
     assertNotEquals(LlmInteraction.chatHash(chatId, "salt"), LlmInteraction.chatHash(chatId, "other"))
   }
 
@@ -219,12 +229,13 @@ class LlmObservabilitySpec extends CatsEffectSuite {
   }
 
   test("the responder hands the observer the decision, the prompt version and whether the reuse was offered") {
-    def observed(answer: Completion): IO[LlmObservation] =
+    def observed(answer: Completion): IO[LlmObservation]       = observedWith(IO.pure(answer))
+    def observedWith(call: IO[Completion]): IO[LlmObservation] =
       for {
         seen <- Ref[IO].of(List.empty[LlmObservation])
         observer  = new LlmObserver[IO] { def observe(o: LlmObservation): IO[Unit] = seen.update(_ :+ o) }
         responder = new ChatLlmResponder[IO](
-          client = new LlmClientApi[IO] { def complete(prompt: String): IO[Completion] = IO.pure(answer) },
+          client = new LlmClientApi[IO] { def complete(prompt: String): IO[Completion] = call },
           context = context,
           builder = PromptBuilder(500).fold(e => fail(e), identity),
           botId = botId,
@@ -245,13 +256,83 @@ class LlmObservabilitySpec extends CatsEffectSuite {
       offered    <- observed(reuse(ReplyCatalogue.idOf(greeting)))
       notOffered <- observed(reuse("unknown"))
     } yield {
-      assertEquals(offered.decision, LlmDecision.Reuse(ReplyCatalogue.idOf(greeting)))
-      assert(offered.reuseOffered)
+      (offered.outcome, notOffered.outcome) match {
+        case (LlmOutcome.Completed(_, d1, o1), LlmOutcome.Completed(_, d2, o2)) =>
+          assertEquals(d1, LlmDecision.Reuse(ReplyCatalogue.idOf(greeting)))
+          assert(o1)
+          assert(!o2)
+          assertEquals(LlmInteraction.actionOf(d2, o2)._1, ReplyAction.Silent)
+        case other => fail(s"unexpected $other")
+      }
       assertEquals(offered.promptVersion, PromptBuilder.currentVersion)
       assertEquals(offered.botId, botId)
-      assert(!notOffered.reuseOffered)
-      assertEquals(LlmInteraction.actionOf(notOffered.decision, notOffered.reuseOffered)._1, ReplyAction.Silent)
     }
+  }
+
+  test("a client exception is observed as a failure, not as a completion, and still gives no reply") {
+    for {
+      seen <- Ref[IO].of(List.empty[LlmObservation])
+      responder = new ChatLlmResponder[IO](
+        client = new LlmClientApi[IO] {
+          def complete(prompt: String): IO[Completion] = IO.raiseError(new IllegalStateException("secret chat text"))
+        },
+        context = context,
+        builder = PromptBuilder(500).fold(e => fail(e), identity),
+        botId = botId,
+        persona = "persona",
+        catalogue = catalogue,
+        observer = Some(new LlmObserver[IO] { def observe(o: LlmObservation): IO[Unit] = seen.update(_ :+ o) })
+      )
+      reply <- responder.respond(msg, List(greeting))
+      all   <- seen.get
+    } yield {
+      assertEquals(reply, None)
+      assertEquals(all.map(_.outcome), List(LlmOutcome.ClientFailed("IllegalStateException")))
+      assertEquals(all.head.promptVersion, PromptBuilder.currentVersion)
+      assert(all.head.latencyMs >= 0)
+    }
+  }
+
+  test("the failure line carries the reason, with no completion fields and no exception message") {
+    for {
+      traces <- Ref[IO].of(List.empty[LlmTrace])
+      observer = LlmObserver[IO](new MemoryTraces(traces), traceEnabled = true, salt = "s", modelOf = _ => None)
+      _ <- observer.observe(
+        LlmObservation(chatId, botId, "v1", "the prompt", 7L, LlmOutcome.ClientFailed("IllegalStateException"))
+      )
+      stored <- traces.get
+    } yield {
+      assertEquals(stored.map(t => (t.status, t.action, t.response)), List(("error", "silent", None)))
+      val i = LlmInteraction(
+        chatHash = "h",
+        bot = "bot",
+        model = "-",
+        promptVersion = "v1",
+        promptTokens = 3,
+        responseTokens = 0,
+        latencyMs = 7,
+        status = "error",
+        action = ReplyAction.Silent,
+        reusedReplyId = None,
+        failure = Some("client_error:IllegalStateException"),
+        attempts = Nil,
+        fallback = false,
+        parsed = false,
+        stripped = false,
+        localRejection = None
+      )
+      assert(LlmInteractionLog.line(i).contains("client_error:IllegalStateException"))
+    }
+  }
+
+  test("a failing trace store does not make observe fail") {
+    val failing = new LlmTraceStore[IO] {
+      def append(trace: LlmTrace): IO[Unit]                        = IO.raiseError(new RuntimeException("SQLITE_BUSY"))
+      def recent(chatHash: String, limit: Int): IO[List[LlmTrace]] = IO.pure(Nil)
+      def deleteOlderThan(cutoff: Long): IO[Int]                   = IO.pure(0)
+    }
+    LlmObserver[IO](failing, traceEnabled = true, salt = "s", modelOf = _ => None)
+      .observe(LlmObservation(chatId, botId, "v1", "p", 1L, LlmOutcome.ClientFailed("X")))
   }
 
   test("the trace TTL is validated") {

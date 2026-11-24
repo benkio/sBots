@@ -58,25 +58,30 @@ backticks for the regexp in the Grafana editor, so the backslashes are not escap
 
 ## LLM observability (#1493)
 
-One `[llm]` line per completion the responder asked for (`LlmInteractionLog`), `logfmt` at `info` like the `[stats]`
-lines. Keep the keys stable (the LLM row of the dashboard depends on them); a missing value is `-`, and a value never
-contains a space.
+One JSON log line per completion the responder asked for (`LlmInteractionLog`): the `message` of the log record is a JSON
+object, so it needs no regexp. Keep the keys stable (the LLM row of the dashboard depends on them). A key without a value
+(`reply_id`, `failure`, `local_rejection`) is omitted: in Loki a missing label means "none".
 
-`[llm] type=interaction chat=<hash> bot=<bot> model=<model> prompt_version=<v> prompt_tokens=<n> response_tokens=<n>
-latency_ms=<n> status=<answered|failed|silent|pending> action=<text|reuse|silent> reply_id=<id> failure=<reason>
-attempts=<provider:result,...> fallback=<bool> parsed=<bool> stripped=<bool> local_rejection=<reason>`
+```json
+{"type":"llm_interaction","chat":"<hash>","bot":"<bot>","model":"<model>","prompt_version":"v1","prompt_tokens":471,
+ "response_tokens":11,"latency_ms":820,"status":"answered","action":"text","reply_id":"<id>","failure":"<reason>",
+ "attempts":"gemini:ratelimited,openrouter:success","fallback":true,"parsed":true,"stripped":false,"local_rejection":"<reason>"}
+```
 
 - `chat` is a salted hash (`llm.context.author-salt`), never the chat id. The line holds no chat content.
 - Tokens are estimates (4 characters per token): the providers report no usage through the client boundary.
+- `status`: `answered`, `failed`, `silent` (quota), `pending`, or `error` (the client call threw).
 - `failure`: `oversized_prompt`, `missing_credentials` (local rejections, no provider asked), `quota_exhausted`, the result
   of the last provider call (`ratelimited`, `servererror`, `timeout`, `rejected`, `malformedjson`), `output_rejected`
-  (the output guard dropped a text), `reuse_without_id`, `reuse_not_offered`. `-` when it answered or the model chose silence.
+  (the output guard dropped a text), `reuse_without_id`, `reuse_not_offered`, `client_error:<ExceptionClass>` (the client
+  call threw; the exception message is never logged here, it may hold chat content). Omitted when it answered or the model
+  chose silence.
 - `fallback=true`: the provider other than the configured primary was asked. `stripped=true`: the reply parsed only after the
   fence/prose around the JSON object was cut away.
 
-**Trace a weird reply.** Find the line in Loki (`{app="sbots"} |= "[llm] type=interaction" |= "chat=<hash>"`): it gives the
-prompt version, the model and the time. With the debug trace on, the full prompt and the raw model text are in `llm_trace`
-(joined by `chat_hash`, `bot_id` and `created_at`):
+**Trace a weird reply.** Find the line in Loki (below, plus `| chat="<hash>"`): it gives the prompt version, the model and the
+time. With the debug trace on, the full prompt and the raw model text are in `llm_trace` (joined by `chat_hash`, `bot_id`
+and `created_at`):
 
 ```sh
 sqlite3 botDB.sqlite3 "SELECT datetime(created_at,'unixepoch'), prompt_version, model, action, prompt, response FROM llm_trace WHERE chat_hash='<hash>' ORDER BY created_at DESC LIMIT 5"
@@ -86,20 +91,22 @@ The trace is **off by default** (`LLM_TRACE_ENABLED=true` to turn it on, `llm.tr
 Rows expire after `llm.trace.ttl` (`LLM_TRACE_TTL`, default 1 day), removed by the same cron as the context cleanup, also
 after the flag is turned off again. The table is not copied by `DBMigration.sql`.
 
-Panels of the LLM row (same `regexp` style as above):
+Panels of the LLM row. The log record is JSON and so is its message: `| json | line_format "{{.message}}" | json` reads both
+levels, and the keys above become labels. `BASE` below is
+`{app="sbots"} |= "llm_interaction" | json | line_format "{{.message}}" | json`.
 
 | Panel | Query |
 |---|---|
-| LLM latency p95 (ms) | ``quantile_over_time(0.95, {app="sbots"} \|= "[llm] type=interaction" \| regexp `bot=(?P<bot>\S+).*latency_ms=(?P<l>\d+)` \| unwrap l [$__interval]) by (bot)`` |
-| LLM quota exhausted | ``sum(count_over_time({app="sbots"} \|= "[llm] type=interaction" \|= "failure=quota_exhausted" [$__interval]))`` |
-| LLM replies by action | ``sum by (action) (count_over_time({app="sbots"} \|= "[llm] type=interaction" \| regexp `action=(?P<action>\S+)` [$__interval]))`` |
-| LLM failures by reason | ``sum by (failure) (count_over_time({app="sbots"} \|= "[llm] type=interaction" \|~ "failure=[^-]" \| regexp `failure=(?P<failure>\S+)` [$__interval]))`` |
-| LLM fallbacks and local rejections | ``sum(count_over_time(... \|= "fallback=true" [$__interval]))`` and ``sum(count_over_time(... \|~ "local_rejection=[^-]" [$__interval]))`` |
-| LLM prompt tokens (estimated) | ``sum by (bot) (sum_over_time(... \| regexp `bot=(?P<bot>\S+).*prompt_tokens=(?P<t>\d+)` \| unwrap t [$__interval]))`` |
+| LLM latency p95 (ms) | ``quantile_over_time(0.95, BASE \| unwrap latency_ms [$__interval]) by (bot)`` |
+| LLM quota exhausted | ``sum(count_over_time(BASE \| failure="quota_exhausted" [$__interval]))`` |
+| LLM replies by action | ``sum by (action) (count_over_time(BASE [$__interval]))`` |
+| LLM failures by reason | ``sum by (failure) (count_over_time(BASE \| failure!="" [$__interval]))`` |
+| LLM fallbacks and local rejections | ``sum(count_over_time(BASE \| fallback="true" [$__interval]))`` (A) and ``sum(count_over_time(BASE \| local_rejection!="" [$__interval]))`` (B) |
+| LLM prompt tokens (estimated) | ``sum by (bot) (sum_over_time(BASE \| unwrap prompt_tokens [$__interval]))`` |
 
 **Quota alert** (Grafana alert rule, created in the UI like the other three): fire when
-``sum(count_over_time({app="sbots"} |= "[llm] type=interaction" |= "failure=quota_exhausted" [1h])) > 0``. The ops message
-of `LimitedLlmClient` already tells once per exhaustion episode; the alert is the dashboard-side twin.
+``sum(count_over_time({app="sbots"} |= "llm_interaction" | json | line_format "{{.message}}" | json | failure="quota_exhausted" [1h])) > 0``.
+The ops message of `LimitedLlmClient` already tells once per exhaustion episode; the alert is the dashboard-side twin.
 
 ## How it works
 

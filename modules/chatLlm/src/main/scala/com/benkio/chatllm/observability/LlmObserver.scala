@@ -11,19 +11,26 @@ import com.benkio.chatllm.llm.LlmProvider
 import com.benkio.chatllm.prompt.LlmDecision
 import log.effect.LogWriter
 
-/** What the responder knows about one finished completion. */
+/** How the call of the client ended: with a completion (whatever its status) or with an exception, which is not a
+  * completion and is never dressed up as one. `reason` of a failure is the exception class: its message may hold chat
+  * content.
+  */
+enum LlmOutcome {
+  case Completed(completion: Completion, decision: LlmDecision, reuseOffered: Boolean)
+  case ClientFailed(reason: String)
+}
+
+/** What the responder knows about one finished interaction. */
 final case class LlmObservation(
     chatId: ChatId,
     botId: SBotId,
     promptVersion: String,
     prompt: String,
-    completion: Completion,
-    decision: LlmDecision,
-    reuseOffered: Boolean,
-    latencyMs: Long
+    latencyMs: Long,
+    outcome: LlmOutcome
 )
 
-/** #1493: records one interaction. The `[llm]` log line is always written; the full prompt and raw response go to the
+/** #1493: records one interaction. The JSON interaction log line is always written; the full prompt and raw response go to the
   * `llm_trace` table only when the debug trace is enabled. Observing never fails the reply: errors are only logged.
   */
 trait LlmObserver[F[_]] {
@@ -53,41 +60,61 @@ object LlmObserver {
                   chatHash = interaction.chatHash,
                   botId = o.botId.value,
                   promptVersion = o.promptVersion,
-                  model = modelOfCompletion(o.completion),
+                  model = Some(interaction.model).filter(_ != "-"),
                   status = interaction.status,
                   action = interaction.action.label,
                   prompt = o.prompt,
-                  response = o.completion.raw.map(_.text)
+                  response = o.outcome match {
+                    case LlmOutcome.Completed(c, _, _) => c.raw.map(_.text)
+                    case LlmOutcome.ClientFailed(_)    => None
+                  }
                 )
               )
             )
-        (line *> trace).handleErrorWith(e => log.warn(s"[llm] could not record the interaction: ${e.getMessage}"))
+        // Recording never fails the reply: not even when the warning about a failed recording cannot be logged.
+        (line *> trace).handleErrorWith(e =>
+          log.warn(s"[llm] could not record the interaction: ${e.getMessage}").handleError(_ => ())
+        )
       }
 
-      private def modelOfCompletion(c: Completion): Option[String] =
-        LlmInteraction.responsibleProvider(c).flatMap(modelOf)
-
       private def interactionOf(o: LlmObservation): LlmInteraction = {
-        val (action, reused) = LlmInteraction.actionOf(o.decision, o.reuseOffered)
-        val c                = o.completion
-        LlmInteraction(
+        val base = LlmInteraction(
           chatHash = LlmInteraction.chatHash(o.chatId, salt),
           bot = o.botId.value,
-          model = modelOfCompletion(c).getOrElse("-"),
+          model = "-",
           promptVersion = o.promptVersion,
           promptTokens = LlmInteraction.estimateTokens(o.prompt),
-          responseTokens = c.raw.fold(LlmInteraction.replyText(c.reply))(r => LlmInteraction.estimateTokens(r.text)),
+          responseTokens = 0,
           latencyMs = o.latencyMs,
-          status = c.status.toString.toLowerCase,
-          action = action,
-          reusedReplyId = reused,
-          failure = LlmInteraction.failureOf(c, o.decision, o.reuseOffered),
-          attempts = LlmInteraction.attemptLabels(c),
-          fallback = LlmInteraction.usedFallback(c),
-          parsed = c.reply.isDefined,
-          stripped = c.raw.exists(_.stripped),
-          localRejection = c.localRejection.map(_.label)
+          status = "error",
+          action = ReplyAction.Silent,
+          reusedReplyId = None,
+          failure = None,
+          attempts = Nil,
+          fallback = false,
+          parsed = false,
+          stripped = false,
+          localRejection = None
         )
+        o.outcome match {
+          case LlmOutcome.ClientFailed(reason)                 => base.copy(failure = Some(s"client_error:$reason"))
+          case LlmOutcome.Completed(c, decision, reuseOffered) =>
+            val (action, reused) = LlmInteraction.actionOf(decision, reuseOffered)
+            base.copy(
+              model = LlmInteraction.responsibleProvider(c).flatMap(modelOf).getOrElse("-"),
+              responseTokens =
+                c.raw.fold(LlmInteraction.replyText(c.reply))(r => LlmInteraction.estimateTokens(r.text)),
+              status = c.status.toString.toLowerCase,
+              action = action,
+              reusedReplyId = reused,
+              failure = LlmInteraction.failureOf(c, decision, reuseOffered),
+              attempts = LlmInteraction.attemptLabels(c),
+              fallback = LlmInteraction.usedFallback(c),
+              parsed = c.reply.isDefined,
+              stripped = c.raw.exists(_.stripped),
+              localRejection = c.localRejection.map(_.label)
+            )
+        }
       }
     }
 }

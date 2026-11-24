@@ -1,38 +1,39 @@
 package com.benkio.chatllm.observability
 
-/** The `[llm]` line of an interaction, in the `logfmt` style of the `[stats]` lines (`docs/monitoring.md`): it travels
-  * through the Mon pipeline to Loki and is read with the `regexp` parser. Keep the keys stable: the dashboard depends
-  * on them. New keys are appended at the end. A key is always present, `-` meaning "no value", so a regexp can rely on
-  * the order.
+import io.circe.syntax.*
+import io.circe.Json
+
+/** The log line of an interaction: one JSON object, which is the `message` of the log record, so it travels through the
+  * Mon pipeline to Loki and is read with `| json | line_format "{{.message}}" | json` (`docs/monitoring.md`). Keep the
+  * keys stable: the dashboard depends on them. New keys are appended at the end. The keys without a value (`reply_id`,
+  * `failure`, `local_rejection`) are omitted, so a missing label means "none".
   */
 object LlmInteractionLog {
 
-  val tag: String = "[llm]"
+  val kind: String = "llm_interaction"
 
-  def line(i: LlmInteraction): String =
-    List(
-      "type"            -> "interaction",
-      "chat"            -> i.chatHash,
-      "bot"             -> i.bot,
-      "model"           -> i.model,
-      "prompt_version"  -> i.promptVersion,
-      "prompt_tokens"   -> i.promptTokens.toString,
-      "response_tokens" -> i.responseTokens.toString,
-      "latency_ms"      -> i.latencyMs.toString,
-      "status"          -> i.status,
-      "action"          -> i.action.label,
-      "reply_id"        -> i.reusedReplyId.getOrElse("-"),
-      "failure"         -> i.failure.getOrElse("-"),
-      "attempts"        -> (if i.attempts.isEmpty then "-" else i.attempts.mkString(",")),
-      "fallback"        -> i.fallback.toString,
-      "parsed"          -> i.parsed.toString,
-      "stripped"        -> i.stripped.toString,
-      "local_rejection" -> i.localRejection.getOrElse("-")
-    ).map { case (k, v) => s"$k=${value(v)}" }.mkString(s"$tag ", " ", "")
+  def json(i: LlmInteraction): Json =
+    Json
+      .obj(
+        "type"            -> kind.asJson,
+        "chat"            -> i.chatHash.asJson,
+        "bot"             -> i.bot.asJson,
+        "model"           -> i.model.asJson,
+        "prompt_version"  -> i.promptVersion.asJson,
+        "prompt_tokens"   -> i.promptTokens.asJson,
+        "response_tokens" -> i.responseTokens.asJson,
+        "latency_ms"      -> i.latencyMs.asJson,
+        "status"          -> i.status.asJson,
+        "action"          -> i.action.label.asJson,
+        "reply_id"        -> i.reusedReplyId.asJson,
+        "failure"         -> i.failure.asJson,
+        "attempts"        -> i.attempts.mkString(",").asJson,
+        "fallback"        -> i.fallback.asJson,
+        "parsed"          -> i.parsed.asJson,
+        "stripped"        -> i.stripped.asJson,
+        "local_rejection" -> i.localRejection.asJson
+      )
+      .dropNullValues
 
-  /** A value never contains a space or a quote, so the line stays parsable whatever the model or a reply id holds. */
-  private def value(v: String): String = {
-    val cleaned = v.map(c => if c.isWhitespace || c == '"' || c == '=' then '_' else c)
-    if cleaned.isEmpty then "-" else cleaned
-  }
+  def line(i: LlmInteraction): String = json(i).noSpaces
 }
