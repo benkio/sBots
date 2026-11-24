@@ -538,6 +538,11 @@ rule LlmCommandIrcUsage {
 -- reason is logged, when the API keys of both providers are not configured, or its persona or reply catalogue
 -- (<botid>_persona.md, <botid>_reply_catalogue.json) is missing, malformed or over the prompt budget. Nothing else
 -- changes for such a bot.
+-- known defect: the rule above offers the responder the matching bundles as candidates, but the engine asks the LLM only
+-- when the reactive logic left the message unmatched (MessageUnmatchedByReactiveLogic), so `candidates` is empty in the
+-- code: no catalogue entry is offered and ResponderReusesCandidate cannot hold yet. Also, a matching bundle blocked by the
+-- chat timeout is remembered and never asked. Deciding whether the LLM should also be asked when a bundle matched
+-- (offering it as the candidate) is open.
 rule LlmAnswersDirectedMessage {
     when: MessageUnmatchedByReactiveLogic(chat, bot, message, candidates)
     requires: LlmResponder.answers

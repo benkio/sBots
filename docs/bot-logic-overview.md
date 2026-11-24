@@ -156,7 +156,7 @@ flowchart TD
   C -->|Claimed| D{"/llm on for this chat and bot,<br/>and outside the chat timeout?"}
   D -->|No| Y["Release the claim; nothing is sent"]
   D -->|Yes| E["sendTyping, then LlmResponder.respond<br/>(bounded by llm.timeout)"]
-  E --> F["ChatLlmResponder: prompt = persona + candidate replies +<br/>chat context + message"]
+  E --> F["ChatLlmResponder: prompt = persona + candidate replies<br/>(none today, see below) + chat context + message"]
   F --> G["LlmClient: primary provider, then the fallback<br/>(quota, timeout, structured JSON)"]
   G --> H{"validated decision"}
   H -->|text| I["TextReply to the message"]
@@ -166,12 +166,18 @@ flowchart TD
   J --> K
 ```
 
-- *Reactive first.* The reply bundles that matched the message are the *candidates*: the model sees their one-line
-  catalogue entries (`<id>_reply_catalogue.json`) and may answer `reuse` with an id. A matching bundle blocked by the chat
-  timeout does not fall through to the LLM.
+- *Reactive first, so no candidates today.* The reactive logic goes first and the LLM is asked only when it left the message
+  `Unmatched`: no guided flow and no reply bundle matched. A message with a matching bundle never reaches the LLM, also when
+  the bundle was blocked by the chat timeout or a filter (it is only remembered). The responder is still given
+  `matchingReplyBundles` as the *candidates* it may `reuse` by catalogue id (`<id>_reply_catalogue.json`), but that list is
+  computed with the same matching, so in this flow it is **empty**: the model offers no catalogue entries and the `reuse`
+  action cannot succeed yet (a reuse of an id that was not offered is silent). `specs/llm.allium` marks this as a known
+  defect; it needs a decision on whether the LLM should also be asked when a bundle matched.
 - *Own budget.* The LLM stage runs after, and outside, the request processing timeout, under `llm.timeout` plus the
   request timeout for the readiness lookup and the delivery. A timeout, a failure or no answer drops the message silently.
-  The claim is released in every case, also on cancellation.
+  The claim is released in every case, also on cancellation. The *memory* step (below) is a separate stage after it,
+  bounded by `llm.timeout` on its own: a stalled memory write adds up to another `llm.timeout` to the whole handler
+  (so up to about `2 * llm.timeout` plus the request timeout), and its timeout or failure is only logged.
 - *Prompt.* The versioned template `prompts/<version>/system.md` filled by `PromptBuilder`. Context, catalogue and message
   are untrusted text: neutralised line by line, never expanded as placeholders, and the template says they are data. The
   prompt version is in every log line and trace (see `docs/monitoring.md`).
