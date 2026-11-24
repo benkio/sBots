@@ -36,13 +36,18 @@ object LimitedLlmClient {
             // Without both provider keys, or with an oversized prompt, no provider is called and no quota is consumed.
             if !LlmConfig.credentialsComplete(config) then Completion
               .notRequested(prompt, provider, CompletionStatus.Failed)
+              .copy(localRejection = Some(LocalRejection.MissingCredentials))
               .pure[F]
             else if estimateTokens(prompt) > config.maxInputTokens then notifyKeyed(
               key = OversizedKey,
               cooldown = Some(OversizedCooldown),
               message =
                 s"LLM prompt of about ${estimateTokens(prompt)} tokens exceeds the input limit of ${config.maxInputTokens}: no reply sent"
-            ).as(Completion.notRequested(prompt, provider, CompletionStatus.Failed))
+            ).as(
+              Completion
+                .notRequested(prompt, provider, CompletionStatus.Failed)
+                .copy(localRejection = Some(LocalRejection.OversizedPrompt))
+            )
             else
               underlying
                 .complete(prompt)

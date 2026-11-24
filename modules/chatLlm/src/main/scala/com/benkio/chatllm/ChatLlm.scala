@@ -11,6 +11,9 @@ import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatllm.llm.LlmClientApi
 import com.benkio.chatllm.llm.LlmConfig
+import com.benkio.chatllm.llm.LlmProvider
+import com.benkio.chatllm.observability.LlmObserver
+import com.benkio.chatllm.observability.LlmTraceStore
 import com.benkio.chatllm.prompt.ChatLlmResponder
 import com.benkio.chatllm.prompt.PromptBudget
 import com.benkio.chatllm.prompt.PromptBuilder
@@ -96,7 +99,18 @@ object ChatLlm {
         builder = builder,
         botId = botId,
         persona = personaText,
-        catalogue = entries
+        catalogue = entries,
+        observer = Some(
+          LlmObserver[F](
+            traces = LlmTraceStore[F](transactor),
+            traceEnabled = config.trace.enabled,
+            salt = config.context.authorSalt.value,
+            modelOf = {
+              case LlmProvider.Gemini     => config.gemini.model
+              case LlmProvider.OpenRouter => config.openrouter.model
+            }
+          )
+        )
       )
     result.flatTap {
       case Left(problem) => log.warn(s"[ChatLlm] $botId: the LLM replies are off: $problem")

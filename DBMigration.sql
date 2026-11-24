@@ -69,4 +69,6 @@ WHERE NOT EXISTS (
       AND d.created_at = p.created_at
 );
 
+-- llm_trace is a short-lived debug trace (#1493): it is deliberately not copied.
+
 DETACH DATABASE prodDB;
