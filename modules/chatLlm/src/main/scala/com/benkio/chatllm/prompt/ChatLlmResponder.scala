@@ -1,8 +1,9 @@
 package com.benkio.chatllm.prompt
 
 import cats.effect.syntax.monadCancel.*
+import cats.effect.syntax.spawn.*
 import cats.effect.Clock
-import cats.effect.MonadCancelThrow
+import cats.effect.Concurrent
 import cats.syntax.all.*
 import cats.Applicative
 import cats.MonadThrow
@@ -27,7 +28,7 @@ import log.effect.LogWriter
   *   - `reuse`: the reply of the chosen candidate, as is, so it goes through the usual reply path;
   *   - `silent`, or anything malformed, unknown, unsafe or failed: no reply.
   */
-final class ChatLlmResponder[F[_]: MonadCancelThrow: Clock](
+final class ChatLlmResponder[F[_]: Concurrent: Clock](
     client: LlmClientApi[F],
     context: LlmContext[F],
     builder: PromptBuilder,
@@ -53,7 +54,9 @@ final class ChatLlmResponder[F[_]: MonadCancelThrow: Clock](
       prompt = builder.build(persona, entries, window, msg)
       started <- Clock[F].monotonic
       // A cancelled call (the engine's own timeout, a shutdown) is recorded too, exactly once: the hook only covers the
-      // client call, so the success and error paths below never run for it. The cancellation itself is preserved.
+      // client call, so the success and error paths below never run for it. The cancellation itself is preserved, and
+      // it does not wait for the recording: the observation (which can write to the trace table) runs in its own fiber,
+      // so a slow database cannot delay the timeout recovery and the release of the chat claim in the engine.
       attempted <- client
         .complete(prompt)
         .attempt
@@ -64,7 +67,7 @@ final class ChatLlmResponder[F[_]: MonadCancelThrow: Clock](
               prompt = prompt,
               latencyMs = (now - started).toMillis,
               outcome = LlmOutcome.Cancelled
-            )
+            ).start.void
           )
         )
       finished <- Clock[F].monotonic

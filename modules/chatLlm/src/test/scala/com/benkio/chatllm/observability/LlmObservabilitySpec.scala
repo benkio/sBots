@@ -14,6 +14,8 @@ import com.benkio.chatllm.repository.db.LlmContextMessage
 import com.benkio.chatllm.LlmContext
 import munit.CatsEffectSuite
 
+import scala.concurrent.duration.*
+
 // obligation: rule.LlmInteractionLogged, rule.LlmTraceStoredWhenEnabled
 class LlmObservabilitySpec extends CatsEffectSuite {
 
@@ -369,7 +371,8 @@ class LlmObservabilitySpec extends CatsEffectSuite {
       _     <- started.get
       _     <- fiber.cancel
       out   <- fiber.join
-      all   <- seen.get
+      // the recording runs in its own fiber: wait for it
+      all <- seen.get.iterateUntil(_.nonEmpty).timeout(2.seconds)
     } yield {
       assert(out.isCanceled, s"the cancellation must be preserved, got $out")
       assertEquals(all.map(_.outcome), List(LlmOutcome.Cancelled))
@@ -385,5 +388,38 @@ class LlmObservabilitySpec extends CatsEffectSuite {
       _      <- observer.observe(LlmObservation(chatId, botId, "v1", "the prompt", 9L, LlmOutcome.Cancelled))
       stored <- traces.get
     } yield assertEquals(stored.map(t => (t.status, t.action, t.response)), List(("cancelled", "silent", None)))
+  }
+
+  test("the cancellation does not wait for a slow recording") {
+    for {
+      seen    <- Ref[IO].of(List.empty[LlmObservation])
+      gate    <- cats.effect.Deferred[IO, Unit]
+      started <- cats.effect.Deferred[IO, Unit]
+      responder = new ChatLlmResponder[IO](
+        client = new LlmClientApi[IO] {
+          def complete(prompt: String): IO[Completion] = started.complete(()) *> IO.never[Completion]
+        },
+        context = context,
+        builder = PromptBuilder(500).fold(e => fail(e), identity),
+        botId = botId,
+        persona = "persona",
+        catalogue = catalogue,
+        // a recording stuck on a busy database: it only ends when the gate opens
+        observer = Some(new LlmObserver[IO] {
+          def observe(o: LlmObservation): IO[Unit] = gate.get *> seen.update(_ :+ o)
+        })
+      )
+      fiber  <- responder.respond(msg, List(greeting)).start
+      _      <- started.get
+      _      <- fiber.cancel
+      out    <- fiber.join.timeout(2.seconds)
+      before <- seen.get
+      _      <- gate.complete(())
+      after  <- seen.get.iterateUntil(_.nonEmpty).timeout(2.seconds)
+    } yield {
+      assert(out.isCanceled)
+      assertEquals(before, Nil)
+      assertEquals(after.map(_.outcome), List(LlmOutcome.Cancelled))
+    }
   }
 }
