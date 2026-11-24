@@ -24,7 +24,8 @@ class LlmClientSpec extends CatsEffectSuite {
   private val geminiHost     = "gemini.example"
   private val openRouterHost = "openrouter.example"
 
-  private def structured(text: String): Json = Json.obj("text" -> Json.fromString(text))
+  private def structured(text: String): Json =
+    Json.obj("action" -> Json.fromString("text"), "text" -> Json.fromString(text))
 
   private def geminiSuccess(text: String): Json =
     Json.obj(
@@ -128,9 +129,9 @@ class LlmClientSpec extends CatsEffectSuite {
   test("a reply is a value with a text field and structural equality") {
     // obligation: value-equality.LlmReply
     // obligation: entity-fields.LlmReply
-    assertEquals(LlmReply("ciao"), LlmReply("ciao"))
-    assertNotEquals(LlmReply("ciao"), LlmReply("bua"))
-    assertEquals(LlmReply("ciao").text, "ciao")
+    assertEquals(LlmReply("ciao", LlmAction.Text), LlmReply("ciao", LlmAction.Text))
+    assertNotEquals(LlmReply("ciao", LlmAction.Text), LlmReply("bua", LlmAction.Text))
+    assertEquals(LlmReply("ciao", LlmAction.Text).text, "ciao")
   }
 
   test("the primary provider is Gemini by default and the fallback is always the other provider") {
@@ -212,7 +213,7 @@ class LlmClientSpec extends CatsEffectSuite {
     )
       .map { completion =>
         assertEquals(completion.status, CompletionStatus.Answered)
-        assertEquals(completion.reply, Some(LlmReply("ciao")))
+        assertEquals(completion.reply, Some(LlmReply("ciao", LlmAction.Text)))
         assertEquals(completion.attempts.map(_.provider), List(LlmProvider.Gemini))
         assertEquals(completion.attempts.flatMap(_.result), List(ProviderResult.Success))
         assertEquals(hosts.toList, List(geminiHost))
@@ -234,7 +235,7 @@ class LlmClientSpec extends CatsEffectSuite {
     )
       .map { completion =>
         assertEquals(completion.status, CompletionStatus.Answered)
-        assertEquals(completion.reply, Some(LlmReply("bua")))
+        assertEquals(completion.reply, Some(LlmReply("bua", LlmAction.Text)))
         assertEquals(completion.attempts.map(_.provider), List(LlmProvider.OpenRouter))
         assertEquals(hosts.toList, List(openRouterHost))
         assert(bodies.head.contains("response_format"), "the OpenRouter request did not ask for structured JSON")
@@ -255,7 +256,7 @@ class LlmClientSpec extends CatsEffectSuite {
       bodies = bodies
     ).map { completion =>
       assertEquals(completion.status, CompletionStatus.Answered)
-      assertEquals(completion.reply, Some(LlmReply("bua")))
+      assertEquals(completion.reply, Some(LlmReply("bua", LlmAction.Text)))
       assertEquals(completion.attempts.map(_.provider), List(LlmProvider.Gemini, LlmProvider.OpenRouter))
       assertEquals(completion.attempts.flatMap(_.result), List(ProviderResult.RateLimited, ProviderResult.Success))
       assertEquals(hosts.toList, List(geminiHost, openRouterHost))
@@ -274,7 +275,7 @@ class LlmClientSpec extends CatsEffectSuite {
       bodies = bodies
     ).map { completion =>
       assertEquals(completion.status, CompletionStatus.Answered)
-      assertEquals(completion.reply, Some(LlmReply("bua")))
+      assertEquals(completion.reply, Some(LlmReply("bua", LlmAction.Text)))
       assertEquals(completion.attempts.flatMap(_.result), List(ProviderResult.ServerError, ProviderResult.Success))
     }
   }
@@ -357,7 +358,7 @@ class LlmClientSpec extends CatsEffectSuite {
       prompt,
       LlmProvider.Gemini,
       CompletionStatus.Answered,
-      Some(LlmReply("ciao")),
+      Some(LlmReply("ciao", LlmAction.Text)),
       List(ProviderAttempt(LlmProvider.Gemini, Some(ProviderResult.Success)))
     )
     assertEquals(Completion.acceptResponse(answered, LlmProvider.Gemini, ProviderResponse.malformedJson), answered)
@@ -378,18 +379,19 @@ class LlmClientSpec extends CatsEffectSuite {
     val answered = Completion.acceptResponse(
       started,
       LlmProvider.Gemini,
-      ProviderResponse.success(LlmReply("ciao"))
+      ProviderResponse.success(LlmReply("ciao", LlmAction.Text))
     )
     val failed = Completion.acceptResponse(started, LlmProvider.Gemini, ProviderResponse.malformedJson)
 
     assertEquals(answered.status, CompletionStatus.Answered)
     assertEquals(failed.status, CompletionStatus.Failed)
     assertEquals(
-      Completion.acceptResponse(answered, LlmProvider.Gemini, ProviderResponse.success(LlmReply("bua"))),
+      Completion
+        .acceptResponse(answered, LlmProvider.Gemini, ProviderResponse.success(LlmReply("bua", LlmAction.Text))),
       answered
     )
     assertEquals(
-      Completion.acceptResponse(failed, LlmProvider.Gemini, ProviderResponse.success(LlmReply("bua"))),
+      Completion.acceptResponse(failed, LlmProvider.Gemini, ProviderResponse.success(LlmReply("bua", LlmAction.Text))),
       failed
     )
   }
@@ -419,7 +421,7 @@ class LlmClientSpec extends CatsEffectSuite {
       bodies = bodies
     ).map { completion =>
       assertEquals(completion.status, CompletionStatus.Answered)
-      assertEquals(completion.reply, Some(LlmReply("bua")))
+      assertEquals(completion.reply, Some(LlmReply("bua", LlmAction.Text)))
       assertEquals(completion.attempts.map(_.provider), List(LlmProvider.OpenRouter, LlmProvider.Gemini))
       assertEquals(completion.attempts.flatMap(_.result), List(ProviderResult.RateLimited, ProviderResult.Success))
     }
@@ -594,7 +596,7 @@ class LlmClientSpec extends CatsEffectSuite {
       errors     <- notifier.errors.get
     } yield {
       assertEquals(completion.status, CompletionStatus.Answered)
-      assertEquals(completion.reply, Some(LlmReply("ok")))
+      assertEquals(completion.reply, Some(LlmReply("ok", LlmAction.Text)))
       assertEquals(
         completion.attempts.map(attempt => (attempt.provider, attempt.result)),
         List(
@@ -677,5 +679,28 @@ class LlmClientSpec extends CatsEffectSuite {
       assertEquals(geminiHeaders.toList, List(Some("g-key")))
       assertEquals(openRouterHeaders.toList, List(Some("Bearer or-key")))
     }
+  }
+
+  test("structured reply: action is required, text and replyId are optional strings") {
+    assertEquals(StructuredReply.parse("""{"action":"silent"}"""), Right(LlmReply("", LlmAction.Silent)))
+    assertEquals(
+      StructuredReply.parse("""{"action":"reuse","replyId":"r1"}"""),
+      Right(LlmReply("", LlmAction.Reuse, Some("r1")))
+    )
+    assertEquals(
+      StructuredReply.parse("""{"action":" Text ","text":"ciao","replyId":null}"""),
+      Right(LlmReply("ciao", LlmAction.Text))
+    )
+    assert(StructuredReply.parse("""{"text":"ciao"}""").isLeft)
+    assert(StructuredReply.parse("""{"action":"shout","text":"x"}""").isLeft)
+    assert(StructuredReply.parse("""{"action":"text","text":5}""").isLeft)
+    assert(StructuredReply.parse("""{"action":"reuse","replyId":7}""").isLeft)
+    assert(StructuredReply.parse("[1]").isLeft)
+  }
+
+  test("the Gemini schema asks for action, text and replyId, and requires only action") {
+    val schema = GeminiClient.responseSchema.hcursor
+    assertEquals(schema.downField("properties").keys.map(_.toSet), Some(Set("text", "action", "replyId")))
+    assertEquals(schema.get[List[String]]("required"), Right(List("action")))
   }
 }

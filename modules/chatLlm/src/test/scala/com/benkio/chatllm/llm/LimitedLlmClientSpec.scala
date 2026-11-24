@@ -61,7 +61,7 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
       prompt = prompt,
       primaryProvider = LlmProvider.Gemini,
       status = CompletionStatus.Answered,
-      reply = Some(LlmReply("ok")),
+      reply = Some(LlmReply("ok", LlmAction.Text)),
       attempts = List(ProviderAttempt(LlmProvider.Gemini, Some(ProviderResult.Success)))
     )
 

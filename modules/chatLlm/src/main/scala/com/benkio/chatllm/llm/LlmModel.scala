@@ -23,8 +23,25 @@ object LlmProvider {
     }
 }
 
-/** The structured reply of a provider: only the text is consumed so far. */
-final case class LlmReply(text: String)
+/** The structured reply of a provider. `action` is required on the wire; `text` and `replyId` are the optional fields
+  * of the output contract of the prompt builder (#1491); `text` is empty (set by `StructuredReply` when the field is
+  * absent) for the other actions.
+  */
+final case class LlmReply(text: String, action: LlmAction, replyId: Option[String] = None)
+
+/** The `action` of the output contract. A value outside these is rejected when the provider reply is parsed. */
+enum LlmAction {
+  case Text, Reuse, Silent
+}
+
+object LlmAction {
+  def parse(raw: String): Option[LlmAction] = raw.trim.toLowerCase match {
+    case "text"   => Some(Text)
+    case "reuse"  => Some(Reuse)
+    case "silent" => Some(Silent)
+    case _        => None
+  }
+}
 
 /** The outcome of one provider call. These are all singleton cases, so they can be compared and enumerated. A timeout
   * is a result rather than an exception so the attempts that led to it are kept in the completion.

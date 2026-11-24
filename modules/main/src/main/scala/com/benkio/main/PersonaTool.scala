@@ -4,6 +4,7 @@ import cats.effect.ExitCode
 import cats.effect.IO
 import cats.effect.IOApp
 import cats.implicits.*
+import com.benkio.chatllm.prompt.ReplyCatalogue
 import io.circe.parser.decode
 import io.circe.syntax.*
 import io.circe.Decoder
@@ -14,7 +15,6 @@ import io.circe.Printer
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.Path
-import java.security.MessageDigest
 
 /** Tooling for issue #1490. It does not change runtime behavior: it generates the deterministic reply catalogue from
   * each bot's replies JSON and checks that the curated persona files and the catalogues stay within the prompt budget.
@@ -92,20 +92,7 @@ object PersonaTool extends IOApp {
           )
       }
 
-  private def matcherOf(bundle: Json): String =
-    bundle.hcursor.get[String]("matcher").toOption.getOrElse("ContainsOnce")
-
-  /** Same signature used by agent-context/tools/conflict-resolution: matcher + sorted triggers. */
-  private def signatureOf(bundle: Json): String =
-    Json
-      .arr(Json.fromString(matcherOf(bundle)), Json.fromValues(triggersOf(bundle).sorted.map(Json.fromString)))
-      .noSpaces
-
-  private def idOf(bundle: Json): String = {
-    val digest = MessageDigest.getInstance("SHA-256").digest(signatureOf(bundle).getBytes(StandardCharsets.UTF_8))
-    "r" + digest.take(6).map(byte => f"${byte & 0xff}%02x").mkString
-  }
-
+  private def idOf(bundle: Json): String   = ReplyCatalogue.idOf(bundle)
   private def clean(value: String): String = value.replaceAll("\\s+", " ").trim
 
   private def shorten(value: String, maxLength: Int): String = {

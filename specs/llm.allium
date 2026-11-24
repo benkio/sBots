@@ -1,7 +1,8 @@
 -- allium: 3
 -- llm.allium: the LLM replies of the bots (epic #1499). Only what is built is specified; the rest of the epic is listed
 -- as open questions. Code: modules/chatCore/llm and patterns (the ports and /llm), modules/chatLlm (the implementation
--- and its doobie repositories) and modules/main (startup wiring); the responder and the engine routing are still open.
+-- and its doobie repositories, the prompt builder and the responder of #1491) and modules/main (startup wiring); the
+-- engine routing is still open.
 
 use "./sbots.allium" as core
 
@@ -22,7 +23,18 @@ external entity LlmResponder {
 -- The structured JSON object a provider returns for a completion. Only the reply text is consumed so far; the rest of
 -- the payload is provider-specific and not part of the bots' observable behaviour.
 value LlmReply {
-    text: String
+    text: String                 -- empty unless the action is text
+    action: text | reuse | silent   -- #1491: required; any other value is a malformed provider reply
+    reply_id: String?            -- #1491: the catalogue id picked by a reuse
+    -- Derived by the output guard: not empty, no line starting with / or !, no @name or <@id> mention.
+    text_acceptable: Boolean
+}
+
+-- The reply the engine offers as a candidate, described to the model by its catalogue entry (id and one-line summary).
+external entity CandidateReply {
+    catalogue_id: String
+    summary: String
+    reply: String
 }
 
 ------------------------------------------------------------
@@ -588,6 +600,48 @@ surface LlmCleanupSurface {
 
     provides:
         LlmContextCleanupTick()
+}
+
+------------------------------------------------------------
+-- Responder: prompt builder and output contract (#1491)
+------------------------------------------------------------
+
+-- The prompt is the versioned template (prompts/v1) filled with the persona, the catalogue entries of the candidate
+-- replies, the chat context and the message. Context, catalogue and message are untrusted text: the template says they
+-- are data, newlines and mentions are neutralised line by line, and a placeholder inside them is never expanded. The
+-- length cap is one value: the prompt states it and the guard enforces it.
+--
+-- The candidates are the engine's matched replies that the catalogue describes, have at least one text trigger and
+-- whose id is not shared with another candidate: only those can be reused, since only they have an unambiguous id.
+rule ResponderAnswersWithText {
+    when: ResponderAsked(msg, candidates, completion)
+    requires: completion.status = answered
+    requires: completion.reply.action = text
+    requires: completion.reply.text_acceptable
+    ensures: ResponderReplied(msg, completion.reply.text)
+}
+
+-- A reuse sends the chosen candidate's own reply, unchanged, through the normal reply path.
+rule ResponderReusesCandidate {
+    when: ResponderAsked(msg, candidates, completion)
+    requires: completion.status = answered
+    requires: completion.reply.action = reuse
+    requires: candidates.any(c => c.catalogue_id = completion.reply.reply_id)
+    let chosen = candidates.where(c => c.catalogue_id = completion.reply.reply_id).first
+    ensures: ResponderReplied(msg, chosen.reply)
+}
+
+-- Anything else is silent: the silent action, a reuse of an id that is not an offered candidate, a failed completion,
+-- a client error, or a text that is not acceptable. A text over the cap (500 characters, counted in code points) is
+-- truncated, not dropped. A provider reply without a valid action, or with a non-string text or reply id, is already
+-- malformed at the provider boundary. The reply language is the one the persona states (Italian when it states none); this is required by the prompt only, not checked.
+rule ResponderStaysSilent {
+    when: ResponderAsked(msg, candidates, completion)
+    requires: completion.status != answered
+        or completion.reply.action = silent
+        or (completion.reply.action = text and not completion.reply.text_acceptable)
+        or (completion.reply.action = reuse and not candidates.any(c => c.catalogue_id = completion.reply.reply_id))
+    ensures: ResponderSilent(msg)
 }
 
 ------------------------------------------------------------
