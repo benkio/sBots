@@ -1,5 +1,6 @@
 package com.benkio.chatllm.prompt
 
+import cats.effect.Clock
 import cats.syntax.all.*
 import cats.Applicative
 import cats.MonadThrow
@@ -11,6 +12,8 @@ import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatllm.llm.CompletionStatus
 import com.benkio.chatllm.llm.LlmClientApi
+import com.benkio.chatllm.observability.LlmObservation
+import com.benkio.chatllm.observability.LlmObserver
 import com.benkio.chatllm.LlmContext
 import log.effect.LogWriter
 
@@ -20,13 +23,14 @@ import log.effect.LogWriter
   *   - `reuse`: the reply of the chosen candidate, as is, so it goes through the usual reply path;
   *   - `silent`, or anything malformed, unknown, unsafe or failed: no reply.
   */
-final class ChatLlmResponder[F[_]: MonadThrow](
+final class ChatLlmResponder[F[_]: MonadThrow: Clock](
     client: LlmClientApi[F],
     context: LlmContext[F],
     builder: PromptBuilder,
     botId: SBotId,
     persona: String,
-    catalogue: List[CatalogueEntry]
+    catalogue: List[CatalogueEntry],
+    observer: Option[LlmObserver[F]] = None
 )(using log: LogWriter[F])
     extends LlmResponder[F] {
 
@@ -41,8 +45,11 @@ final class ChatLlmResponder[F[_]: MonadThrow](
     val entries = offered.keys.toList.sorted.flatMap(summaries.get)
 
     (for {
-      window     <- context.prompt(msg.chatId, botId)
-      completion <- client.complete(builder.build(persona, entries, window, msg))
+      window <- context.prompt(msg.chatId, botId)
+      prompt = builder.build(persona, entries, window, msg)
+      started    <- Clock[F].monotonic
+      completion <- client.complete(prompt)
+      finished   <- Clock[F].monotonic
       _          <- log
         .warn(
           s"[ChatLlmResponder] no answer for ${msg.chatId}: ${completion.status}, attempts " +
@@ -52,6 +59,23 @@ final class ChatLlmResponder[F[_]: MonadThrow](
       decision = completion.reply
         .filter(_ => completion.status == CompletionStatus.Answered)
         .fold[LlmDecision](LlmDecision.Silent)(LlmDecision.from(_, builder.maxReplyChars))
+      _ <- observer.traverse_(
+        _.observe(
+          LlmObservation(
+            chatId = msg.chatId,
+            botId = botId,
+            promptVersion = builder.version,
+            prompt = prompt,
+            completion = completion,
+            decision = decision,
+            reuseOffered = decision match {
+              case LlmDecision.Reuse(id) => offered.contains(id)
+              case _                     => false
+            },
+            latencyMs = (finished - started).toMillis
+          )
+        )
+      )
     } yield toReply(decision, offered)).handleErrorWith { error =>
       log.error(s"[ChatLlmResponder] failed: ${error.getMessage}").as(none[Reply])
     }

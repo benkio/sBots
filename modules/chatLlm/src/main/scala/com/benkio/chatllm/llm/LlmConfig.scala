@@ -67,6 +67,20 @@ final case class LlmContextConfig(
     s"LlmContextConfig($maxMessages,$maxTokens,$ttl,$cleanupCron,${LlmContextConfig.redacted})"
 }
 
+/** #1493: the opt-in debug trace. When `enabled`, the full prompt and the raw response of every completion are stored
+  * in `llm_trace` for `ttl`; they contain chat content, so the flag is off by default and the retention is short.
+  */
+final case class LlmTraceConfig(
+    enabled: Boolean = false,
+    ttl: FiniteDuration = LlmTraceConfig.defaultTtl
+) derives ConfigReader {
+  def cutoff(nowEpochSecond: Long): Long = nowEpochSecond - ttl.toSeconds
+}
+
+object LlmTraceConfig {
+  val defaultTtl: FiniteDuration = 1.day
+}
+
 /** The section `main.llm` of the application configuration. */
 final case class LlmConfig(
     gemini: ProviderConnection,
@@ -75,7 +89,8 @@ final case class LlmConfig(
     timeout: FiniteDuration = LlmConfig.defaultTimeout,
     maxInputTokens: Int = LlmConfig.defaultMaxInputTokens,
     maxOutputTokens: Int = LlmConfig.defaultMaxOutputTokens,
-    context: LlmContextConfig = LlmContextConfig()
+    context: LlmContextConfig = LlmContextConfig(),
+    trace: LlmTraceConfig = LlmTraceConfig()
 ) derives ConfigReader
 
 object LlmContextConfig {
@@ -158,7 +173,9 @@ object LlmConfig {
       if config.gemini.quota.maxPerDay <= 0 then Some("llm.gemini.quota.max-per-day must be positive") else None,
       if config.openrouter.quota.maxPerMinute <= 0 then Some("llm.openrouter.quota.max-per-minute must be positive")
       else None,
-      if config.openrouter.quota.maxPerDay <= 0 then Some("llm.openrouter.quota.max-per-day must be positive") else None
+      if config.openrouter.quota.maxPerDay <= 0 then Some("llm.openrouter.quota.max-per-day must be positive")
+      else None,
+      if config.trace.ttl < 1.second then Some("llm.trace.ttl must be at least one second") else None
     ).flatten
     if problems.nonEmpty then Left(problems.mkString(", "))
     else LlmContextConfig.validate(config.context, config.maxInputTokens)

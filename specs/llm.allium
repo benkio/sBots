@@ -166,6 +166,8 @@ config {
     -- input limit, and the TTL is applied by the cron job registered from main.
     context_max_messages: Integer = 20
     context_max_tokens: Integer = 2048
+    trace_enabled: Boolean = false             -- #1493: opt-in debug trace of the full prompt and raw response
+    trace_ttl: Duration = 1.day                -- at least one second
     context_ttl: Duration = 7.days             -- at least one second: storage and cutoffs are epoch seconds
     context_cleanup_cron: String              -- cron expression of the cleanup job, e.g. "0 0 * ? * *"
     context_author_salt: String               -- deployment-specific secret, redacted from startup logs; no public
@@ -702,6 +704,45 @@ rule ResponderStaysSilent {
         or (completion.reply.action = text and not completion.reply.text_acceptable)
         or (completion.reply.action = reuse and not candidates.any(c => c.catalogue_id = completion.reply.reply_id))
     ensures: ResponderSilent(msg)
+}
+
+------------------------------------------------------------
+-- Observability (#1493)
+------------------------------------------------------------
+
+-- Every completion the responder asks for leaves one `[llm]` log line (logfmt, like the `[stats]` lines, shipped through
+-- the Mon pipeline to Loki): a salted chat hash (never the chat id), bot, model of the provider that answered, prompt
+-- version, estimated prompt and response tokens (four characters per token: the providers report no usage), latency,
+-- completion status, action taken (text, reuse or silent), reused reply id, failure reason, provider attempts and their
+-- results, whether a fallback provider was asked, whether the structured reply needed fence/prose stripping, and the
+-- local rejection (oversized prompt, missing credentials). The failure reasons are what the dashboard counts: local
+-- rejections, quota exhaustion, a provider result, and an output the guard or the reuse check turned into silence.
+-- The line holds no chat content. Logging never fails the reply.
+entity LlmTrace {
+    chat_hash: String
+    bot: String
+    prompt_version: String
+    prompt: String              -- the full prompt: chat content, hence the opt-in flag and the short TTL
+    response: String?           -- the raw model text, kept also when it was malformed
+    created_at: Timestamp
+}
+
+rule LlmInteractionLogged {
+    when: ResponderAsked(msg, candidates, completion)
+    ensures: InteractionLogged(msg, completion)
+}
+
+-- The trace joins a weird reply to its prompt version, prompt and raw response through the chat hash, bot and time.
+rule LlmTraceStoredWhenEnabled {
+    when: ResponderAsked(msg, candidates, completion)
+    requires: config.trace_enabled
+    ensures: LlmTrace.created(chat_hash: msg.chat_hash, bot: msg.bot, prompt_version: completion.prompt_version, prompt: completion.prompt, response: completion.raw_response, created_at: now)
+}
+
+-- The trace expires on its own TTL, also after the flag has been turned off. It is not copied by the DB migration.
+rule LlmTraceCleanupDeletesExpired {
+    when: LlmContextCleanupTick()
+    ensures: not exists (LlmTrace where created_at < now - config.trace_ttl)
 }
 
 ------------------------------------------------------------

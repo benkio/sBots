@@ -73,7 +73,7 @@ object MainSetup {
     )
     _ <- Resource.eval(log.info("[Main] dbLayer"))
     // #1489: the cleanup works on the whole llm_context table; main owns its fiber and cancels it on shutdown.
-    _           <- Resource.make(LlmContextCleanup.start[F](llmTransactor, config.llm.context))(_.cancel)
+    _ <- Resource.make(LlmContextCleanup.start[F](llmTransactor, config.llm.context, config.llm.trace))(_.cancel)
     certificate <- Resource.eval(
       Async[F].pure(config.telegram.webhookCertificate.map(fp => Paths.get(fp)))
     )

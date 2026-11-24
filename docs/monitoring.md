@@ -56,6 +56,51 @@ backticks for the regexp in the Grafana editor, so the backslashes are not escap
 | CPU usage (%) | ``max_over_time({app="sbots"} \|= "[stats] type=system" \| regexp `cpu_usage_pct=(?P<c>-?\d+)` \| unwrap c [$__interval])`` |
 | Media errors | ``sum(count_over_time({app="sbots", level=~"ERROR\|WARN"} \|~ "(?i)media" [$__interval]))`` (approximate: it matches the log lines that mention media) |
 
+## LLM observability (#1493)
+
+One `[llm]` line per completion the responder asked for (`LlmInteractionLog`), `logfmt` at `info` like the `[stats]`
+lines. Keep the keys stable (the LLM row of the dashboard depends on them); a missing value is `-`, and a value never
+contains a space.
+
+`[llm] type=interaction chat=<hash> bot=<bot> model=<model> prompt_version=<v> prompt_tokens=<n> response_tokens=<n>
+latency_ms=<n> status=<answered|failed|silent|pending> action=<text|reuse|silent> reply_id=<id> failure=<reason>
+attempts=<provider:result,...> fallback=<bool> parsed=<bool> stripped=<bool> local_rejection=<reason>`
+
+- `chat` is a salted hash (`llm.context.author-salt`), never the chat id. The line holds no chat content.
+- Tokens are estimates (4 characters per token): the providers report no usage through the client boundary.
+- `failure`: `oversized_prompt`, `missing_credentials` (local rejections, no provider asked), `quota_exhausted`, the result
+  of the last provider call (`ratelimited`, `servererror`, `timeout`, `rejected`, `malformedjson`), `output_rejected`
+  (the output guard dropped a text), `reuse_without_id`, `reuse_not_offered`. `-` when it answered or the model chose silence.
+- `fallback=true`: the provider other than the configured primary was asked. `stripped=true`: the reply parsed only after the
+  fence/prose around the JSON object was cut away.
+
+**Trace a weird reply.** Find the line in Loki (`{app="sbots"} |= "[llm] type=interaction" |= "chat=<hash>"`): it gives the
+prompt version, the model and the time. With the debug trace on, the full prompt and the raw model text are in `llm_trace`
+(joined by `chat_hash`, `bot_id` and `created_at`):
+
+```sh
+sqlite3 botDB.sqlite3 "SELECT datetime(created_at,'unixepoch'), prompt_version, model, action, prompt, response FROM llm_trace WHERE chat_hash='<hash>' ORDER BY created_at DESC LIMIT 5"
+```
+
+The trace is **off by default** (`LLM_TRACE_ENABLED=true` to turn it on, `llm.trace.enabled`): the prompt holds chat content.
+Rows expire after `llm.trace.ttl` (`LLM_TRACE_TTL`, default 1 day), removed by the same cron as the context cleanup, also
+after the flag is turned off again. The table is not copied by `DBMigration.sql`.
+
+Panels of the LLM row (same `regexp` style as above):
+
+| Panel | Query |
+|---|---|
+| LLM latency p95 (ms) | ``quantile_over_time(0.95, {app="sbots"} \|= "[llm] type=interaction" \| regexp `bot=(?P<bot>\S+).*latency_ms=(?P<l>\d+)` \| unwrap l [$__interval]) by (bot)`` |
+| LLM quota exhausted | ``sum(count_over_time({app="sbots"} \|= "[llm] type=interaction" \|= "failure=quota_exhausted" [$__interval]))`` |
+| LLM replies by action | ``sum by (action) (count_over_time({app="sbots"} \|= "[llm] type=interaction" \| regexp `action=(?P<action>\S+)` [$__interval]))`` |
+| LLM failures by reason | ``sum by (failure) (count_over_time({app="sbots"} \|= "[llm] type=interaction" \|~ "failure=[^-]" \| regexp `failure=(?P<failure>\S+)` [$__interval]))`` |
+| LLM fallbacks and local rejections | ``sum(count_over_time(... \|= "fallback=true" [$__interval]))`` and ``sum(count_over_time(... \|~ "local_rejection=[^-]" [$__interval]))`` |
+| LLM prompt tokens (estimated) | ``sum by (bot) (sum_over_time(... \| regexp `bot=(?P<bot>\S+).*prompt_tokens=(?P<t>\d+)` \| unwrap t [$__interval]))`` |
+
+**Quota alert** (Grafana alert rule, created in the UI like the other three): fire when
+``sum(count_over_time({app="sbots"} |= "[llm] type=interaction" |= "failure=quota_exhausted" [1h])) > 0``. The ops message
+of `LimitedLlmClient` already tells once per exhaustion episode; the alert is the dashboard-side twin.
+
 ## How it works
 
 - `chatcore.Logger` is the only `LogWriter`: it goes through log4s and logback.

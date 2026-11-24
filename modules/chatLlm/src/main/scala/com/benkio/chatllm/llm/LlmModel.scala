@@ -50,8 +50,16 @@ enum ProviderResult {
   case Success, RateLimited, ServerError, Timeout, Rejected, MalformedJson
 }
 
-/** What a provider boundary returned: a result, and the reply only when the result is a success. */
-final case class ProviderResponse(result: ProviderResult, reply: Option[LlmReply])
+/** What a provider boundary returned: a result, and the reply only when the result is a success. `raw` is the text the
+  * model produced (kept also when it was malformed, to trace a weird reply) and `stripped` tells that the reply parsed
+  * only after the fence/prose around the JSON object was cut away (#1493).
+  */
+final case class ProviderResponse(
+    result: ProviderResult,
+    reply: Option[LlmReply],
+    raw: Option[String] = None,
+    stripped: Boolean = false
+)
 
 object ProviderResponse {
   val rateLimited: ProviderResponse              = ProviderResponse(ProviderResult.RateLimited, None)
@@ -72,13 +80,28 @@ enum CompletionStatus {
   case Pending, Answered, Failed, Silent
 }
 
+/** The last raw model text of a completion, with the provider that produced it (so a fallback that fails without text
+  * never takes the blame for, or the credit of, the primary's text) and whether it needed stripping.
+  */
+final case class RawResponse(provider: LlmProvider, text: String, stripped: Boolean)
+
+/** Why a prompt was refused before any provider was asked. */
+enum LocalRejection(val label: String) {
+  case OversizedPrompt    extends LocalRejection("oversized_prompt")
+  case MissingCredentials extends LocalRejection("missing_credentials")
+}
+
 /** One completion per client call. The fallback is always the other provider: a config change switches both. */
 final case class Completion(
     prompt: String,
     primaryProvider: LlmProvider,
     status: CompletionStatus,
     reply: Option[LlmReply],
-    attempts: List[ProviderAttempt]
+    attempts: List[ProviderAttempt],
+    // Observability only (#1493): the last raw model text, whether it needed fence/prose stripping, and why no
+    // provider was asked when that was decided locally.
+    raw: Option[RawResponse] = None,
+    localRejection: Option[LocalRejection] = None
 ) {
   def fallbackProvider: LlmProvider = primaryProvider match {
     case LlmProvider.Gemini     => LlmProvider.OpenRouter
@@ -140,26 +163,29 @@ object Completion {
     if completion.status != CompletionStatus.Pending then completion
     else if !completion.attempts.exists(_.provider == provider) then completion
     else {
-      val withResult = completion.attempts.map { attempt =>
+      val traced = response.raw.fold(completion)(text =>
+        completion.copy(raw = Some(RawResponse(provider, text, response.stripped)))
+      )
+      val withResult = traced.attempts.map { attempt =>
         if attempt.provider == provider then attempt.copy(result = Some(response.result)) else attempt
       }
       response.result match {
         case ProviderResult.Success if response.reply.nonEmpty =>
-          completion.copy(
+          traced.copy(
             status = CompletionStatus.Answered,
             reply = response.reply,
             attempts = withResult
           )
         case ProviderResult.Success =>
           // A success without a reply is not a structured reply: it fails the completion.
-          completion.copy(status = CompletionStatus.Failed, attempts = withResult)
+          traced.copy(status = CompletionStatus.Failed, attempts = withResult)
         case ProviderResult.RateLimited | ProviderResult.ServerError | ProviderResult.Timeout |
             ProviderResult.MalformedJson | ProviderResult.Rejected =>
           val providerHasAttempt = withResult.exists(_.provider == provider)
           if provider == completion.primaryProvider && !withResult.exists(_.provider == completion.fallbackProvider)
           then
           // The primary was rate limited or failed: create the one allowed fallback attempt.
-          completion.copy(
+          traced.copy(
             attempts = withResult :+ ProviderAttempt(completion.fallbackProvider, None)
           )
           else if provider != completion.primaryProvider && !providerHasAttempt then
@@ -167,7 +193,7 @@ object Completion {
           completion
           else
             // The fallback was asked and failed too: the completion is exhausted.
-            completion.copy(status = CompletionStatus.Failed, attempts = withResult)
+            traced.copy(status = CompletionStatus.Failed, attempts = withResult)
       }
     }
 }

@@ -403,6 +403,8 @@ class LlmClientSpec extends CatsEffectSuite {
     val expected = Right(LlmReply("ciao", LlmAction.Text))
     assertEquals(StructuredReply.parse("```json\n{\"action\":\"text\",\"text\":\"ciao\"}\n```"), expected)
     assertEquals(StructuredReply.parse("Ecco: {\"action\":\"text\",\"text\":\"ciao\"} spero vada bene"), expected)
+    assertEquals(StructuredReply.parseDetailed("{\"action\":\"silent\"}").map(_._2), Right(false))
+    assertEquals(StructuredReply.parseDetailed("Ecco: {\"action\":\"silent\"} ok").map(_._2), Right(true))
     assert(StructuredReply.parse("nessun json qui").isLeft)
     assert(StructuredReply.parse("```json\n{\"action\":\"shout\"}\n```").isLeft)
   }

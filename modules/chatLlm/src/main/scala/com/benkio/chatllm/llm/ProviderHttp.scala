@@ -48,8 +48,14 @@ private[llm] object ProviderHttp {
                 Concurrent[F].pure(ProviderResponse.malformedJson)
               case Right(json) =>
                 extractText(json)
-                  .flatMap(raw => StructuredReply.parse(raw).toOption)
-                  .fold(ProviderResponse.malformedJson)(ProviderResponse.success)
+                  .fold(ProviderResponse.malformedJson) { raw =>
+                    StructuredReply
+                      .parseDetailed(raw)
+                      .fold(
+                        _ => ProviderResponse.malformedJson.copy(raw = Some(raw), stripped = false),
+                        (reply, stripped) => ProviderResponse.success(reply).copy(raw = Some(raw), stripped = stripped)
+                      )
+                  }
                   .pure[F]
             }
         }

@@ -252,4 +252,37 @@ class LlmSettingsDBSpec extends CatsEffectSuite {
       }
     }
   }
+
+  test("the trace table keeps full prompt and response and the TTL drops the old rows (#1493)") {
+    tempDb.use { xa =>
+      val traces          = com.benkio.chatllm.observability.LlmTraceStore[IO](xa)
+      def trace(at: Long) = com.benkio.chatllm.observability.LlmTrace(
+        createdAt = at,
+        chatHash = "abc",
+        botId = botA.value,
+        promptVersion = "v1",
+        model = Some("m"),
+        status = "answered",
+        action = "text",
+        prompt = s"prompt $at",
+        response = Some("""{"action":"text"}""")
+      )
+      for {
+        _       <- setupSchema(xa)
+        _       <- traces.append(trace(100))
+        _       <- traces.append(trace(200))
+        recent  <- traces.recent("abc", 10)
+        other   <- traces.recent("zzz", 10)
+        deleted <- traces.deleteOlderThan(150)
+        left    <- traces.recent("abc", 10)
+      } yield {
+        assertEquals(recent.map(_.createdAt), List(200L, 100L))
+        assertEquals(recent.head.prompt, "prompt 200")
+        assertEquals(recent.head.response, Some("""{"action":"text"}"""))
+        assertEquals(other, Nil)
+        assertEquals(deleted, 1)
+        assertEquals(left.map(_.createdAt), List(200L))
+      }
+    }
+  }
 }

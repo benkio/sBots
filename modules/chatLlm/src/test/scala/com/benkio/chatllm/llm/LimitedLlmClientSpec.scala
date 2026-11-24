@@ -202,6 +202,7 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
     } yield {
       assertEquals(result.status, CompletionStatus.Failed)
       assertEquals(result.attempts, Nil)
+      assertEquals(result.localRejection, Some(LocalRejection.OversizedPrompt))
       // the refused prompt did not consume a quota slot: the next completion still reaches the provider
       assertEquals(next.status, CompletionStatus.Answered)
       assertEquals(count, 1)
@@ -280,6 +281,7 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
     } yield {
       assertEquals(first.status, CompletionStatus.Failed)
       assertEquals(second.status, CompletionStatus.Failed)
+      assertEquals(first.localRejection, Some(LocalRejection.MissingCredentials))
       assertEquals(count, 0)
       assertEquals(infos, Nil)
     }
