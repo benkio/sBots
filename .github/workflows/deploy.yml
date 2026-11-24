@@ -158,7 +158,7 @@ jobs:
           # Inject whichever keys are set; the client admits no request until both are configured, so no provider sees
           # an anonymous request when a secret is missing.
           if [ -n "$GEMINI_API_KEY" ]; then
-            llm_env="export GEMINI_API_KEY='$GEMINI_API_KEY'
+            llm_env="${llm_env}export GEMINI_API_KEY='$GEMINI_API_KEY'
           "
           fi
           if [ -n "$OPENROUTER_API_KEY" ]; then
