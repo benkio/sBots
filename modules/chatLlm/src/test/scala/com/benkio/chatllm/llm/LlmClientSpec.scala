@@ -337,6 +337,52 @@ class LlmClientSpec extends CatsEffectSuite {
       }
   }
 
+  test("OpenRouter: a reply without text keeps the finish reason, the null content and the error of the choice") {
+    val body = Json.obj(
+      "model"   -> Json.fromString("vendor/reasoner:free"),
+      "choices" -> Json.arr(
+        Json.obj(
+          "finish_reason" -> Json.fromString("length"),
+          "message"       -> Json.obj("role" -> Json.fromString("assistant"), "content" -> Json.Null),
+          "error"         -> Json.obj("code" -> Json.fromInt(502), "message" -> Json.fromString("upstream cut"))
+        )
+      )
+    )
+    completeWith(
+      chosen = LlmProvider.OpenRouter,
+      gemini = (Status.Ok, geminiSuccess("ciao")),
+      openRouter = (Status.Ok, body),
+      hosts = ListBuffer.empty[String],
+      bodies = ListBuffer.empty[String]
+    )
+      .map { completion =>
+        assertEquals(completion.attempts.flatMap(_.result).headOption, Some(ProviderResult.MalformedJson))
+        val message = completion.attempts.flatMap(_.failure).flatMap(_.message).headOption
+        assertEquals(
+          message,
+          Some("no model text: finish_reason=length content=null choice_error=502 upstream cut")
+        )
+      }
+  }
+
+  test("OpenRouter diagnosis: documented fields only, nothing for a normal reply") {
+    val ok = Json.obj(
+      "choices" -> Json.arr(
+        Json.obj(
+          "finish_reason" -> Json.fromString("stop"),
+          "message"       -> Json.obj("content" -> Json.fromString("{}"))
+        )
+      )
+    )
+    assertEquals(OpenRouterClient.diagnose(ok), Some("finish_reason=stop"))
+    assertEquals(OpenRouterClient.diagnose(Json.obj()), None)
+    val blank = Json.obj(
+      "error"   -> Json.obj("message" -> Json.fromString("provider down")),
+      "choices" -> Json.arr(Json.obj("message" -> Json.obj("content" -> Json.fromString("  "))))
+    )
+    assertEquals(OpenRouterClient.diagnose(blank), Some("content=empty error=provider down"))
+  }
+
   test("a rejected request keeps the HTTP status and the capped error message of the provider") {
     val message = "This model models/gemini-2.5-flash is no longer available to new users."
     completeWith(
