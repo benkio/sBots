@@ -70,6 +70,7 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
       llmTimeout: FiniteDuration = 1.second,
       requestTimeout: Option[FiniteDuration] = None,
       filter: IO[Boolean] = IO.pure(true),
+      stallInteraction: Boolean = false,
       config: SBotConfig => SBotConfig = identity
   ): IO[Run] = for {
     adapter      <- FakePlatformAdapter()
@@ -88,7 +89,7 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
       sBotConfig = config(sBotConfig.copy(requestProcessingTimeout = requestTimeout)),
       dbLayer = DBLayerMock.mock(sBotInfo.botId, messageReplies = messageReplies, llmSettings = settings(enabled)),
       filteringMatchesMessages = (_, _) => filter,
-      postComputation = _ => interactions.update(_ + 1),
+      postComputation = _ => if stallInteraction then IO.never else interactions.update(_ + 1),
       notifier = Notifier.noop[IO],
       backgroundJobManager = BackgroundJobManagerMock.mock(),
       llmResponder = counting,
@@ -322,5 +323,22 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
       _ <- engine.onMessage(message("EngineBot: two"))(using adapter).timeout(5.seconds)
       n <- calls.get
     } yield assertEquals(n, 2) // both reached the lookup: the first released its claim when the stage timed out
+  }
+
+  test("a delivered answer is remembered even when the interaction update stalls and the stage is cut") {
+    for {
+      events <- Ref.of[IO, List[String]](List.empty)
+      r      <- runAll(
+        messages = List(message("EngineBot: hello")),
+        responder = recording(events, Some(TextReply.fromList("hi")(replyToMessage = true))),
+        llmTimeout = 50.millis,
+        requestTimeout = Some(50.millis),
+        stallInteraction = true
+      ).timeout(5.seconds)
+      seen <- events.get
+    } yield {
+      assertEquals(r.sent, List[ReplyValue](Text("hi")))
+      assertEquals(seen, List("respond", "remember", "rememberAnswer"))
+    }
   }
 }

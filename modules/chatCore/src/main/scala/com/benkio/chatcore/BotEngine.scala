@@ -3,8 +3,10 @@ package com.benkio.chatcore
 import cats.effect.syntax.all.*
 import cats.effect.Async
 import cats.effect.Clock
+import cats.effect.Ref
 import cats.effect.Sync
 import cats.syntax.all.*
+import cats.Applicative
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.llm.LlmEngine
 import com.benkio.chatcore.llm.LlmResponder
@@ -346,40 +348,45 @@ class BotEngine[F[_]: Async: LogWriter](
   ): F[Option[(Reply, List[ReplyBundleMessage])]] = {
     val botName = sBotConfig.sBotInfo.botName
     val none_   = none[(Reply, List[ReplyBundleMessage])].pure[F]
-    // readiness (settings and cooldown) is read while the claim is held, so it is the current cooldown, not one from
-    // before a concurrent answer started it
-    val ready: F[Option[(Reply, List[ReplyBundleMessage])]] =
-      llmChatReady(msg).ifM(
-        answerWithLlm(msg).flatTap(answered => postComputation(msg).whenA(answered.isDefined)),
-        none_
-      )
-    // the whole stage is bounded: the LLM has its own budget, the readiness lookup, the delivery and the interaction
-    // update have the one of a reactive request (unbounded when that is disabled, like the reactive path)
-    val bounded: F[Option[(Reply, List[ReplyBundleMessage])]] =
-      sBotConfig.requestProcessingTimeout.fold(ready) { requestTimeout =>
-        Async[F].timeoutTo(
-          ready,
-          llmTimeout + requestTimeout,
-          LogWriter
-            .warn(s"$botName: the LLM stage timed out, dropped (chatId=${msg.chatId.id})")
-            .as(none[(Reply, List[ReplyBundleMessage])])
+    // The delivered answer is kept as soon as it is sent, so a stage that is cut afterwards (a stalled interaction
+    // update) or fails still hands it to the memory: the user saw that reply.
+    def stage(delivered: Ref[F, Option[(Reply, List[ReplyBundleMessage])]]): F[Unit] = {
+      // readiness (settings and cooldown) is read while the claim is held, so it is the current cooldown, not one from
+      // before a concurrent answer started it
+      val ready: F[Unit] =
+        llmChatReady(msg).ifM(
+          answerWithLlm(msg).flatMap(answered =>
+            delivered.set(answered) *> postComputation(msg).whenA(answered.isDefined)
+          ),
+          Applicative[F].unit
         )
-      }
-    val guarded =
-      if !isLlmCandidate(msg) then none_
-      else
-        // claim and release are one uncancelable unit: a cancel or a timeout can never leave the chat blocked
-        Async[F].uncancelable { poll =>
-          claimLlmChat(msg.chatId).ifM(
-            poll(bounded).guarantee(releaseLlmChat(msg.chatId)),
-            none_
+      // the whole stage is bounded: the LLM has its own budget, the readiness lookup, the delivery and the interaction
+      // update have the one of a reactive request (unbounded when that is disabled, like the reactive path)
+      val bounded: F[Unit] =
+        sBotConfig.requestProcessingTimeout.fold(ready) { requestTimeout =>
+          Async[F].timeoutTo(
+            ready,
+            llmTimeout + requestTimeout,
+            LogWriter.warn(s"$botName: the LLM stage timed out, dropped (chatId=${msg.chatId.id})")
           )
         }
-    guarded.handleErrorWith(e =>
-      LogWriter
-        .error(s"$botName: the LLM reply failed and was dropped (chatId=${msg.chatId.id}): $e")
-        .as(none[(Reply, List[ReplyBundleMessage])])
-    )
+      // claim and release are one uncancelable unit: a cancel or a timeout can never leave the chat blocked
+      Async[F].uncancelable { poll =>
+        claimLlmChat(msg.chatId).ifM(
+          poll(bounded).guarantee(releaseLlmChat(msg.chatId)),
+          Applicative[F].unit
+        )
+      }
+    }
+    if !isLlmCandidate(msg) then none_
+    else
+      for {
+        delivered <- Ref.of[F, Option[(Reply, List[ReplyBundleMessage])]](None)
+        _         <- stage(delivered).handleErrorWith(e =>
+          LogWriter.error(s"$botName: the LLM reply failed and was dropped (chatId=${msg.chatId.id}): $e")
+        )
+        answered <- delivered.get
+      } yield answered
   }
 
   private def isLlmCandidate(msg: Message): Boolean =
