@@ -48,16 +48,17 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
   private val messageReplies = List(ReplyBundleMessage.textToText("ping")("pong"))
 
   private def settings(enabled: Boolean): LlmSettings[IO] = new LlmSettings[IO] {
-    def enable(chatId: ChatId): IO[Unit]   = IO.unit
-    def disable(chatId: ChatId): IO[Unit]  = IO.unit
+    def enable(chatId: ChatId): IO[Unit]               = IO.unit
+    def disable(chatId: ChatId): IO[Unit]              = IO.unit
     def status(chatId: ChatId): IO[LlmSettings.Status] = IO.pure(LlmSettings.Status(enabled))
-    def forget(chatId: ChatId): IO[Unit]   = IO.unit
+    def forget(chatId: ChatId): IO[Unit]               = IO.unit
   }
 
   private def message(text: String): Message =
     Message(None, Instant.now.getEpochSecond, TestIds.chatId(1L), "private", text = Some(text))
 
-  private val llmAnswer: LlmResponder[IO] = (_, _) => IO.pure(Some(TextReply.fromList("llm says hi")(replyToMessage = true)): Option[Reply])
+  private val llmAnswer: LlmResponder[IO] = (_, _) =>
+    IO.pure(Some(TextReply.fromList("llm says hi")(replyToMessage = true)): Option[Reply])
 
   private final case class Run(sent: List[ReplyValue], calls: Int, typings: Int, interactions: Int)
 
@@ -75,7 +76,7 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
     calls        <- Ref.of[IO, Int](0)
     interactions <- Ref.of[IO, Int](0)
     counting: LlmResponder[IO] = new LlmResponder[IO] {
-      override def answers: Boolean = responder.answers
+      override def answers: Boolean                                             = responder.answers
       override def remember(msg: Message)(using cats.Applicative[IO]): IO[Unit] = responder.remember(msg)
       override def rememberAnswer(msg: Message, reply: Reply, candidates: List[ReplyBundleMessage])(using
           cats.Applicative[IO]
@@ -146,15 +147,17 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
   }
 
   test("a slow LLM is dropped silently after its own timeout") {
-    runAll(messages = List(message("EngineBot: how are you?")), responder = (_, _) => IO.never, llmTimeout = 50.millis).map {
-      case Run(sent, calls, _, _) =>
+    runAll(messages = List(message("EngineBot: how are you?")), responder = (_, _) => IO.never, llmTimeout = 50.millis)
+      .map { case Run(sent, calls, _, _) =>
         assertEquals(sent, List.empty[ReplyValue])
         assertEquals(calls, 1)
-    }
+      }
   }
 
   test("a failing LLM is dropped and the message does not fail") {
-    run(text = "EngineBot: how are you?", responder = (_, _) => IO.raiseError(new RuntimeException("boom"))).map(r => assertEquals(r.sent, List.empty[ReplyValue]))
+    run(text = "EngineBot: how are you?", responder = (_, _) => IO.raiseError(new RuntimeException("boom"))).map(r =>
+      assertEquals(r.sent, List.empty[ReplyValue])
+    )
   }
 
   test("an LLM reply counts as an interaction (the post computation runs); no reply does not") {
@@ -169,22 +172,28 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
   }
 
   test("the noop responder is skipped altogether: no typing action, no LLM call") {
-    run(text = "EngineBot: hello", responder = LlmResponder.noop[IO]).map(r => assertEquals((r.calls, r.typings), (0, 0)))
+    run(text = "EngineBot: hello", responder = LlmResponder.noop[IO]).map(r =>
+      assertEquals((r.calls, r.typings), (0, 0))
+    )
   }
 
   test("a mention or a reply to the bot is directed at it") {
     val mention = message("what do you think?").copy(mentions = List(Mention(name = Some("EngineBot"))))
     val reply   = message("what do you think?").copy(replyTo = Some(RepliedMessage(authorName = Some("EngineBot"))))
-    List(mention, reply).traverse(m => runAll(messages = List(m)).map(_.sent)).map(sent =>
-      assertEquals(sent, List(List[ReplyValue](Text("llm says hi")), List[ReplyValue](Text("llm says hi"))))
-    )
+    List(mention, reply)
+      .traverse(m => runAll(messages = List(m)).map(_.sent))
+      .map(sent =>
+        assertEquals(sent, List(List[ReplyValue](Text("llm says hi")), List[ReplyValue](Text("llm says hi"))))
+      )
   }
 
   test("a forwarded, an old or an ignored-prefix message never reaches the LLM") {
     val forwarded = message("EngineBot: hi").copy(isForward = true)
     val old       = message("EngineBot: hi").copy(date = Instant.now.getEpochSecond - 1.day.toSeconds)
     val ignored   = message("!EngineBot: hi")
-    runAll(messages = List(forwarded, old, ignored), config = _.copy(disableForward = true)).map(r => assertEquals(r.calls, 0))
+    runAll(messages = List(forwarded, old, ignored), config = _.copy(disableForward = true)).map(r =>
+      assertEquals(r.calls, 0)
+    )
   }
 
   test("a duplicate message reaches the LLM once") {
@@ -193,7 +202,8 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
   }
 
   test("a second directed message of a chat is not asked while the first is in flight") {
-    val slow: LlmResponder[IO] = (_, _) => IO.sleep(100.millis).as(Some(TextReply.fromList("late")(replyToMessage = true)))
+    val slow: LlmResponder[IO] =
+      (_, _) => IO.sleep(100.millis).as(Some(TextReply.fromList("late")(replyToMessage = true)))
     runAll(messages = List(message("EngineBot: one"), message("EngineBot: two")), responder = slow).map(r =>
       assertEquals((r.calls, r.sent.size), (1, 1))
     )
@@ -208,7 +218,8 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
   }
 
   test("the LLM runs outside the request timeout: a slow answer still completes") {
-    val slow: LlmResponder[IO] = (_, _) => IO.sleep(150.millis).as(Some(TextReply.fromList("late")(replyToMessage = true)))
+    val slow: LlmResponder[IO] =
+      (_, _) => IO.sleep(150.millis).as(Some(TextReply.fromList("late")(replyToMessage = true)))
     runAll(messages = List(message("EngineBot: hello")), responder = slow, requestTimeout = Some(50.millis)).map(r =>
       assertEquals(r.sent, List[ReplyValue](Text("late")))
     )
@@ -271,7 +282,7 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
       adapter <- FakePlatformAdapter()
       calls   <- Ref.of[IO, Int](0)
       hang: LlmResponder[IO] = (_, _) => calls.update(_ + 1) *> IO.never
-      engine = new BotEngine[IO](
+      engine                 = new BotEngine[IO](
         sBotConfig = sBotConfig,
         dbLayer = DBLayerMock.mock(sBotInfo.botId, messageReplies = messageReplies, llmSettings = settings(true)),
         filteringMatchesMessages = (_, _) => IO.pure(true),
@@ -285,5 +296,31 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
       _ <- engine.onMessage(message("EngineBot: two"))(using adapter).timeoutTo(50.millis, IO.unit)
       n <- calls.get
     } yield assertEquals(n, 2)
+  }
+
+  test("a stalled settings lookup is cut by the stage timeout and the claim is released") {
+    for {
+      adapter <- FakePlatformAdapter()
+      calls   <- Ref.of[IO, Int](0)
+      stalled = new LlmSettings[IO] {
+        def enable(chatId: ChatId): IO[Unit]               = IO.unit
+        def disable(chatId: ChatId): IO[Unit]              = IO.unit
+        def status(chatId: ChatId): IO[LlmSettings.Status] = calls.update(_ + 1) *> IO.never
+        def forget(chatId: ChatId): IO[Unit]               = IO.unit
+      }
+      engine = new BotEngine[IO](
+        sBotConfig = sBotConfig.copy(requestProcessingTimeout = Some(50.millis)),
+        dbLayer = DBLayerMock.mock(sBotInfo.botId, messageReplies = messageReplies, llmSettings = stalled),
+        filteringMatchesMessages = (_, _) => IO.pure(true),
+        postComputation = _ => IO.unit,
+        notifier = Notifier.noop[IO],
+        backgroundJobManager = BackgroundJobManagerMock.mock(),
+        llmResponder = llmAnswer,
+        llmTimeout = 50.millis
+      )
+      _ <- engine.onMessage(message("EngineBot: one"))(using adapter).timeout(5.seconds)
+      _ <- engine.onMessage(message("EngineBot: two"))(using adapter).timeout(5.seconds)
+      n <- calls.get
+    } yield assertEquals(n, 2) // both reached the lookup: the first released its claim when the stage timed out
   }
 }

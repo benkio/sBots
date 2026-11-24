@@ -517,6 +517,9 @@ rule LlmCommandIrcUsage {
 -- per-chat cooldown of the reactive replies, shared) has expired, the responder is asked with the matching bundles as
 -- candidates. A matching bundle blocked by the timeout does not fall through to the LLM. One call per chat is in
 -- flight at a time: a directed message arriving meanwhile is not asked, since the cooldown starts only with an answer.
+-- The settings and cooldown are read after the chat is claimed, so they are current; the whole claimed stage (lookup, call,
+-- delivery, interaction update) is bounded by config.timeout plus the request processing timeout, and the claim is
+-- always released.
 -- The LLM runs after, and outside, the request processing timeout under its own timeout (config.timeout, taken per bot
 -- from the wiring), and the typing action (a no-op on platforms without one) is part of that bounded call. A timeout,
 -- a failure or no answer drops the message silently; an answer is sent like a reactive reply and counts as an

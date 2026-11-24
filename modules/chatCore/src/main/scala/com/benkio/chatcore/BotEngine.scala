@@ -345,22 +345,36 @@ class BotEngine[F[_]: Async: LogWriter](
       platform: PlatformAdapter[F]
   ): F[Option[(Reply, List[ReplyBundleMessage])]] = {
     val botName = sBotConfig.sBotInfo.botName
-    val guarded = isLlmCandidate(msg)
-      .pure[F]
-      .ifM(llmChatReady(msg), false.pure[F])
-      .ifM(
-        // claim and release are one uncancelable unit: a cancel can never leave the chat blocked
+    val none_   = none[(Reply, List[ReplyBundleMessage])].pure[F]
+    // readiness (settings and cooldown) is read while the claim is held, so it is the current cooldown, not one from
+    // before a concurrent answer started it
+    val ready: F[Option[(Reply, List[ReplyBundleMessage])]] =
+      llmChatReady(msg).ifM(
+        answerWithLlm(msg).flatTap(answered => postComputation(msg).whenA(answered.isDefined)),
+        none_
+      )
+    // the whole stage is bounded: the LLM has its own budget, the readiness lookup, the delivery and the interaction
+    // update have the one of a reactive request (unbounded when that is disabled, like the reactive path)
+    val bounded: F[Option[(Reply, List[ReplyBundleMessage])]] =
+      sBotConfig.requestProcessingTimeout.fold(ready) { requestTimeout =>
+        Async[F].timeoutTo(
+          ready,
+          llmTimeout + requestTimeout,
+          LogWriter
+            .warn(s"$botName: the LLM stage timed out, dropped (chatId=${msg.chatId.id})")
+            .as(none[(Reply, List[ReplyBundleMessage])])
+        )
+      }
+    val guarded =
+      if !isLlmCandidate(msg) then none_
+      else
+        // claim and release are one uncancelable unit: a cancel or a timeout can never leave the chat blocked
         Async[F].uncancelable { poll =>
           claimLlmChat(msg.chatId).ifM(
-            poll(
-              answerWithLlm(msg)
-                .flatTap(answered => postComputation(msg).whenA(answered.isDefined))
-            ).guarantee(releaseLlmChat(msg.chatId)),
-            none[(Reply, List[ReplyBundleMessage])].pure[F]
+            poll(bounded).guarantee(releaseLlmChat(msg.chatId)),
+            none_
           )
-        },
-        none[(Reply, List[ReplyBundleMessage])].pure[F]
-      )
+        }
     guarded.handleErrorWith(e =>
       LogWriter
         .error(s"$botName: the LLM reply failed and was dropped (chatId=${msg.chatId.id}): $e")
