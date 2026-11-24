@@ -23,8 +23,8 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
   private def config(extra: String): LlmConfig =
     ConfigSource
       .string(
-        s"""gemini { endpoint = "https://gemini.example/generate", model = "gemini-test", api-key = "gemini-key" }
-           |openrouter { endpoint = "https://openrouter.example/chat", model = "openrouter-test", api-key = "openrouter-key" }
+        s"""gemini { endpoint = "https://gemini.example/generate", api-key = "gemini-key" }
+           |openrouter { endpoint = "https://openrouter.example/chat", api-key = "openrouter-key" }
            |context.author-salt = test-salt
            |$extra""".stripMargin
       )
@@ -34,8 +34,8 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
   private def configWithoutGeminiKey: LlmConfig =
     ConfigSource
       .string(
-        """gemini { endpoint = "https://gemini.example/generate", model = "gemini-test" }
-          |openrouter { endpoint = "https://openrouter.example/chat", model = "openrouter-test", api-key = "openrouter-key" }""".stripMargin
+        """gemini { endpoint = "https://gemini.example/generate" }
+          |openrouter { endpoint = "https://openrouter.example/chat", api-key = "openrouter-key" }""".stripMargin
       )
       .load[LlmConfig]
       .fold(err => throw new RuntimeException(err.prettyPrint()), identity)
@@ -43,8 +43,8 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
   private def configWithBlankKeys: LlmConfig =
     ConfigSource
       .string(
-        """gemini { endpoint = "https://gemini.example/generate", model = "gemini-test", api-key = "   " }
-          |openrouter { endpoint = "https://openrouter.example/chat", model = "openrouter-test", api-key = "  " }""".stripMargin
+        """gemini { endpoint = "https://gemini.example/generate", api-key = "   " }
+          |openrouter { endpoint = "https://openrouter.example/chat", api-key = "  " }""".stripMargin
       )
       .load[LlmConfig]
       .fold(err => throw new RuntimeException(err.prettyPrint()), identity)

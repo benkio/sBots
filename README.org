@@ -280,6 +280,7 @@ editing the file.
 | ~LLM_CONTEXT_MAX_MESSAGES~ / ~LLM_CONTEXT_MAX_TOKENS~ | ~20~ / ~2048~ | the conversation window of a prompt |
 | ~LLM_CONTEXT_TTL~ / ~LLM_CONTEXT_CLEANUP_CRON~ | ~7 days~ / hourly | retention and its cleanup job |
 | ~GEMINI_MAX_PER_MINUTE~, ~GEMINI_MAX_PER_DAY~ (same for ~OPENROUTER_~) | ~20~ / ~50~ | client-side quota of each provider, shared by all the bots. The OpenRouter values are the documented free-tier limits; *the Gemini ones are provisional* (#1483 did not measure them), so check them against your key |
+| ~OPENROUTER_MODEL~ | empty | empty: ~openrouter/free~ (free router). Set it only to choose a model; one without ~:free~ is paid |
 | ~LLM_TRACE_ENABLED~ / ~LLM_TRACE_TTL~ | ~false~ / ~1 day~ | opt-in debug trace of the full prompt and raw response, see [[file:docs/monitoring.md][monitoring]] |
 
 *** Sizing the prompt, the persona and the timeout together
@@ -289,10 +290,12 @@ editing the file.
   the defaults that is *32 768 bytes*. Startup refuses a persona above it (the bot goes without the LLM) and
   ~sbt checkPersona~ (also in CI) fails on it, together with a hard limit of 64 KiB. Raising ~LLM_MAX_INPUT_TOKENS~ or lowering
   ~LLM_CONTEXT_MAX_TOKENS~ makes room.
-- *The limit has to suit the fallback too.* The default input limit is sized for Gemini. A small free OpenRouter model as the
-  fallback may have a smaller context window, or be slower than ~LLM_TIMEOUT~ with a large persona. There is one input limit
-  for both providers (a per-provider limit is not implemented), so either keep the persona small or pick a fallback model
-  with at least the same window (~openrouter.model~).
+- *The limit has to suit the fallback too.* The default input limit is sized for Gemini. The fallback asks OpenRouter
+  for ~openrouter/free~ unless ~OPENROUTER_MODEL~ is set (empty by default): OpenRouter then picks a free model per request, so
+  its context window and speed are not under our control and may be smaller or slower than ~LLM_TIMEOUT~ allows with a large
+  persona. There is one input limit for both providers (a per-provider limit is not implemented), so keep the persona small
+  enough for the smallest free model you can tolerate, or set ~OPENROUTER_MODEL~ to a model with at least that window. A model
+  without the ~:free~ suffix is *paid*. Free models may also log prompts (see the privacy notes above).
 - *The timeout is one value used twice.* ~LLM_TIMEOUT~ bounds each provider call and, in the engine, the whole LLM answer. A
   primary that /times out/ therefore leaves no time for the fallback within the same message: the fallback helps for
   fast failures (a 429, a 5xx, a malformed or rejected reply), not for a slow primary. A timeout still spends the quota of

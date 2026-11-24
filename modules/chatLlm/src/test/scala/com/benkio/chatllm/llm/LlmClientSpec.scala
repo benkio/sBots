@@ -58,8 +58,8 @@ class LlmClientSpec extends CatsEffectSuite {
     )
 
   private val configText =
-    s"""gemini { endpoint = "https://$geminiHost/generate", model = "gemini-test", api-key = "test-gemini-key" }
-       |openrouter { endpoint = "https://$openRouterHost/chat", model = "openrouter-test", api-key = "test-openrouter-key" }
+    s"""gemini { endpoint = "https://$geminiHost/generate", api-key = "test-gemini-key" }
+       |openrouter { endpoint = "https://$openRouterHost/chat", api-key = "test-openrouter-key" }
        |context.author-salt = test-only-salt""".stripMargin
 
   private def config(primary: String, extra: String = ""): LlmConfig =
@@ -465,6 +465,8 @@ class LlmClientSpec extends CatsEffectSuite {
         assertEquals(bodies.map(_._1).toList, List(geminiHost, openRouterHost))
         assert(bodies.toList.head._2.contains("\"maxOutputTokens\":123"))
         assert(bodies.toList.last._2.contains("\"max_tokens\":123"))
+        // no model configured: the free router
+        assert(bodies.toList.last._2.contains("\"model\":\"openrouter/free\""))
       }
   }
 
@@ -684,8 +686,8 @@ class LlmClientSpec extends CatsEffectSuite {
     val cfg = ConfigSource
       .string(
         s"""primary-provider = gemini
-           |gemini { endpoint = "https://$geminiHost/generate", model = "gemini-test", api-key = "g-key" }
-           |openrouter { endpoint = "https://$openRouterHost/chat", model = "openrouter-test", api-key = "or-key" }
+           |gemini { endpoint = "https://$geminiHost/generate", api-key = "g-key" }
+           |openrouter { endpoint = "https://$openRouterHost/chat", api-key = "or-key" }
            |context.author-salt = test-only-salt""".stripMargin
       )
       .load[LlmConfig]
@@ -718,5 +720,13 @@ class LlmClientSpec extends CatsEffectSuite {
     val schema = GeminiClient.responseSchema.hcursor
     assertEquals(schema.downField("properties").keys.map(_.toSet), Some(Set("text", "action", "replyId")))
     assertEquals(schema.get[List[String]]("required"), Right(List("action")))
+  }
+
+  test("the OpenRouter model is the configured one, and the free router when it is empty or blank") {
+    def conn(model: Option[String]) = ProviderConnection(endpoint = "https://o.example", model = model)
+    assertEquals(OpenRouterClient.modelFor(conn(None)), "openrouter/free")
+    assertEquals(OpenRouterClient.modelFor(conn(Some(""))), "openrouter/free")
+    assertEquals(OpenRouterClient.modelFor(conn(Some("   "))), "openrouter/free")
+    assertEquals(OpenRouterClient.modelFor(conn(Some(" vendor/model:free "))), "vendor/model:free")
   }
 }

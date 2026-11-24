@@ -15,18 +15,23 @@ import org.typelevel.ci.CIString
   */
 object OpenRouterClient {
 
+  /** The model asked when none is configured: OpenRouter's free router, which picks a free model per request. */
+  val DefaultModel: String = "openrouter/free"
+
+  /** The configured model (`main.llm.openrouter.model`, empty by default), or [[DefaultModel]] when it is empty or
+    * blank. A configured model is the operator's choice: it can be a paid one.
+    */
+  def modelFor(connection: ProviderConnection): String =
+    connection.model.map(_.trim).filter(_.nonEmpty).getOrElse(DefaultModel)
+
   def apply[F[_]: Concurrent](
       client: Client[F],
       connection: ProviderConnection,
       maxOutputTokens: Int = LlmConfig.defaultMaxOutputTokens
   ): F[LlmProviderClientApi[F]] =
-    for {
-      uri   <- ProviderHttp.parseUri[F](connection.endpoint, connection.apiKey.isDefined)
-      model <- Concurrent[F].fromOption(
-        connection.model.map(_.trim).filter(_.nonEmpty),
-        new IllegalArgumentException("OpenRouter model is required")
-      )
-    } yield new OpenRouterClientImpl[F](client, connection, uri, model, maxOutputTokens)
+    ProviderHttp
+      .parseUri[F](connection.endpoint, connection.apiKey.isDefined)
+      .map(uri => new OpenRouterClientImpl[F](client, connection, uri, modelFor(connection), maxOutputTokens))
 
   private final class OpenRouterClientImpl[F[_]: Concurrent](
       client: Client[F],
