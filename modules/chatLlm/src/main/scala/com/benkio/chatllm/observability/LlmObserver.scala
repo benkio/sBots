@@ -30,8 +30,9 @@ final case class LlmObservation(
     outcome: LlmOutcome
 )
 
-/** #1493: records one interaction. The JSON interaction log line is always written; the full prompt and raw response go to the
-  * `llm_trace` table only when the debug trace is enabled. Observing never fails the reply: errors are only logged.
+/** #1493: records one interaction. The JSON interaction log line is always written; the full prompt and raw response go
+  * to the `llm_trace` table only when the debug trace is enabled. Observing never fails the reply: errors are only
+  * logged.
   */
 trait LlmObserver[F[_]] {
   def observe(observation: LlmObservation): F[Unit]
