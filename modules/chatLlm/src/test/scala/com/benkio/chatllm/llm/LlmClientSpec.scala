@@ -751,12 +751,13 @@ class LlmClientSpec extends CatsEffectSuite {
         case `geminiHost` =>
           IO.pure(Response[IO](Status.TooManyRequests).withEntity(Json.obj()))
         case `openRouterHost` =>
-          IO.sleep(200.millis).as(Response[IO](Status.Ok).withEntity(openRouterSuccess("too late")))
+          IO.sleep(1.second).as(Response[IO](Status.Ok).withEntity(openRouterSuccess("too late")))
         case _ =>
           IO.pure(Response[IO](Status.NotFound).withEntity(Json.obj()))
       }
     })
-    val cfg = config("primary-provider = gemini\ntimeout = 10 milliseconds\n")
+    // wide enough for the 429 (its error body is read and parsed) to finish on a slow runner, far below the fallback
+    val cfg = config("primary-provider = gemini\ntimeout = 250 milliseconds\n")
     for {
       notifier   <- NotifierMock.recording
       llm        <- LlmClients.build[IO](client, cfg, notifier)

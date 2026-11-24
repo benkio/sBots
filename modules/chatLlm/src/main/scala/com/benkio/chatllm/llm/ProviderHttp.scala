@@ -15,6 +15,9 @@ private[llm] object ProviderHttp {
   /** The longest model name kept from a provider response. */
   val MaxModelChars: Int = 100
 
+  /** The most bytes read from the body of a failed call: it is untrusted and only used for the error message. */
+  val MaxErrorBodyBytes: Int = 8192
+
   /** The longest provider error message kept for the logs: the body is untrusted and unbounded. */
   val MaxErrorChars: Int = 200
 
@@ -110,8 +113,11 @@ private[llm] object ProviderHttp {
     * both Gemini and OpenRouter), read best effort and capped. The body holds no prompt or key.
     */
   private def failed[F[_]: Concurrent](response: Response[F], base: ProviderResponse): F[ProviderResponse] =
-    response
-      .as[String]
+    response.body
+      .take(MaxErrorBodyBytes.toLong)
+      .through(fs2.text.utf8.decode)
+      .compile
+      .string
       .attempt
       .map { body =>
         val message = body.toOption
