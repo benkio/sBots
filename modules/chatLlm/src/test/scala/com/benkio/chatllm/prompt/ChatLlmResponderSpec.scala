@@ -265,6 +265,12 @@ class ChatLlmResponderSpec extends CatsEffectSuite {
   test("redacting mentions keeps an email address and replaces a bare @nick, also right after a period") {
     assertEquals(Message.redactMentions("scrivi a a@b.it o a @mario", Nil), "scrivi a a@b.it o a @user")
     assertEquals(Message.redactMentions("ciao.@mario e ciao @mario", Nil), "ciao.@user e ciao @user")
+    // a nick glued to a word is still a mention, a complete email address is not
+    assertEquals(Message.redactMentions("ciao@mario", Nil), "ciao@user")
+    assertEquals(
+      Message.redactMentions("scrivi a mario.rossi@mail.example.it e a ciao@mario", Nil),
+      "scrivi a mario.rossi@mail.example.it e a ciao@user"
+    )
   }
 
   test("a message of the Telegram maximum length is capped to its reserve in the prompt") {

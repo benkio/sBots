@@ -26,10 +26,12 @@ value LlmReply {
     text: String                 -- empty unless the action is text
     action: text | reuse | silent   -- #1491: required; any other value is a malformed provider reply
     reply_id: String?            -- #1491: the catalogue id picked by a reuse
-    -- Derived by the output guard: not empty, no line starting with / or !, no @name or <@id> mention.
+    -- Derived by the output guard: not empty, no line starting with one or more / or ! markers followed by a letter
+    -- ("!ban", "//x"; marker-only text such as "!!! che bello" is fine), no @name or <@id> mention.
     text_acceptable: Boolean
-    -- The text actually sent: trimmed; when longer than the 500 character cap (counted in code points) it is cut to the
-    -- first 499 characters, trimmed, followed by "…". A shorter accepted text is unchanged.
+    -- The text actually sent: trimmed; when longer than the reply cap (the cap the PromptBuilder states in the prompt
+    -- and passes to the guard, 500 by default; counted in code points) it is cut to the first cap - 1 characters,
+    -- trimmed, followed by "…". A text within the cap is unchanged.
     reply_text: String
 }
 
@@ -639,8 +641,12 @@ rule ResponderReusesCandidate {
 }
 
 -- Anything else is silent: the silent action, a reuse of an id that is not an offered candidate, a failed completion,
--- a client error, or a text that is not acceptable. A text over the cap is truncated (see reply_text), not dropped. A provider reply without a valid action, or with a non-string text or reply id, is already
--- malformed at the provider boundary. The reply language is the one the persona states (Italian when it states none); this is required by the prompt only, not checked.
+-- a client error, or a text that is not acceptable. A text over the cap is truncated (see reply_text), not dropped.
+-- A provider reply without a valid action, or with a non-string text or reply id, is already malformed at the provider
+-- boundary. A JSON null `text` or `replyId` counts as absent, not malformed: a reuse without a reply id is therefore an
+-- accepted reply that the responder turns into a silent decision, with no malformed-reply fallback.
+-- The reply language is the one the persona states (Italian when it states none); this is required by the prompt only,
+-- not checked.
 rule ResponderStaysSilent {
     when: ResponderAsked(msg, candidates, completion)
     requires: completion.status != answered
