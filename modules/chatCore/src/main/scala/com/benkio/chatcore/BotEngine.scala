@@ -1,10 +1,12 @@
 package com.benkio.chatcore
 
+import cats.effect.syntax.all.*
 import cats.effect.Async
 import cats.effect.Clock
 import cats.effect.Sync
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
+import com.benkio.chatcore.llm.LlmEngine
 import com.benkio.chatcore.llm.LlmResponder
 import com.benkio.chatcore.messagefiltering.*
 import com.benkio.chatcore.model.reply.EffectfulReply
@@ -17,6 +19,7 @@ import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.reply.TextReply
+import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageType
@@ -28,12 +31,15 @@ import com.benkio.chatcore.patterns.CommandPatternsGroup
 import com.benkio.chatcore.patterns.PostComputationPatterns
 import com.benkio.chatcore.patterns.SubscriptionCommands.SubscribeUnsubscribeCommand
 import com.benkio.chatcore.repository.db.DBLayer
+import com.benkio.chatcore.BotEngine.Reactive
+import com.benkio.chatcore.BotEngine.Stage
 import com.benkio.chatcore.SubscriptionFlowOutcome
 import com.benkio.chatcore.SubscriptionFlowService
 import com.benkio.chatcore.UsageStats.Outcome
 import log.effect.LogWriter
 
-import scala.concurrent.duration.FiniteDuration
+import java.util.concurrent.ConcurrentHashMap
+import scala.concurrent.duration.*
 
 /** The logic of a bot, whatever the platform: what to reply to a message, a command or a file request. The platform is
   * reached through the [[PlatformAdapter]] only: to send and compute the replies, and for the way it writes the
@@ -47,6 +53,9 @@ import scala.concurrent.duration.FiniteDuration
   *   tells the operators about the requests that time out and the checks that fail
   * @param llmResponder
   *   answers the messages directed to the bot with the LLM; the `noop` default never answers
+  * @param llmTimeout
+  *   the time the LLM has to answer: it runs after, and outside, the request processing timeout, and an answer that
+  *   comes later is dropped silently
   */
 class BotEngine[F[_]: Async: LogWriter](
     val sBotConfig: SBotConfig,
@@ -55,7 +64,8 @@ class BotEngine[F[_]: Async: LogWriter](
     postComputation: Message => F[Unit],
     notifier: Notifier[F],
     backgroundJobManager: BackgroundJobManager[F],
-    val llmResponder: LlmResponder[F]
+    val llmResponder: LlmResponder[F],
+    llmTimeout: FiniteDuration = BotEngine.defaultLlmTimeout
 ) {
 
   // Replies data ////////////////////////////////////////////////////////
@@ -109,15 +119,17 @@ class BotEngine[F[_]: Async: LogWriter](
 
   def messageLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = messageLogicReplied(msg).void
 
-  /** Whether a reply was sent: a guided-flow answer, or a matching bundle that the filters let through. */
-  private def messageLogicReplied(msg: Message)(using platform: PlatformAdapter[F]): F[Boolean] =
+  /** The reactive part of a message: a guided-flow answer, or a matching bundle that the filters let through. Nothing
+    * matching leaves the message [[Reactive.Unmatched]], the only case the LLM can still answer.
+    */
+  private def messageLogicReplied(msg: Message)(using platform: PlatformAdapter[F]): F[Reactive] =
     guidedFlowRequester(msg, platform).fold(messageReplyBundles(msg)) { requester =>
       subscriptionFlow
         .acceptPlainMessage(msg, requester, deliverFlow(_, msg, requester))
-        .flatMap(outcome => outcome.fold(messageReplyBundles(msg))(_ => true.pure[F]))
+        .flatMap(outcome => outcome.fold(messageReplyBundles(msg))(_ => (Reactive.Done(true): Reactive).pure[F]))
     }
 
-  private def messageReplyBundles(msg: Message)(using platform: PlatformAdapter[F]): F[Boolean] =
+  private def messageReplyBundles(msg: Message)(using platform: PlatformAdapter[F]): F[Reactive] =
     ReplyBundleMessage
       .selectReplyBundle(
         msg = msg,
@@ -133,7 +145,7 @@ class BotEngine[F[_]: Async: LogWriter](
           _             <- reply(replyBundle.reply, msg).whenA(passesFilters)
         } yield passesFilters
       )
-      .map(_.getOrElse(false))
+      .map(_.fold[Reactive](Reactive.Unmatched)(Reactive.Done(_)))
 
   def commandLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = commandLogicReplied(msg).void
 
@@ -214,33 +226,45 @@ class BotEngine[F[_]: Async: LogWriter](
       )
       .map(_.getOrElse(false))
 
-  /** Whether a reply was sent. */
+  /** Whether a reply was sent by the reactive logic (the LLM is not part of it). */
   def botLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Boolean] =
+    reactiveLogic(msg).map {
+      case Reactive.Done(replied) => replied
+      case Reactive.Unmatched     => false
+    }
+
+  private def reactiveLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Reactive] =
     msg.messageType(sBotConfig.sBotInfo.botId, platform.capabilities.commandSyntax) match {
       case MessageType.Message =>
         LogWriter.trace("Message Type: Message") >> messageLogicReplied(msg)
       case MessageType.Command =>
-        LogWriter.trace("Message Type: Command") >> commandLogicReplied(msg)
+        LogWriter.trace("Message Type: Command") >> commandLogicReplied(msg).map(Reactive.Done(_))
       case MessageType.FileRequest =>
-        LogWriter.trace("Message Type: File Request") >> fileRequestLogicReplied(msg)
+        LogWriter.trace("Message Type: File Request") >> fileRequestLogicReplied(msg).map(Reactive.Done(_))
     }
 
   /** The entry point: a message arrived. One `[stats]` line tells how it ended and how long it took. */
   def onMessage(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = {
-    val process: F[Outcome] = for {
+    // the reactive part is bounded by the request timeout; the second value is what is left to do for the LLM
+    val process: F[(Outcome, Stage)] = for {
       _       <- LogWriter.trace(s"${sBotConfig.sBotInfo.botName}: A message arrived: $msg")
-      outcome <- isDuplicate(msg).ifM(skipDuplicate(msg).as(Outcome.Duplicate), handleMessage(msg).as(Outcome.Handled))
-    } yield outcome
+      handled <- isDuplicate(msg).ifM(
+        skipDuplicate(msg).as((Outcome.Duplicate, Stage.Nothing)),
+        handleMessage(msg).map(stage => (Outcome.Handled, stage))
+      )
+    } yield handled
 
-    val bounded: F[Outcome] = sBotConfig.requestProcessingTimeout match {
+    val bounded: F[(Outcome, Stage)] = sBotConfig.requestProcessingTimeout match {
       case Some(timeout) => withRequestTimeout(msg, timeout)(process)
       case None          => process
     }
 
     for {
-      start   <- Clock[F].monotonic
-      outcome <- bounded.onError(_ => logStats(Outcome.Failed, start))
-      _       <- logStats(outcome, start)
+      start         <- Clock[F].monotonic
+      boundedResult <- bounded.onError(_ => logStats(Outcome.Failed, start))
+      (outcome, stage) = boundedResult
+      _ <- llmStage(msg, stage).onError(_ => logStats(Outcome.Failed, start))
+      _ <- logStats(outcome, start)
     } yield ()
   }
 
@@ -261,12 +285,135 @@ class BotEngine[F[_]: Async: LogWriter](
       s"${sBotConfig.sBotInfo.botName}: duplicate message skipped (chatId=${msg.chatId}, messageId=${msg.messageId})"
     )
 
-  private def handleMessage(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = for {
-    _       <- LogWriter.info(s"${sBotConfig.sBotInfo.botName}: A message arrived with content: ${msg.text}")
-    replied <- botLogic(msg)
+  /** What is left for the LLM side: the message is unanswered and can be asked to it, or only remembered, or nothing.
+    */
+  private def handleMessage(msg: Message)(using platform: PlatformAdapter[F]): F[Stage] = for {
+    _        <- LogWriter.info(s"${sBotConfig.sBotInfo.botName}: A message arrived with content: ${msg.text}")
+    reactive <- reactiveLogic(msg)
+    replied = reactive == Reactive.Done(true)
     // the last interaction (what the chat timeout is measured from) is logged only after a reply
     _ <- postComputation(msg).whenA(replied)
-  } yield ()
+  } yield
+    if msg.messageType(sBotConfig.sBotInfo.botId, platform.capabilities.commandSyntax) != MessageType.Message
+    then Stage.Nothing
+    else if reactive == Reactive.Unmatched then Stage.Ask
+    else Stage.Remember
+
+  // LLM ////////////////////////////////////////////////////////////////
+
+  /** The chats with an LLM call in flight: the cooldown starts only when an answer is sent, so a second directed
+    * message arriving meanwhile would otherwise reach the LLM too.
+    */
+  // plain mutable state private to this engine, atomic by itself; every access is suspended in F
+  private val llmInFlight: java.util.Set[ChatId] = ConcurrentHashMap.newKeySet[ChatId]()
+
+  private def claimLlmChat(chatId: ChatId): F[Boolean] = Sync[F].delay(llmInFlight.add(chatId))
+
+  private def releaseLlmChat(chatId: ChatId): F[Unit] = Sync[F].delay(llmInFlight.remove(chatId)).void
+
+  /** Runs after, and outside, the request timeout. Only a plain message nothing reactive answered ([[Stage.Ask]]),
+    * directed at the bot, in a chat that enabled the LLM and whose timeout (the cooldown shared with the reactive
+    * replies) has expired, reaches a responder that can answer. A failure or a timeout of the LLM never breaks the
+    * message: it is dropped. Every plain message is then handed to the responder to remember, after the answer so it is
+    * not part of its own prompt, followed by the answer that was sent.
+    */
+  private def llmStage(msg: Message, stage: Stage)(using platform: PlatformAdapter[F]): F[Unit] =
+    Option.when(stage != Stage.Nothing && llmResponder.answers)(stage).traverse_ { _ =>
+      val sent: F[Option[(Reply, List[ReplyBundleMessage])]] =
+        if stage == Stage.Ask then llmLogic(msg) else none[(Reply, List[ReplyBundleMessage])].pure[F]
+      sent.flatMap { answered =>
+        // bounded like the LLM call: a stalled DB must not hold the handler, and the stats line is always logged
+        val remembering: F[Unit] =
+          llmResponder.remember(msg) *>
+            answered.traverse_((reply, candidates) => llmResponder.rememberAnswer(msg, reply, candidates))
+        Async[F]
+          .timeoutTo(
+            remembering,
+            llmTimeout,
+            LogWriter.warn(
+              s"${sBotConfig.sBotInfo.botName}: the LLM memory timed out after $llmTimeout (chatId=${msg.chatId.id})"
+            )
+          )
+          .handleErrorWith(e =>
+            LogWriter.warn(s"${sBotConfig.sBotInfo.botName}: the LLM memory failed (chatId=${msg.chatId.id}): $e")
+          )
+      }
+    }
+
+  /** The reply sent by the LLM, if any, with the candidates it was offered. */
+  private def llmLogic(msg: Message)(using
+      platform: PlatformAdapter[F]
+  ): F[Option[(Reply, List[ReplyBundleMessage])]] = {
+    val botName = sBotConfig.sBotInfo.botName
+    val guarded = isLlmCandidate(msg)
+      .pure[F]
+      .ifM(llmChatReady(msg), false.pure[F])
+      .ifM(
+        // claim and release are one uncancelable unit: a cancel can never leave the chat blocked
+        Async[F].uncancelable { poll =>
+          claimLlmChat(msg.chatId).ifM(
+            poll(
+              answerWithLlm(msg)
+                .flatTap(answered => postComputation(msg).whenA(answered.isDefined))
+            ).guarantee(releaseLlmChat(msg.chatId)),
+            none[(Reply, List[ReplyBundleMessage])].pure[F]
+          )
+        },
+        none[(Reply, List[ReplyBundleMessage])].pure[F]
+      )
+    guarded.handleErrorWith(e =>
+      LogWriter
+        .error(s"$botName: the LLM reply failed and was dropped (chatId=${msg.chatId.id}): $e")
+        .as(none[(Reply, List[ReplyBundleMessage])])
+    )
+  }
+
+  private def isLlmCandidate(msg: Message): Boolean =
+    msg.isDirectedAt(sBotConfig.sBotInfo.botName) &&
+      FilteringForward.filter(msg, sBotConfig.disableForward) &&
+      FilteringOlder.filter(msg) &&
+      !sBotConfig.ignoreMessagePrefix.exists(prefix => msg.text.exists(_.startsWith(prefix)))
+
+  private def llmChatReady(msg: Message): F[Boolean] =
+    dbLayer.llmSettings
+      .status(msg.chatId)
+      .map(_.enabled)
+      .ifM(
+        FilteringTimeout.chatAllowed(dbLayer, sBotConfig.sBotInfo.botId).apply(msg),
+        false.pure[F]
+      )
+
+  /** The reply sent, with the candidates it was offered. */
+  private def answerWithLlm(msg: Message)(using
+      platform: PlatformAdapter[F]
+  ): F[Option[(Reply, List[ReplyBundleMessage])]] = {
+    val candidates = ReplyBundleMessage.matchingReplyBundles(
+      msg = msg,
+      messageRepliesData = messageRepliesData,
+      ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
+    )
+    // the typing action is inside the timeout too: a hung platform call cannot hold the message
+    val asked: F[Option[Option[Reply]]] =
+      (platform.sendTyping(msg).handleErrorWith(e => LogWriter.warn(s"typing action failed: $e")) *>
+        llmResponder.respond(msg, candidates)).map(Some(_))
+    for {
+      answer  <- Async[F].timeoutTo(asked, llmTimeout, none[Option[Reply]].pure[F]).attempt
+      replied <- answer match {
+        case Right(Some(Some(llmReply))) => reply(llmReply, msg).as(Some((llmReply, candidates)))
+        case Right(Some(None))           => none[(Reply, List[ReplyBundleMessage])].pure[F]
+        case Right(None)                 =>
+          LogWriter
+            .warn(
+              s"${sBotConfig.sBotInfo.botName}: the LLM did not answer within $llmTimeout, dropped (chatId=${msg.chatId.id})"
+            )
+            .as(none[(Reply, List[ReplyBundleMessage])])
+        case Left(e) =>
+          LogWriter
+            .error(s"${sBotConfig.sBotInfo.botName}: the LLM failed, dropped (chatId=${msg.chatId.id}): $e")
+            .as(none[(Reply, List[ReplyBundleMessage])])
+      }
+    } yield replied
+  }
 
   /** Whether the message was already received: the platforms can deliver the same message more than once (e.g. Telegram
     * retries an update that was not acknowledged in time). Without a message id (e.g. IRC) it can't be told, so the
@@ -289,8 +436,8 @@ class BotEngine[F[_]: Async: LogWriter](
     )
 
   private def withRequestTimeout(msg: Message, timeout: FiniteDuration)(
-      process: F[Outcome]
-  )(using platform: PlatformAdapter[F]): F[Outcome] = {
+      process: F[(Outcome, Stage)]
+  )(using platform: PlatformAdapter[F]): F[(Outcome, Stage)] = {
     val timedOut: F[Unit] = {
       val details =
         s"platform=${platform.capabilities.platform}, chatId=${msg.chatId.id}, messageId=${msg.messageId}, content=${msg.text}"
@@ -302,7 +449,7 @@ class BotEngine[F[_]: Async: LogWriter](
         BotEngine.RequestTimedOut(timeout)
       )
     }
-    Async[F].timeoutTo(process, timeout, timedOut.as(Outcome.TimedOut))
+    Async[F].timeoutTo(process, timeout, timedOut.as((Outcome.TimedOut, Stage.Nothing)))
   }
 
   private def reply(reply: Reply, msg: Message)(using platform: PlatformAdapter[F]): F[Unit] =
@@ -326,6 +473,21 @@ class BotEngine[F[_]: Async: LogWriter](
 
 object BotEngine {
 
+  val defaultLlmTimeout: FiniteDuration = LlmEngine.defaultTimeout
+
+  /** What the reactive logic made of a message: it decided (a reply was sent or not, e.g. a bundle blocked by the chat
+    * timeout), or nothing matched and the LLM may answer.
+    */
+  /** What the engine still does for the LLM after the reactive part: ask it, remember the message only, or nothing. */
+  private enum Stage {
+    case Ask, Remember, Nothing
+  }
+
+  private enum Reactive {
+    case Done(replied: Boolean)
+    case Unmatched
+  }
+
   final case class RequestTimedOut(timeout: FiniteDuration)
       extends Throwable(s"the request processing timed out after $timeout")
 
@@ -339,7 +501,8 @@ object BotEngine {
     dbLayer = dbLayer,
     notifier = notifier,
     backgroundJobManager = backgroundJobManager,
-    llmResponder = LlmResponder.noop[F]
+    llmResponder = dbLayer.llm.responder,
+    llmTimeout = dbLayer.llm.timeout
   )
 
   /** The engine with the standard filtering (the timeout of the chat) and post computation (log the last interaction).
@@ -349,7 +512,8 @@ object BotEngine {
       dbLayer: DBLayer[F],
       notifier: Notifier[F],
       backgroundJobManager: BackgroundJobManager[F],
-      llmResponder: LlmResponder[F]
+      llmResponder: LlmResponder[F],
+      llmTimeout: FiniteDuration = defaultLlmTimeout
   ): BotEngine[F] =
     new BotEngine[F](
       sBotConfig = sBotConfig,
@@ -362,7 +526,8 @@ object BotEngine {
       ),
       notifier = notifier,
       backgroundJobManager = backgroundJobManager,
-      llmResponder = llmResponder
+      llmResponder = llmResponder,
+      llmTimeout = llmTimeout
     )
 
   /** Picks one of the values of a reply that is just data. */

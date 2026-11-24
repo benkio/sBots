@@ -118,7 +118,7 @@ object LlmContextConfig {
 
 object LlmConfig {
 
-  val defaultTimeout: FiniteDuration = 10.seconds
+  val defaultTimeout: FiniteDuration = com.benkio.chatcore.llm.LlmEngine.defaultTimeout
   val defaultMaxInputTokens: Int     = 18432
   val defaultMaxOutputTokens: Int    = 512
   val defaultMaxPerMinute: Int       = 20

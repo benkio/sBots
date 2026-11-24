@@ -5,7 +5,6 @@ import cats.data.OptionT
 import cats.effect.*
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.llm.LlmResponder
 import com.benkio.chatcore.messagefiltering.*
 import com.benkio.chatcore.model.reply.PagedListAction
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
@@ -102,7 +101,8 @@ trait ISBot[F[_]: Async: LogWriter] {
     postComputation = postComputation,
     notifier = sBotSetup.notifier,
     backgroundJobManager = backgroundJobManager,
-    llmResponder = LlmResponder.noop[F]
+    llmResponder = dbLayer.llm.responder,
+    llmTimeout = dbLayer.llm.timeout
   )
 
   def messageRepliesData: List[ReplyBundleMessage]    = engine.messageRepliesData

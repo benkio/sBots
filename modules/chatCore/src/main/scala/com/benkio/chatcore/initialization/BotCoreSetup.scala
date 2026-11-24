@@ -6,7 +6,7 @@ import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.http.DropboxClient
 import com.benkio.chatcore.http.HttpClients
 import com.benkio.chatcore.http.MegaClient
-import com.benkio.chatcore.llm.LlmSettings
+import com.benkio.chatcore.llm.LlmWiring
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBRepository
 import com.benkio.chatcore.repository.JsonDataRepository
@@ -36,7 +36,7 @@ object BotCoreSetup {
       pagedListTextModeExpiry: scala.concurrent.duration.FiniteDuration =
         com.benkio.chatcore.PagedListTextStore.defaultExpiry,
       pagedListTextModeMaxChats: Int = com.benkio.chatcore.PagedListTextStore.defaultMaxChats,
-      llmSettingsFactory: Option[LlmSettings.Factory[F]] = None
+      llmWiring: Option[LlmWiring[F]] = None
   )(using log: LogWriter[F]): Resource[F, DBLayer[F]] =
     Resource.eval(
       DBLayer.make[F](
@@ -52,14 +52,14 @@ object BotCoreSetup {
         subscriptionDraftMaxDrafts = subscriptionDraftMaxDrafts,
         pagedListTextModeExpiry = pagedListTextModeExpiry,
         pagedListTextModeMaxChats = pagedListTextModeMaxChats,
-        llmSettingsFactory = llmSettingsFactory
+        llmWiring = llmWiring
       )
     )
 
   def apply[F[_]: Async](
       httpClient: Client[F],
       sBotConfig: SBotConfig,
-      llmSettingsFactory: Option[LlmSettings.Factory[F]] = None
+      llmWiring: Option[LlmWiring[F]] = None
   )(using log: LogWriter[F]): Resource[F, BotCoreSetup[F]] =
     for {
       config <- Resource.eval(Config.loadConfig[F](sBotConfig.sBotInfo.botId.value))
@@ -83,7 +83,7 @@ object BotCoreSetup {
         subscriptionDraftMaxDrafts = effectiveSBotConfig.subscriptionDraftMaxDrafts,
         pagedListTextModeExpiry = effectiveSBotConfig.pagedListTextModeExpiry,
         pagedListTextModeMaxChats = effectiveSBotConfig.pagedListTextModeMaxChats,
-        llmSettingsFactory = llmSettingsFactory
+        llmWiring = llmWiring
       ).evalMap(DBLayer.loadReplies[F](_, jsonDataRepository, effectiveSBotConfig))
     } yield BotCoreSetup(
       jsonDataRepository = jsonDataRepository,

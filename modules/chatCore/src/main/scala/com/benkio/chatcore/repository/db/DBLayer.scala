@@ -3,7 +3,9 @@ package com.benkio.chatcore.repository.db
 import cats.effect.Async
 import cats.implicits.*
 import com.benkio.chatcore.config.SBotConfig
+import com.benkio.chatcore.llm.LlmEngine
 import com.benkio.chatcore.llm.LlmSettings
+import com.benkio.chatcore.llm.LlmWiring
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.SBotInfo
@@ -25,6 +27,7 @@ final case class DBLayer[F[_]](
     dbSubscriptionFlowPrompt: DBSubscriptionFlowPrompt[F],
     dbPagedListText: DBPagedListText[F],
     llmSettings: LlmSettings[F],
+    llm: LlmEngine[F],
     dbMessageReplies: DBMessageReplies = DBMessageReplies.empty,
     dbCommandReplies: DBCommandReplies = DBCommandReplies.empty
 )
@@ -53,10 +56,12 @@ object DBLayer {
       subscriptionDraftMaxDrafts: Int = SubscriptionDraftStore.defaultMaxDrafts,
       pagedListTextModeExpiry: FiniteDuration = PagedListTextStore.defaultExpiry,
       pagedListTextModeMaxChats: Int = PagedListTextStore.defaultMaxChats,
-      llmSettingsFactory: Option[LlmSettings.Factory[F]] = None
+      llmWiring: Option[LlmWiring[F]] = None
   )(using log: LogWriter[F]): F[DBLayer[F]] = {
-    val settingsFactory = llmSettingsFactory.getOrElse(LlmSettings.noopFactory[F])
+    val wiring = llmWiring.getOrElse(LlmWiring.noop[F])
     for {
+      llm <- wiring.engine(transactor, botId)
+
       dbMedia <- DBMedia[F](transactor)
       dbSubscription = DBSubscription[F](transactor)
       dbTimeout      = new DBTimeout.DBTimeoutImpl[F](
@@ -71,7 +76,8 @@ object DBLayer {
       dbMedia = dbMedia,
       dbShow = dbShow,
       dbProcessedMessage = dbProcessedMessage,
-      llmSettings = settingsFactory(transactor, botId),
+      llmSettings = wiring.settings(transactor, botId),
+      llm = llm,
       dbSubscriptionDraft =
         DBSubscriptionDraft[F](transactor, botId, subscriptionDraftExpiry, subscriptionDraftMaxDrafts),
       dbSubscriptionFlowPrompt =

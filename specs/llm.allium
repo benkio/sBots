@@ -2,7 +2,7 @@
 -- llm.allium: the LLM replies of the bots (epic #1499). Only what is built is specified; the rest of the epic is listed
 -- as open questions. Code: modules/chatCore/llm and patterns (the ports and /llm), modules/chatLlm (the implementation
 -- and its doobie repositories, the prompt builder and the responder of #1491) and modules/main (startup wiring); the
--- engine routing is still open.
+-- engine routing of #1492 (BotEngine in chatCore).
 
 use "./sbots.allium" as core
 
@@ -33,6 +33,13 @@ value LlmReply {
     -- and passes to the guard, 500 by default; counted in code points) it is cut to the first cap - 1 characters,
     -- trimmed, followed by "…". A text within the cap is unchanged.
     reply_text: String
+}
+
+-- #1492: an LLM call of the engine that has started and not ended, at most one per (chat, bot). A directed message
+-- arriving while it exists is not asked, since the chat timeout starts only with an answer.
+external entity LlmCallInFlight {
+    chat: core/Chat
+    bot: core/Bot
 }
 
 -- The reply the engine offers as a candidate, described to the model by its catalogue entry (id and one-line summary).
@@ -90,9 +97,9 @@ entity QuotaNotice {
 -- Entities and Variants
 ------------------------------------------------------------
 
--- #1501 / #1484: nothing changes for the bots yet. A message directed at the bot (core/Message.is_directed_at_bot) is
--- what the engine will offer to the responder; the engine does not call it yet, and the default responder never
--- answers, so the reply bundles behave as before.
+-- #1501 / #1484: a message directed at the bot (core/Message.is_directed_at_bot) is what the engine offers to the
+-- responder (#1492, see LlmAnswersDirectedMessage); the default responder never answers, so a bot without the LLM
+-- configured behaves as before.
 --
 -- #1487: the /llm ports (LlmSettings: enable, disable, status, forget) are in chatCore; their doobie repositories live
 -- in chatLlm and only the port crosses back. The tables are V13 in botDB: the issue asked for V11, but V11 and V12 are
@@ -166,7 +173,7 @@ config {
 }
 
 -- #1489: the context service of chatLlm. It is the boundary the engine will use for remembering a message and building
--- a prompt; the routing that calls it is still open with #1492.
+-- a prompt; the engine calls it through the responder (#1492, see the memory notes of LlmAnswersDirectedMessage).
 contract LlmContextWindow {
     remember: (message: core/Message) -> Boolean
     prompt: (chat: core/Chat, bot: core/Bot) -> String
@@ -503,6 +510,44 @@ rule LlmCommandIrcUsage {
     ensures: LlmCommandResponded(chat: chat, text: "Usage: !llm on|off|status|forget")
 }
 
+-- #1492: the engine routes a plain message (never a command or a file request) reactive first. Only when no guided flow
+-- and no reply bundle matched (MessageUnmatchedByReactiveLogic), the responder can answer at all (the noop default is
+-- skipped: no settings lookup, no typing action), the message is directed at the bot (core/Message.is_directed_at_bot,
+-- and not forwarded, too old or starting with the ignore prefix), the chat enabled the LLM and the chat timeout (the
+-- per-chat cooldown of the reactive replies, shared) has expired, the responder is asked with the matching bundles as
+-- candidates. A matching bundle blocked by the timeout does not fall through to the LLM. One call per chat is in
+-- flight at a time: a directed message arriving meanwhile is not asked, since the cooldown starts only with an answer.
+-- The LLM runs after, and outside, the request processing timeout under its own timeout (config.timeout, taken per bot
+-- from the wiring), and the typing action (a no-op on platforms without one) is part of that bounded call. A timeout,
+-- a failure or no answer drops the message silently; an answer is sent like a reactive reply and counts as an
+-- interaction, so it starts the chat timeout. The request stats of such a message are still "handled".
+--
+-- Memory: once handled, every plain message (directed or not, answered by a reactive reply or not, but never a command
+-- or a duplicate) is handed to the responder to remember, after the LLM was asked so the message is not part of its own
+-- prompt; the LLM answer that was sent follows it (a text as sent, a reused reply by its catalogue summary). Only a
+-- chat with the switch on stores anything (LlmContextRemembersEnabledChat).
+--
+-- Wiring (main): each bot gets its responder when its DB layer is built. The bot gets the noop responder, and the
+-- reason is logged, when the API keys of both providers are not configured, or its persona or reply catalogue
+-- (<botid>_persona.md, <botid>_reply_catalogue.json) is missing, malformed or over the prompt budget. Nothing else
+-- changes for such a bot.
+rule LlmAnswersDirectedMessage {
+    when: MessageUnmatchedByReactiveLogic(chat, bot, message, candidates)
+    requires: LlmResponder.answers
+    requires: message.is_directed_at_bot
+    requires: exists LlmChatSetting{chat: chat, bot: bot, enabled: true}
+    requires: not exists core/ChatTimeout{chat: chat, bot: bot, in_timeout: true}
+    requires: not exists LlmCallInFlight{chat: chat, bot: bot}
+    ensures: TypingActionSent(chat)
+    ensures: LlmResponderAsked(bot, message, candidates: candidates)
+}
+
+rule LlmDoesNotAnswerOtherMessages {
+    when: MessageUnmatchedByReactiveLogic(chat, bot, message, candidates)
+    requires: not message.is_directed_at_bot or not exists LlmChatSetting{chat: chat, bot: bot, enabled: true}
+    ensures: LlmNotAsked(bot, message)
+}
+
 ------------------------------------------------------------
 -- Invariants
 ------------------------------------------------------------
@@ -591,7 +636,7 @@ surface LlmCommandSurface {
         LlmCommandResponded(chat, text)
 }
 
--- The context service of #1489: the engine will offer messages to it with #1492.
+-- The context service of #1489: the engine offers messages to it through the responder (#1492).
 surface LlmContextSurface {
     facing _: LlmChatUser
 
@@ -660,5 +705,4 @@ rule ResponderStaysSilent {
 -- Open Questions
 ------------------------------------------------------------
 
-open question "Routing in BotEngine (#1492): the order between reply bundles and the LLM, and the directed-at-bot gate."
 open question "Privacy note (#1483, #1498): the Gemini free tier may not be offered to minors or EEA/UK/CH users. #1485 only makes the provider switch configurable; it does not authorise a free-tier deployment."

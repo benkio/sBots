@@ -18,8 +18,12 @@ import com.benkio.chatcore.PlatformAdapter
 import com.benkio.chatcore.SubscriptionFlowPromptStore
 import com.benkio.chattelegramadapter.http.telegramreply.messagereply.TelegramMessageReply
 import com.benkio.chattelegramadapter.model.TelegramCapabilities
+import com.benkio.chattelegramadapter.model.TelegramIds.telegramId
 import log.effect.LogWriter
+import telegramium.bots.high.implicits.*
 import telegramium.bots.high.Api
+import telegramium.bots.high.Methods
+import telegramium.bots.ChatIntId
 
 import scala.concurrent.duration.FiniteDuration
 
@@ -61,6 +65,9 @@ class TelegramPlatformAdapter[F[_]: Async: LogWriter: Api: Notifier](
         flowPrompts = Some(flowPrompts)
       )
       .void
+
+  override def sendTyping(message: Message)(using Applicative[F]): F[Unit] =
+    Methods.sendChatAction(ChatIntId(message.chatId.telegramId), "typing").exec.void
 
   override def runEffectful(
       reply: EffectfulReply,

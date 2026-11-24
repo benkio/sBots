@@ -4,7 +4,7 @@ import cats.effect.std.Random
 import cats.effect.Async
 import cats.Parallel
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.llm.LlmSettings
+import com.benkio.chatcore.llm.LlmWiring
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chattelegramadapter.initialization.BotSetup
@@ -38,14 +38,14 @@ object SBot {
       sBotInfo: SBotInfo,
       commandEffectfulCallback: Map[String, EffectfulCallback[F]] = Map.empty,
       opsChatId: Long,
-      llmSettingsFactory: Option[LlmSettings.Factory[F]] = None
+      llmWiring: Option[LlmWiring[F]] = None
   )(using log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
     sBotSetup  <- BotSetup(
       httpClient = httpClient,
       sBotConfig = buildSBotConfig(sBotInfo),
       opsChatId = opsChatId,
-      llmSettingsFactory = llmSettingsFactory
+      llmWiring = llmWiring
     )
   } yield sBotSetup).use { sBotSetup =>
     given Api[F] = sBotSetup.api

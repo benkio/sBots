@@ -302,4 +302,35 @@ class ChatLlmResponderSpec extends CatsEffectSuite {
       "reply":{"TextReply":{"text":["x"],"replyToMessage":false}},"matcher":"ContainsOnce"}""").toOption.get
     assertEquals(ReplyCatalogue.idOf(json), ReplyCatalogue.idOf(greeting))
   }
+
+  private def storedAnswers(reply: com.benkio.chatcore.model.reply.Reply): IO[List[String]] = for {
+    stored <- Ref[IO].of(List.empty[String])
+    recording = new LlmContext[IO] {
+      def remember(msg: Message, botId: SBotId): IO[Boolean]                       = IO.pure(true)
+      def rememberAssistant(chatId: ChatId, botId: SBotId, c: String): IO[Boolean] = stored.update(_ :+ c).as(true)
+      def window(chatId: ChatId, botId: SBotId): IO[List[LlmContextMessage]]       = IO.pure(Nil)
+      def prompt(chatId: ChatId, botId: SBotId): IO[String]                        = IO.pure("")
+      def deleteExpired(nowEpochSecond: Long): IO[Int]                             = IO.pure(0)
+    }
+    r = new ChatLlmResponder[IO](
+      client = (_: String) => IO.raiseError(new IllegalStateException("not asked")),
+      context = recording,
+      builder = builder,
+      botId = botId,
+      persona = "# Persona",
+      catalogue = catalogue
+    )
+    _    <- r.rememberAnswer(msg, reply, List(greeting, other))
+    seen <- stored.get
+  } yield seen
+
+  test("a text answer is remembered as the text sent") {
+    storedAnswers(TextReply.fromList("Buongiorno a te!")(replyToMessage = true)).assertEquals(
+      List("Buongiorno a te!")
+    )
+  }
+
+  test("a reused reply is remembered by the summary of its catalogue entry") {
+    storedAnswers(greeting.reply).assertEquals(List("A «ciao» risponde: Buongiorno Signori."))
+  }
 }

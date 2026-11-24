@@ -9,8 +9,14 @@ import com.benkio.chatcore.model.Timeout
 import com.benkio.chatcore.repository.db.DBLayer
 
 object FilteringTimeout {
-  def filter[F[_]: MonadThrow](dbLayer: DBLayer[F], sBotId: SBotId): (ReplyBundleMessage, Message) => F[Boolean] =
-    (_: ReplyBundleMessage, msg: Message) =>
+  def filter[F[_]: MonadThrow](dbLayer: DBLayer[F], sBotId: SBotId): (ReplyBundleMessage, Message) => F[Boolean] = {
+    val allowed = chatAllowed(dbLayer, sBotId)
+    (_: ReplyBundleMessage, msg: Message) => allowed(msg)
+  }
+
+  /** Whether the chat timeout of the bot has expired, whatever the reply is: also the cooldown of the LLM replies. */
+  def chatAllowed[F[_]: MonadThrow](dbLayer: DBLayer[F], sBotId: SBotId): Message => F[Boolean] =
+    (msg: Message) =>
       for {
         dbTimeout <- dbLayer.dbTimeout.getOrDefault(msg.chatId, sBotId)
         timeout   <- MonadThrow[F].fromEither(Timeout(dbTimeout))
