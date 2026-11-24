@@ -422,4 +422,38 @@ class LlmObservabilitySpec extends CatsEffectSuite {
       assertEquals(after.map(_.outcome), List(LlmOutcome.Cancelled))
     }
   }
+
+  test("the logged model is the one the provider reports, else the configured one") {
+    val withModel = completion(
+      status = CompletionStatus.Answered,
+      reply = Some(LlmReply("x", com.benkio.chatllm.llm.LlmAction.Text)),
+      attempts = List(ProviderAttempt(LlmProvider.OpenRouter, Some(ProviderResult.Success))),
+      raw = Some(RawResponse(LlmProvider.OpenRouter, "{}", stripped = false, model = Some("vendor/picked:free")))
+    )
+    assertEquals(LlmInteraction.servedModel(withModel), Some("vendor/picked:free"))
+    val loggedModels = for {
+      traces <- Ref[IO].of(List.empty[LlmTrace])
+      observer = LlmObserver[IO](
+        new MemoryTraces(traces),
+        traceEnabled = true,
+        salt = "s",
+        modelOf = _ => Some("openrouter/free")
+      )
+      _ <- observer.observe(
+        LlmObservation(chatId, botId, "v1", "p", 1L, LlmOutcome.Completed(withModel, LlmDecision.Text("x"), false))
+      )
+      _ <- observer.observe(
+        LlmObservation(
+          chatId,
+          botId,
+          "v1",
+          "p",
+          1L,
+          LlmOutcome.Completed(withModel.copy(raw = None), LlmDecision.Text("x"), false)
+        )
+      )
+      stored <- traces.get
+    } yield stored.map(_.model)
+    loggedModels.map(models => assertEquals(models, List(Some("vendor/picked:free"), Some("openrouter/free"))))
+  }
 }

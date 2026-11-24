@@ -12,6 +12,7 @@ import com.benkio.chatcore.repository.Repository
 import com.benkio.chatllm.llm.LlmClientApi
 import com.benkio.chatllm.llm.LlmConfig
 import com.benkio.chatllm.llm.LlmProvider
+import com.benkio.chatllm.llm.OpenRouterClient
 import com.benkio.chatllm.observability.LlmObserver
 import com.benkio.chatllm.observability.LlmTraceStore
 import com.benkio.chatllm.prompt.ChatLlmResponder
@@ -41,6 +42,15 @@ object ChatLlm {
       log: LogWriter[F]
   ): LlmSettings[F] =
     LlmSettingsDB[F](transactor, botId)
+
+  /** The model configured for each provider, for the logs: the free router unless OpenRouter has a model set. The model
+    * that really served a request, when the provider reports it, is preferred by the observer.
+    */
+  def modelOf(config: LlmConfig)(provider: LlmProvider): Option[String] =
+    provider match {
+      case LlmProvider.Gemini     => config.gemini.model
+      case LlmProvider.OpenRouter => Some(OpenRouterClient.modelFor(config.openrouter))
+    }
 
   /** The reply cap the prompt states and the output guard enforces. */
   val defaultMaxReplyChars: Int = 500
@@ -105,10 +115,7 @@ object ChatLlm {
             traces = LlmTraceStore[F](transactor),
             traceEnabled = config.trace.enabled,
             salt = config.context.authorSalt.value,
-            modelOf = {
-              case LlmProvider.Gemini     => config.gemini.model
-              case LlmProvider.OpenRouter => config.openrouter.model
-            }
+            modelOf = modelOf(config)
           )
         )
       )

@@ -98,6 +98,9 @@ object LlmInteraction {
   def responsibleProvider(completion: Completion): Option[LlmProvider] =
     completion.raw.map(_.provider).orElse(answeringProvider(completion))
 
+  /** The model the provider reported for the raw text, when it did. */
+  def servedModel(completion: Completion): Option[String] = completion.raw.flatMap(_.model)
+
   def answeringProvider(completion: Completion): Option[LlmProvider] =
     completion.attempts
       .find(_.result.contains(ProviderResult.Success))

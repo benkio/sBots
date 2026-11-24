@@ -64,4 +64,15 @@ class ChatLlmSpec extends CatsEffectSuite {
       assertEquals(engine.timeout, config(keys = true).timeout)
     }
   }
+
+  test("the model reported for the logs is the free router unless OpenRouter has a model set") {
+    val cfg = config(keys = true)
+    assertEquals(ChatLlm.modelOf(cfg)(LlmProvider.OpenRouter), Some("openrouter/free"))
+    assertEquals(
+      ChatLlm
+        .modelOf(cfg.copy(openrouter = cfg.openrouter.copy(model = Some("vendor/m:free"))))(LlmProvider.OpenRouter),
+      Some("vendor/m:free")
+    )
+    assertEquals(ChatLlm.modelOf(cfg)(LlmProvider.Gemini), None)
+  }
 }

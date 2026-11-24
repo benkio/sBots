@@ -58,8 +58,8 @@ class LlmClientSpec extends CatsEffectSuite {
     )
 
   private val configText =
-    s"""gemini { endpoint = "https://$geminiHost/generate", model = "gemini-test", api-key = "test-gemini-key" }
-       |openrouter { endpoint = "https://$openRouterHost/chat", model = "openrouter-test", api-key = "test-openrouter-key" }
+    s"""gemini { endpoint = "https://$geminiHost/generate", api-key = "test-gemini-key" }
+       |openrouter { endpoint = "https://$openRouterHost/chat", api-key = "test-openrouter-key" }
        |context.author-salt = test-only-salt""".stripMargin
 
   private def config(primary: String, extra: String = ""): LlmConfig =
@@ -426,6 +426,36 @@ class LlmClientSpec extends CatsEffectSuite {
     }
   }
 
+  test("the model OpenRouter reports as the one that served the request is kept with the raw text") {
+    val body   = openRouterSuccess("ciao").deepMerge(Json.obj("model" -> Json.fromString("vendor/picked:free")))
+    val client = Client.fromHttpApp(HttpApp[IO](_ => IO.pure(Response[IO](Status.Ok).withEntity(body))))
+    LlmClients.build[IO](client, config("", "primary-provider = openrouter\n")).flatMap(_.complete(prompt)).map {
+      completion =>
+        assertEquals(completion.status, CompletionStatus.Answered)
+        assertEquals(completion.raw.flatMap(_.model), Some("vendor/picked:free"))
+        assertEquals(completion.raw.map(_.provider), Some(LlmProvider.OpenRouter))
+    }
+  }
+
+  test("the model of Gemini's response is kept, and a very long reported model is capped") {
+    val gemini = geminiSuccess("ciao").deepMerge(Json.obj("modelVersion" -> Json.fromString("gemini-2.5-flash")))
+    val long   = openRouterSuccess("ciao").deepMerge(Json.obj("model" -> Json.fromString("m" * 500)))
+    def answer(body: Json, primary: String) =
+      LlmClients
+        .build[IO](
+          Client.fromHttpApp(HttpApp[IO](_ => IO.pure(Response[IO](Status.Ok).withEntity(body)))),
+          config("", s"primary-provider = $primary\n")
+        )
+        .flatMap(_.complete(prompt))
+    for {
+      g <- answer(gemini, "gemini")
+      o <- answer(long, "openrouter")
+    } yield {
+      assertEquals(g.raw.flatMap(_.model), Some("gemini-2.5-flash"))
+      assertEquals(o.raw.flatMap(_.model).map(_.length), Some(ProviderHttp.MaxModelChars))
+    }
+  }
+
   test("a 429 from OpenRouter primary falls back to Gemini") {
     val hosts  = ListBuffer.empty[String]
     val bodies = ListBuffer.empty[String]
@@ -465,6 +495,8 @@ class LlmClientSpec extends CatsEffectSuite {
         assertEquals(bodies.map(_._1).toList, List(geminiHost, openRouterHost))
         assert(bodies.toList.head._2.contains("\"maxOutputTokens\":123"))
         assert(bodies.toList.last._2.contains("\"max_tokens\":123"))
+        // no model configured: the free router
+        assert(bodies.toList.last._2.contains("\"model\":\"openrouter/free\""))
       }
   }
 
@@ -684,8 +716,8 @@ class LlmClientSpec extends CatsEffectSuite {
     val cfg = ConfigSource
       .string(
         s"""primary-provider = gemini
-           |gemini { endpoint = "https://$geminiHost/generate", model = "gemini-test", api-key = "g-key" }
-           |openrouter { endpoint = "https://$openRouterHost/chat", model = "openrouter-test", api-key = "or-key" }
+           |gemini { endpoint = "https://$geminiHost/generate", api-key = "g-key" }
+           |openrouter { endpoint = "https://$openRouterHost/chat", api-key = "or-key" }
            |context.author-salt = test-only-salt""".stripMargin
       )
       .load[LlmConfig]
@@ -718,5 +750,24 @@ class LlmClientSpec extends CatsEffectSuite {
     val schema = GeminiClient.responseSchema.hcursor
     assertEquals(schema.downField("properties").keys.map(_.toSet), Some(Set("text", "action", "replyId")))
     assertEquals(schema.get[List[String]]("required"), Right(List("action")))
+  }
+
+  test("the OpenRouter model is the configured one, and the free router when it is empty or blank") {
+    def conn(model: Option[String]) = ProviderConnection(endpoint = "https://o.example", model = model)
+    assertEquals(OpenRouterClient.modelFor(conn(None)), "openrouter/free")
+    assertEquals(OpenRouterClient.modelFor(conn(Some(""))), "openrouter/free")
+    assertEquals(OpenRouterClient.modelFor(conn(Some("   "))), "openrouter/free")
+    assertEquals(OpenRouterClient.modelFor(conn(Some(" vendor/model:free "))), "vendor/model:free")
+  }
+
+  test("a configured model that is not free is reported at startup, the free ones are not") {
+    def warn(model: Option[String]) =
+      OpenRouterClient.paidModelWarning(ProviderConnection(endpoint = "https://o.example", model = model))
+    assertEquals(warn(None), None)
+    assertEquals(warn(Some("")), None)
+    assertEquals(warn(Some("openrouter/free")), None)
+    assertEquals(warn(Some("vendor/model:free")), None)
+    assert(warn(Some("google/gemini-2.5-flash")).exists(_.contains("google/gemini-2.5-flash")))
+    assert(warn(Some("vendor/model:free-ish")).isDefined)
   }
 }

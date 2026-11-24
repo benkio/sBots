@@ -34,7 +34,7 @@ Calandro (`cala`) and M0sconi (`mos`) have **no SRT captions** and empty show ca
 - a **few-shot examples** section — examples preferably taken from real triggers/replies;
 - a **rules** section — accuracy, behaviour, reply language, no commands, no mentions/usernames, stay silent when there is nothing sensible to say.
 
-The compact four-heading form (`## Descrizione`, `## Stile`, `## Esempi`, `## Regole`) is still accepted. Long personas are allowed: keep the file under **64 KiB** (roughly 8k words), which fits in one Gemini prompt. Do not add role labels such as `assistant:` or `system:`, and do not put the `/llm` command in the persona.
+The compact four-heading form (`## Descrizione`, `## Stile`, `## Esempi`, `## Regole`) is still accepted. Long personas are allowed, within the prompt budget: `sbt checkPersona` fails above `min(64 KiB, PromptBudget.personaMaxBytes)`, which is **32 768 bytes** with the default `LLM_MAX_INPUT_TOKENS` (18432) and `LLM_CONTEXT_MAX_TOKENS` (2048) (see "Sizing the prompt, the persona and the timeout together" in the README). The persona must also fit the smaller context window of the fallback model. Do not add role labels such as `assistant:` or `system:`, and do not put the `/llm` command in the persona.
 
 ## Reply catalogue format
 

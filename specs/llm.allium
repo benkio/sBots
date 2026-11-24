@@ -160,6 +160,8 @@ config {
     max_input_tokens: Integer = 18432         -- prompts larger than this (4 characters per token) are refused; startup also
                                               -- requires room for a persona next to the template, catalogue, message and context
     max_output_tokens: Integer = 512          -- sent to the provider as its output limit
+    openrouter_model: String = ""             -- empty (the default) or blank: the free router `openrouter/free`; a model without
+                                              -- the `:free` suffix is the operator's choice and is paid: startup logs a warning
     credentials_complete: Boolean             -- both provider keys are configured; otherwise no request is admitted
 
     -- #1489: the per-chat context window. The token budget uses the same four-characters-per-token estimate as the
@@ -536,6 +538,11 @@ rule LlmCommandIrcUsage {
 -- reason is logged, when the API keys of both providers are not configured, or its persona or reply catalogue
 -- (<botid>_persona.md, <botid>_reply_catalogue.json) is missing, malformed or over the prompt budget. Nothing else
 -- changes for such a bot.
+-- known defect: the rule above offers the responder the matching bundles as candidates, but the engine asks the LLM only
+-- when the reactive logic left the message unmatched (MessageUnmatchedByReactiveLogic), so `candidates` is empty in the
+-- code: no catalogue entry is offered and ResponderReusesCandidate cannot hold yet. Also, a matching bundle blocked by the
+-- chat timeout is remembered and never asked. Deciding whether the LLM should also be asked when a bundle matched
+-- (offering it as the candidate) is open.
 rule LlmAnswersDirectedMessage {
     when: MessageUnmatchedByReactiveLogic(chat, bot, message, candidates)
     requires: LlmResponder.answers
@@ -712,7 +719,8 @@ rule ResponderStaysSilent {
 
 -- Every interaction of the responder with the client leaves one JSON log line (the message of the log record, shipped
 -- through the Mon pipeline to Loki, read there with `| json | line_format "{{.message}}" | json`): a salted chat hash
--- (never the chat id), bot, model of the provider the evidence belongs to, prompt version, estimated prompt and response
+-- (never the chat id), bot, model that served the request (the model the provider reports, which with `openrouter/free`
+-- differs per request; else the configured one), the provider the evidence belongs to, prompt version, estimated prompt and response
 -- tokens (four characters per token: the providers report no usage), latency, completion status, action taken (text,
 -- reuse or silent), reused reply id, failure reason, provider attempts and their results, whether a fallback provider was
 -- asked, whether the structured reply needed fence/prose stripping, and the local rejection (oversized prompt, missing

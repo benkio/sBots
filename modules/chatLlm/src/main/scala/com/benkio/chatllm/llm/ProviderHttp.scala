@@ -12,6 +12,9 @@ import org.http4s.Uri
 
 private[llm] object ProviderHttp {
 
+  /** The longest model name kept from a provider response. */
+  val MaxModelChars: Int = 100
+
   def parseUri[F[_]: Concurrent](endpoint: String, hasApiKey: Boolean): F[Uri] =
     Concurrent[F].fromEither(
       Uri
@@ -29,13 +32,17 @@ private[llm] object ProviderHttp {
   def post[F[_]: Concurrent](
       client: Client[F],
       request: Request[F],
-      extractText: Json => Option[String]
+      extractText: Json => Option[String],
+      extractModel: Json => Option[String] = _ => None
   ): F[ProviderResponse] =
-    client.run(request).use(response => fromResponse(response, extractText))
+    client
+      .run(request)
+      .use(response => fromResponse(response = response, extractText = extractText, extractModel = extractModel))
 
   private def fromResponse[F[_]: Concurrent](
       response: Response[F],
-      extractText: Json => Option[String]
+      extractText: Json => Option[String],
+      extractModel: Json => Option[String]
   ): F[ProviderResponse] =
     response.status match {
       case Status.Ok =>
@@ -47,13 +54,16 @@ private[llm] object ProviderHttp {
               case Left(_) =>
                 Concurrent[F].pure(ProviderResponse.malformedJson)
               case Right(json) =>
+                // untrusted and unbounded: capped, so a log line and a panel grouped by model stay small
+                val served = extractModel(json).map(_.trim.take(MaxModelChars)).filter(_.nonEmpty)
                 extractText(json)
                   .fold(ProviderResponse.malformedJson) { raw =>
                     StructuredReply
                       .parseDetailed(raw)
                       .fold(
-                        _ => ProviderResponse.malformedJson.copy(raw = Some(raw), stripped = false),
-                        (reply, stripped) => ProviderResponse.success(reply).copy(raw = Some(raw), stripped = stripped)
+                        _ => ProviderResponse.malformedJson.copy(raw = Some(raw), model = served),
+                        (reply, stripped) =>
+                          ProviderResponse.success(reply).copy(raw = Some(raw), stripped = stripped, model = served)
                       )
                   }
                   .pure[F]

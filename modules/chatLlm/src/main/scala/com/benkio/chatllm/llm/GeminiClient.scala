@@ -47,7 +47,7 @@ object GeminiClient {
     override val provider: LlmProvider = LlmProvider.Gemini
 
     override def generate(value: String): F[ProviderResponse] =
-      ProviderHttp.post(client, buildRequest(uri, value), extractText)
+      ProviderHttp.post(client, buildRequest(uri, value), extractText, extractModel)
 
     /** The reply text of Gemini lives at `candidates[0].content.parts[0].text`. */
     private val extractText: Json => Option[String] = json =>
@@ -59,6 +59,10 @@ object GeminiClient {
         part       <- parts.headOption
         text       <- part.asObject.flatMap(_("text")).flatMap(_.asString)
       } yield text
+
+    /** Gemini reports the model version that served the request at the top level `modelVersion`. */
+    private val extractModel: Json => Option[String] = json =>
+      json.asObject.flatMap(_("modelVersion")).flatMap(_.asString)
 
     private def buildRequest(uri: Uri, value: String): Request[F] = {
       val body = Json.obj(
