@@ -1,6 +1,8 @@
 package com.benkio.chatllm.prompt
 
+import cats.effect.syntax.monadCancel.*
 import cats.effect.Clock
+import cats.effect.MonadCancelThrow
 import cats.syntax.all.*
 import cats.Applicative
 import cats.MonadThrow
@@ -25,7 +27,7 @@ import log.effect.LogWriter
   *   - `reuse`: the reply of the chosen candidate, as is, so it goes through the usual reply path;
   *   - `silent`, or anything malformed, unknown, unsafe or failed: no reply.
   */
-final class ChatLlmResponder[F[_]: MonadThrow: Clock](
+final class ChatLlmResponder[F[_]: MonadCancelThrow: Clock](
     client: LlmClientApi[F],
     context: LlmContext[F],
     builder: PromptBuilder,
@@ -49,9 +51,23 @@ final class ChatLlmResponder[F[_]: MonadThrow: Clock](
     (for {
       window <- context.prompt(msg.chatId, botId)
       prompt = builder.build(persona, entries, window, msg)
-      started   <- Clock[F].monotonic
-      attempted <- client.complete(prompt).attempt
-      finished  <- Clock[F].monotonic
+      started <- Clock[F].monotonic
+      // A cancelled call (the engine's own timeout, a shutdown) is recorded too, exactly once: the hook only covers the
+      // client call, so the success and error paths below never run for it. The cancellation itself is preserved.
+      attempted <- client
+        .complete(prompt)
+        .attempt
+        .onCancel(
+          Clock[F].monotonic.flatMap(now =>
+            observe(
+              msg = msg,
+              prompt = prompt,
+              latencyMs = (now - started).toMillis,
+              outcome = LlmOutcome.Cancelled
+            )
+          )
+        )
+      finished <- Clock[F].monotonic
       latency = (finished - started).toMillis
       reply <- attempted match {
         case Left(error) =>

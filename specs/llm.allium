@@ -718,7 +718,8 @@ rule ResponderStaysSilent {
 -- asked, whether the structured reply needed fence/prose stripping, and the local rejection (oversized prompt, missing
 -- credentials). The failure reasons are what the dashboard counts: local rejections, quota exhaustion, a provider
 -- result, an output the guard or the reuse check turned into silence, and a client call that threw (status `error`,
--- failure `client_error:<exception class>`; never the exception message, which may hold chat content). Keys without a
+-- failure `client_error:<exception class>`; never the exception message, which may hold chat content), and a call that was
+-- cancelled before it ended, by the engine's timeout or a shutdown (status and failure `cancelled`). Keys without a
 -- value are omitted. The line holds no chat content. Logging never fails the reply, not even when logging itself fails.
 --
 -- The responder reports each interaction to the observer as an observation: who (the chat hash and the bot), the prompt
@@ -743,12 +744,31 @@ rule LlmClientFailureLogged {
     ensures: InteractionLogged(chat_hash, bot, prompt_version, failure: reason)
 }
 
+-- A cancelled call is recorded exactly once and still ends as a cancellation: no completion, no decision.
+rule LlmClientCancellationLogged {
+    when: LlmClientCancelled(chat_hash, bot, prompt_version, prompt)
+    ensures: InteractionLogged(chat_hash, bot, prompt_version, failure: cancelled)
+}
+
 -- The trace joins a weird reply to its prompt version, prompt and raw response through the chat hash, bot and time.
 -- Only an interaction with a completion has a raw response; a failed client call is traced with none.
 rule LlmTraceStoredWhenEnabled {
     when: LlmInteractionObserved(chat_hash, bot, prompt_version, prompt, completion, raw_response)
     requires: config.trace_enabled
     ensures: LlmTrace.created(chat_hash: chat_hash, bot: bot, prompt_version: prompt_version, prompt: prompt, response: raw_response, created_at: now)
+}
+
+-- A failed or cancelled client call has no raw response: it is traced with none, like the observer does.
+rule LlmClientFailureTraced {
+    when: LlmClientFailed(chat_hash, bot, prompt_version, prompt, reason)
+    requires: config.trace_enabled
+    ensures: LlmTrace.created(chat_hash: chat_hash, bot: bot, prompt_version: prompt_version, prompt: prompt, response: null, created_at: now)
+}
+
+rule LlmClientCancellationTraced {
+    when: LlmClientCancelled(chat_hash, bot, prompt_version, prompt)
+    requires: config.trace_enabled
+    ensures: LlmTrace.created(chat_hash: chat_hash, bot: bot, prompt_version: prompt_version, prompt: prompt, response: null, created_at: now)
 }
 
 -- The trace expires on its own TTL, also after the flag has been turned off. It is not copied by the DB migration.

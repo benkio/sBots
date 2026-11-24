@@ -349,4 +349,41 @@ class LlmObservabilitySpec extends CatsEffectSuite {
     )
     assertEquals(LlmConfig.validate(cfg), Right(()))
   }
+
+  test("a cancelled client call is observed exactly once as cancelled, and stays cancelled") {
+    for {
+      seen    <- Ref[IO].of(List.empty[LlmObservation])
+      started <- cats.effect.Deferred[IO, Unit]
+      responder = new ChatLlmResponder[IO](
+        client = new LlmClientApi[IO] {
+          def complete(prompt: String): IO[Completion] = started.complete(()) *> IO.never[Completion]
+        },
+        context = context,
+        builder = PromptBuilder(500).fold(e => fail(e), identity),
+        botId = botId,
+        persona = "persona",
+        catalogue = catalogue,
+        observer = Some(new LlmObserver[IO] { def observe(o: LlmObservation): IO[Unit] = seen.update(_ :+ o) })
+      )
+      fiber <- responder.respond(msg, List(greeting)).start
+      _     <- started.get
+      _     <- fiber.cancel
+      out   <- fiber.join
+      all   <- seen.get
+    } yield {
+      assert(out.isCanceled, s"the cancellation must be preserved, got $out")
+      assertEquals(all.map(_.outcome), List(LlmOutcome.Cancelled))
+      assertEquals(all.head.promptVersion, PromptBuilder.currentVersion)
+      assert(all.head.latencyMs >= 0)
+    }
+  }
+
+  test("the cancelled line says so and carries no completion fields") {
+    for {
+      traces <- Ref[IO].of(List.empty[LlmTrace])
+      observer = LlmObserver[IO](new MemoryTraces(traces), traceEnabled = true, salt = "s", modelOf = _ => None)
+      _      <- observer.observe(LlmObservation(chatId, botId, "v1", "the prompt", 9L, LlmOutcome.Cancelled))
+      stored <- traces.get
+    } yield assertEquals(stored.map(t => (t.status, t.action, t.response)), List(("cancelled", "silent", None)))
+  }
 }

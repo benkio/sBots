@@ -18,6 +18,9 @@ import log.effect.LogWriter
 enum LlmOutcome {
   case Completed(completion: Completion, decision: LlmDecision, reuseOffered: Boolean)
   case ClientFailed(reason: String)
+
+  /** The call was cancelled before it ended (the engine's timeout, a shutdown): no completion, no decision. */
+  case Cancelled
 }
 
 /** What the responder knows about one finished interaction. */
@@ -68,6 +71,7 @@ object LlmObserver {
                   response = o.outcome match {
                     case LlmOutcome.Completed(c, _, _) => c.raw.map(_.text)
                     case LlmOutcome.ClientFailed(_)    => None
+                    case LlmOutcome.Cancelled          => None
                   }
                 )
               )
@@ -98,7 +102,8 @@ object LlmObserver {
           localRejection = None
         )
         o.outcome match {
-          case LlmOutcome.ClientFailed(reason)                 => base.copy(failure = Some(s"client_error:$reason"))
+          case LlmOutcome.ClientFailed(reason) => base.copy(failure = Some(s"client_error:$reason"))
+          case LlmOutcome.Cancelled            => base.copy(status = "cancelled", failure = Some("cancelled"))
           case LlmOutcome.Completed(c, decision, reuseOffered) =>
             val (action, reused) = LlmInteraction.actionOf(decision, reuseOffered)
             base.copy(

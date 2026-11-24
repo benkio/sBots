@@ -70,11 +70,12 @@ object, so it needs no regexp. Keep the keys stable (the LLM row of the dashboar
 
 - `chat` is a salted hash (`llm.context.author-salt`), never the chat id. The line holds no chat content.
 - Tokens are estimates (4 characters per token): the providers report no usage through the client boundary.
-- `status`: `answered`, `failed`, `silent` (quota), `pending`, or `error` (the client call threw).
+- `status`: `answered`, `failed`, `silent` (quota), `pending`, `error` (the client call threw) or `cancelled` (the call was
+  cancelled before it ended: the engine timeout, a shutdown).
 - `failure`: `oversized_prompt`, `missing_credentials` (local rejections, no provider asked), `quota_exhausted`, the result
   of the last provider call (`ratelimited`, `servererror`, `timeout`, `rejected`, `malformedjson`), `output_rejected`
   (the output guard dropped a text), `reuse_without_id`, `reuse_not_offered`, `client_error:<ExceptionClass>` (the client
-  call threw; the exception message is never logged here, it may hold chat content). Omitted when it answered or the model
+  call threw; the exception message is never logged here, it may hold chat content), `cancelled`. Omitted when it answered or the model
   chose silence.
 - `fallback=true`: the provider other than the configured primary was asked. `stripped=true`: the reply parsed only after the
   fence/prose around the JSON object was cut away.
