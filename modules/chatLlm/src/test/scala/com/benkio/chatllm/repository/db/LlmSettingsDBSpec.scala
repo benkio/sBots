@@ -139,6 +139,27 @@ class LlmSettingsDBSpec extends CatsEffectSuite {
     }
   }
 
+  test("recent skips expired rows, trim keeps the newest and a negative limit fails in F") {
+    tempDb.use { xa =>
+      val store = LlmContextStore[IO](xa)
+      for {
+        _ <- setupSchema(xa)
+        _ <- List("old", "one", "two", "three").zipWithIndex.traverse_ { case (content, index) =>
+          LlmContextStore.appendQuery(chat, botA, LlmContextRole.User, content, 50L + index * 50L).run.transact(xa).void
+        }
+        fresh   <- store.recent(chat, botA, 10, 100L)
+        trimmed <- store.trim(chat, botA, 2)
+        left    <- store.all(chat, botA)
+        failed  <- store.recent(chat, botA, -1, 0L).attempt
+      } yield {
+        assertEquals(fresh.map(_.content), List("one", "two", "three"))
+        assertEquals(trimmed, 2)
+        assertEquals(left.map(_.content), List("two", "three"))
+        assert(failed.left.exists(_.isInstanceOf[IllegalArgumentException]))
+      }
+    }
+  }
+
   // obligation: contract.LlmContextWindow.BoundedWindow
   test("recent returns the newest messages, oldest first, even inside the same second") {
     tempDb.use { xa =>
@@ -152,7 +173,7 @@ class LlmSettingsDBSpec extends CatsEffectSuite {
             .transact(xa)
             .void
         }
-        window  <- store.recent(chat, botA, 3)
+        window  <- store.recent(chat, botA, 3, 0L)
         allRows <- store.all(chat, botA)
       } yield {
         assertEquals(window.map(_.content), List("two", "three", "four"))

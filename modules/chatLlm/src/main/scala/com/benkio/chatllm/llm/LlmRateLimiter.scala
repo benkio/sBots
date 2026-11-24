@@ -7,6 +7,7 @@ import cats.syntax.all.*
 
 import java.time.temporal.ChronoUnit
 import java.time.Instant
+import scala.concurrent.duration.FiniteDuration
 
 /** Which of the two sliding windows stopped a provider call. */
 enum BudgetWindow {
@@ -41,6 +42,19 @@ trait LlmRateLimiter[F[_]] {
 
   /** Called when the ops notification for the episode failed: the next denial may notify again. */
   def notificationFailed: F[Unit]
+
+  /** One-shot notices by key (for example a rejected provider or an oversized prompt): true only for the first caller
+    * until the key is released. Independent from the quota notice.
+    */
+  def claimNotice(key: String): F[Boolean] = claimNotice(key, None)
+
+  /** With a cooldown the key also expires by itself: a claim is granted again once the cooldown has elapsed, so a
+    * condition that comes and goes cannot notify on every occurrence.
+    */
+  def claimNotice(key: String, cooldown: Option[FiniteDuration]): F[Boolean]
+
+  /** Releases a key: the condition is over (or its notification failed), so the next occurrence may notify again. */
+  def releaseNotice(key: String): F[Unit]
 }
 
 object LlmRateLimiter {
@@ -50,7 +64,8 @@ object LlmRateLimiter {
   private final case class State(
       gemini: ProviderWindow,
       openrouter: ProviderWindow,
-      notified: Boolean
+      notified: Boolean,
+      notices: Map[String, Long] = Map.empty
   )
 
   private val empty = State(ProviderWindow(Nil, Nil), ProviderWindow(Nil, Nil), notified = false)
@@ -121,6 +136,18 @@ object LlmRateLimiter {
         if state.notified then (state, false)
         else (state.copy(notified = true), true)
       )
+
+    override def claimNotice(key: String, cooldown: Option[FiniteDuration]): F[Boolean] =
+      Async[F].realTime.flatMap { now =>
+        val nowMillis = now.toMillis
+        states.modify { state =>
+          val active = state.notices.get(key).exists(at => cooldown.forall(c => nowMillis - at < c.toMillis))
+          if active then (state, false) else (state.copy(notices = state.notices.updated(key, nowMillis)), true)
+        }
+      }
+
+    override def releaseNotice(key: String): F[Unit] =
+      states.update(state => state.copy(notices = state.notices - key))
 
     override def notificationFailed: F[Unit] =
       states.update(state => state.copy(notified = false))

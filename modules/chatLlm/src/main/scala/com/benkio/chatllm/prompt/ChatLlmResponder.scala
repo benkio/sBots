@@ -42,6 +42,12 @@ final class ChatLlmResponder[F[_]: MonadThrow](
     (for {
       window     <- context.prompt(msg.chatId, botId)
       completion <- client.complete(builder.build(persona, entries, window, msg))
+      _          <- log
+        .warn(
+          s"[ChatLlmResponder] no answer for ${msg.chatId}: ${completion.status}, attempts " +
+            completion.attempts.map(a => s"${a.provider}=${a.result.fold("none")(_.toString)}").mkString("[", ", ", "]")
+        )
+        .whenA(completion.status != CompletionStatus.Answered && completion.status != CompletionStatus.Silent)
       decision = completion.reply
         .filter(_ => completion.status == CompletionStatus.Answered)
         .fold[LlmDecision](LlmDecision.Silent)(LlmDecision.from(_, builder.maxReplyChars))

@@ -314,6 +314,7 @@ rule MalformedProviderReplyFails {
     when: ProviderResponded(completion, provider, result, reply?)
     requires: completion.status = pending
     requires: result = malformed_json
+    requires: completion.attempts.any(a => a.provider = completion.fallback_provider)
     ensures:
         let attempt = ProviderAttempt{completion: completion, provider: provider}
         attempt.result = result
@@ -336,19 +337,21 @@ rule NonRetryableProviderFailureFails {
     when: ProviderResponded(completion, provider, result, reply?)
     requires: completion.status = pending
     requires: result = rejected
+    requires: completion.attempts.any(a => a.provider = completion.fallback_provider)
     ensures:
         let attempt = ProviderAttempt{completion: completion, provider: provider}
         attempt.result = result
         completion.status = failed
 }
 
--- A 429 (rate limit), a 5xx (server error) or a timeout from the primary provider is retried once against the other
--- provider, but only when the fallback has quota for that call. Other failures, and the same result from the fallback,
--- are not retried.
+-- A 429 (rate limit), a 5xx (server error), a timeout, a malformed reply or a rejection (a revoked key, a removed
+-- model) from the primary provider is retried once against the other provider, but only when the fallback has quota for
+-- that call. The same result from the fallback is not retried: the completion fails. A provider that rejected the
+-- request is reported to the operators once, until it answers again, as is a prompt over the input limit.
 rule RetryableProviderFailureFallsBack {
     when: ProviderResponded(completion, provider, result, reply?)
     requires: completion.status = pending
-    requires: result in {rate_limited, server_error, timeout}
+    requires: result in {rate_limited, server_error, timeout, malformed_json, rejected}
     requires: provider = completion.primary_provider
     requires: not completion.attempts.any(a => a.provider = completion.fallback_provider)
     requires: (QuotaUsage where provider = completion.fallback_provider).all(u => u.requests_this_minute < u.max_per_minute and u.requests_today < u.max_per_day)
@@ -364,7 +367,7 @@ rule RetryableProviderFailureFallsBack {
 rule FallbackQuotaExhaustedAfterPrimaryFailure {
     when: ProviderResponded(completion, provider, result, reply?)
     requires: completion.status = pending
-    requires: result in {rate_limited, server_error, timeout}
+    requires: result in {rate_limited, server_error, timeout, malformed_json, rejected}
     requires: provider = completion.primary_provider
     requires: not completion.attempts.any(a => a.provider = completion.fallback_provider)
     requires: (QuotaUsage where provider = completion.fallback_provider).any(u => u.requests_this_minute >= u.max_per_minute or u.requests_today >= u.max_per_day)
@@ -379,7 +382,7 @@ rule FallbackQuotaExhaustedAfterPrimaryFailure {
 rule CompletionFailsAfterFallbackExhausted {
     when: ProviderResponded(completion, provider, result, reply?)
     requires: completion.status = pending
-    requires: result in {rate_limited, server_error, timeout}
+    requires: result in {rate_limited, server_error, timeout, malformed_json, rejected}
     requires: provider = completion.fallback_provider
     requires: completion.attempts.any(a => a.provider = completion.fallback_provider)
     ensures:

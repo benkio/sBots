@@ -127,9 +127,10 @@ object Completion {
 
   /** Applies the rules of `llm.allium` to a provider response. Responses for a terminal completion are ignored.
     *
-    * A rate limit, server error or timeout is retried only when it comes from the primary provider and the fallback has
-    * not been attempted yet: this creates the fallback attempt and keeps the completion pending. The same result from
-    * the fallback (or any other non-retryable result) fails the completion.
+    * A rate limit, server error, timeout, malformed reply or rejection (a revoked key, a removed model) is retried only
+    * when it comes from the primary provider and the fallback has not been attempted yet: this creates the fallback
+    * attempt and keeps the completion pending. The same result from the fallback (or any other non-retryable result)
+    * fails the completion.
     */
   def acceptResponse(
       completion: Completion,
@@ -152,9 +153,8 @@ object Completion {
         case ProviderResult.Success =>
           // A success without a reply is not a structured reply: it fails the completion.
           completion.copy(status = CompletionStatus.Failed, attempts = withResult)
-        case ProviderResult.MalformedJson | ProviderResult.Rejected =>
-          completion.copy(status = CompletionStatus.Failed, attempts = withResult)
-        case ProviderResult.RateLimited | ProviderResult.ServerError | ProviderResult.Timeout =>
+        case ProviderResult.RateLimited | ProviderResult.ServerError | ProviderResult.Timeout |
+            ProviderResult.MalformedJson | ProviderResult.Rejected =>
           val providerHasAttempt = withResult.exists(_.provider == provider)
           if provider == completion.primaryProvider && !withResult.exists(_.provider == completion.fallbackProvider)
           then

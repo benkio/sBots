@@ -173,8 +173,8 @@ class LlmClientSpec extends CatsEffectSuite {
       client: LlmClientApi[IO] = FallbackLlmClient(providerClient, providerClient, LlmConfig.defaultTimeout, limiter)
       completion <- client.complete(prompt)
       _          <- IO(assertEquals(completion.status, CompletionStatus.Failed))
-      _          <- IO(assertEquals(completion.attempts.map(_.provider), List(LlmProvider.Gemini)))
-      _          <- IO(
+      _ <- IO(assertEquals(completion.attempts.map(_.provider), List(LlmProvider.Gemini, LlmProvider.OpenRouter)))
+      _ <- IO(
         assertEquals(
           ChatLlm
             .responder[IO]
@@ -300,7 +300,7 @@ class LlmClientSpec extends CatsEffectSuite {
     }
   }
 
-  test("a rejected request fails without a fallback") {
+  test("a rejected request from the primary falls back to the other provider") {
     // obligation: rule-success.NonRetryableProviderFailureFails
     // obligation: rule-failure.NonRetryableProviderFailureFails.2
     // obligation: rule-failure.RetryableProviderFailureFallsBack.2
@@ -315,13 +315,13 @@ class LlmClientSpec extends CatsEffectSuite {
       bodies = bodies
     )
       .map { completion =>
-        assertEquals(completion.status, CompletionStatus.Failed)
-        assertEquals(completion.attempts.flatMap(_.result), List(ProviderResult.Rejected))
-        assertEquals(hosts.toList, List(geminiHost))
+        assertEquals(completion.status, CompletionStatus.Answered)
+        assertEquals(completion.attempts.flatMap(_.result), List(ProviderResult.Rejected, ProviderResult.Success))
+        assertEquals(hosts.toList, List(geminiHost, openRouterHost))
       }
   }
 
-  test("a malformed structured reply fails without a fallback") {
+  test("a malformed structured reply from the primary falls back to the other provider") {
     // obligation: rule-success.MalformedProviderReplyFails
     // obligation: rule-failure.MalformedProviderReplyFails.2
     // obligation: rule-failure.ProviderReturnsStructuredReply.3
@@ -335,10 +335,9 @@ class LlmClientSpec extends CatsEffectSuite {
       bodies = bodies
     )
       .map { completion =>
-        assertEquals(completion.status, CompletionStatus.Failed)
-        assertEquals(completion.reply, None)
-        assertEquals(completion.attempts.flatMap(_.result), List(ProviderResult.MalformedJson))
-        assertEquals(hosts.toList, List(geminiHost))
+        assertEquals(completion.status, CompletionStatus.Answered)
+        assertEquals(completion.attempts.flatMap(_.result), List(ProviderResult.MalformedJson, ProviderResult.Success))
+        assertEquals(hosts.toList, List(geminiHost, openRouterHost))
       }
   }
 
@@ -381,7 +380,11 @@ class LlmClientSpec extends CatsEffectSuite {
       LlmProvider.Gemini,
       ProviderResponse.success(LlmReply("ciao", LlmAction.Text))
     )
-    val failed = Completion.acceptResponse(started, LlmProvider.Gemini, ProviderResponse.malformedJson)
+    val failed = Completion.acceptResponse(
+      Completion.acceptResponse(started, LlmProvider.Gemini, ProviderResponse.malformedJson),
+      LlmProvider.OpenRouter,
+      ProviderResponse.malformedJson
+    )
 
     assertEquals(answered.status, CompletionStatus.Answered)
     assertEquals(failed.status, CompletionStatus.Failed)
@@ -396,6 +399,14 @@ class LlmClientSpec extends CatsEffectSuite {
     )
   }
 
+  test("structured reply: fenced or surrounded JSON is accepted, anything else is not") {
+    val expected = Right(LlmReply("ciao", LlmAction.Text))
+    assertEquals(StructuredReply.parse("```json\n{\"action\":\"text\",\"text\":\"ciao\"}\n```"), expected)
+    assertEquals(StructuredReply.parse("Ecco: {\"action\":\"text\",\"text\":\"ciao\"} spero vada bene"), expected)
+    assert(StructuredReply.parse("nessun json qui").isLeft)
+    assert(StructuredReply.parse("```json\n{\"action\":\"shout\"}\n```").isLeft)
+  }
+
   test("a non-JSON 200 response is treated as malformed JSON") {
     val hosts  = ListBuffer.empty[String]
     val client = Client.fromHttpApp(HttpApp[IO] { request =>
@@ -405,8 +416,11 @@ class LlmClientSpec extends CatsEffectSuite {
     LlmClients.build[IO](client, config("", "primary-provider = gemini\n")).flatMap(_.complete(prompt)).map {
       completion =>
         assertEquals(completion.status, CompletionStatus.Failed)
-        assertEquals(completion.attempts.flatMap(_.result), List(ProviderResult.MalformedJson))
-        assertEquals(hosts.toList, List(geminiHost))
+        assertEquals(
+          completion.attempts.flatMap(_.result),
+          List(ProviderResult.MalformedJson, ProviderResult.MalformedJson)
+        )
+        assertEquals(hosts.toList, List(geminiHost, openRouterHost))
     }
   }
 

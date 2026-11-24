@@ -4,6 +4,9 @@ import cats.effect.ExitCode
 import cats.effect.IO
 import cats.effect.IOApp
 import cats.implicits.*
+import com.benkio.chatllm.llm.LlmConfig
+import com.benkio.chatllm.llm.LlmContextConfig
+import com.benkio.chatllm.prompt.PromptBudget
 import com.benkio.chatllm.prompt.ReplyCatalogue
 import io.circe.parser.decode
 import io.circe.syntax.*
@@ -11,6 +14,7 @@ import io.circe.Decoder
 import io.circe.Encoder
 import io.circe.Json
 import io.circe.Printer
+import pureconfig.ConfigSource
 
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
@@ -31,11 +35,19 @@ object PersonaTool extends IOApp {
 
   final case class BotFiles(id: String, replies: Path, persona: Path, catalogue: Path)
 
-  private val PersonaMaxBytes   = 64 * 1024
-  private val CatalogueMaxBytes = 8192
-  private val MaxEntries        = 50
-  private val SummaryMaxChars   = 180
-  private val IdPattern         = "r[0-9a-f]{12}".r
+  private val PersonaHardMaxBytes = 64 * 1024
+  private val CatalogueMaxBytes   = PromptBudget.catalogueReserveBytes
+
+  /** The persona must fit the prompt budget of the configured input limit next to a full context window. */
+  private lazy val personaMaxBytes: Int = {
+    val llm            = ConfigSource.default.at("main.llm")
+    val maxInputTokens = llm.at("max-input-tokens").load[Int].getOrElse(LlmConfig.defaultMaxInputTokens)
+    val contextTokens  = llm.at("context.max-tokens").load[Int].getOrElse(LlmContextConfig.defaultMaxTokens)
+    math.min(PersonaHardMaxBytes, PromptBudget.personaMaxBytes(maxInputTokens, contextTokens))
+  }
+  private val MaxEntries      = 50
+  private val SummaryMaxChars = 180
+  private val IdPattern       = "r[0-9a-f]{12}".r
 
   /** Accept both the compact four-heading form and long, numbered research personas. Matching is done on level-2
     * headings only, so `### Esempio` cannot satisfy the examples requirement.
@@ -177,7 +189,8 @@ object PersonaTool extends IOApp {
       val content = new String(bytes, StandardCharsets.UTF_8)
       val lines   = content.linesIterator.toList
       if bytes.isEmpty then errors += "persona is empty"
-      if bytes.length > PersonaMaxBytes then errors += s"persona too large (${bytes.length} bytes)"
+      if bytes.length > personaMaxBytes
+      then errors += s"persona too large (${bytes.length} bytes, the prompt budget allows $personaMaxBytes)"
       PersonaSectionPatterns.foreach { case (section, pattern) =>
         if !lines.exists(pattern.matches) then errors += s"persona missing a '$section' section"
       }

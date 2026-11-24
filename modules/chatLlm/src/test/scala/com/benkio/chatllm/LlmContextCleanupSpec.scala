@@ -22,11 +22,12 @@ class LlmContextCleanupSpec extends CatsEffectSuite {
       store = new LlmContextStore[IO] {
         override def append(chatId: ChatId, botId: SBotId, role: LlmContextRole, content: String): IO[Unit] =
           IO.unit
-        override def all(chatId: ChatId, botId: SBotId): IO[List[LlmContextMessage]]                = IO.pure(Nil)
-        override def recent(chatId: ChatId, botId: SBotId, limit: Int): IO[List[LlmContextMessage]] =
+        override def all(chatId: ChatId, botId: SBotId): IO[List[LlmContextMessage]] = IO.pure(Nil)
+        override def recent(chatId: ChatId, botId: SBotId, limit: Int, notBefore: Long): IO[List[LlmContextMessage]] =
           IO.pure(Nil)
-        override def deleteOlderThan(value: Long): IO[Int]          = cutoff.set(value).as(3)
-        override def delete(chatId: ChatId, botId: SBotId): IO[Int] = IO.pure(0)
+        override def deleteOlderThan(value: Long): IO[Int]                   = cutoff.set(value).as(3)
+        override def delete(chatId: ChatId, botId: SBotId): IO[Int]          = IO.pure(0)
+        override def trim(chatId: ChatId, botId: SBotId, keep: Int): IO[Int] = IO.pure(0)
       }
       deleted <- LlmContextCleanup.runAt[IO](store, LlmContextConfig(ttl = 2.hours), 10_000L)
       applied <- cutoff.get

@@ -40,7 +40,8 @@ final case class Message(
     botAdded: Boolean = false,               // the bot itself is among the joined members
     leftChatMember: Option[User] = None,
     isForward: Boolean = false,
-    authorId: Option[String] = None,        // who wrote it, when the platform says (Discord): the id of the user
+    authorId: Option[String] =
+      None, // who wrote it, when the platform says: the id of the user (Discord, Telegram) or the nick (IRC)
     mentions: List[Mention] = List.empty,   // who the text mentions
     replyTo: Option[RepliedMessage] = None, // the message this one replies to
     quote: Option[String] = None            // the part of the replied message that is quoted
@@ -79,7 +80,7 @@ final case class Message(
 
 object Message {
 
-  private val atMention      = "@[A-Za-z0-9_.-]+".r
+  private val atMention      = "(?<![\\w.])@[A-Za-z0-9_.-]+".r
   private val discordMention = "<@!?\\d+>".r
   private val anonymousUser  = "@user"
 

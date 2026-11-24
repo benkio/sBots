@@ -36,7 +36,7 @@ object LlmContextCleanup {
   def runAt[F[_]: Async](store: LlmContextStore[F], config: LlmContextConfig, nowEpochSecond: Long)(using
       log: LogWriter[F]
   ): F[Int] = {
-    val cutoff = nowEpochSecond - config.ttl.toSeconds
+    val cutoff = config.cutoff(nowEpochSecond)
     store.deleteOlderThan(cutoff).flatMap { deleted =>
       log.info(s"[LlmContextCleanup] deleted $deleted context messages older than $cutoff").as(deleted)
     }

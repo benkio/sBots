@@ -15,6 +15,11 @@ Rispondi con un solo oggetto JSON, senza altro testo, con questi campi:
 - `text`: la risposta quando `action` è `text`; altrimenti stringa vuota.
 - `replyId`: quando `action` è `reuse`, l'id di UNA voce del CATALOGO da riutilizzare così com'è; altrimenti stringa vuota.
 
+Esempi di output validi (i testi tra <> sono segnaposto: non copiarli):
+- risposta nuova: `{"action":"text","text":"<la tua risposta, nella lingua della PERSONA>","replyId":""}`
+- risposta già nota: `{"action":"reuse","text":"","replyId":"<id preso dal CATALOGO>"}`
+- niente da dire: `{"action":"silent","text":"","replyId":""}`
+
 Usa `reuse` quando una voce del CATALOGO risponde già bene al messaggio. Non inventare id: usa solo quelli del CATALOGO.
 
 ## PERSONA

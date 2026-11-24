@@ -1,6 +1,7 @@
 package com.benkio.chatllm.prompt
 
 import com.benkio.chatcore.model.Message
+import com.benkio.chatllm.Truncate
 
 /** Builds the prompt of one completion: persona + catalogue of the candidate replies + chat context + the message, on
   * top of the versioned template `prompts/<version>/system.md`.
@@ -19,7 +20,10 @@ final class PromptBuilder private (template: String, val version: String, val ma
       "catalogue" -> entries,
       "context"   -> (if context.isBlank then "(vuota)"
                     else context.linesIterator.map(OutputGuard.untrusted).mkString("\n")),
-      "message" -> OutputGuard.untrusted(Message.redactMentions(content, msg.mentions))
+      "message" -> Truncate.utf16(
+        OutputGuard.untrusted(Message.redactMentions(content, msg.mentions)),
+        PromptBudget.messageReserveBytes
+      )
     )
     PromptBuilder.placeholder.replaceAllIn(
       template,

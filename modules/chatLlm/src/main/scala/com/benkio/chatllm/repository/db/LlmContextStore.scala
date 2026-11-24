@@ -35,8 +35,13 @@ trait LlmContextStore[F[_]] {
   /** All the retained messages of a chat, oldest first. */
   def all(chatId: ChatId, botId: SBotId): F[List[LlmContextMessage]]
 
-  /** The newest messages of a chat, oldest first: the count limit is applied by the SQL query. */
-  def recent(chatId: ChatId, botId: SBotId, limit: Int): F[List[LlmContextMessage]]
+  /** The newest messages of a chat that were created at or after `notBefore` (epoch second), oldest first: the count
+    * limit and the expiry are applied by the SQL query.
+    */
+  def recent(chatId: ChatId, botId: SBotId, limit: Int, notBefore: Long): F[List[LlmContextMessage]]
+
+  /** Keeps only the newest `keep` messages of a chat, giving back how many were removed. */
+  def trim(chatId: ChatId, botId: SBotId, keep: Int): F[Int]
 
   /** Drops every message older than the cutoff (epoch second), whichever chat and bot wrote it. */
   def deleteOlderThan(cutoff: Long): F[Int]
@@ -63,14 +68,17 @@ object LlmContextStore {
     override def all(chatId: ChatId, botId: SBotId): F[List[LlmContextMessage]] =
       allQuery(chatId, botId).to[List].transact(transactor).flatMap(decode)
 
-    override def recent(chatId: ChatId, botId: SBotId, limit: Int): F[List[LlmContextMessage]] = {
-      require(limit >= 0, "the context window limit must not be negative")
-      recentQuery(chatId = chatId, botId = botId, limit = limit)
-        .to[List]
-        .transact(transactor)
-        .flatMap(decode)
-        .map(_.reverse)
-    }
+    override def recent(chatId: ChatId, botId: SBotId, limit: Int, notBefore: Long): F[List[LlmContextMessage]] =
+      Async[F].raiseWhen(limit < 0)(new IllegalArgumentException("the context window limit must not be negative")) *>
+        recentQuery(chatId = chatId, botId = botId, limit = limit, notBefore = notBefore)
+          .to[List]
+          .transact(transactor)
+          .flatMap(decode)
+          .map(_.reverse)
+
+    override def trim(chatId: ChatId, botId: SBotId, keep: Int): F[Int] =
+      Async[F].raiseWhen(keep < 0)(new IllegalArgumentException("the retained message count must not be negative")) *>
+        trimQuery(chatId = chatId, botId = botId, keep = keep).run.transact(transactor)
 
     override def deleteOlderThan(cutoff: Long): F[Int] =
       deleteOlderThanQuery(cutoff).run.transact(transactor)
@@ -103,11 +111,21 @@ object LlmContextStore {
           ORDER BY created_at, rowid""".query[(String, String, Long)]
 
   /** Newest first, so a bounded window is made of the last messages; the service reverses them for the prompt. */
-  def recentQuery(chatId: ChatId, botId: SBotId, limit: Int): Query0[(String, String, Long)] =
+  def recentQuery(chatId: ChatId, botId: SBotId, limit: Int, notBefore: Long): Query0[(String, String, Long)] =
     sql"""SELECT role, content, created_at FROM llm_context
           WHERE platform = ${chatId.platform.id} AND chat_id = ${chatId.id} AND bot_id = ${botId.value}
+            AND created_at >= $notBefore
           ORDER BY created_at DESC, rowid DESC
           LIMIT $limit""".query[(String, String, Long)]
+
+  def trimQuery(chatId: ChatId, botId: SBotId, keep: Int): Update0 =
+    sql"""DELETE FROM llm_context
+          WHERE platform = ${chatId.platform.id} AND chat_id = ${chatId.id} AND bot_id = ${botId.value}
+            AND rowid NOT IN (
+              SELECT rowid FROM llm_context
+              WHERE platform = ${chatId.platform.id} AND chat_id = ${chatId.id} AND bot_id = ${botId.value}
+              ORDER BY created_at DESC, rowid DESC
+              LIMIT $keep)""".update
 
   def deleteOlderThanQuery(cutoff: Long): Update0 =
     sql"""DELETE FROM llm_context WHERE created_at < $cutoff""".update

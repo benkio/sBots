@@ -97,6 +97,17 @@ class ChatLlmResponderSpec extends CatsEffectSuite {
     }
   }
 
+  test("a failed completion with a rejected provider is still silent (and logged)") {
+    val failed = Completion(
+      "p",
+      LlmProvider.Gemini,
+      CompletionStatus.Failed,
+      None,
+      List(ProviderAttempt(LlmProvider.Gemini, Some(ProviderResult.Rejected)))
+    )
+    run(failed).map { case (reply, _) => assertEquals(reply, None) }
+  }
+
   test("a client error is silent") {
     val failing = new LlmClientApi[IO] {
       def complete(prompt: String): IO[Completion] = IO.raiseError(new RuntimeException("boom"))
@@ -243,6 +254,27 @@ class ChatLlmResponderSpec extends CatsEffectSuite {
       ReplyCatalogue.parse("""[{"id":"r1","summary":"a"},{"id":"r1","summary":"b"}]""").left.exists(_.contains("r1"))
     )
     assertEquals(ReplyCatalogue.parse("""[{"id":"r1","summary":"a"}]"""), Right(List(CatalogueEntry("r1", "a"))))
+  }
+
+  test("the template with its examples fits the reserve of the prompt budget") {
+    val size = builder.build("", Nil, "", msg).getBytes("UTF-8").length
+    assert(size < PromptBudget.templateReserveBytes, s"template is $size bytes")
+    assert(builder.build("", Nil, "", msg).contains(""""action":"reuse""""))
+  }
+
+  test("redacting mentions keeps an email address and replaces a bare @nick") {
+    assertEquals(Message.redactMentions("scrivi a a@b.it o a @mario", Nil), "scrivi a a@b.it o a @user")
+  }
+
+  test("a message of the Telegram maximum length is capped to its reserve in the prompt") {
+    val long  = msg.copy(text = Some("x" * 4096))
+    val built = builder.build("p", Nil, "", long)
+    assert(!built.contains("x" * 2049))
+    assert(built.contains("x" * 2000))
+  }
+
+  test("the template examples are placeholders, not copyable Italian text") {
+    assert(!builder.build("p", Nil, "", msg).contains("Ci penso su"))
   }
 
   test("the template is versioned and an unknown version is rejected") {
