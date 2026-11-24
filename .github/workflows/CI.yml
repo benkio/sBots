@@ -53,10 +53,10 @@ jobs:
     - uses: ./.github/actions/setup-scala
     - name: Test the health probe script
       run: sh scripts/healthProbeTest.sh
-    - name: Check Scala Formatting, JSONs Validity, Explicit Dependencies, Instructions
+    - name: Check Scala Formatting, JSONs Validity, Explicit Dependencies, Instructions, Persona Files
       run: |
         echo this workflow was triggered by ${{github.actor}}
-        sbt "check; checkInstructions"
+        sbt "check; checkInstructions; checkPersona"
   scalaUnitTests:
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-latest
