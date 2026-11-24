@@ -142,6 +142,13 @@ After that, the deploy workflow will write the token into the bot’s resources 
 - From the project root: `sbt compile`
 - Run only the new bot in polling mode (e.g. `sbt "main/runMain com.benkio.main.MainPolling mynew"`: the id or the name of the bot) once you have added a token and any needed resources. The bot projects depend on `chatCore` only, so they cannot run a platform by themselves: running a bot is the job of `main`.
 
+### Optional: LLM replies
+
+A new bot has no LLM replies until it has `<id>_persona.md` and `<id>_reply_catalogue.json` in its resources: without them
+the startup log says `the LLM replies are off` for that bot and nothing else changes. Create them as described in
+`agent-context/tasks/GeneratePersona.md` (`sbt generatePersonaCatalogues`, then `sbt checkPersona`, which CI also runs), and
+see "LLM Replies" in the `README.org` for the switch, the privacy and the sizing.
+
 ## Step 5: Update README
 
 Update the `README.org` file with the new bot entry in the table.

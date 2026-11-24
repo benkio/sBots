@@ -207,6 +207,98 @@ SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' A
     run multiple replicas, each will ping the same endpoint on each
     tick.
 
+** LLM Replies
+
+The bots can answer with a free-tier LLM when they are addressed. The reactive replies stay first: the LLM is only asked
+when nothing else matched. The behaviour is specified in ~specs/llm.allium~, the dispatch is in
+[[file:docs/bot-logic-overview.md][bot-logic-overview]] (see "LLM replies") and the logs and dashboard in
+[[file:docs/monitoring.md][monitoring]].
+
+*** Enabling it
+
+1. Set the repository secrets ~GEMINI_API_KEY~ and ~OPENROUTER_API_KEY~. *Both are needed*: without both, deploy only
+   prints a warning and every bot silently keeps the no-LLM behaviour. ~LLM_CONTEXT_AUTHOR_SALT~ is required anyway (see
+   [[*GitHub Deploy Workflow (current target)][the deploy workflow]]).
+2. Make sure the bot has its ~<id>_persona.md~ and ~<id>_reply_catalogue.json~ (see ~agent-context/tasks/GeneratePersona.md~).
+   A bot whose persona or catalogue is missing or too large for the prompt budget logs the reason at startup and stays
+   without the LLM.
+3. In a chat, someone runs ~/llm on~ (Telegram, Discord) or ~!llm on~ (IRC). Nothing is sent to a provider from a chat
+   that did not do this: the switch is per chat *and* per bot.
+
+| Command | Effect |
+|---|---|
+| ~/llm on~ / ~/llm off~ | enable / disable the LLM replies of this bot in this chat (disabling also stops remembering messages) |
+| ~/llm status~ | tell whether it is on |
+| ~/llm forget~ | delete the remembered conversation of this chat, keeping the switch |
+
+The command also has to be offered by BotFather: each bot's ~commands.txt~ already has the ~llm~ line, paste it with
+~/setcommands~.
+
+*** When a bot answers
+
+The bot asks the LLM only for a plain message that is /directed at it/ (it is mentioned, one of its messages is replied to,
+or on IRC the text starts with ~botname:~), that matched no reactive reply, in a chat with the switch on and outside the
+chat timeout (the cooldown that also limits the reactive replies). A matching reactive reply blocked by the timeout does
+not fall through to the LLM. The model can answer with a new text, /reuse/ one of the bot's known replies (it is sent as
+is) or stay silent; anything malformed, unsafe (a command, a mention, empty) or failed is dropped without a reply.
+
+The reply language is the one the *persona* states (~xah~ is English only); Italian is only the default for a persona
+that states none.
+
+*** Privacy
+
+- *Enabled chats send their messages to Google* (Gemini) and, when Gemini fails or is out of quota, to OpenRouter. The
+  prompt holds the persona, the candidate replies, the recent conversation of the chat and the message.
+- Senders are never sent: each one is a salted hash (~user-ab12cd34~), mentions and usernames are replaced by a generic
+  label. The salt is ~LLM_CONTEXT_AUTHOR_SALT~: keep it secret and stable.
+- The conversation is kept in the ~llm_context~ table for ~LLM_CONTEXT_TTL~ (default 7 days) and only while the switch is on;
+  ~/llm forget~ deletes it at once.
+- *Free tiers:* the Gemini free tier may not be offered to minors or to users in the EEA, UK and Switzerland, and free-tier
+  data may be used by the provider. Check the current terms before enabling it in such chats: this is an open question in
+  the spec, not something the code enforces.
+
+*** Who can switch it
+
+*The switch is open*: ~/llm on|off|forget~ has no permission check, so any member of a chat can turn it on (and start the
+storage of the anonymised messages) or off, or wipe the context. The adapters do not expose the chat-admin status of a
+sender today. What bounds the damage: the per-chat and per-bot opt-in, the shared client-side quota (below) which stops the
+spending, the anonymisation and the TTL above, and the ops notice when a quota is exhausted. If that is not enough for a
+chat, do not add the bot there or ask for an admin-only check (it needs a new field in ~Message~).
+
+*** Configuration
+
+The deploy workflow only injects the three secrets above. Every other value is a default in
+~modules/main/src/main/resources/application.conf~, overridable with the environment variable of the OpenRC script or by
+editing the file.
+
+| Variable | Default | Meaning |
+|---|---|---|
+| ~LLM_PRIMARY_PROVIDER~ | ~gemini~ | the other provider is always the fallback; switching is only this value |
+| ~LLM_TIMEOUT~ | ~10 seconds~ | one provider call *and* the whole LLM answer of the engine (see below) |
+| ~LLM_MAX_INPUT_TOKENS~ | ~18432~ | prompts above this (4 characters per token) are refused locally, with an ops notice |
+| ~LLM_MAX_OUTPUT_TOKENS~ | ~512~ | output limit sent to the provider |
+| ~LLM_CONTEXT_MAX_MESSAGES~ / ~LLM_CONTEXT_MAX_TOKENS~ | ~20~ / ~2048~ | the conversation window of a prompt |
+| ~LLM_CONTEXT_TTL~ / ~LLM_CONTEXT_CLEANUP_CRON~ | ~7 days~ / hourly | retention and its cleanup job |
+| ~GEMINI_MAX_PER_MINUTE~, ~GEMINI_MAX_PER_DAY~ (same for ~OPENROUTER_~) | ~20~ / ~50~ | client-side quota of each provider, shared by all the bots |
+| ~LLM_TRACE_ENABLED~ / ~LLM_TRACE_TTL~ | ~false~ / ~1 day~ | opt-in debug trace of the full prompt and raw response, see [[file:docs/monitoring.md][monitoring]] |
+
+*** Sizing the prompt, the persona and the timeout together
+
+- *Persona size.* The persona gets what the other parts of the prompt leave: ~LLM_MAX_INPUT_TOKENS * 3 - LLM_CONTEXT_MAX_TOKENS * 4
+  - 4096 (template) - 8192 (catalogue) - 2048 (message)~ bytes (the 3 is accented Italian, about 3 characters per token). With
+  the defaults that is *32 768 bytes*. Startup refuses a persona above it (the bot goes without the LLM) and
+  ~sbt checkPersona~ (also in CI) fails on it, together with a hard limit of 64 KiB. Raising ~LLM_MAX_INPUT_TOKENS~ or lowering
+  ~LLM_CONTEXT_MAX_TOKENS~ makes room.
+- *The limit has to suit the fallback too.* The default input limit is sized for Gemini. A small free OpenRouter model as the
+  fallback may have a smaller context window, or be slower than ~LLM_TIMEOUT~ with a large persona. There is one input limit
+  for both providers (a per-provider limit is not implemented), so either keep the persona small or pick a fallback model
+  with at least the same window (~openrouter.model~).
+- *The timeout is one value used twice.* ~LLM_TIMEOUT~ bounds each provider call and, in the engine, the whole LLM answer. A
+  primary that /times out/ therefore leaves no time for the fallback within the same message: the fallback helps for
+  fast failures (a 429, a 5xx, a malformed or rejected reply), not for a slow primary. A timeout still spends the quota of
+  the provider that was called. Size ~LLM_TIMEOUT~ for the slowest provider you rely on and watch ~failure=timeout~ in the
+  dashboard.
+
 ** Operations
 
   Runbook of the production VM. The directory is the repository variable ~DEPLOY_DIR~ (the user is ~DEPLOY_USER~,

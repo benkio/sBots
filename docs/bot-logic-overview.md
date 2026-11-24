@@ -140,6 +140,50 @@ Per bot configuration (`main.<botId>.startup-check` in `modules/main/src/main/re
 `StartupCheckConfig`): `enabled`, `probe-timeout` (15 seconds, capped at 10 seconds for the test file), `slow-threshold` (3 seconds),
 `test-media`, `marker-file`. The IRC and Discord bots do not run it yet.
 
+### LLM replies
+
+Only for a plain `Message` (never a command or a file request) that no reply bundle matched, and only for a bot that has an
+LLM (`LlmEngine`, built per bot at startup from its persona and reply catalogue: see "Startup and Wiring"; a bot without it
+has the noop responder and none of this runs). Spec: `specs/llm.allium` (`LlmAnswersDirectedMessage`). The code is
+`BotEngine.llmLogic` in chatCore and, behind the `LlmResponder` port, `ChatLlmResponder` in chatLlm.
+
+```mermaid
+flowchart TD
+  A["Plain message, no reactive reply matched"] --> B{"directed at the bot?<br/>(mention, reply to it, IRC `bot:`)<br/>not forwarded, not old, not ignored"}
+  B -->|No| Z["No LLM; nothing is sent"]
+  B -->|Yes| C{"claim the chat<br/>(one LLM call per chat and bot)"}
+  C -->|Already claimed| Z
+  C -->|Claimed| D{"/llm on for this chat and bot,<br/>and outside the chat timeout?"}
+  D -->|No| Y["Release the claim; nothing is sent"]
+  D -->|Yes| E["sendTyping, then LlmResponder.respond<br/>(bounded by llm.timeout)"]
+  E --> F["ChatLlmResponder: prompt = persona + candidate replies +<br/>chat context + message"]
+  F --> G["LlmClient: primary provider, then the fallback<br/>(quota, timeout, structured JSON)"]
+  G --> H{"validated decision"}
+  H -->|text| I["TextReply to the message"]
+  H -->|reuse| J["The chosen candidate's own Reply, unchanged"]
+  H -->|silent, malformed, unsafe, failed| Y
+  I --> K["deliver like a reactive reply;<br/>counts as an interaction: the chat timeout starts"]
+  J --> K
+```
+
+- *Reactive first.* The reply bundles that matched the message are the *candidates*: the model sees their one-line
+  catalogue entries (`<id>_reply_catalogue.json`) and may answer `reuse` with an id. A matching bundle blocked by the chat
+  timeout does not fall through to the LLM.
+- *Own budget.* The LLM stage runs after, and outside, the request processing timeout, under `llm.timeout` plus the
+  request timeout for the readiness lookup and the delivery. A timeout, a failure or no answer drops the message silently.
+  The claim is released in every case, also on cancellation.
+- *Prompt.* The versioned template `prompts/<version>/system.md` filled by `PromptBuilder`. Context, catalogue and message
+  are untrusted text: neutralised line by line, never expanded as placeholders, and the template says they are data. The
+  prompt version is in every log line and trace (see `docs/monitoring.md`).
+- *Output.* The model returns `{action: text|reuse|silent, text?, replyId?}`. `OutputGuard` drops an empty text, a command
+  (`/x`, `!x`) and a mention, and truncates a text over the cap (500 characters). A reuse of an id that was not offered is
+  silent.
+- *Memory.* After the message is handled, every plain message of a chat with the switch on is handed to the responder to
+  remember (anonymised, line breaks escaped), after the LLM was asked so the message is not part of its own prompt; the
+  answer that was sent follows it (a reused reply as its catalogue summary). `LlmContextCleanup` deletes what is older than
+  the TTL.
+- *Observability.* One JSON log line per interaction and an opt-in `llm_trace` row: `docs/monitoring.md`.
+
 ### Media subtype dispatch
 
 ```mermaid
