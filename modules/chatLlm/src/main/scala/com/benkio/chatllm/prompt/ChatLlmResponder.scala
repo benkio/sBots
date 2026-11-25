@@ -124,9 +124,10 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
       reply <- attempted match {
         case Left(error) =>
           // The failure is recorded (class only: the message may hold chat content), then handled as before below.
-          // `Done` right before the observation, so a cancel in between still records `cancelled`, never nothing; after it the
-          // observation runs in its own fiber, so a cancel adds no `cancelled` record and does not cut this one
-          phase.set(ResponderPhase.Done) *> observeOwned(
+          // `Done` and the start of the observation are one uncancelable step (see `observeOwned`): a cancel before it
+          // records `cancelled`, after it the observation is written and no `cancelled` one is added
+          observeOwned(
+            phase = phase,
             msg = msg,
             prompt = prompt,
             latencyMs = latency,
@@ -174,10 +175,10 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
       LogWriter.info(
         decisionLine(msg = msg, completion = completion, decision = decision, reuseOffered = reuseOffered)
       ) *>
-      // `Done` right before the observation: from here the completed record owns the interaction, and it is written in
-      // its own fiber, so a cancel neither adds a `cancelled` record nor cuts this one
-      phase.set(ResponderPhase.Done) *>
+      // from `Done` on the completed record owns the interaction (see `observeOwned`): a cancel neither adds a
+      // `cancelled` record nor cuts this one
       observeOwned(
+        phase = phase,
         msg = msg,
         prompt = prompt,
         latencyMs = latencyMs,
@@ -217,12 +218,24 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
       .getOrElse("silent_action")
   }
 
-  /** Records the interaction of a call that returned (a completion or a client failure) in its own fiber and waits for
-    * it: a cancel of the caller (the engine's timeout) abandons the wait, never the write, so the record is complete
-    * exactly once, and the reply is still released without waiting for a slow trace write.
+  /** Records the interaction of a call that returned (a completion or a client failure). Setting `Done` and starting
+    * the observation in its own fiber are one uncancelable step, so a cancel lands either before it (recorded as
+    * `cancelled`) or after it (the observation is written, nothing else is). Cancellation is restored only while
+    * waiting for the observation: a cancel there abandons the wait, never the write, and the reply is still released
+    * without waiting for a slow trace write.
     */
-  private def observeOwned(msg: Message, prompt: String, latencyMs: Long, outcome: LlmOutcome): F[Unit] =
-    observe(msg = msg, prompt = prompt, latencyMs = latencyMs, outcome = outcome).start.flatMap(_.joinWithNever)
+  private def observeOwned(
+      phase: Ref[F, ResponderPhase],
+      msg: Message,
+      prompt: String,
+      latencyMs: Long,
+      outcome: LlmOutcome
+  ): F[Unit] =
+    Concurrent[F].uncancelable { poll =>
+      phase.set(ResponderPhase.Done) *>
+        observe(msg = msg, prompt = prompt, latencyMs = latencyMs, outcome = outcome).start
+          .flatMap(fiber => poll(fiber.joinWithNever))
+    }
 
   private def observe(msg: Message, prompt: String, latencyMs: Long, outcome: LlmOutcome): F[Unit] =
     observer.traverse_(
