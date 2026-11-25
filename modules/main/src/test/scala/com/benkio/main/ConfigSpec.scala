@@ -2,6 +2,7 @@ package com.benkio.main
 
 import cats.effect.IO
 import com.benkio.chatcore.Logger.logWriter
+import com.benkio.chatllm.llm.GeminiClient
 import munit.CatsEffectSuite
 
 import scala.concurrent.duration.*
@@ -61,8 +62,11 @@ class ConfigSpec extends CatsEffectSuite {
       assertEquals(config.llm.maxOutputTokens, 1024)
       assertEquals(config.llm.gemini.quota.maxPerMinute, 20)
       assertEquals(config.llm.gemini.quota.maxPerDay, 50)
-      assert(config.llm.gemini.endpoint.endsWith("/v1beta/interactions"), config.llm.gemini.endpoint)
-      assertEquals(com.benkio.chatllm.llm.GeminiClient.modelFor(config.llm.gemini), "gemini-flash-lite-latest")
+      // the defaults only hold when the deployment overrides are not set in the environment running the tests
+      if !sys.env.contains("GEMINI_ENDPOINT") && !sys.env.contains("GEMINI_MODEL") then {
+        assert(config.llm.gemini.endpoint.endsWith("/v1beta/interactions"), config.llm.gemini.endpoint)
+        assertEquals(GeminiClient.modelFor(config.llm.gemini), "gemini-flash-lite-latest")
+      }
       assertEquals(config.llm.openrouter.quota.maxPerMinute, 20)
       assertEquals(config.llm.openrouter.quota.maxPerDay, 50)
     }
