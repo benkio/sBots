@@ -40,19 +40,27 @@ private[llm] object ProviderHttp {
       request: Request[F],
       extractText: Json => Option[String],
       extractModel: Json => Option[String] = _ => None,
-      diagnose: Json => Option[String] = _ => None
+      diagnose: Json => Option[String] = _ => None,
+      extractUsage: Json => Option[TokenUsage] = _ => None
   ): F[ProviderResponse] =
     client
       .run(request)
       .use(response =>
-        fromResponse(response = response, extractText = extractText, extractModel = extractModel, diagnose = diagnose)
+        fromResponse(
+          response = response,
+          extractText = extractText,
+          extractModel = extractModel,
+          diagnose = diagnose,
+          extractUsage = extractUsage
+        )
       )
 
   private def fromResponse[F[_]: Concurrent](
       response: Response[F],
       extractText: Json => Option[String],
       extractModel: Json => Option[String],
-      diagnose: Json => Option[String]
+      diagnose: Json => Option[String],
+      extractUsage: Json => Option[TokenUsage]
   ): F[ProviderResponse] =
     response.status match {
       case Status.Ok =>
@@ -62,13 +70,15 @@ private[llm] object ProviderHttp {
           case Right(body) =>
             parser.parse(body) match {
               case Left(_) =>
-                Concurrent[F].pure(unreadable(body))
+                Concurrent[F].pure(unreadable(body = body))
               case Right(json) =>
                 // untrusted and unbounded: capped, so a log line and a panel grouped by model stay small
                 val served    = extractModel(json).map(_.trim.take(MaxModelChars)).filter(_.nonEmpty)
                 val diagnosis = diagnose(json).map(excerpt).filter(_.nonEmpty)
+                // metadata only: a usage that cannot be read is absent, never a failure of the reply
+                val usage = extractUsage(json)
                 extractText(json)
-                  .fold(unreadable(body, diagnosis)) { raw =>
+                  .fold(unreadable(body = body, diagnosis = diagnosis, usage = usage)) { raw =>
                     StructuredReply
                       .parseDetailed(raw)
                       .fold(
@@ -76,6 +86,7 @@ private[llm] object ProviderHttp {
                           ProviderResponse.malformedJson.copy(
                             raw = Some(raw),
                             model = served,
+                            usage = usage,
                             failure = diagnosis.map(d => ProviderFailure(httpStatus = 200, message = Some(d)))
                           ),
                         parsed =>
@@ -85,7 +96,8 @@ private[llm] object ProviderHttp {
                               raw = Some(raw),
                               stripped = parsed.repair == StructuredReply.Repair.Stripped,
                               truncated = parsed.repair == StructuredReply.Repair.Truncated,
-                              model = served
+                              model = served,
+                              usage = usage
                             )
                       )
                   }
@@ -103,8 +115,13 @@ private[llm] object ProviderHttp {
   /** A 200 whose body is not JSON or holds no model text. The failure message is the provider's own diagnosis when it
     * gave one (finish reason, an error object, a null content), else the capped body.
     */
-  private def unreadable(body: String, diagnosis: Option[String] = None): ProviderResponse =
+  private def unreadable(
+      body: String,
+      diagnosis: Option[String] = None,
+      usage: Option[TokenUsage] = None
+  ): ProviderResponse =
     ProviderResponse.malformedJson.copy(
+      usage = usage,
       // Keep the whole body: the malformed-reply error line prints it, and the interesting part of a bad payload is
       // often beyond the provider's diagnosis (or past the old 500-character log cap).
       raw = Some(body),

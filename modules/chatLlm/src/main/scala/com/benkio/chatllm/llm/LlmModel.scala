@@ -63,8 +63,33 @@ final case class ProviderResponse(
     stripped: Boolean = false,
     truncated: Boolean = false,
     model: Option[String] = None,
-    failure: Option[ProviderFailure] = None
+    failure: Option[ProviderFailure] = None,
+    usage: Option[TokenUsage] = None
 )
+
+/** The token counts a provider reports for one call (#1590): prompt, completion and the cached part of the prompt. Each
+  * count is optional because providers omit them (a cache miss reports no cached count on some); a response with none
+  * of them has no usage at all. Counts only: never any chat content.
+  */
+final case class TokenUsage private (prompt: Option[Int], completion: Option[Int], cached: Option[Int])
+
+object TokenUsage {
+
+  /** `None` when the provider reported none of the counts: absence is not an error, and an empty usage cannot exist. */
+  def of(prompt: Option[Int], completion: Option[Int], cached: Option[Int]): Option[TokenUsage] =
+    Option.when(prompt.isDefined || completion.isDefined || cached.isDefined)(TokenUsage(prompt, completion, cached))
+
+  /** The usage of several provider calls added up (a fallback is billed on top of the failed primary): a count is
+    * absent only when no call reported it.
+    */
+  def sum(usages: List[TokenUsage]): Option[TokenUsage] = {
+    def add(count: TokenUsage => Option[Int]): Option[Int] = {
+      val reported = usages.flatMap(count)
+      Option.when(reported.nonEmpty)(reported.sum)
+    }
+    of(prompt = add(_.prompt), completion = add(_.completion), cached = add(_.cached))
+  }
+}
 
 /** Why a provider call failed over HTTP: the status code and the (capped) error message of the response body, so a
   * retired model or a revoked key is visible in the logs instead of only as a `rejected` label.
@@ -86,7 +111,10 @@ final case class ProviderAttempt(
     result: Option[ProviderResult],
     failure: Option[ProviderFailure] = None,
     // how long the provider call took (a timeout included), for the logs only
-    latencyMs: Option[Long] = None
+    latencyMs: Option[Long] = None,
+    // #1590: the usage the provider reported for this call, billed or not whatever the result (a malformed or
+    // unreadable reply still cost tokens), so a fallback never hides what the failed primary spent
+    usage: Option[TokenUsage] = None
 )
 
 /** The lifecycle of a completion. `Answered`, `Failed` and `Silent` are terminal: `Silent` is a completion that was
@@ -202,7 +230,8 @@ object Completion {
         if attempt.provider == provider then attempt.copy(
           result = Some(response.result),
           failure = response.failure,
-          latencyMs = latencyMs
+          latencyMs = latencyMs,
+          usage = response.usage
         )
         else attempt
       }

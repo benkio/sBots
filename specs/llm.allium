@@ -750,7 +750,9 @@ rule ResponderStaysSilent {
 -- through the Mon pipeline to Loki, read there with `| json | line_format "{{.message}}" | json`): a salted chat hash
 -- (never the chat id), bot, model that served the request (the model the provider reports, which with `openrouter/free`
 -- differs per request; else the configured one), the provider the evidence belongs to, prompt version, estimated prompt and response
--- tokens (four characters per token: the providers report no usage), latency, completion status, action taken (text,
+-- tokens (four characters per token), the provider-reported prompt, response and cached token counts (#1590: appended
+-- keys `prompt_tokens_reported`, `response_tokens_reported`, `cached_tokens`: the counts of every provider attempt added
+-- up, so a fallback's tokens come on top of the failed primary's; each omitted when no attempt reported that count; absent usage is never an error and never touches the reply), latency, completion status, action taken (text,
 -- reuse or silent), reused reply id, failure reason, provider attempts and their results, whether a fallback provider was
 -- asked, whether the structured reply needed fence/prose stripping or was recovered from a truncated `text`
 -- (`truncated=true`), and the local rejection (oversized prompt, missing credentials). The failure reasons are what the dashboard counts: local rejections, quota exhaustion, a provider

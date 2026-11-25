@@ -7,6 +7,7 @@ import com.benkio.chatllm.llm.CompletionStatus
 import com.benkio.chatllm.llm.LlmProvider
 import com.benkio.chatllm.llm.LlmReply
 import com.benkio.chatllm.llm.ProviderResult
+import com.benkio.chatllm.llm.TokenUsage
 import com.benkio.chatllm.prompt.LlmDecision
 
 import java.security.MessageDigest
@@ -21,8 +22,8 @@ enum ReplyAction(val label: String) {
 /** One interaction of a bot with the LLM, ready to be logged: no chat content, only what is needed to count, time and
   * explain it. `chatHash` is salted, so a log reader cannot recover the chat id.
   *
-  * Token counts are estimates (four characters per token, like the input limit): the providers do not report usage
-  * through the client boundary.
+  * `promptTokens` and `responseTokens` are estimates (four characters per token, like the input limit); the `*Reported`
+  * and `cachedTokens` fields are the provider's own counts, absent when it reported none.
   */
 final case class LlmInteraction(
     chatHash: String,
@@ -46,7 +47,11 @@ final case class LlmInteraction(
     geminiMs: Option[Long] = None,
     openRouterMs: Option[Long] = None,
     // A `text` reply recovered from an object cut by the provider's output-token limit, still guarded before sending.
-    truncated: Boolean = false
+    truncated: Boolean = false,
+    // #1590: what the provider reported for the raw text, when it did; the estimates above stay for continuity
+    promptTokensReported: Option[Int] = None,
+    responseTokensReported: Option[Int] = None,
+    cachedTokens: Option[Int] = None
 )
 
 object LlmInteraction {
@@ -60,6 +65,11 @@ object LlmInteraction {
       .take(8)
       .map("%02x".format(_))
       .mkString
+
+  /** The provider-reported usage of every attempt, added up: the fallback's tokens come on top of the failed primary's.
+    */
+  def reportedUsage(completion: Completion): Option[TokenUsage] =
+    TokenUsage.sum(completion.attempts.flatMap(_.usage))
 
   def estimateTokens(text: String): Int = math.ceil(text.length.toDouble / 4).toInt
 
