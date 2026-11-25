@@ -1071,6 +1071,36 @@ class LlmClientSpec extends CatsEffectSuite {
     assertEquals(GeminiClient.textOf(Json.obj()), None)
   }
 
+  // The example Interaction of Google's API reference (aistudio.google.com/api-reference/interactions-api), ids and
+  // empty fields trimmed: an independent source for the response shape, unlike the fixtures built in this spec.
+  private val documentedInteraction: Json = io.circe.parser
+    .parse("""{
+             |  "object": "interaction",
+             |  "id": "v1_example",
+             |  "model": "gemini-3.8-flash",
+             |  "status": "completed",
+             |  "steps": [
+             |    {"type": "model_output", "content": [
+             |      {"type": "text", "text": "Hello! I'm doing well, functioning as expected. Thank you for asking! How are you doing today?"}
+             |    ]}
+             |  ],
+             |  "usage": {
+             |    "total_cached_tokens": 0, "total_input_tokens": 7, "total_output_tokens": 23,
+             |    "total_thought_tokens": 49, "total_tokens": 79, "total_tool_use_tokens": 0
+             |  }
+             |}""".stripMargin)
+    .fold(throw _, identity)
+
+  test("the documented Interaction response is read: text, usage with thoughts as output, status") {
+    assertEquals(
+      GeminiClient.textOf(documentedInteraction),
+      Some("Hello! I'm doing well, functioning as expected. Thank you for asking! How are you doing today?")
+    )
+    assertEquals(GeminiClient.usageOf(documentedInteraction), TokenUsage.of(Some(7), Some(23 + 49), Some(0)))
+    assertEquals(GeminiClient.diagnose(documentedInteraction), Some("status=completed output_tokens=23"))
+    assertEquals(documentedInteraction.hcursor.get[String]("model"), Right("gemini-3.8-flash"))
+  }
+
   test("the Gemini model is the configured one, and the default when it is empty or blank") {
     def conn(model: Option[String]) = ProviderConnection(endpoint = "https://g.example", model = model)
     assertEquals(GeminiClient.modelFor(conn(None)), "gemini-flash-lite-latest")
