@@ -312,8 +312,11 @@ editing the file.
 - *Two timeouts.* ~LLM_PROVIDER_TIMEOUT~ (4s) bounds each provider call; ~LLM_TIMEOUT~ (10s) bounds the whole LLM answer of
   the engine, typing action included. Startup refuses a provider timeout that is not shorter than the total. With the
   defaults a primary that /times out/ leaves about 6s for one fallback attempt. A timeout still spends the quota of the
-  provider that was called, and is recorded as ~failure=timeout~ (attempt result ~timeout~, ~gemini_ms~/~openrouter_ms~) in the
-  dashboard. Do not fix a slow provider by raising ~LLM_TIMEOUT~ alone: the user waits that long. Size ~LLM_PROVIDER_TIMEOUT~
+  provider that was called. In the ~llm_interaction~ log, ~attempts~ holds the per-provider results (for example
+  ~gemini:timeout,openrouter:success~, with ~gemini_ms~/~openrouter_ms~), while ~failure~ is the final outcome of the
+  completion: a primary timeout followed by a fallback success *omits* ~failure~, and ~failure=timeout~ appears only when
+  the last provider call timed out. To find primary timeouts, inspect ~attempts~ (it contains ~gemini:timeout~ or ~openrouter:timeout~),
+  do not filter on ~failure=timeout~. Do not fix a slow provider by raising ~LLM_TIMEOUT~ alone: the user waits that long. Size ~LLM_PROVIDER_TIMEOUT~
   for the slowest provider you rely on and keep room for the fallback below ~LLM_TIMEOUT~.
 
 ** Operations
