@@ -64,7 +64,7 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
         for {
           now      <- Clock[F].monotonic
           snapshot <- phase.get
-          // once the client has returned the success or failure path owns the record: never a second one
+          // once `Done`, the success or failure path owns the record and a cancel writes no `cancelled` one
           _ <- ResponderPhase
             .cancelled(snapshot)
             .traverse_((label, prompt) =>
@@ -124,8 +124,9 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
       reply <- attempted match {
         case Left(error) =>
           // The failure is recorded (class only: the message may hold chat content), then handled as before below.
-          // `Done` right before the observation, so a cancel in between still records `cancelled`, never nothing
-          phase.set(ResponderPhase.Done) *> observe(
+          // `Done` right before the observation, so a cancel in between still records `cancelled`, never nothing; after it the
+          // observation runs in its own fiber, so a cancel adds no `cancelled` record and does not cut this one
+          phase.set(ResponderPhase.Done) *> observeOwned(
             msg = msg,
             prompt = prompt,
             latencyMs = latency,
@@ -173,9 +174,10 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
       LogWriter.info(
         decisionLine(msg = msg, completion = completion, decision = decision, reuseOffered = reuseOffered)
       ) *>
-      // `Done` right before the observation: from here the completed record owns the interaction
+      // `Done` right before the observation: from here the completed record owns the interaction, and it is written in
+      // its own fiber, so a cancel neither adds a `cancelled` record nor cuts this one
       phase.set(ResponderPhase.Done) *>
-      observe(
+      observeOwned(
         msg = msg,
         prompt = prompt,
         latencyMs = latencyMs,
@@ -214,6 +216,13 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
       // the model chose the `silent` action: that is a decision, not a failure
       .getOrElse("silent_action")
   }
+
+  /** Records the interaction of a call that returned (a completion or a client failure) in its own fiber and waits for
+    * it: a cancel of the caller (the engine's timeout) abandons the wait, never the write, so the record is complete
+    * exactly once, and the reply is still released without waiting for a slow trace write.
+    */
+  private def observeOwned(msg: Message, prompt: String, latencyMs: Long, outcome: LlmOutcome): F[Unit] =
+    observe(msg = msg, prompt = prompt, latencyMs = latencyMs, outcome = outcome).start.flatMap(_.joinWithNever)
 
   private def observe(msg: Message, prompt: String, latencyMs: Long, outcome: LlmOutcome): F[Unit] =
     observer.traverse_(

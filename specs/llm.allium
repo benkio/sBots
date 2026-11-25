@@ -794,7 +794,8 @@ rule LlmClientFailureLogged {
 -- A cancelled interaction is recorded exactly once whatever the phase (typing, prompt build or client call; before the
 -- prompt exists it is recorded with an empty one) and still ends as a cancellation: no completion, no decision. The
 -- recording runs in its own fiber, so a slow trace write cannot delay the release of the chat claim. Once the client
--- call has returned and its own record is being written, that record owns the interaction and a cancel adds none.
+-- call has returned, its own record (completed or client failure) owns the interaction: it is written in its own fiber,
+-- so a cancel, even in the middle of the write, neither adds a cancelled record nor cuts that one.
 rule LlmClientCancellationLogged {
     when: LlmClientCancelled(chat_hash, bot, prompt_version, prompt)
     ensures: InteractionLogged(chat_hash, bot, prompt_version, failure: cancelled)

@@ -614,9 +614,9 @@ class LlmObservabilitySpec extends CatsEffectSuite {
         botId = botId,
         persona = "persona",
         catalogue = catalogue,
-        // the observation is written, then the rest of the recording is stuck (a busy database trace write)
+        // the recording is stuck (a busy database) when the cancel arrives: it must still complete, once
         observer = Some(new LlmObserver[IO] {
-          def observe(o: LlmObservation): IO[Unit] = seen.update(_ :+ o) *> reached.complete(()).void *> gate.get
+          def observe(o: LlmObservation): IO[Unit] = reached.complete(()).void *> gate.get *> seen.update(_ :+ o)
         })
       )
       fiber <- responder.respond(msg, List(greeting)).start
@@ -644,9 +644,9 @@ class LlmObservabilitySpec extends CatsEffectSuite {
         botId = botId,
         persona = "persona",
         catalogue = catalogue,
-        // the observation is written, then the rest of the recording is stuck (a busy database trace write)
+        // the recording is stuck (a busy database) when the cancel arrives: it must still complete, once
         observer = Some(new LlmObserver[IO] {
-          def observe(o: LlmObservation): IO[Unit] = seen.update(_ :+ o) *> reached.complete(()).void *> gate.get
+          def observe(o: LlmObservation): IO[Unit] = reached.complete(()).void *> gate.get *> seen.update(_ :+ o)
         })
       )
       fiber <- responder.respond(msg, List(greeting)).start
