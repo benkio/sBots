@@ -282,7 +282,8 @@ editing the file.
 | Variable | Default | Meaning |
 |---|---|---|
 | ~LLM_PRIMARY_PROVIDER~ | ~gemini~ | the other provider is always the fallback; switching is only this value |
-| ~LLM_TIMEOUT~ | ~10 seconds~ | one provider call *and* the whole LLM answer of the engine (see below) |
+| ~LLM_TIMEOUT~ | ~10 seconds~ | the whole LLM answer of the engine (see below) |
+| ~LLM_PROVIDER_TIMEOUT~ | ~4 seconds~ | one provider call; must be shorter than ~LLM_TIMEOUT~, startup refuses otherwise |
 | ~LLM_MAX_INPUT_TOKENS~ | ~18432~ | prompts above this (4 characters per token) are refused locally, with an ops notice |
 | ~LLM_MAX_OUTPUT_TOKENS~ | ~1024~ | output limit sent to the provider |
 | ~LLM_CONTEXT_MAX_MESSAGES~ / ~LLM_CONTEXT_MAX_TOKENS~ | ~20~ / ~2048~ | the conversation window of a prompt |
@@ -307,11 +308,13 @@ editing the file.
   bill every fallback call. The router may also choose a model that lacks a feature the request uses (the request asks for JSON
   output): a refused request shows as ~failure=rejected~, so watch it in the dashboard after a rollout. Free models may also log
   prompts (see the privacy notes above).
-- *The timeout is one value used twice.* ~LLM_TIMEOUT~ bounds each provider call and, in the engine, the whole LLM answer. A
-  primary that /times out/ therefore leaves no time for the fallback within the same message: the fallback helps for
-  fast failures (a 429, a 5xx, a malformed or rejected reply), not for a slow primary. A timeout still spends the quota of
-  the provider that was called. Size ~LLM_TIMEOUT~ for the slowest provider you rely on and watch ~failure=timeout~ in the
-  dashboard.
+- *Upgrading:* a deployment that sets ~LLM_TIMEOUT~ to 4 seconds or less must also set ~LLM_PROVIDER_TIMEOUT~ below it, or startup fails.
+- *Two timeouts.* ~LLM_PROVIDER_TIMEOUT~ (4s) bounds each provider call; ~LLM_TIMEOUT~ (10s) bounds the whole LLM answer of
+  the engine, typing action included. Startup refuses a provider timeout that is not shorter than the total. With the
+  defaults a primary that /times out/ leaves about 6s for one fallback attempt. A timeout still spends the quota of the
+  provider that was called, and is recorded as ~failure=timeout~ (attempt result ~timeout~, ~gemini_ms~/~openrouter_ms~) in the
+  dashboard. Do not fix a slow provider by raising ~LLM_TIMEOUT~ alone: the user waits that long. Size ~LLM_PROVIDER_TIMEOUT~
+  for the slowest provider you rely on and keep room for the fallback below ~LLM_TIMEOUT~.
 
 ** Operations
 

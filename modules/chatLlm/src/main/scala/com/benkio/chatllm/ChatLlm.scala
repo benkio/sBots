@@ -73,8 +73,11 @@ object ChatLlm {
               case Left(_)          => LlmEngine.noop[F]
             }
             .flatTap {
-              case engine if engine.responder.answers => log.info(s"[ChatLlm] $botId: the LLM replies are available")
-              case _                                  => Async[F].unit
+              case engine if engine.responder.answers =>
+                log.info(
+                  s"[ChatLlm] $botId: the LLM replies are available (timeout=${config.timeout}, provider-timeout=${config.providerTimeout})"
+                )
+              case _ => Async[F].unit
             }
     )
 

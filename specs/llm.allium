@@ -63,8 +63,8 @@ contract LlmClient {
         -- response that is not a valid JSON object with a reply text never produces an answered completion.
 
     @invariant UnexpectedErrorsReported
-        -- Only a provider timeout becomes a terminal result. Any other error is reported to the operators and
-        -- propagates to the caller; it is never rewritten as a completion with no attempts.
+        -- Only a provider timeout (config.provider_timeout) becomes a terminal result. Any other error is reported to
+        -- the operators and propagates to the caller; it is never rewritten as a completion with no attempts.
 }
 
 ------------------------------------------------------------
@@ -157,7 +157,11 @@ entity LlmContextMessage {
 
 config {
     primary_provider: LlmProvider = gemini     -- the provider asked first; OpenRouter's smaller free daily quota keeps it as fallback
-    timeout: Duration = 10.seconds            -- one provider call is abandoned after this; the timeout is recorded as a provider result
+    timeout: Duration = 10.seconds            -- the whole LLM answer of the engine (typing action, completion, delivery); an answer
+                                              -- still running after this is cancelled and dropped silently
+    provider_timeout: Duration = 4.seconds    -- #1587: one provider call is abandoned after this; the timeout is recorded as a
+                                              -- provider result. Startup requires provider_timeout < timeout, so a timed-out
+                                              -- primary leaves (timeout - provider_timeout) for one fallback attempt
     max_input_tokens: Integer = 18432         -- prompts larger than this (4 characters per token) are refused; startup also
                                               -- requires room for a persona next to the template, catalogue, message and context
     max_output_tokens: Integer = 1024         -- sent to the provider as its output limit

@@ -48,12 +48,12 @@ object LlmClients {
             for {
               primary  <- GeminiClient[F](client, config.gemini, maxOutputTokens)
               fallback <- OpenRouterClient[F](client, config.openrouter, maxOutputTokens)
-            } yield FallbackLlmClient[F](primary, fallback, config.timeout, limiter)
+            } yield FallbackLlmClient[F](primary, fallback, config.providerTimeout, limiter)
           case LlmProvider.OpenRouter =>
             for {
               primary  <- OpenRouterClient[F](client, config.openrouter, maxOutputTokens)
               fallback <- GeminiClient[F](client, config.gemini, maxOutputTokens)
-            } yield FallbackLlmClient[F](primary, fallback, config.timeout, limiter)
+            } yield FallbackLlmClient[F](primary, fallback, config.providerTimeout, limiter)
         }
     }
 }

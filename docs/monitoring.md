@@ -107,7 +107,7 @@ class only; neither a logging failure nor a busy database can drop the other rec
   cancelled before it ended: the engine timeout, a shutdown).
 - `failure`: `oversized_prompt`, `missing_credentials` (local rejections, no provider asked), `quota_exhausted` (both
   providers, or the fallback after a retryable primary failure), the result of the last provider call (`ratelimited`,
-  `servererror`, `timeout`, `rejected`, `malformedjson`), `success_without_reply` (a 200 with no structured reply),
+  `servererror`, `timeout` (one provider call over `llm.provider-timeout`), `rejected`, `malformedjson`), `success_without_reply` (a 200 with no structured reply),
   `output_rejected` (the output guard dropped a text), `reuse_without_id`, `reuse_not_offered`,
   `client_error:<ExceptionClass>` (the client call threw; the exception message is never logged here, it may hold chat
   content), `cancelled`. Omitted when it answered or the model chose silence.
