@@ -96,8 +96,8 @@ class only; neither a logging failure nor a busy database can drop the other rec
 - A provider reply that cannot be read as the structured reply also writes one ERROR line:
   `[LlmMalformedJson] provider=<p> model=<m> bot=<b> got: <what it returned>`, with the full raw model text (not
   capped, so a malformed JSON body can be examined). The line also carries the provider's own diagnosis after the text:
-  for Gemini `[finish_reason=MAX_TOKENS candidates_tokens=1024]` (`MAX_TOKENS` is a reply cut by the output limit,
-  `RECITATION` a repeated-text stop), for OpenRouter `[finish_reason=length content=null choice_error=502 …]`, or
+  for Gemini `[status=incomplete output_tokens=1024]` (`incomplete` is a reply cut by the output limit, `failed` an
+  error), for OpenRouter `[finish_reason=length content=null choice_error=502 …]`, or
   `no model text: …` when there was none (`length` is a token limit hit, `content_filter` a block, `content=null` an
   empty answer, e.g. a reasoning model that spent its tokens thinking). The text is the
   model's reply and may echo chat content: it goes to the server logs (and Loki), unlike the prompt. The "sbots warnings
@@ -105,12 +105,12 @@ class only; neither a logging failure nor a busy database can drop the other rec
 - `chat` is a salted hash (`llm.context.author-salt`), never the chat id. The line holds no chat content.
 - `prompt_tokens` and `response_tokens` are estimates (4 characters per token), kept for continuity.
   `prompt_tokens_reported`, `response_tokens_reported` and `cached_tokens` are the provider's own counts (Gemini
-  `usageMetadata.promptTokenCount` / `candidatesTokenCount` / `cachedContentTokenCount`; OpenRouter `usage.prompt_tokens` /
+  `usage.total_input_tokens` / `total_output_tokens` / `total_cached_tokens`; OpenRouter `usage.prompt_tokens` /
   `completion_tokens` / `prompt_tokens_details.cached_tokens`), appended at the end of the line. Each is omitted when the
   provider reported no such count, so a missing key means "not reported", not zero; `cached_tokens / prompt_tokens_reported`
   shows whether the stable prompt prefix gets cache hits. They are the sum over every provider attempt of the interaction
   (a fallback is billed on top of the failed primary, and an unreadable or malformed reply still cost tokens). For Gemini
-  `response_tokens_reported` includes `thoughtsTokenCount` (thinking tokens are billed as output, and Gemini counts them apart from `candidatesTokenCount`). A response that
+  `response_tokens_reported` includes `total_thought_tokens` (thinking tokens are billed as output, and Gemini counts them apart from `total_output_tokens`). A response that
   arrives after the completion is already over (the engine timeout) is not recorded, like its attempt and result.
 - `status`: `answered`, `failed`, `silent` (quota), `pending`, `error` (the client call threw) or `cancelled` (the call was
   cancelled before it ended: the engine timeout, a shutdown). A cancel during the client call keeps the `attempts` and

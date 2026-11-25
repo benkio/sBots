@@ -157,6 +157,9 @@ entity LlmContextMessage {
 
 config {
     primary_provider: LlmProvider = gemini     -- the provider asked first; OpenRouter's smaller free daily quota keeps it as fallback
+    -- #1591: Gemini is called through the Interactions API (generateContent is legacy). Each call is a stateless
+    -- one-shot: store=false and no previous_interaction_id, so no prompt retention is added by the provider API.
+    -- The reply text is read from the model_output step; the structured-reply contract is unchanged.
     timeout: Duration = 10.seconds            -- the whole LLM answer of the engine (typing action, completion, delivery); an answer
                                               -- still running after this is cancelled and dropped silently
     provider_timeout: Duration = 4.seconds    -- #1587: one provider call is abandoned after this; the timeout is recorded as a

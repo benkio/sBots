@@ -28,17 +28,26 @@ class LlmClientSpec extends CatsEffectSuite {
   private def structured(text: String): Json =
     Json.obj("action" -> Json.fromString("text"), "text" -> Json.fromString(text))
 
+  private def geminiOutput(raw: String): Json =
+    Json.obj(
+      "steps" -> Json.arr(
+        Json.obj(
+          "type"    -> Json.fromString("model_output"),
+          "content" -> Json.arr(Json.obj("type" -> Json.fromString("text"), "text" -> Json.fromString(raw)))
+        )
+      )
+    )
+
   private def geminiSuccess(text: String): Json =
     Json.obj(
-      "candidates" -> Json.arr(
+      "steps" -> Json.arr(
+        Json.obj("type" -> Json.fromString("thought")),
         Json.obj(
-          "content" -> Json.obj(
-            "parts" -> Json.arr(
-              Json.obj(
-                "text" -> Json.fromString(
-                  Printer.noSpaces.print(structured(text))
-                )
-              )
+          "type"    -> Json.fromString("model_output"),
+          "content" -> Json.arr(
+            Json.obj(
+              "type" -> Json.fromString("text"),
+              "text" -> Json.fromString(Printer.noSpaces.print(structured(text)))
             )
           )
         )
@@ -218,7 +227,9 @@ class LlmClientSpec extends CatsEffectSuite {
         assertEquals(completion.attempts.map(_.provider), List(LlmProvider.Gemini))
         assertEquals(completion.attempts.flatMap(_.result), List(ProviderResult.Success))
         assertEquals(hosts.toList, List(geminiHost))
-        assert(bodies.head.contains("responseSchema"), "the Gemini request did not ask for structured JSON")
+        assert(bodies.head.contains("response_format"), "the Gemini request did not ask for structured JSON")
+        assert(bodies.head.contains(""""store":false"""), "the Gemini request must not store the interaction")
+        assert(!bodies.head.contains("previous_interaction_id"), "the Gemini request must be stateless")
         assert(bodies.head.contains(prompt), "the Gemini request did not carry the prompt")
       }
   }
@@ -522,14 +533,8 @@ class LlmClientSpec extends CatsEffectSuite {
 
   test("a cut Gemini reply is answered with a truncated marker instead of a malformed failure") {
     val raw  = "{\"action\":\"text\",\"text\":\"Ciao ragazzi, parliamo di musica"
-    val body = Json.obj(
-      "candidates" -> Json.arr(
-        Json.obj(
-          "content"      -> Json.obj("parts" -> Json.arr(Json.obj("text" -> Json.fromString(raw)))),
-          "finishReason" -> Json.fromString("MAX_TOKENS")
-        )
-      ),
-      "modelVersion" -> Json.fromString("gemini-3.5-flash-lite")
+    val body = geminiOutput(raw).deepMerge(
+      Json.obj("status" -> Json.fromString("incomplete"), "model" -> Json.fromString("gemini-3.5-flash-lite"))
     )
     val client = Client.fromHttpApp(HttpApp[IO](_ => IO.pure(Response[IO](Status.Ok).withEntity(body))))
     LlmClients.build[IO](client, config("", "primary-provider = gemini\n")).flatMap(_.complete(prompt)).map {
@@ -544,11 +549,11 @@ class LlmClientSpec extends CatsEffectSuite {
 
   test("Gemini and OpenRouter usage is read from the response, absent counts stay absent") {
     val gemini = Json.obj(
-      "usageMetadata" -> Json.obj(
-        "promptTokenCount"        -> Json.fromInt(100),
-        "candidatesTokenCount"    -> Json.fromInt(7),
-        "thoughtsTokenCount"      -> Json.fromInt(3),
-        "cachedContentTokenCount" -> Json.fromInt(64)
+      "usage" -> Json.obj(
+        "total_input_tokens"   -> Json.fromInt(100),
+        "total_output_tokens"  -> Json.fromInt(7),
+        "total_thought_tokens" -> Json.fromInt(3),
+        "total_cached_tokens"  -> Json.fromInt(64)
       )
     )
     val openRouter = Json.obj(
@@ -571,10 +576,10 @@ class LlmClientSpec extends CatsEffectSuite {
   private def withGeminiUsage(body: Json, prompt: Int, candidates: Int, cached: Int): Json =
     body.deepMerge(
       Json.obj(
-        "usageMetadata" -> Json.obj(
-          "promptTokenCount"        -> Json.fromInt(prompt),
-          "candidatesTokenCount"    -> Json.fromInt(candidates),
-          "cachedContentTokenCount" -> Json.fromInt(cached)
+        "usage" -> Json.obj(
+          "total_input_tokens"  -> Json.fromInt(prompt),
+          "total_output_tokens" -> Json.fromInt(candidates),
+          "total_cached_tokens" -> Json.fromInt(cached)
         )
       )
     )
@@ -614,7 +619,7 @@ class LlmClientSpec extends CatsEffectSuite {
   test("a primary that bills tokens but returns unreadable output still counts, on top of the fallback's usage") {
     // Gemini: MAX_TOKENS with no text (unreadable) but usage; OpenRouter answers with its own usage
     val unreadable = withGeminiUsage(
-      body = Json.obj("candidates" -> Json.arr(Json.obj("finishReason" -> Json.fromString("MAX_TOKENS")))),
+      body = Json.obj("status" -> Json.fromString("incomplete")),
       prompt = 100,
       candidates = 1024,
       cached = 50
@@ -641,11 +646,7 @@ class LlmClientSpec extends CatsEffectSuite {
 
   test("a malformed structured reply keeps the usage the provider reported for it") {
     val malformed = withGeminiUsage(
-      body = Json.obj(
-        "candidates" -> Json.arr(
-          Json.obj("content" -> Json.obj("parts" -> Json.arr(Json.obj("text" -> Json.fromString("not json")))))
-        )
-      ),
+      body = geminiOutput("not json"),
       prompt = 10,
       candidates = 2,
       cached = 0
@@ -674,10 +675,10 @@ class LlmClientSpec extends CatsEffectSuite {
 
   test("Gemini's finish reason and token count diagnose a response without usable text") {
     val body = Json.obj(
-      "candidates"    -> Json.arr(Json.obj("finishReason" -> Json.fromString("MAX_TOKENS"))),
-      "usageMetadata" -> Json.obj("candidatesTokenCount" -> Json.fromInt(1024))
+      "status" -> Json.fromString("incomplete"),
+      "usage"  -> Json.obj("total_output_tokens" -> Json.fromInt(1024))
     )
-    assertEquals(GeminiClient.diagnose(body), Some("finish_reason=MAX_TOKENS candidates_tokens=1024"))
+    assertEquals(GeminiClient.diagnose(body), Some("status=incomplete output_tokens=1024"))
     assertEquals(GeminiClient.diagnose(Json.obj()), None)
   }
 
@@ -712,7 +713,7 @@ class LlmClientSpec extends CatsEffectSuite {
   }
 
   test("the model of Gemini's response is kept, and a very long reported model is capped") {
-    val gemini = geminiSuccess("ciao").deepMerge(Json.obj("modelVersion" -> Json.fromString("gemini-2.5-flash")))
+    val gemini = geminiSuccess("ciao").deepMerge(Json.obj("model" -> Json.fromString("gemini-2.5-flash")))
     val long   = openRouterSuccess("ciao").deepMerge(Json.obj("model" -> Json.fromString("m" * 500)))
     def answer(body: Json, primary: String) =
       LlmClients
@@ -767,7 +768,7 @@ class LlmClientSpec extends CatsEffectSuite {
       .map { completion =>
         assertEquals(completion.status, CompletionStatus.Answered)
         assertEquals(bodies.map(_._1).toList, List(geminiHost, openRouterHost))
-        assert(bodies.toList.head._2.contains("\"maxOutputTokens\":123"))
+        assert(bodies.toList.head._2.contains("\"max_output_tokens\":123"))
         assert(bodies.toList.last._2.contains("\"max_tokens\":123"))
         // no model configured: the free router
         assert(bodies.toList.last._2.contains("\"model\":\"openrouter/free\""))
@@ -1057,6 +1058,54 @@ class LlmClientSpec extends CatsEffectSuite {
     val schema = GeminiClient.responseSchema.hcursor
     assertEquals(schema.downField("properties").keys.map(_.toSet), Some(Set("text", "action", "replyId")))
     assertEquals(schema.get[List[String]]("required"), Right(List("action")))
+  }
+
+  test("Gemini text is read from the model_output steps only: thoughts and non-text items give nothing, text joins") {
+    def text(s: String)      = Json.obj("type" -> Json.fromString("text"), "text" -> Json.fromString(s))
+    def output(items: Json*) =
+      Json.obj("type" -> Json.fromString("model_output"), "content" -> Json.arr(items*))
+    def steps(ss: Json*) = Json.obj("steps" -> Json.arr(ss*))
+    assertEquals(GeminiClient.textOf(steps(Json.obj("type" -> Json.fromString("thought")))), None)
+    assertEquals(GeminiClient.textOf(steps(output(Json.obj("type" -> Json.fromString("image"))))), None)
+    assertEquals(GeminiClient.textOf(steps(output(text("a"), text("b")), output(text("c")))), Some("abc"))
+    assertEquals(GeminiClient.textOf(Json.obj()), None)
+  }
+
+  // The example Interaction of Google's API reference (aistudio.google.com/api-reference/interactions-api), ids and
+  // empty fields trimmed: an independent source for the response shape, unlike the fixtures built in this spec.
+  private val documentedInteraction: Json = io.circe.parser
+    .parse("""{
+             |  "object": "interaction",
+             |  "id": "v1_example",
+             |  "model": "gemini-3.8-flash",
+             |  "status": "completed",
+             |  "steps": [
+             |    {"type": "model_output", "content": [
+             |      {"type": "text", "text": "Hello! I'm doing well, functioning as expected. Thank you for asking! How are you doing today?"}
+             |    ]}
+             |  ],
+             |  "usage": {
+             |    "total_cached_tokens": 0, "total_input_tokens": 7, "total_output_tokens": 23,
+             |    "total_thought_tokens": 49, "total_tokens": 79, "total_tool_use_tokens": 0
+             |  }
+             |}""".stripMargin)
+    .fold(throw _, identity)
+
+  test("the documented Interaction response is read: text, usage with thoughts as output, status") {
+    assertEquals(
+      GeminiClient.textOf(documentedInteraction),
+      Some("Hello! I'm doing well, functioning as expected. Thank you for asking! How are you doing today?")
+    )
+    assertEquals(GeminiClient.usageOf(documentedInteraction), TokenUsage.of(Some(7), Some(23 + 49), Some(0)))
+    assertEquals(GeminiClient.diagnose(documentedInteraction), Some("status=completed output_tokens=23"))
+    assertEquals(documentedInteraction.hcursor.get[String]("model"), Right("gemini-3.8-flash"))
+  }
+
+  test("the Gemini model is the configured one, and the default when it is empty or blank") {
+    def conn(model: Option[String]) = ProviderConnection(endpoint = "https://g.example", model = model)
+    assertEquals(GeminiClient.modelFor(conn(None)), "gemini-flash-lite-latest")
+    assertEquals(GeminiClient.modelFor(conn(Some("  "))), "gemini-flash-lite-latest")
+    assertEquals(GeminiClient.modelFor(conn(Some(" gemini-x "))), "gemini-x")
   }
 
   test("the OpenRouter model is the configured one, and the free router when it is empty or blank") {
