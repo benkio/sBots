@@ -59,6 +59,18 @@ object OpenRouterClient {
     )
   }
 
+  /** OpenRouter reports the counts in `usage`: `prompt_tokens`, `completion_tokens` and, when the model caches,
+    * `prompt_tokens_details.cached_tokens`. Only these numbers are read, never the content.
+    */
+  private[llm] def usageOf(json: Json): Option[TokenUsage] = {
+    val usage = json.hcursor.downField("usage")
+    TokenUsage.of(
+      prompt = usage.get[Int]("prompt_tokens").toOption,
+      completion = usage.get[Int]("completion_tokens").toOption,
+      cached = usage.downField("prompt_tokens_details").get[Int]("cached_tokens").toOption
+    )
+  }
+
   def apply[F[_]: Concurrent](
       client: Client[F],
       connection: ProviderConnection,
@@ -79,7 +91,7 @@ object OpenRouterClient {
     override val provider: LlmProvider = LlmProvider.OpenRouter
 
     override def generate(value: String): F[ProviderResponse] =
-      ProviderHttp.post(client, buildRequest(uri, value), extractText, extractModel, diagnose)
+      ProviderHttp.post(client, buildRequest(uri, value), extractText, extractModel, diagnose, OpenRouterClient.usageOf)
 
     /** The reply text of OpenRouter lives at `choices[0].message.content`. */
     private val extractText: Json => Option[String] = json =>

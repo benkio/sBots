@@ -542,6 +542,136 @@ class LlmClientSpec extends CatsEffectSuite {
     }
   }
 
+  test("Gemini and OpenRouter usage is read from the response, absent counts stay absent") {
+    val gemini = Json.obj(
+      "usageMetadata" -> Json.obj(
+        "promptTokenCount"        -> Json.fromInt(100),
+        "candidatesTokenCount"    -> Json.fromInt(7),
+        "thoughtsTokenCount"      -> Json.fromInt(3),
+        "cachedContentTokenCount" -> Json.fromInt(64)
+      )
+    )
+    val openRouter = Json.obj(
+      "usage" -> Json.obj(
+        "prompt_tokens"         -> Json.fromInt(90),
+        "completion_tokens"     -> Json.fromInt(5),
+        "prompt_tokens_details" -> Json.obj("cached_tokens" -> Json.fromInt(32))
+      )
+    )
+    assertEquals(GeminiClient.usageOf(gemini), TokenUsage.of(Some(100), Some(7 + 3), Some(64)))
+    assertEquals(OpenRouterClient.usageOf(openRouter), TokenUsage.of(Some(90), Some(5), Some(32)))
+    assertEquals(
+      OpenRouterClient.usageOf(Json.obj("usage" -> Json.obj("prompt_tokens" -> Json.fromInt(9)))),
+      TokenUsage.of(Some(9), None, None)
+    )
+    assertEquals(GeminiClient.usageOf(Json.obj()), None)
+    assertEquals(OpenRouterClient.usageOf(Json.obj()), None)
+  }
+
+  private def withGeminiUsage(body: Json, prompt: Int, candidates: Int, cached: Int): Json =
+    body.deepMerge(
+      Json.obj(
+        "usageMetadata" -> Json.obj(
+          "promptTokenCount"        -> Json.fromInt(prompt),
+          "candidatesTokenCount"    -> Json.fromInt(candidates),
+          "cachedContentTokenCount" -> Json.fromInt(cached)
+        )
+      )
+    )
+
+  private def withOpenRouterUsage(body: Json, prompt: Int, completion: Int): Json =
+    body.deepMerge(
+      Json.obj(
+        "usage" -> Json.obj("prompt_tokens" -> Json.fromInt(prompt), "completion_tokens" -> Json.fromInt(completion))
+      )
+    )
+
+  test("usage of a stubbed 200 reaches the attempt for a parsed reply, and is absent when not reported") {
+    val gemini = withGeminiUsage(body = geminiSuccess("ciao"), prompt = 100, candidates = 7, cached = 64)
+    for {
+      reported <- completeWith(
+        chosen = LlmProvider.Gemini,
+        gemini = (Status.Ok, gemini),
+        openRouter = (Status.Ok, openRouterSuccess("x")),
+        hosts = ListBuffer.empty,
+        bodies = ListBuffer.empty
+      )
+      plain <- completeWith(
+        chosen = LlmProvider.Gemini,
+        gemini = (Status.Ok, geminiSuccess("ciao")),
+        openRouter = (Status.Ok, openRouterSuccess("x")),
+        hosts = ListBuffer.empty,
+        bodies = ListBuffer.empty
+      )
+    } yield {
+      assertEquals(reported.attempts.map(_.usage), List(TokenUsage.of(Some(100), Some(7), Some(64))))
+      assertEquals(LlmInteraction.reportedUsage(reported), TokenUsage.of(Some(100), Some(7), Some(64)))
+      assertEquals(plain.attempts.map(_.usage), List(None))
+      assertEquals(LlmInteraction.reportedUsage(plain), None)
+    }
+  }
+
+  test("a primary that bills tokens but returns unreadable output still counts, on top of the fallback's usage") {
+    // Gemini: MAX_TOKENS with no text (unreadable) but usage; OpenRouter answers with its own usage
+    val unreadable = withGeminiUsage(
+      body = Json.obj("candidates" -> Json.arr(Json.obj("finishReason" -> Json.fromString("MAX_TOKENS")))),
+      prompt = 100,
+      candidates = 1024,
+      cached = 50
+    )
+    completeWith(
+      chosen = LlmProvider.Gemini,
+      gemini = (Status.Ok, unreadable),
+      openRouter = (Status.Ok, withOpenRouterUsage(body = openRouterSuccess("bua"), prompt = 90, completion = 5)),
+      hosts = ListBuffer.empty,
+      bodies = ListBuffer.empty
+    ).map { completion =>
+      assertEquals(completion.status, CompletionStatus.Answered)
+      assertEquals(completion.attempts.flatMap(_.result), List(ProviderResult.MalformedJson, ProviderResult.Success))
+      assertEquals(
+        completion.attempts.map(_.usage),
+        List(
+          TokenUsage.of(Some(100), Some(1024), Some(50)),
+          TokenUsage.of(Some(90), Some(5), None)
+        )
+      )
+      assertEquals(LlmInteraction.reportedUsage(completion), TokenUsage.of(Some(190), Some(1029), Some(50)))
+    }
+  }
+
+  test("a malformed structured reply keeps the usage the provider reported for it") {
+    val malformed = withGeminiUsage(
+      body = Json.obj(
+        "candidates" -> Json.arr(
+          Json.obj("content" -> Json.obj("parts" -> Json.arr(Json.obj("text" -> Json.fromString("not json")))))
+        )
+      ),
+      prompt = 10,
+      candidates = 2,
+      cached = 0
+    )
+    completeWith(
+      chosen = LlmProvider.Gemini,
+      gemini = (Status.Ok, malformed),
+      openRouter = (Status.Ok, openRouterSuccess("bua")),
+      hosts = ListBuffer.empty,
+      bodies = ListBuffer.empty
+    ).map(completion =>
+      assertEquals(completion.attempts.headOption.flatMap(_.usage), TokenUsage.of(Some(10), Some(2), Some(0)))
+    )
+  }
+
+  test("acceptResponse records the response usage on the attempt of its provider") {
+    val usage    = TokenUsage.of(Some(5), Some(1), None)
+    val response = ProviderResponse.success(LlmReply("ciao", LlmAction.Text)).copy(usage = usage)
+    val accepted = Completion.acceptResponse(
+      Completion.started("p", LlmProvider.Gemini),
+      LlmProvider.Gemini,
+      response
+    )
+    assertEquals(accepted.attempts.map(_.usage), List(usage))
+  }
+
   test("Gemini's finish reason and token count diagnose a response without usable text") {
     val body = Json.obj(
       "candidates"    -> Json.arr(Json.obj("finishReason" -> Json.fromString("MAX_TOKENS"))),

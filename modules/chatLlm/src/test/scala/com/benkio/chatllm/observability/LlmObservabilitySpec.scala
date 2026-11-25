@@ -131,6 +131,43 @@ class LlmObservabilitySpec extends CatsEffectSuite {
     assertNotEquals(LlmInteraction.chatHash(chatId, "salt"), LlmInteraction.chatHash(chatId, "other"))
   }
 
+  test("provider-reported usage adds the appended keys; no usage keeps the old line shape") {
+    val usage    = TokenUsage.of(prompt = Some(468), completion = Some(12), cached = Some(380))
+    val answered = completion(
+      status = CompletionStatus.Answered,
+      reply = Some(LlmReply("Ciao!", LlmAction.Text)),
+      attempts = List(ProviderAttempt(LlmProvider.Gemini, Some(ProviderResult.Success), usage = usage)),
+      raw = Some(RawResponse(LlmProvider.Gemini, "{}", stripped = false))
+    )
+    def lineOf(c: Completion): IO[String] =
+      for {
+        traces <- Ref[IO].of(List.empty[LlmTrace])
+        lines  <- Ref.of[IO, List[String]](List.empty)
+        observer = LlmObserver[IO](new MemoryTraces(traces), traceEnabled = false, salt = "s", modelOf = _ => None)(
+          using
+          summon[cats.MonadThrow[IO]],
+          summon[cats.effect.Clock[IO]],
+          recordingLog(lines)
+        )
+        _ <- observer.observe(
+          LlmObservation(chatId, botId, "v1", "p", 1L, LlmOutcome.Completed(c, LlmDecision.Text("Ciao!"), false))
+        )
+        seen <- lines.get
+      } yield seen.find(_.contains("\"type\":\"llm_interaction\"")).getOrElse(fail(s"no llm_interaction line in $seen"))
+    for {
+      withUsage    <- lineOf(answered)
+      withoutUsage <- lineOf(answered.copy(attempts = ok))
+    } yield {
+      val json = io.circe.parser.parse(withUsage).fold(e => fail(e.getMessage), identity)
+      assertEquals(json.hcursor.get[Int]("prompt_tokens_reported"), Right(468))
+      assertEquals(json.hcursor.get[Int]("response_tokens_reported"), Right(12))
+      assertEquals(json.hcursor.get[Int]("cached_tokens"), Right(380))
+      assert(json.hcursor.get[Int]("prompt_tokens").isRight && withUsage.contains("\"response_tokens\""), withUsage)
+      assert(withUsage.endsWith("\"cached_tokens\":380}"), withUsage)
+      assert(!withoutUsage.contains("_reported") && !withoutUsage.contains("cached_tokens"), withoutUsage)
+    }
+  }
+
   test("the truncated marker comes from the raw response and is absent for an ordinary reply") {
     val answered = completion(
       status = CompletionStatus.Answered,

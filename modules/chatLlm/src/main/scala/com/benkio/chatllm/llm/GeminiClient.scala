@@ -42,6 +42,23 @@ object GeminiClient {
     Option.when(parts.nonEmpty)(parts.mkString(" "))
   }
 
+  /** Gemini reports the counts in `usageMetadata`: `promptTokenCount` (which includes the cached part),
+    * `candidatesTokenCount`, `thoughtsTokenCount` (thinking models: billed as output but not in the candidates count,
+    * so it is added to the completion count) and `cachedContentTokenCount`. Only these numbers are read, never the
+    * content.
+    */
+  private[llm] def usageOf(json: Json): Option[TokenUsage] = {
+    val usage = json.hcursor.downField("usageMetadata")
+    TokenUsage.of(
+      prompt = usage.get[Int]("promptTokenCount").toOption,
+      completion = {
+        val counts = List("candidatesTokenCount", "thoughtsTokenCount").flatMap(usage.get[Int](_).toOption)
+        Option.when(counts.nonEmpty)(counts.sum)
+      },
+      cached = usage.get[Int]("cachedContentTokenCount").toOption
+    )
+  }
+
   def apply[F[_]: Concurrent](
       client: Client[F],
       connection: ProviderConnection,
@@ -61,7 +78,14 @@ object GeminiClient {
     override val provider: LlmProvider = LlmProvider.Gemini
 
     override def generate(value: String): F[ProviderResponse] =
-      ProviderHttp.post(client, buildRequest(uri, value), extractText, extractModel, diagnose = diagnose)
+      ProviderHttp.post(
+        client,
+        buildRequest(uri, value),
+        extractText,
+        extractModel,
+        diagnose = diagnose,
+        extractUsage = GeminiClient.usageOf
+      )
 
     /** The reply text of Gemini lives at `candidates[0].content.parts[0].text`. */
     private val extractText: Json => Option[String] = json =>

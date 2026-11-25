@@ -151,6 +151,7 @@ object LlmObserver {
           case LlmOutcome.ClientFailed(reason)      => base.copy(failure = Some(s"client_error:$reason"))
           case LlmOutcome.Cancelled                 => base.copy(status = "cancelled", failure = Some("cancelled"))
           case LlmOutcome.CancelledAfterAttempts(c) =>
+            val usage = LlmInteraction.reportedUsage(c)
             base.copy(
               status = "cancelled",
               // a retained provider timeout is the cause worth querying; without one it stays a plain cancel
@@ -160,10 +161,14 @@ object LlmObserver {
               fallback = LlmInteraction.usedFallback(c),
               providerErrors = LlmInteraction.providerErrors(c),
               geminiMs = LlmInteraction.providerLatencyMs(c, LlmProvider.Gemini),
-              openRouterMs = LlmInteraction.providerLatencyMs(c, LlmProvider.OpenRouter)
+              openRouterMs = LlmInteraction.providerLatencyMs(c, LlmProvider.OpenRouter),
+              promptTokensReported = usage.flatMap(_.prompt),
+              responseTokensReported = usage.flatMap(_.completion),
+              cachedTokens = usage.flatMap(_.cached)
             )
           case LlmOutcome.Completed(c, decision, reuseOffered) =>
             val (action, reused) = LlmInteraction.actionOf(decision, reuseOffered)
+            val usage            = LlmInteraction.reportedUsage(c)
             base.copy(
               // the model the provider says it used (the free router picks one per request), else the configured one
               model = LlmInteraction
@@ -181,6 +186,9 @@ object LlmObserver {
               parsed = c.reply.isDefined,
               stripped = c.raw.exists(_.stripped),
               truncated = c.raw.exists(_.truncated),
+              promptTokensReported = usage.flatMap(_.prompt),
+              responseTokensReported = usage.flatMap(_.completion),
+              cachedTokens = usage.flatMap(_.cached),
               localRejection = c.localRejection.map(_.label),
               providerErrors = LlmInteraction.providerErrors(c),
               providerErrorMessage = LlmInteraction.providerErrorMessage(c),
