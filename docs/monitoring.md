@@ -105,7 +105,8 @@ class only; neither a logging failure nor a busy database can drop the other rec
 - Tokens are estimates (4 characters per token): the providers report no usage through the client boundary.
 - `status`: `answered`, `failed`, `silent` (quota), `pending`, `error` (the client call threw) or `cancelled` (the call was
   cancelled before it ended: the engine timeout, a shutdown). A cancel during the client call keeps the `attempts` and
-  `*_ms` of the provider calls that had already finished (a primary timeout before the fallback was cancelled).
+  `*_ms` of the provider calls that had already finished (a primary timeout before the fallback was cancelled); then
+  `failure` is `timeout` (status stays `cancelled`), otherwise `cancelled`.
 - `failure`: `oversized_prompt`, `missing_credentials` (local rejections, no provider asked), `quota_exhausted` (both
   providers, or the fallback after a retryable primary failure), the result of the last provider call (`ratelimited`,
   `servererror`, `timeout` (the last provider call went over `llm.provider-timeout`; a primary timeout that the fallback answered leaves `failure` out, look for `timeout` in `attempts` instead), `rejected`, `malformedjson`), `success_without_reply` (a 200 with no structured reply),

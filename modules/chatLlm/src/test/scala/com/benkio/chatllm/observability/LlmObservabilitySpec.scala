@@ -554,7 +554,8 @@ class LlmObservabilitySpec extends CatsEffectSuite {
     } yield {
       assertEquals(all.map(_.outcome), List(LlmOutcome.CancelledAfterAttempts(afterTimeout)))
       val line = seen.find(_.contains("\"type\":\"llm_interaction\"")).getOrElse(fail(seen.toString))
-      assert(line.contains("\"failure\":\"cancelled\""), line)
+      assert(line.contains("\"status\":\"cancelled\""), line)
+      assert(line.contains("\"failure\":\"timeout\""), line)
       assert(line.contains("gemini:timeout"), line)
       assert(line.contains("\"gemini_ms\":4000"), line)
     }

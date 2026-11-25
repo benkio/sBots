@@ -314,8 +314,8 @@ editing the file.
   defaults a primary that /times out/ leaves about 6s for one fallback attempt. A timeout still spends the quota of the
   provider that was called. In the ~llm_interaction~ log, ~attempts~ holds the per-provider results (for example
   ~gemini:timeout,openrouter:success~, with ~gemini_ms~/~openrouter_ms~), while ~failure~ is the final outcome of the
-  completion: a primary timeout followed by a fallback success *omits* ~failure~, and ~failure=timeout~ appears only when
-  the last provider call timed out. When the engine's ~LLM_TIMEOUT~ cancels the answer (~failure=cancelled~), the line keeps the attempts and the ~gemini_ms~/~openrouter_ms~ that had finished before the cancel (a primary timeout recorded before the fallback was cancelled); the call in flight at that moment has no entry. To find primary timeouts, inspect ~attempts~ (it contains ~gemini:timeout~ or ~openrouter:timeout~),
+  completion: a primary timeout followed by a fallback success *omits* ~failure~, and ~failure=timeout~ appears when
+  the last provider call timed out (or, with ~status=cancelled~, when a timeout preceded the cancel). When the engine's ~LLM_TIMEOUT~ cancels the answer the line has ~status=cancelled~ and ~failure=cancelled~, or ~failure=timeout~ when a provider timeout had already been recorded before the cancel; it keeps the attempts and the ~gemini_ms~/~openrouter_ms~ that had finished before the cancel (a primary timeout recorded before the fallback was cancelled); the call in flight at that moment has no entry. To find primary timeouts, inspect ~attempts~ (it contains ~gemini:timeout~ or ~openrouter:timeout~),
   do not filter on ~failure=timeout~. Do not fix a slow provider by raising ~LLM_TIMEOUT~ alone: the user waits that long. Size ~LLM_PROVIDER_TIMEOUT~
   for the slowest provider you rely on and keep room for the fallback below ~LLM_TIMEOUT~.
 

@@ -153,7 +153,9 @@ object LlmObserver {
           case LlmOutcome.CancelledAfterAttempts(c) =>
             base.copy(
               status = "cancelled",
-              failure = Some("cancelled"),
+              // a retained provider timeout is the cause worth querying; without one it stays a plain cancel
+              failure =
+                Some(if c.attempts.exists(_.result.contains(ProviderResult.Timeout)) then "timeout" else "cancelled"),
               attempts = LlmInteraction.attemptLabels(c),
               fallback = LlmInteraction.usedFallback(c),
               providerErrors = LlmInteraction.providerErrors(c),
