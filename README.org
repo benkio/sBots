@@ -257,6 +257,11 @@ that states none.
   or is out of quota. With the defaults that is Google first, OpenRouter second: OpenRouter's free daily quota is smaller,
   so it is kept as the fallback. The prompt holds the persona, the candidate replies, the recent conversation of the chat
   and the message.
+- *Gemini is called through the Interactions API* (the successor of the legacy ~generateContent~, decided in #1591).
+  The API stores interactions by default (1 day on the free tier, up to 55 days on paid ones); every request sets
+  ~store=false~ and never sends ~previous_interaction_id~, so the call is a stateless one-shot. Do not remove
+  ~store=false~ without an explicit privacy decision. The model is ~GEMINI_MODEL~ (default ~gemini-flash-lite-latest~)
+  and ~GEMINI_ENDPOINT~ must be the ~/v1beta/interactions~ URL: an old override pointing at ~:generateContent~ breaks.
 - Senders are never sent: each one is a salted hash (~user-ab12cd34~), mentions and usernames are replaced by a generic
   label. The salt is ~LLM_CONTEXT_AUTHOR_SALT~: keep it secret and stable.
 - The conversation is kept in the ~llm_context~ table for ~LLM_CONTEXT_TTL~ (default 7 days) and only while the switch is on;
