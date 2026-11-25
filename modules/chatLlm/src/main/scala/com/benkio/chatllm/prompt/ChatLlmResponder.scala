@@ -56,14 +56,16 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
     for {
       started <- Clock[F].monotonic
       phase   <- Ref.of[F, ResponderPhase](ResponderPhase.Typing)
+      partial <- Ref.of[F, Option[Completion]](None)
       // A cancelled interaction (the engine's own timeout, a shutdown) is recorded exactly once, whatever the phase: the
       // success and error paths never run for it. The cancellation itself is preserved, and it does not wait for the
       // recording: the observation (which can write to the trace table) runs in its own fiber, so a slow database
       // cannot delay the timeout recovery and the release of the chat claim in the engine.
-      reply <- run(msg = msg, candidates = candidates, typing = typing, phase = phase).onCancel(
+      reply <- run(msg = msg, candidates = candidates, typing = typing, phase = phase, partial = partial).onCancel(
         for {
           now      <- Clock[F].monotonic
           snapshot <- phase.get
+          attempts <- partial.get
           // once `Done`, the success or failure path owns the record and a cancel writes no `cancelled` one
           _ <- ResponderPhase
             .cancelled(snapshot)
@@ -72,23 +74,40 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
                 msg = msg,
                 prompt = prompt,
                 phase = label,
-                latencyMs = (now - started).toMillis
+                latencyMs = (now - started).toMillis,
+                attempts = attempts
               ).start.void
             )
         } yield ()
       )
     } yield reply
 
-  private def observeCancelled(msg: Message, prompt: String, phase: String, latencyMs: Long): F[Unit] =
+  private def observeCancelled(
+      msg: Message,
+      prompt: String,
+      phase: String,
+      latencyMs: Long,
+      attempts: Option[Completion]
+  ): F[Unit] =
     // the phase is a fixed label, never exception text or chat content
     LogWriter.info(s"[ChatLlmResponder] ${msg.chatId}: cancelled during $phase").handleError(_ => ()) *>
-      observe(msg = msg, prompt = prompt, latencyMs = latencyMs, outcome = LlmOutcome.Cancelled)
+      observe(
+        msg = msg,
+        prompt = prompt,
+        latencyMs = latencyMs,
+        outcome = attempts
+          .filter(_.attempts.nonEmpty)
+          .fold[LlmOutcome](LlmOutcome.Cancelled)(
+            LlmOutcome.CancelledAfterAttempts(_)
+          )
+      )
 
   private def run(
       msg: Message,
       candidates: List[ReplyBundleMessage],
       typing: F[Unit],
-      phase: Ref[F, ResponderPhase]
+      phase: Ref[F, ResponderPhase],
+      partial: Ref[F, Option[Completion]]
   ): F[Option[Reply]] = {
     // Only candidates the catalogue describes can be offered, and only when their id is unambiguous: a bundle without
     // a text trigger, or sharing its id with another candidate, could make a reuse send the wrong reply.
@@ -118,7 +137,7 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
       prompt = builder.build(persona, entries, window, msg)
       _         <- phase.set(ResponderPhase.Calling(prompt))
       clientAt  <- Clock[F].monotonic
-      attempted <- client.complete(prompt).attempt
+      attempted <- client.complete(prompt, c => partial.set(Some(c))).attempt
       finished  <- Clock[F].monotonic
       latency = (finished - clientAt).toMillis
       reply <- attempted match {

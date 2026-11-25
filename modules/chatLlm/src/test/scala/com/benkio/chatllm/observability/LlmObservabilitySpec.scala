@@ -515,6 +515,51 @@ class LlmObservabilitySpec extends CatsEffectSuite {
     }
   }
 
+  test("a call cancelled after a primary timeout keeps the attempt and its timing (#1587)") {
+    val afterTimeout = Completion.acceptResponse(
+      Completion.started("p", LlmProvider.Gemini),
+      LlmProvider.Gemini,
+      ProviderResponse.timeout,
+      Some(4000L)
+    )
+    for {
+      seen    <- Ref[IO].of(List.empty[LlmObservation])
+      started <- cats.effect.Deferred[IO, Unit]
+      responder = new ChatLlmResponder[IO](
+        client = new LlmClientApi[IO] {
+          def complete(prompt: String): IO[Completion]                                            = IO.never[Completion]
+          override def complete(prompt: String, progress: Completion => IO[Unit]): IO[Completion] =
+            progress(afterTimeout) *> started.complete(()) *> IO.never[Completion]
+        },
+        context = context,
+        builder = PromptBuilder(500).fold(e => fail(e), identity),
+        botId = botId,
+        persona = "persona",
+        catalogue = catalogue,
+        observer = Some(new LlmObserver[IO] { def observe(o: LlmObservation): IO[Unit] = seen.update(_ :+ o) })
+      )
+      fiber  <- responder.respond(msg, List(greeting)).start
+      _      <- started.get
+      _      <- fiber.cancel
+      all    <- seen.get.iterateUntil(_.nonEmpty).timeout(2.seconds)
+      traces <- Ref[IO].of(List.empty[LlmTrace])
+      lines  <- Ref.of[IO, List[String]](List.empty)
+      observer = LlmObserver[IO](new MemoryTraces(traces), traceEnabled = false, salt = "s", modelOf = _ => None)(using
+        summon[cats.MonadThrow[IO]],
+        summon[cats.effect.Clock[IO]],
+        recordingLog(lines)
+      )
+      _    <- all.foldLeft(IO.unit)((acc, o) => acc *> observer.observe(o))
+      seen <- lines.get
+    } yield {
+      assertEquals(all.map(_.outcome), List(LlmOutcome.CancelledAfterAttempts(afterTimeout)))
+      val line = seen.find(_.contains("\"type\":\"llm_interaction\"")).getOrElse(fail(seen.toString))
+      assert(line.contains("\"failure\":\"cancelled\""), line)
+      assert(line.contains("gemini:timeout"), line)
+      assert(line.contains("\"gemini_ms\":4000"), line)
+    }
+  }
+
   private def cancelledBefore(
       typing: IO[Unit],
       prompts: IO[String],

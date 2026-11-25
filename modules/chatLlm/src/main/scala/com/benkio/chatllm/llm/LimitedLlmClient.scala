@@ -28,6 +28,9 @@ object LimitedLlmClient {
     new LlmClientApi[F] {
 
       override def complete(prompt: String): F[Completion] =
+        complete(prompt, _ => Async[F].unit)
+
+      override def complete(prompt: String, progress: Completion => F[Unit]): F[Completion] =
         for {
           provider <- Async[F].fromEither(
             LlmConfig.primary(config).leftMap(msg => new IllegalArgumentException(msg))
@@ -55,7 +58,7 @@ object LimitedLlmClient {
             )
             else
               underlying
-                .complete(prompt)
+                .complete(prompt, progress)
                 .flatMap(completion => report(completion).as(completion))
                 .handleErrorWith { error =>
                   // Only provider timeouts have already become terminal results. Anything else is unexpected:

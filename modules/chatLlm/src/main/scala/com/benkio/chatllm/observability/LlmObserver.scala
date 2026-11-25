@@ -22,6 +22,11 @@ enum LlmOutcome {
 
   /** The interaction was cancelled before it ended (the engine's timeout, a shutdown): no completion, no decision. */
   case Cancelled
+
+  /** Cancelled during the client call after some provider attempts had finished: the interaction keeps them (a primary
+    * timeout recorded before the fallback was cancelled), with their timings.
+    */
+  case CancelledAfterAttempts(partial: Completion)
 }
 
 /** What the responder knows about one finished interaction. */
@@ -95,9 +100,10 @@ object LlmObserver {
                   action = interaction.action.label,
                   prompt = o.prompt,
                   response = o.outcome match {
-                    case LlmOutcome.Completed(c, _, _) => c.raw.map(_.text)
-                    case LlmOutcome.ClientFailed(_)    => None
-                    case LlmOutcome.Cancelled          => None
+                    case LlmOutcome.Completed(c, _, _)        => c.raw.map(_.text)
+                    case LlmOutcome.ClientFailed(_)           => None
+                    case LlmOutcome.Cancelled                 => None
+                    case LlmOutcome.CancelledAfterAttempts(_) => None
                   }
                 )
               )
@@ -142,8 +148,18 @@ object LlmObserver {
           openRouterMs = None
         )
         o.outcome match {
-          case LlmOutcome.ClientFailed(reason) => base.copy(failure = Some(s"client_error:$reason"))
-          case LlmOutcome.Cancelled            => base.copy(status = "cancelled", failure = Some("cancelled"))
+          case LlmOutcome.ClientFailed(reason)      => base.copy(failure = Some(s"client_error:$reason"))
+          case LlmOutcome.Cancelled                 => base.copy(status = "cancelled", failure = Some("cancelled"))
+          case LlmOutcome.CancelledAfterAttempts(c) =>
+            base.copy(
+              status = "cancelled",
+              failure = Some("cancelled"),
+              attempts = LlmInteraction.attemptLabels(c),
+              fallback = LlmInteraction.usedFallback(c),
+              providerErrors = LlmInteraction.providerErrors(c),
+              geminiMs = LlmInteraction.providerLatencyMs(c, LlmProvider.Gemini),
+              openRouterMs = LlmInteraction.providerLatencyMs(c, LlmProvider.OpenRouter)
+            )
           case LlmOutcome.Completed(c, decision, reuseOffered) =>
             val (action, reused) = LlmInteraction.actionOf(decision, reuseOffered)
             base.copy(
