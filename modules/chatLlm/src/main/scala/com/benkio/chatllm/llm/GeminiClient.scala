@@ -69,6 +69,20 @@ object GeminiClient {
     )
   }
 
+  /** The reply text lives in the `model_output` steps of `steps`, as the `text` items of their `content`, joined in
+    * order: thought and other steps are skipped.
+    */
+  private[llm] def textOf(json: Json): Option[String] =
+    for {
+      steps <- json.asObject.flatMap(_("steps")).flatMap(_.asArray)
+      texts = steps
+        .filter(_.hcursor.get[String]("type").contains("model_output"))
+        .flatMap(_.hcursor.get[Vector[Json]]("content").getOrElse(Vector.empty))
+        .filter(_.hcursor.get[String]("type").contains("text"))
+        .flatMap(_.hcursor.get[String]("text").toOption)
+      if texts.nonEmpty
+    } yield texts.mkString
+
   def apply[F[_]: Concurrent](
       client: Client[F],
       connection: ProviderConnection,
@@ -92,25 +106,11 @@ object GeminiClient {
       ProviderHttp.post(
         client,
         buildRequest(uri, value),
-        extractText,
+        textOf,
         extractModel,
         diagnose = diagnose,
         extractUsage = GeminiClient.usageOf
       )
-
-    /** The reply text lives in the first `model_output` step of `steps`, as the `text` items of its `content`: thought
-      * steps are skipped.
-      */
-    private val extractText: Json => Option[String] = json =>
-      for {
-        steps  <- json.asObject.flatMap(_("steps")).flatMap(_.asArray)
-        output <- steps.find(_.hcursor.get[String]("type").contains("model_output"))
-        items  <- output.asObject.flatMap(_("content")).flatMap(_.asArray)
-        texts = items
-          .filter(_.hcursor.get[String]("type").contains("text"))
-          .flatMap(_.hcursor.get[String]("text").toOption)
-        if texts.nonEmpty
-      } yield texts.mkString
 
     /** The interaction reports the model that served the request at the top level `model`. */
     private val extractModel: Json => Option[String] = json => json.asObject.flatMap(_("model")).flatMap(_.asString)

@@ -61,6 +61,8 @@ class ConfigSpec extends CatsEffectSuite {
       assertEquals(config.llm.maxOutputTokens, 1024)
       assertEquals(config.llm.gemini.quota.maxPerMinute, 20)
       assertEquals(config.llm.gemini.quota.maxPerDay, 50)
+      assert(config.llm.gemini.endpoint.endsWith("/v1beta/interactions"), config.llm.gemini.endpoint)
+      assertEquals(com.benkio.chatllm.llm.GeminiClient.modelFor(config.llm.gemini), "gemini-flash-lite-latest")
       assertEquals(config.llm.openrouter.quota.maxPerMinute, 20)
       assertEquals(config.llm.openrouter.quota.maxPerDay, 50)
     }

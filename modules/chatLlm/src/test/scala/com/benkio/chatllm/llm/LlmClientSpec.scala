@@ -1060,6 +1060,17 @@ class LlmClientSpec extends CatsEffectSuite {
     assertEquals(schema.get[List[String]]("required"), Right(List("action")))
   }
 
+  test("Gemini text is read from the model_output steps only: thoughts and non-text items give nothing, text joins") {
+    def text(s: String)      = Json.obj("type" -> Json.fromString("text"), "text" -> Json.fromString(s))
+    def output(items: Json*) =
+      Json.obj("type" -> Json.fromString("model_output"), "content" -> Json.arr(items*))
+    def steps(ss: Json*) = Json.obj("steps" -> Json.arr(ss*))
+    assertEquals(GeminiClient.textOf(steps(Json.obj("type" -> Json.fromString("thought")))), None)
+    assertEquals(GeminiClient.textOf(steps(output(Json.obj("type" -> Json.fromString("image"))))), None)
+    assertEquals(GeminiClient.textOf(steps(output(text("a"), text("b")), output(text("c")))), Some("abc"))
+    assertEquals(GeminiClient.textOf(Json.obj()), None)
+  }
+
   test("the Gemini model is the configured one, and the default when it is empty or blank") {
     def conn(model: Option[String]) = ProviderConnection(endpoint = "https://g.example", model = model)
     assertEquals(GeminiClient.modelFor(conn(None)), "gemini-flash-lite-latest")
