@@ -101,12 +101,19 @@ class LimitedLlmClientSpec extends CatsEffectSuite {
   test("the default config has a timeout, token limits and per-provider quotas") {
     val cfg = config("")
     assertEquals(cfg.timeout, 10.seconds)
+    assertEquals(cfg.providerTimeout, 4.seconds)
     assertEquals(cfg.maxInputTokens, 18432)
     assertEquals(cfg.maxOutputTokens, 512)
     assertEquals(cfg.gemini.quota, LlmBudgetConfig(20, 50))
     assertEquals(cfg.openrouter.quota, LlmBudgetConfig(20, 50))
     assertEquals(cfg.context, LlmContextConfig(authorSalt = Sensitive("test-salt")))
     assertEquals(LlmConfig.validate(cfg), Right(()))
+  }
+
+  test("a provider timeout that is not shorter than the total timeout is rejected (#1587)") {
+    val error = LlmConfig.validate(config("provider-timeout = 10 seconds\n")).left.toOption
+    assert(clue(error).exists(_.contains("llm.provider-timeout")))
+    assert(LlmConfig.validate(config("provider-timeout = 0 seconds\n")).isLeft)
   }
 
   // obligation: contract.LlmContextWindow.BoundedWindow, contract.LlmContextWindow.TtlPurge

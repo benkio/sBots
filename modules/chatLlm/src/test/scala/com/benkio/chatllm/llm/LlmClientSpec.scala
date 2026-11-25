@@ -781,7 +781,7 @@ class LlmClientSpec extends CatsEffectSuite {
           IO.pure(Response[IO](Status.NotFound).withEntity(Json.obj()))
       }
     })
-    val cfg = config("primary-provider = gemini\ntimeout = 10 milliseconds\n")
+    val cfg = config("primary-provider = gemini\nprovider-timeout = 10 milliseconds\ntimeout = 5 seconds\n")
     for {
       notifier   <- NotifierMock.recording
       llm        <- LlmClients.build[IO](client, cfg, notifier)
@@ -802,6 +802,37 @@ class LlmClientSpec extends CatsEffectSuite {
     }
   }
 
+  test("a hanging primary leaves the rest of the answer budget to the fallback (#1587)") {
+    val client = Client.fromHttpApp(HttpApp[IO] { request =>
+      request.uri.host.map(_.value).getOrElse("") match {
+        case `geminiHost`     => IO.never
+        case `openRouterHost` =>
+          IO.sleep(10.millis).as(Response[IO](Status.Ok).withEntity(openRouterSuccess("ok")))
+        case _ => IO.pure(Response[IO](Status.NotFound).withEntity(Json.obj()))
+      }
+    })
+    val cfg = config("primary-provider = gemini\nprovider-timeout = 50 milliseconds\ntimeout = 5 seconds\n")
+    for {
+      llm        <- LlmClients.build[IO](client, cfg)
+      completion <- llm.complete(prompt).timeout(cfg.timeout)
+    } yield {
+      assertEquals(completion.status, CompletionStatus.Answered)
+      assertEquals(
+        completion.attempts.map(a => (a.provider, a.result)),
+        List((LlmProvider.Gemini, Some(ProviderResult.Timeout)), (LlmProvider.OpenRouter, Some(ProviderResult.Success)))
+      )
+    }
+  }
+
+  test("the whole-answer timeout cancels the call when both providers hang (#1587)") {
+    val client = Client.fromHttpApp(HttpApp[IO](_ => IO.never))
+    val cfg    = config("primary-provider = gemini\nprovider-timeout = 200 milliseconds\ntimeout = 300 milliseconds\n")
+    for {
+      llm    <- LlmClients.build[IO](client, cfg)
+      result <- llm.complete(prompt).timeout(cfg.timeout).attempt
+    } yield assert(clue(result).left.exists(_.isInstanceOf[java.util.concurrent.TimeoutException]))
+  }
+
   test("a timeout after a primary 429 fails with both attempts recorded") {
     // obligation: rule-success.RetryableProviderFailureFallsBack
     // obligation: rule-success.CompletionFailsAfterFallbackExhausted
@@ -819,7 +850,7 @@ class LlmClientSpec extends CatsEffectSuite {
       }
     })
     // wide enough for the 429 (its error body is read and parsed) to finish on a slow runner, far below the fallback
-    val cfg = config("primary-provider = gemini\ntimeout = 250 milliseconds\n")
+    val cfg = config("primary-provider = gemini\nprovider-timeout = 250 milliseconds\ntimeout = 5 seconds\n")
     for {
       notifier   <- NotifierMock.recording
       llm        <- LlmClients.build[IO](client, cfg, notifier)

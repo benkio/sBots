@@ -87,6 +87,7 @@ final case class LlmConfig(
     openrouter: ProviderConnection,
     primaryProvider: Option[String] = None,
     timeout: FiniteDuration = LlmConfig.defaultTimeout,
+    providerTimeout: FiniteDuration = LlmConfig.defaultProviderTimeout,
     maxInputTokens: Int = LlmConfig.defaultMaxInputTokens,
     maxOutputTokens: Int = LlmConfig.defaultMaxOutputTokens,
     context: LlmContextConfig = LlmContextConfig(),
@@ -133,11 +134,12 @@ object LlmContextConfig {
 
 object LlmConfig {
 
-  val defaultTimeout: FiniteDuration = com.benkio.chatcore.llm.LlmEngine.defaultTimeout
-  val defaultMaxInputTokens: Int     = 18432
-  val defaultMaxOutputTokens: Int    = 512
-  val defaultMaxPerMinute: Int       = 20
-  val defaultMaxPerDay: Int          = 50
+  val defaultTimeout: FiniteDuration         = com.benkio.chatcore.llm.LlmEngine.defaultTimeout
+  val defaultProviderTimeout: FiniteDuration = 4.seconds
+  val defaultMaxInputTokens: Int             = 18432
+  val defaultMaxOutputTokens: Int            = 512
+  val defaultMaxPerMinute: Int               = 20
+  val defaultMaxPerDay: Int                  = 50
 
   /** The primary provider is the one asked first; each provider's own quota governs whether it may be called. */
   def primary(config: LlmConfig): Either[String, LlmProvider] =
@@ -167,6 +169,12 @@ object LlmConfig {
   def validate(config: LlmConfig): Either[String, Unit] = {
     val problems = List(
       if config.timeout.length <= 0 then Some("llm.timeout must be positive") else None,
+      if config.providerTimeout.length <= 0 then Some("llm.provider-timeout must be positive")
+      else if config.providerTimeout >= config.timeout then Some(
+        s"llm.provider-timeout (${config.providerTimeout}) must be shorter than llm.timeout (${config.timeout}): " +
+          "otherwise a timed-out primary leaves no time for the fallback"
+      )
+      else None,
       if config.maxInputTokens <= 0 then Some("llm.max-input-tokens must be positive") else None,
       if config.maxOutputTokens <= 0 then Some("llm.max-output-tokens must be positive") else None,
       if config.gemini.quota.maxPerMinute <= 0 then Some("llm.gemini.quota.max-per-minute must be positive") else None,

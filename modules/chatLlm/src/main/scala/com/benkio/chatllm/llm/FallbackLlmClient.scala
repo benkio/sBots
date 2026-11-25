@@ -32,10 +32,18 @@ object FallbackLlmClient {
   ) extends LlmClientApi[F] {
 
     override def complete(prompt: String): F[Completion] =
+      complete(prompt, _ => Temporal[F].unit)
+
+    override def complete(prompt: String, progress: Completion => F[Unit]): F[Completion] =
       limiter.acquire(primary.provider).flatMap {
         case RateLimitDecision.Allowed =>
-          ask(completion = Completion.started(prompt, primary.provider), client = primary, prompt = prompt)
-            .flatMap(afterPrimary(_, prompt))
+          ask(
+            completion = Completion.started(prompt, primary.provider),
+            client = primary,
+            prompt = prompt,
+            progress = progress
+          )
+            .flatMap(afterPrimary(_, prompt, progress))
         case RateLimitDecision.Exhausted(_) =>
           // Primary quota exhausted: skip it and ask the fallback, if it still has budget.
           limiter.acquire(fallback.provider).flatMap {
@@ -43,7 +51,8 @@ object FallbackLlmClient {
               ask(
                 completion = Completion.startedWith(prompt, primary.provider, fallback.provider),
                 client = fallback,
-                prompt = prompt
+                prompt = prompt,
+                progress = progress
               )
             case RateLimitDecision.Exhausted(_) =>
               // Neither provider can be called: no request, no reply.
@@ -54,17 +63,26 @@ object FallbackLlmClient {
     /** The primary has answered: retry against the fallback only when the completion is still pending and the fallback
       * has quota. An exhausted fallback leaves a failed completion recording only the call that really happened.
       */
-    private def afterPrimary(completion: Completion, prompt: String): F[Completion] =
+    private def afterPrimary(completion: Completion, prompt: String, progress: Completion => F[Unit]): F[Completion] =
       completion.status match {
         case CompletionStatus.Pending =>
           limiter.acquire(fallback.provider).flatMap {
-            case RateLimitDecision.Allowed      => ask(completion = completion, client = fallback, prompt = prompt)
+            case RateLimitDecision.Allowed =>
+              ask(completion = completion, client = fallback, prompt = prompt, progress = progress)
             case RateLimitDecision.Exhausted(_) => Completion.failUnresolved(completion).pure[F]
           }
         case _ => completion.pure[F]
       }
 
-    private def ask(completion: Completion, client: LlmProviderClientApi[F], prompt: String): F[Completion] =
+    private def ask(
+        completion: Completion,
+        client: LlmProviderClientApi[F],
+        prompt: String,
+        progress: Completion => F[Unit]
+    ): F[Completion] =
+      askProvider(completion = completion, client = client, prompt = prompt).flatTap(progress)
+
+    private def askProvider(completion: Completion, client: LlmProviderClientApi[F], prompt: String): F[Completion] =
       Temporal[F].monotonic.flatMap { start =>
         client.generate(prompt).timeout(timeout).attempt.flatMap { outcome =>
           Temporal[F].monotonic.map(end => Some((end - start).toMillis)).flatMap { took =>

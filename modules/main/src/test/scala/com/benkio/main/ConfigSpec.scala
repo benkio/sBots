@@ -56,6 +56,7 @@ class ConfigSpec extends CatsEffectSuite {
   test("Config.loadConfig should load the LLM section with its timeout, token limits and per-provider quotas") {
     Config.loadConfig[IO].map { config =>
       assertEquals(config.llm.timeout, 10.seconds)
+      assertEquals(config.llm.providerTimeout, 4.seconds)
       assertEquals(config.llm.maxInputTokens, 18432)
       assertEquals(config.llm.maxOutputTokens, 1024)
       assertEquals(config.llm.gemini.quota.maxPerMinute, 20)
