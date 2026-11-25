@@ -2,6 +2,7 @@ package com.benkio.chatcore.llm
 
 import cats.syntax.all.*
 import cats.Applicative
+import cats.FlatMap
 import com.benkio.chatcore.model.reply.Reply
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.Message
@@ -24,6 +25,15 @@ trait LlmResponder[F[_]] {
     *   the reply, or none when the responder does not answer (disabled, rate limited, failed)
     */
   def respond(msg: Message, candidates: List[ReplyBundleMessage]): F[Option[Reply]]
+
+  /** [[respond]] preceded by `typing`, the platform's typing action. Both run inside the engine's timeout, so a
+    * responder that observes its own cancellation overrides this to cover the typing phase too. A failing `typing` is
+    * the caller's to handle.
+    */
+  def respondAfter(msg: Message, candidates: List[ReplyBundleMessage], typing: F[Unit])(using
+      FlatMap[F]
+  ): F[Option[Reply]] =
+    typing.flatMap(_ => respond(msg, candidates))
 
   /** The engine hands over every plain message once it is handled, after [[respond]] if the LLM was asked, so the
     * message is not part of its own prompt. What is kept (and whether the chat enabled it) is up to the responder.

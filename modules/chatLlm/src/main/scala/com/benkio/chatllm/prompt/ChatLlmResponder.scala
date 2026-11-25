@@ -4,8 +4,10 @@ import cats.effect.syntax.monadCancel.*
 import cats.effect.syntax.spawn.*
 import cats.effect.Clock
 import cats.effect.Concurrent
+import cats.effect.Ref
 import cats.syntax.all.*
 import cats.Applicative
+import cats.FlatMap
 import cats.MonadThrow
 import com.benkio.chatcore.llm.LlmResponder
 import com.benkio.chatcore.model.reply.Reply
@@ -42,7 +44,52 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
 
   private val summaries: Map[String, CatalogueEntry] = catalogue.map(e => e.id -> e).toMap
 
-  override def respond(msg: Message, candidates: List[ReplyBundleMessage]): F[Option[Reply]] = {
+  override def respond(msg: Message, candidates: List[ReplyBundleMessage]): F[Option[Reply]] =
+    respondAfter(msg = msg, candidates = candidates, typing = Applicative[F].unit)
+
+  /** The typing action, the prompt and the client call are one sequence for the cancellation record: the engine's
+    * timeout can fire in any of them, and each would otherwise leave no interaction line.
+    */
+  override def respondAfter(msg: Message, candidates: List[ReplyBundleMessage], typing: F[Unit])(using
+      FlatMap[F]
+  ): F[Option[Reply]] =
+    for {
+      started <- Clock[F].monotonic
+      phase   <- Ref.of[F, ResponderPhase](ResponderPhase.Typing)
+      // A cancelled interaction (the engine's own timeout, a shutdown) is recorded exactly once, whatever the phase: the
+      // success and error paths never run for it. The cancellation itself is preserved, and it does not wait for the
+      // recording: the observation (which can write to the trace table) runs in its own fiber, so a slow database
+      // cannot delay the timeout recovery and the release of the chat claim in the engine.
+      reply <- run(msg = msg, candidates = candidates, typing = typing, phase = phase).onCancel(
+        for {
+          now      <- Clock[F].monotonic
+          snapshot <- phase.get
+          // once `Done`, the success or failure path owns the record and a cancel writes no `cancelled` one
+          _ <- ResponderPhase
+            .cancelled(snapshot)
+            .traverse_((label, prompt) =>
+              observeCancelled(
+                msg = msg,
+                prompt = prompt,
+                phase = label,
+                latencyMs = (now - started).toMillis
+              ).start.void
+            )
+        } yield ()
+      )
+    } yield reply
+
+  private def observeCancelled(msg: Message, prompt: String, phase: String, latencyMs: Long): F[Unit] =
+    // the phase is a fixed label, never exception text or chat content
+    LogWriter.info(s"[ChatLlmResponder] ${msg.chatId}: cancelled during $phase").handleError(_ => ()) *>
+      observe(msg = msg, prompt = prompt, latencyMs = latencyMs, outcome = LlmOutcome.Cancelled)
+
+  private def run(
+      msg: Message,
+      candidates: List[ReplyBundleMessage],
+      typing: F[Unit],
+      phase: Ref[F, ResponderPhase]
+  ): F[Option[Reply]] = {
     // Only candidates the catalogue describes can be offered, and only when their id is unambiguous: a bundle without
     // a text trigger, or sharing its id with another candidate, could make a reuse send the wrong reply.
     val withIds = candidates.flatMap(c => ReplyCatalogue.reusableId(c).filter(summaries.contains).map(_ -> c))
@@ -55,7 +102,9 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
       s"[ChatLlmResponder] ${msg.chatId}: ${candidates.size} candidates, ${offered.size} reusable, prompt ${builder.version}"
 
     (for {
+      _ <- typing
       _ <- LogWriter.info(candidatesLine)
+      _ <- phase.set(ResponderPhase.BuildingPrompt)
       // The prompt is built before the client call, so a failure here has no interaction line: log the phase and the
       // exception class (the message may hold chat content), then let the outer handler turn it into no reply.
       window <- context
@@ -67,30 +116,18 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
             MonadThrow[F].raiseError[String](error)
         )
       prompt = builder.build(persona, entries, window, msg)
-      started <- Clock[F].monotonic
-      // A cancelled call (the engine's own timeout, a shutdown) is recorded too, exactly once: the hook only covers the
-      // client call, so the success and error paths below never run for it. The cancellation itself is preserved, and
-      // it does not wait for the recording: the observation (which can write to the trace table) runs in its own fiber,
-      // so a slow database cannot delay the timeout recovery and the release of the chat claim in the engine.
-      attempted <- client
-        .complete(prompt)
-        .attempt
-        .onCancel(
-          Clock[F].monotonic.flatMap(now =>
-            observe(
-              msg = msg,
-              prompt = prompt,
-              latencyMs = (now - started).toMillis,
-              outcome = LlmOutcome.Cancelled
-            ).start.void
-          )
-        )
-      finished <- Clock[F].monotonic
-      latency = (finished - started).toMillis
+      _         <- phase.set(ResponderPhase.Calling(prompt))
+      clientAt  <- Clock[F].monotonic
+      attempted <- client.complete(prompt).attempt
+      finished  <- Clock[F].monotonic
+      latency = (finished - clientAt).toMillis
       reply <- attempted match {
         case Left(error) =>
           // The failure is recorded (class only: the message may hold chat content), then handled as before below.
-          observe(
+          // `Done` and the start of the observation are one uncancelable step (see `observeOwned`): a cancel before it
+          // records `cancelled`, after it the observation is written and no `cancelled` one is added
+          observeOwned(
+            phase = phase,
             msg = msg,
             prompt = prompt,
             latencyMs = latency,
@@ -98,7 +135,14 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
           ) *>
             MonadThrow[F].raiseError[Option[Reply]](error)
         case Right(completion) =>
-          answer(msg = msg, prompt = prompt, latencyMs = latency, completion = completion, offered = offered)
+          answer(
+            msg = msg,
+            prompt = prompt,
+            latencyMs = latency,
+            completion = completion,
+            offered = offered,
+            phase = phase
+          )
       }
     } yield reply).handleErrorWith { error =>
       // Never the message: an exception from the client or the store can carry chat content. The phase-specific line
@@ -112,7 +156,8 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
       prompt: String,
       latencyMs: Long,
       completion: Completion,
-      offered: Map[String, ReplyBundleMessage]
+      offered: Map[String, ReplyBundleMessage],
+      phase: Ref[F, ResponderPhase]
   ): F[Option[Reply]] = {
     val decision = completion.reply
       .filter(_ => completion.status == CompletionStatus.Answered)
@@ -130,7 +175,10 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
       LogWriter.info(
         decisionLine(msg = msg, completion = completion, decision = decision, reuseOffered = reuseOffered)
       ) *>
-      observe(
+      // from `Done` on the completed record owns the interaction (see `observeOwned`): a cancel neither adds a
+      // `cancelled` record nor cuts this one
+      observeOwned(
+        phase = phase,
         msg = msg,
         prompt = prompt,
         latencyMs = latencyMs,
@@ -170,6 +218,25 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
       .getOrElse("silent_action")
   }
 
+  /** Records the interaction of a call that returned (a completion or a client failure). Setting `Done` and starting
+    * the observation in its own fiber are one uncancelable step, so a cancel lands either before it (recorded as
+    * `cancelled`) or after it (the observation is written, nothing else is). Cancellation is restored only while
+    * waiting for the observation: a cancel there abandons the wait, never the write, and the reply is still released
+    * without waiting for a slow trace write.
+    */
+  private def observeOwned(
+      phase: Ref[F, ResponderPhase],
+      msg: Message,
+      prompt: String,
+      latencyMs: Long,
+      outcome: LlmOutcome
+  ): F[Unit] =
+    Concurrent[F].uncancelable { poll =>
+      phase.set(ResponderPhase.Done) *>
+        observe(msg = msg, prompt = prompt, latencyMs = latencyMs, outcome = outcome).start
+          .flatMap(fiber => poll(fiber.joinWithNever))
+    }
+
   private def observe(msg: Message, prompt: String, latencyMs: Long, outcome: LlmOutcome): F[Unit] =
     observer.traverse_(
       _.observe(
@@ -205,7 +272,7 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
   }.handleErrorWith(rememberFailed("answer", msg))
 
   private def rememberFailed(what: String, msg: Message)(error: Throwable): F[Unit] =
-    log.warn(s"[ChatLlmResponder] could not remember the $what of ${msg.chatId}: ${error.getMessage}")
+    log.warn(s"[ChatLlmResponder] could not remember the $what of ${msg.chatId}: ${error.getClass.getSimpleName}")
 
   private def toReply(decision: LlmDecision, offered: Map[String, ReplyBundleMessage]): Option[Reply] =
     decision match {
@@ -213,4 +280,25 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
       case LlmDecision.Reuse(id)  => offered.get(id).map(_.reply)
       case LlmDecision.Silent     => None
     }
+}
+
+/** Where a responder sequence is, for the record of a cancellation. `Done` means the client call returned: from then on
+  * the success or failure path owns the interaction record and a cancel must not add a second one.
+  */
+private enum ResponderPhase {
+  case Typing
+  case BuildingPrompt
+  case Calling(prompt: String)
+  case Done
+}
+
+private object ResponderPhase {
+
+  /** The label and prompt to record a cancel in this phase, none when it was already recorded. */
+  def cancelled(phase: ResponderPhase): Option[(String, String)] = phase match {
+    case Typing         => Some(("typing", ""))
+    case BuildingPrompt => Some(("prompt", ""))
+    case Calling(p)     => Some(("client", p))
+    case Done           => None
+  }
 }
