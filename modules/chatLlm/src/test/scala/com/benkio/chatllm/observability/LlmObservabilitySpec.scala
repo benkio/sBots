@@ -153,7 +153,7 @@ class LlmObservabilitySpec extends CatsEffectSuite {
           LlmObservation(chatId, botId, "v1", "p", 1L, LlmOutcome.Completed(c, LlmDecision.Text("Ciao!"), false))
         )
         seen <- lines.get
-      } yield seen.find(_.contains("\"type\":\"llm_interaction\"")).getOrElse("")
+      } yield seen.find(_.contains("\"type\":\"llm_interaction\"")).getOrElse(fail(s"no llm_interaction line in $seen"))
     for {
       withUsage    <- lineOf(answered)
       withoutUsage <- lineOf(answered.copy(attempts = ok))
