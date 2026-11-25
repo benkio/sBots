@@ -195,13 +195,14 @@ class ChatLlmResponderSpec extends CatsEffectSuite {
     }
   }
 
-  test("a failing prompt build is logged by phase and exception class, without the message") {
+  test("a failing memory write is logged by exception class, without the message") {
     val broken = new LlmContext[IO] {
-      def remember(msg: Message, botId: SBotId): IO[Boolean]                       = IO.pure(false)
-      def rememberAssistant(chatId: ChatId, botId: SBotId, c: String): IO[Boolean] = IO.pure(false)
-      def window(chatId: ChatId, botId: SBotId): IO[List[LlmContextMessage]]       = IO.pure(Nil)
-      def prompt(chatId: ChatId, botId: SBotId): IO[String] = IO.raiseError(new RuntimeException("secret chat text"))
-      def deleteExpired(nowEpochSecond: Long): IO[Int]      = IO.pure(0)
+      def remember(msg: Message, botId: SBotId): IO[Boolean] = IO.raiseError(new RuntimeException("secret chat text"))
+      def rememberAssistant(chatId: ChatId, botId: SBotId, c: String): IO[Boolean] =
+        IO.raiseError(new IllegalStateException("secret chat text"))
+      def window(chatId: ChatId, botId: SBotId): IO[List[LlmContextMessage]] = IO.pure(Nil)
+      def prompt(chatId: ChatId, botId: SBotId): IO[String]                  = IO.pure("p")
+      def deleteExpired(nowEpochSecond: Long): IO[Int]                       = IO.pure(0)
     }
     for {
       lines <- Ref.of[IO, List[String]](List.empty)
@@ -215,10 +216,44 @@ class ChatLlmResponderSpec extends CatsEffectSuite {
         "p",
         catalogue
       )(using summon[cats.effect.Concurrent[IO]], summon[cats.effect.Clock[IO]], recordingLog(lines))
+      _    <- responder.remember(msg)
+      _    <- responder.rememberAnswer(msg, TextReply.fromList("hi")(replyToMessage = true), Nil)
+      seen <- lines.get
+    } yield {
+      assert(seen.exists(_.contains("RuntimeException")), seen.toString)
+      assert(seen.exists(_.contains("IllegalStateException")), seen.toString)
+      assert(seen.forall(!_.contains("secret chat text")), seen.toString)
+    }
+  }
+
+  test("a failing prompt build is logged by phase and exception class, without the message") {
+    val broken = new LlmContext[IO] {
+      def remember(msg: Message, botId: SBotId): IO[Boolean]                       = IO.pure(false)
+      def rememberAssistant(chatId: ChatId, botId: SBotId, c: String): IO[Boolean] = IO.pure(false)
+      def window(chatId: ChatId, botId: SBotId): IO[List[LlmContextMessage]]       = IO.pure(Nil)
+      def prompt(chatId: ChatId, botId: SBotId): IO[String] = IO.raiseError(new RuntimeException("secret chat text"))
+      def deleteExpired(nowEpochSecond: Long): IO[Int]      = IO.pure(0)
+    }
+    for {
+      lines <- Ref.of[IO, List[String]](List.empty)
+      seen0 <- Ref.of[IO, List[LlmObservation]](List.empty)
+      responder = new ChatLlmResponder[IO](
+        new LlmClientApi[IO] {
+          def complete(prompt: String): IO[Completion] = IO.pure(answered(LlmReply("x", LlmAction.Text)))
+        },
+        broken,
+        builder,
+        botId,
+        "p",
+        catalogue,
+        Some(new LlmObserver[IO] { def observe(o: LlmObservation): IO[Unit] = seen0.update(_ :+ o) })
+      )(using summon[cats.effect.Concurrent[IO]], summon[cats.effect.Clock[IO]], recordingLog(lines))
       reply <- responder.respond(msg, List(greeting))
       seen  <- lines.get
+      obs   <- seen0.get
     } yield {
       assertEquals(reply, None)
+      assertEquals(obs, Nil, "no client call happened, so no interaction is observed")
       assert(seen.exists(_.contains("could not build the prompt")), seen.toString)
       assert(seen.exists(_.contains("RuntimeException")), seen.toString)
       assert(seen.exists(_.contains("failed: RuntimeException")), seen.toString)

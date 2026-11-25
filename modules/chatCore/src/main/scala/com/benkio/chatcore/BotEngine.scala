@@ -346,7 +346,9 @@ class BotEngine[F[_]: Async: LogWriter](
             )
           )
           .handleErrorWith(e =>
-            LogWriter.warn(s"${sBotConfig.sBotInfo.botName}: the LLM memory failed (chatId=${msg.chatId.id}): $e")
+            LogWriter.warn(
+              s"${sBotConfig.sBotInfo.botName}: the LLM memory failed (chatId=${msg.chatId.id}): ${e.getClass.getSimpleName}"
+            )
           )
       }
     }
@@ -399,7 +401,9 @@ class BotEngine[F[_]: Async: LogWriter](
         for {
           delivered <- Ref.of[F, Option[(Reply, List[ReplyBundleMessage])]](None)
           _         <- stage(delivered).handleErrorWith(e =>
-            LogWriter.error(s"$botName: the LLM reply failed and was dropped (chatId=${msg.chatId.id}): $e")
+            LogWriter.error(
+              s"$botName: the LLM reply failed and was dropped (chatId=${msg.chatId.id}): ${e.getClass.getSimpleName}"
+            )
           )
           answered <- delivered.get
         } yield answered
@@ -442,8 +446,15 @@ class BotEngine[F[_]: Async: LogWriter](
     )
     // the typing action is inside the timeout too: a hung platform call cannot hold the message
     val asked: F[Option[Option[Reply]]] =
-      (platform.sendTyping(msg).handleErrorWith(e => LogWriter.warn(s"typing action failed: $e")) *>
-        llmResponder.respond(msg, candidates)).map(Some(_))
+      llmResponder
+        .respondAfter(
+          msg,
+          candidates,
+          platform
+            .sendTyping(msg)
+            .handleErrorWith(e => LogWriter.warn(s"typing action failed: ${e.getClass.getSimpleName}"))
+        )
+        .map(Some(_))
     for {
       answer  <- Async[F].timeoutTo(asked, llmTimeout, none[Option[Reply]].pure[F]).attempt
       replied <- answer match {
@@ -458,7 +469,9 @@ class BotEngine[F[_]: Async: LogWriter](
             .as(none[(Reply, List[ReplyBundleMessage])])
         case Left(e) =>
           LogWriter
-            .error(s"${sBotConfig.sBotInfo.botName}: the LLM failed, dropped (chatId=${msg.chatId.id}): $e")
+            .error(
+              s"${sBotConfig.sBotInfo.botName}: the LLM failed, dropped (chatId=${msg.chatId.id}): ${e.getClass.getSimpleName}"
+            )
             .as(none[(Reply, List[ReplyBundleMessage])])
       }
     } yield replied

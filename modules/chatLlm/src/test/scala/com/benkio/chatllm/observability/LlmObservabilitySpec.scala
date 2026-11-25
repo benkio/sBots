@@ -515,6 +515,150 @@ class LlmObservabilitySpec extends CatsEffectSuite {
     }
   }
 
+  private def cancelledBefore(
+      typing: IO[Unit],
+      prompts: IO[String],
+      reached: cats.effect.Deferred[IO, Unit]
+  ) =
+    for {
+      seen    <- Ref[IO].of(List.empty[LlmObservation])
+      clients <- Ref[IO].of(0)
+      slow = new LlmContext[IO] {
+        def remember(msg: Message, botId: SBotId): IO[Boolean]                       = IO.pure(false)
+        def rememberAssistant(chatId: ChatId, botId: SBotId, c: String): IO[Boolean] = IO.pure(false)
+        def window(chatId: ChatId, botId: SBotId): IO[List[LlmContextMessage]]       = IO.pure(Nil)
+        def prompt(chatId: ChatId, botId: SBotId): IO[String]                        = reached.complete(()) *> prompts
+        def deleteExpired(nowEpochSecond: Long): IO[Int]                             = IO.pure(0)
+      }
+      responder = new ChatLlmResponder[IO](
+        client = new LlmClientApi[IO] {
+          def complete(prompt: String): IO[Completion] = clients.update(_ + 1) *> IO.never[Completion]
+        },
+        context = slow,
+        builder = PromptBuilder(500).fold(e => fail(e), identity),
+        botId = botId,
+        persona = "persona",
+        catalogue = catalogue,
+        observer = Some(new LlmObserver[IO] { def observe(o: LlmObservation): IO[Unit] = seen.update(_ :+ o) })
+      )
+      fiber <- responder.respondAfter(msg, List(greeting), typing).start
+      _     <- reached.get.timeout(2.seconds)
+      _     <- fiber.cancel
+      out   <- fiber.join
+      _     <- seen.get.iterateUntil(_.nonEmpty).timeout(2.seconds)
+      // a late duplicate would show up in this window
+      _     <- IO.sleep(200.millis)
+      all   <- seen.get
+      calls <- clients.get
+    } yield (out, all, calls)
+
+  test("a cancel while building the prompt is observed exactly once as cancelled, before any client call") {
+    for {
+      reached <- cats.effect.Deferred[IO, Unit]
+      r       <- cancelledBefore(typing = IO.unit, prompts = IO.never[String], reached = reached)
+      (out, all, calls) = r
+    } yield {
+      assert(out.isCanceled)
+      assertEquals(all.map(_.outcome), List(LlmOutcome.Cancelled))
+      assertEquals(calls, 0)
+    }
+  }
+
+  test("a cancel during the typing action is observed exactly once as cancelled") {
+    for {
+      typing <- cats.effect.Deferred[IO, Unit]
+      // the typing action never ends, so the context and the client are never reached
+      seen <- Ref[IO].of(List.empty[LlmObservation])
+      responder = new ChatLlmResponder[IO](
+        client = new LlmClientApi[IO] {
+          def complete(prompt: String): IO[Completion] = IO.never[Completion]
+        },
+        context = context,
+        builder = PromptBuilder(500).fold(e => fail(e), identity),
+        botId = botId,
+        persona = "persona",
+        catalogue = catalogue,
+        observer = Some(new LlmObserver[IO] { def observe(o: LlmObservation): IO[Unit] = seen.update(_ :+ o) })
+      )
+      fiber <- responder.respondAfter(msg, List(greeting), typing.complete(()) *> IO.never[Unit]).start
+      _     <- typing.get.timeout(2.seconds)
+      _     <- fiber.cancel
+      out   <- fiber.join
+      _     <- seen.get.iterateUntil(_.nonEmpty).timeout(2.seconds)
+      _     <- IO.sleep(200.millis)
+      all   <- seen.get
+    } yield {
+      assert(out.isCanceled)
+      assertEquals(all.map(_.outcome), List(LlmOutcome.Cancelled))
+    }
+  }
+
+  test("a cancel after the client returned adds no cancelled record: exactly one completed observation") {
+    for {
+      seen    <- Ref[IO].of(List.empty[LlmObservation])
+      gate    <- cats.effect.Deferred[IO, Unit]
+      reached <- cats.effect.Deferred[IO, Unit]
+      responder = new ChatLlmResponder[IO](
+        client = new LlmClientApi[IO] {
+          def complete(prompt: String): IO[Completion] =
+            IO.pure(
+              completion(
+                status = CompletionStatus.Answered,
+                reply = Some(LlmReply("hi", LlmAction.Text)),
+                attempts = Nil
+              )
+            )
+        },
+        context = context,
+        builder = PromptBuilder(500).fold(e => fail(e), identity),
+        botId = botId,
+        persona = "persona",
+        catalogue = catalogue,
+        // the observation is written, then the rest of the recording is stuck (a busy database trace write)
+        observer = Some(new LlmObserver[IO] {
+          def observe(o: LlmObservation): IO[Unit] = seen.update(_ :+ o) *> reached.complete(()).void *> gate.get
+        })
+      )
+      fiber <- responder.respond(msg, List(greeting)).start
+      _     <- reached.get.timeout(2.seconds)
+      _     <- fiber.cancel
+      _     <- gate.complete(())
+      // give a late (wrong) cancelled record the time to show up before asserting there is exactly one record
+      _   <- IO.sleep(200.millis)
+      all <- seen.get
+    } yield assertEquals(all.map(_.outcome.getClass), List(classOf[LlmOutcome.Completed]))
+  }
+
+  test("a cancel after the client failed adds no cancelled record: exactly one client_error observation") {
+    for {
+      seen    <- Ref[IO].of(List.empty[LlmObservation])
+      gate    <- cats.effect.Deferred[IO, Unit]
+      reached <- cats.effect.Deferred[IO, Unit]
+      responder = new ChatLlmResponder[IO](
+        client = new LlmClientApi[IO] {
+          def complete(prompt: String): IO[Completion] =
+            IO.raiseError(new IllegalStateException("secret chat text"))
+        },
+        context = context,
+        builder = PromptBuilder(500).fold(e => fail(e), identity),
+        botId = botId,
+        persona = "persona",
+        catalogue = catalogue,
+        // the observation is written, then the rest of the recording is stuck (a busy database trace write)
+        observer = Some(new LlmObserver[IO] {
+          def observe(o: LlmObservation): IO[Unit] = seen.update(_ :+ o) *> reached.complete(()).void *> gate.get
+        })
+      )
+      fiber <- responder.respond(msg, List(greeting)).start
+      _     <- reached.get.timeout(2.seconds)
+      _     <- fiber.cancel
+      _     <- gate.complete(())
+      // give a late (wrong) cancelled record the time to show up before asserting there is exactly one record
+      _   <- IO.sleep(200.millis)
+      all <- seen.get
+    } yield assertEquals(all.map(_.outcome.getClass), List(classOf[LlmOutcome.ClientFailed]))
+  }
+
   test("the cancelled line says so and carries no completion fields") {
     for {
       traces <- Ref[IO].of(List.empty[LlmTrace])

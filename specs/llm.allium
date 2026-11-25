@@ -753,7 +753,8 @@ rule ResponderStaysSilent {
 -- result (including `success_without_reply` when a provider answered 200 without a structured reply), an output the
 -- guard or the reuse check turned into silence, and a client call that threw (status `error`,
 -- failure `client_error:<exception class>`; never the exception message, which may hold chat content), and a call that was
--- cancelled before it ended, by the engine's timeout or a shutdown (status and failure `cancelled`). Keys without a
+-- cancelled before it ended, in any phase (typing action, prompt build, client call), by the engine's timeout or a
+-- shutdown (status and failure `cancelled`; the phase goes to a separate plain line, never into the JSON). Keys without a
 -- value are omitted. The line holds no chat content. Logging never fails the reply, not even when logging itself fails;
 -- the interaction line, the malformed-reply error lines and the trace are written independently, so one failing sink
 -- cannot drop the others. Failures of a sink are logged by exception class only: the message can hold chat content.
@@ -790,7 +791,10 @@ rule LlmClientFailureLogged {
     ensures: InteractionLogged(chat_hash, bot, prompt_version, failure: reason)
 }
 
--- A cancelled call is recorded exactly once and still ends as a cancellation: no completion, no decision.
+-- A cancelled interaction is recorded exactly once whatever the phase (typing, prompt build or client call; before the
+-- prompt exists it is recorded with an empty one) and still ends as a cancellation: no completion, no decision. The
+-- recording runs in its own fiber, so a slow trace write cannot delay the release of the chat claim. Once the client
+-- call has returned and its own record is being written, that record owns the interaction and a cancel adds none.
 rule LlmClientCancellationLogged {
     when: LlmClientCancelled(chat_hash, bot, prompt_version, prompt)
     ensures: InteractionLogged(chat_hash, bot, prompt_version, failure: cancelled)

@@ -20,7 +20,7 @@ enum LlmOutcome {
   case Completed(completion: Completion, decision: LlmDecision, reuseOffered: Boolean)
   case ClientFailed(reason: String)
 
-  /** The call was cancelled before it ended (the engine's timeout, a shutdown): no completion, no decision. */
+  /** The interaction was cancelled before it ended (the engine's timeout, a shutdown): no completion, no decision. */
   case Cancelled
 }
 

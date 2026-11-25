@@ -81,9 +81,10 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
       filter: IO[Boolean] = IO.pure(true),
       stallInteraction: Boolean = false,
       config: SBotConfig => SBotConfig = identity,
-      log: LogWriter[IO] = summon[LogWriter[IO]]
+      log: LogWriter[IO] = summon[LogWriter[IO]],
+      typingFailure: Option[Throwable] = None
   ): IO[Run] = for {
-    adapter      <- FakePlatformAdapter()
+    adapter      <- FakePlatformAdapter(typingFailure = typingFailure)
     calls        <- Ref.of[IO, Int](0)
     interactions <- Ref.of[IO, Int](0)
     counting: LlmResponder[IO] = new LlmResponder[IO] {
@@ -350,6 +351,31 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
 
   test("a command is never remembered") {
     eventsOf("!llm", None).assertEquals(List.empty[String])
+  }
+
+  test("a failing responder or memory is logged by exception class, never by message") {
+    val secret                    = "secret chat text"
+    val failing: LlmResponder[IO] = new LlmResponder[IO] {
+      override def respond(msg: Message, candidates: List[ReplyBundleMessage]): IO[Option[Reply]] =
+        IO.raiseError(new RuntimeException(secret))
+      override def remember(msg: Message)(using cats.Applicative[IO]): IO[Unit] =
+        IO.raiseError(new IllegalStateException(secret))
+    }
+    for {
+      lines <- Ref.of[IO, List[String]](List.empty)
+      _     <- runAll(
+        messages = List(message("EngineBot: hello")),
+        responder = failing,
+        log = recordingLog(lines),
+        typingFailure = Some(new RuntimeException(secret))
+      )
+      seen <- lines.get
+    } yield {
+      assert(seen.exists(_.contains("typing action failed: RuntimeException")), seen.toString)
+      assert(seen.exists(l => l.contains("the LLM") && l.contains("RuntimeException")), seen.toString)
+      assert(seen.exists(l => l.contains("memory failed") && l.contains("IllegalStateException")), seen.toString)
+      assert(seen.forall(!_.contains(secret)), seen.toString)
+    }
   }
 
   test("a stalled memory is cut by the timeout and the message still completes") {

@@ -28,7 +28,8 @@ final class FakePlatformAdapter private (
     val sent: Ref[IO, List[FakePlatformAdapter.Sent]],
     val touchedPrompts: Ref[IO, List[SubscriptionFlowKey]],
     val clearedPrompts: Ref[IO, List[SubscriptionFlowKey]],
-    val typings: Ref[IO, Int]
+    val typings: Ref[IO, Int],
+    typingFailure: Option[Throwable]
 ) extends PlatformAdapter[IO] {
 
   def onInbound(onMessage: Message => IO[Unit]): IO[Unit] = handler.set(Some(onMessage))
@@ -46,7 +47,8 @@ final class FakePlatformAdapter private (
   override def clearFlowPrompt(key: SubscriptionFlowKey)(using Applicative[IO]): IO[Unit] =
     clearedPrompts.update(_ :+ key)
 
-  override def sendTyping(message: Message)(using Applicative[IO]): IO[Unit] = typings.update(_ + 1)
+  override def sendTyping(message: Message)(using Applicative[IO]): IO[Unit] =
+    typings.update(_ + 1) *> typingFailure.traverse_(IO.raiseError)
 
   override def send(replyValue: ReplyValue, message: Message, replyToMessage: Boolean): IO[Unit] =
     sent.update(_ :+ FakePlatformAdapter.Sent(replyValue, message, replyToMessage))
@@ -80,7 +82,8 @@ object FakePlatformAdapter {
   def apply(
       inbound: List[Message] = List.empty,
       capabilities: PlatformCapabilities = textOnlyCapabilities,
-      effectfulValue: ReplyValue = Text("effectful")
+      effectfulValue: ReplyValue = Text("effectful"),
+      typingFailure: Option[Throwable] = None
   ): IO[FakePlatformAdapter] = for {
     handler        <- Ref.of[IO, Option[Message => IO[Unit]]](None)
     sent           <- Ref.of[IO, List[Sent]](List.empty)
@@ -95,6 +98,7 @@ object FakePlatformAdapter {
     sent,
     touchedPrompts,
     clearedPrompts,
-    typings
+    typings,
+    typingFailure
   )
 }
