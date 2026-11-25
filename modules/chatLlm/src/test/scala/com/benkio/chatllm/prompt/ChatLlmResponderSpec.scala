@@ -384,7 +384,7 @@ class ChatLlmResponderSpec extends CatsEffectSuite {
 
   test("the prompt cap and the guard cap come from the same builder") {
     val small = PromptBuilder(10).fold(e => fail(e), identity)
-    assert(small.build("p", Nil, "", msg).contains("Massimo 10 caratteri"))
+    assert(small.build("p", Nil, "", msg).contains("Mai più di 10 caratteri"))
     assertEquals(small.maxReplyChars, 10)
   }
 
