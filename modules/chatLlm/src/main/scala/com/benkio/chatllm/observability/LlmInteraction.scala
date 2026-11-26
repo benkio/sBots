@@ -15,7 +15,6 @@ import java.security.MessageDigest
 /** What the responder did with one completion, in the words of the dashboard (#1493). */
 enum ReplyAction(val label: String) {
   case Text   extends ReplyAction("text")
-  case Reuse  extends ReplyAction("reuse")
   case Silent extends ReplyAction("silent")
 }
 
@@ -29,13 +28,11 @@ final case class LlmInteraction(
     chatHash: String,
     bot: String,
     model: String,
-    promptVersion: String,
     promptTokens: Int,
     responseTokens: Int,
     latencyMs: Long,
     status: String,
     action: ReplyAction,
-    reusedReplyId: Option[String],
     failure: Option[String],
     attempts: List[String],
     fallback: Boolean,
@@ -73,16 +70,15 @@ object LlmInteraction {
 
   def estimateTokens(text: String): Int = math.ceil(text.length.toDouble / 4).toInt
 
-  /** The action the responder takes for the decision, and the reply id of a reuse that was really offered. */
-  def actionOf(decision: LlmDecision, reusable: Boolean): (ReplyAction, Option[String]) =
+  /** The action the responder takes for the decision. */
+  def actionOf(decision: LlmDecision): ReplyAction =
     decision match {
-      case LlmDecision.Text(_)                       => (ReplyAction.Text, None)
-      case LlmDecision.Reuse(id) if reusable         => (ReplyAction.Reuse, Some(id))
-      case LlmDecision.Reuse(_) | LlmDecision.Silent => (ReplyAction.Silent, None)
+      case LlmDecision.Text(_) => ReplyAction.Text
+      case LlmDecision.Silent  => ReplyAction.Silent
     }
 
   /** Why no reply was sent, when it is a failure rather than the model choosing silence. */
-  def failureOf(completion: Completion, decision: LlmDecision, reuseOffered: Boolean): Option[String] =
+  def failureOf(completion: Completion, decision: LlmDecision): Option[String] =
     completion.status match {
       case CompletionStatus.Silent  => Some("quota_exhausted")
       case CompletionStatus.Pending => Some("pending")
@@ -106,11 +102,8 @@ object LlmInteraction {
           .orElse(Some("failed"))
       case CompletionStatus.Answered =>
         (completion.reply.map(_.action), decision) match {
-          case (Some(com.benkio.chatllm.llm.LlmAction.Text), LlmDecision.Silent)  => Some("output_rejected")
-          case (Some(com.benkio.chatllm.llm.LlmAction.Reuse), LlmDecision.Silent) => Some("reuse_without_id")
-          case (Some(com.benkio.chatllm.llm.LlmAction.Reuse), LlmDecision.Reuse(_)) if !reuseOffered =>
-            Some("reuse_not_offered")
-          case _ => None
+          case (Some(com.benkio.chatllm.llm.LlmAction.Text), LlmDecision.Silent) => Some("output_rejected")
+          case _                                                                 => None
         }
     }
 

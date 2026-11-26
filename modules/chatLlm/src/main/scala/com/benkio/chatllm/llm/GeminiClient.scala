@@ -27,16 +27,15 @@ object GeminiClient {
   def modelFor(connection: ProviderConnection): String =
     connection.model.map(_.trim).filter(_.nonEmpty).getOrElse(DefaultModel)
 
-  /** The output contract asked of the model: `action` is required, `text` and `replyId` depend on the action. */
+  /** The output contract asked of the model: `action` is required (`text` or `silent`), `text` is the reply. */
   private[llm] val responseSchema: Json = Json.obj(
     "type"       -> Json.fromString("object"),
     "properties" -> Json.obj(
       "text"   -> Json.obj("type" -> Json.fromString("string")),
       "action" -> Json.obj(
         "type" -> Json.fromString("string"),
-        "enum" -> Json.arr(Json.fromString("text"), Json.fromString("reuse"), Json.fromString("silent"))
-      ),
-      "replyId" -> Json.obj("type" -> Json.fromString("string"))
+        "enum" -> Json.arr(Json.fromString("text"), Json.fromString("silent"))
+      )
     ),
     "required" -> Json.arr(Json.fromString("action"))
   )

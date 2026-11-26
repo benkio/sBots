@@ -60,7 +60,7 @@ backticks for the regexp in the Grafana editor, so the backslashes are not escap
 
 One JSON log line per completion the responder asked for (`LlmInteractionLog`): the `message` of the log record is a JSON
 object, so it needs no regexp. Keep the keys stable (the LLM row of the dashboard depends on them). A key without a value
-(`reply_id`, `failure`, `local_rejection`, `provider_errors`, `provider_error`) is omitted: in Loki a missing label means "none".
+(`failure`, `local_rejection`, `provider_errors`, `provider_error`) is omitted: in Loki a missing label means "none".
 
 Two plain INFO lines explain a non-reply that has no `llm_interaction` at all:
 
@@ -70,15 +70,14 @@ Two plain INFO lines explain a non-reply that has no `llm_interaction` at all:
   or failed). Filter with `{app="sbots"} |= "LLM not asked"`.
 - `[ChatLlmResponder] <chatId>: no reply: <reason>` from the responder for every interaction that ends without a reply.
   The reason is the `failure` of the JSON line, with the output-guard rule appended as `output_rejected:<rule>` (for
-  example `command`, `mention`, `empty_text`). A deliberate `silent` action reports `silent_action`. The responder also
-  logs how many candidates were offered and how many were reusable, which makes an empty catalogue visible.
+  example `command`, `mention`, `empty_text`). A deliberate `silent` action reports `silent_action`.
 
 A failure to build the prompt, to log the interaction or to store the trace writes a WARN/ERROR line with the exception
 class only; neither a logging failure nor a busy database can drop the other record or fail the reply.
 
 ```json
-{"type":"llm_interaction","chat":"<hash>","bot":"<bot>","model":"<model>","prompt_version":"v1","prompt_tokens":471,
- "response_tokens":11,"latency_ms":820,"status":"answered","action":"text","reply_id":"<id>","failure":"<reason>",
+{"type":"llm_interaction","chat":"<hash>","bot":"<bot>","model":"<model>","prompt_tokens":471,
+ "response_tokens":11,"latency_ms":820,"status":"answered","action":"text","failure":"<reason>",
  "attempts":"gemini:ratelimited,openrouter:success","fallback":true,"parsed":true,"stripped":false,"local_rejection":"<reason>",
  "provider_errors":"gemini:404","provider_error":"<provider message, capped at 200 characters>",
  "gemini_ms":850,"openrouter_ms":9200,"truncated":true,"prompt_tokens_reported":468,"response_tokens_reported":12,
@@ -119,7 +118,7 @@ class only; neither a logging failure nor a busy database can drop the other rec
 - `failure`: `oversized_prompt`, `missing_credentials` (local rejections, no provider asked), `quota_exhausted` (both
   providers, or the fallback after a retryable primary failure), the result of the last provider call (`ratelimited`,
   `servererror`, `timeout` (the last provider call went over `llm.provider-timeout`; a primary timeout that the fallback answered leaves `failure` out, look for `timeout` in `attempts` instead), `rejected`, `malformedjson`), `success_without_reply` (a 200 with no structured reply),
-  `output_rejected` (the output guard dropped a text), `reuse_without_id`, `reuse_not_offered`,
+  `output_rejected` (the output guard dropped a text),
   `client_error:<ExceptionClass>` (the client call threw; the exception message is never logged here, it may hold chat
   content), `cancelled`. Omitted when it answered or the model chose silence.
 - `fallback=true`: the provider other than the configured primary was asked. `stripped=true`: the reply parsed only after the
@@ -129,12 +128,12 @@ class only; neither a logging failure nor a busy database can drop the other rec
   WORKAROUND/TODO: in principle a malformed reply should fail as before; this recovery is only a temporary
   usability/stability measure. Remove it and the marker once generation is fixed at the source.
 
-**Trace a weird reply.** Find the line in Loki (below, plus `| chat="<hash>"`): it gives the prompt version, the model and the
+**Trace a weird reply.** Find the line in Loki (below, plus `| chat="<hash>"`): it gives the model and the
 time. With the debug trace on, the full prompt and the raw model text are in `llm_trace` (joined by `chat_hash`, `bot_id`
 and `created_at`):
 
 ```sh
-sqlite3 botDB.sqlite3 "SELECT datetime(created_at,'unixepoch'), prompt_version, model, action, prompt, response FROM llm_trace WHERE chat_hash='<hash>' ORDER BY created_at DESC LIMIT 5"
+sqlite3 botDB.sqlite3 "SELECT datetime(created_at,'unixepoch'), model, action, prompt, response FROM llm_trace WHERE chat_hash='<hash>' ORDER BY created_at DESC LIMIT 5"
 ```
 
 The trace is **off by default** (`LLM_TRACE_ENABLED=true` to turn it on, `llm.trace.enabled`): the prompt holds chat content.

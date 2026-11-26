@@ -24,8 +24,7 @@ external entity LlmResponder {
 -- the payload is provider-specific and not part of the bots' observable behaviour.
 value LlmReply {
     text: String                 -- empty unless the action is text
-    action: text | reuse | silent   -- #1491: required; any other value is a malformed provider reply
-    reply_id: String?            -- #1491: the catalogue id picked by a reuse
+    action: text | silent        -- #1491, #1594: required; any other value (`reuse` included) is a malformed provider reply
     -- Derived by the output guard: not empty, no line starting with one or more / or ! markers followed by a letter
     -- ("!ban", "//x"; marker-only text such as "!!! che bello" is fine), no @name or <@id> mention.
     text_acceptable: Boolean
@@ -40,13 +39,6 @@ value LlmReply {
 external entity LlmCallInFlight {
     chat: core/Chat
     bot: core/Bot
-}
-
--- The reply the engine offers as a candidate, described to the model by its catalogue entry (id and one-line summary).
-external entity CandidateReply {
-    catalogue_id: String
-    summary: String
-    reply: String
 }
 
 ------------------------------------------------------------
@@ -166,7 +158,7 @@ config {
                                               -- provider result. Startup requires provider_timeout < timeout, so a timed-out
                                               -- primary leaves (timeout - provider_timeout) for one fallback attempt
     max_input_tokens: Integer = 18432         -- prompts larger than this (4 characters per token) are refused; startup also
-                                              -- requires room for a persona next to the template, catalogue, message and context
+                                              -- requires room for a persona next to the template, message and context
     max_output_tokens: Integer = 1024         -- sent to the provider as its output limit
     openrouter_model: String = ""             -- empty (the default) or blank: the free router `openrouter/free`; a model without
                                               -- the `:free` suffix is the operator's choice and is paid: startup logs a warning
@@ -543,8 +535,9 @@ rule LlmCommandIrcUsage {
 -- and no reply bundle matched (MessageUnmatchedByReactiveLogic), the responder can answer at all (the noop default is
 -- skipped: no settings lookup, no typing action), the message is directed at the bot (core/Message.is_directed_at_bot,
 -- and not forwarded, too old or starting with the ignore prefix), the chat enabled the LLM and the chat timeout (the
--- per-chat cooldown of the reactive replies, shared) has expired, the responder is asked with the matching bundles as
--- candidates. A matching bundle blocked by the timeout does not fall through to the LLM. One call per chat is in
+-- per-chat cooldown of the reactive replies, shared) has expired, the responder is asked with the message only (#1594: it
+-- gets the persona and the conversation as context, never the replies of the bot). A matching bundle blocked by the
+-- timeout does not fall through to the LLM. One call per chat is in
 -- flight at a time: a directed message arriving meanwhile is not asked, since the cooldown starts only with an answer.
 -- The settings and cooldown are read after the chat is claimed, so they are current; the whole claimed stage (lookup, call,
 -- delivery, interaction update) is bounded by config.timeout plus the request processing timeout, and the claim is
@@ -556,31 +549,30 @@ rule LlmCommandIrcUsage {
 --
 -- Memory: once handled, every plain message (directed or not, answered by a reactive reply or not, but never a command
 -- or a duplicate) is handed to the responder to remember, after the LLM was asked so the message is not part of its own
--- prompt; the LLM answer that was sent follows it (a text as sent, a reused reply by its catalogue summary). Only a
+-- prompt; the LLM answer that was sent follows it (a text as sent). Only a
 -- chat with the switch on stores anything (LlmContextRemembersEnabledChat).
 --
 -- Wiring (main): each bot gets its responder when its DB layer is built. The bot gets the noop responder, and the
--- reason is logged, when the API keys of both providers are not configured, or its persona or reply catalogue
--- (<botid>_persona.md, <botid>_reply_catalogue.json) is missing, malformed or over the prompt budget. Nothing else
+-- reason is logged, when the API keys of both providers are not configured, or its persona
+-- (<botid>_persona.md) is missing, malformed or over the prompt budget. Nothing else
 -- changes for such a bot.
--- known defect: the rule above offers the responder the matching bundles as candidates, but the engine asks the LLM only
--- when the reactive logic left the message unmatched (MessageUnmatchedByReactiveLogic), so `candidates` is empty in the
--- code: no catalogue entry is offered and ResponderReusesCandidate cannot hold yet. Also, a matching bundle blocked by the
--- chat timeout is remembered and never asked (the engine now logs `reason=reactive_blocked` for it). Deciding whether
--- the LLM should also be asked when a bundle matched (offering it as the candidate) is open.
+-- Decision #1594: the LLM stays behind reactive matching and reads the conversation as context only. The reply catalogue
+-- and the `reuse` action were removed: a message a bundle describes never reaches the LLM, so there was nothing to
+-- reuse. A matching bundle blocked by the chat timeout is remembered and never asked (the engine logs
+-- `reason=reactive_blocked` for it).
 rule LlmAnswersDirectedMessage {
-    when: MessageUnmatchedByReactiveLogic(chat, bot, message, candidates)
+    when: MessageUnmatchedByReactiveLogic(chat, bot, message)
     requires: LlmResponder.answers
     requires: message.is_directed_at_bot
     requires: exists LlmChatSetting{chat: chat, bot: bot, enabled: true}
     requires: not exists core/ChatTimeout{chat: chat, bot: bot, in_timeout: true}
     requires: not exists LlmCallInFlight{chat: chat, bot: bot}
     ensures: TypingActionSent(chat)
-    ensures: LlmResponderAsked(bot, message, candidates: candidates)
+    ensures: LlmResponderAsked(bot, message)
 }
 
 rule LlmDoesNotAnswerOtherMessages {
-    when: MessageUnmatchedByReactiveLogic(chat, bot, message, candidates)
+    when: MessageUnmatchedByReactiveLogic(chat, bot, message)
     requires: not message.is_directed_at_bot or not exists LlmChatSetting{chat: chat, bot: bot, enabled: true}
     ensures: LlmNotAsked(bot, message)
 }
@@ -697,39 +689,24 @@ surface LlmCleanupSurface {
 -- Responder: prompt builder and output contract (#1491)
 ------------------------------------------------------------
 
--- The prompt is the versioned template (prompts/v1) filled with the persona, the catalogue entries of the candidate
--- replies, the chat context and the message. Context, catalogue and message are untrusted text: the template says they
--- are data, newlines and mentions are neutralised line by line, and a placeholder inside them is never expanded. The
+-- The prompt is the prompt template (prompts/system.md, modified in place: git holds its history) filled with the persona, the chat context and the message. Context
+-- and message are untrusted text: the template says they are data, newlines and mentions are neutralised line by line, and a placeholder inside them is never expanded. The
 -- length cap is one value: the prompt states it and the guard enforces it.
---
--- The candidates are the engine's matched replies that the catalogue describes, have at least one text trigger and
--- whose id is not shared with another candidate: only those can be reused, since only they have an unambiguous id.
 rule ResponderAnswersWithText {
-    when: ResponderAsked(msg, candidates, completion)
+    when: ResponderAsked(msg, completion)
     requires: completion.status = answered
     requires: completion.reply.action = text
     requires: completion.reply.text_acceptable
     ensures: ResponderReplied(msg, completion.reply.reply_text)
 }
 
--- A reuse sends the chosen candidate's own reply, unchanged, through the normal reply path.
-rule ResponderReusesCandidate {
-    when: ResponderAsked(msg, candidates, completion)
-    requires: completion.status = answered
-    requires: completion.reply.action = reuse
-    requires: candidates.any(c => c.catalogue_id = completion.reply.reply_id)
-    let chosen = candidates.where(c => c.catalogue_id = completion.reply.reply_id).first
-    ensures: ResponderReplied(msg, chosen.reply)
-}
-
--- Anything else is silent: the silent action, a reuse of an id that is not an offered candidate, a failed completion,
+-- Anything else is silent: the silent action, a failed completion,
 -- a client error, or a text that is not acceptable. A text over the cap is truncated (see reply_text), not dropped.
--- A provider reply without a valid action, or with a non-string text or reply id, is already malformed at the provider
--- boundary. A JSON null `text` or `replyId` counts as absent, not malformed: a reuse without a reply id is therefore an
--- accepted reply that the responder turns into a silent decision, with no malformed-reply fallback.
+-- A provider reply without a valid action, or with a non-string text, is already malformed at the provider
+-- boundary (a `reuse` action included). A JSON null `text` counts as absent, not malformed.
 -- A `text` object cut by the provider's output-token limit is recovered when the prefix already names that action and
 -- the value decodes as a JSON string (a lone trailing escape is dropped, never guessed): the recovered text goes
--- through the same output guard and the interaction reports `truncated=true`. A cut `reuse`, or any other unreadable
+-- through the same output guard and the interaction reports `truncated=true`. Any other unreadable
 -- object, stays malformed and follows the fallback path.
 -- WORKAROUND/TODO: in principle a provider must return a well-structured reply; malformed output should fail as before.
 -- This recovery is only a temporary usability/stability measure until generation is fixed at the source. Remove both the
@@ -737,11 +714,10 @@ rule ResponderReusesCandidate {
 -- The reply language is the one the persona states (Italian when it states none); this is required by the prompt only,
 -- not checked.
 rule ResponderStaysSilent {
-    when: ResponderAsked(msg, candidates, completion)
+    when: ResponderAsked(msg, completion)
     requires: completion.status != answered
         or completion.reply.action = silent
         or (completion.reply.action = text and not completion.reply.text_acceptable)
-        or (completion.reply.action = reuse and not candidates.any(c => c.catalogue_id = completion.reply.reply_id))
     ensures: ResponderSilent(msg)
 }
 
@@ -752,15 +728,15 @@ rule ResponderStaysSilent {
 -- Every interaction of the responder with the client leaves one JSON log line (the message of the log record, shipped
 -- through the Mon pipeline to Loki, read there with `| json | line_format "{{.message}}" | json`): a salted chat hash
 -- (never the chat id), bot, model that served the request (the model the provider reports, which with `openrouter/free`
--- differs per request; else the configured one), the provider the evidence belongs to, prompt version, estimated prompt and response
+-- differs per request; else the configured one), the provider the evidence belongs to, estimated prompt and response
 -- tokens (four characters per token), the provider-reported prompt, response and cached token counts (#1590: appended
 -- keys `prompt_tokens_reported`, `response_tokens_reported`, `cached_tokens`: the counts of every provider attempt added
--- up, so a fallback's tokens come on top of the failed primary's; each omitted when no attempt reported that count; absent usage is never an error and never touches the reply), latency, completion status, action taken (text,
--- reuse or silent), reused reply id, failure reason, provider attempts and their results, whether a fallback provider was
+-- up, so a fallback's tokens come on top of the failed primary's; each omitted when no attempt reported that count; absent usage is never an error and never touches the reply), latency, completion status, action taken (text
+-- or silent), failure reason, provider attempts and their results, whether a fallback provider was
 -- asked, whether the structured reply needed fence/prose stripping or was recovered from a truncated `text`
 -- (`truncated=true`), and the local rejection (oversized prompt, missing credentials). The failure reasons are what the dashboard counts: local rejections, quota exhaustion, a provider
 -- result (including `success_without_reply` when a provider answered 200 without a structured reply), an output the
--- guard or the reuse check turned into silence, and a client call that threw (status `error`,
+-- guard turned into silence, and a client call that threw (status `error`,
 -- failure `client_error:<exception class>`; never the exception message, which may hold chat content), and a call that was
 -- cancelled before it ended, in any phase (typing action, prompt build, client call), by the engine's timeout or a
 -- shutdown (status `cancelled`, failure `cancelled`; a cancel during the client call keeps the attempts and provider timings
@@ -775,10 +751,9 @@ rule ResponderStaysSilent {
 -- `LLM not asked (chatId=...): reason=<reason>` with reason `responder_off`, `not_directed`, `forwarded`, `too_old`,
 -- `ignored_prefix`, `disabled`, `reactive_blocked` (a matching bundle blocked by the chat timeout), `in_timeout`,
 -- `in_flight` (a call for the chat is already running) or `no_reply` (the responder did not produce a reply).
--- A second INFO line from the responder reports every decision: the chosen text/reuse, or `no reply: <reason>`, where
+-- A second INFO line from the responder reports every decision: the text reply, or `no reply: <reason>`, where
 -- the reason is the interaction's failure, with the output-guard rule appended as `output_rejected:<rule>` (empty text,
--- command, mention or raw mention), or `silent_action` when the model chose silence. It also reports how many candidates
--- were offered and how many were reusable, so an empty catalogue is visible. A failure to build the prompt is logged
+-- command, mention or raw mention), or `silent_action` when the model chose silence. A failure to build the prompt is logged
 -- with its exception class before it becomes no reply.
 --
 -- The responder reports each interaction to the observer as an observation: who (the chat hash and the bot), the prompt
@@ -786,21 +761,20 @@ rule ResponderStaysSilent {
 entity LlmTrace {
     chat_hash: String
     bot: String
-    prompt_version: String
     prompt: String              -- the full prompt: chat content, hence the opt-in flag and the short TTL
     response: String?           -- the raw model text, kept also when it was malformed
     created_at: Timestamp
 }
 
 rule LlmInteractionLogged {
-    when: LlmInteractionObserved(chat_hash, bot, prompt_version, prompt, completion, raw_response)
-    ensures: InteractionLogged(chat_hash, bot, prompt_version, completion)
+    when: LlmInteractionObserved(chat_hash, bot, prompt, completion, raw_response)
+    ensures: InteractionLogged(chat_hash, bot, completion)
 }
 
 -- A client call that threw is observed too, without a completion: it is a failure of its own, not a local rejection.
 rule LlmClientFailureLogged {
-    when: LlmClientFailed(chat_hash, bot, prompt_version, prompt, reason)
-    ensures: InteractionLogged(chat_hash, bot, prompt_version, failure: reason)
+    when: LlmClientFailed(chat_hash, bot, prompt, reason)
+    ensures: InteractionLogged(chat_hash, bot, failure: reason)
 }
 
 -- A cancelled interaction is recorded exactly once whatever the phase (typing, prompt build or client call; before the
@@ -809,29 +783,29 @@ rule LlmClientFailureLogged {
 -- call has returned, its own record (completed or client failure) owns the interaction: it is written in its own fiber,
 -- so a cancel, even in the middle of the write, neither adds a cancelled record nor cuts that one.
 rule LlmClientCancellationLogged {
-    when: LlmClientCancelled(chat_hash, bot, prompt_version, prompt)
-    ensures: InteractionLogged(chat_hash, bot, prompt_version, failure: cancelled)
+    when: LlmClientCancelled(chat_hash, bot, prompt)
+    ensures: InteractionLogged(chat_hash, bot, failure: cancelled)
 }
 
--- The trace joins a weird reply to its prompt version, prompt and raw response through the chat hash, bot and time.
+-- The trace joins a weird reply to its prompt and raw response through the chat hash, bot and time.
 -- Only an interaction with a completion has a raw response; a failed client call is traced with none.
 rule LlmTraceStoredWhenEnabled {
-    when: LlmInteractionObserved(chat_hash, bot, prompt_version, prompt, completion, raw_response)
+    when: LlmInteractionObserved(chat_hash, bot, prompt, completion, raw_response)
     requires: config.trace_enabled
-    ensures: LlmTrace.created(chat_hash: chat_hash, bot: bot, prompt_version: prompt_version, prompt: prompt, response: raw_response, created_at: now)
+    ensures: LlmTrace.created(chat_hash: chat_hash, bot: bot, prompt: prompt, response: raw_response, created_at: now)
 }
 
 -- A failed or cancelled client call has no raw response: it is traced with none, like the observer does.
 rule LlmClientFailureTraced {
-    when: LlmClientFailed(chat_hash, bot, prompt_version, prompt, reason)
+    when: LlmClientFailed(chat_hash, bot, prompt, reason)
     requires: config.trace_enabled
-    ensures: LlmTrace.created(chat_hash: chat_hash, bot: bot, prompt_version: prompt_version, prompt: prompt, response: null, created_at: now)
+    ensures: LlmTrace.created(chat_hash: chat_hash, bot: bot, prompt: prompt, response: null, created_at: now)
 }
 
 rule LlmClientCancellationTraced {
-    when: LlmClientCancelled(chat_hash, bot, prompt_version, prompt)
+    when: LlmClientCancelled(chat_hash, bot, prompt)
     requires: config.trace_enabled
-    ensures: LlmTrace.created(chat_hash: chat_hash, bot: bot, prompt_version: prompt_version, prompt: prompt, response: null, created_at: now)
+    ensures: LlmTrace.created(chat_hash: chat_hash, bot: bot, prompt: prompt, response: null, created_at: now)
 }
 
 -- The trace expires on its own TTL, also after the flag has been turned off. It is not copied by the DB migration.

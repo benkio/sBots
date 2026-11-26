@@ -23,21 +23,19 @@ object LlmProvider {
     }
 }
 
-/** The structured reply of a provider. `action` is required on the wire; `text` and `replyId` are the optional fields
-  * of the output contract of the prompt builder (#1491); `text` is empty (set by `StructuredReply` when the field is
-  * absent) for the other actions.
+/** The structured reply of a provider. `action` is required on the wire; `text` is the optional field of the output
+  * contract of the prompt builder (#1491), empty (set by `StructuredReply` when the field is absent) for `silent`.
   */
-final case class LlmReply(text: String, action: LlmAction, replyId: Option[String] = None)
+final case class LlmReply(text: String, action: LlmAction)
 
 /** The `action` of the output contract. A value outside these is rejected when the provider reply is parsed. */
 enum LlmAction {
-  case Text, Reuse, Silent
+  case Text, Silent
 }
 
 object LlmAction {
   def parse(raw: String): Option[LlmAction] = raw.trim.toLowerCase match {
     case "text"   => Some(Text)
-    case "reuse"  => Some(Reuse)
     case "silent" => Some(Silent)
     case _        => None
   }

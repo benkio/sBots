@@ -98,7 +98,7 @@ object MainSetup {
     llmConfig = config.llm,
     llmClient = llmClient,
     // The implementations live in chatLlm; each bot's transactor and id are supplied at its setup. Without the API
-    // keys, or the persona and catalogue of a bot, that bot gets the noop responder.
+    // keys, or the persona of a bot, that bot gets the noop responder.
     llmWiring = ChatLlm.wiring[F](config.llm, llmClient)
   )
 }

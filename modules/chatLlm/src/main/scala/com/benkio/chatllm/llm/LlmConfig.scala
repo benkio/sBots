@@ -114,7 +114,7 @@ object LlmContextConfig {
       if config.maxTokens > maxInputTokens then Some("llm.context.max-tokens must not exceed llm.max-input-tokens")
       else None,
       if PromptBudget.personaMaxBytes(maxInputTokens, config.maxTokens) <= 0 then Some(
-        "llm.max-input-tokens leaves no room for a persona next to the template, the catalogue, the message and " +
+        "llm.max-input-tokens leaves no room for a persona next to the template, the message and " +
           "llm.context.max-tokens: raise llm.max-input-tokens or lower llm.context.max-tokens"
       )
       else None,

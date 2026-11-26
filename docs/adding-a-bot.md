@@ -144,9 +144,9 @@ After that, the deploy workflow will write the token into the bot’s resources 
 
 ### Optional: LLM replies
 
-A new bot has no LLM replies until it has `<id>_persona.md` and `<id>_reply_catalogue.json` in its resources: without them
-the startup log says `the LLM replies are off` for that bot and nothing else changes. Create them as described in
-`agent-context/tasks/GeneratePersona.md` (`sbt generatePersonaCatalogues`, then `sbt checkPersona`, which CI also runs), and
+A new bot has no LLM replies until it has `<id>_persona.md` in its resources: without them
+the startup log says `the LLM replies are off` for that bot and nothing else changes. Create it as described in
+`agent-context/agentDocs/GeneratePersona.md` (then `sbt checkPersona`, which CI also runs), and
 see "LLM Replies" in the `README.org` for the switch, the privacy and the sizing.
 
 ## Step 5: Update README

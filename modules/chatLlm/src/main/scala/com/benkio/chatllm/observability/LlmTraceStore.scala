@@ -13,7 +13,6 @@ final case class LlmTrace(
     createdAt: Long,
     chatHash: String,
     botId: String,
-    promptVersion: String,
     model: Option[String],
     status: String,
     action: String,
@@ -46,12 +45,12 @@ object LlmTraceStore {
     }
 
   def appendQuery(t: LlmTrace): Update0 =
-    sql"""INSERT INTO llm_trace (created_at, chat_hash, bot_id, prompt_version, model, status, action, prompt, response)
-          VALUES (${t.createdAt}, ${t.chatHash}, ${t.botId}, ${t.promptVersion}, ${t.model}, ${t.status}, ${t.action},
+    sql"""INSERT INTO llm_trace (created_at, chat_hash, bot_id, model, status, action, prompt, response)
+          VALUES (${t.createdAt}, ${t.chatHash}, ${t.botId}, ${t.model}, ${t.status}, ${t.action},
                   ${t.prompt}, ${t.response})""".update
 
   def recentQuery(chatHash: String, limit: Int): Query0[LlmTrace] =
-    sql"""SELECT created_at, chat_hash, bot_id, prompt_version, model, status, action, prompt, response
+    sql"""SELECT created_at, chat_hash, bot_id, model, status, action, prompt, response
           FROM llm_trace WHERE chat_hash = $chatHash
           ORDER BY created_at DESC, trace_id DESC LIMIT $limit""".query[LlmTrace]
 

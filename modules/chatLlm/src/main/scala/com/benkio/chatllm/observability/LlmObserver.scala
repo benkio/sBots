@@ -17,7 +17,7 @@ import log.effect.LogWriter
   * content.
   */
 enum LlmOutcome {
-  case Completed(completion: Completion, decision: LlmDecision, reuseOffered: Boolean)
+  case Completed(completion: Completion, decision: LlmDecision)
   case ClientFailed(reason: String)
 
   /** The interaction was cancelled before it ended (the engine's timeout, a shutdown): no completion, no decision. */
@@ -33,7 +33,6 @@ enum LlmOutcome {
 final case class LlmObservation(
     chatId: ChatId,
     botId: SBotId,
-    promptVersion: String,
     prompt: String,
     latencyMs: Long,
     outcome: LlmOutcome
@@ -55,7 +54,7 @@ object LlmObserver {
     */
   def malformedReplyLines(o: LlmObservation, modelOf: LlmProvider => Option[String]): List[String] =
     o.outcome match {
-      case LlmOutcome.Completed(c, _, _) =>
+      case LlmOutcome.Completed(c, _) =>
         c.attempts
           .filter(_.result.contains(ProviderResult.MalformedJson))
           .map { a =>
@@ -94,13 +93,12 @@ object LlmObserver {
                   createdAt = now.toSeconds,
                   chatHash = interaction.chatHash,
                   botId = o.botId.value,
-                  promptVersion = o.promptVersion,
                   model = Some(interaction.model).filter(_ != "-"),
                   status = interaction.status,
                   action = interaction.action.label,
                   prompt = o.prompt,
                   response = o.outcome match {
-                    case LlmOutcome.Completed(c, _, _)        => c.raw.map(_.text)
+                    case LlmOutcome.Completed(c, _)           => c.raw.map(_.text)
                     case LlmOutcome.ClientFailed(_)           => None
                     case LlmOutcome.Cancelled                 => None
                     case LlmOutcome.CancelledAfterAttempts(_) => None
@@ -129,13 +127,11 @@ object LlmObserver {
           chatHash = LlmInteraction.chatHash(o.chatId, salt),
           bot = o.botId.value,
           model = "-",
-          promptVersion = o.promptVersion,
           promptTokens = LlmInteraction.estimateTokens(o.prompt),
           responseTokens = 0,
           latencyMs = o.latencyMs,
           status = "error",
           action = ReplyAction.Silent,
-          reusedReplyId = None,
           failure = None,
           attempts = Nil,
           fallback = false,
@@ -166,9 +162,9 @@ object LlmObserver {
               responseTokensReported = usage.flatMap(_.completion),
               cachedTokens = usage.flatMap(_.cached)
             )
-          case LlmOutcome.Completed(c, decision, reuseOffered) =>
-            val (action, reused) = LlmInteraction.actionOf(decision, reuseOffered)
-            val usage            = LlmInteraction.reportedUsage(c)
+          case LlmOutcome.Completed(c, decision) =>
+            val action = LlmInteraction.actionOf(decision)
+            val usage  = LlmInteraction.reportedUsage(c)
             base.copy(
               // the model the provider says it used (the free router picks one per request), else the configured one
               model = LlmInteraction
@@ -179,8 +175,7 @@ object LlmObserver {
                 c.raw.fold(LlmInteraction.replyText(c.reply))(r => LlmInteraction.estimateTokens(r.text)),
               status = c.status.toString.toLowerCase,
               action = action,
-              reusedReplyId = reused,
-              failure = LlmInteraction.failureOf(c, decision, reuseOffered),
+              failure = LlmInteraction.failureOf(c, decision),
               attempts = LlmInteraction.attemptLabels(c),
               fallback = LlmInteraction.usedFallback(c),
               parsed = c.reply.isDefined,

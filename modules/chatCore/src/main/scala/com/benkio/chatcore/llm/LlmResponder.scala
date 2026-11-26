@@ -4,7 +4,6 @@ import cats.syntax.all.*
 import cats.Applicative
 import cats.FlatMap
 import com.benkio.chatcore.model.reply.Reply
-import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.Message
 
 /** The port the engine calls to answer a message directed to the bot with the LLM. Everything provider specific lives
@@ -19,21 +18,19 @@ trait LlmResponder[F[_]] {
 
   /** @param msg
     *   the directed message to answer
-    * @param candidates
-    *   the reply bundles of the bot that match the message, offered so the responder can reuse them
     * @return
     *   the reply, or none when the responder does not answer (disabled, rate limited, failed)
     */
-  def respond(msg: Message, candidates: List[ReplyBundleMessage]): F[Option[Reply]]
+  def respond(msg: Message): F[Option[Reply]]
 
   /** [[respond]] preceded by `typing`, the platform's typing action. Both run inside the engine's timeout, so a
     * responder that observes its own cancellation overrides this to cover the typing phase too. A failing `typing` is
     * the caller's to handle.
     */
-  def respondAfter(msg: Message, candidates: List[ReplyBundleMessage], typing: F[Unit])(using
+  def respondAfter(msg: Message, typing: F[Unit])(using
       FlatMap[F]
   ): F[Option[Reply]] =
-    typing.flatMap(_ => respond(msg, candidates))
+    typing.flatMap(_ => respond(msg))
 
   /** The engine hands over every plain message once it is handled, after [[respond]] if the LLM was asked, so the
     * message is not part of its own prompt. What is kept (and whether the chat enabled it) is up to the responder.
@@ -43,13 +40,11 @@ trait LlmResponder[F[_]] {
     ().pure[F]
   }
 
-  /** The engine hands over the reply the LLM stage sent (after [[remember]] of the message it answers), with the
-    * candidates it was offered, so a reused reply can be remembered by what it is, not as media.
-    */
-  def rememberAnswer(msg: Message, reply: Reply, candidates: List[ReplyBundleMessage])(using
+  /** The engine hands over the reply the LLM stage sent (after [[remember]] of the message it answers). */
+  def rememberAnswer(msg: Message, reply: Reply)(using
       Applicative[F]
   ): F[Unit] = {
-    val _ = (msg, reply, candidates)
+    val _ = (msg, reply)
     ().pure[F]
   }
 }
@@ -58,8 +53,8 @@ object LlmResponder {
 
   /** Never answers: the behavior of a bot with the feature unconfigured. */
   def noop[F[_]: Applicative]: LlmResponder[F] = new LlmResponder[F] {
-    override val answers: Boolean                                                              = false
-    override def respond(msg: Message, candidates: List[ReplyBundleMessage]): F[Option[Reply]] =
+    override val answers: Boolean                        = false
+    override def respond(msg: Message): F[Option[Reply]] =
       none[Reply].pure[F]
   }
 }

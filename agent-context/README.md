@@ -13,9 +13,10 @@ This folder contains persistent context for AI agents across sessions and tools.
 - `../specs/`: the Allium behavior specs; first stop for bot logic work. `sbots.allium` is the core, the others cover
   engine extras, bots, platform adapters, operations and the catalogue job (see `../AGENTS.md`). Not covered: the
   replies editor.
-- `tasks/`: folder containing recurring activities, checklists, and useful commands.
-- `tasks/LlmFollowUps.md`: handoff for the 2026-11-24 LLM reliability review (issues #1587-#1596); read before starting
-  LLM follow-up work.
+- `tasks/`: folder containing the tasks the user asks the agent directly to perform: recurring activities, checklists,
+  and useful commands.
+- `agentDocs/`: reference instructions for the agent on an area, read while working on it: `GeneratePersona.md` (persona
+  files) and `PromptTuning.md` (the LLM prompt template).
 - `tools/`: reusable helper scripts referenced by the task files (for example
   `tools/conflict-resolution/`).
 - `commands/`: shared slash-command prompts. `review.md` is the `/review` prompt used by both Claude Code and

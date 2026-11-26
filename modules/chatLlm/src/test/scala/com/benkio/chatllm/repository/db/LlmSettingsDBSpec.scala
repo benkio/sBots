@@ -260,7 +260,6 @@ class LlmSettingsDBSpec extends CatsEffectSuite {
         createdAt = at,
         chatHash = "abc",
         botId = botA.value,
-        promptVersion = "v1",
         model = Some("m"),
         status = "answered",
         action = "text",

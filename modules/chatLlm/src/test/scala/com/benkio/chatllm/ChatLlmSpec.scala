@@ -23,8 +23,7 @@ class ChatLlmSpec extends CatsEffectSuite {
     ChatLlm
       .responder[IO]
       .respond(
-        Message(messageId = None, date = 0L, chatId = ChatId(Platform.Telegram, "1"), chatType = "private"),
-        List.empty
+        Message(messageId = None, date = 0L, chatId = ChatId(Platform.Telegram, "1"), chatType = "private")
       )
       .assertEquals(None)
   }
@@ -51,14 +50,14 @@ class ChatLlmSpec extends CatsEffectSuite {
       .map(engine => assert(!engine.responder.answers))
   }
 
-  test("with the keys but no persona and catalogue for the bot the bot gets the noop responder") {
+  test("with the keys but no persona for the bot the bot gets the noop responder") {
     ChatLlm
       .wiring[IO](config(keys = true), client)
       .engine(transactor, SBotId("nosuchbot"))
       .map(engine => assert(!engine.responder.answers))
   }
 
-  test("with the keys, the persona and the catalogue the bot gets a responder that answers, with the llm timeout") {
+  test("with the keys, the persona the bot gets a responder that answers, with the llm timeout") {
     ChatLlm.wiring[IO](config(keys = true), client).engine(transactor, SBotId("wiretest")).map { engine =>
       assert(engine.responder.answers)
       assertEquals(engine.timeout, config(keys = true).timeout)

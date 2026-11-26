@@ -4,9 +4,8 @@ import cats.syntax.all.*
 import io.circe.parser
 import io.circe.Json
 
-/** Both providers are asked for a JSON object with a required `action` (`text`, `reuse` or `silent`) and the optional
-  * `text` and `replyId` strings. The response is accepted only when `action` is valid and any present `text` or
-  * `replyId` is a string.
+/** Both providers are asked for a JSON object with a required `action` (`text` or `silent`) and the optional `text`
+  * string. The response is accepted only when `action` is valid and a present `text` is a string.
   *
   * A reply that parses but breaks this contract (unknown action, non-string field) is reported as malformed JSON like
   * any other unusable provider output: the completion then follows the normal failure path (fallback provider, and
@@ -22,9 +21,8 @@ import io.circe.Json
   * at the source. Remove `truncatedText` and the `truncated` observability field once no completion needs it.
   */
 private[llm] object StructuredReply {
-  private val TextKey    = "text"
-  private val ActionKey  = "action"
-  private val ReplyIdKey = "replyId"
+  private val TextKey   = "text"
+  private val ActionKey = "action"
 
   /** How the raw model text had to be read. Observability reports it; the reply is validated strictly in every case. */
   enum Repair {
@@ -51,9 +49,8 @@ private[llm] object StructuredReply {
               .flatMap(_.asString)
               .flatMap(LlmAction.parse)
               .toRight(s"Missing or invalid field '$ActionKey' in LLM reply: $raw")
-            text    <- optional(TextKey)
-            replyId <- optional(ReplyIdKey)
-          } yield Parsed(LlmReply(text.getOrElse(""), action, replyId), repair)
+            text <- optional(TextKey)
+          } yield Parsed(LlmReply(text.getOrElse(""), action), repair)
         }
       }
     )
@@ -75,7 +72,7 @@ private[llm] object StructuredReply {
 
   /** A completion stopped by `maxOutputTokens` can end mid-string, with no closing brace. Close the first `text` value
     * and decode it as a JSON string: an incomplete escape is dropped rather than guessed, and anything that still is
-    * not a string leaves the reply malformed. Only a `text` action is recovered; a cut `reuse` has no trustworthy id.
+    * not a string leaves the reply malformed. Only a `text` action is recovered.
     */
   private def truncatedText(raw: String): Option[LlmReply] =
     truncatedTextPrefix.findFirstMatchIn(raw).flatMap { m =>
