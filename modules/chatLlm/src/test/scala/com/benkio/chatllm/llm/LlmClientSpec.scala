@@ -194,8 +194,7 @@ class LlmClientSpec extends CatsEffectSuite {
                 date = 0L,
                 chatId = com.benkio.chatcore.model.ChatId(com.benkio.chatcore.model.Platform.Telegram, "1"),
                 chatType = "private"
-              ),
-              List.empty
+              )
             )
             .unsafeRunSync(),
           None
@@ -525,8 +524,8 @@ class LlmClientSpec extends CatsEffectSuite {
       StructuredReply.parse("{\"action\":\"text\",\"text\":\"una \\\"citazione\\\" e un backslash \\"),
       Right(LlmReply("una \"citazione\" e un backslash ", LlmAction.Text))
     )
-    // no trustworthy action/id in a cut reuse, and no repair of a plain malformed body
-    assert(StructuredReply.parse("{\"action\":\"reuse\",\"replyId\":\"r1\"").isLeft)
+    // only a cut `text` is repaired, and no repair of a plain malformed body
+    assert(StructuredReply.parse("{\"action\":\"reuse\",\"text\":\"r1\"").isLeft)
     assert(StructuredReply.parse("{\"action\":\"text\",\"text\":\"ciao\"").isRight)
     assert(StructuredReply.parse("testo senza json").isLeft)
   }
@@ -1037,26 +1036,26 @@ class LlmClientSpec extends CatsEffectSuite {
     }
   }
 
-  test("structured reply: action is required, text and replyId are optional strings") {
+  test("structured reply: action is required, text is an optional string, reuse is rejected") {
     assertEquals(StructuredReply.parse("""{"action":"silent"}"""), Right(LlmReply("", LlmAction.Silent)))
+    assert(StructuredReply.parse("""{"action":"reuse","replyId":"r1"}""").isLeft)
     assertEquals(
-      StructuredReply.parse("""{"action":"reuse","replyId":"r1"}"""),
-      Right(LlmReply("", LlmAction.Reuse, Some("r1")))
-    )
-    assertEquals(
-      StructuredReply.parse("""{"action":" Text ","text":"ciao","replyId":null}"""),
+      StructuredReply.parse("""{"action":" Text ","text":"ciao"}"""),
       Right(LlmReply("ciao", LlmAction.Text))
     )
     assert(StructuredReply.parse("""{"text":"ciao"}""").isLeft)
     assert(StructuredReply.parse("""{"action":"shout","text":"x"}""").isLeft)
     assert(StructuredReply.parse("""{"action":"text","text":5}""").isLeft)
-    assert(StructuredReply.parse("""{"action":"reuse","replyId":7}""").isLeft)
     assert(StructuredReply.parse("[1]").isLeft)
   }
 
-  test("the Gemini schema asks for action, text and replyId, and requires only action") {
+  test("the Gemini schema asks for action (text or silent) and text, and requires only action") {
     val schema = GeminiClient.responseSchema.hcursor
-    assertEquals(schema.downField("properties").keys.map(_.toSet), Some(Set("text", "action", "replyId")))
+    assertEquals(schema.downField("properties").keys.map(_.toSet), Some(Set("text", "action")))
+    assertEquals(
+      schema.downField("properties").downField("action").get[List[String]]("enum"),
+      Right(List("text", "silent"))
+    )
     assertEquals(schema.get[List[String]]("required"), Right(List("action")))
   }
 

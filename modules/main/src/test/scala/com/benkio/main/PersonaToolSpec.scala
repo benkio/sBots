@@ -12,7 +12,7 @@ class PersonaToolSpec extends CatsEffectSuite {
 
   override val munitIOTimeout = Duration(1, "m")
 
-  test("PersonaTool --check succeeds and all persona/catalogue files exist") {
+  test("PersonaTool --check succeeds and all persona files exist") {
     val files: List[Path] = BotRegistry.toList(BotRegistry.value).flatMap { entry =>
       val id           = entry.sBotInfo.botId.value
       val resourcesDir = SBotPaths.repoRoot
@@ -22,10 +22,7 @@ class PersonaToolSpec extends CatsEffectSuite {
         .resolve("src")
         .resolve("main")
         .resolve("resources")
-      List(
-        resourcesDir.resolve(s"${id}_persona.md"),
-        resourcesDir.resolve(s"${id}_reply_catalogue.json")
-      )
+      List(resourcesDir.resolve(s"${id}_persona.md"))
     }
 
     PersonaTool.run(List("--check")).map { exitCode =>

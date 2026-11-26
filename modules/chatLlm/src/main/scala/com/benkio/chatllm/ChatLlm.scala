@@ -18,7 +18,6 @@ import com.benkio.chatllm.observability.LlmTraceStore
 import com.benkio.chatllm.prompt.ChatLlmResponder
 import com.benkio.chatllm.prompt.PromptBudget
 import com.benkio.chatllm.prompt.PromptBuilder
-import com.benkio.chatllm.prompt.ReplyCatalogue
 import com.benkio.chatllm.repository.db.LlmContextStore
 import com.benkio.chatllm.repository.db.LlmSettingsDB
 import doobie.util.transactor.Transactor
@@ -55,9 +54,9 @@ object ChatLlm {
   /** The reply cap the prompt states and the output guard enforces. */
   val defaultMaxReplyChars: Int = 500
 
-  /** The LLM for the bots: the `/llm` settings and, per bot, the responder with its persona, catalogue and context. A
-    * bot gets [[LlmEngine.noop]] (and the reason is logged) when the API keys of both providers are missing, or its
-    * persona or reply catalogue is missing or unusable: nothing breaks, the bot just never answers with the LLM.
+  /** The LLM for the bots: the `/llm` settings and, per bot, the responder with its persona and context. A bot gets
+    * [[LlmEngine.noop]] (and the reason is logged) when the API keys of both providers are missing, or its persona is
+    * missing or unusable: nothing breaks, the bot just never answers with the LLM.
     */
   def wiring[F[_]: Async](config: LlmConfig, client: LlmClientApi[F])(using log: LogWriter[F]): LlmWiring[F] =
     LlmWiring(
@@ -92,13 +91,10 @@ object ChatLlm {
         .getResourceByteArray[F](name)
         .use(_.map(bytes => new String(bytes, StandardCharsets.UTF_8)).leftMap(_.toString).pure[F])
     val result: F[Either[String, LlmResponder[F]]] = for {
-      persona   <- resource(s"${botId.value}_persona.md")
-      catalogue <- resource(s"${botId.value}_reply_catalogue.json")
+      persona <- resource(s"${botId.value}_persona.md")
     } yield
       for {
         personaText <- persona
-        catalogueJs <- catalogue
-        entries     <- ReplyCatalogue.parse(catalogueJs)
         maxBytes = PromptBudget.personaMaxBytes(config.maxInputTokens, config.context.maxTokens)
         _ <- Either.cond(
           personaText.getBytes(StandardCharsets.UTF_8).length <= maxBytes,
@@ -112,7 +108,6 @@ object ChatLlm {
         builder = builder,
         botId = botId,
         persona = personaText,
-        catalogue = entries,
         observer = Some(
           LlmObserver[F](
             traces = LlmTraceStore[F](transactor),

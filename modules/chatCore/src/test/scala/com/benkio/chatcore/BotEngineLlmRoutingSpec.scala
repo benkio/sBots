@@ -61,7 +61,7 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
   private def message(text: String): Message =
     Message(None, Instant.now.getEpochSecond, TestIds.chatId(1L), "private", text = Some(text))
 
-  private val llmAnswer: LlmResponder[IO] = (_, _) =>
+  private val llmAnswer: LlmResponder[IO] = _ =>
     IO.pure(Some(TextReply.fromList("llm says hi")(replyToMessage = true)): Option[Reply])
 
   private final case class Run(sent: List[ReplyValue], calls: Int, typings: Int, interactions: Int)
@@ -90,11 +90,11 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
     counting: LlmResponder[IO] = new LlmResponder[IO] {
       override def answers: Boolean                                             = responder.answers
       override def remember(msg: Message)(using cats.Applicative[IO]): IO[Unit] = responder.remember(msg)
-      override def rememberAnswer(msg: Message, reply: Reply, candidates: List[ReplyBundleMessage])(using
+      override def rememberAnswer(msg: Message, reply: Reply)(using
           cats.Applicative[IO]
-      ): IO[Unit] = responder.rememberAnswer(msg, reply, candidates)
-      override def respond(msg: Message, candidates: List[ReplyBundleMessage]): IO[Option[Reply]] =
-        calls.update(_ + 1) *> responder.respond(msg, candidates)
+      ): IO[Unit]                                           = responder.rememberAnswer(msg, reply)
+      override def respond(msg: Message): IO[Option[Reply]] =
+        calls.update(_ + 1) *> responder.respond(msg)
     }
     engine = new BotEngine[IO](
       sBotConfig = config(sBotConfig.copy(requestProcessingTimeout = requestTimeout)),
@@ -121,7 +121,7 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
   ): IO[Run] =
     runAll(messages = List(message(text)), enabled = enabled, responder = responder, log = log)
 
-  private val noReply: LlmResponder[IO] = (_, _) => IO.pure(None)
+  private val noReply: LlmResponder[IO] = _ => IO.pure(None)
 
   /** The engine logs a skip reason instead of an interaction line, so capture the plain log to explain a non-reply. */
   private def runMessageWithLog(
@@ -194,7 +194,7 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
   }
 
   test("a slow LLM is dropped silently after its own timeout") {
-    runAll(messages = List(message("EngineBot: how are you?")), responder = (_, _) => IO.never, llmTimeout = 50.millis)
+    runAll(messages = List(message("EngineBot: how are you?")), responder = _ => IO.never, llmTimeout = 50.millis)
       .map { case Run(sent, calls, _, _) =>
         assertEquals(sent, List.empty[ReplyValue])
         assertEquals(calls, 1)
@@ -202,7 +202,7 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
   }
 
   test("a failing LLM is dropped and the message does not fail") {
-    run(text = "EngineBot: how are you?", responder = (_, _) => IO.raiseError(new RuntimeException("boom"))).map(r =>
+    run(text = "EngineBot: how are you?", responder = _ => IO.raiseError(new RuntimeException("boom"))).map(r =>
       assertEquals(r.sent, List.empty[ReplyValue])
     )
   }
@@ -271,7 +271,7 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
 
   test("a second directed message of a chat logs the in-flight skip") {
     val slow: LlmResponder[IO] =
-      (_, _) => IO.sleep(200.millis).as(Some(TextReply.fromList("late")(replyToMessage = true)))
+      _ => IO.sleep(200.millis).as(Some(TextReply.fromList("late")(replyToMessage = true)))
     for {
       lines <- Ref.of[IO, List[String]](List.empty)
       _     <- runAll(
@@ -290,7 +290,7 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
 
   test("a second directed message of a chat is not asked while the first is in flight") {
     val slow: LlmResponder[IO] =
-      (_, _) => IO.sleep(100.millis).as(Some(TextReply.fromList("late")(replyToMessage = true)))
+      _ => IO.sleep(100.millis).as(Some(TextReply.fromList("late")(replyToMessage = true)))
     runAll(messages = List(message("EngineBot: one"), message("EngineBot: two")), responder = slow).map(r =>
       assertEquals((r.calls, r.sent.size), (1, 1))
     )
@@ -306,7 +306,7 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
 
   test("the LLM runs outside the request timeout: a slow answer still completes") {
     val slow: LlmResponder[IO] =
-      (_, _) => IO.sleep(150.millis).as(Some(TextReply.fromList("late")(replyToMessage = true)))
+      _ => IO.sleep(150.millis).as(Some(TextReply.fromList("late")(replyToMessage = true)))
     runAll(messages = List(message("EngineBot: hello")), responder = slow, requestTimeout = Some(50.millis)).map(r =>
       assertEquals(r.sent, List[ReplyValue](Text("late")))
     )
@@ -315,10 +315,10 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
   /** The calls of the memory hooks and of respond, in order. */
   private def recording(events: Ref[IO, List[String]], answer: Option[Reply]): LlmResponder[IO] =
     new LlmResponder[IO] {
-      override def respond(msg: Message, candidates: List[ReplyBundleMessage]): IO[Option[Reply]] =
+      override def respond(msg: Message): IO[Option[Reply]] =
         events.update(_ :+ "respond").as(answer)
       override def remember(msg: Message)(using cats.Applicative[IO]): IO[Unit] = events.update(_ :+ "remember")
-      override def rememberAnswer(msg: Message, reply: Reply, candidates: List[ReplyBundleMessage])(using
+      override def rememberAnswer(msg: Message, reply: Reply)(using
           cats.Applicative[IO]
       ): IO[Unit] = events.update(_ :+ "rememberAnswer")
     }
@@ -356,7 +356,7 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
   test("a failing responder or memory is logged by exception class, never by message") {
     val secret                    = "secret chat text"
     val failing: LlmResponder[IO] = new LlmResponder[IO] {
-      override def respond(msg: Message, candidates: List[ReplyBundleMessage]): IO[Option[Reply]] =
+      override def respond(msg: Message): IO[Option[Reply]] =
         IO.raiseError(new RuntimeException(secret))
       override def remember(msg: Message)(using cats.Applicative[IO]): IO[Unit] =
         IO.raiseError(new IllegalStateException(secret))
@@ -380,8 +380,8 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
 
   test("a stalled memory is cut by the timeout and the message still completes") {
     val stalled: LlmResponder[IO] = new LlmResponder[IO] {
-      override def respond(msg: Message, candidates: List[ReplyBundleMessage]): IO[Option[Reply]] = IO.pure(None)
-      override def remember(msg: Message)(using cats.Applicative[IO]): IO[Unit]                   = IO.never
+      override def respond(msg: Message): IO[Option[Reply]]                     = IO.pure(None)
+      override def remember(msg: Message)(using cats.Applicative[IO]): IO[Unit] = IO.never
     }
     // onMessage must complete shortly after llmTimeout, not hang on the memory: the outer timeout fails the test
     runAll(messages = List(message("EngineBot: hello")), responder = stalled, llmTimeout = 50.millis)
@@ -393,7 +393,7 @@ class BotEngineLlmRoutingSpec extends CatsEffectSuite {
     for {
       adapter <- FakePlatformAdapter()
       calls   <- Ref.of[IO, Int](0)
-      hang: LlmResponder[IO] = (_, _) => calls.update(_ + 1) *> IO.never
+      hang: LlmResponder[IO] = _ => calls.update(_ + 1) *> IO.never
       engine                 = new BotEngine[IO](
         sBotConfig = sBotConfig,
         dbLayer = DBLayerMock.mock(sBotInfo.botId, messageReplies = messageReplies, llmSettings = settings(true)),

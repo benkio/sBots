@@ -2,7 +2,6 @@ package com.benkio.chatllm.observability
 
 import cats.effect.IO
 import cats.effect.Ref
-import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Platform
@@ -28,8 +27,6 @@ class LlmObservabilitySpec extends CatsEffectSuite {
   private val botId  = SBotId("bot")
   private val msg    =
     Message(messageId = None, date = 0L, chatId = chatId, chatType = "private", text = Some("ciao bot"))
-  private val greeting: ReplyBundleMessage = ReplyBundleMessage.textToText("ciao")("Buongiorno Signori.")
-  private val catalogue                    = List(CatalogueEntry(ReplyCatalogue.idOf(greeting), "A «ciao» risponde."))
 
   private val context: LlmContext[IO] = new LlmContext[IO] {
     def remember(msg: Message, botId: SBotId): IO[Boolean]                       = IO.pure(false)
@@ -83,10 +80,9 @@ class LlmObservabilitySpec extends CatsEffectSuite {
         builder = builder,
         botId = botId,
         persona = "persona",
-        catalogue = catalogue,
         observer = Some(observer)
       )
-      _      <- responder.respond(msg, List(greeting))
+      _      <- responder.respond(msg)
       stored <- traces.get
     } yield stored
 
@@ -97,13 +93,11 @@ class LlmObservabilitySpec extends CatsEffectSuite {
       chatHash = LlmInteraction.chatHash(chatId, "salt"),
       bot = "bot",
       model = "gemini x",
-      promptVersion = "v1",
       promptTokens = 10,
       responseTokens = 5,
       latencyMs = 123,
       status = "answered",
-      action = ReplyAction.Reuse,
-      reusedReplyId = Some("id1"),
+      action = ReplyAction.Text,
       failure = None,
       attempts = List("Gemini=Success"),
       fallback = false,
@@ -119,8 +113,8 @@ class LlmObservabilitySpec extends CatsEffectSuite {
     assertEquals(field("bot").as[String], Right("bot"))
     assertEquals(field("model").as[String], Right("gemini x"))
     assertEquals(field("latency_ms").as[Long], Right(123L))
-    assertEquals(field("action").as[String], Right("reuse"))
-    assertEquals(field("reply_id").as[String], Right("id1"))
+    assertEquals(field("action").as[String], Right("text"))
+    assert(field("reply_id").failed, "reply_id is gone with the reuse action")
     assertEquals(field("prompt_tokens").as[Int], Right(10))
     assertEquals(field("stripped").as[Boolean], Right(true))
     assertEquals(field("truncated").as[Boolean], Right(true))
@@ -150,7 +144,7 @@ class LlmObservabilitySpec extends CatsEffectSuite {
           recordingLog(lines)
         )
         _ <- observer.observe(
-          LlmObservation(chatId, botId, "v1", "p", 1L, LlmOutcome.Completed(c, LlmDecision.Text("Ciao!"), false))
+          LlmObservation(chatId, botId, "p", 1L, LlmOutcome.Completed(c, LlmDecision.Text("Ciao!")))
         )
         seen <- lines.get
       } yield seen.find(_.contains("\"type\":\"llm_interaction\"")).getOrElse(fail(s"no llm_interaction line in $seen"))
@@ -186,19 +180,17 @@ class LlmObservabilitySpec extends CatsEffectSuite {
         recordingLog(lines)
       )
       _ <- observer.observe(
-        LlmObservation(chatId, botId, "v1", "p", 1L, LlmOutcome.Completed(answered, LlmDecision.Text("Ciao!"), false))
+        LlmObservation(chatId, botId, "p", 1L, LlmOutcome.Completed(answered, LlmDecision.Text("Ciao!")))
       )
       _ <- observer.observe(
         LlmObservation(
           chatId,
           botId,
-          "v1",
           "p",
           1L,
           LlmOutcome.Completed(
             answered.copy(raw = answered.raw.map(_.copy(truncated = false))),
-            LlmDecision.Text("Ciao!"),
-            false
+            LlmDecision.Text("Ciao!")
           )
         )
       )
@@ -225,7 +217,6 @@ class LlmObservabilitySpec extends CatsEffectSuite {
       assertEquals(stored.size, 1)
       assertEquals(stored.head.response, Some(raw))
       assertEquals(stored.head.model, Some("gemini-x"))
-      assertEquals(stored.head.promptVersion, "v1")
       assertEquals(stored.head.action, "text")
       assert(stored.head.prompt.contains("ciao bot") && stored.head.prompt.contains("persona"))
     }
@@ -243,8 +234,8 @@ class LlmObservabilitySpec extends CatsEffectSuite {
   }
 
   test("failure reasons: local rejection, quota, provider result, rejected output") {
-    val text = Some(LlmReply("/start", com.benkio.chatllm.llm.LlmAction.Text))
-    def reason(c: Completion, d: LlmDecision, offered: Boolean = false) = LlmInteraction.failureOf(c, d, offered)
+    val text                                  = Some(LlmReply("/start", com.benkio.chatllm.llm.LlmAction.Text))
+    def reason(c: Completion, d: LlmDecision) = LlmInteraction.failureOf(c, d)
     assertEquals(
       reason(
         c = completion(
@@ -332,7 +323,7 @@ class LlmObservabilitySpec extends CatsEffectSuite {
       LlmProvider.OpenRouter,
       ProviderResponse.malformedJson.copy(failure = Some(ProviderFailure(200, Some("unreadable response: <html>"))))
     )
-    val obs   = LlmObservation(chatId, botId, "v1", "p", 1L, LlmOutcome.Completed(after, LlmDecision.Silent, false))
+    val obs   = LlmObservation(chatId, botId, "p", 1L, LlmOutcome.Completed(after, LlmDecision.Silent))
     val lines = LlmObserver.malformedReplyLines(obs, _ => Some("m"))
     assertEquals(lines.size, 2)
     assert(lines.head.startsWith("[LlmMalformedJson] provider=gemini model=m bot="))
@@ -360,44 +351,35 @@ class LlmObservabilitySpec extends CatsEffectSuite {
     assertEquals(LlmInteraction.responsibleProvider(noRaw), Some(LlmProvider.OpenRouter))
   }
 
-  test("the responder hands the observer the decision, the prompt version and whether the reuse was offered") {
-    def observed(answer: Completion): IO[LlmObservation]       = observedWith(IO.pure(answer))
-    def observedWith(call: IO[Completion]): IO[LlmObservation] =
+  test("the responder hands the observer the decision") {
+    def observed(answer: Completion): IO[LlmObservation] =
       for {
         seen <- Ref[IO].of(List.empty[LlmObservation])
         observer  = new LlmObserver[IO] { def observe(o: LlmObservation): IO[Unit] = seen.update(_ :+ o) }
         responder = new ChatLlmResponder[IO](
-          client = new LlmClientApi[IO] { def complete(prompt: String): IO[Completion] = call },
+          client = new LlmClientApi[IO] { def complete(prompt: String): IO[Completion] = IO.pure(answer) },
           context = context,
           builder = PromptBuilder(500).fold(e => fail(e), identity),
           botId = botId,
           persona = "persona",
-          catalogue = catalogue,
           observer = Some(observer)
         )
-        _   <- responder.respond(msg, List(greeting))
+        _   <- responder.respond(msg)
         all <- seen.get
       } yield all.head
-    val reuse = (id: String) =>
-      completion(
-        status = CompletionStatus.Answered,
-        reply = Some(LlmReply("", com.benkio.chatllm.llm.LlmAction.Reuse, Some(id))),
-        attempts = ok
-      )
-    for {
-      offered    <- observed(reuse(ReplyCatalogue.idOf(greeting)))
-      notOffered <- observed(reuse("unknown"))
-    } yield {
-      (offered.outcome, notOffered.outcome) match {
-        case (LlmOutcome.Completed(_, d1, o1), LlmOutcome.Completed(_, d2, o2)) =>
-          assertEquals(d1, LlmDecision.Reuse(ReplyCatalogue.idOf(greeting)))
-          assert(o1)
-          assert(!o2)
-          assertEquals(LlmInteraction.actionOf(d2, o2)._1, ReplyAction.Silent)
+    val text = completion(
+      status = CompletionStatus.Answered,
+      reply = Some(LlmReply("Ciao!", com.benkio.chatllm.llm.LlmAction.Text)),
+      attempts = ok
+    )
+    observed(text).map { o =>
+      o.outcome match {
+        case LlmOutcome.Completed(_, d) =>
+          assertEquals(d, LlmDecision.Text("Ciao!"))
+          assertEquals(LlmInteraction.actionOf(d), ReplyAction.Text)
         case other => fail(s"unexpected $other")
       }
-      assertEquals(offered.promptVersion, PromptBuilder.currentVersion)
-      assertEquals(offered.botId, botId)
+      assertEquals(o.botId, botId)
     }
   }
 
@@ -412,15 +394,13 @@ class LlmObservabilitySpec extends CatsEffectSuite {
         builder = PromptBuilder(500).fold(e => fail(e), identity),
         botId = botId,
         persona = "persona",
-        catalogue = catalogue,
         observer = Some(new LlmObserver[IO] { def observe(o: LlmObservation): IO[Unit] = seen.update(_ :+ o) })
       )
-      reply <- responder.respond(msg, List(greeting))
+      reply <- responder.respond(msg)
       all   <- seen.get
     } yield {
       assertEquals(reply, None)
       assertEquals(all.map(_.outcome), List(LlmOutcome.ClientFailed("IllegalStateException")))
-      assertEquals(all.head.promptVersion, PromptBuilder.currentVersion)
       assert(all.head.latencyMs >= 0)
     }
   }
@@ -430,7 +410,7 @@ class LlmObservabilitySpec extends CatsEffectSuite {
       traces <- Ref[IO].of(List.empty[LlmTrace])
       observer = LlmObserver[IO](new MemoryTraces(traces), traceEnabled = true, salt = "s", modelOf = _ => None)
       _ <- observer.observe(
-        LlmObservation(chatId, botId, "v1", "the prompt", 7L, LlmOutcome.ClientFailed("IllegalStateException"))
+        LlmObservation(chatId, botId, "the prompt", 7L, LlmOutcome.ClientFailed("IllegalStateException"))
       )
       stored <- traces.get
     } yield {
@@ -439,13 +419,11 @@ class LlmObservabilitySpec extends CatsEffectSuite {
         chatHash = "h",
         bot = "bot",
         model = "-",
-        promptVersion = "v1",
         promptTokens = 3,
         responseTokens = 0,
         latencyMs = 7,
         status = "error",
         action = ReplyAction.Silent,
-        reusedReplyId = None,
         failure = Some("client_error:IllegalStateException"),
         attempts = Nil,
         fallback = false,
@@ -470,7 +448,7 @@ class LlmObservabilitySpec extends CatsEffectSuite {
         summon[cats.effect.Clock[IO]],
         recordingLog(lines)
       )
-      _    <- observer.observe(LlmObservation(chatId, botId, "v1", "p", 1L, LlmOutcome.ClientFailed("X")))
+      _    <- observer.observe(LlmObservation(chatId, botId, "p", 1L, LlmOutcome.ClientFailed("X")))
       seen <- lines.get
     } yield {
       assert(seen.exists(_.contains("\"type\":\"llm_interaction\"")), seen.toString)
@@ -496,7 +474,7 @@ class LlmObservabilitySpec extends CatsEffectSuite {
         failingInfoLog(lines)
       )
       _ <- observer.observe(
-        LlmObservation(chatId, botId, "v1", "p", 1L, LlmOutcome.Completed(malformed, LlmDecision.Silent, false))
+        LlmObservation(chatId, botId, "p", 1L, LlmOutcome.Completed(malformed, LlmDecision.Silent))
       )
       stored <- traces.get
       seen   <- lines.get
@@ -535,10 +513,9 @@ class LlmObservabilitySpec extends CatsEffectSuite {
         builder = PromptBuilder(500).fold(e => fail(e), identity),
         botId = botId,
         persona = "persona",
-        catalogue = catalogue,
         observer = Some(new LlmObserver[IO] { def observe(o: LlmObservation): IO[Unit] = seen.update(_ :+ o) })
       )
-      fiber <- responder.respond(msg, List(greeting)).start
+      fiber <- responder.respond(msg).start
       _     <- started.get
       _     <- fiber.cancel
       out   <- fiber.join
@@ -547,7 +524,6 @@ class LlmObservabilitySpec extends CatsEffectSuite {
     } yield {
       assert(out.isCanceled, s"the cancellation must be preserved, got $out")
       assertEquals(all.map(_.outcome), List(LlmOutcome.Cancelled))
-      assertEquals(all.head.promptVersion, PromptBuilder.currentVersion)
       assert(all.head.latencyMs >= 0)
     }
   }
@@ -572,10 +548,9 @@ class LlmObservabilitySpec extends CatsEffectSuite {
         builder = PromptBuilder(500).fold(e => fail(e), identity),
         botId = botId,
         persona = "persona",
-        catalogue = catalogue,
         observer = Some(new LlmObserver[IO] { def observe(o: LlmObservation): IO[Unit] = seen.update(_ :+ o) })
       )
-      fiber  <- responder.respond(msg, List(greeting)).start
+      fiber  <- responder.respond(msg).start
       _      <- started.get
       _      <- fiber.cancel
       all    <- seen.get.iterateUntil(_.nonEmpty).timeout(2.seconds)
@@ -621,10 +596,9 @@ class LlmObservabilitySpec extends CatsEffectSuite {
         builder = PromptBuilder(500).fold(e => fail(e), identity),
         botId = botId,
         persona = "persona",
-        catalogue = catalogue,
         observer = Some(new LlmObserver[IO] { def observe(o: LlmObservation): IO[Unit] = seen.update(_ :+ o) })
       )
-      fiber <- responder.respondAfter(msg, List(greeting), typing).start
+      fiber <- responder.respondAfter(msg, typing).start
       _     <- reached.get.timeout(2.seconds)
       _     <- fiber.cancel
       out   <- fiber.join
@@ -660,10 +634,9 @@ class LlmObservabilitySpec extends CatsEffectSuite {
         builder = PromptBuilder(500).fold(e => fail(e), identity),
         botId = botId,
         persona = "persona",
-        catalogue = catalogue,
         observer = Some(new LlmObserver[IO] { def observe(o: LlmObservation): IO[Unit] = seen.update(_ :+ o) })
       )
-      fiber <- responder.respondAfter(msg, List(greeting), typing.complete(()) *> IO.never[Unit]).start
+      fiber <- responder.respondAfter(msg, typing.complete(()) *> IO.never[Unit]).start
       _     <- typing.get.timeout(2.seconds)
       _     <- fiber.cancel
       out   <- fiber.join
@@ -696,13 +669,12 @@ class LlmObservabilitySpec extends CatsEffectSuite {
         builder = PromptBuilder(500).fold(e => fail(e), identity),
         botId = botId,
         persona = "persona",
-        catalogue = catalogue,
         // the recording is stuck (a busy database) when the cancel arrives: it must still complete, once
         observer = Some(new LlmObserver[IO] {
           def observe(o: LlmObservation): IO[Unit] = reached.complete(()).void *> gate.get *> seen.update(_ :+ o)
         })
       )
-      fiber <- responder.respond(msg, List(greeting)).start
+      fiber <- responder.respond(msg).start
       _     <- reached.get.timeout(2.seconds)
       _     <- fiber.cancel
       _     <- gate.complete(())
@@ -726,13 +698,12 @@ class LlmObservabilitySpec extends CatsEffectSuite {
         builder = PromptBuilder(500).fold(e => fail(e), identity),
         botId = botId,
         persona = "persona",
-        catalogue = catalogue,
         // the recording is stuck (a busy database) when the cancel arrives: it must still complete, once
         observer = Some(new LlmObserver[IO] {
           def observe(o: LlmObservation): IO[Unit] = reached.complete(()).void *> gate.get *> seen.update(_ :+ o)
         })
       )
-      fiber <- responder.respond(msg, List(greeting)).start
+      fiber <- responder.respond(msg).start
       _     <- reached.get.timeout(2.seconds)
       _     <- fiber.cancel
       _     <- gate.complete(())
@@ -746,7 +717,7 @@ class LlmObservabilitySpec extends CatsEffectSuite {
     for {
       traces <- Ref[IO].of(List.empty[LlmTrace])
       observer = LlmObserver[IO](new MemoryTraces(traces), traceEnabled = true, salt = "s", modelOf = _ => None)
-      _      <- observer.observe(LlmObservation(chatId, botId, "v1", "the prompt", 9L, LlmOutcome.Cancelled))
+      _      <- observer.observe(LlmObservation(chatId, botId, "the prompt", 9L, LlmOutcome.Cancelled))
       stored <- traces.get
     } yield assertEquals(stored.map(t => (t.status, t.action, t.response)), List(("cancelled", "silent", None)))
   }
@@ -764,13 +735,12 @@ class LlmObservabilitySpec extends CatsEffectSuite {
         builder = PromptBuilder(500).fold(e => fail(e), identity),
         botId = botId,
         persona = "persona",
-        catalogue = catalogue,
         // a recording stuck on a busy database: it only ends when the gate opens
         observer = Some(new LlmObserver[IO] {
           def observe(o: LlmObservation): IO[Unit] = gate.get *> seen.update(_ :+ o)
         })
       )
-      fiber  <- responder.respond(msg, List(greeting)).start
+      fiber  <- responder.respond(msg).start
       _      <- started.get
       _      <- fiber.cancel
       out    <- fiber.join.timeout(2.seconds)
@@ -801,16 +771,15 @@ class LlmObservabilitySpec extends CatsEffectSuite {
         modelOf = _ => Some("openrouter/free")
       )
       _ <- observer.observe(
-        LlmObservation(chatId, botId, "v1", "p", 1L, LlmOutcome.Completed(withModel, LlmDecision.Text("x"), false))
+        LlmObservation(chatId, botId, "p", 1L, LlmOutcome.Completed(withModel, LlmDecision.Text("x")))
       )
       _ <- observer.observe(
         LlmObservation(
           chatId,
           botId,
-          "v1",
           "p",
           1L,
-          LlmOutcome.Completed(withModel.copy(raw = None), LlmDecision.Text("x"), false)
+          LlmOutcome.Completed(withModel.copy(raw = None), LlmDecision.Text("x"))
         )
       )
       stored <- traces.get

@@ -330,13 +330,13 @@ class BotEngine[F[_]: Async: LogWriter](
     if stage == Stage.Nothing then Applicative[F].unit
     else if !llmResponder.answers then logLlmSkip(msg, LlmSkip.ResponderOff)
     else {
-      val sent: F[Option[(Reply, List[ReplyBundleMessage])]] =
-        if stage == Stage.Ask then llmLogic(msg) else none[(Reply, List[ReplyBundleMessage])].pure[F]
+      val sent: F[Option[Reply]] =
+        if stage == Stage.Ask then llmLogic(msg) else none[Reply].pure[F]
       sent.flatMap { answered =>
         // bounded like the LLM call: a stalled DB must not hold the handler, and the stats line is always logged
         val remembering: F[Unit] =
           llmResponder.remember(msg) *>
-            answered.traverse_((reply, candidates) => llmResponder.rememberAnswer(msg, reply, candidates))
+            answered.traverse_(reply => llmResponder.rememberAnswer(msg, reply))
         Async[F]
           .timeoutTo(
             remembering,
@@ -359,15 +359,15 @@ class BotEngine[F[_]: Async: LogWriter](
       s"${sBotConfig.sBotInfo.botName}: LLM not asked (chatId=${msg.chatId.id}): reason=${reason.label}"
     )
 
-  /** The reply sent by the LLM, if any, with the candidates it was offered. */
+  /** The reply sent by the LLM, if any. */
   private def llmLogic(msg: Message)(using
       platform: PlatformAdapter[F]
-  ): F[Option[(Reply, List[ReplyBundleMessage])]] = {
+  ): F[Option[Reply]] = {
     val botName = sBotConfig.sBotInfo.botName
-    val none_   = none[(Reply, List[ReplyBundleMessage])].pure[F]
+    val none_   = none[Reply].pure[F]
     // The delivered answer is kept as soon as it is sent, so a stage that is cut afterwards (a stalled interaction
     // update) or fails still hands it to the memory: the user saw that reply.
-    def stage(delivered: Ref[F, Option[(Reply, List[ReplyBundleMessage])]]): F[Unit] = {
+    def stage(delivered: Ref[F, Option[Reply]]): F[Unit] = {
       // readiness (settings and cooldown) is read while the claim is held, so it is the current cooldown, not one from
       // before a concurrent answer started it
       val ready: F[Unit] =
@@ -399,7 +399,7 @@ class BotEngine[F[_]: Async: LogWriter](
       case Some(reason) => logLlmSkip(msg, reason) *> none_
       case None         =>
         for {
-          delivered <- Ref.of[F, Option[(Reply, List[ReplyBundleMessage])]](None)
+          delivered <- Ref.of[F, Option[Reply]](None)
           _         <- stage(delivered).handleErrorWith(e =>
             LogWriter.error(
               s"$botName: the LLM reply failed and was dropped (chatId=${msg.chatId.id}): ${e.getClass.getSimpleName}"
@@ -435,21 +435,15 @@ class BotEngine[F[_]: Async: LogWriter](
         logLlmSkip(msg, LlmSkip.Disabled).as(false)
       )
 
-  /** The reply sent, with the candidates it was offered. */
+  /** The reply sent, if any. */
   private def answerWithLlm(msg: Message)(using
       platform: PlatformAdapter[F]
-  ): F[Option[(Reply, List[ReplyBundleMessage])]] = {
-    val candidates = ReplyBundleMessage.matchingReplyBundles(
-      msg = msg,
-      messageRepliesData = messageRepliesData,
-      ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix
-    )
+  ): F[Option[Reply]] = {
     // the typing action is inside the timeout too: a hung platform call cannot hold the message
     val asked: F[Option[Option[Reply]]] =
       llmResponder
         .respondAfter(
           msg,
-          candidates,
           platform
             .sendTyping(msg)
             .handleErrorWith(e => LogWriter.warn(s"typing action failed: ${e.getClass.getSimpleName}"))
@@ -458,21 +452,21 @@ class BotEngine[F[_]: Async: LogWriter](
     for {
       answer  <- Async[F].timeoutTo(asked, llmTimeout, none[Option[Reply]].pure[F]).attempt
       replied <- answer match {
-        case Right(Some(Some(llmReply))) => reply(llmReply, msg).as(Some((llmReply, candidates)))
+        case Right(Some(Some(llmReply))) => reply(llmReply, msg).as(Some(llmReply))
         case Right(Some(None))           =>
-          logLlmSkip(msg, LlmSkip.NoReply) *> none[(Reply, List[ReplyBundleMessage])].pure[F]
+          logLlmSkip(msg, LlmSkip.NoReply) *> none[Reply].pure[F]
         case Right(None) =>
           LogWriter
             .warn(
               s"${sBotConfig.sBotInfo.botName}: the LLM did not answer within $llmTimeout, dropped (chatId=${msg.chatId.id})"
             )
-            .as(none[(Reply, List[ReplyBundleMessage])])
+            .as(none[Reply])
         case Left(e) =>
           LogWriter
             .error(
               s"${sBotConfig.sBotInfo.botName}: the LLM failed, dropped (chatId=${msg.chatId.id}): ${e.getClass.getSimpleName}"
             )
-            .as(none[(Reply, List[ReplyBundleMessage])])
+            .as(none[Reply])
       }
     } yield replied
   }

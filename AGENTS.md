@@ -5,6 +5,7 @@ This repository keeps persistent AI context in `agent-context/`.
 Any new agent session should read, in order:
 1. `agent-context/README.md`
 2. `agent-context/tasks/` (all files in this folder)
+3. `agent-context/agentDocs/` when the work touches the LLM replies (persona files, prompt template, `chatLlm`)
 
 ## Behavior Spec
 
@@ -25,6 +26,9 @@ a spec marks where the code differs from the intended behavior.
 
 ## Session Expectations
 
-- Use task files in `agent-context/tasks/` as a checklist when relevant.
+- `agent-context/tasks/` holds the tasks the user asks the agent directly to perform; use them as a checklist when
+  relevant.
+- `agent-context/agentDocs/` holds the agent's reference instructions for an area (today the LLM replies), read while
+  working on that area rather than on user request.
 - If a task is repeated often, add/update a file in `agent-context/tasks/`.
 - Keep instructions practical and repository-specific.

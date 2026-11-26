@@ -19,8 +19,8 @@ object LlmEngine {
 
 /** How `main` hands the LLM to the bots: the `/llm` settings and the engine, both built per bot from the bot's own
   * transactor and id. chatCore owns the shape, chatLlm supplies the implementation, so this module never depends on it.
-  * The engine factory never fails the bot: when the LLM cannot be offered (missing keys, persona or catalogue) it
-  * returns [[LlmEngine.noop]].
+  * The engine factory never fails the bot: when the LLM cannot be offered (missing keys or persona) it returns
+  * [[LlmEngine.noop]].
   */
 final case class LlmWiring[F[_]](
     settings: LlmSettings.Factory[F],
