@@ -706,9 +706,11 @@ rule ResponderAnswersWithText {
 -- boundary (a `reuse` action included). A JSON null `text` counts as absent, not malformed.
 -- Both providers enforce the reply contract at call time (#1588): Gemini with `responseSchema`, OpenRouter with a strict
 -- `response_format.json_schema` (`action`, `text`, both required because strict mode demands it, no other property;
--- Gemini requires only `action`, a missing `text` counts as empty) plus `provider.require_parameters`,
+-- both providers ask for the same required fields) plus `provider.require_parameters`,
 -- so an endpoint that cannot honour the schema is rejected instead of returning prose. The parser stays as defence in
 -- depth: a violating reply (`reuse`, `replyId`) is malformed, logged uncapped, and follows the fallback path, then silence.
+-- The `text` action with an empty, blank or missing `text` is malformed too (it would only be dropped by the output
+-- guard): the fallback provider is asked. The `silent` action needs no text.
 -- A `text` object cut by the provider's output-token limit is not recovered: like any other unreadable object it is
 -- malformed, logged with its full raw text, and follows the fallback path.
 -- The reply language is the one the persona states (Italian when it states none); this is required by the prompt only,

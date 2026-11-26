@@ -514,11 +514,11 @@ class LlmClientSpec extends CatsEffectSuite {
       }
   }
 
-  test("both providers ask for the same properties; only OpenRouter (strict mode) requires `text` too") {
+  test("both providers ask for the same properties and required fields") {
     val gemini = GeminiClient.responseSchema.hcursor
     val router = OpenRouterClient.responseSchema.hcursor
     assertEquals(gemini.downField("properties").as[Json], router.downField("properties").as[Json])
-    assertEquals(gemini.get[List[String]]("required"), Right(List("action")))
+    assertEquals(gemini.get[List[String]]("required"), router.get[List[String]]("required"))
     assertEquals(router.get[List[String]]("required"), Right(List("action", "text")))
   }
 
@@ -594,6 +594,13 @@ class LlmClientSpec extends CatsEffectSuite {
     )
     assert(StructuredReply.parse("nessun json qui").isLeft)
     assert(StructuredReply.parse("```json\n{\"action\":\"shout\"}\n```").isLeft)
+  }
+
+  test("structured reply: the text action with an empty, blank or missing text is malformed; silent needs no text") {
+    assert(StructuredReply.parse("""{"action":"text","text":""}""").isLeft)
+    assert(StructuredReply.parse("""{"action":"text","text":"  "}""").isLeft)
+    assert(StructuredReply.parse("""{"action":"text"}""").isLeft)
+    assertEquals(StructuredReply.parse("""{"action":"silent"}"""), Right(LlmReply("", LlmAction.Silent)))
   }
 
   test("structured reply: an object cut by the output-token limit is malformed, never recovered") {
@@ -1123,14 +1130,14 @@ class LlmClientSpec extends CatsEffectSuite {
     assert(StructuredReply.parse("[1]").isLeft)
   }
 
-  test("the Gemini schema asks for action (text or silent) and text, and requires only action") {
+  test("the Gemini schema asks for action (text or silent) and text, and requires both") {
     val schema = GeminiClient.responseSchema.hcursor
     assertEquals(schema.downField("properties").keys.map(_.toSet), Some(Set("text", "action")))
     assertEquals(
       schema.downField("properties").downField("action").get[List[String]]("enum"),
       Right(List("text", "silent"))
     )
-    assertEquals(schema.get[List[String]]("required"), Right(List("action")))
+    assertEquals(schema.get[List[String]]("required"), Right(List("action", "text")))
   }
 
   test("Gemini text is read from the model_output steps only: thoughts and non-text items give nothing, text joins") {

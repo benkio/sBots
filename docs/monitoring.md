@@ -71,6 +71,8 @@ Two plain INFO lines explain a non-reply that has no `llm_interaction` at all:
 - `[ChatLlmResponder] <chatId>: no reply: <reason>` from the responder for every interaction that ends without a reply.
   The reason is the `failure` of the JSON line, with the output-guard rule appended as `output_rejected:<rule>` (for
   example `command`, `mention`, `empty_text`). A deliberate `silent` action reports `silent_action`.
+  A text dropped by the output guard (`output_rejected:*`) is logged at WARN, every other reason at INFO.
+  A `text` action with an empty text is no longer reached: it is `malformedjson` and the fallback provider is asked.
 
 A failure to build the prompt, to log the interaction or to store the trace writes a WARN/ERROR line with the exception
 class only; neither a logging failure nor a busy database can drop the other record or fail the reply.

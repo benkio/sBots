@@ -5,7 +5,8 @@ import io.circe.parser
 import io.circe.Json
 
 /** Both providers are asked for a JSON object with a required `action` (`text` or `silent`) and the optional `text`
-  * string. The response is accepted only when `action` is valid and a present `text` is a string.
+  * string. The response is accepted only when `action` is valid, a present `text` is a string and the `text` action
+  * carries a non-blank text (an empty one is malformed, so the fallback provider is asked).
   *
   * A reply that parses but breaks this contract (unknown action, non-string field) is reported as malformed JSON like
   * any other unusable provider output: the completion then follows the normal failure path (fallback provider, and
@@ -41,6 +42,11 @@ private[llm] object StructuredReply {
               .flatMap(LlmAction.parse)
               .toRight(s"Missing or invalid field '$ActionKey' in LLM reply: $raw")
             text <- optional(TextKey)
+            _    <- Either.cond(
+              action != LlmAction.Text || text.exists(_.trim.nonEmpty),
+              (),
+              s"Empty or missing field '$TextKey' for action 'text' in LLM reply: $raw"
+            )
           } yield Parsed(LlmReply(text.getOrElse(""), action), repair)
         }
       }

@@ -168,9 +168,7 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
           completion.attempts.map(a => s"${a.provider}=${a.result.fold("none")(_.toString)}").mkString("[", ", ", "]")
       )
       .whenA(completion.status != CompletionStatus.Answered && completion.status != CompletionStatus.Silent) *>
-      LogWriter.info(
-        decisionLine(msg = msg, completion = completion, decision = decision)
-      ) *>
+      decisionLog(msg = msg, completion = completion, decision = decision) *>
       // from `Done` on the completed record owns the interaction (see `observeOwned`): a cancel neither adds a
       // `cancelled` record nor cuts this one
       observeOwned(
@@ -182,6 +180,15 @@ final class ChatLlmResponder[F[_]: Concurrent: Clock](
       ).as(
         toReply(decision)
       )
+  }
+
+  /** A text the output guard dropped is logged as a warning, to be easy to find; any other decision stays at info. */
+  private def decisionLog(msg: Message, completion: Completion, decision: LlmDecision): F[Unit] = {
+    val line = decisionLine(msg = msg, completion = completion, decision = decision)
+    if silenceReason(completion = completion, decision = decision).startsWith("output_rejected") then LogWriter.warn(
+      line
+    )
+    else LogWriter.info(line)
   }
 
   /** The decision in plain text, including why there was no reply. The interaction line has the same facts in JSON;
