@@ -18,8 +18,8 @@ import java.nio.file.Files
 import java.nio.file.Path
 import scala.util.Using
 
-/** Exercises the doobie settings of the `/llm` command against the real Flyway migration files: the tables, the keys and the
-  * port semantics must agree with what the migration creates.
+/** Exercises the doobie settings of the `/llm` command against the real Flyway migration files: the tables, the keys
+  * and the port semantics must agree with what the migration creates.
   */
 class LlmSettingsDBSpec extends CatsEffectSuite {
 
@@ -93,7 +93,6 @@ class LlmSettingsDBSpec extends CatsEffectSuite {
       } yield ()
     })
 
-
   private def insertContext(xa: Transactor[IO], chatId: ChatId, botId: SBotId, content: String): IO[Unit] =
     sql"""INSERT INTO llm_context (platform, chat_id, bot_id, role, content, created_at)
           VALUES (${chatId.platform.id}, ${chatId.id}, ${botId.value}, 'user', $content, 1)""".update.run
@@ -110,10 +109,10 @@ class LlmSettingsDBSpec extends CatsEffectSuite {
   test("settings are off by default and toggled per chat and bot, stamping the update time") {
     tempDb.use { xa =>
       for {
-        _          <- setupSchema(xa)
-        clock      <- IO.ref(100L)
-        settingsA   = LlmSettingsDB[IO](xa, botA, clock.get)
-        settingsB   = LlmSettingsDB[IO](xa, botB, clock.get)
+        _     <- setupSchema(xa)
+        clock <- IO.ref(100L)
+        settingsA = LlmSettingsDB[IO](xa, botA, clock.get)
+        settingsB = LlmSettingsDB[IO](xa, botB, clock.get)
         initial    <- settingsA.status(chat)
         _          <- settingsA.enable(chat)
         enabled    <- settingsA.status(chat)
@@ -137,8 +136,8 @@ class LlmSettingsDBSpec extends CatsEffectSuite {
   test("forget drops only the context of that chat and bot and keeps the switch") {
     tempDb.use { xa =>
       for {
-        _            <- setupSchema(xa)
-        settings      = LlmSettingsDB[IO](xa, botA)
+        _ <- setupSchema(xa)
+        settings = LlmSettingsDB[IO](xa, botA)
         _            <- settings.enable(chat)
         _            <- insertContext(xa = xa, chatId = chat, botId = botA, content = "to forget")
         _            <- insertContext(xa = xa, chatId = chat, botId = botB, content = "other bot")
