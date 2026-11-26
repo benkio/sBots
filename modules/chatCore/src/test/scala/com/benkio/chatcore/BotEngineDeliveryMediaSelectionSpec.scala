@@ -14,9 +14,9 @@ import com.benkio.chatcore.model.PlatformCapabilities
 import munit.Assertions.*
 import munit.CatsEffectSuite
 
-class BotEngineMediaSelectionSpec extends CatsEffectSuite {
+class BotEngineDeliveryMediaSelectionSpec extends CatsEffectSuite {
 
-  import BotEngineMediaSelectionSpec.pick
+  import BotEngineDeliveryMediaSelectionSpec.pick
 
   // IRC like: sends the markdown files, as text, and nothing else
   private val markdownOnly: PlatformCapabilities =
@@ -60,7 +60,7 @@ class BotEngineMediaSelectionSpec extends CatsEffectSuite {
   }
 }
 
-object BotEngineMediaSelectionSpec {
+object BotEngineDeliveryMediaSelectionSpec {
 
   private val repetitions = 50
 

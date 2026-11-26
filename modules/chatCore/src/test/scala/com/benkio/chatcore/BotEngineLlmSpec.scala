@@ -32,7 +32,7 @@ import _root_.log.effect.LogLevel
 import _root_.log.effect.LogWriter
 
 /** The routing of a message: the reactive replies first, then the LLM for the messages directed at the bot. */
-class BotEngineLlmRoutingSpec extends CatsEffectSuite {
+class BotEngineLlmSpec extends CatsEffectSuite {
 
   private val sBotInfo: SBotInfo = SBotInfo(botId = SBotInfo.SBotId("eng"), botName = SBotInfo.SBotName("EngineBot"))
 

@@ -27,7 +27,7 @@ import org.http4s.Uri
 /** The engine on a platform without buttons: the text commands `!next`, `!prev` and `!pick` act on the paged list the
   * engine remembers per chat when it sends it (see [[PagedListTextCommands]]).
   */
-class BotEngineTextNavigationSpec extends CatsEffectSuite {
+class BotEngineCommandsTextNavigationSpec extends CatsEffectSuite {
 
   private val sBotInfo: SBotInfo = SBotInfo(botId = SBotInfo.SBotId("eng"), botName = SBotInfo.SBotName("EngineBot"))
 

@@ -30,7 +30,7 @@ import org.http4s.Uri
 import java.time.Instant
 
 /** What reaches the platform: the replies of the engine are adapted to what the platform can do. */
-class BotEngineAdaptationSpec extends CatsEffectSuite {
+class BotEngineDeliveryAdaptationSpec extends CatsEffectSuite {
 
   private val sBotInfo: SBotInfo = SBotInfo(botId = SBotInfo.SBotId("eng"), botName = SBotInfo.SBotName("EngineBot"))
 
