@@ -5,8 +5,8 @@ import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.chatcore.model.Platform
 import com.benkio.chattelegramadapter.polling.TelegramPollingRuntime
-import com.benkio.chattelegramadapter.webhook.TelegramWebhookRuntime
 import com.benkio.chattelegramadapter.webhook.TelegramWebhookServer
+import com.benkio.chattelegramadapter.SBot
 import com.benkio.chattelegramadapter.SBotWebhook
 import com.benkio.main.BotRegistryEntry
 import com.benkio.main.MainSetup
@@ -23,7 +23,7 @@ object TelegramWebhookPlatformRuntime extends PlatformRuntime {
     for {
       // a bot that cannot be set up is reported and left out: the server serves the others
       attempts <- entries.traverse(entry =>
-        TelegramWebhookRuntime
+        SBot
           .buildWebhookBot[IO](
             httpClient = mainSetup.httpClient,
             sBotInfo = entry.sBotInfo,

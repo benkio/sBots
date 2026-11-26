@@ -140,14 +140,7 @@ class BotEngine[F[_]: Async: LogWriter](
         ignoreMessagePrefix = sBotConfig.ignoreMessagePrefix,
         disableForward = sBotConfig.disableForward
       )
-      .traverse(replyBundle =>
-        for {
-          _ <- LogWriter
-            .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ")
-          passesFilters <- filteringMatchesMessages(replyBundle, msg)
-          _             <- reply(replyBundle.reply, msg).whenA(passesFilters)
-        } yield passesFilters
-      )
+      .traverse(replyBundlelogic(_, msg))
       .map(_.fold[Reactive](Reactive.Unmatched)(Reactive.Done(_)))
 
   def commandLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = commandLogicReplied(msg).void
@@ -158,6 +151,24 @@ class BotEngine[F[_]: Async: LogWriter](
       .fold(commandReplyBundles(msg)) { requester =>
         subscriptionFlow.start(msg, requester, deliverFlow(_, msg, requester)).as(true)
       }
+
+  /** replyBundlelogic
+    * @param replyBundle
+    *   selected reply bundle
+    * @param msg
+    *   the incoming message
+    * @return
+    *   F[Boolean]: if the reply bundle was sent
+    */
+  private def replyBundlelogic(replyBundle: ReplyBundleMessage, msg: Message)(using
+      platform: PlatformAdapter[F]
+  ): F[Boolean] =
+    for {
+      _ <- LogWriter
+        .info(s"Computing message ${msg.text} matching message reply bundle triggers: ${replyBundle.trigger} ")
+      passesFilters <- filteringMatchesMessages(replyBundle, msg)
+      _             <- reply(replyBundle.reply, msg).whenA(passesFilters)
+    } yield passesFilters
 
   private def commandReplyBundles(msg: Message)(using platform: PlatformAdapter[F]): F[Boolean] =
     ReplyBundleCommand

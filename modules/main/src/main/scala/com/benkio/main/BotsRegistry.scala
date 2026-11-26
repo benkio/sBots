@@ -8,6 +8,7 @@ package com.benkio.main
  */
 
 import cats.effect.IO
+import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo
@@ -61,6 +62,12 @@ extension (botRegistry: BotRegistry[IO]) {
   /** The bots that run on the platform. */
   def entriesOn(platform: Platform): List[BotRegistryEntry[IO]] =
     BotRegistry.toList(botRegistry).filter(_.platforms.contains(platform))
+
+  /** The bots with a platform that is not among the runnable ones, paired with that platform. */
+  def entriesWithoutRuntime(runnablePlatforms: Set[Platform]): List[(BotRegistryEntry[IO], Platform)] =
+    BotRegistry
+      .toList(botRegistry)
+      .mapFilter(entry => entry.platforms.find(!runnablePlatforms.contains(_)).map(entry -> _))
 }
 
 object BotRegistry {
