@@ -75,7 +75,8 @@ object YouTubeService {
 
   def apply[F[_]: LogWriter: Async](
       config: Config,
-      youTubeApiKey: String
+      youTubeApiKey: String,
+      cookiesFile: Option[Path] = None
   ): F[YouTubeService[F]] =
     for {
       _                      <- LogWriter.info("[YouTubeService] Create NetHttpTransport and jsonFactory for YouTube")
@@ -97,14 +98,19 @@ object YouTubeService {
     } yield YouTubeServiceImpl(
       youTubeService = youTubeService,
       config = config,
-      youTubeApiKey = youTubeApiKey
+      youTubeApiKey = youTubeApiKey,
+      cookiesFile = cookiesFile
     )
 
   private class YouTubeServiceImpl[F[_]: Async: LogWriter](
       youTubeService: YouTube,
       config: Config,
-      youTubeApiKey: String
+      youTubeApiKey: String,
+      cookiesFile: Option[Path]
   ) extends YouTubeService[F] {
+    // Optional yt-dlp cookies (Netscape format), it helps avoiding YouTube bot checks
+    private val cookiesArg: String = cookiesFile.fold("")(p => s""" --cookies "$p"""")
+
     override def getAllBotNameIds: F[List[YouTubeBotIds]] = {
       val source = config.showConfig.showSources
       for {
@@ -178,7 +184,7 @@ object YouTubeService {
 
     override def saveCaption(videoId: String, captionFolderPath: Path, captionLanguage: String): F[Unit] = {
       val command =
-        s"""yt-dlp --write-auto-subs --sub-lang $captionLanguage --skip-download --sub-format srt -o "%(id)s" -P $captionFolderPath https://www.youtube.com/watch?v=${videoId}"""
+        s"""yt-dlp$cookiesArg --write-auto-subs --sub-lang $captionLanguage --skip-download --sub-format srt -o "%(id)s" -P $captionFolderPath https://www.youtube.com/watch?v=${videoId}"""
       val captionDownloadLogic: F[Unit] = for {
         _ <- LogWriter.info(
           s"[YouTubeService - ${videoId} - $captionLanguage] Fetch caption into ${captionFolderPath.getName(captionFolderPath.getNameCount() - 1)}"
@@ -195,7 +201,7 @@ object YouTubeService {
     }
     override def hasCaption(videoId: String, captionLanguage: String): F[Boolean] = {
       val command =
-        s"""yt-dlp --list-subs https://www.youtube.com/watch?v=${videoId}"""
+        s"""yt-dlp$cookiesArg --list-subs https://www.youtube.com/watch?v=${videoId}"""
       val regex                         = s"(?m)^$captionLanguage\\b".r
       val captionCheckLogic: F[Boolean] = for {
         _ <- LogWriter.info(

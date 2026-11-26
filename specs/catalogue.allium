@@ -95,6 +95,7 @@ config {
     run_show_fetching: Boolean = false
     run_show_caption_fetching: Boolean = false
     caption_tool_available: Boolean = true   -- yt-dlp found on the PATH
+    caption_cookies_file: Boolean = false    -- optional youTubeCookies.txt in the botDB resources, given to every yt-dlp call
     caption_throttle: Duration = 5.seconds   -- random 5 to 9 s between caption downloads
 }
 
