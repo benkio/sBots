@@ -249,7 +249,21 @@ class LlmClientSpec extends CatsEffectSuite {
         assertEquals(completion.reply, Some(LlmReply("bua", LlmAction.Text)))
         assertEquals(completion.attempts.map(_.provider), List(LlmProvider.OpenRouter))
         assertEquals(hosts.toList, List(openRouterHost))
-        assert(bodies.head.contains("response_format"), "the OpenRouter request did not ask for structured JSON")
+        val request = io.circe.parser.parse(bodies.head).toOption.get.hcursor
+        val format  = request.downField("response_format")
+        assertEquals(format.get[String]("type"), Right("json_schema"))
+        assertEquals(format.downField("json_schema").get[String]("name"), Right("bot_reply"))
+        assertEquals(format.downField("json_schema").get[Boolean]("strict"), Right(true))
+        assertEquals(
+          OpenRouterClient.responseSchema.hcursor.get[List[String]]("required"),
+          Right(List("action", "text"))
+        )
+        assertEquals(
+          OpenRouterClient.responseSchema.hcursor.downField("properties").keys.map(_.toSet),
+          Some(Set("action", "text"))
+        )
+        assertEquals(OpenRouterClient.responseSchema.hcursor.get[Boolean]("additionalProperties"), Right(false))
+        assertEquals(request.downField("provider").get[Boolean]("require_parameters"), Right(true))
       }
   }
 
@@ -434,6 +448,80 @@ class LlmClientSpec extends CatsEffectSuite {
       }
   }
 
+  test("an OpenRouter reply breaking the strict schema (reuse, replyId) is malformed and falls back, then silence") {
+    val old = Json.obj(
+      "choices" -> Json.arr(
+        Json.obj(
+          "message" -> Json.obj(
+            "content" -> Json.fromString("""{"action":"reuse","replyId":"abc","text":""}""")
+          )
+        )
+      )
+    )
+    completeWith(
+      chosen = LlmProvider.OpenRouter,
+      gemini = (Status.Ok, geminiSuccess("ciao")),
+      openRouter = (Status.Ok, old),
+      hosts = ListBuffer.empty[String],
+      bodies = ListBuffer.empty[String]
+    )
+      .map { completion =>
+        assertEquals(completion.attempts.flatMap(_.result), List(ProviderResult.MalformedJson, ProviderResult.Success))
+        assertEquals(completion.reply, Some(LlmReply("ciao", LlmAction.Text)))
+      }
+  }
+
+  test("an OpenRouter schema violation with no fallback answer ends in a failed completion") {
+    val hosts = ListBuffer.empty[String]
+    val old   = Json.obj(
+      "choices" -> Json.arr(
+        Json.obj("message" -> Json.obj("content" -> Json.fromString("""{"action":"reuse","replyId":"abc"}""")))
+      )
+    )
+    completeWith(
+      chosen = LlmProvider.OpenRouter,
+      gemini = (Status.Ok, Json.obj()),
+      openRouter = (Status.Ok, old),
+      hosts = hosts,
+      bodies = ListBuffer.empty[String]
+    )
+      .map { completion =>
+        assertEquals(hosts.toList, List(openRouterHost, geminiHost))
+        assertEquals(completion.reply, None)
+        assertEquals(
+          completion.attempts.flatMap(_.result),
+          List(ProviderResult.MalformedJson, ProviderResult.MalformedJson)
+        )
+      }
+  }
+
+  test("OpenRouter 404 (no endpoint supports the required parameters) is a rejection, then the fallback answers") {
+    val hosts = ListBuffer.empty[String]
+    completeWith(
+      chosen = LlmProvider.OpenRouter,
+      gemini = (Status.Ok, geminiSuccess("ciao")),
+      openRouter = (
+        Status.NotFound,
+        Json.obj("error" -> Json.obj("code" -> Json.fromInt(404), "message" -> Json.fromString("No endpoints found")))
+      ),
+      hosts = hosts,
+      bodies = ListBuffer.empty[String]
+    )
+      .map { completion =>
+        assertEquals(hosts.toList, List(openRouterHost, geminiHost))
+        assertEquals(completion.attempts.flatMap(_.result), List(ProviderResult.Rejected, ProviderResult.Success))
+        assertEquals(completion.reply, Some(LlmReply("ciao", LlmAction.Text)))
+      }
+  }
+
+  test("both providers ask for the same properties; only OpenRouter (strict mode) requires `text` too") {
+    val gemini = GeminiClient.responseSchema.hcursor
+    val router = OpenRouterClient.responseSchema.hcursor
+    assertEquals(gemini.downField("properties").as[Json], router.downField("properties").as[Json])
+    assertEquals(gemini.get[List[String]]("required"), Right(List("action")))
+    assertEquals(router.get[List[String]]("required"), Right(List("action", "text")))
+  }
+
   test("responses for a non-pending completion, from another provider or without a reply are rejected") {
     // obligation: rule-failure.ProviderReturnsStructuredReply.1
     // obligation: rule-failure.MalformedProviderReplyFails.1
@@ -508,41 +596,27 @@ class LlmClientSpec extends CatsEffectSuite {
     assert(StructuredReply.parse("```json\n{\"action\":\"shout\"}\n```").isLeft)
   }
 
-  test("structured reply: a text object cut by the output-token limit is recovered, other cuts are not") {
+  test("structured reply: an object cut by the output-token limit is malformed, never recovered") {
     val cut = "{\"action\":\"text\",\"text\":\"Cari amici, questa è una risposta lunga che il modello non ha chiuso"
-    assertEquals(
-      StructuredReply.parseDetailed(cut),
-      Right(
-        StructuredReply.Parsed(
-          LlmReply("Cari amici, questa è una risposta lunga che il modello non ha chiuso", LlmAction.Text),
-          StructuredReply.Repair.Truncated
-        )
-      )
-    )
-    // escapes and a trailing unpaired backslash are not guessed
-    assertEquals(
-      StructuredReply.parse("{\"action\":\"text\",\"text\":\"una \\\"citazione\\\" e un backslash \\"),
-      Right(LlmReply("una \"citazione\" e un backslash ", LlmAction.Text))
-    )
-    // only a cut `text` is repaired, and no repair of a plain malformed body
-    assert(StructuredReply.parse("{\"action\":\"reuse\",\"text\":\"r1\"").isLeft)
-    assert(StructuredReply.parse("{\"action\":\"text\",\"text\":\"ciao\"").isRight)
+    assert(StructuredReply.parse(cut).isLeft)
+    assert(StructuredReply.parse("{\"action\":\"text\",\"text\":\"una \\\"citazione\\\" e un backslash \\").isLeft)
+    assert(StructuredReply.parse("{\"action\":\"text\",\"text\":\"ciao\"").isLeft)
     assert(StructuredReply.parse("testo senza json").isLeft)
   }
 
-  test("a cut Gemini reply is answered with a truncated marker instead of a malformed failure") {
-    val raw  = "{\"action\":\"text\",\"text\":\"Ciao ragazzi, parliamo di musica"
-    val body = geminiOutput(raw).deepMerge(
-      Json.obj("status" -> Json.fromString("incomplete"), "model" -> Json.fromString("gemini-3.5-flash-lite"))
+  test("a cut Gemini reply is a malformed failure with its raw text kept, then the fallback answers") {
+    val raw    = "{\"action\":\"text\",\"text\":\"Ciao ragazzi, parliamo di musica"
+    val body   = geminiOutput(raw).deepMerge(Json.obj("status" -> Json.fromString("incomplete")))
+    val client = Client.fromHttpApp(
+      HttpApp[IO] { request =>
+        if request.uri.host.map(_.value).contains(geminiHost) then IO.pure(Response[IO](Status.Ok).withEntity(body))
+        else IO.pure(Response[IO](Status.Ok).withEntity(openRouterSuccess("bua")))
+      }
     )
-    val client = Client.fromHttpApp(HttpApp[IO](_ => IO.pure(Response[IO](Status.Ok).withEntity(body))))
     LlmClients.build[IO](client, config("", "primary-provider = gemini\n")).flatMap(_.complete(prompt)).map {
       completion =>
-        assertEquals(completion.status, CompletionStatus.Answered)
-        assertEquals(completion.reply.map(_.text), Some("Ciao ragazzi, parliamo di musica"))
-        assertEquals(completion.raw.map(_.truncated), Some(true))
-        assertEquals(completion.raw.flatMap(_.model), Some("gemini-3.5-flash-lite"))
-        assertEquals(completion.attempts.map(_.result), List(Some(ProviderResult.Success)))
+        assertEquals(completion.attempts.flatMap(_.result), List(ProviderResult.MalformedJson, ProviderResult.Success))
+        assertEquals(completion.reply.map(_.text), Some("bua"))
     }
   }
 

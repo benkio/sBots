@@ -43,8 +43,6 @@ final case class LlmInteraction(
     providerErrorMessage: Option[String] = None,
     geminiMs: Option[Long] = None,
     openRouterMs: Option[Long] = None,
-    // A `text` reply recovered from an object cut by the provider's output-token limit, still guarded before sending.
-    truncated: Boolean = false,
     // #1590: what the provider reported for the raw text, when it did; the estimates above stay for continuity
     promptTokensReported: Option[Int] = None,
     responseTokensReported: Option[Int] = None,

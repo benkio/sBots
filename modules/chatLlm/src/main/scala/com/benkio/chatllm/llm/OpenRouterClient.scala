@@ -15,6 +15,31 @@ import org.typelevel.ci.CIString
   */
 object OpenRouterClient {
 
+  /** The strict output contract asked of the model (#1588): exactly `action` (`text` or `silent`) and `text` (empty
+    * when silent). Strict schemas list every property as required and forbid any other one (no `replyId`, no `reuse`).
+    */
+  private[llm] val responseSchema: Json = Json.obj(
+    "type"       -> Json.fromString("object"),
+    "properties" -> Json.obj(
+      "action" -> Json.obj(
+        "type" -> Json.fromString("string"),
+        "enum" -> Json.arr(Json.fromString("text"), Json.fromString("silent"))
+      ),
+      "text" -> Json.obj("type" -> Json.fromString("string"))
+    ),
+    "required"             -> Json.arr(Json.fromString("action"), Json.fromString("text")),
+    "additionalProperties" -> Json.False
+  )
+
+  private[llm] val responseFormat: Json = Json.obj(
+    "type"        -> Json.fromString("json_schema"),
+    "json_schema" -> Json.obj(
+      "name"   -> Json.fromString("bot_reply"),
+      "strict" -> Json.True,
+      "schema" -> responseSchema
+    )
+  )
+
   /** The diagnosis of a response without usable text (see the client). Pure, so it is tested on plain JSON. */
   private[llm] def diagnose(json: Json): Option[String] = {
     val cursor  = json.hcursor
@@ -120,7 +145,8 @@ object OpenRouterClient {
         "messages" -> Json.arr(
           Json.obj("role" -> Json.fromString("user"), "content" -> Json.fromString(value))
         ),
-        "response_format" -> Json.obj("type" -> Json.fromString("json_object")),
+        "response_format" -> OpenRouterClient.responseFormat,
+        "provider"        -> Json.obj("require_parameters" -> Json.True),
         "max_tokens"      -> Json.fromInt(maxOutputTokens)
       )
 

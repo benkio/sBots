@@ -180,7 +180,6 @@ object LlmObserver {
               fallback = LlmInteraction.usedFallback(c),
               parsed = c.reply.isDefined,
               stripped = c.raw.exists(_.stripped),
-              truncated = c.raw.exists(_.truncated),
               promptTokensReported = usage.flatMap(_.prompt),
               responseTokensReported = usage.flatMap(_.completion),
               cachedTokens = usage.flatMap(_.cached),
