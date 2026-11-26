@@ -126,6 +126,12 @@ SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' A
          - bot name
          - relative output path, from BotDB folder, of the shows where to save the results.
      - The Youtube Api file named ~youTubeApiKey.token~ with the API key from google console placed in ~/modules/botDB/src/main/resources/~
+     - Optional: a yt-dlp cookies file named ~youTubeCookies.txt~ (Netscape format) placed in ~/modules/botDB/src/main/resources/~. When present, it is passed to every ~yt-dlp~ call (~--cookies~) to avoid YouTube bot checks during caption fetching; when missing, yt-dlp runs without cookies. The file is gitignored and holds your logged-in Google session, so keep it secret and trimmed to the ~.youtube.com~ and ~.google.com~ entries. To export it from a Firefox-based browser (eg. Floorp):
+       #+begin_src bash
+       yt-dlp --cookies-from-browser "firefox:<path to the browser profile folder>" \
+         --cookies modules/botDB/src/main/resources/youTubeCookies.txt \
+         --skip-download "https://www.youtube.com/watch?v=<any video id>"
+       #+end_src
 
 ** Compile and Test
 

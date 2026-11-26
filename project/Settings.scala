@@ -139,7 +139,7 @@ object Settings {
     Test / javaOptions += s"-Dconfig.file=${sourceDirectory.value}/test/resources/application.test.conf",
     Test / fork       := true,
     runMigrate / fork := true
-  ) ++ fullRunTask(runMigrate, Compile, "com.benkio.botDB.Main")
+  ) ++ fullRunTask(runMigrate, Runtime, "com.benkio.botDB.Main")
 
   def RepliesEditorServer(repliesEditorUI: ProjectReference) = Seq(
     name                := "repliesEditorServer",
