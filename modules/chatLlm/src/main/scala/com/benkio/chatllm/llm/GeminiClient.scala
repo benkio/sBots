@@ -37,7 +37,7 @@ object GeminiClient {
         "enum" -> Json.arr(Json.fromString("text"), Json.fromString("silent"))
       )
     ),
-    "required" -> Json.arr(Json.fromString("action"))
+    "required" -> Json.arr(Json.fromString("action"), Json.fromString("text"))
   )
 
   /** Why the interaction yielded no usable text: its `status` (`incomplete` is a reply cut by the output limit,

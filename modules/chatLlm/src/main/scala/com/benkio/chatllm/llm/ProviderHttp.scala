@@ -95,7 +95,6 @@ private[llm] object ProviderHttp {
                             .copy(
                               raw = Some(raw),
                               stripped = parsed.repair == StructuredReply.Repair.Stripped,
-                              truncated = parsed.repair == StructuredReply.Repair.Truncated,
                               model = served,
                               usage = usage
                             )

@@ -704,13 +704,15 @@ rule ResponderAnswersWithText {
 -- a client error, or a text that is not acceptable. A text over the cap is truncated (see reply_text), not dropped.
 -- A provider reply without a valid action, or with a non-string text, is already malformed at the provider
 -- boundary (a `reuse` action included). A JSON null `text` counts as absent, not malformed.
--- A `text` object cut by the provider's output-token limit is recovered when the prefix already names that action and
--- the value decodes as a JSON string (a lone trailing escape is dropped, never guessed): the recovered text goes
--- through the same output guard and the interaction reports `truncated=true`. Any other unreadable
--- object, stays malformed and follows the fallback path.
--- WORKAROUND/TODO: in principle a provider must return a well-structured reply; malformed output should fail as before.
--- This recovery is only a temporary usability/stability measure until generation is fixed at the source. Remove both the
--- rule and the `truncated` observability key once no completion needs them.
+-- Both providers enforce the reply contract at call time (#1588): Gemini with `responseSchema`, OpenRouter with a strict
+-- `response_format.json_schema` (`action`, `text`, both required because strict mode demands it, no other property;
+-- both providers ask for the same required fields) plus `provider.require_parameters`,
+-- so an endpoint that cannot honour the schema is rejected instead of returning prose. The parser stays as defence in
+-- depth: a violating reply (`reuse`, `replyId`) is malformed, logged uncapped, and follows the fallback path, then silence.
+-- The `text` action with an empty, blank or missing `text` is malformed too (it would only be dropped by the output
+-- guard): the fallback provider is asked. The `silent` action needs no text.
+-- A `text` object cut by the provider's output-token limit is not recovered: like any other unreadable object it is
+-- malformed, logged with its full raw text, and follows the fallback path.
 -- The reply language is the one the persona states (Italian when it states none); this is required by the prompt only,
 -- not checked.
 rule ResponderStaysSilent {
@@ -733,8 +735,7 @@ rule ResponderStaysSilent {
 -- keys `prompt_tokens_reported`, `response_tokens_reported`, `cached_tokens`: the counts of every provider attempt added
 -- up, so a fallback's tokens come on top of the failed primary's; each omitted when no attempt reported that count; absent usage is never an error and never touches the reply), latency, completion status, action taken (text
 -- or silent), failure reason, provider attempts and their results, whether a fallback provider was
--- asked, whether the structured reply needed fence/prose stripping or was recovered from a truncated `text`
--- (`truncated=true`), and the local rejection (oversized prompt, missing credentials). The failure reasons are what the dashboard counts: local rejections, quota exhaustion, a provider
+-- asked, whether the structured reply needed fence/prose stripping, and the local rejection (oversized prompt, missing credentials). The failure reasons are what the dashboard counts: local rejections, quota exhaustion, a provider
 -- result (including `success_without_reply` when a provider answered 200 without a structured reply), an output the
 -- guard turned into silence, and a client call that threw (status `error`,
 -- failure `client_error:<exception class>`; never the exception message, which may hold chat content), and a call that was

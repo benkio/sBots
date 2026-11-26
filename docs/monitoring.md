@@ -71,6 +71,8 @@ Two plain INFO lines explain a non-reply that has no `llm_interaction` at all:
 - `[ChatLlmResponder] <chatId>: no reply: <reason>` from the responder for every interaction that ends without a reply.
   The reason is the `failure` of the JSON line, with the output-guard rule appended as `output_rejected:<rule>` (for
   example `command`, `mention`, `empty_text`). A deliberate `silent` action reports `silent_action`.
+  A text dropped by the output guard (`output_rejected:*`) is logged at WARN, every other reason at INFO.
+  A `text` action with an empty text is no longer reached: it is `malformedjson` and the fallback provider is asked.
 
 A failure to build the prompt, to log the interaction or to store the trace writes a WARN/ERROR line with the exception
 class only; neither a logging failure nor a busy database can drop the other record or fail the reply.
@@ -80,7 +82,7 @@ class only; neither a logging failure nor a busy database can drop the other rec
  "response_tokens":11,"latency_ms":820,"status":"answered","action":"text","failure":"<reason>",
  "attempts":"gemini:ratelimited,openrouter:success","fallback":true,"parsed":true,"stripped":false,"local_rejection":"<reason>",
  "provider_errors":"gemini:404","provider_error":"<provider message, capped at 200 characters>",
- "gemini_ms":850,"openrouter_ms":9200,"truncated":true,"prompt_tokens_reported":468,"response_tokens_reported":12,
+ "gemini_ms":850,"openrouter_ms":9200,"prompt_tokens_reported":468,"response_tokens_reported":12,
  "cached_tokens":380}
 ```
 
@@ -122,11 +124,12 @@ class only; neither a logging failure nor a busy database can drop the other rec
   `client_error:<ExceptionClass>` (the client call threw; the exception message is never logged here, it may hold chat
   content), `cancelled`. Omitted when it answered or the model chose silence.
 - `fallback=true`: the provider other than the configured primary was asked. `stripped=true`: the reply parsed only after the
-  fence/prose around the JSON object was cut away. `truncated=true`: the reply was recovered from a `text` object cut by
-  the provider's output-token limit (the model looped and never closed the JSON); the recovered text still passed the
-  output guard, so it is capped at 500 characters and never a command or a mention. The key is absent otherwise.
-  WORKAROUND/TODO: in principle a malformed reply should fail as before; this recovery is only a temporary
-  usability/stability measure. Remove it and the marker once generation is fixed at the source.
+  fence/prose around the JSON object was cut away.
+  A reply cut by the output-token limit is not recovered: it is `malformedjson`, with the full raw text logged.
+- Both providers are asked for the reply contract `{action: text|silent, text}` as a schema: Gemini with `responseSchema`,
+  OpenRouter with a strict `response_format.json_schema` and `provider.require_parameters=true` (endpoints that cannot
+  honour it are skipped, so a request with none left fails as a provider error). Replies that still break it
+  (`reuse`, `replyId`, prose) are `malformedjson` and keep the full raw text in the `[LlmMalformedJson]` line.
 
 **Trace a weird reply.** Find the line in Loki (below, plus `| chat="<hash>"`): it gives the model and the
 time. With the debug trace on, the full prompt and the raw model text are in `llm_trace` (joined by `chat_hash`, `bot_id`

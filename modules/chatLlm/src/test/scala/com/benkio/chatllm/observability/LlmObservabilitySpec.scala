@@ -103,8 +103,7 @@ class LlmObservabilitySpec extends CatsEffectSuite {
       fallback = false,
       parsed = true,
       stripped = true,
-      localRejection = None,
-      truncated = true
+      localRejection = None
     )
     val line             = LlmInteractionLog.line(i)
     val json             = io.circe.parser.parse(line).fold(e => fail(e.getMessage), identity)
@@ -117,7 +116,6 @@ class LlmObservabilitySpec extends CatsEffectSuite {
     assert(field("reply_id").failed, "reply_id is gone with the reuse action")
     assertEquals(field("prompt_tokens").as[Int], Right(10))
     assertEquals(field("stripped").as[Boolean], Right(true))
-    assertEquals(field("truncated").as[Boolean], Right(true))
     // the keys without a value are omitted, not null
     assert(!line.contains("failure"), line)
     assert(!line.contains("local_rejection"), line)
@@ -159,47 +157,6 @@ class LlmObservabilitySpec extends CatsEffectSuite {
       assert(json.hcursor.get[Int]("prompt_tokens").isRight && withUsage.contains("\"response_tokens\""), withUsage)
       assert(withUsage.endsWith("\"cached_tokens\":380}"), withUsage)
       assert(!withoutUsage.contains("_reported") && !withoutUsage.contains("cached_tokens"), withoutUsage)
-    }
-  }
-
-  test("the truncated marker comes from the raw response and is absent for an ordinary reply") {
-    val answered = completion(
-      status = CompletionStatus.Answered,
-      reply = Some(LlmReply("Ciao!", LlmAction.Text)),
-      attempts = ok,
-      raw = Some(
-        RawResponse(LlmProvider.Gemini, "{\"action\":\"text\",\"text\":\"Ciao!", stripped = false, truncated = true)
-      )
-    )
-    for {
-      traces <- Ref[IO].of(List.empty[LlmTrace])
-      lines  <- Ref.of[IO, List[String]](List.empty)
-      observer = LlmObserver[IO](new MemoryTraces(traces), traceEnabled = false, salt = "s", modelOf = _ => None)(using
-        summon[cats.MonadThrow[IO]],
-        summon[cats.effect.Clock[IO]],
-        recordingLog(lines)
-      )
-      _ <- observer.observe(
-        LlmObservation(chatId, botId, "p", 1L, LlmOutcome.Completed(answered, LlmDecision.Text("Ciao!")))
-      )
-      _ <- observer.observe(
-        LlmObservation(
-          chatId,
-          botId,
-          "p",
-          1L,
-          LlmOutcome.Completed(
-            answered.copy(raw = answered.raw.map(_.copy(truncated = false))),
-            LlmDecision.Text("Ciao!")
-          )
-        )
-      )
-      seen <- lines.get
-    } yield {
-      val interactions = seen.filter(_.contains("\"type\":\"llm_interaction\""))
-      assertEquals(interactions.size, 2)
-      assert(interactions.head.contains("\"truncated\":true"), interactions.head)
-      assert(!interactions(1).contains("\"truncated\""), interactions(1))
     }
   }
 
