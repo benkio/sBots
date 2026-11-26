@@ -8,8 +8,6 @@ import com.benkio.chatcore.model.reply.Document
 import com.benkio.chatcore.repository.Repository
 import log.effect.LogWriter
 
-import java.nio.file.Path
-
 object TokenReader {
 
   enum TokenError(msg: String) extends Throwable(msg) {
@@ -25,15 +23,13 @@ object TokenReader {
     for {
       _                   <- Resource.eval(LogWriter.info(s"[TokenReader] Retrieving Token $tokenFilename"))
       tokenMediaResources <- repository.getResourceFile(Document(tokenFilename))
-      tokenFiles          <- tokenMediaResources match {
-        case Left(_) =>
-          Resource.eval[F, List[Path]](Async[F].raiseError(TokenError.TokenNotFound(tokenFilename)))
-        case Right(mediaResources) =>
-          mediaResources.toList.collect { case MediaResourceFile(rf) => rf }.sequence
-      }
+      tokenFiles          <- Resource
+        .eval(Async[F].fromEither(tokenMediaResources.leftMap(_ => TokenError.TokenNotFound(tokenFilename))))
+        .flatMap(mediaResources => mediaResources.toList.collect { case MediaResourceFile(rf) => rf }.sequence)
       tokenFileContent <-
-        tokenFiles.headOption
-          .fold(Resource.eval(Async[F].raiseError(TokenError.TokenNotFound(tokenFilename))))(Repository.fileToString)
+        Resource
+          .eval(Async[F].fromOption(tokenFiles.headOption, TokenError.TokenNotFound(tokenFilename)))
+          .flatMap(Repository.fileToString)
       _ <- Resource.eval(
         Async[F].raiseWhen(tokenFileContent.isEmpty)(
           TokenError.TokenIsEmpty(tokenFilename)

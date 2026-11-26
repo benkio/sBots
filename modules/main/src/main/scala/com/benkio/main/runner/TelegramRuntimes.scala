@@ -34,13 +34,15 @@ object TelegramWebhookPlatformRuntime extends PlatformRuntime {
             llmWiring = Some(mainSetup.llmWiring)
           )
           .attempt
-          .flatMap {
-            case Right(bot) => Resource.pure[IO, Option[SBotWebhook[IO]]](Some(bot))
-            case Left(e)    =>
-              Resource
-                .eval(reportStopped(entry, mainSetup)(e))
-                .as(Option.empty[SBotWebhook[IO]])
-          }
+          .flatMap(
+            _.fold(
+              e =>
+                Resource
+                  .eval(reportStopped(entry, mainSetup)(e))
+                  .as(Option.empty[SBotWebhook[IO]]),
+              bot => Resource.pure[IO, Option[SBotWebhook[IO]]](Some(bot))
+            )
+          )
       )
       bots = attempts.flatten
       _ <-

@@ -83,20 +83,18 @@ class DiscordReplies[F[_]: Async: LogWriter: Notifier](
 
     flowPrompts
       .byKey(prompt.key)
-      .flatMap {
-        case Some(handle) =>
-          api
-            .editButtons(channelId = message.chatId.id, messageId = handle.messageId, message = rendered)
-            .flatMap(_ => flowPrompts.put(prompt.key, handle.messageId, prompt.key.requester))
-            .handleErrorWith {
-              case gone: DiscordUnknownMessage =>
-                LogWriter.warn(
-                  s"[DiscordReplies] The prompt message ${gone.messageId} of ${prompt.key} is gone; sending a new one"
-                ) >> flowPrompts.remove(prompt.key) >> fresh
-              case other => Async[F].raiseError[Unit](other)
-            }
-        case None => fresh
-      }
+      .flatMap(_.fold(fresh) { handle =>
+        api
+          .editButtons(channelId = message.chatId.id, messageId = handle.messageId, message = rendered)
+          .flatMap(_ => flowPrompts.put(prompt.key, handle.messageId, prompt.key.requester))
+          .handleErrorWith {
+            case gone: DiscordUnknownMessage =>
+              LogWriter.warn(
+                s"[DiscordReplies] The prompt message ${gone.messageId} of ${prompt.key} is gone; sending a new one"
+              ) >> flowPrompts.remove(prompt.key) >> fresh
+            case other => Async[F].raiseError[Unit](other)
+          }
+      })
       .handleErrorWith(e => LogWriter.error(s"[DiscordReplies] Error while sending the subscription prompt: $e"))
   }
 

@@ -10,11 +10,15 @@ import org.http4s.dsl.io.*
 
 final class AllowedFilesEndpoint(botStore: BotStoreApi) {
   val routes: HttpRoutes[IO] = HttpRoutes.of[IO] { case GET -> Root / "api" / "bot" / botId / "allowed-files" =>
-    botStore.getAllowedFiles(botId).flatMap {
-      case Left(err) =>
-        if err.error.startsWith("Unknown botId") then NotFound(err.asJson)
-        else InternalServerError(err.asJson)
-      case Right(files) => Ok(files.asJson)
-    }
+    botStore
+      .getAllowedFiles(botId)
+      .flatMap(
+        _.fold(
+          err =>
+            if err.error.startsWith("Unknown botId") then NotFound(err.asJson)
+            else InternalServerError(err.asJson),
+          files => Ok(files.asJson)
+        )
+      )
   }
 }

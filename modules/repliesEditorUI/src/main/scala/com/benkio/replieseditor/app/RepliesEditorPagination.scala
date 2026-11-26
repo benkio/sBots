@@ -32,11 +32,9 @@ final class RepliesEditorPagination(store: RepliesEditorStore, loader: RepliesEd
   def requestNext(): Unit = {
     val p  = store.currentPageVar.now().max(1)
     val tp =
-      store.totalVar.now() match {
-        case None        => 0
-        case Some(total) =>
-          val ps = store.pageSizeVar.now().max(1)
-          ((total + ps - 1) / ps).max(1)
+      store.totalVar.now().fold(0) { total =>
+        val ps = store.pageSizeVar.now().max(1)
+        ((total + ps - 1) / ps).max(1)
       }
     if tp == 0 || p < tp then {
       val next = p + 1

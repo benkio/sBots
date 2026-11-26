@@ -1,5 +1,6 @@
 package com.benkio.chatcore.model
 
+import cats.syntax.either.*
 import munit.*
 
 class SubscribeArgumentsSpec extends FunSuite {
@@ -53,8 +54,8 @@ class SubscribeArgumentsSpec extends FunSuite {
         result,
         Left(SubscribeArguments.UnsupportedSubscriptionType(token, SubscribeArguments.supportedTypes))
       )
-      assert(result.left.exists(_.getMessage.contains(s"Unsupported subscription type '$token'")), result.toString)
-      assert(result.left.exists(_.getMessage.contains("Supported types: show, trigger")), result.toString)
+      assert(result.swap.exists(_.getMessage.contains(s"Unsupported subscription type '$token'")), result.toString)
+      assert(result.swap.exists(_.getMessage.contains("Supported types: show, trigger")), result.toString)
     }
   }
 
@@ -73,12 +74,12 @@ class SubscribeArgumentsSpec extends FunSuite {
 
   test("a trigger text longer than the maximum is rejected") {
     val result = SubscribeArguments.parse(s"$cron trigger ${"a" * (SubscriptionRules.maxTargetLength + 1)}")
-    assertEquals(result.left.map(_.getClass), Left(classOf[SubscriptionRules.TargetTooLong]))
+    assertEquals(result.leftMap(_.getClass), Left(classOf[SubscriptionRules.TargetTooLong]))
   }
 
   test("a target longer than the maximum is rejected") {
     val result = SubscribeArguments.parse(s"$cron show ${"a" * (SubscriptionRules.maxTargetLength + 1)}")
-    assertEquals(result.left.map(_.getClass), Left(classOf[SubscriptionRules.TargetTooLong]))
+    assertEquals(result.leftMap(_.getClass), Left(classOf[SubscriptionRules.TargetTooLong]))
   }
 
   test("a target of exactly the maximum length is accepted") {

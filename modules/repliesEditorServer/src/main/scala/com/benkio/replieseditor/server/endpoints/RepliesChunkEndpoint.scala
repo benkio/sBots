@@ -22,12 +22,15 @@ final class RepliesChunkEndpoint(botStore: BotStoreApi) {
         ) +& LimitParam(limitOpt) =>
       val offset = offsetOpt.getOrElse(0)
       val limit  = limitOpt.getOrElse(50)
-      botStore.getRepliesChunk(botId, offset, limit).flatMap {
-        case Left(err) =>
-          if err.error.startsWith("Unknown botId") then NotFound(err.asJson)
-          else InternalServerError(err.asJson)
-        case Right(chunk) =>
-          Ok(chunk.asJson)
-      }
+      botStore
+        .getRepliesChunk(botId, offset, limit)
+        .flatMap(
+          _.fold(
+            err =>
+              if err.error.startsWith("Unknown botId") then NotFound(err.asJson)
+              else InternalServerError(err.asJson),
+            chunk => Ok(chunk.asJson)
+          )
+        )
   }
 }

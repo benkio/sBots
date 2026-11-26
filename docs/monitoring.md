@@ -23,7 +23,7 @@ Two kinds of `[stats]` lines, logged at `info` in the `logfmt` style (`UsageStat
 dashboard depends on them.
 
 - `[stats] type=message bot=<bot> platform=<platform> outcome=<outcome> latency_ms=<n>`: one per message that reaches a bot
-  (`BotEngine.onMessage`). `outcome` is `trigger-matched` (processed, also when nothing matched), `duplicate` (skipped, #1432), `timeout`
+  (`BotEngine.onMessage`). `outcome` is `reactive-replied` (the reactive logic replied), `unreplied` (processed, nothing replied), `duplicate` (skipped, #1432), `timeout`
   (dropped after the request timeout), `failed` (an error ended the processing) or `llm-replied` (the LLM answered; never
   produced while the LLM entry point is a noop).
 - `[stats] type=system heap_used_mb=<n> heap_max_mb=<n> uptime_s=<n> db_mb=<n> mem_total_mb=<n> mem_available_mb=<n>

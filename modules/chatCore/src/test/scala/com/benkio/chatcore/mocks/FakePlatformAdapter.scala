@@ -36,9 +36,8 @@ final class FakePlatformAdapter private (
 
   override def run: IO[Unit] =
     handler.get.flatMap(
-      _.fold(IO.raiseError(new IllegalStateException("[FakePlatformAdapter] no handler: call onInbound first")))(h =>
-        inbound.traverse_(h)
-      )
+      IO.fromOption(_)(new IllegalStateException("[FakePlatformAdapter] no handler: call onInbound first"))
+        .flatMap(h => inbound.traverse_(h))
     )
 
   override def touchFlowPrompt(key: SubscriptionFlowKey)(using Applicative[IO]): IO[Unit] =

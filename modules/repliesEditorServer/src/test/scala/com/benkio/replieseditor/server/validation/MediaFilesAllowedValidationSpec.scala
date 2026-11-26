@@ -16,7 +16,7 @@ class MediaFilesAllowedValidationSpec extends FunSuite {
     val replies = List(ReplyBundleMessage.textToMedia("a")(PhotoFile("cala_bad.jpg")))
     val res     = MediaFilesAllowedValidation.validateAllFilesAreAllowed(replies, allowed = Set("cala_ok.jpg"))
     assert(res.isLeft)
-    val err = res.left.toOption.get
+    val err = res.swap.toOption.get
     assertEquals(err.error, "Some media files are not present in *_list.json")
     val invalid = err.details.flatMap(_.hcursor.downField("invalidFiles").as[List[String]].toOption).getOrElse(Nil)
     assertEquals(invalid, List("cala_bad.jpg"))

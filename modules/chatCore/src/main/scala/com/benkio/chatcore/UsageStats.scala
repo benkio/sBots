@@ -25,7 +25,7 @@ object UsageStats {
   /** What happened to a message. */
   enum Outcome(val label: String) {
 
-    /** The message was processed, whether it matched something to reply to or not. */
+    /** The message was processed and the reactive logic replied to it. */
     case ReactiveReplied extends Outcome("reactive-replied")
 
     /** The platform delivered the message again: it was skipped. */

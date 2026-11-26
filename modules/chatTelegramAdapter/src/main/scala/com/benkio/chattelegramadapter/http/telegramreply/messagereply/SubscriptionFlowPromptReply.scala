@@ -78,8 +78,9 @@ object SubscriptionFlowPromptReply {
             .as(List(sent))
         )
 
-    flowPrompts.byKey(prompt.key).flatMap {
-      case Some(handle) =>
+    flowPrompts
+      .byKey(prompt.key)
+      .flatMap(_.fold(fresh) { handle =>
         Methods
           .editMessageText(
             chatId = Some(ChatIntId(prompt.key.chatId.telegramId)),
@@ -96,7 +97,6 @@ object SubscriptionFlowPromptReply {
               flowPrompts.put(prompt.key, handle.messageId, prompt.key.requester).as(List.empty[TMessage])
             case other => Async[F].raiseError[List[TMessage]](other)
           }
-      case None => fresh
-    }
+      })
   }
 }

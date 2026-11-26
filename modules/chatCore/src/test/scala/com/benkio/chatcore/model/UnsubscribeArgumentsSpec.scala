@@ -38,8 +38,8 @@ class UnsubscribeArgumentsSpec extends FunSuite {
     List("foo", "shows", "123", "show trigger").foreach { input =>
       val result = UnsubscribeArguments.parse(input)
       assertEquals(result, Left(UnsubscribeArguments.InvalidUnsubscribeInput(input)))
-      assert(result.left.exists(_.getMessage.contains(s"Invalid input '$input'")), result.toString)
-      assert(result.left.exists(_.getMessage.contains("show, trigger, calendar")), result.toString)
+      assert(result.swap.exists(_.getMessage.contains(s"Invalid input '$input'")), result.toString)
+      assert(result.swap.exists(_.getMessage.contains("show, trigger, calendar")), result.toString)
     }
   }
 }

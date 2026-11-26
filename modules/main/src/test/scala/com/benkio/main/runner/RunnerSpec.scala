@@ -84,7 +84,7 @@ class RunnerSpec extends CatsEffectSuite {
       )
       startedRuntimes <- started.get
     } yield {
-      assertEquals(result.left.map(_.getMessage), Left("The bot OnBoth runs on irc, which has no runtime to run it"))
+      assertEquals(result.leftMap(_.getMessage), Left("The bot OnBoth runs on irc, which has no runtime to run it"))
       assertEquals(startedRuntimes, List.empty)
     }
   }

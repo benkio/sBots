@@ -71,26 +71,29 @@ object PagedListTextCommands {
       botName: SBotName,
       store: PagedListTextStore.Store[F],
       now: FiniteDuration
-  ): F[Option[Action]] = parse(msg = msg, syntax = syntax, botName = botName) match {
-    case None          => none[Action].pure[F]
-    case Some(command) =>
-      store.get(msg.chatId, now).flatMap {
-        case Some(entry) => decideOnEntry(command, entry).pure[F]
-        case None        =>
-          store.isExpired(msg.chatId, now).map { expired =>
-            Some(Action.Answer(if expired then expiredAnswer else noListAnswer))
-          }
-      }
-  }
+  ): F[Option[Action]] = parse(msg = msg, syntax = syntax, botName = botName)
+    .fold(none[Action].pure[F])(command =>
+      store
+        .get(msg.chatId, now)
+        .flatMap(
+          _.fold(
+            store.isExpired(msg.chatId, now).map { expired =>
+              Some(Action.Answer(if expired then expiredAnswer else noListAnswer))
+            }
+          )(entry => decideOnEntry(command, entry).pure[F])
+        )
+    )
 
   private def decideOnEntry(command: TextCommand, entry: PagedListTextStore.Entry): Option[Action] = command match {
     case TextCommand.Next         => Action.Rerun(entry, entry.page + 1).some
     case TextCommand.Prev         => Action.Rerun(entry, PagedListNavigation.previousPage(entry.page)).some
     case TextCommand.Pick(number) =>
-      number match {
-        case Some(n) if n >= 1 && n <= entry.pageItems.size => Action.Pick(entry, n).some
-        case Some(n)                                        => Action.Answer(pickOutOfPageAnswer(n)).some
-        case None                                           => Action.Answer(pickMissingNumberAnswer).some
-      }
+      number
+        .fold(Action.Answer(pickMissingNumberAnswer): Action)(n =>
+          Option
+            .when(n >= 1 && n <= entry.pageItems.size)(Action.Pick(entry, n): Action)
+            .getOrElse(Action.Answer(pickOutOfPageAnswer(n)))
+        )
+        .some
   }
 }

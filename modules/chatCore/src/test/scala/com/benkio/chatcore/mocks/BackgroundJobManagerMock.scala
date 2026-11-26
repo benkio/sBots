@@ -50,9 +50,7 @@ object BackgroundJobManagerMock {
     override def cancelSubscription(chatId: ChatId, subscriptionId: SubscriptionId): IO[Unit] =
       for {
         keyOpt <- IO(scheduleReferences.keys.find(k => k.subscriptionId == subscriptionId && k.chatId == chatId))
-        _      <- keyOpt.fold(
-          IO.raiseError(new RuntimeException(s"SubscriptionId not found: $subscriptionId"))
-        ) { key =>
+        _ <- IO.fromOption(keyOpt)(new RuntimeException(s"SubscriptionId not found: $subscriptionId")).flatMap { key =>
           for {
             cancel <- IO(scheduleReferences(key))
             _      <- cancel.set(true)

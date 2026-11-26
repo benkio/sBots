@@ -53,14 +53,14 @@ final class SubscriptionFlowService[F[_]: Async](
 
   private def stripeFor(key: SubscriptionFlowKey): F[Semaphore[F]] = {
     val slot = stripes(Math.floorMod(key.hashCode, stripes.length))
-    slot.get() match {
-      case Some(semaphore) => semaphore.pure[F]
-      case None            =>
+    slot
+      .get()
+      .fold(
         Semaphore[F](1).map { created =>
           if slot.compareAndSet(None, Some(created)) then created
           else slot.get().get
         }
-    }
+      )(_.pure[F])
   }
 
   /** Presses of one draft can arrive on parallel fibers (a webhook or a button listener). Serializing the transitions
@@ -117,16 +117,23 @@ final class SubscriptionFlowService[F[_]: Async](
       action: SubscriptionFlowAction,
       requester: String
   ): F[SubscriptionFlowOutcome] =
-    store.get(key(msg, requester)).flatMap {
-      case None =>
-        SubscriptionFlowOutcome.Message(error(SubscriptionFlowFailure.NoActiveFlow, noActiveFlowText)).pure[F]
-      case Some(draft) if !isAllowed(draft, action) =>
-        save(draft)(_ =>
-          SubscriptionFlowOutcome
-            .Message(error(SubscriptionFlowFailure.InvalidAction, invalidActionText), terminal = false)
+    store
+      .get(key(msg, requester))
+      .flatMap(
+        _.fold(
+          (SubscriptionFlowOutcome
+            .Message(error(SubscriptionFlowFailure.NoActiveFlow, noActiveFlowText)): SubscriptionFlowOutcome).pure[F]
+        )(draft =>
+          Option
+            .when(!isAllowed(draft, action))(
+              save(draft)(_ =>
+                SubscriptionFlowOutcome
+                  .Message(error(SubscriptionFlowFailure.InvalidAction, invalidActionText), terminal = false)
+              )
+            )
+            .getOrElse(applyAction(msg = msg, draft = draft, action = action))
         )
-      case Some(draft) => applyAction(msg = msg, draft = draft, action = action)
-    }
+      )
 
   /** A plain message is a flow answer only at the schedule and target steps, and only for the draft owner. At the
     * target step it must carry non-empty text: an empty target is reserved for the random button, so a media message or
@@ -217,17 +224,20 @@ final class SubscriptionFlowService[F[_]: Async](
     }
 
   private def setSchedule(draft: SubscriptionDraft, cron: String, dropOnInvalid: Boolean): F[SubscriptionFlowOutcome] =
-    validateCron(cron) match {
-      case Right(_) =>
-        save(draft.copy(step = SubscriptionDraftStep.Target, schedule = Some(cron)))(prompt)
-      case Left(reason) =>
+    validateCron(cron).fold(
+      reason => {
         val reply = error(
           SubscriptionFlowFailure.InvalidCron,
           s"Invalid schedule: ${Option(reason.getMessage).getOrElse(reason.toString)}"
         )
-        if dropOnInvalid then store.remove(draft.key).as(SubscriptionFlowOutcome.Message(reply, terminal = true))
-        else save(draft)(_ => SubscriptionFlowOutcome.Message(reply, terminal = false))
-    }
+        Option
+          .when(dropOnInvalid)(
+            store.remove(draft.key).as(SubscriptionFlowOutcome.Message(reply, terminal = true): SubscriptionFlowOutcome)
+          )
+          .getOrElse(save(draft)(_ => SubscriptionFlowOutcome.Message(reply, terminal = false)))
+      },
+      _ => save(draft.copy(step = SubscriptionDraftStep.Target, schedule = Some(cron)))(prompt)
+    )
 
   private def enterTarget(draft: SubscriptionDraft, text: String): F[SubscriptionFlowOutcome] =
     if text.length > SubscriptionRules.maxTargetLength then save(draft)(_ =>
@@ -250,13 +260,17 @@ final class SubscriptionFlowService[F[_]: Async](
     arguments.fold(
       reason => finish(draft = draft, detail = reason.getMessage, reason = SubscriptionFlowFailure.CreationRejected),
       args =>
-        createSubscription(msg, sBotInfo, args).flatMap {
-          case Right(replyValue) => store.remove(draft.key).as(SubscriptionFlowOutcome.Message(replyValue))
-          case Left(reason)      =>
-            val detail =
-              s"${Option(reason.getMessage).getOrElse(reason.toString)}. Run it directly with: ${oneShotCommand(args)}"
-            finish(draft = draft, detail = detail, reason = SubscriptionFlowFailure.CreationRejected)
-        }
+        createSubscription(msg, sBotInfo, args).flatMap(
+          _.fold(
+            reason => {
+              val detail =
+                s"${Option(reason.getMessage).getOrElse(reason.toString)}. Run it directly with: ${oneShotCommand(args)}"
+              finish(draft = draft, detail = detail, reason = SubscriptionFlowFailure.CreationRejected)
+            },
+            replyValue =>
+              store.remove(draft.key).as(SubscriptionFlowOutcome.Message(replyValue): SubscriptionFlowOutcome)
+          )
+        )
     )
   }
 

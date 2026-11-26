@@ -108,10 +108,10 @@ class SubscriptionFlowSpec extends CatsEffectSuite {
       responses
         .foldLeft(IO.pure(List(started))) { (previous, response) =>
           previous.flatMap { outcomes =>
-            response match {
-              case Left(_)       => flow.acceptPlainMessage(msg, "alice").map(_.get).map(outcomes :+ _)
-              case Right(action) => flow.submit(msg, action, "alice").map(outcomes :+ _)
-            }
+            response.fold(
+              _ => flow.acceptPlainMessage(msg, "alice").map(_.get).map(outcomes :+ _),
+              action => flow.submit(msg, action, "alice").map(outcomes :+ _)
+            )
           }
         }
         .map(_ -> created)

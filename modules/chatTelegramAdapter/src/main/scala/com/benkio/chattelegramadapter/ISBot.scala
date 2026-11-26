@@ -153,8 +153,15 @@ trait ISBot[F[_]: Async: LogWriter] {
   }
 
   private def handleCallback(query: CallbackQuery, data: String)(using Api[F], Notifier[F]): F[Unit] =
-    TelegramCallbackData.decodeFlow(data) match {
-      case Some(action) =>
+    TelegramCallbackData
+      .decodeFlow(data)
+      .fold(
+        TelegramCallbackData
+          .decode(data)
+          .fold(TelegramCallbackAnswer.reject(query.id, "This button is not valid."))(action =>
+            answerAndReply(query, action)
+          )
+      )(action =>
         SubscriptionFlowCallbackReply.reply[F](
           query = query,
           action = action,
@@ -162,12 +169,7 @@ trait ISBot[F[_]: Async: LogWriter] {
           submitAction =
             (msg, action, requester) => engine.onSubscriptionFlowAction(msg, action, requester)(using platformAdapter)
         )
-      case None =>
-        TelegramCallbackData.decode(data) match {
-          case None         => TelegramCallbackAnswer.reject(query.id, "This button is not valid.")
-          case Some(action) => answerAndReply(query, action)
-        }
-    }
+      )
 
   private def answerAndReply(query: CallbackQuery, callbackData: PagedListAction)(using
       Api[F],

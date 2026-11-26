@@ -79,10 +79,10 @@ trait BaseBotSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
           fail(s"JSON file not found: $jsonPath")
         } else {
           val content = Files.readString(jsonPath)
-          parse(content) match {
-            case Right(_)    => assert(true, "✓ valid")
-            case Left(error) => fail(s"❌ Invalid JSON in $jsonPath: ${error.getMessage}")
-          }
+          parse(content).fold(
+            error => fail(s"❌ Invalid JSON in $jsonPath: ${error.getMessage}"),
+            _ => assert(true, "✓ valid")
+          )
         }
       }
     })

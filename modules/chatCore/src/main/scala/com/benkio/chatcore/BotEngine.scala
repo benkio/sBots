@@ -127,21 +127,22 @@ class BotEngine[F[_]: Async: LogWriter](
     // the reactive part is bounded by the request timeout
     val process: F[Outcome] =
       LogWriter.trace(s"${sBotConfig.sBotInfo.botName}: A message arrived: $msg") *>
-      isDuplicate(msg).ifM(
-        skipDuplicate(msg).as(Outcome.Duplicate),
-        handleMessage(msg).as(Outcome.TriggerMatched)
-      )
+        isDuplicate(msg).ifM(
+          skipDuplicate(msg),
+          handleMessage(msg)
+        )
 
     val bounded: F[Outcome] = sBotConfig.requestProcessingTimeout.fold(process)(withRequestTimeout(msg, _)(process))
 
     for {
       start          <- Clock[F].monotonic
       triggerOutcome <- bounded.onError(_ => logStats(Outcome.Failed, start))
-      // only a message that was processed is handed to the LLM, never a duplicate, a timeout or a failure
-      finalOutcome <- Option.when(triggerOutcome == Outcome.TriggerMatched)(llm
+      // only a message the reactive part left unanswered is handed to the LLM, never a duplicate, a timeout or a failure
+      finalOutcome <-
+        if triggerOutcome == Outcome.UnReplied then llm
           .run(msg, triggerOutcome)
-        .onError(_ => logStats(Outcome.Failed, start))).orElse(triggerOutcome.pure[F]
-      )
+          .onError(_ => logStats(Outcome.Failed, start))
+        else triggerOutcome.pure[F]
       _ <- logStats(finalOutcome, start)
     } yield ()
   }
@@ -158,10 +159,12 @@ class BotEngine[F[_]: Async: LogWriter](
       )
     )
 
-  private def skipDuplicate(msg: Message): F[Unit] =
-    LogWriter.info(
-      s"${sBotConfig.sBotInfo.botName}: duplicate message skipped (chatId=${msg.chatId}, messageId=${msg.messageId})"
-    )
+  private def skipDuplicate(msg: Message): F[Outcome] =
+    LogWriter
+      .info(
+        s"${sBotConfig.sBotInfo.botName}: duplicate message skipped (chatId=${msg.chatId}, messageId=${msg.messageId})"
+      )
+      .as(Outcome.Duplicate)
 
   private def handleMessage(msg: Message)(using platform: PlatformAdapter[F]): F[Outcome] = for {
     _        <- LogWriter.info(s"${sBotConfig.sBotInfo.botName}: A message arrived with content: ${msg.text}")
@@ -169,8 +172,6 @@ class BotEngine[F[_]: Async: LogWriter](
     // the last interaction (what the chat timeout is measured from) is logged only after a reply
     _ <- postComputation(msg).whenA(reactive.replied)
   } yield Outcome.fromReactive(reactive)
-
-  }
 
   /** Whether the message was already received: the platforms can deliver the same message more than once (e.g. Telegram
     * retries an update that was not acknowledged in time). Without a message id (e.g. IRC) it can't be told, so the

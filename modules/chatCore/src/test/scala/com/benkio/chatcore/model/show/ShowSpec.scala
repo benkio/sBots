@@ -44,12 +44,9 @@ class ShowSpec extends ScalaCheckSuite {
       assert(rendered.contains(s"https://www.youtube.com/watch?v=${show.id}"))
       assert(rendered.contains(show.title))
       assert(rendered.contains(show.description.getOrElse("")))
-      show.timestamp match {
-        case Some(timestamp) =>
-          assert(rendered.contains(s"&t=${finiteDurationToYoutubeTimestamp(timestamp)}"))
-        case None =>
-          assert(!rendered.contains("&t="))
-      }
+      show.timestamp.fold(assert(!rendered.contains("&t=")))(timestamp =>
+        assert(rendered.contains(s"&t=${finiteDurationToYoutubeTimestamp(timestamp)}"))
+      )
     }
   }
 

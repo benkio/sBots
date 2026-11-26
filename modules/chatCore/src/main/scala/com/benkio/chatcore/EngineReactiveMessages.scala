@@ -17,8 +17,8 @@ private[chatcore] enum Reactive {
 }
 
 extension (r: Reactive) def replied: Boolean = r match {
-  case Done(replied) => replied
-  case Unmatched => false
+  case Reactive.Done(replied) => replied
+  case Reactive.Unmatched     => false
 }
 
 /** The reactive messages section of the [[BotEngine]]: what the bot answers to a plain message by itself. A message is

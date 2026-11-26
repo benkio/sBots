@@ -8,9 +8,11 @@ class MainSetupSpec extends CatsEffectSuite {
 
   test("MainSetup.apply should successfully be loaded") {
 
-    MainSetup[IO]().attempt.use {
-      case Right(_) => IO.unit
-      case x        => IO(fail(s"Failed to load the MainSetup. Got $x"))
-    }
+    MainSetup[IO]().attempt.use(
+      _.fold(
+        x => IO(fail(s"Failed to load the MainSetup. Got Left($x)")): IO[Unit],
+        _ => IO.unit
+      )
+    )
   }
 }

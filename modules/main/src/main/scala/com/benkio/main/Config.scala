@@ -1,6 +1,7 @@
 package com.benkio.main
 
 import cats.effect.Async
+import cats.syntax.either.*
 import com.benkio.chatcore.initialization.DBConfig
 import com.benkio.chatdiscordadapter.gateway.DiscordGatewayConfig
 import com.benkio.chatircadapter.connection.IrcConfig
@@ -57,11 +58,10 @@ object Config {
   private[main] val redacted = "<redacted>"
 
   def loadConfig[F[_]: Async]: F[Config] =
-    ConfigSource.default
-      .at("main")
-      .load[Config]
-      .fold(
-        err => Async[F].raiseError[Config](new RuntimeException(err.prettyPrint())),
-        value => Async[F].pure(value)
-      )
+    Async[F].fromEither(
+      ConfigSource.default
+        .at("main")
+        .load[Config]
+        .leftMap(err => new RuntimeException(err.prettyPrint()))
+    )
 }

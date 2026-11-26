@@ -94,13 +94,13 @@ object TelegramMessageReply {
       computeMediaResource(resources.head).redeemWith(
         e => {
           val nextFailed = failedId.orElse(failedReferenceOf(resources.head))
-          NonEmptyList.fromList(resources.tail) match {
-            case Some(rest) =>
+          Async[F]
+            .fromOption(NonEmptyList.fromList(resources.tail), e)
+            .flatMap(rest =>
               LogWriter.error(
                 s"[TelegramMessageReply] ERROR while executing media resource for $mediaFile with $e. Fallback to $rest"
               ) >> sendWithFallback(rest, nextFailed)
-            case None => Async[F].raiseError(e)
-          }
+            )
         },
         message =>
           OptionT

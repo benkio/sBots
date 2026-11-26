@@ -24,7 +24,7 @@ class TimeoutSpec extends ScalaCheckSuite {
   test("Timeout.apply(chatId, botId, string) rejects a zero or negative timeout") {
     List("00:00:00", "0:0:0", "-1:00:00", "01:-30:00", "00:00:-5").foreach { input =>
       assertEquals(
-        Timeout(TestIds.chatId(1L), SBotId("test"), input).left.toOption,
+        Timeout(TestIds.chatId(1L), SBotId("test"), input).swap.toOption,
         Some(NonPositiveTimeoutError(input)),
         s"$input should be rejected"
       )

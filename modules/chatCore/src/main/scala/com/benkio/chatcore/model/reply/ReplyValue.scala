@@ -1,5 +1,6 @@
 package com.benkio.chatcore.model.reply
 
+import cats.syntax.either.*
 import cats.Show
 import com.benkio.chatcore.model.media.Media
 import com.benkio.chatcore.model.MimeType
@@ -127,7 +128,7 @@ object EffectfulKey {
   private given searchShowDecoder: Decoder[EffectfulKey.SearchShow]       = deriveDecoder[EffectfulKey.SearchShow]
   private given triggerSearchDecoder: Decoder[EffectfulKey.TriggerSearch] = deriveDecoder[EffectfulKey.TriggerSearch]
   private given uriDecoder: Decoder[org.http4s.Uri]                       =
-    Decoder[String].emap(s => org.http4s.Uri.fromString(s).left.map(_.message))
+    Decoder[String].emap(s => org.http4s.Uri.fromString(s).leftMap(_.message))
   private given uriEncoder: Encoder[org.http4s.Uri]                       = Encoder[String].contramap(_.renderString)
   private given instructionsDecoder: Decoder[EffectfulKey.Instructions]   = deriveDecoder[EffectfulKey.Instructions]
   private given subscribeDecoder: Decoder[EffectfulKey.Subscribe]         = deriveDecoder[EffectfulKey.Subscribe]

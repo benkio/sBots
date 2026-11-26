@@ -222,9 +222,8 @@ object DBMedia {
       val maxAttempts = 10
 
       def step: ConnectionIO[FileIdUpdate] =
-        getMediaQueryByName(filename).option.flatMap {
-          case None          => FileIdUpdate.NotFound.pure[ConnectionIO].widen
-          case Some(dbMedia) =>
+        getMediaQueryByName(filename).option.flatMap(
+          _.fold(FileIdUpdate.NotFound.pure[ConnectionIO].widen[FileIdUpdate])(dbMedia =>
             for {
               media <- Media(dbMedia).liftTo[ConnectionIO]
               sources = transform(media.mediaSources)
@@ -239,7 +238,8 @@ object DBMedia {
                     else FileIdUpdate.Conflict
                   )
             } yield result
-        }
+          )
+        )
 
       // SQLite does not wait for a lock upgrade of a concurrent transaction: it fails at once with SQLITE_BUSY.
       def isBusy(e: Throwable): Boolean = e match {

@@ -34,10 +34,7 @@ object JsonDataRepository {
         _           <- Resource.eval(LogWriter.trace(s"[JsonDataRepository] Load resouces from: $jsonDataFilename"))
         eitherBytes <- Repository.getResourceByteArray(jsonDataFilename)
         jsonContent <- Resource.eval(
-          eitherBytes.fold(
-            err => Async[F].raiseError(err),
-            bytes => String(bytes, StandardCharsets.UTF_8).pure[F]
-          )
+          Async[F].fromEither(eitherBytes).map(bytes => String(bytes, StandardCharsets.UTF_8))
         )
         _       <- Resource.eval(LogWriter.trace(s"[JsonDataRepository] jsonContent length: ${jsonContent.length()}"))
         decoded <- Resource.eval(

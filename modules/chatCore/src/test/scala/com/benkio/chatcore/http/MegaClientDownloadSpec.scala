@@ -64,13 +64,17 @@ class MegaClientDownloadSpec extends CatsEffectSuite {
         )
         IO.pure(Response[IO](Status.Ok).withEntity(json))
       } else
-        answers.get(request.uri.renderString) match {
-          case Some(Right(encrypted)) =>
-            val chunks = Stream.emits(encrypted.grouped(16 * 1024).toList.map(Chunk.array(_))).flatMap(Stream.chunk)
-            IO.pure(Response[IO](Status.Ok, body = chunks))
-          case Some(Left(status)) => IO.pure(Response[IO](status))
-          case None               => IO.pure(Response[IO](Status.NotFound))
-        }
+        answers
+          .get(request.uri.renderString)
+          .fold(IO.pure(Response[IO](Status.NotFound)))(
+            _.fold(
+              status => IO.pure(Response[IO](status)),
+              encrypted => {
+                val chunks = Stream.emits(encrypted.grouped(16 * 1024).toList.map(Chunk.array(_))).flatMap(Stream.chunk)
+                IO.pure(Response[IO](Status.Ok, body = chunks))
+              }
+            )
+          )
     })
 
   private val primary = "https://download.example/primary.bin"

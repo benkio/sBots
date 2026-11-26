@@ -1,6 +1,7 @@
 package com.benkio.botDB.config
 
 import cats.effect.IO
+import cats.syntax.either.*
 import doobie.Transactor
 import pureconfig.*
 
@@ -18,13 +19,12 @@ object Config {
 
   def loadConfig(configPath: Option[String] = None): IO[Config] = {
     val source = configPath.fold(ConfigSource.default)(ConfigSource.file)
-    source
-      .at("botDB")
-      .load[Config]
-      .fold(
-        err => IO.raiseError[Config](new RuntimeException(err.prettyPrint())),
-        value => IO.pure(value)
-      )
+    IO.fromEither(
+      source
+        .at("botDB")
+        .load[Config]
+        .leftMap(err => new RuntimeException(err.prettyPrint()))
+    )
   }
 
   def buildTransactor(config: Config): Transactor[IO] =

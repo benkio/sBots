@@ -83,8 +83,9 @@ object BotSetup {
         }.sequence)
         .getOrElse(Resource.eval[F, List[Path]](Async[F].raiseError(BotSetupError.TokenNotFound(tokenFilename))))
       tokenFileContent <-
-        tokenFiles.headOption
-          .fold(Resource.eval(Async[F].raiseError(BotSetupError.TokenNotFound(tokenFilename))))(Repository.fileToString)
+        Resource
+          .eval(Async[F].fromOption(tokenFiles.headOption, BotSetupError.TokenNotFound(tokenFilename)))
+          .flatMap(Repository.fileToString)
       _ <- Resource.eval(
         Async[F].raiseWhen(tokenFileContent.isEmpty)(
           BotSetupError.TokenIsEmpty(tokenFilename)

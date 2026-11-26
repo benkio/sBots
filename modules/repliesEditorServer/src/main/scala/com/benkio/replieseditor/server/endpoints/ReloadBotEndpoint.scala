@@ -10,12 +10,15 @@ import org.http4s.dsl.io.*
 
 final class ReloadBotEndpoint(botStore: BotStoreApi) {
   val routes: HttpRoutes[IO] = HttpRoutes.of[IO] { case POST -> Root / "api" / "bot" / botId / "reload" =>
-    botStore.reloadBotFromDisk(botId).flatMap {
-      case Left(err) =>
-        if err.error.startsWith("Unknown botId") then NotFound(err.asJson)
-        else InternalServerError(err.asJson)
-      case Right(_) =>
-        Ok(Json.obj("ok" -> Json.fromBoolean(true), "botId" -> Json.fromString(botId)))
-    }
+    botStore
+      .reloadBotFromDisk(botId)
+      .flatMap(
+        _.fold(
+          err =>
+            if err.error.startsWith("Unknown botId") then NotFound(err.asJson)
+            else InternalServerError(err.asJson),
+          _ => Ok(Json.obj("ok" -> Json.fromBoolean(true), "botId" -> Json.fromString(botId)))
+        )
+      )
   }
 }

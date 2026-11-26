@@ -2,6 +2,7 @@ package com.benkio.replieseditor.server.store
 
 import cats.effect.IO
 import cats.effect.Resource
+import cats.syntax.either.*
 import com.benkio.chatcore.messagefiltering.MessageMatches
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.RegexTextTriggerValue
@@ -69,7 +70,7 @@ class BotStoreSpec extends CatsEffectSuite {
         _      <- write(repliesJson, repliesContent)
         store  <- BotStore.build(root)
         chunkE <- store.getRepliesChunk(botId, offset = 1, limit = 1)
-        chunk  <- IO.fromEither(chunkE.left.map(e => new RuntimeException(e.error)))
+        chunk  <- IO.fromEither(chunkE.leftMap(e => new RuntimeException(e.error)))
       } yield {
         assertEquals(chunk.total, 3)
         assertEquals(chunk.offset, 1)
@@ -104,10 +105,10 @@ class BotStoreSpec extends CatsEffectSuite {
         store <- BotStore.build(root)
         // "hello there" should match first
         c1E <- store.getFilteredRepliesChunk(botId, message = "hello there", offset = 0, limit = 50)
-        c1  <- IO.fromEither(c1E.left.map(e => new RuntimeException(e.error)))
+        c1  <- IO.fromEither(c1E.leftMap(e => new RuntimeException(e.error)))
         // "foo xxx bar" should match second because ContainsAll
         c2E <- store.getFilteredRepliesChunk(botId, message = "foo xxx bar", offset = 0, limit = 50)
-        c2  <- IO.fromEither(c2E.left.map(e => new RuntimeException(e.error)))
+        c2  <- IO.fromEither(c2E.leftMap(e => new RuntimeException(e.error)))
       } yield {
         assertEquals(c1.total, 1)
         assertEquals(c1.items.map(_.index), Vector(0))
@@ -149,10 +150,10 @@ class BotStoreSpec extends CatsEffectSuite {
         _     <- write(repliesJson, initialReplies.asJson.spaces2)
         store <- BotStore.build(root)
         saveE <- store.saveReplies(botId, List(padded))
-        _     <- IO.fromEither(saveE.left.map(e => new RuntimeException(e.error))).void
+        _     <- IO.fromEither(saveE.leftMap(e => new RuntimeException(e.error))).void
         raw   <- IO.blocking(Files.readString(repliesJson, StandardCharsets.UTF_8))
-        json  <- IO.fromEither(parse(raw).left.map(e => new RuntimeException(e.message)))
-        rs    <- IO.fromEither(json.as[List[ReplyBundleMessage]].left.map(df => new RuntimeException(df.message)))
+        json  <- IO.fromEither(parse(raw).leftMap(e => new RuntimeException(e.message)))
+        rs    <- IO.fromEither(json.as[List[ReplyBundleMessage]].leftMap(df => new RuntimeException(df.message)))
       } yield {
         val rbm = rs.head
         rbm.trigger match {

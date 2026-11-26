@@ -67,9 +67,9 @@ object MediaCommands {
         _              <- LogWriter.debug(s"[RandomCommand] Fetching random media for ${sBotInfo.botId}")
         dbMediaDataOpt <- dbMedia.getRandomMedia(sBotInfo.botId)
         _              <- LogWriter.debug("[RandomCommand] Convert DBMediaData to Media")
-        media          <- dbMediaDataOpt.fold(Async[F].raiseError(RandomMediaNotFound))(dbMediaData =>
-          Async[F].fromEither(Media(dbMediaData))
-        )
+        media          <- Async[F]
+          .fromOption(dbMediaDataOpt, RandomMediaNotFound)
+          .flatMap(dbMediaData => Async[F].fromEither(Media(dbMediaData)))
       } yield MediaFile.fromMimeType(media)
 
     def randomDataReplyBundleCommand(

@@ -9,15 +9,15 @@ class UsageStatsSpec extends FunSuite {
 
   test("messageLine has the bot, the platform, the outcome and the latency in milliseconds") {
     assertEquals(
-      UsageStats.messageLine("CalandroBot", "telegram", Outcome.TriggerMatched, 125.millis),
-      "[stats] type=message bot=CalandroBot platform=telegram outcome=trigger-matched latency_ms=125"
+      UsageStats.messageLine("CalandroBot", "telegram", Outcome.ReactiveReplied, 125.millis),
+      "[stats] type=message bot=CalandroBot platform=telegram outcome=reactive-replied latency_ms=125"
     )
   }
 
   test("every outcome has its own label") {
     assertEquals(
       Outcome.values.map(_.label).toList,
-      List("trigger-matched", "duplicate", "timeout", "failed", "llm-replied")
+      List("reactive-replied", "duplicate", "timeout", "failed", "llm-replied", "unreplied")
     )
   }
 

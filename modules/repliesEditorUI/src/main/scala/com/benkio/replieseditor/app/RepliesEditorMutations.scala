@@ -6,34 +6,46 @@ import com.benkio.replieseditor.module.*
 import io.circe.Json
 
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.util.Failure
-import scala.util.Success
 
 final class RepliesEditorMutations(store: RepliesEditorStore, loader: RepliesEditorLoader) {
 
   def commit(): Unit =
     store.selectedBotVar.now().foreach { botId =>
       store.setStatus("Saving…")
-      ApiClient.postJson(s"/api/bot/$botId/replies/commit", Json.obj()).onComplete {
-        case Failure(ex)        => store.setStatus(s"Save failed: ${ex.getMessage}")
-        case Success(Left(err)) => store.setStatus(s"Save failed: $err")
-        case Success(Right(_))  =>
-          store.dirtyVar.set(false)
-          store.setStatus("Saved.")
-      }
+      ApiClient
+        .postJson(s"/api/bot/$botId/replies/commit", Json.obj())
+        .onComplete(
+          _.fold(
+            ex => store.setStatus(s"Save failed: ${ex.getMessage}"),
+            _.fold(
+              err => store.setStatus(s"Save failed: $err"),
+              _ => {
+                store.dirtyVar.set(false)
+                store.setStatus("Saved.")
+              }
+            )
+          )
+        )
     }
 
   def deleteEntry(entryIndex: Int): Unit =
     store.selectedBotVar.now().foreach { botId =>
       store.setStatus(s"Deleting reply #${entryIndex + 1}…")
       val payload = Json.obj("index" -> Json.fromInt(entryIndex))
-      ApiClient.postJson(s"/api/bot/$botId/replies/delete", payload).onComplete {
-        case Failure(ex)        => store.setStatus(s"Delete failed: ${ex.getMessage}")
-        case Success(Left(err)) => store.setStatus(s"Delete failed: $err")
-        case Success(Right(_))  =>
-          store.markDirty()
-          loader.loadPage(botId, store.currentPageVar.now())
-      }
+      ApiClient
+        .postJson(s"/api/bot/$botId/replies/delete", payload)
+        .onComplete(
+          _.fold(
+            ex => store.setStatus(s"Delete failed: ${ex.getMessage}"),
+            _.fold(
+              err => store.setStatus(s"Delete failed: $err"),
+              _ => {
+                store.markDirty()
+                loader.loadPage(botId, store.currentPageVar.now())
+              }
+            )
+          )
+        )
     }
 
   def addNewReplyAtCurrentPageTop(): Unit =
@@ -48,27 +60,42 @@ final class RepliesEditorMutations(store: RepliesEditorStore, loader: RepliesEdi
           matcher = "ContainsOnce"
         )
 
-      RepliesJsonMapping.buildJsonFromEditable(newEntry) match {
-        case Left(err) => store.setStatus(s"Cannot add: $err")
-        case Right(j)  =>
-          store.setStatus("Adding reply…")
-          val total   = store.totalVar.now().getOrElse(0)
-          val ps      = store.pageSizeVar.now().max(1)
-          val page    = store.currentPageVar.now().max(1)
-          val offset  = ((page - 1) * ps).min(total).max(0)
-          val payload = Json.obj("index" -> Json.fromInt(offset), "value" -> j)
+      RepliesJsonMapping
+        .buildJsonFromEditable(newEntry)
+        .fold(
+          err => store.setStatus(s"Cannot add: $err"),
+          j => {
+            store.setStatus("Adding reply…")
+            val total   = store.totalVar.now().getOrElse(0)
+            val ps      = store.pageSizeVar.now().max(1)
+            val page    = store.currentPageVar.now().max(1)
+            val offset  = ((page - 1) * ps).min(total).max(0)
+            val payload = Json.obj("index" -> Json.fromInt(offset), "value" -> j)
 
-          ApiClient.postJson(s"/api/bot/$botId/replies/insert", payload).onComplete {
-            case Failure(ex)              => store.setStatus(s"Add failed: ${ex.getMessage}")
-            case Success(Left(err))       => store.setStatus(s"Add failed: $err")
-            case Success(Right(respJson)) =>
-              val newTotal =
-                respJson.hcursor.downField("total").as[Int].toOption.orElse(store.totalVar.now()).getOrElse(total + 1)
-              store.markDirty()
-              store.totalVar.set(Some(newTotal))
-              loader.loadPage(botId, page)
+            ApiClient
+              .postJson(s"/api/bot/$botId/replies/insert", payload)
+              .onComplete(
+                _.fold(
+                  ex => store.setStatus(s"Add failed: ${ex.getMessage}"),
+                  _.fold(
+                    err => store.setStatus(s"Add failed: $err"),
+                    respJson => {
+                      val newTotal =
+                        respJson.hcursor
+                          .downField("total")
+                          .as[Int]
+                          .toOption
+                          .orElse(store.totalVar.now())
+                          .getOrElse(total + 1)
+                      store.markDirty()
+                      store.totalVar.set(Some(newTotal))
+                      loader.loadPage(botId, page)
+                    }
+                  )
+                )
+              )
           }
-      }
+        )
     }
 
   // ---- reply items / triggers
@@ -136,31 +163,40 @@ final class RepliesEditorMutations(store: RepliesEditorStore, loader: RepliesEdi
       current.map { st =>
         if st.index != entryIndex then st
         else
-          st.editable match {
-            case None     => st
-            case Some(e0) =>
-              val e1 = f(e0)
-              updated = Some(e1)
-              store.markDirty()
-              st.copy(editable = Some(e1))
+          st.editable.fold(st) { e0 =>
+            val e1 = f(e0)
+            updated = Some(e1)
+            store.markDirty()
+            st.copy(editable = Some(e1))
           }
       }
     }
 
     updated.foreach { e =>
       store.selectedBotVar.now().foreach { botId =>
-        RepliesJsonMapping.buildJsonFromEditable(e) match {
-          case Left(err) =>
-            store.setStatus(s"Invalid entry #${entryIndex + 1}: $err")
-          case Right(j) =>
-            val payload = Json.obj("index" -> Json.fromInt(entryIndex), "value" -> j)
-            ApiClient.postJson(s"/api/bot/$botId/replies/update", payload).onComplete {
-              case Failure(ex)        => store.setStatus(s"Update failed: ${ex.getMessage}")
-              case Success(Left(err)) => store.setStatus(s"Update failed: $err")
-              case Success(Right(_))  =>
-                if store.filterTextVar.now().trim.nonEmpty then loader.loadPage(botId, store.currentPageVar.now())
+        RepliesJsonMapping
+          .buildJsonFromEditable(e)
+          .fold(
+            err => store.setStatus(s"Invalid entry #${entryIndex + 1}: $err"),
+            j => {
+              val payload = Json.obj("index" -> Json.fromInt(entryIndex), "value" -> j)
+              ApiClient
+                .postJson(s"/api/bot/$botId/replies/update", payload)
+                .onComplete(
+                  _.fold(
+                    ex => store.setStatus(s"Update failed: ${ex.getMessage}"),
+                    _.fold(
+                      err => store.setStatus(s"Update failed: $err"),
+                      _ =>
+                        if store.filterTextVar.now().trim.nonEmpty then loader.loadPage(
+                          botId,
+                          store.currentPageVar.now()
+                        )
+                    )
+                  )
+                )
             }
-        }
+          )
       }
     }
   }

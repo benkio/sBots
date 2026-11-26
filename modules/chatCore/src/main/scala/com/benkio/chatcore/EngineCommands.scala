@@ -110,10 +110,7 @@ private[chatcore] class DefaultEngineCommands[F[_]: Async: LogWriter](
           s"${sBotConfig.sBotInfo.botName}: Computing command ${msg.text} matching command reply bundle"
         ) *> delivery.reply(commandReply.reply, msg).as(true)
       )
-      .flatMap {
-        case Some(replied) => replied.pure[F]
-        case None          => textMode.handleCommand(msg)
-      }
+      .flatMap(_.fold(textMode.handleCommand(msg))(_.pure[F]))
 
   /** @return whether a reply was sent */
   def fileRequestLogicReplied(msg: Message)(using platform: PlatformAdapter[F]): F[Boolean] =

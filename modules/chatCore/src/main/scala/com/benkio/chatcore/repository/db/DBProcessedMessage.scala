@@ -63,10 +63,12 @@ object DBProcessedMessage {
 
     private def cleanupIfDue(now: Long): F[Unit] = {
       val cleanup: F[Unit] =
-        deleteOlderThan(now - retention.toSeconds).attempt.flatMap {
-          case Right(deleted) => log.debug(s"DB deleted $deleted processed messages older than $retention")
-          case Left(e)        => log.error(s"DB failed to delete the old processed messages: $e")
-        }
+        deleteOlderThan(now - retention.toSeconds).attempt.flatMap(
+          _.fold(
+            e => log.error(s"DB failed to delete the old processed messages: $e"),
+            deleted => log.debug(s"DB deleted $deleted processed messages older than $retention")
+          )
+        )
       lastCleanup
         .modify(last => if now - last >= cleanupInterval.toSeconds then (now, true) else (last, false))
         .flatMap(cleanup.whenA)

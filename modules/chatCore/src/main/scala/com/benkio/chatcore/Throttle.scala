@@ -22,10 +22,7 @@ final class Throttle[F[_]: Async] private (suppressed: Ref[F, Map[String, Int]],
   def apply(key: String)(send: F[Unit], summary: Int => F[Unit]): F[Unit] =
     suppressed
       .modify(counts =>
-        counts.get(key) match {
-          case None        => (counts + (key -> 0), true)
-          case Some(count) => (counts + (key -> (count + 1)), false)
-        }
+        counts.get(key).fold((counts + (key -> 0), true))(count => (counts + (key -> (count + 1)), false))
       )
       .flatMap(first =>
         Async[F].whenA(first)(

@@ -116,7 +116,7 @@ class DiscordButtonHandlerSpec extends CatsEffectSuite {
       d     <- f.handler.decide(press(user = "bob", action = PagedListAction.NextPage(0, CommandKey.TopTwenty)))
       calls <- f.calls.get
     } yield {
-      assertEquals(d.left.toOption, Some(f.handler.notYours))
+      assertEquals(d.swap.toOption, Some(f.handler.notYours))
       assertEquals(calls, List.empty)
     }
   }
@@ -144,7 +144,7 @@ class DiscordButtonHandlerSpec extends CatsEffectSuite {
       actions <- f.actions.get
       calls   <- f.calls.get
     } yield {
-      assertEquals(d.left.toOption, Some(f.handler.flowNotYours))
+      assertEquals(d.swap.toOption, Some(f.handler.flowNotYours))
       assertEquals(actions, List.empty)
       assertEquals(calls, List.empty)
     }
@@ -156,7 +156,7 @@ class DiscordButtonHandlerSpec extends CatsEffectSuite {
       d       <- f.handler.decide(DiscordButtonPress("other", "prompt1", "alice", "flow-confirm"))
       actions <- f.actions.get
     } yield {
-      assertEquals(d.left.toOption, Some(f.handler.promptGone))
+      assertEquals(d.swap.toOption, Some(f.handler.promptGone))
       assertEquals(actions, List.empty)
     }
   }
@@ -167,8 +167,8 @@ class DiscordButtonHandlerSpec extends CatsEffectSuite {
       gone  <- f.handler.decide(flowPress(user = "alice", id = "flow-confirm", messageId = "other"))
       wrong <- f.handler.decide(flowPress(user = "alice", id = "flow-nonsense"))
     } yield {
-      assertEquals(gone.left.toOption, Some(f.handler.promptGone))
-      assertEquals(wrong.left.toOption, Some(f.handler.unknownButton))
+      assertEquals(gone.swap.toOption, Some(f.handler.promptGone))
+      assertEquals(wrong.swap.toOption, Some(f.handler.unknownButton))
     }
   }
 
@@ -180,8 +180,8 @@ class DiscordButtonHandlerSpec extends CatsEffectSuite {
       )
       invalid <- f.handler.decide(DiscordButtonPress("9", "m1", "alice", "nonsense"))
     } yield {
-      assertEquals(gone.left.toOption, Some(f.handler.listGone))
-      assertEquals(invalid.left.toOption, Some(f.handler.unknownButton))
+      assertEquals(gone.swap.toOption, Some(f.handler.listGone))
+      assertEquals(invalid.swap.toOption, Some(f.handler.unknownButton))
     }
   }
 }
