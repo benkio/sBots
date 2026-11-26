@@ -1,6 +1,8 @@
 package com.benkio.botDB
 
+import cats.data.NonEmptyList
 import cats.effect.*
+import cats.syntax.all.*
 import com.benkio.botDB.config.Config
 import com.benkio.botDB.db.DBMigrator
 import com.benkio.botDB.media.MediaUpdater
@@ -8,10 +10,16 @@ import com.benkio.botDB.show.CaptionParser
 import com.benkio.botDB.show.ShowUpdater
 import com.benkio.botDB.show.YouTubeService
 import com.benkio.chatcore.initialization.TokenReader
+import com.benkio.chatcore.model.media.MediaResource
+import com.benkio.chatcore.model.media.MediaResource.MediaResourceFile
+import com.benkio.chatcore.model.reply.Document
 import com.benkio.chatcore.repository.db.DBLayer
+import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.repository.ResourcesRepository
 import com.benkio.chatcore.Logger.given
 import log.effect.LogWriter
+
+import java.nio.file.Path
 
 object Main extends IOApp {
 
@@ -23,6 +31,28 @@ object Main extends IOApp {
   )
 
   val youtubeTokenFilename = "youTubeApiKey.token"
+  // Optional: yt-dlp cookies file (Netscape format) in the botDB resources
+  val youtubeCookiesFilename = "youTubeCookies.txt"
+
+  private def optionalCookiesFile(repository: Repository[IO]): Resource[IO, Option[Path]] =
+    repository
+      .getResourceFile(Document(youtubeCookiesFilename))
+      .flatMap((eitherMediaResources: Either[Repository.RepositoryError, NonEmptyList[MediaResource[IO]]]) =>
+        eitherMediaResources.fold(
+          _ =>
+            Resource.eval(
+              LogWriter
+                .info(s"[Main - Initialization] No $youtubeCookiesFilename found, yt-dlp runs without cookies")
+                .as(Option.empty[Path])
+            ),
+          (mediaResources: NonEmptyList[MediaResource[IO]]) =>
+            mediaResources.toList
+              .collectFirst { case MediaResourceFile(rf) => rf }
+              .traverse(file =>
+                file.evalTap(_ => LogWriter.info(s"[Main - Initialization] Using $youtubeCookiesFilename for yt-dlp"))
+              )
+        )
+      )
 
   private[botDB] def initialization(args: List[String]): Resource[IO, BotDBInitialization] =
     for {
@@ -40,8 +70,9 @@ object Main extends IOApp {
       mediaUpdater = MediaUpdater(config = config, dbLayer = dbLayer, repository = repository)
       _              <- Resource.eval(LogWriter.info("[Main - Initialization] Fetch YouTube api key from resources"))
       youTubeApiKey  <- TokenReader.token(youtubeTokenFilename, repository)
+      cookiesFile    <- optionalCookiesFile(repository)
       _              <- Resource.eval(LogWriter.info("[Main - Initialization] Creating YouTube Service"))
-      youTubeService <- Resource.eval(YouTubeService(config = config, youTubeApiKey))
+      youTubeService <- Resource.eval(YouTubeService(config = config, youTubeApiKey, cookiesFile))
       _              <- Resource.eval(LogWriter.info("[Main - Initialization] Creating Caption Parser"))
       captionParser  <- Resource.eval(IO.pure(CaptionParser[IO]()))
       _              <- Resource.eval(LogWriter.info("[Main - Initialization] ShowUpdater"))
