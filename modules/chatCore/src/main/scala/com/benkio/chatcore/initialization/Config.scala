@@ -48,11 +48,10 @@ object Config {
     )
 
   private def loadConfigInternal[F[_]](namespace: String)(using monadThrow: MonadThrow[F]): F[Config] =
-    ConfigSource.default
-      .at(namespace)
-      .load[Config]
-      .fold(
-        err => monadThrow.raiseError[Config](new RuntimeException(err.prettyPrint())),
-        value => monadThrow.pure(value)
-      )
+    monadThrow.fromEither(
+      ConfigSource.default
+        .at(namespace)
+        .load[Config]
+        .leftMap(err => new RuntimeException(err.prettyPrint()))
+    )
 }

@@ -2,6 +2,7 @@ package com.benkio.chatdiscordadapter.gateway
 
 import cats.effect.IO
 import cats.effect.Ref
+import cats.syntax.either.*
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.model.SBotInfo.SBotName
@@ -50,7 +51,7 @@ class DiscordGatewaySpec extends CatsEffectSuite {
 
   test("a connection that never gets ready fails and is closed anyway") {
     run(new FakeClient(_, ready = IO.raiseError(new RuntimeException("boom")))).map { case (result, calls) =>
-      assertEquals(result.left.map(_.getMessage), Left("boom"))
+      assertEquals(result.leftMap(_.getMessage), Left("boom"))
       assertEquals(calls, List("awaitReady", "shutdown", "awaitShutdown"))
     }
   }

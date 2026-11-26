@@ -5,6 +5,7 @@ import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.main.entriesOn
+import com.benkio.main.entriesWithoutRuntime
 import com.benkio.main.BotRegistry
 import com.benkio.main.BotRegistryEntry
 import com.benkio.main.GeneralErrorHandling
@@ -41,8 +42,8 @@ object Runner {
     }
 
   /** Starts the runtimes with the bots that run on their platform: the `IO` is the work of all of them to keep going. A
-    * bot on a platform with no runtime is an error; a runtime whose platform has no bots is not started (e.g. no HTTP
-    * server for the Telegram webhook when no bot runs on Telegram).
+    * bot on a platform with no runtime or a runtime whose platform has no bots is not started (e.g. no HTTP server for
+    * the Telegram webhook when no bot runs on Telegram).
     */
   def start(
       registry: BotRegistry[IO],
@@ -50,7 +51,6 @@ object Runner {
       mainSetup: MainSetup[IO]
   )(using log: LogWriter[IO]): Resource[IO, IO[Unit]] =
     for {
-      _       <- Resource.eval(checkRuntimes(registry, runtimes))
       started <- runtimes.traverse(runtime =>
         Option(registry.entriesOn(runtime.platform)).filter(_.nonEmpty).traverse(runtime.start(_, mainSetup))
       )
@@ -58,12 +58,10 @@ object Runner {
 
   /** A bot on a platform with no runtime is an error. */
   private def checkRuntimes(registry: BotRegistry[IO], runtimes: List[PlatformRuntime]): IO[Unit] = {
-    val runnablePlatforms = runtimes.map(_.platform).toSet
-    val withoutRuntime    = for {
-      entry    <- BotRegistry.toList(registry)
-      platform <- entry.platforms if !runnablePlatforms.contains(platform)
-    } yield PlatformWithoutRuntime(entry, platform.id)
-    withoutRuntime.headOption.traverse_(IO.raiseError)
+    registry
+      .entriesWithoutRuntime(runtimes.map(_.platform).toSet)
+      .headOption
+      .traverse_((entry, platform) => IO.raiseError(PlatformWithoutRuntime(entry, platform.id)))
   }
 
   /** The registry is checked before the boot is reported: a refused start only signals the failure, never the start.

@@ -23,13 +23,12 @@ class RepoRootSpec extends FunSuite {
       val detected = RepoRoot.detect(start = dir.resolve("some").resolve("nested"))
       assertEquals(detected, dir)
     } finally {
-      old match {
-        case None =>
-          System.clearProperty("sbots.repoRoot")
-          ()
-        case Some(value) =>
-          System.setProperty("sbots.repoRoot", value)
-          ()
+      old.fold {
+        System.clearProperty("sbots.repoRoot")
+        ()
+      } { value =>
+        System.setProperty("sbots.repoRoot", value)
+        ()
       }
     }
   }
@@ -45,13 +44,12 @@ class RepoRootSpec extends FunSuite {
       val detected = RepoRoot.detect(start = nested)
       assertEquals(detected, dir)
     } finally {
-      old match {
-        case None =>
-          System.clearProperty("sbots.repoRoot")
-          ()
-        case Some(value) =>
-          System.setProperty("sbots.repoRoot", value)
-          ()
+      old.fold {
+        System.clearProperty("sbots.repoRoot")
+        ()
+      } { value =>
+        System.setProperty("sbots.repoRoot", value)
+        ()
       }
     }
   }

@@ -1,5 +1,6 @@
 package com.benkio.chatcore.conversions
 
+import cats.syntax.either.*
 import com.benkio.chatcore.conversions.JsonConversions.SrtDecoder.given
 import io.circe.syntax.*
 import io.circe.Json
@@ -35,7 +36,7 @@ class JsonConversionsSpec extends FunSuite {
     val decoded = Json.fromString("not a timestamp").as[FiniteDuration]
 
     assertEquals(
-      decoded.left.map(_.message),
+      decoded.leftMap(_.message),
       Left("Invalid SRT timestamp format: 'not a timestamp'. Expected format: hh:mm:ss,SSS")
     )
   }

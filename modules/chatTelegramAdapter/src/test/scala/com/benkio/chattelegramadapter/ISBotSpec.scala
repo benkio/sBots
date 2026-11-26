@@ -1,7 +1,6 @@
 package com.benkio.chattelegramadapter
 
 import cats.effect.IO
-import cats.implicits.*
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.TextReply
@@ -29,18 +28,16 @@ class ISBotSpec extends CatsEffectSuite {
       "test"
     )("testReply1")
 
-    SampleWebhookBot().map(sampleWebhookBot => {
+    SampleWebhookBot().flatMap(sampleWebhookBot => {
       val resultOpt = ReplyBundleMessage.selectReplyBundle(
         msg = inputMessage,
         messageRepliesData = sampleWebhookBot.messageRepliesData,
         ignoreMessagePrefix = sampleWebhookBot.sBotConfig.ignoreMessagePrefix,
         disableForward = sampleWebhookBot.sBotConfig.disableForward
       )
-      val result = resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
-        _.prettyPrint()
-      }
       val expectedPP = expected.prettyPrint()
-      assertEquals(result, expectedPP)
+      IO.fromOption(resultOpt)(Throwable("SBotSpec expected Some, got None"))
+        .map(replyBundle => assertEquals(replyBundle.prettyPrint(), expectedPP))
     })
   }
 
@@ -60,17 +57,15 @@ class ISBotSpec extends CatsEffectSuite {
         )(false),
         instruction = CommandInstructionData.NoInstructions
       )
-    SampleWebhookBot().map(sampleWebhookBot => {
+    SampleWebhookBot().flatMap(sampleWebhookBot => {
       val resultOpt = ReplyBundleCommand.selectCommandReplyBundle(
         msg = inputMessage,
         allCommandRepliesData = sampleWebhookBot.allCommandRepliesData,
         botName = sampleWebhookBot.sBotConfig.sBotInfo.botName
       )
-      val result = resultOpt.fold(Throwable("SBotSpec expected Some, got None").raiseError[IO, String]) {
-        _.prettyPrint()
-      }
       val expectedPP = expected.prettyPrint()
-      assertEquals(result, expectedPP)
+      IO.fromOption(resultOpt)(Throwable("SBotSpec expected Some, got None"))
+        .map(replyBundle => assertEquals(replyBundle.prettyPrint(), expectedPP))
     })
   }
 }

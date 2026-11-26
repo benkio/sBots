@@ -77,10 +77,11 @@ class DiscordButtonHandler[F[_]: Async: LogWriter](
     )
 
   private def act(press: DiscordButtonPress, list: DiscordButtonList, action: PagedListAction): F[Unit] =
-    PagedListNavigation.newPage(action) match {
-      case Some(_) => changePage(press = press, list = list, action = action)
-      case None    => pick(press = press, list = list, action = action)
-    }
+    PagedListNavigation
+      .newPage(action)
+      .fold(pick(press = press, list = list, action = action))(_ =>
+        changePage(press = press, list = list, action = action)
+      )
 
   private def changePage(press: DiscordButtonPress, list: DiscordButtonList, action: PagedListAction): F[Unit] =
     navigate(action, list.request).flatMap {

@@ -4,7 +4,6 @@ import cats.effect.IO
 import cats.effect.Ref
 import cats.effect.Resource
 import cats.Applicative
-import com.benkio.chatcore.llm.LlmResponder
 import com.benkio.chatcore.mocks.NotifierMock.given
 import com.benkio.chatcore.model.reply.EffectfulReply
 import com.benkio.chatcore.model.reply.Markdown
@@ -164,8 +163,7 @@ class ITTelegramSubscriptionFlowSpec extends CatsEffectSuite with DBFixture {
         filteringMatchesMessages = (_, _) => IO.pure(true),
         postComputation = _ => IO.unit,
         notifier = summon[com.benkio.chatcore.Notifier[IO]],
-        backgroundJobManager = backgroundJobManager,
-        llmResponder = LlmResponder.noop[IO]
+        backgroundJobManager = backgroundJobManager
       )
       given PlatformAdapter[IO] = adapter
 

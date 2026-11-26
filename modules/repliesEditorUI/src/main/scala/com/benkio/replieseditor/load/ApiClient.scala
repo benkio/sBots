@@ -18,10 +18,7 @@ object ApiClient {
     resp.text().toFuture.map { body =>
       if !resp.ok then Left(s"HTTP ${resp.status}: $body")
       else
-        parse(body) match {
-          case Left(err)   => Left(err.message)
-          case Right(json) => Right(json)
-        }
+        parse(body).fold(e => Left(e.message), Right(_))
     }
 
   def fetchJson(url: String): Future[Either[String, Json]] =
@@ -42,8 +39,5 @@ object ApiClient {
   }
 
   def decodeOrError[A: Decoder](json: Json): Either[String, A] =
-    json.as[A] match {
-      case Left(err) => Left(err.message)
-      case Right(a)  => Right(a)
-    }
+    json.as[A].fold(e => Left(e.message), Right(_))
 }

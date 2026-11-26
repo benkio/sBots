@@ -41,10 +41,11 @@ class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
       preMedia            <- Resource.eval(dbMedia.getMedia(testMediaName, false))
       dbRepository        <- fixture.repositoryResource
       mediaSourcesWrapped <- dbRepository.getResourceFile(Mp3File(testMediaName))
-      mediaSources        <- mediaSourcesWrapped.fold(
-        e => Resource.eval(IO.raiseError(Throwable(s"Error getResourceFile returned an error $e"))),
-        _.traverse(_.getMediaResourceFile.sequence)
-      )
+      mediaSources        <- Resource
+        .eval(
+          IO.fromEither(mediaSourcesWrapped.leftMap(e => Throwable(s"Error getResourceFile returned an error $e")))
+        )
+        .flatMap(_.traverse(_.getMediaResourceFile.sequence))
       _ = println(s"debug mediaSource: $mediaSources")
       postMedia <- Resource.eval(dbMedia.getMedia(testMediaName, false))
       _ = println(s"debug postMedia: $postMedia")
@@ -116,10 +117,9 @@ class ITDBRepositorySpec extends CatsEffectSuite with DBFixture {
         criteria = "randomcard",
         botId = CalandroBot.sBotInfo.botId
       )
-      files <- mediaSources.fold(
-        e => Resource.eval(IO.raiseError(Throwable(s"getResourceByKind returned an error $e"))),
-        _.reduce.toList.mapFilter(_.getMediaResourceFile).sequence
-      )
+      files <- Resource
+        .eval(IO.fromEither(mediaSources.leftMap(e => Throwable(s"getResourceByKind returned an error $e"))))
+        .flatMap(_.reduce.toList.mapFilter(_.getMediaResourceFile).sequence)
     } yield files
       .map(file =>
         expectedFilenames.exists(matchFile => matchFile.toList.diff(file.getFileName().toString().toList).isEmpty)

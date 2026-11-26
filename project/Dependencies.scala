@@ -250,18 +250,9 @@ object Dependencies {
 
   val ChatLlmDependencies: Seq[ModuleID] =
     stacks.catsCore ++
-      stacks.catsStd ++
-      stacks.circeCoreParser ++
-      stacks.http4sClientCore ++
       stacks.logging ++
       stacks.testing ++
-      Seq(
-        libs.circeGeneric,
-        libs.doobieCore,
-        libs.http4sCirce,
-        libs.pureConfigCore,
-        libs.sqlite % groups.testScope
-      )
+      Seq(libs.catsFree, libs.doobieCore, libs.doobieFree, libs.sqlite % groups.testScope)
 
   /** Shared dependencies for all bot projects. Use this in Settings.botProjectSettings. */
   val BotDependencies: Seq[ModuleID] =

@@ -148,11 +148,11 @@ object DBSubscriptionDraft {
           .option).transact(transactor)
         draft <- data
           .traverse { d =>
-            DBSubscriptionDraftData.toDraft(d) match {
-              case Some(v) => v.some.pure[F]
-              case None    =>
+            DBSubscriptionDraftData
+              .toDraft(d)
+              .fold(
                 log.warn(s"[DBSubscriptionDraft] failed to decode draft for key=$key").as(none[SubscriptionDraft])
-            }
+              )(_.some.pure[F])
           }
           .map(_.flatten)
       } yield draft

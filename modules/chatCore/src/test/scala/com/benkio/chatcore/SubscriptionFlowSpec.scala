@@ -4,7 +4,6 @@ import cats.effect.IO
 import cats.effect.Ref
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.llm.LlmResponder
 import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.FakePlatformAdapter
@@ -109,10 +108,10 @@ class SubscriptionFlowSpec extends CatsEffectSuite {
       responses
         .foldLeft(IO.pure(List(started))) { (previous, response) =>
           previous.flatMap { outcomes =>
-            response match {
-              case Left(_)       => flow.acceptPlainMessage(msg, "alice").map(_.get).map(outcomes :+ _)
-              case Right(action) => flow.submit(msg, action, "alice").map(outcomes :+ _)
-            }
+            response.fold(
+              _ => flow.acceptPlainMessage(msg, "alice").map(_.get).map(outcomes :+ _),
+              action => flow.submit(msg, action, "alice").map(outcomes :+ _)
+            )
           }
         }
         .map(_ -> created)
@@ -131,8 +130,7 @@ class SubscriptionFlowSpec extends CatsEffectSuite {
     filteringMatchesMessages = (_, _) => IO.pure(true),
     postComputation = _ => IO.unit,
     notifier = Notifier.noop[IO],
-    backgroundJobManager = BackgroundJobManagerMock.mock(),
-    llmResponder = LlmResponder.noop[IO]
+    backgroundJobManager = BackgroundJobManagerMock.mock()
   )
 
   private val flowCapabilities = FakePlatformAdapter.textOnlyCapabilities.copy(

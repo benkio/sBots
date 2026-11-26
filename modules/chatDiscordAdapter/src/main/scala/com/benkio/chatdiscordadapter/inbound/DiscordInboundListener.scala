@@ -99,19 +99,22 @@ class DiscordInboundListener[F[_]: Async: LogWriter](
       userId = event.getUser.getId,
       id = event.getComponentId
     )
-    dispatcher.unsafeRunSync(
-      onButton(press).handleErrorWith(e =>
-        LogWriter.error(s"[DiscordInbound] Error while deciding the button $press: $e") >>
-          Async[F].pure(Left("Something went wrong: try again."))
-      )
-    ) match {
-      case Left(text)  => event.reply(text).setEphemeral(true).queue()
-      case Right(work) =>
-        event.deferEdit().queue()
-        dispatcher.unsafeRunAndForget(
-          work.handleErrorWith(e => LogWriter.error(s"[DiscordInbound] Error while handling the button $press: $e"))
+    dispatcher
+      .unsafeRunSync(
+        onButton(press).handleErrorWith(e =>
+          LogWriter.error(s"[DiscordInbound] Error while deciding the button $press: $e") >>
+            Async[F].pure(Left("Something went wrong: try again."))
         )
-    }
+      )
+      .fold(
+        text => event.reply(text).setEphemeral(true).queue(),
+        work => {
+          event.deferEdit().queue()
+          dispatcher.unsafeRunAndForget(
+            work.handleErrorWith(e => LogWriter.error(s"[DiscordInbound] Error while handling the button $press: $e"))
+          )
+        }
+      )
   }
 
   private def deliver(message: Option[Message]): Unit =

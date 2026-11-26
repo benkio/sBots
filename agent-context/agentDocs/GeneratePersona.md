@@ -2,7 +2,7 @@
 
 ## Goal
 
-Create and review the LLM persona files for the 9 bots (issue #1490; the reply catalogue was removed by #1594). These files are read by the prompt builder in **chatLlm**; they are repo data, not runtime logic.
+Create and review the LLM persona files for the 9 bots (issue #1490; the reply catalogue was removed by #1594). They are repo data for the LLM replies being rebuilt on LLM4s: nothing reads them at runtime today.
 
 ## Files
 
@@ -33,23 +33,19 @@ Calandro (`cala`) and M0sconi (`mos`) have **no SRT captions** and empty show ca
 - a **few-shot examples** section — examples preferably taken from real triggers/replies;
 - a **rules** section — accuracy, behaviour, reply language, no commands, no mentions/usernames, stay silent when there is nothing sensible to say.
 
-The compact four-heading form (`## Descrizione`, `## Stile`, `## Esempi`, `## Regole`) is still accepted. Long personas are allowed, within the prompt budget: `sbt checkPersona` fails above `min(64 KiB, PromptBudget.personaMaxBytes)`, which is **40 960 bytes** with the default `LLM_MAX_INPUT_TOKENS` (18432) and `LLM_CONTEXT_MAX_TOKENS` (2048) (see "Sizing the prompt, the persona and the timeout together" in the README). The persona must also fit the smaller context window of the fallback model. Do not add role labels such as `assistant:` or `system:`, and do not put the `/llm` command in the persona.
+The compact four-heading form (`## Descrizione`, `## Stile`, `## Esempi`, `## Regole`) is still accepted. Long personas are allowed; the size limit comes back with the new implementation. The persona must not contain role labels such as `assistant:` or `system:`, and not the `/llm` command.
 
 ## Execution
 
 1. Read the sources above for the bot you are updating.
 2. Write or refine `<id>_persona.md` by hand. This is the human-review part: make the voice recognisable, not generic.
-3. Validate:
-   ```bash
-   sbt checkPersona
-   ```
+3. Re-read the file once: it is human-reviewed data, there is no automated check at the moment.
 
 ## Validation
 
-- `sbt checkPersona` — structural check for every bot (also in `sbt verify` and CI).
-- `sbt "check; checkInstructions; checkPersona"` — full read-only pre-PR check.
+- `sbt "check; checkInstructions"` — full read-only pre-PR check.
 - `sh scripts/checkSpecs.sh` — Allium specs (no spec change is expected for this data-only task).
 
 ## Expected Agent Output
 
-Report which persona files were created or refined, how Calandro/M0sconi were handled without captions, and the result of `sbt checkPersona`.
+Report which persona files were created or refined, how Calandro/M0sconi were handled without captions.

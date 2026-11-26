@@ -3,6 +3,7 @@ package com.benkio.chatcore.repository
 import cats.data.NonEmptyList
 import cats.effect.IO
 import cats.effect.Resource
+import cats.syntax.either.*
 import com.benkio.chatcore.model.media.MediaResource
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceFile
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceIFile
@@ -101,9 +102,7 @@ class RepositoryUsableForSpec extends CatsEffectSuite {
     repositoryOf(NonEmptyList.one(iFile))
       .usableFor(withoutIds)
       .getResourceFile(mediaFile)
-      .use(r =>
-        IO(assertEquals(r.left.map(_.getClass), Left(classOf[Repository.RepositoryError.NoResourcesFoundFile])))
-      )
+      .use(r => IO(assertEquals(r.leftMap(_.getClass), Left(classOf[Repository.RepositoryError.NoResourcesFoundFile]))))
   }
 
   test("the resources by kind lose the file ids too, and a kind with none is a not found error") {

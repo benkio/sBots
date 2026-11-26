@@ -2,6 +2,7 @@ package com.benkio.replieseditor.server.store
 
 import cats.effect.IO
 import cats.effect.Resource
+import cats.syntax.either.*
 import com.benkio.chatcore.messagefiltering.MessageMatches
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.MessageLengthTrigger
@@ -97,13 +98,13 @@ class BotStoreMoreSpec extends CatsEffectSuite {
         _     <- write(repliesJson, r1.asJson.spaces2)
         store <- BotStore.build(root)
         c1E   <- store.getRepliesChunk(botId, offset = 0, limit = 50)
-        c1    <- IO.fromEither(c1E.left.map(e => new RuntimeException(e.error)))
+        c1    <- IO.fromEither(c1E.leftMap(e => new RuntimeException(e.error)))
         _     <- write(repliesJson, r2.asJson.spaces2) // update on disk
         _     <- store
           .reloadBotFromDisk(botId)
-          .flatMap(e => IO.fromEither(e.left.map(err => new RuntimeException(err.error))))
+          .flatMap(e => IO.fromEither(e.leftMap(err => new RuntimeException(err.error))))
         c2E <- store.getRepliesChunk(botId, offset = 0, limit = 50)
-        c2  <- IO.fromEither(c2E.left.map(e => new RuntimeException(e.error)))
+        c2  <- IO.fromEither(c2E.leftMap(e => new RuntimeException(e.error)))
       } yield {
         assertEquals(c1.total, 1)
         assertEquals(c2.total, 2)
@@ -132,9 +133,9 @@ class BotStoreMoreSpec extends CatsEffectSuite {
         badE  <- store.updateReplyAt(botId, index = 99, value = Json.obj("x" -> Json.fromInt(1)))
         _ = assert(badE.isLeft)
         okE  <- store.updateReplyAt(botId, index = 0, value = Json.obj("updated" -> Json.fromBoolean(true)))
-        _    <- IO.fromEither(okE.left.map(e => new RuntimeException(e.error)))
+        _    <- IO.fromEither(okE.leftMap(e => new RuntimeException(e.error)))
         repE <- store.getReplies(botId)
-        rep  <- IO.fromEither(repE.left.map(e => new RuntimeException(e.error)))
+        rep  <- IO.fromEither(repE.leftMap(e => new RuntimeException(e.error)))
       } yield {
         assertEquals(rep.asArray.map(_.length), Some(1))
         assertEquals(
@@ -164,9 +165,9 @@ class BotStoreMoreSpec extends CatsEffectSuite {
         _     <- write(repliesJson, replies.asJson.spaces2)
         store <- BotStore.build(root)
         insE  <- store.insertAt(botId, index = 0, value = Json.obj("x" -> Json.fromInt(1)))
-        n1    <- IO.fromEither(insE.left.map(e => new RuntimeException(e.error)))
+        n1    <- IO.fromEither(insE.leftMap(e => new RuntimeException(e.error)))
         delE  <- store.deleteAt(botId, index = 0)
-        n2    <- IO.fromEither(delE.left.map(e => new RuntimeException(e.error)))
+        n2    <- IO.fromEither(delE.leftMap(e => new RuntimeException(e.error)))
       } yield {
         assertEquals(n1, 2)
         assertEquals(n2, 1)
@@ -188,8 +189,8 @@ class BotStoreMoreSpec extends CatsEffectSuite {
         allowedE <- store.getAllowedFiles(botId)
         repliesE <- store.getReplies(botId)
       } yield {
-        assert(allowedE.left.exists(_.error.contains("Failed to load allowed files")))
-        assert(repliesE.left.exists(_.error.contains("Failed to load replies")))
+        assert(allowedE.swap.exists(_.error.contains("Failed to load allowed files")))
+        assert(repliesE.swap.exists(_.error.contains("Failed to load replies")))
       }
     }
   }
@@ -220,7 +221,7 @@ class BotStoreMoreSpec extends CatsEffectSuite {
         _     <- write(repliesJson, """{ "not": "an array" }""")
         store <- BotStore.build(root)
         res   <- store.commit(botId)
-      } yield assert(res.left.exists(_.error.contains("Cannot commit, replies not loaded")))
+      } yield assert(res.swap.exists(_.error.contains("Cannot commit, replies not loaded")))
     }
   }
 
@@ -238,7 +239,7 @@ class BotStoreMoreSpec extends CatsEffectSuite {
         _     <- write(repliesJson, replies.asJson.spaces2)
         store <- BotStore.build(root)
         res   <- store.commit(botId)
-      } yield assert(res.left.exists(_.error.contains("Cannot commit, allowed files not loaded")))
+      } yield assert(res.swap.exists(_.error.contains("Cannot commit, allowed files not loaded")))
     }
   }
 
@@ -271,10 +272,10 @@ class BotStoreMoreSpec extends CatsEffectSuite {
         _     <- write(repliesJson, List(padded).asJson.spaces2)
         store <- BotStore.build(root)
         okE   <- store.commit(botId)
-        _     <- IO.fromEither(okE.left.map(e => new RuntimeException(e.error))).void
+        _     <- IO.fromEither(okE.leftMap(e => new RuntimeException(e.error))).void
         rawR  <- IO.blocking(Files.readString(repliesJson, StandardCharsets.UTF_8))
-        jsonR <- IO.fromEither(parse(rawR).left.map(e => new RuntimeException(e.message)))
-        rs    <- IO.fromEither(jsonR.as[List[ReplyBundleMessage]].left.map(df => new RuntimeException(df.message)))
+        jsonR <- IO.fromEither(parse(rawR).leftMap(e => new RuntimeException(e.message)))
+        rs    <- IO.fromEither(jsonR.as[List[ReplyBundleMessage]].leftMap(df => new RuntimeException(df.message)))
         rawT  <- IO.blocking(Files.readString(triggersTxt, StandardCharsets.UTF_8))
       } yield {
         rs.head.trigger match {
@@ -315,9 +316,9 @@ class BotStoreMoreSpec extends CatsEffectSuite {
         _     <- write(repliesJson, List(lenTrigger, newMember).asJson.spaces2)
         store <- BotStore.build(root)
         c1E   <- store.getFilteredRepliesChunk(botId, message = "12345", offset = 0, limit = 50)
-        c1    <- IO.fromEither(c1E.left.map(e => new RuntimeException(e.error)))
+        c1    <- IO.fromEither(c1E.leftMap(e => new RuntimeException(e.error)))
         c2E   <- store.getFilteredRepliesChunk(botId, message = "1234", offset = 0, limit = 50)
-        c2    <- IO.fromEither(c2E.left.map(e => new RuntimeException(e.error)))
+        c2    <- IO.fromEither(c2E.leftMap(e => new RuntimeException(e.error)))
       } yield {
         assertEquals(c1.total, 1)
         assertEquals(c1.items.map(_.index), Vector(0))
@@ -347,7 +348,7 @@ class BotStoreMoreSpec extends CatsEffectSuite {
         _      <- write(repliesJson, replies.asJson.spaces2)
         store  <- BotStore.build(root)
         filesE <- store.getAllowedFiles(botId)
-        files  <- IO.fromEither(filesE.left.map(e => new RuntimeException(e.error)))
+        files  <- IO.fromEither(filesE.leftMap(e => new RuntimeException(e.error)))
       } yield {
         assertEquals(files, Vector("a.mp3", "b.gif"))
       }
@@ -378,7 +379,7 @@ class BotStoreMoreSpec extends CatsEffectSuite {
         bad1  <- store.deleteAt(botId, index = -1)
         bad2  <- store.deleteAt(botId, index = 99)
         cE    <- store.getRepliesChunk(botId, offset = 0, limit = 50)
-        c     <- IO.fromEither(cE.left.map(e => new RuntimeException(e.error)))
+        c     <- IO.fromEither(cE.leftMap(e => new RuntimeException(e.error)))
       } yield {
         assert(bad1.isLeft)
         assert(bad2.isLeft)
@@ -408,7 +409,7 @@ class BotStoreMoreSpec extends CatsEffectSuite {
         _     <- store.insertAt(botId, index = -10, value = Json.obj("x" -> Json.fromInt(1)))
         _     <- store.insertAt(botId, index = 999, value = Json.obj("y" -> Json.fromInt(2)))
         repE  <- store.getReplies(botId)
-        rep   <- IO.fromEither(repE.left.map(e => new RuntimeException(e.error)))
+        rep   <- IO.fromEither(repE.leftMap(e => new RuntimeException(e.error)))
       } yield {
         val arr = rep.asArray.getOrElse(Vector.empty)
         assertEquals(arr.length, 3)

@@ -5,8 +5,6 @@ import com.benkio.replieseditor.module.*
 import io.circe.Json
 
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.util.Failure
-import scala.util.Success
 
 final class RepliesEditorLoader(store: RepliesEditorStore) {
 
@@ -14,17 +12,26 @@ final class RepliesEditorLoader(store: RepliesEditorStore) {
 
   def loadBots(): Unit = {
     store.setStatus("Loading bots…")
-    ApiClient.fetchJson("/api/bots").onComplete {
-      case Failure(ex)          => store.setStatus(s"Failed to load bots: ${ex.getMessage}")
-      case Success(Left(err))   => store.setStatus(s"Failed to load bots: $err")
-      case Success(Right(json)) =>
-        ApiClient.decodeOrError[Vector[ApiBot]](json) match {
-          case Left(err)   => store.setStatus(s"Failed to decode bots: $err")
-          case Right(bots) =>
-            store.botsVar.set(bots)
-            store.clearStatus()
-        }
-    }
+    ApiClient
+      .fetchJson("/api/bots")
+      .onComplete(
+        _.fold(
+          ex => store.setStatus(s"Failed to load bots: ${ex.getMessage}"),
+          _.fold(
+            err => store.setStatus(s"Failed to load bots: $err"),
+            json =>
+              ApiClient
+                .decodeOrError[Vector[ApiBot]](json)
+                .fold(
+                  err => store.setStatus(s"Failed to decode bots: $err"),
+                  bots => {
+                    store.botsVar.set(bots)
+                    store.clearStatus()
+                  }
+                )
+          )
+        )
+      )
   }
 
   def loadBot(botId: String): Unit = {
@@ -40,40 +47,50 @@ final class RepliesEditorLoader(store: RepliesEditorStore) {
     store.loadingVar.set(false)
 
     val allowedF = ApiClient.fetchJson(s"/api/bot/$botId/allowed-files")
-    allowedF.onComplete {
-      case Failure(ex) =>
-        if store.loadTokenVar.now() == myToken && store.selectedBotVar.now().contains(botId) then store.setStatus(
-          s"Failed to load bot data: ${ex.getMessage}"
+    allowedF.onComplete(
+      _.fold(
+        ex =>
+          if store.loadTokenVar.now() == myToken && store.selectedBotVar.now().contains(botId) then store.setStatus(
+            s"Failed to load bot data: ${ex.getMessage}"
+          ),
+        _.fold(
+          err =>
+            if store.loadTokenVar.now() == myToken && store.selectedBotVar.now().contains(botId) then store.setStatus(
+              s"Failed to load allowed files: $err"
+            ),
+          allowedJson =>
+            if store.loadTokenVar.now() == myToken && store.selectedBotVar.now().contains(botId) then {
+              val allowed = ApiClient.decodeOrError[Vector[String]](allowedJson).getOrElse(Vector.empty)
+              store.allowedFilesVar.set(allowed)
+              loadPage(botId, page = 1)
+            }
         )
-      case Success(Left(err)) =>
-        if store.loadTokenVar.now() == myToken && store.selectedBotVar.now().contains(botId) then store.setStatus(
-          s"Failed to load allowed files: $err"
-        )
-      case Success(Right(allowedJson)) =>
-        if store.loadTokenVar.now() == myToken && store.selectedBotVar.now().contains(botId) then {
-          val allowed = ApiClient.decodeOrError[Vector[String]](allowedJson).getOrElse(Vector.empty)
-          store.allowedFilesVar.set(allowed)
-          loadPage(botId, page = 1)
-        }
-    }
+      )
+    )
   }
 
   def reloadBotFromDisk(botId: String): Unit = {
     val myToken = store.loadTokenVar.now()
     store.setStatus(s"Reloading $botId from disk…")
 
-    ApiClient.postJson(s"/api/bot/$botId/reload", Json.obj()).onComplete {
-      case Failure(ex) =>
-        if store.loadTokenVar.now() == myToken && store.selectedBotVar.now().contains(botId) then store.setStatus(
-          s"Failed to reload bot: ${ex.getMessage}"
+    ApiClient
+      .postJson(s"/api/bot/$botId/reload", Json.obj())
+      .onComplete(
+        _.fold(
+          ex =>
+            if store.loadTokenVar.now() == myToken && store.selectedBotVar.now().contains(botId) then store.setStatus(
+              s"Failed to reload bot: ${ex.getMessage}"
+            ),
+          _.fold(
+            err =>
+              if store.loadTokenVar.now() == myToken && store.selectedBotVar.now().contains(botId) then store.setStatus(
+                s"Failed to reload bot: $err"
+              ),
+            _ =>
+              if store.loadTokenVar.now() == myToken && store.selectedBotVar.now().contains(botId) then loadBot(botId)
+          )
         )
-      case Success(Left(err)) =>
-        if store.loadTokenVar.now() == myToken && store.selectedBotVar.now().contains(botId) then store.setStatus(
-          s"Failed to reload bot: $err"
-        )
-      case Success(Right(_)) =>
-        if store.loadTokenVar.now() == myToken && store.selectedBotVar.now().contains(botId) then loadBot(botId)
-    }
+      )
   }
 
   def loadPage(botId: String, page: Int): Unit = {
@@ -93,38 +110,48 @@ final class RepliesEditorLoader(store: RepliesEditorStore) {
           Json.obj("message" -> Json.fromString(filterMsg))
         )
 
-    repliesChunkF.onComplete {
-      case Failure(ex) =>
-        if store.loadTokenVar.now() == myToken && store.selectedBotVar.now().contains(botId) then store.setStatus(
-          s"Failed to load replies page: ${ex.getMessage}"
-        )
-        store.loadingVar.set(false)
-      case Success(Left(err)) =>
-        if store.loadTokenVar.now() == myToken && store.selectedBotVar.now().contains(botId) then store.setStatus(
-          s"Failed to load replies page: $err"
-        )
-        store.loadingVar.set(false)
-      case Success(Right(json)) =>
-        ApiClient.decodeOrError[RepliesChunk](json) match {
-          case Left(err) =>
+    repliesChunkF.onComplete(
+      _.fold(
+        ex => {
+          if store.loadTokenVar.now() == myToken && store.selectedBotVar.now().contains(botId) then store.setStatus(
+            s"Failed to load replies page: ${ex.getMessage}"
+          )
+          store.loadingVar.set(false)
+        },
+        _.fold(
+          err => {
             if store.loadTokenVar.now() == myToken && store.selectedBotVar.now().contains(botId) then store.setStatus(
-              s"Failed to decode replies page: $err"
+              s"Failed to load replies page: $err"
             )
-          case Right(chunk) =>
-            if store.loadTokenVar.now() == myToken && store.selectedBotVar.now().contains(botId) then {
-              val computedOffset = (p - 1) * ps
-              if chunk.items.isEmpty && p > 1 && chunk.total > 0 && computedOffset >= chunk.total then loadPage(
-                botId,
-                p - 1
+            store.loadingVar.set(false)
+          },
+          json => {
+            ApiClient
+              .decodeOrError[RepliesChunk](json)
+              .fold(
+                err =>
+                  if store.loadTokenVar.now() == myToken && store.selectedBotVar.now().contains(botId) then store
+                    .setStatus(
+                      s"Failed to decode replies page: $err"
+                    ),
+                chunk =>
+                  if store.loadTokenVar.now() == myToken && store.selectedBotVar.now().contains(botId) then {
+                    val computedOffset = (p - 1) * ps
+                    if chunk.items.isEmpty && p > 1 && chunk.total > 0 && computedOffset >= chunk.total then loadPage(
+                      botId,
+                      p - 1
+                    )
+                    else {
+                      store.currentPageVar.set(p)
+                      store.setChunk(chunk)
+                      store.clearStatus()
+                    }
+                  }
               )
-              else {
-                store.currentPageVar.set(p)
-                store.setChunk(chunk)
-                store.clearStatus()
-              }
-            }
-        }
-        store.loadingVar.set(false)
-    }
+            store.loadingVar.set(false)
+          }
+        )
+      )
+    )
   }
 }

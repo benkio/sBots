@@ -249,12 +249,12 @@ object CronBackgroundJobManager {
     private def triggerReply(subscription: Subscription): F[Option[ReplyValue]] = {
       val replies                               = dbLayer.dbMessageReplies.messageReplies
       val bundle: F[Option[ReplyBundleMessage]] =
-        subscription.target.map(_.trim).filter(_.nonEmpty) match {
-          case None =>
-            Random[F].shuffleList(replies).map(_.headOption)
-          case Some(text) =>
+        subscription.target
+          .map(_.trim)
+          .filter(_.nonEmpty)
+          .fold(Random[F].shuffleList(replies).map(_.headOption))(text =>
             ReplyBundleMessage.selectReplyBundleByText(text, subscription.chatId, replies).pure[F]
-        }
+          )
       for {
         replyBundle <- bundle
         replyValue  <- replyBundle.traverse(selected =>

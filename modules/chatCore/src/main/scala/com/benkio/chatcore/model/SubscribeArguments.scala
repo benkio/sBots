@@ -1,5 +1,7 @@
 package com.benkio.chatcore.model
 
+import cats.syntax.either.*
+
 /** The parsed input of `/subscribe <6-field cron> [type [target...]]`. */
 final case class SubscribeArguments(
     cron: String,
@@ -40,8 +42,7 @@ object SubscribeArguments {
           subscriptionType <- SubscriptionType
             .fromString(typeToken)
             .filterOrElse(supportedTypes.contains, ())
-            .left
-            .map(_ => UnsupportedSubscriptionType(typeToken, supportedTypes))
+            .leftMap(_ => UnsupportedSubscriptionType(typeToken, supportedTypes))
           target = targetTokens.headOption.map(_.trim).filter(_.nonEmpty)
           _ <- SubscriptionRules.validateTarget(target)
         } yield SubscribeArguments(cron, subscriptionType, target)

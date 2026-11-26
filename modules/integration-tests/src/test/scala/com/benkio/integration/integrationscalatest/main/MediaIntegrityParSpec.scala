@@ -116,13 +116,13 @@ class MediaIntegrityParSpec extends FixtureAnyFunSuite with ParallelTestExecutio
       (for {
         repository   <- fixture.repositoryResource
         mediaSources <- repository.getResourceFile(mf)
-        files        <- mediaSources.fold(
-          e => Resource.eval(IO.raiseError(Throwable(s"getResourceFile throw an error $e"))),
-          list =>
-            list.traverse(mr =>
+        files        <- Resource
+          .eval(IO.fromEither(mediaSources.leftMap(e => Throwable(s"getResourceFile throw an error $e"))))
+          .flatMap(
+            _.traverse(mr =>
               mr.getMediaResourceFile.getOrElse(Resource.eval(IO.raiseError(new Exception("expect a file"))))
             )
-        )
+          )
       } yield assert(files.forall(Files.readAllBytes(_).length > 5 * 1024))).use_
     }.pure[IO]
 

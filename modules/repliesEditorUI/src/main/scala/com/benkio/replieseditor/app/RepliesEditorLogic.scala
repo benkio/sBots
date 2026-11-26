@@ -3,11 +3,9 @@ package com.benkio.replieseditor.app
 object RepliesEditorLogic {
 
   def totalPages(totalOpt: Option[Int], pageSize: Int): Int =
-    totalOpt match {
-      case None        => 0
-      case Some(total) =>
-        val ps = pageSize.max(1)
-        ((total + ps - 1) / ps).max(1)
+    totalOpt.fold(0) { total =>
+      val ps = pageSize.max(1)
+      ((total + ps - 1) / ps).max(1)
     }
 
   def pageLabel(currentPage: Int, totalOpt: Option[Int], pageSize: Int): String = {

@@ -353,7 +353,7 @@ class ITBackgroundJobManagerSpec extends CatsEffectSuite with DBFixture {
     } yield {
       assertEquals(lastAllowed, Right(()), "the subscription number 50 should be allowed")
       assertEquals(
-        overLimit.left.map(_.getClass),
+        overLimit.leftMap(_.getClass),
         Left(classOf[SubscriptionRules.SubscriptionLimitReached]),
         "the subscription number 51 should be rejected"
       )

@@ -134,13 +134,13 @@ object DBSubscriptionFlowPrompt {
           .option).transact(transactor)
         handle <- result
           .traverse { d =>
-            DBSubscriptionFlowPromptData.toHandle(d) match {
-              case Some(v) => v.some.pure[F]
-              case None    =>
+            DBSubscriptionFlowPromptData
+              .toHandle(d)
+              .fold(
                 log
                   .warn(s"[DBSubscriptionFlowPrompt] failed to decode prompt for key=$key")
                   .as(none[SubscriptionFlowPromptHandle])
-            }
+              )(_.some.pure[F])
           }
           .map(_.flatten)
       } yield handle
@@ -163,13 +163,13 @@ object DBSubscriptionFlowPrompt {
           .option).transact(transactor)
         handle <- result
           .traverse { d =>
-            DBSubscriptionFlowPromptData.toHandle(d) match {
-              case Some(v) => v.some.pure[F]
-              case None    =>
+            DBSubscriptionFlowPromptData
+              .toHandle(d)
+              .fold(
                 log
                   .warn(s"[DBSubscriptionFlowPrompt] failed to decode prompt for chatId=$chatId messageId=$messageId")
                   .as(none[SubscriptionFlowPromptHandle])
-            }
+              )(_.some.pure[F])
           }
           .map(_.flatten)
       } yield handle

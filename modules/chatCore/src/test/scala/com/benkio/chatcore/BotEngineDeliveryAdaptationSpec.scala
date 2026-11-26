@@ -2,7 +2,6 @@ package com.benkio.chatcore
 
 import cats.effect.IO
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.llm.LlmResponder
 import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.FakePlatformAdapter
@@ -30,7 +29,7 @@ import org.http4s.Uri
 import java.time.Instant
 
 /** What reaches the platform: the replies of the engine are adapted to what the platform can do. */
-class BotEngineAdaptationSpec extends CatsEffectSuite {
+class BotEngineDeliveryAdaptationSpec extends CatsEffectSuite {
 
   private val sBotInfo: SBotInfo = SBotInfo(botId = SBotInfo.SBotId("eng"), botName = SBotInfo.SBotName("EngineBot"))
 
@@ -98,8 +97,7 @@ class BotEngineAdaptationSpec extends CatsEffectSuite {
       filteringMatchesMessages = (_, _) => IO.pure(true),
       postComputation = _ => IO.unit,
       notifier = Notifier.noop[IO],
-      backgroundJobManager = BackgroundJobManagerMock.mock(),
-      llmResponder = LlmResponder.noop[IO]
+      backgroundJobManager = BackgroundJobManagerMock.mock()
     )
     _    <- engine.onMessage(message(text))(using adapter)
     sent <- adapter.sent.get

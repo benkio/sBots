@@ -10,11 +10,15 @@ import org.http4s.dsl.io.*
 
 final class RepliesEndpoint(botStore: BotStoreApi) {
   val routes: HttpRoutes[IO] = HttpRoutes.of[IO] { case GET -> Root / "api" / "bot" / botId / "replies" =>
-    botStore.getReplies(botId).flatMap {
-      case Left(err) =>
-        if err.error.startsWith("Unknown botId") then NotFound(err.asJson)
-        else InternalServerError(err.asJson)
-      case Right(json) => Ok(json)
-    }
+    botStore
+      .getReplies(botId)
+      .flatMap(
+        _.fold(
+          err =>
+            if err.error.startsWith("Unknown botId") then NotFound(err.asJson)
+            else InternalServerError(err.asJson),
+          json => Ok(json)
+        )
+      )
   }
 }

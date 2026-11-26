@@ -175,15 +175,14 @@ object EffectfulKeyRunner {
         )
       )
     case EffectfulKey.Callback(key, sBotInfo) =>
-      effectfulCallbacks
-        .get(key)
-        .fold(
-          Async[F].raiseError(
-            Throwable(
-              s"[EffectfulKeyReply] callback not found. Check your sync between commands and callback in the ${sBotInfo.botName} code"
-            )
+      Async[F]
+        .fromOption(
+          effectfulCallbacks.get(key),
+          Throwable(
+            s"[EffectfulKeyReply] callback not found. Check your sync between commands and callback in the ${sBotInfo.botName} code"
           )
-        )(callback => toReplyValue(callback(msg, commandSyntax)))
+        )
+        .flatMap(callback => toReplyValue(callback(msg, commandSyntax)))
   }
 
 }

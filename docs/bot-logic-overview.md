@@ -142,47 +142,24 @@ Per bot configuration (`main.<botId>.startup-check` in `modules/main/src/main/re
 
 ### LLM replies
 
-Only for a plain `Message` (never a command or a file request) that no reply bundle matched, and only for a bot that has an
-LLM (`LlmEngine`, built per bot at startup from its persona: see "Startup and Wiring"; a bot without it
-has the noop responder and none of this runs). Spec: `specs/llm.allium` (`LlmAnswersDirectedMessage`). The code is
-`BotEngine.llmLogic` in chatCore and, behind the `LlmResponder` port, `ChatLlmResponder` in chatLlm.
+The LLM replies are being rebuilt on top of LLM4s, so today the bot never answers with the LLM. What is in place is the
+per-chat switch (`/llm on|off|status|forget`, stored in `llm_chat_settings`) and the single place where the engine calls
+the LLM. Spec: `specs/llm.allium`.
 
 ```mermaid
 flowchart TD
-  A["Plain message, no reactive reply matched"] --> B{"directed at the bot?<br/>(mention, reply to it, IRC `bot:`)<br/>not forwarded, not old, not ignored"}
-  B -->|No| Z["No LLM; nothing is sent"]
-  B -->|Yes| C{"claim the chat<br/>(one LLM call per chat and bot)"}
-  C -->|Already claimed| Z
-  C -->|Claimed| D{"/llm on for this chat and bot,<br/>and outside the chat timeout?"}
-  D -->|No| Y["Release the claim; nothing is sent"]
-  D -->|Yes| E["sendTyping, then LlmResponder.respond<br/>(bounded by llm.timeout)"]
-  E --> F["ChatLlmResponder: prompt = persona + chat context + message<br/>(no reply of the bot is offered)"]
-  F --> G["LlmClient: primary provider, then the fallback<br/>(quota, timeout, structured JSON)"]
-  G --> H{"validated decision"}
-  H -->|text| I["TextReply to the message"]
-  H -->|silent, malformed, unsafe, failed| Y
-  I --> K["deliver like a reactive reply;<br/>counts as an interaction: the chat timeout starts"]
+  A["Message arrived"] --> B["Reactive logic: guided flow, command, file request or reply bundle"]
+  B --> C{"duplicate?"}
+  C -->|Yes| Z["Nothing more"]
+  C -->|No| D["EngineLlm.run(msg)<br/>after, and outside, the request timeout"]
+  D --> E["noop today: nothing is sent, nothing is stored"]
 ```
 
-- *Reactive first, context only.* The reactive logic goes first and the LLM is asked only when it left the message
-  `Unmatched`: no guided flow and no reply bundle matched. A message with a matching bundle never reaches the LLM, also when
-  the bundle was blocked by the chat timeout or a filter (it is only remembered). The responder gets the
-  persona and the conversation as context only: no reply catalogue and no `reuse` (decision of #1594, a message a bundle
-  describes never reaches the LLM, so there was nothing to reuse). The LLM is not a bypass of the reactive triggering.
-- *Own budget.* The LLM stage runs after, and outside, the request processing timeout, under `llm.timeout` plus the
-  request timeout for the readiness lookup and the delivery. A timeout, a failure or no answer drops the message silently.
-  The claim is released in every case, also on cancellation. The *memory* step (below) is a separate stage after it,
-  bounded by `llm.timeout` on its own: a stalled memory write adds up to another `llm.timeout` to the whole handler
-  (so up to about `2 * llm.timeout` plus the request timeout), and its timeout or failure is only logged.
-- *Prompt.* The template `prompts/system.md` filled by `PromptBuilder`. Context and message
-  are untrusted text: neutralised line by line, never expanded as placeholders, and the template says they are data. The template is modified in place; git is its history.
-- *Output.* The model returns `{action: text|silent, text}`. `OutputGuard` drops an empty text, a command
-  (`/x`, `!x`) and a mention, and truncates a text over the cap (500 characters).
-- *Memory.* After the message is handled, every plain message of a chat with the switch on is handed to the responder to
-  remember (anonymised, line breaks escaped), after the LLM was asked so the message is not part of its own prompt; the
-  answer that was sent follows it. `LlmContextCleanup` deletes what is older than
-  the TTL.
-- *Observability.* One JSON log line per interaction and an opt-in `llm_trace` row: `docs/monitoring.md`.
+- *Entry point.* `EngineLlm.run` in chatCore is called by `BotEngine.onMessage` for every handled message that is not a
+  duplicate, after the reactive part and outside the request processing timeout. The implementation is `EngineLlm.noop`.
+- *Settings.* `LlmSettings` (chatCore port) is implemented by `LlmSettingsDB` in chatLlm and wired per bot through
+  `LlmWiring`. `/llm forget` deletes the chat's rows of `llm_context`, which nothing writes today.
+- *Data kept for the rebuild.* The `<id>_persona.md` files and `modules/chatLlm/src/main/resources/prompts/system.md`.
 
 ### Media subtype dispatch
 

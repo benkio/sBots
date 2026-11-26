@@ -30,7 +30,7 @@ class GeneralErrorHandlingSpec extends CatsEffectSuite {
       result  <- GeneralErrorHandling.logAndDie(failedResource, _ => IO.unit, history).use_.attempt
       content <- IO.blocking(java.nio.file.Files.readString(history))
     } yield {
-      assertEquals(result.left.map(_.getMessage), Left(plainErrorMessage))
+      assertEquals(result.leftMap(_.getMessage), Left(plainErrorMessage))
       assert(content.contains(expectedErrorMessage), content)
     }
   }
@@ -96,13 +96,12 @@ class GeneralErrorHandlingSpec extends CatsEffectSuite {
       }
     ) { _ =>
       IO.delay {
-        previous match {
-          case Some(value) =>
-            System.setProperty(propertyName, value)
-            ()
-          case None =>
-            System.clearProperty(propertyName)
-            ()
+        previous.fold {
+          System.clearProperty(propertyName)
+          ()
+        } { value =>
+          System.setProperty(propertyName, value)
+          ()
         }
         Files.deleteIfExists(implicitLog)
         ()

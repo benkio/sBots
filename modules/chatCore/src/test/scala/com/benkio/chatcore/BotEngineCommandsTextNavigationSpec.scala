@@ -2,7 +2,6 @@ package com.benkio.chatcore
 
 import cats.effect.IO
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.llm.LlmResponder
 import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.FakePlatformAdapter
@@ -27,7 +26,7 @@ import org.http4s.Uri
 /** The engine on a platform without buttons: the text commands `!next`, `!prev` and `!pick` act on the paged list the
   * engine remembers per chat when it sends it (see [[PagedListTextCommands]]).
   */
-class BotEngineTextNavigationSpec extends CatsEffectSuite {
+class BotEngineCommandsTextNavigationSpec extends CatsEffectSuite {
 
   private val sBotInfo: SBotInfo = SBotInfo(botId = SBotInfo.SBotId("eng"), botName = SBotInfo.SBotName("EngineBot"))
 
@@ -71,8 +70,7 @@ class BotEngineTextNavigationSpec extends CatsEffectSuite {
     filteringMatchesMessages = (_, _) => IO.pure(true),
     postComputation = _ => IO.unit,
     notifier = Notifier.noop[IO],
-    backgroundJobManager = BackgroundJobManagerMock.mock(),
-    llmResponder = LlmResponder.noop[IO]
+    backgroundJobManager = BackgroundJobManagerMock.mock()
   )
 
   // the paged list adapted to the platform without buttons: the text of the list, with the hint of how to move it

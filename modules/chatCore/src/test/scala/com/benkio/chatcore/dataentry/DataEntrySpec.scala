@@ -90,8 +90,8 @@ class DataEntrySpec extends CatsEffectSuite {
         _          <- DataEntry.dataEntryLogic(input, config)
         outListRaw <- IO.blocking(Files.readString(listPath, StandardCharsets.UTF_8))
         outRepRaw  <- IO.blocking(Files.readString(repliesPath, StandardCharsets.UTF_8))
-        outListJ   <- IO.fromEither(parse(outListRaw).left.map(e => new RuntimeException(e.message)))
-        outRepJ    <- IO.fromEither(parse(outRepRaw).left.map(e => new RuntimeException(e.message)))
+        outListJ   <- IO.fromEither(parse(outListRaw).leftMap(e => new RuntimeException(e.message)))
+        outRepJ    <- IO.fromEither(parse(outRepRaw).leftMap(e => new RuntimeException(e.message)))
       } yield {
         assertEquals(outListJ.asArray.map(_.size), Some(3))
         assertEquals(outRepJ.asArray.map(_.size), Some(3))

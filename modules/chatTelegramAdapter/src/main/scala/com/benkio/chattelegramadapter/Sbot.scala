@@ -2,6 +2,7 @@ package com.benkio.chattelegramadapter
 
 import cats.effect.std.Random
 import cats.effect.Async
+import cats.effect.Resource
 import cats.Parallel
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.llm.LlmWiring
@@ -10,6 +11,7 @@ import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chattelegramadapter.initialization.BotSetup
 import fs2.io.net.Network
 import log.effect.LogWriter
+import org.http4s.client.Client
 import org.http4s.ember.client.EmberClientBuilder
 import telegramium.bots.high.Api
 
@@ -56,4 +58,28 @@ object SBot {
       )
     )
   }
+
+  def buildWebhookBot[F[_]: Async: Random](
+      httpClient: Client[F],
+      sBotInfo: SBotInfo,
+      webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
+      webhookCertificate: Option[Path] = None,
+      commandEffectfulCallback: Map[String, EffectfulCallback[F]] = Map.empty,
+      opsChatId: Long,
+      llmWiring: Option[LlmWiring[F]] = None
+  )(using log: LogWriter[F]): Resource[F, SBotWebhook[F]] =
+    BotSetup(
+      httpClient = httpClient,
+      sBotConfig = SBotConfig.fromSBotInfo(sBotInfo),
+      webhookBaseUrl = webhookBaseUrl,
+      opsChatId = opsChatId,
+      llmWiring = llmWiring
+    ).map { sBotSetup =>
+      given Api[F] = sBotSetup.api
+      new SBotWebhook[F](
+        sBotSetup = sBotSetup,
+        webhookCertificate = webhookCertificate,
+        commandEffectfulCallback = commandEffectfulCallback
+      )
+    }
 }

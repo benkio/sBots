@@ -80,11 +80,14 @@ class RunnerSpec extends CatsEffectSuite {
       started <- Ref.of[IO, List[(Platform, List[String])]](List.empty)
       ran     <- Ref.of[IO, List[Platform]](List.empty)
       result  <- withMainSetup(mainSetup =>
-        Runner.start(registry, List(new FakeRuntime(Platform.Telegram, started, ran)), mainSetup).use(identity).attempt
+        Runner
+          .startReporting(registry, List(new FakeRuntime(Platform.Telegram, started, ran)), mainSetup, IO.unit)
+          .use(identity)
+          .attempt
       )
       startedRuntimes <- started.get
     } yield {
-      assertEquals(result.left.map(_.getMessage), Left("The bot OnBoth runs on irc, which has no runtime to run it"))
+      assertEquals(result.leftMap(_.getMessage), Left("The bot OnBoth runs on irc, which has no runtime to run it"))
       assertEquals(startedRuntimes, List.empty)
     }
   }

@@ -1,6 +1,7 @@
 package com.benkio.replieseditor.server.endpoints
 
 import cats.effect.IO
+import cats.syntax.either.*
 import com.benkio.replieseditor.server.module.DeleteReplyReq
 import com.benkio.replieseditor.server.store.BotStoreApi
 import io.circe.syntax.*
@@ -14,17 +15,17 @@ final class DeleteReplyEndpoint(botStore: BotStoreApi) {
     case req @ POST -> Root / "api" / "bot" / botId / "replies" / "delete" =>
       for {
         bodyJson <- req.as[Json]
-        del      <- bodyJson.as[DeleteReplyReq] match {
-          case Left(df) => IO.raiseError(new RuntimeException(df.message))
-          case Right(d) => IO.pure(d)
-        }
-        res <- botStore.deleteAt(botId, del.index).flatMap {
-          case Left(err) =>
-            if err.error.startsWith("Unknown botId") then NotFound(err.asJson)
-            else BadRequest(err.asJson)
-          case Right(newTotal) =>
-            Ok(Json.obj("ok" -> Json.fromBoolean(true), "total" -> Json.fromInt(newTotal)).asJson)
-        }
+        del      <- IO.fromEither(bodyJson.as[DeleteReplyReq].leftMap(df => new RuntimeException(df.message)))
+        res      <- botStore
+          .deleteAt(botId, del.index)
+          .flatMap(
+            _.fold(
+              err =>
+                if err.error.startsWith("Unknown botId") then NotFound(err.asJson)
+                else BadRequest(err.asJson),
+              newTotal => Ok(Json.obj("ok" -> Json.fromBoolean(true), "total" -> Json.fromInt(newTotal)).asJson)
+            )
+          )
       } yield res
   }
 }

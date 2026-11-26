@@ -1,5 +1,6 @@
 package com.benkio.chatcore.model
 
+import cats.syntax.either.*
 import cron4s.Cron
 import munit.*
 
@@ -49,9 +50,9 @@ class SubscriptionRulesSpec extends FunSuite {
 
   test("the rejection explains the shortest gap and the minimum") {
     val result = interval("*/30 * * ? * *")
-    assertEquals(result.left.map(_.getClass), Left(classOf[SubscriptionRules.IntervalTooShort]))
-    assert(result.left.exists(_.getMessage.contains("fires every 30s")), result.toString)
-    assert(result.left.exists(_.getMessage.contains("the minimum is 60s")), result.toString)
+    assertEquals(result.leftMap(_.getClass), Left(classOf[SubscriptionRules.IntervalTooShort]))
+    assert(result.swap.exists(_.getMessage.contains("fires every 30s")), result.toString)
+    assert(result.swap.exists(_.getMessage.contains("the minimum is 60s")), result.toString)
   }
 
   test("exactly one minute is accepted") {
