@@ -100,9 +100,7 @@ trait ISBot[F[_]: Async: LogWriter] {
     filteringMatchesMessages = filteringMatchesMessages,
     postComputation = postComputation,
     notifier = sBotSetup.notifier,
-    backgroundJobManager = backgroundJobManager,
-    llmResponder = dbLayer.llm.responder,
-    llmTimeout = dbLayer.llm.timeout
+    backgroundJobManager = backgroundJobManager
   )
 
   def messageRepliesData: List[ReplyBundleMessage]    = engine.messageRepliesData

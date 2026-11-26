@@ -16,6 +16,11 @@ private[chatcore] enum Reactive {
   case Unmatched
 }
 
+extension (r: Reactive) def replied: Boolean = r match {
+  case Done(replied) => replied
+  case Unmatched => false
+}
+
 /** The reactive messages section of the [[BotEngine]]: what the bot answers to a plain message by itself. A message is
   * first offered to the guided flow, when the platform supports it and the sender has a draft open, then to the reply
   * bundle matching its text, which is sent only if the filters let it through. A message nothing answers is

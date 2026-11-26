@@ -145,7 +145,7 @@ rule AppStops {
 
 -- the Grafana dashboard depends on the stats keys, they must stay stable
 rule UsageStatsLine {
-    -- one line for every outcome (handled, duplicate, timeout, failed)
+    -- one line for every outcome (trigger-matched, duplicate, timeout, failed, llm-replied)
     when: request: core/Request.outcome != null
     ensures: StatsLineWritten(kind: message, bot: request.bot)
 }

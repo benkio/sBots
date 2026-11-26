@@ -2,7 +2,6 @@ package com.benkio.chatcore
 
 import cats.effect.IO
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.llm.LlmResponder
 import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.FakePlatformAdapter
@@ -98,8 +97,7 @@ class BotEngineDeliveryAdaptationSpec extends CatsEffectSuite {
       filteringMatchesMessages = (_, _) => IO.pure(true),
       postComputation = _ => IO.unit,
       notifier = Notifier.noop[IO],
-      backgroundJobManager = BackgroundJobManagerMock.mock(),
-      llmResponder = LlmResponder.noop[IO]
+      backgroundJobManager = BackgroundJobManagerMock.mock()
     )
     _    <- engine.onMessage(message(text))(using adapter)
     sent <- adapter.sent.get

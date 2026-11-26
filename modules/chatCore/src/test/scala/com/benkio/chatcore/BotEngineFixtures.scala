@@ -3,7 +3,6 @@ package com.benkio.chatcore
 import cats.effect.kernel.Ref
 import cats.effect.IO
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.llm.LlmResponder
 import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.FakePlatformAdapter
@@ -87,8 +86,7 @@ trait BotEngineFixtures { self: munit.Assertions =>
     filteringMatchesMessages = (_, _) => IO.pure(filter),
     postComputation = postComputation,
     notifier = notifier,
-    backgroundJobManager = BackgroundJobManagerMock.mock(),
-    llmResponder = LlmResponder.noop[IO]
+    backgroundJobManager = BackgroundJobManagerMock.mock()
   )
 
   // A text only platform that writes the commands like Telegram, as `/command`

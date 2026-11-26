@@ -215,119 +215,28 @@ SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' A
 
 ** LLM Replies
 
-The bots can answer with a free-tier LLM when they are addressed. The reactive replies stay first: the LLM is only asked
-when nothing else matched. The behaviour is specified in ~specs/llm.allium~, the dispatch is in
-[[file:docs/bot-logic-overview.md][bot-logic-overview]] (see "LLM replies") and the logs and dashboard in
-[[file:docs/monitoring.md][monitoring]].
+The bots do *not* answer with an LLM at the moment: the replies are being rebuilt on top of LLM4s. What exists today is
+the per-chat switch and the place where the engine will call the LLM. The behaviour is specified in
+~specs/llm.allium~ and the dispatch is in [[file:docs/bot-logic-overview.md][bot-logic-overview]] (see "LLM replies").
 
-*** Enabling it
-
-1. Set the repository secrets ~GEMINI_API_KEY~ and ~OPENROUTER_API_KEY~. *Both are needed*: without both, deploy only
-   prints a warning and every bot silently keeps the no-LLM behaviour. ~LLM_CONTEXT_AUTHOR_SALT~ is required anyway (see
-   [[*GitHub Deploy Workflow (current target)][the deploy workflow]]).
-2. Make sure the bot has its ~<id>_persona.md~ (see ~agent-context/agentDocs/GeneratePersona.md~).
-   A bot whose persona is missing or too large for the prompt budget logs the reason at startup and stays
-   without the LLM.
-3. In a chat, someone runs ~/llm on~ (Telegram, Discord) or ~!llm on~ (IRC). Nothing is sent to a provider from a chat
-   that did not do this: the switch is per chat *and* per bot.
+- *The switch.* Someone runs ~/llm on~ (Telegram, Discord) or ~!llm on~ (IRC). The switch is stored per chat *and* per bot
+  in the ~llm_chat_settings~ table, and a chat with no row is off. The command also has to be offered by BotFather: each
+  bot's ~commands.txt~ already has the ~llm~ line, paste it with ~/setcommands~.
 
 | Command | Effect |
 |---|---|
-| ~/llm on~ / ~/llm off~ | enable / disable the LLM replies of this bot in this chat (disabling also stops remembering messages) |
+| ~/llm on~ / ~/llm off~ | enable / disable the LLM replies of this bot in this chat |
 | ~/llm status~ | tell whether it is on |
-| ~/llm forget~ | delete the remembered conversation of this chat, keeping the switch |
+| ~/llm forget~ | delete the stored conversation of this chat (the ~llm_context~ table), keeping the switch |
 
-The command also has to be offered by BotFather: each bot's ~commands.txt~ already has the ~llm~ line, paste it with
-~/setcommands~.
-
-*** When a bot answers
-
-The bot asks the LLM only for a plain message that is /directed at it/ (it is mentioned, one of its messages is replied to,
-or on IRC the text starts with ~botname:~), that matched no reactive reply, in a chat with the switch on and outside the
-chat timeout (the cooldown that also limits the reactive replies). A matching reactive reply blocked by the timeout does
-not fall through to the LLM: a message that matched a reply bundle, also a blocked one, is never asked. The model can answer
-with a new text or stay silent. It gets the persona and the conversation as context only, never the bot's replies (#1594). A ~text~ reply cut by the
-provider's output-token limit is recovered (marked ~truncated=true~ in the log) and still capped and guarded; this is a
-temporary usability/stability workaround until generation is fixed at the source: the intended contract is a
-well-structured reply, and malformed output should fail as before. Anything else malformed, unsafe (a command, a mention,
-empty) or failed is dropped without a reply.
-
-The reply language is the one the *persona* states (~xah~ is English only); Italian is only the default for a persona
-that states none.
-
-*** Privacy
-
-- *Enabled chats may send their messages to both Gemini (Google) and OpenRouter.* ~LLM_PRIMARY_PROVIDER~ (default
-  ~gemini~) chooses the primary; the other provider is always the fallback and gets the same prompt when the primary fails
-  or is out of quota. With the defaults that is Google first, OpenRouter second: OpenRouter's free daily quota is smaller,
-  so it is kept as the fallback. The prompt holds the persona, the recent conversation of the chat
-  and the message.
-- *Gemini is called through the Interactions API* (the successor of the legacy ~generateContent~, decided in #1591).
-  The API stores interactions by default (1 day on the free tier, up to 55 days on paid ones); every request sets
-  ~store=false~ and never sends ~previous_interaction_id~, so the call is a stateless one-shot. Do not remove
-  ~store=false~ without an explicit privacy decision. The model is ~GEMINI_MODEL~ (default ~gemini-flash-lite-latest~)
-  and ~GEMINI_ENDPOINT~ must be the ~/v1beta/interactions~ URL: an old override pointing at ~:generateContent~ breaks.
-- Senders are never sent: each one is a salted hash (~user-ab12cd34~), mentions and usernames are replaced by a generic
-  label. The salt is ~LLM_CONTEXT_AUTHOR_SALT~: keep it secret and stable.
-- The conversation is kept in the ~llm_context~ table for ~LLM_CONTEXT_TTL~ (default 7 days) and only while the switch is on;
-  ~/llm forget~ deletes it at once.
-- *Free tiers:* the Gemini free tier may not be offered to minors or to users in the EEA, UK and Switzerland, and free-tier
-  data may be used by the provider. Check the current terms before enabling it in such chats: this is an open question in
-  the spec, not something the code enforces.
-
-*** Who can switch it
-
-*The switch is open*: ~/llm on|off|forget~ has no permission check, so any member of a chat can turn it on (and start the
-storage of the anonymised messages) or off, or wipe the context. The adapters do not expose the chat-admin status of a
-sender today. What bounds the damage: the per-chat and per-bot opt-in, the shared client-side quota (below) which stops the
-spending, the anonymisation and the TTL above, and the ops notice when a quota is exhausted. If that is not enough for a
-chat, do not add the bot there or ask for an admin-only check (it needs a new field in ~Message~).
-
-*** Configuration
-
-The deploy workflow only injects the three secrets above. Every other value is a default in
-~modules/main/src/main/resources/application.conf~, overridable with the environment variable of the OpenRC script or by
-editing the file.
-
-| Variable | Default | Meaning |
-|---|---|---|
-| ~LLM_PRIMARY_PROVIDER~ | ~gemini~ | the other provider is always the fallback; switching is only this value |
-| ~LLM_TIMEOUT~ | ~10 seconds~ | the whole LLM answer of the engine (see below) |
-| ~LLM_PROVIDER_TIMEOUT~ | ~4 seconds~ | one provider call; must be shorter than ~LLM_TIMEOUT~, startup refuses otherwise |
-| ~LLM_MAX_INPUT_TOKENS~ | ~18432~ | prompts above this (4 characters per token) are refused locally, with an ops notice |
-| ~LLM_MAX_OUTPUT_TOKENS~ | ~1024~ | output limit sent to the provider |
-| ~LLM_CONTEXT_MAX_MESSAGES~ / ~LLM_CONTEXT_MAX_TOKENS~ | ~20~ / ~2048~ | the conversation window of a prompt |
-| ~LLM_CONTEXT_TTL~ / ~LLM_CONTEXT_CLEANUP_CRON~ | ~7 days~ / hourly | retention and its cleanup job |
-| ~GEMINI_MAX_PER_MINUTE~, ~GEMINI_MAX_PER_DAY~ (same for ~OPENROUTER_~) | ~20~ / ~50~ | client-side quota of each provider, shared by all the bots. The OpenRouter values are the documented free-tier limits; *the Gemini ones are provisional* (#1483 did not measure them), so check them against your key |
-| ~OPENROUTER_MODEL~ | empty | empty: ~openrouter/free~ (free router). Set it only to choose a model; one without ~:free~ is paid |
-| ~LLM_TRACE_ENABLED~ / ~LLM_TRACE_TTL~ | ~false~ / ~1 day~ | opt-in debug trace of the full prompt and raw response, see [[file:docs/monitoring.md][monitoring]] |
-
-*** Sizing the prompt, the persona and the timeout together
-
-- *Persona size.* The persona gets what the other parts of the prompt leave: ~LLM_MAX_INPUT_TOKENS * 3 - LLM_CONTEXT_MAX_TOKENS * 4
-  - 4096 (template) - 2048 (message)~ bytes (the 3 is accented Italian, about 3 characters per token). With
-  the defaults that is *40 960 bytes*. Startup refuses a persona above it (the bot goes without the LLM) and
-  ~sbt checkPersona~ (also in CI) fails on it, together with a hard limit of 64 KiB. Raising ~LLM_MAX_INPUT_TOKENS~ or lowering
-  ~LLM_CONTEXT_MAX_TOKENS~ makes room.
-- *The limit has to suit the fallback too.* The default input limit is sized for Gemini. The fallback asks OpenRouter
-  for ~openrouter/free~ unless ~OPENROUTER_MODEL~ is set (empty by default): OpenRouter then picks a free model per request, so
-  its context window and speed are not under our control and may be smaller or slower than ~LLM_TIMEOUT~ allows with a large
-  persona. There is one input limit for both providers (a per-provider limit is not implemented), so keep the persona small
-  enough for the smallest free model you can tolerate, or set ~OPENROUTER_MODEL~ to a model with at least that window. A model
-  without the ~:free~ suffix is *paid*: startup logs a warning for it, because an old ~OPENROUTER_MODEL~ left in a deployment would
-  bill every fallback call. The router may also choose a model that lacks a feature the request uses (the request asks for JSON
-  output): a refused request shows as ~failure=rejected~, so watch it in the dashboard after a rollout. Free models may also log
-  prompts (see the privacy notes above).
-- *Upgrading:* a deployment that sets ~LLM_TIMEOUT~ to 4 seconds or less must also set ~LLM_PROVIDER_TIMEOUT~ below it, or startup fails.
-- *Two timeouts.* ~LLM_PROVIDER_TIMEOUT~ (4s) bounds each provider call; ~LLM_TIMEOUT~ (10s) bounds the whole LLM answer of
-  the engine, typing action included. Startup refuses a provider timeout that is not shorter than the total. With the
-  defaults a primary that /times out/ leaves about 6s for one fallback attempt. A timeout still spends the quota of the
-  provider that was called. In the ~llm_interaction~ log, ~attempts~ holds the per-provider results (for example
-  ~gemini:timeout,openrouter:success~, with ~gemini_ms~/~openrouter_ms~), while ~failure~ is the final outcome of the
-  completion: a primary timeout followed by a fallback success *omits* ~failure~, and ~failure=timeout~ appears when
-  the last provider call timed out (or, with ~status=cancelled~, when a timeout preceded the cancel). When the engine's ~LLM_TIMEOUT~ cancels the answer the line has ~status=cancelled~ and ~failure=cancelled~, or ~failure=timeout~ when a provider timeout had already been recorded before the cancel; it keeps the attempts and the ~gemini_ms~/~openrouter_ms~ that had finished before the cancel (a primary timeout recorded before the fallback was cancelled); the call in flight at that moment has no entry. To find primary timeouts, inspect ~attempts~ (it contains ~gemini:timeout~ or ~openrouter:timeout~),
-  do not filter on ~failure=timeout~. Do not fix a slow provider by raising ~LLM_TIMEOUT~ alone: the user waits that long. Size ~LLM_PROVIDER_TIMEOUT~
-  for the slowest provider you rely on and keep room for the fallback below ~LLM_TIMEOUT~.
+- *The entry point.* ~EngineLlm.run~ in chatCore is called after the request timeout, outside it, for every handled message
+  that is not a duplicate. It is a noop today, so nothing is sent to any provider and nothing is written to ~llm_context~.
+- *Data kept.* The per-bot ~<id>_persona.md~ files (see ~agent-context/agentDocs/GeneratePersona.md~) and
+  ~modules/chatLlm/src/main/resources/prompts/system.md~ stay as data for the new implementation; nothing reads them now.
+- *Who can switch it.* The switch is open: ~/llm on|off|forget~ has no permission check, any member of a chat can use it.
+  The adapters do not expose the chat-admin status of a sender.
+- *Configuration.* There is none: the provider, quota, timeout and context settings were removed together with the old
+  implementation, and no API key is needed.
 
 ** Operations
 
@@ -437,10 +346,6 @@ editing the file.
   - ~SSH_PRIVATE_KEY~ :: private key used by GitHub Actions to connect via SSH
   - ~DEPLOY_SUDO_PASSWORD~ :: password used for ~sudo~ while installing/updating runtime packages
   - bot tokens (eg ~ABAR_TOKEN~, ~CALA_TOKEN~, etc.) as already used by the workflow
-  - ~LLM_CONTEXT_AUTHOR_SALT~ :: secret used to hash sender ids in LLM chats. The app *refuses to start* without it,
-    and the deploy fails early if it is missing. Generate it once (eg ~openssl rand -hex 32~), set it as a repository
-    secret, and keep it stable: changing it rewrites every anonymous sender label in the stored conversations.
-  - ~GEMINI_API_KEY~ and ~OPENROUTER_API_KEY~ (optional: without both, LLM replies are disabled)
   - ~LOKI_TOKEN~ (optional, with ~LOKI_URL~ and ~LOKI_USER~: without all three the logs are not shipped)
 
   Notes:

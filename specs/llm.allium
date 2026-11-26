@@ -1,131 +1,22 @@
 -- allium: 3
--- llm.allium: the LLM replies of the bots (epic #1499). Only what is built is specified; the rest of the epic is listed
--- as open questions. Code: modules/chatCore/llm and patterns (the ports and /llm), modules/chatLlm (the implementation
--- and its doobie repositories, the prompt builder and the responder of #1491) and modules/main (startup wiring); the
--- engine routing of #1492 (BotEngine in chatCore).
+-- llm.allium: the LLM replies of the bots (epic #1499). The LLM replies are being rebuilt on LLM4s: only what the code
+-- does today is specified, which is the /llm switch and a single LLM entry point of the engine that does nothing.
+-- Code: modules/chatCore (llm: the LlmSettings port and LlmWiring; patterns/LlmCommands; EngineLlm and BotEngine),
+-- modules/chatLlm (ChatLlm and the doobie LlmSettingsDB) and modules/main (startup wiring). Tables: V13 in botDB.
+--
+-- The persona files (<botid>_persona.md) and the prompt template (prompts/system.md) stay in the repository as data
+-- only: nothing reads them now.
 
 use "./sbots.allium" as core
-
-------------------------------------------------------------
--- External Entities
-------------------------------------------------------------
-
--- The engine asks the responder to answer a message directed at the bot. The ports live in chatCore so the engine
--- knows nothing of the provider; the default responder never answers.
-external entity LlmResponder {
-    answers: Boolean    -- false for the default (noop) responder: the feature is unconfigured
-}
-
-------------------------------------------------------------
--- Value Types
-------------------------------------------------------------
-
--- The structured JSON object a provider returns for a completion. Only the reply text is consumed so far; the rest of
--- the payload is provider-specific and not part of the bots' observable behaviour.
-value LlmReply {
-    text: String                 -- empty unless the action is text
-    action: text | silent        -- #1491, #1594: required; any other value (`reuse` included) is a malformed provider reply
-    -- Derived by the output guard: not empty, no line starting with one or more / or ! markers followed by a letter
-    -- ("!ban", "//x"; marker-only text such as "!!! che bello" is fine), no @name or <@id> mention.
-    text_acceptable: Boolean
-    -- The text actually sent: trimmed; when longer than the reply cap (the cap the PromptBuilder states in the prompt
-    -- and passes to the guard, 500 by default; counted in code points) it is cut to the first cap - 1 characters,
-    -- trimmed, followed by "…". A text within the cap is unchanged.
-    reply_text: String
-}
-
--- #1492: an LLM call of the engine that has started and not ended, at most one per (chat, bot). A directed message
--- arriving while it exists is not asked, since the chat timeout starts only with an answer.
-external entity LlmCallInFlight {
-    chat: core/Chat
-    bot: core/Bot
-}
-
-------------------------------------------------------------
--- Contracts
-------------------------------------------------------------
-
--- The provider-agnostic client, internal to chatLlm. Whatever the provider's wire format, callers receive the same
--- decoded reply inside the completion lifecycle; the active provider is chosen by config, not by the caller.
-contract LlmClient {
-    complete: (prompt: String) -> Completion
-
-    @invariant StructuredJsonOutput
-        -- The reply of an answered completion is the decoded structured JSON object of the provider's response. A
-        -- response that is not a valid JSON object with a reply text never produces an answered completion.
-
-    @invariant UnexpectedErrorsReported
-        -- Only a provider timeout (config.provider_timeout) becomes a terminal result. Any other error is reported to
-        -- the operators and propagates to the caller; it is never rewritten as a completion with no attempts.
-}
-
-------------------------------------------------------------
--- Enumerations
-------------------------------------------------------------
-
-enum LlmProvider { gemini | openrouter }
-
-enum ProviderResult { success | rate_limited | server_error | timeout | rejected | malformed_json }
-
--- #1567: one record per provider, shared by all the bots. The limits mirror main.llm.<provider>.quota and are revisable
--- without a code change; the counters are the actual provider calls admitted by the limiter. A fallback call counts
--- against the provider that is called, never against the primary. The two sliding windows (a minute and a day) are
--- operational detail; the observable fact is when a provider's quota is exhausted.
-external entity QuotaUsage {
-    provider: LlmProvider
-    requests_this_minute: Integer
-    requests_today: Integer
-    max_per_minute: Integer = 20     -- provisional for gemini (#1483 unmeasured), documented for openrouter
-    max_per_day: Integer = 50
-}
-
--- One record for the whole feature, not per provider or bot: a shared episode produces one ops message until any
--- provider has quota again.
-entity QuotaNotice {
-    sent: Boolean
-}
 
 ------------------------------------------------------------
 -- Entities and Variants
 ------------------------------------------------------------
 
--- #1501 / #1484: a message directed at the bot (core/Message.is_directed_at_bot) is what the engine offers to the
--- responder (#1492, see LlmAnswersDirectedMessage); the default responder never answers, so a bot without the LLM
--- configured behaves as before.
---
--- #1487: the /llm ports (LlmSettings: enable, disable, status, forget) are in chatCore; their doobie repositories live
--- in chatLlm and only the port crosses back. The tables are V13 in botDB: the issue asked for V11, but V11 and V12 are
--- already applied in production and Flyway does not allow out-of-order migrations.
-
--- #1485: one completion per client call. The fallback is always the other provider, so a config change alone switches
--- the primary and the fallback together. #1486/#1567: a completion can also be stopped before any provider is asked:
--- `silent` for exhausted quotas, `failed` for a prompt beyond the input limit, a provider timeout or missing
--- credentials. When the primary's quota is exhausted the fallback may be asked first, so the primary label and the
--- first recorded attempt can differ.
-entity Completion {
-    prompt: String
-    primary_provider: LlmProvider
-    fallback_provider: LlmProvider = if primary_provider = gemini: openrouter else: gemini
-    status: pending | answered | failed | silent
-    reply: LlmReply?        -- present only when a provider returned a valid structured reply
-    attempts: ProviderAttempt with completion = this
-    fallback_quota_exhausted: Boolean = false  -- a retryable primary result found the fallback out of quota
-
-    transitions status {
-        pending -> answered
-        pending -> failed
-        terminal: answered, failed, silent
-    }
-}
-
-entity ProviderAttempt {
-    completion: Completion
-    provider: LlmProvider
-    result: ProviderResult?     -- the provider's outcome, once it has responded
-}
-
 -- #1487: one setting per (chat, bot); the chat already carries the platform. A chat with no row is off, so enabling is
--- explicit (#1488). The updated timestamp is epoch seconds and changes on both enable and disable.
+-- explicit (#1488). The updated timestamp is epoch seconds and changes on both enable and disable. The tables are V13
+-- in botDB: the issue asked for V11, but V11 and V12 are already applied in production and Flyway does not allow
+-- out-of-order migrations.
 entity LlmChatSetting {
     chat: core/Chat
     bot: core/Bot
@@ -133,8 +24,8 @@ entity LlmChatSetting {
     updated_at: Timestamp
 }
 
--- #1487/#1489: the messages kept for a chat in the shape the prompt builder will consume. A user message carries a
--- stable anonymous label in its content: the platform's sender id is salted and hashed, never shown as itself.
+-- #1487: the context rows of a chat. The table exists but nothing writes to it now; `forget` still deletes the rows of
+-- the chat and bot.
 entity LlmContextMessage {
     chat: core/Chat
     bot: core/Bot
@@ -144,377 +35,55 @@ entity LlmContextMessage {
 }
 
 ------------------------------------------------------------
--- Config
-------------------------------------------------------------
-
-config {
-    primary_provider: LlmProvider = gemini     -- the provider asked first; OpenRouter's smaller free daily quota keeps it as fallback
-    -- #1591: Gemini is called through the Interactions API (generateContent is legacy). Each call is a stateless
-    -- one-shot: store=false and no previous_interaction_id, so no prompt retention is added by the provider API.
-    -- The reply text is read from the model_output step; the structured-reply contract is unchanged.
-    timeout: Duration = 10.seconds            -- the whole LLM answer of the engine (typing action, completion, delivery); an answer
-                                              -- still running after this is cancelled and dropped silently
-    provider_timeout: Duration = 4.seconds    -- #1587: one provider call is abandoned after this; the timeout is recorded as a
-                                              -- provider result. Startup requires provider_timeout < timeout, so a timed-out
-                                              -- primary leaves (timeout - provider_timeout) for one fallback attempt
-    max_input_tokens: Integer = 18432         -- prompts larger than this (4 characters per token) are refused; startup also
-                                              -- requires room for a persona next to the template, message and context
-    max_output_tokens: Integer = 1024         -- sent to the provider as its output limit
-    openrouter_model: String = ""             -- empty (the default) or blank: the free router `openrouter/free`; a model without
-                                              -- the `:free` suffix is the operator's choice and is paid: startup logs a warning
-    credentials_complete: Boolean             -- both provider keys are configured; otherwise no request is admitted
-
-    -- #1489: the per-chat context window. The token budget uses the same four-characters-per-token estimate as the
-    -- input limit, and the TTL is applied by the cron job registered from main.
-    context_max_messages: Integer = 20
-    context_max_tokens: Integer = 2048
-    trace_enabled: Boolean = false             -- #1493: opt-in debug trace of the full prompt and raw response
-    trace_ttl: Duration = 1.day                -- at least one second
-    context_ttl: Duration = 7.days             -- at least one second: storage and cutoffs are epoch seconds
-    context_cleanup_cron: String              -- cron expression of the cleanup job, e.g. "0 0 * ? * *"
-    context_author_salt: String               -- deployment-specific secret, redacted from startup logs; no public
-                                              -- default: blank and the shipped example value are rejected at startup
-}
-
--- #1489: the context service of chatLlm. It is the boundary the engine will use for remembering a message and building
--- a prompt; the engine calls it through the responder (#1492, see the memory notes of LlmAnswersDirectedMessage).
-contract LlmContextWindow {
-    remember: (message: core/Message) -> Boolean
-    prompt: (chat: core/Chat, bot: core/Bot) -> String
-    delete_expired: (now: Timestamp) -> Integer
-
-    @invariant OnlyWhileEnabled
-        -- A message is remembered only for a (chat, bot) whose switch is on. A disabled chat stores nothing and a
-        -- previously enabled chat stops growing as soon as it is disabled.
-
-    @invariant BoundedWindow
-        -- A prompt uses at most config.context_max_messages messages, chosen newest first until the
-        -- config.context_max_tokens budget is spent (four characters per token), then kept in chronological order.
-        -- The budget is estimated on the rendered prompt, including the newline separators between the messages.
-
-    @invariant AnonymousSenders
-        -- A sender appears only as a stable label derived from the platform's sender id and
-        -- config.context_author_salt. The raw sender id and the platform's username or nick never reach a prompt.
-        -- anonymised_content(message, salt) is that label followed by the message text (or its caption) with every
-        -- mentioned name, its visible span when the platform gives mention offsets, "@nick" and Discord "<@id>"
-        -- replaced by a generic label, and every line break escaped:
-        -- CR, LF, U+0085, U+2028 and U+2029. User text can neither reveal a username nor forge a role-labelled line
-        -- in a flat prompt. The salt is deployment-specific and secret: knowing a public default would let anyone
-        -- map the labels back to senders.
-
-    @invariant TtlPurge
-        -- The cleanup job removes the messages older than config.context_ttl and keeps the newer ones, for every chat
-        -- and bot. The job is registered from main on the cron scheduler of chatCore's CronBackgroundJobManager. A
-        -- scheduler failure restarts the whole scheduled stream (ticks and job) and re-enters recovery on every
-        -- restart, so consecutive failures still leave later ticks pruning; the scheduler fiber is owned and
-        -- cancelled by main on shutdown.
-}
-
-------------------------------------------------------------
 -- Rules
 ------------------------------------------------------------
 
-rule LlmClientUsesConfiguredProvider {
-    when: CompletionRequested(prompt)
-    requires: config.credentials_complete
-    requires: prompt.length <= config.max_input_tokens * 4
-    requires: (QuotaUsage where provider = config.primary_provider).all(u => u.requests_this_minute < u.max_per_minute and u.requests_today < u.max_per_day)
-    ensures:
-        let completion = Completion.created(
-            prompt: prompt,
-            primary_provider: config.primary_provider,
-            status: pending
-        )
-        ProviderAttempt.created(completion: completion, provider: config.primary_provider)
-        ProviderRequested(completion, config.primary_provider)
-}
-
--- An oversized prompt is refused before admission control, so it never consumes a provider's quota slot. When both
--- providers are exhausted the completion is silent (no reply of any kind), as specified by BothQuotaExhaustedSilent.
-rule PromptBeyondInputLimitFails {
-    when: CompletionRequested(prompt)
-    requires: config.credentials_complete
-    requires: prompt.length > config.max_input_tokens * 4
-    ensures:
-        Completion.created(prompt: prompt, primary_provider: config.primary_provider, status: failed)
-}
-
--- #1486 review: incomplete credentials are refused before admission control: no anonymous provider request, no quota
--- slot, and a terminal failed completion. A timeout is also terminal failed rather than escaping as an exception.
-rule MissingCredentialsFail {
-    when: CompletionRequested(prompt)
-    requires: not config.credentials_complete
-    ensures:
-        Completion.created(prompt: prompt, primary_provider: config.primary_provider, status: failed)
-}
-
--- #1567: when the primary's quota is exhausted the fallback is asked first, provided it still has budget. The completion
--- keeps the configured primary label but its only attempt is the fallback actually called.
-rule PrimaryQuotaExhaustedFallsBack {
-    when: CompletionRequested(prompt)
-    requires: config.credentials_complete
-    requires: prompt.length <= config.max_input_tokens * 4
-    requires: (QuotaUsage where provider = config.primary_provider).any(u => u.requests_this_minute >= u.max_per_minute or u.requests_today >= u.max_per_day)
-    requires: (QuotaUsage where provider != config.primary_provider).all(u => u.requests_this_minute < u.max_per_minute and u.requests_today < u.max_per_day)
-    ensures:
-        let completion = Completion.created(
-            prompt: prompt,
-            primary_provider: config.primary_provider,
-            status: pending
-        )
-        ProviderAttempt.created(completion: completion, provider: completion.fallback_provider)
-        ProviderRequested(completion, completion.fallback_provider)
-}
-
--- Both providers exhausted: the completion is silent, no provider is asked and no reply is sent. The notification is
--- driven by QuotaExhaustionNotifiedOnce, shared across the two providers.
-rule BothQuotaExhaustedSilent {
-    when: CompletionRequested(prompt)
-    requires: config.credentials_complete
-    requires: prompt.length <= config.max_input_tokens * 4
-    requires: (QuotaUsage where provider = config.primary_provider).any(u => u.requests_this_minute >= u.max_per_minute or u.requests_today >= u.max_per_day)
-    requires: (QuotaUsage where provider != config.primary_provider).any(u => u.requests_this_minute >= u.max_per_minute or u.requests_today >= u.max_per_day)
-    ensures:
-        Completion.created(prompt: prompt, primary_provider: config.primary_provider, status: silent)
-}
-
--- #1567: every actual provider request counts against the provider that is called, including a fallback attempt. With
--- two providers the fallback is the other one, so its own counters and limits are the ones that increase.
-rule CompletionConsumesQuota {
-    when: ProviderRequested(completion, provider)
-    ensures:
-        let usage = QuotaUsage{provider: provider}
-        usage.requests_this_minute = usage.requests_this_minute + 1
-        usage.requests_today = usage.requests_today + 1
-}
-
--- The notice is tied to the two no-reply quota outcomes: the silent one (both providers exhausted) and the failed one
--- where a retryable primary result found the fallback out of quota. A single episode produces one ops message. A failed
--- notification does not mark the notice as sent: the next denial tries again.
-rule QuotaExhaustionNotifiedOnce {
-    when: CompletionRequested(prompt)
-    requires: config.credentials_complete
-    requires: prompt.length <= config.max_input_tokens * 4
-    requires: (QuotaUsage where provider = config.primary_provider).any(u => u.requests_this_minute >= u.max_per_minute or u.requests_today >= u.max_per_day)
-    requires: (QuotaUsage where provider != config.primary_provider).any(u => u.requests_this_minute >= u.max_per_minute or u.requests_today >= u.max_per_day)
-    requires: (QuotaNotice where sent = false).count > 0
-    ensures:
-        OperatorsNotified(reason: llm_quota_exhausted)
-        for notice in QuotaNotice where notice.sent = false:
-            notice.sent = true
-}
-
--- The same one-shot notice covers the failed completion left when the fallback's quota is gone after a retryable
--- primary result: no provider was available to answer, so the operators must see it even though the status is failed.
-rule FallbackQuotaExhaustionNotifiedOnce {
-    when: ProviderResponded(completion, provider, result, reply?)
-    requires: completion.status = pending
-    requires: result in {rate_limited, server_error, timeout, malformed_json, rejected}
-    requires: provider = completion.primary_provider
-    requires: not completion.attempts.any(a => a.provider = completion.fallback_provider)
-    requires: (QuotaUsage where provider = completion.fallback_provider).any(u => u.requests_this_minute >= u.max_per_minute or u.requests_today >= u.max_per_day)
-    requires: (QuotaNotice where sent = false).count > 0
-    ensures:
-        completion.fallback_quota_exhausted = true
-        OperatorsNotified(reason: llm_quota_exhausted)
-        for notice in QuotaNotice where notice.sent = false:
-            notice.sent = true
-}
-
--- As soon as any provider is admitted again a new exhaustion episode can begin, so the shared notice is reset.
-rule QuotaNoticeResetsWhenQuotaReturns {
-    when: CompletionRequested(prompt)
-    requires: config.credentials_complete
-    requires: prompt.length <= config.max_input_tokens * 4
-    requires: (QuotaUsage).any(u => u.requests_this_minute < u.max_per_minute and u.requests_today < u.max_per_day)
-    ensures:
-        for notice in QuotaNotice where notice.sent = true:
-            notice.sent = false
-}
-
-rule ProviderReturnsStructuredReply {
-    when: ProviderResponded(completion, provider, result, reply?)
-    requires: completion.status = pending
-    requires: result = success
-    requires: reply != null
-    ensures:
-        let attempt = ProviderAttempt{completion: completion, provider: provider}
-        attempt.result = result
-        completion.status = answered
-        completion.reply = reply
-}
-
-rule MalformedProviderReplyFails {
-    when: ProviderResponded(completion, provider, result, reply?)
-    requires: completion.status = pending
-    requires: result = malformed_json
-    requires: completion.attempts.any(a => a.provider = completion.fallback_provider)
-    ensures:
-        let attempt = ProviderAttempt{completion: completion, provider: provider}
-        attempt.result = result
-        completion.status = failed
-}
-
--- A provider can answer 200 with a payload that parses but carries no reply object: it is not a structured reply.
-rule SuccessWithoutReplyFails {
-    when: ProviderResponded(completion, provider, result, reply?)
-    requires: completion.status = pending
-    requires: result = success
-    requires: reply = null
-    ensures:
-        let attempt = ProviderAttempt{completion: completion, provider: provider}
-        attempt.result = result
-        completion.status = failed
-}
-
-rule NonRetryableProviderFailureFails {
-    when: ProviderResponded(completion, provider, result, reply?)
-    requires: completion.status = pending
-    requires: result = rejected
-    requires: completion.attempts.any(a => a.provider = completion.fallback_provider)
-    ensures:
-        let attempt = ProviderAttempt{completion: completion, provider: provider}
-        attempt.result = result
-        completion.status = failed
-}
-
--- A 429 (rate limit), a 5xx (server error), a timeout, a malformed reply or a rejection (a revoked key, a removed
--- model) from the primary provider is retried once against the other provider, but only when the fallback has quota for
--- that call. The same result from the fallback is not retried: the completion fails. A provider that rejected the
--- request is reported to the operators once, until it answers again, as is a prompt over the input limit.
-rule RetryableProviderFailureFallsBack {
-    when: ProviderResponded(completion, provider, result, reply?)
-    requires: completion.status = pending
-    requires: result in {rate_limited, server_error, timeout, malformed_json, rejected}
-    requires: provider = completion.primary_provider
-    requires: not completion.attempts.any(a => a.provider = completion.fallback_provider)
-    requires: (QuotaUsage where provider = completion.fallback_provider).all(u => u.requests_this_minute < u.max_per_minute and u.requests_today < u.max_per_day)
-    ensures:
-        let attempt = ProviderAttempt{completion: completion, provider: provider}
-        attempt.result = result
-        ProviderAttempt.created(completion: completion, provider: completion.fallback_provider)
-        ProviderRequested(completion, completion.fallback_provider)
-}
-
--- #1567: the primary failed retryably but the fallback's quota is exhausted, so no fallback request is made. The
--- completion fails recording only the attempt that actually reached a provider.
-rule FallbackQuotaExhaustedAfterPrimaryFailure {
-    when: ProviderResponded(completion, provider, result, reply?)
-    requires: completion.status = pending
-    requires: result in {rate_limited, server_error, timeout, malformed_json, rejected}
-    requires: provider = completion.primary_provider
-    requires: not completion.attempts.any(a => a.provider = completion.fallback_provider)
-    requires: (QuotaUsage where provider = completion.fallback_provider).any(u => u.requests_this_minute >= u.max_per_minute or u.requests_today >= u.max_per_day)
-    ensures:
-        let attempt = ProviderAttempt{completion: completion, provider: provider}
-        attempt.result = result
-        completion.status = failed
-}
-
--- A retryable result from the fallback ends the completion, whichever provider was asked first: after a primary failure
--- there are two attempts, but when the primary's quota was exhausted the fallback is the only attempt made.
-rule CompletionFailsAfterFallbackExhausted {
-    when: ProviderResponded(completion, provider, result, reply?)
-    requires: completion.status = pending
-    requires: result in {rate_limited, server_error, timeout, malformed_json, rejected}
-    requires: provider = completion.fallback_provider
-    requires: completion.attempts.any(a => a.provider = completion.fallback_provider)
-    ensures:
-        let attempt = ProviderAttempt{completion: completion, provider: provider}
-        attempt.result = result
-        completion.status = failed
-}
-
--- #1487/#1488: the /llm switches are stored per chat and bot, and a toggle always refreshes the timestamp. The command
--- raises these events through the LlmSettings port; the storage behaviour is observable through that port.
-rule LlmEnabledForChat {
-    when: UserEnablesLlm(chat, bot)
+-- #1488: /llm is a fixed command of every bot on every platform ("/llm" on Telegram and Discord, "!llm" on IRC). The
+-- argument is trimmed and case-insensitive; a missing or unrecognised argument (`unknown` below) only gets the usage
+-- reply, written with the command invocation of the platform. The switch is per chat and per bot, and a toggle always
+-- refreshes the timestamp.
+rule LlmCommandOn {
+    when: UserRunsLlmCommand(chat, bot, argument)
+    requires: argument = on
     ensures:
         let setting = LlmChatSetting{chat: chat, bot: bot}
         setting.enabled = true
         setting.updated_at = now
-}
-
-rule LlmDisabledForChat {
-    when: UserDisablesLlm(chat, bot)
-    ensures:
-        let setting = LlmChatSetting{chat: chat, bot: bot}
-        setting.enabled = false
-        setting.updated_at = now
-}
-
-rule LlmStatusIsOffWithoutSetting {
-    when: LlmStatusRequested(chat, bot)
-    requires: not exists LlmChatSetting{chat: chat, bot: bot}
-    ensures: LlmStatusReported(enabled: false)
-}
-
-rule LlmStatusReportsStoredSetting {
-    when: LlmStatusRequested(chat, bot)
-    requires: exists LlmChatSetting{chat: chat, bot: bot}
-    ensures: LlmStatusReported(enabled: (LlmChatSetting where chat = chat and bot = bot).any(s => s.enabled))
-}
-
--- `forget` purges the remembered context of that chat and bot only: the switch, other chats and other bots are intact.
-rule LlmForgetPurgesContext {
-    when: UserForgetsLlmContext(chat, bot)
-    ensures: not exists LlmContextMessage{chat: chat, bot: bot}
-}
-
--- #1489: a message is offered to the context only while the chat's switch is on. The ignored event is the port saying
--- that nothing was stored: there is no context row for a chat that never enabled the LLM. The stored content is the
--- message text (or caption) with usernames redacted and line breaks escaped, prefixed with the stable anonymous sender
--- label: neither the raw sender identity nor a real username is persisted.
-rule LlmContextRemembersEnabledChat {
-    when: LlmContextMessageOffered(chat, bot, message)
-    requires: exists LlmChatSetting{chat: chat, bot: bot, enabled: true}
-    ensures:
-        let labelled = anonymised_content(message, config.context_author_salt)
-        LlmContextMessage.created(chat: chat, bot: bot, role: user, content: labelled, created_at: now)
-}
-
-rule LlmContextIgnoresDisabledChat {
-    when: LlmContextMessageOffered(chat, bot, message)
-    requires: not exists LlmChatSetting{chat: chat, bot: bot, enabled: true}
-    ensures: LlmContextIgnored(chat: chat, bot: bot)
-}
-
--- #1489: the cleanup cron deletes the expired messages of every chat and bot, without touching the newer ones. Its
--- scheduler fiber is owned by main and cancelled on shutdown, and a failing schedule is restarted with the job still
--- attached.
-rule LlmContextCleanupDeletesExpired {
-    when: LlmContextCleanupTick()
-    ensures: not exists (LlmContextMessage where created_at < now - config.context_ttl)
-}
-
--- #1488: /llm is a fixed command of every bot on every platform ("/llm" on Telegram and Discord, "!llm" on IRC). The
--- argument chooses one call of the port; a missing or unrecognised argument (`unknown` below) only gets the usage
--- reply, written with the command invocation of the platform.
-rule LlmCommandOn {
-    when: UserRunsLlmCommand(chat, bot, argument)
-    requires: argument = on
-    ensures: UserEnablesLlm(chat, bot)
-    ensures: LlmCommandResponded(chat: chat, text: "LLM replies enabled for this chat")
+        LlmCommandResponded(chat: chat, text: "LLM replies enabled for this chat")
 }
 
 rule LlmCommandOff {
     when: UserRunsLlmCommand(chat, bot, argument)
     requires: argument = off
-    ensures: UserDisablesLlm(chat, bot)
-    ensures: LlmCommandResponded(chat: chat, text: "LLM replies disabled for this chat")
+    ensures:
+        let setting = LlmChatSetting{chat: chat, bot: bot}
+        setting.enabled = false
+        setting.updated_at = now
+        LlmCommandResponded(chat: chat, text: "LLM replies disabled for this chat")
 }
 
-rule LlmCommandStatus {
+rule LlmCommandStatusEnabled {
     when: UserRunsLlmCommand(chat, bot, argument)
     requires: argument = status
-    ensures: LlmStatusRequested(chat, bot)
+    requires: exists LlmChatSetting{chat: chat, bot: bot, enabled: true}
+    ensures: LlmCommandResponded(chat: chat, text: "LLM replies are enabled for this chat")
 }
 
+-- A chat with no row reports disabled.
+rule LlmCommandStatusDisabled {
+    when: UserRunsLlmCommand(chat, bot, argument)
+    requires: argument = status
+    requires: not exists LlmChatSetting{chat: chat, bot: bot, enabled: true}
+    ensures: LlmCommandResponded(chat: chat, text: "LLM replies are disabled for this chat")
+}
+
+-- `forget` deletes the context rows of that chat and bot only: the switch, other chats and other bots are intact.
 rule LlmCommandForget {
     when: UserRunsLlmCommand(chat, bot, argument)
     requires: argument = forget
-    ensures: UserForgetsLlmContext(chat, bot)
-    ensures: LlmCommandResponded(chat: chat, text: "LLM context forgotten for this chat")
+    ensures:
+        not exists LlmContextMessage{chat: chat, bot: bot}
+        LlmCommandResponded(chat: chat, text: "LLM context forgotten for this chat")
 }
 
 rule LlmCommandUsage {
@@ -531,130 +100,32 @@ rule LlmCommandIrcUsage {
     ensures: LlmCommandResponded(chat: chat, text: "Usage: !llm on|off|status|forget")
 }
 
--- #1492: the engine routes a plain message (never a command or a file request) reactive first. Only when no guided flow
--- and no reply bundle matched (MessageUnmatchedByReactiveLogic), the responder can answer at all (the noop default is
--- skipped: no settings lookup, no typing action), the message is directed at the bot (core/Message.is_directed_at_bot,
--- and not forwarded, too old or starting with the ignore prefix), the chat enabled the LLM and the chat timeout (the
--- per-chat cooldown of the reactive replies, shared) has expired, the responder is asked with the message only (#1594: it
--- gets the persona and the conversation as context, never the replies of the bot). A matching bundle blocked by the
--- timeout does not fall through to the LLM. One call per chat is in
--- flight at a time: a directed message arriving meanwhile is not asked, since the cooldown starts only with an answer.
--- The settings and cooldown are read after the chat is claimed, so they are current; the whole claimed stage (lookup, call,
--- delivery, interaction update) is bounded by config.timeout plus the request processing timeout, and the claim is
--- always released.
--- The LLM runs after, and outside, the request processing timeout under its own timeout (config.timeout, taken per bot
--- from the wiring), and the typing action (a no-op on platforms without one) is part of that bounded call. A timeout,
--- a failure or no answer drops the message silently; an answer is sent like a reactive reply and counts as an
--- interaction, so it starts the chat timeout. The request stats of such a message are still "handled".
---
--- Memory: once handled, every plain message (directed or not, answered by a reactive reply or not, but never a command
--- or a duplicate) is handed to the responder to remember, after the LLM was asked so the message is not part of its own
--- prompt; the LLM answer that was sent follows it (a text as sent). Only a
--- chat with the switch on stores anything (LlmContextRemembersEnabledChat).
---
--- Wiring (main): each bot gets its responder when its DB layer is built. The bot gets the noop responder, and the
--- reason is logged, when the API keys of both providers are not configured, or its persona
--- (<botid>_persona.md) is missing, malformed or over the prompt budget. Nothing else
--- changes for such a bot.
--- Decision #1594: the LLM stays behind reactive matching and reads the conversation as context only. The reply catalogue
--- and the `reuse` action were removed: a message a bundle describes never reaches the LLM, so there was nothing to
--- reuse. A matching bundle blocked by the chat timeout is remembered and never asked (the engine logs
--- `reason=reactive_blocked` for it).
-rule LlmAnswersDirectedMessage {
-    when: MessageUnmatchedByReactiveLogic(chat, bot, message)
-    requires: LlmResponder.answers
-    requires: message.is_directed_at_bot
-    requires: exists LlmChatSetting{chat: chat, bot: bot, enabled: true}
-    requires: not exists core/ChatTimeout{chat: chat, bot: bot, in_timeout: true}
-    requires: not exists LlmCallInFlight{chat: chat, bot: bot}
-    ensures: TypingActionSent(chat)
-    ensures: LlmResponderAsked(bot, message)
-}
-
-rule LlmDoesNotAnswerOtherMessages {
-    when: MessageUnmatchedByReactiveLogic(chat, bot, message)
-    requires: not message.is_directed_at_bot or not exists LlmChatSetting{chat: chat, bot: bot, enabled: true}
-    ensures: LlmNotAsked(bot, message)
-}
-
-------------------------------------------------------------
--- Invariants
-------------------------------------------------------------
-
-invariant OneAttemptPerProvider {
-    for c in Completions:
-        for a in c.attempts:
-            for b in c.attempts:
-                a != b implies a.provider != b.provider
-}
-
-invariant ReplyOnlyWhenAnswered {
-    for c in Completions:
-        c.reply != null implies c.status = answered
-}
-
--- A silent completion never reached a provider: no attempt, no reply, no fallback.
-invariant SilentCompletionWasNotRequested {
-    for c in Completions where c.status = silent:
-        c.attempts.count = 0
-        c.reply = null
+-- The engine has a single LLM entry point. It runs after, and outside, the request processing timeout, for every
+-- handled request (any message type, never a duplicate, a timed-out or a failed one). It does nothing: the bot never
+-- answers with an LLM, whatever the /llm switch says.
+rule LlmEntryPointDoesNothing {
+    when: LlmEntryPointReached(request)
+    requires: request.outcome = handled
+    ensures: LlmNotAsked(request)
 }
 
 ------------------------------------------------------------
 -- Actor Declarations
 ------------------------------------------------------------
 
--- Both boundaries are code-to-code: the caller of the client and the provider's HTTP endpoint.
-actor LlmCaller {
-    identified_by: LlmCaller where true
-}
-
-actor LlmProviderEndpoint {
-    identified_by: LlmProviderEndpoint where true
-}
-
--- The caller of the LlmSettings port: the /llm command of #1488 is one such caller, and the storage rules are also
--- reachable through the port itself.
+-- The user running /llm in a chat.
 actor LlmChatUser {
     identified_by: LlmChatUser where true
 }
 
--- The cron scheduler of chatCore's CronBackgroundJobManager, registered from main: it is not a chat participant.
-actor LlmCleanupScheduler {
-    identified_by: LlmCleanupScheduler where true
+-- The engine itself, reaching its LLM entry point after a request: it is not a chat participant.
+actor LlmEngine {
+    identified_by: LlmEngine where true
 }
 
 ------------------------------------------------------------
 -- Surfaces
 ------------------------------------------------------------
-
-surface LlmClientSurface {
-    facing _: LlmCaller
-
-    provides:
-        CompletionRequested(prompt)
-
-    contracts:
-        fulfils LlmClient
-}
-
-surface LlmProviderBoundary {
-    facing _: LlmProviderEndpoint
-
-    provides:
-        ProviderResponded(completion, provider, result, reply?)
-}
-
--- The chatCore port, implemented by the doobie repositories of chatLlm (#1487).
-surface LlmSettingsSurface {
-    facing _: LlmChatUser
-
-    provides:
-        UserEnablesLlm(chat, bot)
-        UserDisablesLlm(chat, bot)
-        LlmStatusRequested(chat, bot)
-        UserForgetsLlmContext(chat, bot)
-}
 
 -- The fixed command of #1488, available to every bot and every platform.
 surface LlmCommandSurface {
@@ -665,158 +136,16 @@ surface LlmCommandSurface {
         LlmCommandResponded(chat, text)
 }
 
--- The context service of #1489: the engine offers messages to it through the responder (#1492).
-surface LlmContextSurface {
-    facing _: LlmChatUser
+surface LlmEntryPointSurface {
+    facing _: LlmEngine
 
     provides:
-        LlmContextMessageOffered(chat, bot, message)
-        LlmContextIgnored(chat, bot)
-
-    contracts:
-        fulfils LlmContextWindow
-}
-
--- The TTL cleanup is not a user action: the tick comes from the cron scheduler registered by main.
-surface LlmCleanupSurface {
-    facing _: LlmCleanupScheduler
-
-    provides:
-        LlmContextCleanupTick()
-}
-
-------------------------------------------------------------
--- Responder: prompt builder and output contract (#1491)
-------------------------------------------------------------
-
--- The prompt is the prompt template (prompts/system.md, modified in place: git holds its history) filled with the persona, the chat context and the message. Context
--- and message are untrusted text: the template says they are data, newlines and mentions are neutralised line by line, and a placeholder inside them is never expanded. The
--- length cap is one value: the prompt states it and the guard enforces it.
-rule ResponderAnswersWithText {
-    when: ResponderAsked(msg, completion)
-    requires: completion.status = answered
-    requires: completion.reply.action = text
-    requires: completion.reply.text_acceptable
-    ensures: ResponderReplied(msg, completion.reply.reply_text)
-}
-
--- Anything else is silent: the silent action, a failed completion,
--- a client error, or a text that is not acceptable. A text over the cap is truncated (see reply_text), not dropped.
--- A provider reply without a valid action, or with a non-string text, is already malformed at the provider
--- boundary (a `reuse` action included). A JSON null `text` counts as absent, not malformed.
--- Both providers enforce the reply contract at call time (#1588): Gemini with `responseSchema`, OpenRouter with a strict
--- `response_format.json_schema` (`action`, `text`, both required because strict mode demands it, no other property;
--- both providers ask for the same required fields) plus `provider.require_parameters`,
--- so an endpoint that cannot honour the schema is rejected instead of returning prose. The parser stays as defence in
--- depth: a violating reply (`reuse`, `replyId`) is malformed, logged uncapped, and follows the fallback path, then silence.
--- The `text` action with an empty, blank or missing `text` is malformed too (it would only be dropped by the output
--- guard): the fallback provider is asked. The `silent` action needs no text.
--- A `text` object cut by the provider's output-token limit is not recovered: like any other unreadable object it is
--- malformed, logged with its full raw text, and follows the fallback path.
--- The reply language is the one the persona states (Italian when it states none); this is required by the prompt only,
--- not checked.
-rule ResponderStaysSilent {
-    when: ResponderAsked(msg, completion)
-    requires: completion.status != answered
-        or completion.reply.action = silent
-        or (completion.reply.action = text and not completion.reply.text_acceptable)
-    ensures: ResponderSilent(msg)
-}
-
-------------------------------------------------------------
--- Observability (#1493)
-------------------------------------------------------------
-
--- Every interaction of the responder with the client leaves one JSON log line (the message of the log record, shipped
--- through the Mon pipeline to Loki, read there with `| json | line_format "{{.message}}" | json`): a salted chat hash
--- (never the chat id), bot, model that served the request (the model the provider reports, which with `openrouter/free`
--- differs per request; else the configured one), the provider the evidence belongs to, estimated prompt and response
--- tokens (four characters per token), the provider-reported prompt, response and cached token counts (#1590: appended
--- keys `prompt_tokens_reported`, `response_tokens_reported`, `cached_tokens`: the counts of every provider attempt added
--- up, so a fallback's tokens come on top of the failed primary's; each omitted when no attempt reported that count; absent usage is never an error and never touches the reply), latency, completion status, action taken (text
--- or silent), failure reason, provider attempts and their results, whether a fallback provider was
--- asked, whether the structured reply needed fence/prose stripping, and the local rejection (oversized prompt, missing credentials). The failure reasons are what the dashboard counts: local rejections, quota exhaustion, a provider
--- result (including `success_without_reply` when a provider answered 200 without a structured reply), an output the
--- guard turned into silence, and a client call that threw (status `error`,
--- failure `client_error:<exception class>`; never the exception message, which may hold chat content), and a call that was
--- cancelled before it ended, in any phase (typing action, prompt build, client call), by the engine's timeout or a
--- shutdown (status `cancelled`, failure `cancelled`; a cancel during the client call keeps the attempts and provider timings
--- that had finished, such as a primary timeout recorded before the fallback was cancelled, and then the failure is
--- `timeout` while the status stays `cancelled`; the phase goes to a separate plain
--- line, never into the JSON). Keys without a
--- value are omitted. The line holds no chat content. Logging never fails the reply, not even when logging itself fails;
--- the interaction line, the malformed-reply error lines and the trace are written independently, so one failing sink
--- cannot drop the others. Failures of a sink are logged by exception class only: the message can hold chat content.
---
--- A message that never reaches the responder has no interaction line. The engine writes one INFO line
--- `LLM not asked (chatId=...): reason=<reason>` with reason `responder_off`, `not_directed`, `forwarded`, `too_old`,
--- `ignored_prefix`, `disabled`, `reactive_blocked` (a matching bundle blocked by the chat timeout), `in_timeout`,
--- `in_flight` (a call for the chat is already running) or `no_reply` (the responder did not produce a reply).
--- A second INFO line from the responder reports every decision: the text reply, or `no reply: <reason>`, where
--- the reason is the interaction's failure, with the output-guard rule appended as `output_rejected:<rule>` (empty text,
--- command, mention or raw mention), or `silent_action` when the model chose silence. A failure to build the prompt is logged
--- with its exception class before it becomes no reply.
---
--- The responder reports each interaction to the observer as an observation: who (the chat hash and the bot), the prompt
--- version, the full prompt and, when the client returned, the completion with its raw model text.
-entity LlmTrace {
-    chat_hash: String
-    bot: String
-    prompt: String              -- the full prompt: chat content, hence the opt-in flag and the short TTL
-    response: String?           -- the raw model text, kept also when it was malformed
-    created_at: Timestamp
-}
-
-rule LlmInteractionLogged {
-    when: LlmInteractionObserved(chat_hash, bot, prompt, completion, raw_response)
-    ensures: InteractionLogged(chat_hash, bot, completion)
-}
-
--- A client call that threw is observed too, without a completion: it is a failure of its own, not a local rejection.
-rule LlmClientFailureLogged {
-    when: LlmClientFailed(chat_hash, bot, prompt, reason)
-    ensures: InteractionLogged(chat_hash, bot, failure: reason)
-}
-
--- A cancelled interaction is recorded exactly once whatever the phase (typing, prompt build or client call; before the
--- prompt exists it is recorded with an empty one) and still ends as a cancellation: no completion, no decision. The
--- recording runs in its own fiber, so a slow trace write cannot delay the release of the chat claim. Once the client
--- call has returned, its own record (completed or client failure) owns the interaction: it is written in its own fiber,
--- so a cancel, even in the middle of the write, neither adds a cancelled record nor cuts that one.
-rule LlmClientCancellationLogged {
-    when: LlmClientCancelled(chat_hash, bot, prompt)
-    ensures: InteractionLogged(chat_hash, bot, failure: cancelled)
-}
-
--- The trace joins a weird reply to its prompt and raw response through the chat hash, bot and time.
--- Only an interaction with a completion has a raw response; a failed client call is traced with none.
-rule LlmTraceStoredWhenEnabled {
-    when: LlmInteractionObserved(chat_hash, bot, prompt, completion, raw_response)
-    requires: config.trace_enabled
-    ensures: LlmTrace.created(chat_hash: chat_hash, bot: bot, prompt: prompt, response: raw_response, created_at: now)
-}
-
--- A failed or cancelled client call has no raw response: it is traced with none, like the observer does.
-rule LlmClientFailureTraced {
-    when: LlmClientFailed(chat_hash, bot, prompt, reason)
-    requires: config.trace_enabled
-    ensures: LlmTrace.created(chat_hash: chat_hash, bot: bot, prompt: prompt, response: null, created_at: now)
-}
-
-rule LlmClientCancellationTraced {
-    when: LlmClientCancelled(chat_hash, bot, prompt)
-    requires: config.trace_enabled
-    ensures: LlmTrace.created(chat_hash: chat_hash, bot: bot, prompt: prompt, response: null, created_at: now)
-}
-
--- The trace expires on its own TTL, also after the flag has been turned off. It is not copied by the DB migration.
-rule LlmTraceCleanupDeletesExpired {
-    when: LlmContextCleanupTick()
-    ensures: not exists (LlmTrace where created_at < now - config.trace_ttl)
+        LlmEntryPointReached(request)
 }
 
 ------------------------------------------------------------
 -- Open Questions
 ------------------------------------------------------------
 
-open question "Privacy note (#1483, #1498): the Gemini free tier may not be offered to minors or EEA/UK/CH users. #1485 only makes the provider switch configurable; it does not authorise a free-tier deployment."
+open question "The LLM replies are being rebuilt on LLM4s: which messages get an answer, the prompt, persona and context window, providers, quotas, output guard and observability are unspecified until that work lands."
+open question "Privacy note (#1483, #1498): the Gemini free tier may not be offered to minors or EEA/UK/CH users. Revisit for the provider chosen in the LLM4s rebuild."

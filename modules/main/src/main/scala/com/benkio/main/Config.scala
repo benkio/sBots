@@ -4,7 +4,6 @@ import cats.effect.Async
 import com.benkio.chatcore.initialization.DBConfig
 import com.benkio.chatdiscordadapter.gateway.DiscordGatewayConfig
 import com.benkio.chatircadapter.connection.IrcConfig
-import com.benkio.chatllm.llm.LlmConfig
 import cron4s.expr.CronExpr
 import org.http4s.Uri
 import pureconfig.*
@@ -41,8 +40,7 @@ final case class Config(
     discord: DiscordGatewayConfig,
     irc: IrcConfig,
     mainDB: DBConfig,
-    healthcheckPing: HealthcheckPingConfig,
-    llm: LlmConfig
+    healthcheckPing: HealthcheckPingConfig
 ) derives ConfigReader
 
 final case class HealthcheckPingConfig(

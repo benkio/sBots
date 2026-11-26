@@ -26,7 +26,7 @@ object UsageStats {
   enum Outcome(val label: String) {
 
     /** The message was processed, whether it matched something to reply to or not. */
-    case Handled extends Outcome("handled")
+    case ReactiveReplied extends Outcome("reactive-replied")
 
     /** The platform delivered the message again: it was skipped. */
     case Duplicate extends Outcome("duplicate")
@@ -36,6 +36,17 @@ object UsageStats {
 
     /** The processing ended with an error. */
     case Failed extends Outcome("failed")
+
+    /** The message was processed by the llm */
+    case LLMReplied extends Outcome("llm-replied")
+
+    /** The message was processed, but nothing was replied */
+    case UnReplied extends Outcome("unreplied")
+  }
+
+  object Outcome {
+    def fromReactive(reactive: Reactive): Outcome =
+      if reactive.replied then Outcome.ReactiveReplied else Outcome.UnReplied
   }
 
   def messageLine(bot: String, platform: String, outcome: Outcome, latency: FiniteDuration): String =

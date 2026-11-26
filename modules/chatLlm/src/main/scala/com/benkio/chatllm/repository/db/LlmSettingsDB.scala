@@ -46,9 +46,7 @@ object LlmSettingsDB {
         .map(enabled => LlmSettings.Status(enabled = enabled.getOrElse(false)))
 
     override def forget(chatId: ChatId): F[Unit] =
-      LlmContextStore
-        .deleteQuery(chatId, botId)
-        .run
+      deleteContextQuery(chatId, botId).run
         .transact(transactor)
         .flatMap(deleted => log.info(s"LLM forgot $deleted context messages of $chatId for $botId"))
         .void
@@ -67,6 +65,10 @@ object LlmSettingsDB {
           VALUES (${chatId.platform.id}, ${chatId.id}, ${botId.value}, $enabled, $updatedAt)
           ON CONFLICT (platform, chat_id, bot_id) DO UPDATE SET
             enabled = EXCLUDED.enabled, updated_at = EXCLUDED.updated_at""".update
+
+  def deleteContextQuery(chatId: ChatId, botId: SBotId): Update0 =
+    sql"""DELETE FROM llm_context
+          WHERE platform = ${chatId.platform.id} AND chat_id = ${chatId.id} AND bot_id = ${botId.value}""".update
 
   def statusQuery(chatId: ChatId, botId: SBotId): Query0[Boolean] =
     sql"""SELECT enabled FROM llm_chat_settings

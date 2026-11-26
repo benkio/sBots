@@ -4,7 +4,6 @@ import cats.effect.kernel.Ref
 import cats.effect.std.Random
 import cats.effect.IO
 import cats.syntax.all.*
-import com.benkio.chatcore.llm.LlmEngine
 import com.benkio.chatcore.llm.LlmSettings
 import com.benkio.chatcore.model.reply.PagedItem
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
@@ -59,8 +58,7 @@ object DBLayerMock {
       dbSubscriptionDraft: DBSubscriptionDraft[IO] = DBSubscriptionDraftMock(Ref.unsafe(Map.empty)),
       dbSubscriptionFlowPrompt: DBSubscriptionFlowPrompt[IO] = DBSubscriptionFlowPromptMock(Ref.unsafe(Map.empty)),
       dbPagedListText: DBPagedListText[IO] = DBPagedListTextMock(Ref.unsafe(Map.empty)),
-      llmSettings: LlmSettings[IO] = LlmSettings.noop[IO],
-      llm: LlmEngine[IO] = LlmEngine.noop[IO]
+      llmSettings: LlmSettings[IO] = LlmSettings.noop[IO]
   ): DBLayer[IO] =
     DBLayer(
       dbTimeout = DBTimeoutMock(Ref.unsafe(timeouts), botId),
@@ -72,7 +70,6 @@ object DBLayerMock {
       dbSubscriptionFlowPrompt = dbSubscriptionFlowPrompt,
       dbPagedListText = dbPagedListText,
       llmSettings = llmSettings,
-      llm = llm,
       dbMessageReplies = DBMessageReplies(messageReplies),
       dbCommandReplies = DBCommandReplies(commandReplies)
     )
