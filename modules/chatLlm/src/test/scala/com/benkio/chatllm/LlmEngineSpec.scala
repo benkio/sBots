@@ -33,7 +33,7 @@ class LlmEngineSpec extends CatsEffectSuite {
     for {
       (responder, asked) <- recordingResponder(Some(Text("hi")))
       persona = Persona("Sei il bot di prova.")
-      reply    <- LlmEngine.engine[IO](responder, persona).reply(msg)
+      reply    <- LlmEngine.LlmEngineImpl[IO](responder, persona).reply(msg)
       askedFor <- asked.get
     } yield {
       assertEquals(reply, Some(Text("hi")))
@@ -44,7 +44,7 @@ class LlmEngineSpec extends CatsEffectSuite {
   test("the engine has nothing to say when the responder has none") {
     for {
       (responder, _) <- recordingResponder(None)
-      reply          <- LlmEngine.engine[IO](responder, Persona("Sei il bot di prova.")).reply(msg)
+      reply          <- LlmEngine.LlmEngineImpl[IO](responder, Persona("Sei il bot di prova.")).reply(msg)
     } yield assertEquals(reply, None)
   }
 }

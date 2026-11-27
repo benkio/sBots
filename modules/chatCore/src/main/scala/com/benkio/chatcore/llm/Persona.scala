@@ -16,7 +16,8 @@ object Persona {
 
   final case class EmptyPersona(filename: String) extends Throwable(s"[Persona] The persona file $filename is empty")
 
-  /** Reads the persona file from the resources. A missing or empty file is an error: the bot would play no character. */
+  /** Reads the persona file from the resources. A missing or empty file is an error: the bot would play no character.
+    */
   def load[F[_]: Async: LogWriter](filename: String): F[Persona] =
     Repository
       .getResourceByteArray[F](filename)

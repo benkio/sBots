@@ -37,7 +37,8 @@ object LlmEngine {
       (_, persona) => Resource.pure(LlmEngineImpl[F](responder, persona))
     )
 
-  private final case class LlmEngineImpl[F[_]](responder: LlmResponder[F], persona: Persona) extends CoreLlmEngine[F] {
+  private[chatllm] final case class LlmEngineImpl[F[_]](responder: LlmResponder[F], persona: Persona)
+      extends CoreLlmEngine[F] {
     override def reply(msg: Message): F[Option[Text]] = responder.respond(persona, msg)
   }
 }
