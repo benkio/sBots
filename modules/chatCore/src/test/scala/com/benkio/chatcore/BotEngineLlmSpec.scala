@@ -38,6 +38,24 @@ class BotEngineLlmSpec extends CatsEffectSuite with BotEngineFixtures {
     }
   }
 
+  test("the last interaction is logged after the LLM reply, and not when the LLM has nothing to say") {
+    def postComputedAfter(answer: Option[Text]): IO[Int] = for {
+      (llm, _)     <- recordingLlm(answer)
+      adapter      <- FakePlatformAdapter(capabilities = slashCommands)
+      postComputed <- Ref.of[IO, Int](0)
+      engine = engineWith(postComputation = _ => postComputed.update(_ + 1), llmEngine = Some(llm))
+      _     <- engine.onMessage(message("something else"))(using adapter)
+      count <- postComputed.get
+    } yield count
+    for {
+      replied   <- postComputedAfter(Some(Text("llm answer")))
+      unreplied <- postComputedAfter(None)
+    } yield {
+      assertEquals(replied, 1)
+      assertEquals(unreplied, 0)
+    }
+  }
+
   test("an LLM with nothing to say sends nothing") {
     for {
       (llm, asked) <- recordingLlm(None)

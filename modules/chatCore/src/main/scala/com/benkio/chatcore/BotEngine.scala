@@ -157,8 +157,10 @@ class BotEngine[F[_]: Async: LogWriter](
       .reply(msg)
       .handleErrorWith(error => LogWriter.error(s"[LlmEngine] The LLM failed, no reply: ${error.getMessage}").as(None))
       .flatMap {
-        case Some(text) => delivery.deliver(text, msg, replyToMessage = true).as(Outcome.LLMReplied)
-        case None       => outcome.pure[F]
+        case Some(text) =>
+          // the LLM answer is a reply too: the last interaction of the chat is logged like after a reactive one
+          (delivery.deliver(text, msg, replyToMessage = true) *> postComputation(msg)).as(Outcome.LLMReplied)
+        case None => outcome.pure[F]
       }
 
   private def logStats(outcome: Outcome, start: FiniteDuration)(using platform: PlatformAdapter[F]): F[Unit] =

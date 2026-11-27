@@ -4,6 +4,7 @@ import cats.effect.kernel.Ref
 import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
+import com.benkio.chatcore.llm.LlmDependencies
 import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.Logger.given
@@ -37,7 +38,8 @@ class RunnerSpec extends CatsEffectSuite {
         .as(ran.update(_ :+ platform))
   }
 
-  private def withMainSetup[A](use: MainSetup[IO] => IO[A]): IO[A] = MainSetup[IO]().use(use)
+  private def withMainSetup[A](use: MainSetup[IO] => IO[A]): IO[A] =
+    MainSetup[IO](Some(Resource.pure(LlmDependencies.noop[IO]))).use(use)
 
   test("a bot runs on Telegram unless it is bound to other platforms") {
     assertEquals(onTelegram.platforms, List(Platform.Telegram))
