@@ -8,7 +8,7 @@ import cats.effect.Resource
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.initialization.BotCoreSetup
-import com.benkio.chatcore.llm.LlmWiring
+import com.benkio.chatcore.llm.LlmDependencies
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
@@ -46,12 +46,12 @@ object IrcBot {
       commandEffectfulCallback: Map[String, EffectfulCallback[F]],
       config: IrcConfig,
       notifier: Notifier[F],
-      llmWiring: Option[LlmWiring[F]] = None
+      llmDependencies: Option[LlmDependencies[F]] = None
   )(using log: LogWriter[F]): F[Unit] = {
     val sBotConfig = SBotConfig.fromSBotInfo(sBotInfo)
     (for {
       password <- IrcCredentials.password[F](sBotInfo, ResourcesRepository.fromResources[F]())
-      core     <- BotCoreSetup[F](httpClient, sBotConfig, llmWiring)
+      core     <- BotCoreSetup[F](httpClient, sBotConfig, llmDependencies)
     } yield (password, core)).use((password, core) =>
       runWith[F](
         core = core,
@@ -105,7 +105,7 @@ object IrcBot {
             notifier = notifier
           )
         }
-        engine = BotEngine[F](effectiveSBotConfig, core.dbLayer, notifier, backgroundJobManager)
+        engine = BotEngine[F](effectiveSBotConfig, core.dbLayer, notifier, backgroundJobManager, Some(core.llmEngine))
         _ <- {
           lazy val adapter: IrcPlatformAdapter[F] = new IrcPlatformAdapter[F](
             ircApi = apiReady.get,

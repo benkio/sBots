@@ -13,6 +13,7 @@ import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.repository.db.DBMediaData
 import com.benkio.chatcore.repository.JsonDataRepository
+import com.benkio.chatcore.LlmEngine
 import com.benkio.chatcore.Logger.given
 import com.benkio.chatcore.Notifier
 import com.benkio.chatircadapter.connection.FakeIrcServer
@@ -58,7 +59,8 @@ class IrcBotSpec extends CatsEffectSuite {
       )
     ),
     repository = new RepositoryMock(),
-    sBotConfig = sBotConfig
+    sBotConfig = sBotConfig,
+    llmEngine = LlmEngine.noop[IO]
   )
 
   private def config(port: Int): IrcConfig = IrcConfig(
@@ -122,7 +124,8 @@ class IrcBotSpec extends CatsEffectSuite {
       jsonDataRepository = JsonDataRepository[IO](),
       dbLayer = DBLayerMock.mock(sBotInfo.botId, medias = medias),
       repository = new RepositoryMock(),
-      sBotConfig = sBotConfig
+      sBotConfig = sBotConfig,
+      llmEngine = LlmEngine.noop[IO]
     )
     FakeIrcServer.resource.use(server =>
       for {

@@ -4,6 +4,7 @@ import cats.effect.kernel.Ref
 import cats.effect.IO
 import cats.effect.Resource
 import cats.syntax.all.*
+import com.benkio.chatcore.llm.LlmDependencies
 import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.Logger.given
@@ -37,7 +38,8 @@ class RunnerSpec extends CatsEffectSuite {
         .as(ran.update(_ :+ platform))
   }
 
-  private def withMainSetup[A](use: MainSetup[IO] => IO[A]): IO[A] = MainSetup[IO]().use(use)
+  private def withMainSetup[A](use: MainSetup[IO] => IO[A]): IO[A] =
+    MainSetup[IO](Some(Resource.pure(LlmDependencies.noop[IO]))).use(use)
 
   test("a bot runs on Telegram unless it is bound to other platforms") {
     assertEquals(onTelegram.platforms, List(Platform.Telegram))
@@ -206,6 +208,19 @@ class RunnerSpec extends CatsEffectSuite {
       Runner.runtimes(Runner.RunMode.Polling),
       List(TelegramPollingPlatformRuntime, DiscordPlatformRuntime, IrcPlatformRuntime)
     )
+  }
+
+  test("a bot on a platform with no runtime is not started by start: only startReporting rejects it") {
+    for {
+      started <- Ref.of[IO, List[(Platform, List[String])]](List.empty)
+      ran     <- Ref.of[IO, List[Platform]](List.empty)
+      _       <- withMainSetup(mainSetup =>
+        Runner
+          .start(registry, List(new FakeRuntime(Platform.Irc, started, ran)), mainSetup)
+          .use(identity)
+      )
+      startedRuntimes <- started.get
+    } yield assertEquals(startedRuntimes, List(Platform.Irc -> List("OnBoth")))
   }
 
   test("a runtime whose platform has no bots is not started") {

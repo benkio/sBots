@@ -19,6 +19,7 @@ import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBRepository
 import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.BotEngine
+import com.benkio.chatcore.LlmEngine
 import com.benkio.chatcore.Notifier
 import com.benkio.integration.DBFixture
 import com.benkio.integration.DBFixtureResources
@@ -91,7 +92,8 @@ trait BaseBotPerformanceSpec extends CatsEffectSuite with DBFixture {
       dbLayer = dbLayer,
       repository =
         DBRepository.dbResources[IO](dbLayer.dbMedia, HttpClients(dropboxClient = dropbox, megaClient = mega)),
-      sBotConfig = sBotConfig
+      sBotConfig = sBotConfig,
+      llmEngine = LlmEngine.noop[IO]
     )
 
   private def message(text: String): Message = Message(

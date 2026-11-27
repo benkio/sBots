@@ -1,7 +1,7 @@
 package com.benkio.chattelegramadapter
 
 import cats.effect.*
-import com.benkio.chatcore.llm.LlmWiring
+import com.benkio.chatcore.llm.LlmDependencies
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.Logger.given
 
@@ -10,7 +10,7 @@ object SBotMainPolling {
   def run(
       sBotInfo: SBotInfo,
       opsChatId: Long,
-      llmWiring: Option[LlmWiring[cats.effect.IO]] = None
+      llmDependencies: Option[LlmDependencies[cats.effect.IO]] = None
   ): cats.effect.IO[cats.effect.ExitCode] = {
     SBot
       .buildPollingBot(
@@ -20,7 +20,7 @@ object SBotMainPolling {
         },
         sBotInfo,
         opsChatId = opsChatId,
-        llmWiring = llmWiring
+        llmDependencies = llmDependencies
       )
       .as(ExitCode.Success)
   }

@@ -5,7 +5,7 @@ import cats.effect.Async
 import cats.effect.Resource
 import cats.Parallel
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.llm.LlmWiring
+import com.benkio.chatcore.llm.LlmDependencies
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.EffectfulCallback
 import com.benkio.chattelegramadapter.initialization.BotSetup
@@ -40,14 +40,14 @@ object SBot {
       sBotInfo: SBotInfo,
       commandEffectfulCallback: Map[String, EffectfulCallback[F]] = Map.empty,
       opsChatId: Long,
-      llmWiring: Option[LlmWiring[F]] = None
+      llmDependencies: Option[LlmDependencies[F]] = None
   )(using log: LogWriter[F]): F[A] = (for {
     httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
     sBotSetup  <- BotSetup(
       httpClient = httpClient,
       sBotConfig = buildSBotConfig(sBotInfo),
       opsChatId = opsChatId,
-      llmWiring = llmWiring
+      llmDependencies = llmDependencies
     )
   } yield sBotSetup).use { sBotSetup =>
     given Api[F] = sBotSetup.api
@@ -66,14 +66,14 @@ object SBot {
       webhookCertificate: Option[Path] = None,
       commandEffectfulCallback: Map[String, EffectfulCallback[F]] = Map.empty,
       opsChatId: Long,
-      llmWiring: Option[LlmWiring[F]] = None
+      llmDependencies: Option[LlmDependencies[F]] = None
   )(using log: LogWriter[F]): Resource[F, SBotWebhook[F]] =
     BotSetup(
       httpClient = httpClient,
       sBotConfig = SBotConfig.fromSBotInfo(sBotInfo),
       webhookBaseUrl = webhookBaseUrl,
       opsChatId = opsChatId,
-      llmWiring = llmWiring
+      llmDependencies = llmDependencies
     ).map { sBotSetup =>
       given Api[F] = sBotSetup.api
       new SBotWebhook[F](

@@ -1,4 +1,4 @@
-package com.benkio.chatllm.repository.db
+package com.benkio.chatcore.repository.db
 
 import cats.effect.IO
 import cats.effect.Resource
@@ -21,7 +21,7 @@ import scala.util.Using
 /** Exercises the doobie settings of the `/llm` command against the real Flyway migration files: the tables, the keys
   * and the port semantics must agree with what the migration creates.
   */
-class LlmSettingsDBSpec extends CatsEffectSuite {
+class DBLlmSettingsSpec extends CatsEffectSuite {
 
   private val botA      = SBotId("bot-a")
   private val botB      = SBotId("bot-b")
@@ -111,8 +111,8 @@ class LlmSettingsDBSpec extends CatsEffectSuite {
       for {
         _     <- setupSchema(xa)
         clock <- IO.ref(100L)
-        settingsA = LlmSettingsDB[IO](xa, botA, clock.get)
-        settingsB = LlmSettingsDB[IO](xa, botB, clock.get)
+        settingsA = DBLlmSettings[IO](xa, botA, clock.get)
+        settingsB = DBLlmSettings[IO](xa, botB, clock.get)
         initial    <- settingsA.status(chat)
         _          <- settingsA.enable(chat)
         enabled    <- settingsA.status(chat)
@@ -121,7 +121,7 @@ class LlmSettingsDBSpec extends CatsEffectSuite {
         _          <- clock.set(200L)
         _          <- settingsA.disable(chat)
         disabled   <- settingsA.status(chat)
-        updatedAt  <- LlmSettingsDB.updatedAtQuery(chat, botA).unique.transact(xa)
+        updatedAt  <- DBLlmSettings.updatedAtQuery(chat, botA).unique.transact(xa)
       } yield {
         assertEquals(initial, LlmSettings.Status(enabled = false))
         assertEquals(enabled, LlmSettings.Status(enabled = true))
@@ -137,7 +137,7 @@ class LlmSettingsDBSpec extends CatsEffectSuite {
     tempDb.use { xa =>
       for {
         _ <- setupSchema(xa)
-        settings = LlmSettingsDB[IO](xa, botA)
+        settings = DBLlmSettings[IO](xa, botA)
         _            <- settings.enable(chat)
         _            <- insertContext(xa = xa, chatId = chat, botId = botA, content = "to forget")
         _            <- insertContext(xa = xa, chatId = chat, botId = botB, content = "other bot")

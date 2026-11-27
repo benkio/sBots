@@ -10,6 +10,7 @@ import com.benkio.chatcore.http.MegaClient
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBRepository
 import com.benkio.chatcore.repository.JsonDataRepository
+import com.benkio.chatcore.LlmEngine
 import com.benkio.chatcore.Notifier
 import com.benkio.chattelegramadapter.initialization.BotSetup
 import com.benkio.chattelegramadapter.model.TelegramToken
@@ -111,6 +112,7 @@ object BotSetupFixture {
       webhookUri = webhookUri,
       webhookPath = webhookPath,
       sBotConfig = sBotConfig,
-      opsChatId = 0L
+      opsChatId = 0L,
+      llmEngine = LlmEngine.noop[IO]
     )
 }

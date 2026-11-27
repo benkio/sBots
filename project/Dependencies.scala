@@ -23,6 +23,7 @@ object Dependencies {
     val laserdisc         = "io.laserdisc"
     val loki4j            = "com.github.loki4j"
     val logstashLogback   = "net.logstash.logback"
+    val llm4s             = "org.llm4s"
     val pureconfig        = "com.github.pureconfig"
     val qosLogback        = "ch.qos.logback"
     val raquo             = "com.raquo"
@@ -36,6 +37,7 @@ object Dependencies {
     val tpolecat          = "org.tpolecat"
     val tulz              = "app.tulz"
     val typelevel         = "org.typelevel"
+    val typesafe          = "com.typesafe"
     val wolfendale        = "io.github.wolfendale"
     val xerial            = "org.xerial"
   }
@@ -61,6 +63,7 @@ object Dependencies {
     val jda                   = "6.7.0"
     val kitteh                = "9.0.0"
     val laminar               = "17.2.1"
+    val llm4s                 = "1.0.0"
     val logEffects            = "0.20.0"
     val logbackClassic        = "1.6.8"
     val logbackLogstash       = "9.0"
@@ -81,6 +84,7 @@ object Dependencies {
     val telegramiumVersion    = "11.1005.0"
     val testcontainers        = "2.0.5"
     val tuplez                = "0.4.0"
+    val typesafeConfig        = "1.4.9"
     val vault                 = "3.7.0"
   }
 
@@ -109,21 +113,25 @@ object Dependencies {
     val googleApiClient      = groups.googleApiClient  % "google-api-client"       % versions.googleApiClient
     val googleHttpClient     = groups.googleHttpClient % "google-http-client"      % versions.googleHttpClient
     val googleHttpClientGson = groups.googleHttpClient % "google-http-client-gson" % versions.googleHttpClient
-    val googleOauthClient = groups.googleOauthClient % "google-oauth-client-jetty"   % versions.googleOauthClient
-    val googleYouTubeApi  = groups.googleApis        % "google-api-services-youtube" % versions.googleYouTubeApi
-    val http4sCirce       = groups.http4s           %% "http4s-circe"                % versions.http4s
-    val http4sClient      = groups.http4s           %% "http4s-client"               % versions.http4s
-    val http4sCore        = groups.http4s           %% "http4s-core"                 % versions.http4s
-    val http4sDsl         = groups.http4s           %% "http4s-dsl"                  % versions.http4s
-    val http4sEmberClient = groups.http4s           %% "http4s-ember-client"         % versions.http4s
-    val http4sEmberServer = groups.http4s           %% "http4s-ember-server"         % versions.http4s
-    val http4sServer      = groups.http4s           %% "http4s-server"               % versions.http4s
-    val ip4sCore          = groups.comcast          %% "ip4s-core"                   % versions.ip4s
-    val jda               = groups.dv8tion           % "JDA"                         % versions.jda
-    val kitteh            = groups.kittehIrc         % "client-lib"                  % versions.kitteh
-    val logEffectsCore    = groups.laserdisc        %% "log-effect-core"             % versions.logEffects
-    val logEffectsFs2     = groups.laserdisc        %% "log-effect-fs2"              % versions.logEffects
-    val logbackClassic    = groups.qosLogback        % "logback-classic"             % versions.logbackClassic % Runtime
+    val googleOauthClient     = groups.googleOauthClient % "google-oauth-client-jetty"   % versions.googleOauthClient
+    val googleYouTubeApi      = groups.googleApis        % "google-api-services-youtube" % versions.googleYouTubeApi
+    val http4sCirce           = groups.http4s           %% "http4s-circe"                % versions.http4s
+    val http4sClient          = groups.http4s           %% "http4s-client"               % versions.http4s
+    val http4sCore            = groups.http4s           %% "http4s-core"                 % versions.http4s
+    val http4sDsl             = groups.http4s           %% "http4s-dsl"                  % versions.http4s
+    val http4sEmberClient     = groups.http4s           %% "http4s-ember-client"         % versions.http4s
+    val http4sEmberServer     = groups.http4s           %% "http4s-ember-server"         % versions.http4s
+    val http4sServer          = groups.http4s           %% "http4s-server"               % versions.http4s
+    val ip4sCore              = groups.comcast          %% "ip4s-core"                   % versions.ip4s
+    val jda                   = groups.dv8tion           % "JDA"                         % versions.jda
+    val kitteh                = groups.kittehIrc         % "client-lib"                  % versions.kitteh
+    val llm4sCore             = groups.llm4s            %% "llm4s-core"                  % versions.llm4s
+    val llm4sCatsEffect       = groups.llm4s            %% "llm4s-effect"                % versions.llm4s
+    val llm4sGemini           = groups.llm4s            %% "llm4s-gemini"                % versions.llm4s % Runtime
+    val llm4sOpenAICompatible = groups.llm4s            %% "llm4s-openai-compatible"     % versions.llm4s % Runtime
+    val logEffectsCore        = groups.laserdisc        %% "log-effect-core"             % versions.logEffects
+    val logEffectsFs2         = groups.laserdisc        %% "log-effect-fs2"              % versions.logEffects
+    val logbackClassic  = groups.qosLogback      % "logback-classic"          % versions.logbackClassic  % Runtime
     val logbackLogstash = groups.logstashLogback % "logstash-logback-encoder" % versions.logbackLogstash % Runtime
     val loki4jLogback   = groups.loki4j          % "loki-logback-appender"    % versions.loki4j          % Runtime
     val mbassador       = groups.engio           % "mbassador"                % versions.mbassador
@@ -143,8 +151,9 @@ object Dependencies {
     val scalatest       = groups.scalatest     %% "scalatest"        % versions.scalatest % groups.testScope
     val sqlite          = groups.xerial         % "sqlite-jdbc"      % versions.sqlite
     val telegramiumCore = groups.apimorphism   %% "telegramium-core" % versions.telegramiumVersion
-    val testcontainers  = groups.testcontainers % "testcontainers"   % versions.testcontainers
     val telegramiumHigh = groups.apimorphism   %% "telegramium-high" % versions.telegramiumVersion
+    val testcontainers  = groups.testcontainers % "testcontainers"   % versions.testcontainers
+    val typesafeConfig  = groups.typesafe       % "config"           % versions.typesafeConfig
     val vault           = groups.typelevel     %% "vault"            % versions.vault
 
     // ScalaJS-enabled projects already append the "_sjs1" cross-version suffix via `%%`.
@@ -166,9 +175,10 @@ object Dependencies {
     val catsStd: Seq[ModuleID]          = Seq(libs.catsEffectStd)
     val circeCoreParser: Seq[ModuleID]  = Seq(libs.circeCore, libs.circeParser)
     val http4sClientCore: Seq[ModuleID] = Seq(libs.http4sClient, libs.http4sCore)
-    val logging: Seq[ModuleID]          = Seq(libs.logEffectsCore, libs.logbackClassic, libs.logbackLogstash)
-    val logback: Seq[ModuleID]          = Seq(libs.logbackClassic, libs.logbackLogstash)
-    val testing: Seq[ModuleID]          = Seq(libs.munit, libs.munitCatsEffect)
+    val llm4s: Seq[ModuleID]   = Seq(libs.llm4sCore, libs.llm4sGemini, libs.llm4sOpenAICompatible, libs.llm4sCatsEffect)
+    val logback: Seq[ModuleID] = Seq(libs.logbackClassic, libs.logbackLogstash)
+    val logging: Seq[ModuleID] = Seq(libs.logEffectsCore, libs.logbackClassic, libs.logbackLogstash)
+    val testing: Seq[ModuleID] = Seq(libs.munit, libs.munitCatsEffect)
   }
 
   val ChatCoreDependencies: Seq[ModuleID] =
@@ -250,9 +260,16 @@ object Dependencies {
 
   val ChatLlmDependencies: Seq[ModuleID] =
     stacks.catsCore ++
+      stacks.llm4s ++
       stacks.logging ++
       stacks.testing ++
-      Seq(libs.catsFree, libs.doobieCore, libs.doobieFree, libs.sqlite % groups.testScope)
+      Seq(
+        libs.catsFree,
+        libs.doobieCore,
+        libs.doobieFree,
+        libs.sqlite % groups.testScope,
+        libs.typesafeConfig
+      )
 
   /** Shared dependencies for all bot projects. Use this in Settings.botProjectSettings. */
   val BotDependencies: Seq[ModuleID] =
