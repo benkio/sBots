@@ -84,7 +84,7 @@ object Dependencies {
     val telegramiumVersion    = "11.1005.0"
     val testcontainers        = "2.0.5"
     val tuplez                = "0.4.0"
-    val typesafeConfig        = "1.4.9"
+    val typesafeConfig        = "1.4.10"
     val vault                 = "3.7.0"
   }
 
