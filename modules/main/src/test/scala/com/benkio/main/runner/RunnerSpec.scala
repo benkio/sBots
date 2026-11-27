@@ -208,6 +208,19 @@ class RunnerSpec extends CatsEffectSuite {
     )
   }
 
+  test("a bot on a platform with no runtime is not started by start: only startReporting rejects it") {
+    for {
+      started <- Ref.of[IO, List[(Platform, List[String])]](List.empty)
+      ran     <- Ref.of[IO, List[Platform]](List.empty)
+      _       <- withMainSetup(mainSetup =>
+        Runner
+          .start(registry, List(new FakeRuntime(Platform.Irc, started, ran)), mainSetup)
+          .use(identity)
+      )
+      startedRuntimes <- started.get
+    } yield assertEquals(startedRuntimes, List(Platform.Irc -> List("OnBoth")))
+  }
+
   test("a runtime whose platform has no bots is not started") {
     for {
       started <- Ref.of[IO, List[(Platform, List[String])]](List.empty)

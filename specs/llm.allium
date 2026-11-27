@@ -110,6 +110,15 @@ rule LlmEntryPointDoesNothing {
     ensures: LlmNotAsked(request)
 }
 
+-- A failing LLM never fails the handling of the request: the error is logged and the request counts as unanswered by
+-- the LLM, so the outcome of the reactive part stands.
+rule LlmEntryPointFailureIsSwallowed {
+    when: LlmEntryPointFailed(request)
+    ensures:
+        LlmFailureLogged(request)
+        LlmOutcomeUnchanged(request)
+}
+
 ------------------------------------------------------------
 -- Actor Declarations
 ------------------------------------------------------------
@@ -142,6 +151,7 @@ surface LlmEntryPointSurface {
 
     provides:
         LlmEntryPointReached(request)
+        LlmEntryPointFailed(request)
 }
 
 ------------------------------------------------------------

@@ -147,14 +147,19 @@ class BotEngine[F[_]: Async: LogWriter](
     } yield ()
   }
 
-  /** Asks the LLM for a text and delivers it: [[Outcome.LLMReplied]] when it answered, the given outcome otherwise. */
+  /** Asks the LLM for a text and delivers it: [[Outcome.LLMReplied]] when it answered, the given outcome otherwise. A
+    * failing LLM is logged and counts as no answer, so a provider outage never fails the handling of a message.
+    */
   private def llmReply(msg: Message, outcome: Outcome)(using platform: PlatformAdapter[F]): F[Outcome] =
     // TODO: check the per-chat `/llm` switch (`dbLayer.llmSettings.status(msg.chatId)`) before calling the engine, so
     // that a chat with the LLM disabled never reaches it.
-    llm.reply(msg).flatMap {
-      case Some(text) => delivery.deliver(text, msg, replyToMessage = true).as(Outcome.LLMReplied)
-      case None       => outcome.pure[F]
-    }
+    llm
+      .reply(msg)
+      .handleErrorWith(error => LogWriter.error(s"[LlmEngine] The LLM failed, no reply: ${error.getMessage}").as(None))
+      .flatMap {
+        case Some(text) => delivery.deliver(text, msg, replyToMessage = true).as(Outcome.LLMReplied)
+        case None       => outcome.pure[F]
+      }
 
   private def logStats(outcome: Outcome, start: FiniteDuration)(using platform: PlatformAdapter[F]): F[Unit] =
     Clock[F].monotonic.flatMap(end =>

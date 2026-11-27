@@ -6,6 +6,7 @@ import cats.syntax.either.*
 import cats.syntax.flatMap.*
 import cats.syntax.functor.*
 import cats.syntax.traverse.*
+import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
 import log.effect.LogWriter
 import org.llm4s.config.Llm4sConfig
@@ -29,8 +30,10 @@ object LLMLoadingError {
   */
 object LlmLoader {
 
-  def loadSettings[F[_]: Async]: F[Llm4sSettings] =
-    Async[F].fromEither(Llm4sConfig.from(ConfigFactory.load()).leftMap(LLMLoadingError.fromLLMError(_)))
+  def loadSettings[F[_]: Async](config: => Config = ConfigFactory.load()): F[Llm4sSettings] =
+    Async[F]
+      .blocking(Llm4sConfig.from(config))
+      .flatMap(settings => Async[F].fromEither(settings.leftMap(LLMLoadingError.fromLLMError(_))))
 
   private[chatllm] def loadClients[F[_]: Async](settings: Llm4sSettings, http: Llm4sHttpClient)(using
       log: LogWriter[F]

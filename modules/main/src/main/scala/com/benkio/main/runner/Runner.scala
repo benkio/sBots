@@ -45,7 +45,7 @@ object Runner {
     * bot on a platform with no runtime or a runtime whose platform has no bots is not started (e.g. no HTTP server for
     * the Telegram webhook when no bot runs on Telegram).
     */
-  def start(
+  private[runner] def start(
       registry: BotRegistry[IO],
       runtimes: List[PlatformRuntime],
       mainSetup: MainSetup[IO]

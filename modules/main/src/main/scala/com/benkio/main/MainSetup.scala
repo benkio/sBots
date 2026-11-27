@@ -41,11 +41,11 @@ final case class MainSetup[F[_]](
 object MainSetup {
 
   def apply[F[_]: Async: Network]()(using log: LogWriter[F]): Resource[F, MainSetup[F]] = for {
-    config     <- Resource.eval(Config.loadConfig[F])
-    _          <- Resource.eval(log.info(s"[Main] Configuration: $config"))
-    httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
-    _          <- Resource.eval(log.info("[Main] httpClient"))
-    llmDependencies  <- LlmEngine.dependencies[F]
+    config          <- Resource.eval(Config.loadConfig[F])
+    _               <- Resource.eval(log.info(s"[Main] Configuration: $config"))
+    httpClient      <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
+    _               <- Resource.eval(log.info("[Main] httpClient"))
+    llmDependencies <- LlmEngine.dependencies[F]()
     transactor = Transactor.fromDriverManager[F](
       config.mainDB.driver,
       config.mainDB.url,

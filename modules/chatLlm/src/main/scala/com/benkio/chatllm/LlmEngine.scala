@@ -6,6 +6,8 @@ import com.benkio.chatcore.llm.LlmDependencies
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.LlmEngine as CoreLlmEngine
+import com.typesafe.config.Config
+import com.typesafe.config.ConfigFactory
 import log.effect.LogWriter
 import org.llm4s.http.HttpClientOptions
 import org.llm4s.http.Llm4sHttpClient
@@ -17,17 +19,23 @@ import org.llm4s.http.Llm4sHttpClient
 object LlmEngine {
 
   /** Loads the shared clients and offers the `build` the bots call once their own `DBLayer` is ready. */
-  def dependencies[F[_]: Async](using log: LogWriter[F]): Resource[F, LlmDependencies[F]] =
+  def dependencies[F[_]: Async](
+      config: => Config = ConfigFactory.load()
+  )(using log: LogWriter[F]): Resource[F, LlmDependencies[F]] =
     for {
       _        <- Resource.eval(log.info("[LlmEngine] llm4s startup wiring Started"))
-      settings <- Resource.eval(LlmLoader.loadSettings[F])
+      settings <- Resource.eval(LlmLoader.loadSettings[F](config))
       http     <- Resource.make(
         Async[F].delay(Llm4sHttpClient.create(HttpClientOptions.default))
       )(http => Async[F].delay(http.close()))
       llmClients <- LlmLoader.loadClients[F](settings, http)
       responder = LlmResponder[F](llmClients)
       _ <- Resource.eval(log.info("[LlmEngine] llm4s startup wiring ready"))
-    } yield LlmDependencies[F](_ => Resource.pure(LlmEngineImpl[F](responder)))
+    } yield LlmDependencies[F](
+      // TODO(#1499): the responder is shared by all the bots and the `DBLayer` is ignored; build the per-bot state
+      // (persona, context) from the `DBLayer` here before the LLM replies go live.
+      _ => Resource.pure(LlmEngineImpl[F](responder))
+    )
 
   private final case class LlmEngineImpl[F[_]](responder: LlmResponder[F]) extends CoreLlmEngine[F] {
     override def reply(msg: Message): F[Option[Text]] = responder.respond(msg)

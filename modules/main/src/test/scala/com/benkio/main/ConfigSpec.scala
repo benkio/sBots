@@ -7,8 +7,11 @@ import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.Logger.logWriter
+import com.benkio.chatllm.LLMLoadingError
 import com.benkio.chatllm.LlmEngine
 import com.benkio.chatllm.LlmLoader
+import com.typesafe.config.Config as TypesafeConfig
+import com.typesafe.config.ConfigFactory
 import munit.CatsEffectSuite
 
 import scala.concurrent.duration.*
@@ -60,10 +63,33 @@ class ConfigSpec extends CatsEffectSuite {
     }
   }
 
-  test("LlmLoader.load reads the llm4s block of application.conf") {
-    LlmLoader.loadSettings[IO].map { settings =>
+  test("LlmLoader.loadSettings reads the llm4s block of application.conf") {
+    LlmLoader.loadSettings[IO]().map { settings =>
       assertEquals(settings.defaultProviderName().isRight, true)
     }
+  }
+
+  /** An llm4s config with a single provider, to keep the loading tests independent of the environment. */
+  private def llmConfig(defaultProvider: String, apiKey: Option[String]): TypesafeConfig =
+    ConfigFactory.parseString(
+      s"""llm4s {
+         |  defaultProvider = "$defaultProvider"
+         |  providers {
+         |    gemini-free {
+         |      provider = "gemini"
+         |      model    = "gemini-flash-lite-latest"
+         |      ${apiKey.fold("")(k => s"apiKey = \"$k\"")}
+         |    }
+         |  }
+         |}""".stripMargin
+    )
+
+  test("LlmEngine.dependencies fails with an LLMLoadingError when the default provider is not configured") {
+    LlmEngine.dependencies[IO](llmConfig("undefined", apiKey = Some("stub-key"))).use_.intercept[LLMLoadingError]
+  }
+
+  test("LlmEngine.dependencies fails with an LLMLoadingError when a provider has no apiKey") {
+    LlmEngine.dependencies[IO](llmConfig("gemini-free", apiKey = None)).use_.intercept[LLMLoadingError]
   }
 
   test("LlmEngine.dependencies loads the llm4s wiring and builds an engine that does not answer") {
@@ -75,7 +101,7 @@ class ConfigSpec extends CatsEffectSuite {
       text = Some("hello")
     )
     LlmEngine
-      .dependencies[IO]
+      .dependencies[IO](llmConfig("gemini-free", apiKey = Some("stub-key")))
       .flatMap(_.build(DBLayerMock.mock(SBotId("test"))))
       .use(_.reply(msg).map(assertEquals(_, None)))
   }
