@@ -41,7 +41,8 @@ final case class BotSetup[F[_]](
     webhookUri: Uri,
     webhookPath: Uri,
     sBotConfig: SBotConfig,
-    opsChatId: Long
+    opsChatId: Long,
+    llmWiring: Option[LlmWiring[F]]
 )
 
 object BotSetup {
@@ -159,7 +160,8 @@ object BotSetup {
       webhookUri = webhookBaseUri,
       webhookPath = path,
       sBotConfig = effectiveSBotConfig,
-      opsChatId = opsChatId
+      opsChatId = opsChatId,
+      llmWiring = llmWiring
     )
   }
 }

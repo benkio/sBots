@@ -45,6 +45,7 @@ object MainSetup {
     _          <- Resource.eval(log.info(s"[Main] Configuration: $config"))
     httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
     _          <- Resource.eval(log.info("[Main] httpClient"))
+    llmWiring  <- ChatLlm.startupWiring[F]
     transactor = Transactor.fromDriverManager[F](
       config.mainDB.driver,
       config.mainDB.url,
@@ -77,7 +78,6 @@ object MainSetup {
     healthcheckEndpoint = config.healthcheckPing.endpoint,
     healthcheckCron = config.healthcheckPing.cron,
     mainDBName = config.mainDB.dbName,
-    // The /llm settings are real, the responder and the engine are noop for now.
-    llmWiring = ChatLlm.wiring[F]
+    llmWiring = llmWiring
   )
 }

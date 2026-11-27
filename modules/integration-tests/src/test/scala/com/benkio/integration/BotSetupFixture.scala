@@ -111,6 +111,7 @@ object BotSetupFixture {
       webhookUri = webhookUri,
       webhookPath = webhookPath,
       sBotConfig = sBotConfig,
-      opsChatId = 0L
+      opsChatId = 0L,
+      llmWiring = None
     )
 }

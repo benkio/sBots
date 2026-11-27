@@ -91,7 +91,8 @@ trait BaseBotPerformanceSpec extends CatsEffectSuite with DBFixture {
       dbLayer = dbLayer,
       repository =
         DBRepository.dbResources[IO](dbLayer.dbMedia, HttpClients(dropboxClient = dropbox, megaClient = mega)),
-      sBotConfig = sBotConfig
+      sBotConfig = sBotConfig,
+      llmWiring = None
     )
 
   private def message(text: String): Message = Message(

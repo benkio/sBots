@@ -1,8 +1,12 @@
 package com.benkio.main
 
 import cats.effect.IO
+import com.benkio.chatcore.model.ChatId
+import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.Logger.logWriter
-import com.benkio.chatllm.LlmSettingsLoader
+import com.benkio.chatllm.ChatLlm
+import com.benkio.chatllm.LlmLoader
 import munit.CatsEffectSuite
 
 import scala.concurrent.duration.*
@@ -54,10 +58,22 @@ class ConfigSpec extends CatsEffectSuite {
     }
   }
 
-  test("LlmSettingsLoader.load reads the llm4s block of application.conf") {
-    LlmSettingsLoader.load[IO].map { settings =>
+  test("LlmLoader.load reads the llm4s block of application.conf") {
+    LlmLoader.load[IO].map { settings =>
       assertEquals(settings.defaultProviderName().isRight, true)
     }
+  }
+
+  // The clients are loaded once by the startup Resource; the responder is still a noop for every chat.
+  test("ChatLlm.startupWiring loads the llm4s wiring without answering") {
+    val msg = Message(
+      messageId = None,
+      date = 0L,
+      chatId = ChatId(Platform.Telegram, "1"),
+      chatType = "private",
+      text = Some("hello")
+    )
+    ChatLlm.startupWiring[IO].use(_.responder.respond(msg).map(assertEquals(_, None)))
   }
 
   test("the text mode store of a bot is configurable in the application.conf of the bot's namespace") {

@@ -88,7 +88,8 @@ object PlatformITSupport {
       dbLayer = dbLayer,
       repository =
         DBRepository.dbResources[IO](dbLayer.dbMedia, HttpClients(dropboxClient = dropbox, megaClient = mega)),
-      sBotConfig = sBotConfig
+      sBotConfig = sBotConfig,
+      llmWiring = None
     )
 
   /** The text that triggers a reply made only of markdown files (or of some, if no reply is made only of them and

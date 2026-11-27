@@ -1,6 +1,9 @@
 package com.benkio.chatcore
 
+import cats.effect.Async
+import cats.syntax.all.*
 import cats.Applicative
+import com.benkio.chatcore.llm.LlmResponder
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.UsageStats.Outcome
 
@@ -22,4 +25,17 @@ private[chatcore] object EngineLlm {
     override def run(msg: Message, outcome: Outcome)(using platform: PlatformAdapter[F]): F[Outcome] =
       Applicative[F].pure(outcome)
   }
+}
+
+/** The LLM section backed by the chatCore port. Delivery stays in [[EngineDelivery]]: the responder only decides what
+  * to say, the engine stays the single place that sends a reply.
+  */
+private[chatcore] class DefaultEngineLlm[F[_]: Async](responder: LlmResponder[F], delivery: EngineDelivery[F])
+    extends EngineLlm[F] {
+
+  override def run(msg: Message, outcome: Outcome)(using platform: PlatformAdapter[F]): F[Outcome] =
+    responder.respond(msg).flatMap {
+      case Some(text) => delivery.deliver(text, msg, replyToMessage = true).as(Outcome.LLMReplied)
+      case None       => outcome.pure[F]
+    }
 }

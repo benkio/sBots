@@ -105,7 +105,7 @@ object IrcBot {
             notifier = notifier
           )
         }
-        engine = BotEngine[F](effectiveSBotConfig, core.dbLayer, notifier, backgroundJobManager)
+        engine = BotEngine[F](effectiveSBotConfig, core.dbLayer, notifier, backgroundJobManager, core.llmWiring)
         _ <- {
           lazy val adapter: IrcPlatformAdapter[F] = new IrcPlatformAdapter[F](
             ircApi = apiReady.get,

@@ -5,6 +5,7 @@ import cats.effect.Clock
 import cats.effect.Sync
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
+import com.benkio.chatcore.llm.LlmWiring
 import com.benkio.chatcore.messagefiltering.*
 import com.benkio.chatcore.model.reply.MarkdownFile
 import com.benkio.chatcore.model.reply.MediaFile
@@ -49,7 +50,8 @@ class BotEngine[F[_]: Async: LogWriter](
     filteringMatchesMessages: (ReplyBundleMessage, Message) => F[Boolean],
     postComputation: Message => F[Unit],
     notifier: Notifier[F],
-    backgroundJobManager: BackgroundJobManager[F]
+    backgroundJobManager: BackgroundJobManager[F],
+    llmWiring: Option[LlmWiring[F]] = None
 ) {
 
   // Sections ///////////////////////////////////////////////////////////////
@@ -83,7 +85,7 @@ class BotEngine[F[_]: Async: LogWriter](
     new DefaultEngineCommands[F](sBotConfig, commandReplies, textMode, subscriptionFlow, delivery)
 
   private lazy val llm: EngineLlm[F] =
-    EngineLlm.noop[F]
+    llmWiring.fold[EngineLlm[F]](EngineLlm.noop[F])(wiring => new DefaultEngineLlm[F](wiring.responder, delivery))
 
   // Replies data ////////////////////////////////////////////////////////
 
@@ -222,7 +224,8 @@ object BotEngine {
       sBotConfig: SBotConfig,
       dbLayer: DBLayer[F],
       notifier: Notifier[F],
-      backgroundJobManager: BackgroundJobManager[F]
+      backgroundJobManager: BackgroundJobManager[F],
+      llmWiring: Option[LlmWiring[F]] = None
   ): BotEngine[F] =
     new BotEngine[F](
       sBotConfig = sBotConfig,
@@ -234,7 +237,8 @@ object BotEngine {
         notifier = notifier
       ),
       notifier = notifier,
-      backgroundJobManager = backgroundJobManager
+      backgroundJobManager = backgroundJobManager,
+      llmWiring = llmWiring
     )
 
   /** Picks one of the values of a reply that is just data. */

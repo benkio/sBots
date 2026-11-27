@@ -109,7 +109,8 @@ object SampleWebhookBot {
         webhookUri = uri"https://localhost",
         webhookPath = uri"/",
         sBotConfig = sBotConfig,
-        opsChatId = 0L
+        opsChatId = 0L,
+        llmWiring = None
       )
     )
   }

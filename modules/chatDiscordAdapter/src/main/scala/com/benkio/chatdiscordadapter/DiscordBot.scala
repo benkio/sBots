@@ -104,7 +104,7 @@ object DiscordBot {
             notifier = notifier
           )
         }
-        engine = BotEngine[F](effectiveSBotConfig, core.dbLayer, notifier, backgroundJobManager)
+        engine = BotEngine[F](effectiveSBotConfig, core.dbLayer, notifier, backgroundJobManager, core.llmWiring)
         _ <- {
           lazy val adapter: DiscordPlatformAdapter[F] = new DiscordPlatformAdapter[F](
             discordApi = apiReady.get,

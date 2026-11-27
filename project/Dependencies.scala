@@ -126,6 +126,7 @@ object Dependencies {
     val jda                   = groups.dv8tion           % "JDA"                         % versions.jda
     val kitteh                = groups.kittehIrc         % "client-lib"                  % versions.kitteh
     val llm4sCore             = groups.llm4s            %% "llm4s-core"                  % versions.llm4s
+    val llm4sCatsEffect       = groups.llm4s            %% "llm4s-effect"                % versions.llm4s
     val llm4sGemini           = groups.llm4s            %% "llm4s-gemini"                % versions.llm4s % Runtime
     val llm4sOpenAICompatible = groups.llm4s            %% "llm4s-openai-compatible"     % versions.llm4s % Runtime
     val logEffectsCore        = groups.laserdisc        %% "log-effect-core"             % versions.logEffects
@@ -174,10 +175,10 @@ object Dependencies {
     val catsStd: Seq[ModuleID]          = Seq(libs.catsEffectStd)
     val circeCoreParser: Seq[ModuleID]  = Seq(libs.circeCore, libs.circeParser)
     val http4sClientCore: Seq[ModuleID] = Seq(libs.http4sClient, libs.http4sCore)
-    val llm4s: Seq[ModuleID]            = Seq(libs.llm4sCore, libs.llm4sGemini, libs.llm4sOpenAICompatible)
-    val logback: Seq[ModuleID]          = Seq(libs.logbackClassic, libs.logbackLogstash)
-    val logging: Seq[ModuleID]          = Seq(libs.logEffectsCore, libs.logbackClassic, libs.logbackLogstash)
-    val testing: Seq[ModuleID]          = Seq(libs.munit, libs.munitCatsEffect)
+    val llm4s: Seq[ModuleID]   = Seq(libs.llm4sCore, libs.llm4sGemini, libs.llm4sOpenAICompatible, libs.llm4sCatsEffect)
+    val logback: Seq[ModuleID] = Seq(libs.logbackClassic, libs.logbackLogstash)
+    val logging: Seq[ModuleID] = Seq(libs.logEffectsCore, libs.logbackClassic, libs.logbackLogstash)
+    val testing: Seq[ModuleID] = Seq(libs.munit, libs.munitCatsEffect)
   }
 
   val ChatCoreDependencies: Seq[ModuleID] =

@@ -22,7 +22,8 @@ final case class BotCoreSetup[F[_]](
     jsonDataRepository: JsonDataRepository[F],
     dbLayer: DBLayer[F],
     repository: Repository[F],
-    sBotConfig: SBotConfig
+    sBotConfig: SBotConfig,
+    llmWiring: Option[LlmWiring[F]]
 )
 
 object BotCoreSetup {
@@ -89,6 +90,7 @@ object BotCoreSetup {
       jsonDataRepository = jsonDataRepository,
       dbLayer = dbLayer,
       repository = DBRepository.dbResources[F](dbLayer.dbMedia, clients),
-      sBotConfig = effectiveSBotConfig
+      sBotConfig = effectiveSBotConfig,
+      llmWiring = llmWiring
     )
 }
