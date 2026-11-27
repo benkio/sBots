@@ -1,5 +1,6 @@
 package com.benkio.botDB.show
 
+import cats.effect.kernel.Ref
 import cats.effect.IO
 import cats.implicits.*
 import com.benkio.botDB.mocks.YouTubeServiceMock
@@ -13,6 +14,7 @@ import munit.*
 
 import java.nio.file.Files
 import java.nio.file.Paths
+import scala.concurrent.duration.*
 import scala.jdk.CollectionConverters.*
 
 class ShowUpdaterSpec extends CatsEffectSuite {
@@ -264,5 +266,47 @@ class ShowUpdaterSpec extends CatsEffectSuite {
   }
   test("ShowUpdater.saveAndFetchCaptions doesn't fail while running") {
     assertIO_(showUpdater.saveAndFetchCaptions(expectedYouTubeBotDBShowDatas, List("java")))
+  }
+
+  private def showData(id: String): DBShowData = expectedDBShowData.copy(show_id = id)
+
+  test("ShowUpdater.saveAndFetchCaption fetches the missing captions one at a time and skips the stored ones") {
+    for {
+      folder  <- IO.blocking(Files.createTempDirectory("captions"))
+      _       <- IO.blocking(Files.writeString(folder.resolve("stored.it.srt"), "stored"))
+      active  <- Ref.of[IO, Int](0)
+      maximum <- Ref.of[IO, Int](0)
+      fetched <- Ref.of[IO, List[String]](List.empty)
+      service = YouTubeServiceMock(
+        onSaveCaption = (id, _, _) =>
+          for {
+            now <- active.updateAndGet(_ + 1)
+            _   <- maximum.update(_.max(now))
+            _   <- IO.sleep(20.millis)
+            _   <- fetched.update(_ :+ id)
+            _   <- active.update(_ - 1)
+          } yield ()
+      )
+      updater = ShowUpdaterImpl(
+        config = config,
+        dbLayer = dbLayerMock,
+        youTubeService = service,
+        captionParser = CaptionParser[IO](),
+        captionThrottleSeconds = (0, 1)
+      )
+      datas = YouTubeBotDBShowDatas(
+        botId = botId,
+        outputFilePath = outputFilePath,
+        captionFolderPath = folder.toString,
+        captionLanguage = captionLanguage,
+        dbShowDatas = List(showData("a"), showData("stored"), showData("b"), showData("c"))
+      )
+      _       <- updater.saveAndFetchCaption(datas, index = 0)
+      ids     <- fetched.get
+      highest <- maximum.get
+    } yield {
+      assertEquals(ids, List("a", "b", "c"))
+      assertEquals(highest, 1)
+    }
   }
 }

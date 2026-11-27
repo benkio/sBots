@@ -50,6 +50,11 @@ object ShowUpdater {
     captionParser = captionParser
   )
 
+  /** The pause (min inclusive, max exclusive, in seconds) before each yt-dlp call that fetches a caption: YouTube
+    * answers a burst of requests with 429 and bot checks.
+    */
+  private[show] val defaultCaptionThrottleSeconds: (Int, Int) = (5, 10)
+
   private[show] def mergeShowDatas(
       storedDbShowDatas: List[YouTubeBotDBShowDatas],
       youTubeDbShowDatas: List[YouTubeBotDBShowDatas]
@@ -79,7 +84,8 @@ object ShowUpdater {
       config: Config,
       dbLayer: DBLayer[F],
       youTubeService: YouTubeService[F],
-      captionParser: CaptionParser[F]
+      captionParser: CaptionParser[F],
+      captionThrottleSeconds: (Int, Int) = ShowUpdater.defaultCaptionThrottleSeconds
   ) extends ShowUpdater[F] {
 
     private[show] def youTubeBotIdsToVideos(
@@ -298,18 +304,19 @@ object ShowUpdater {
       }
     } yield ()
 
+    /** The captions that are not stored yet are fetched one at a time, each after a throttling pause. There is no
+      * separate "has caption" check: it is a full yt-dlp extraction too, so it doubles the requests to YouTube; the
+      * fetch itself tells whether the caption exists (it writes the file).
+      */
     private[show] def saveAndFetchCaption(
         youTubeBotDBShowDatas: YouTubeBotDBShowDatas,
         index: Int
     ): F[Unit] = for {
-      _               <- LogWriter.info(s"[ShowUpdater - $index] 🚀 Start fetching and saving captions")
-      missingCaptions <- youTubeBotDBShowDatas.dbShowDatas.parFilterA(dbShowData =>
-        captionAlreadyExists(dbShowData, youTubeBotDBShowDatas).flatMap(captionExists =>
-          if captionExists then Async[F].pure(false)
-          else youTubeService.hasCaption(dbShowData.show_id, youTubeBotDBShowDatas.captionLanguage)
-        )
+      _       <- LogWriter.info(s"[ShowUpdater - $index] 🚀 Start fetching and saving captions")
+      missing <- youTubeBotDBShowDatas.dbShowDatas.parFilterA(dbShowData =>
+        captionAlreadyExists(dbShowData, youTubeBotDBShowDatas).map(!_)
       )
-      _ <- missingCaptions.traverse(dbShowData => saveCaption(dbShowData, youTubeBotDBShowDatas))
+      _ <- missing.traverse_(dbShowData => saveCaption(dbShowData, youTubeBotDBShowDatas))
       _ <- LogWriter.info(s"[ShowUpdater - $index] 🏁 Finish saving captions")
     } yield ()
 
@@ -326,15 +333,20 @@ object ShowUpdater {
 
     private def saveCaption(dbShowData: DBShowData, youTubeBotDBShowDatas: YouTubeBotDBShowDatas): F[Unit] =
       for {
-        random                       <- Random.scalaUtilRandom[F]
-        randomThrottlingSleepSeconds <- random.betweenInt(5, 10)
+        random <- Random.scalaUtilRandom[F]
+        (minSeconds, maxSeconds) = captionThrottleSeconds
+        throttlingSleepSeconds <- random.betweenInt(minSeconds, maxSeconds)
         _ <- LogWriter.info(s"[ShowUpdater - ${dbShowData.show_id}] 💤 Throttling Sleep (prevent 429)")
-        _ <- Async[F].sleep(randomThrottlingSleepSeconds.seconds)
+        _ <- Async[F].sleep(throttlingSleepSeconds.seconds)
         _ <- LogWriter.info(s"[ShowUpdater - ${dbShowData.show_id}] 💾 Saving caption")
         _ <- youTubeService.saveCaption(
           videoId = dbShowData.show_id,
           captionFolderPath = Path.of(youTubeBotDBShowDatas.captionFolderPath),
           captionLanguage = youTubeBotDBShowDatas.captionLanguage
+        )
+        saved <- Async[F].delay(Files.exists(youTubeBotDBShowDatas.captionFilePath(dbShowData)))
+        _     <- LogWriter.info(
+          s"[ShowUpdater - ${dbShowData.show_id}] ${if saved then "✅ Caption saved" else "❌ No caption saved"}"
         )
       } yield ()
   }

@@ -21,8 +21,6 @@ class YouTubeServiceMock(
 
   override def saveCaption(videoId: String, captionFolderPath: Path, captionLanguage: String): IO[Unit] =
     onSaveCaption(videoId, captionFolderPath, captionLanguage)
-
-  override def hasCaption(videoId: String, captionLanguage: String): IO[Boolean] = IO.pure(true)
 }
 
 object YouTubeServiceMock {
