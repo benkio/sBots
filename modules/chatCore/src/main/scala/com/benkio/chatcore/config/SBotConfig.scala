@@ -38,6 +38,9 @@ case class SBotConfig(
   def calendarFilePath: Path       = showFilePath.resolveSibling(s"${sBotInfo.botId.value}_calendar.ics")
   def repliesJsonFilename: String  = repliesJsonFilePath.getFileName.toString
   def commandsJsonFilename: String = commandsJsonFilePath.getFileName.toString
+
+  /** The persona of the LLM replies: a resource of the bot module, named after the bot id. */
+  def personaFilename: String = s"${sBotInfo.botId.value}_persona.md"
 }
 
 object SBotConfig {

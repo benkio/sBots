@@ -7,6 +7,7 @@ import com.benkio.chatcore.http.DropboxClient
 import com.benkio.chatcore.http.HttpClients
 import com.benkio.chatcore.http.MegaClient
 import com.benkio.chatcore.llm.LlmDependencies
+import com.benkio.chatcore.llm.Persona
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBRepository
 import com.benkio.chatcore.repository.JsonDataRepository
@@ -84,7 +85,11 @@ object BotCoreSetup {
         pagedListTextModeExpiry = effectiveSBotConfig.pagedListTextModeExpiry,
         pagedListTextModeMaxChats = effectiveSBotConfig.pagedListTextModeMaxChats
       ).evalMap(DBLayer.loadReplies[F](_, jsonDataRepository, effectiveSBotConfig))
-      llmEngine <- llmDependencies.getOrElse(LlmDependencies.noop[F]).build(dbLayer)
+      llmEngine <- llmDependencies.fold(Resource.pure[F, LlmEngine[F]](LlmEngine.noop[F]))(dependencies =>
+        Resource
+          .eval(Persona.load[F](effectiveSBotConfig.personaFilename))
+          .flatMap(dependencies.build(dbLayer, _))
+      )
     } yield BotCoreSetup(
       jsonDataRepository = jsonDataRepository,
       dbLayer = dbLayer,
