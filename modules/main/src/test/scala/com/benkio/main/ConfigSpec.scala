@@ -2,6 +2,7 @@ package com.benkio.main
 
 import cats.effect.IO
 import com.benkio.chatcore.Logger.logWriter
+import com.benkio.chatllm.LlmSettingsLoader
 import munit.CatsEffectSuite
 
 import scala.concurrent.duration.*
@@ -50,6 +51,12 @@ class ConfigSpec extends CatsEffectSuite {
       assertEquals(config.irc.channels, List.empty)
       assertEquals(config.irc.reconnectDelay(0), 2.seconds)
       assertEquals(config.irc.messageDelay, 1200.millis)
+    }
+  }
+
+  test("LlmSettingsLoader.load reads the llm4s block of application.conf") {
+    LlmSettingsLoader.load[IO].map { settings =>
+      assertEquals(settings.defaultProviderName().isRight, true)
     }
   }
 
