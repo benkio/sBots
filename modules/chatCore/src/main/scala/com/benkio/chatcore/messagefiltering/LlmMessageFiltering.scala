@@ -22,7 +22,9 @@ object LlmMessageFiltering {
     * file request) that is not a forward and has some text, and it is addressed to the bot: it is a private chat, or
     * the text mentions the bot name (whole word, ignoring the case).
     */
-  def filter[F[_]](msg: Message, outcome: Outcome, botInfo: SBotInfo)(using platform: PlatformAdapter[F]): Boolean =
+  private def filter[F[_]](msg: Message, outcome: Outcome, botInfo: SBotInfo)(using
+      platform: PlatformAdapter[F]
+  ): Boolean =
     outcome == Outcome.UnReplied &&
       msg.messageType(
         botId = botInfo.botId,

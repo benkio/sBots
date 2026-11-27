@@ -40,11 +40,9 @@ class LlmMessageFilteringSpec extends CatsEffectSuite {
       isForward = isForward
     )
 
+  /** The pure conditions: the guard on a chat with the LLM on and no timeout, so only the filter decides. */
   private def filter(msg: Message, outcome: Outcome = Outcome.UnReplied): IO[Boolean] =
-    FakePlatformAdapter(capabilities =
-      FakePlatformAdapter.textOnlyCapabilities.copy(commandSyntax = CommandSyntax.Slash)
-    )
-      .map(adapter => LlmMessageFiltering.filter[IO](msg, outcome, botInfo)(using adapter))
+    guard(msg = msg, outcome = outcome).map(_._1)
 
   test("an unanswered plain message that mentions the bot passes") {
     filter(message(text = Some("hey EngineBot, how are you?"))).assertEquals(true)

@@ -13,6 +13,7 @@ import com.benkio.chatcore.model.reply.PlainReply
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.reply.ReplyValue
+import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.reply.TextReply
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageType
@@ -151,17 +152,15 @@ class BotEngine[F[_]: Async: LogWriter](
     * failing LLM is logged and counts as no answer, so a provider outage never fails the handling of a message.
     */
   private def llmReply(msg: Message, outcome: Outcome)(using platform: PlatformAdapter[F]): F[Outcome] =
-    // TODO: check the per-chat `/llm` switch (`dbLayer.llmSettings.status(msg.chatId)`) before calling the engine, so
-    // that a chat with the LLM disabled never reaches it.
-    llm
-      .reply(msg)
+    LlmMessageFiltering
+      .guard[F](dbLayer, sBotConfig.sBotInfo)(msg, outcome)
+      .ifM(llm.reply(msg), Option.empty[Text].pure[F])
       .handleErrorWith(error => LogWriter.error(s"[LlmEngine] The LLM failed, no reply: ${error.getMessage}").as(None))
-      .flatMap {
-        case Some(text) =>
-          // the LLM answer is a reply too: the last interaction of the chat is logged like after a reactive one
+      .flatMap(
+        _.fold(outcome.pure[F])(text =>
           (delivery.deliver(text, msg, replyToMessage = true) *> postComputation(msg)).as(Outcome.LLMReplied)
-        case None => outcome.pure[F]
-      }
+        )
+      )
 
   private def logStats(outcome: Outcome, start: FiniteDuration)(using platform: PlatformAdapter[F]): F[Unit] =
     Clock[F].monotonic.flatMap(end =>
