@@ -5,7 +5,6 @@ import cats.effect.Clock
 import cats.effect.Sync
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
-import com.benkio.chatcore.llm.LlmWiring
 import com.benkio.chatcore.messagefiltering.*
 import com.benkio.chatcore.model.reply.MarkdownFile
 import com.benkio.chatcore.model.reply.MediaFile
@@ -34,7 +33,8 @@ import scala.concurrent.duration.*
   * order of the sections. The sections are their own classes:
   *   - [[EngineReactiveMessages]]: the reply bundle matching a plain message, and the answers of the guided flow
   *   - [[EngineCommands]]: the commands, the start of the guided `/subscribe` flow and the file requests
-  *   - [[EngineLlm]]: the entry point of the LLM, after and outside the request timeout
+  *   - [[LlmEngine]]: the chatCore port of the LLM entry point, implemented in chatLlm; it runs after, and outside, the
+  *     request timeout
   *   - [[EngineDelivery]] and [[EngineSubscriptionFlow]]: what the sections share, sending a reply and the guided flow
   *
   * @param filteringMatchesMessages
@@ -51,12 +51,14 @@ class BotEngine[F[_]: Async: LogWriter](
     postComputation: Message => F[Unit],
     notifier: Notifier[F],
     backgroundJobManager: BackgroundJobManager[F],
-    llmWiring: Option[LlmWiring[F]] = None
+    llmEngine: Option[LlmEngine[F]] = None
 ) {
 
+  private lazy val llm: LlmEngine[F] = llmEngine.getOrElse(LlmEngine.noop[F])
+
   // Sections ///////////////////////////////////////////////////////////////
-  // The reactive messages, the commands and the LLM live in their own classes (EngineReactiveMessages, EngineCommands,
-  // EngineLlm); the orchestration of a message through them stays here.
+  // The reactive messages and the commands live in their own classes (EngineReactiveMessages, EngineCommands); the LLM
+  // section is supplied by chatLlm. The orchestration of a message through them stays here.
 
   private lazy val reactiveMessages: EngineReactiveMessages[F] = new DefaultEngineReactiveMessages[F](
     sBotConfig = sBotConfig,
@@ -83,9 +85,6 @@ class BotEngine[F[_]: Async: LogWriter](
 
   private lazy val commands: EngineCommands[F] =
     new DefaultEngineCommands[F](sBotConfig, commandReplies, textMode, subscriptionFlow, delivery)
-
-  private lazy val llm: EngineLlm[F] =
-    llmWiring.fold[EngineLlm[F]](EngineLlm.noop[F])(wiring => new DefaultEngineLlm[F](wiring.responder, delivery))
 
   // Replies data ////////////////////////////////////////////////////////
 
@@ -141,13 +140,21 @@ class BotEngine[F[_]: Async: LogWriter](
       triggerOutcome <- bounded.onError(_ => logStats(Outcome.Failed, start))
       // only a message the reactive part left unanswered is handed to the LLM, never a duplicate, a timeout or a failure
       finalOutcome <-
-        if triggerOutcome == Outcome.UnReplied then llm
-          .run(msg, triggerOutcome)
+        if triggerOutcome == Outcome.UnReplied then llmReply(msg, triggerOutcome)
           .onError(_ => logStats(Outcome.Failed, start))
         else triggerOutcome.pure[F]
       _ <- logStats(finalOutcome, start)
     } yield ()
   }
+
+  /** Asks the LLM for a text and delivers it: [[Outcome.LLMReplied]] when it answered, the given outcome otherwise. */
+  private def llmReply(msg: Message, outcome: Outcome)(using platform: PlatformAdapter[F]): F[Outcome] =
+    // TODO: check the per-chat `/llm` switch (`dbLayer.llmSettings.status(msg.chatId)`) before calling the engine, so
+    // that a chat with the LLM disabled never reaches it.
+    llm.reply(msg).flatMap {
+      case Some(text) => delivery.deliver(text, msg, replyToMessage = true).as(Outcome.LLMReplied)
+      case None       => outcome.pure[F]
+    }
 
   private def logStats(outcome: Outcome, start: FiniteDuration)(using platform: PlatformAdapter[F]): F[Unit] =
     Clock[F].monotonic.flatMap(end =>
@@ -225,7 +232,7 @@ object BotEngine {
       dbLayer: DBLayer[F],
       notifier: Notifier[F],
       backgroundJobManager: BackgroundJobManager[F],
-      llmWiring: Option[LlmWiring[F]] = None
+      llmEngine: Option[LlmEngine[F]] = None
   ): BotEngine[F] =
     new BotEngine[F](
       sBotConfig = sBotConfig,
@@ -238,7 +245,7 @@ object BotEngine {
       ),
       notifier = notifier,
       backgroundJobManager = backgroundJobManager,
-      llmWiring = llmWiring
+      llmEngine = llmEngine
     )
 
   /** Picks one of the values of a reply that is just data. */

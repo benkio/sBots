@@ -1,8 +1,9 @@
 -- allium: 3
 -- llm.allium: the LLM replies of the bots (epic #1499). The LLM replies are being rebuilt on LLM4s: only what the code
 -- does today is specified, which is the /llm switch and a single LLM entry point of the engine that does nothing.
--- Code: modules/chatCore (llm: the LlmSettings port and LlmWiring; patterns/LlmCommands; EngineLlm and BotEngine),
--- modules/chatLlm (LlmLoader, ChatLlm and the doobie LlmSettingsDB) and modules/main (startup wiring). Tables: V13 in botDB.
+-- Code: modules/chatCore (llm: the LlmSettings, LlmResponder and LlmWiring ports; patterns/LlmCommands; the LlmEngine
+-- port and BotEngine), modules/chatLlm (LlmEngine, the responder built from the startup clients, LlmLoader, ChatLlm and
+-- the doobie DBLlmSettings) and modules/main (startup wiring). Tables: V13 in botDB.
 --
 -- The persona files (<botid>_persona.md) and the prompt template (prompts/system.md) stay in the repository as data
 -- only: nothing reads them now.

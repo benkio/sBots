@@ -7,7 +7,7 @@ import cats.effect.Deferred
 import cats.syntax.all.*
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.initialization.BotCoreSetup
-import com.benkio.chatcore.llm.LlmWiring
+import com.benkio.chatcore.llm.LlmDependencies
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
@@ -46,12 +46,12 @@ object DiscordBot {
       commandEffectfulCallback: Map[String, EffectfulCallback[F]],
       gatewayConfig: DiscordGatewayConfig,
       notifier: Notifier[F],
-      llmWiring: Option[LlmWiring[F]] = None
+      llmDependencies: Option[LlmDependencies[F]] = None
   )(using log: LogWriter[F]): F[Unit] = {
     val sBotConfig = SBotConfig.fromSBotInfo(sBotInfo)
     (for {
       token <- DiscordToken.read[F](sBotInfo, ResourcesRepository.fromResources[F]())
-      core  <- BotCoreSetup[F](httpClient, sBotConfig, llmWiring)
+      core  <- BotCoreSetup[F](httpClient, sBotConfig, llmDependencies)
     } yield (token, core)).use((token, core) =>
       runWith[F](
         core = core,
@@ -104,7 +104,7 @@ object DiscordBot {
             notifier = notifier
           )
         }
-        engine = BotEngine[F](effectiveSBotConfig, core.dbLayer, notifier, backgroundJobManager, core.llmWiring)
+        engine = BotEngine[F](effectiveSBotConfig, core.dbLayer, notifier, backgroundJobManager, Some(core.llmEngine))
         _ <- {
           lazy val adapter: DiscordPlatformAdapter[F] = new DiscordPlatformAdapter[F](
             discordApi = apiReady.get,

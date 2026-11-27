@@ -4,7 +4,6 @@ import cats.effect.Async
 import cats.implicits.*
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.llm.LlmSettings
-import com.benkio.chatcore.llm.LlmWiring
 import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
 import com.benkio.chatcore.model.SBotInfo
@@ -53,10 +52,8 @@ object DBLayer {
       subscriptionDraftExpiry: FiniteDuration = SubscriptionDraftStore.defaultExpiry,
       subscriptionDraftMaxDrafts: Int = SubscriptionDraftStore.defaultMaxDrafts,
       pagedListTextModeExpiry: FiniteDuration = PagedListTextStore.defaultExpiry,
-      pagedListTextModeMaxChats: Int = PagedListTextStore.defaultMaxChats,
-      llmWiring: Option[LlmWiring[F]] = None
+      pagedListTextModeMaxChats: Int = PagedListTextStore.defaultMaxChats
   )(using log: LogWriter[F]): F[DBLayer[F]] = {
-    val wiring = llmWiring.getOrElse(LlmWiring.noop[F])
     for {
       dbMedia <- DBMedia[F](transactor)
       dbSubscription = DBSubscription[F](transactor)
@@ -72,7 +69,7 @@ object DBLayer {
       dbMedia = dbMedia,
       dbShow = dbShow,
       dbProcessedMessage = dbProcessedMessage,
-      llmSettings = wiring.settings(transactor, botId),
+      llmSettings = DBLlmSettings[F](transactor, botId),
       dbSubscriptionDraft =
         DBSubscriptionDraft[F](transactor, botId, subscriptionDraftExpiry, subscriptionDraftMaxDrafts),
       dbSubscriptionFlowPrompt =

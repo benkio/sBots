@@ -3,7 +3,11 @@ package com.benkio.chatllm
 import cats.effect.Async
 import cats.effect.Resource
 import cats.syntax.either.*
+import cats.syntax.flatMap.*
+import cats.syntax.functor.*
+import cats.syntax.traverse.*
 import com.typesafe.config.ConfigFactory
+import log.effect.LogWriter
 import org.llm4s.config.Llm4sConfig
 import org.llm4s.config.Llm4sSettings
 import org.llm4s.error.LLMError
@@ -25,38 +29,34 @@ object LLMLoadingError {
   */
 object LlmLoader {
 
-  def loadSettigs[F[_]: Async]: F[Llm4sSettings] =
+  def loadSettings[F[_]: Async]: F[Llm4sSettings] =
     Async[F].fromEither(Llm4sConfig.from(ConfigFactory.load()).leftMap(LLMLoadingError.fromLLMError(_)))
 
-  private def loadClients[F[_]: Async](, http: Llm4sHttpClient)(using
+  private[chatllm] def loadClients[F[_]: Async](settings: Llm4sSettings, http: Llm4sHttpClient)(using
       log: LogWriter[F]
   ): Resource[F, (LLMClient, List[LLMClient])] =
     for {
-      _ <- log.info(s"[ChatLlm] 🚀 Loading clients: Configs")
-      settings <- Resoulte.eval(LlmLoader.loadSettings)
-      providerConfigs <- Resource.eval(
-        Async[F].fromEither(settings.providers().leftMap(LLMLoadingError.fromLLMError(_)))
+      _         <- Resource.eval(log.info("[LlmLoader] 🚀 Loading clients: Configs"))
+      providers <- Resource.eval(
+        Async[F].fromEither(
+          settings
+            .providerConfigs()
+            .flatMap(_.toList.traverse((name, config) => config.as(name)))
+            .leftMap(LLMLoadingError.fromLLMError(_))
+        )
       )
       defaultProvider <- Resource.eval(
         Async[F].fromEither(settings.defaultProviderName().leftMap(LLMLoadingError.fromLLMError(_)))
       )
-      _ <- log.info(s"[ChatLlm] 🚀 Loading clients")
-      defaultProviderClient <- loadClient[F](settings, http)
-      clients <- configs.toList.traverse { case (providerName, config) =>
-        config.fold(
-          err =>
-            Resource.eval(
-               Async[F].pure(
-                Option.empty[LLMClient]
-              )
-            ),
-          _ =>
-            if providerName == defaultProvider then Resource.pure(Option.empty[LLMClient])
-            else
-              LlmLoader.loadClient[F](settings, http, Some(providerName)).map(Some(_))
-        }
-        _ <- log.info(s"[ChatLlm] 🏁 Loading clients")
-    } yield clients.flatten
+      _                     <- Resource.eval(log.info("[LlmLoader] 🚀 Loading clients"))
+      defaultProviderClient <- loadClient[F](settings = settings, http = http)
+      clients               <- providers.traverse { providerName =>
+        if providerName == defaultProvider then Resource.pure(Option.empty[LLMClient])
+        else
+          LlmLoader.loadClient[F](settings = settings, http = http, providerName = Some(providerName)).map(Some(_))
+      }
+      _ <- Resource.eval(log.info("[LlmLoader] 🏁 Loading clients"))
+    } yield (defaultProviderClient, clients.flatten)
 
   /** Acquires one configured provider client. The caller owns the client for the lifetime of the returned Resource. */
   def loadClient[F[_]: Async](
@@ -80,7 +80,10 @@ object LlmLoader {
         }
       ) {
         case Right(client) => Async[F].pure(client)
-        case Left(err)     => log.err(s"[ChatLlm] Error loading provider $providerName: ${err.message}") >> Async[F].raiseError(LLMLoadingError.fromLLMError(err))
+        case Left(err)     =>
+          log.error(s"[LlmLoader] Error loading provider $providerName: ${err.message}") >> Async[F].raiseError(
+            LLMLoadingError.fromLLMError(err)
+          )
       }
     }
 }

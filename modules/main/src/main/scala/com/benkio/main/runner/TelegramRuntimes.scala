@@ -31,7 +31,7 @@ object TelegramWebhookPlatformRuntime extends PlatformRuntime {
             webhookCertificate = mainSetup.telegram.webhookCertificate,
             commandEffectfulCallback = entry.commandEffectfulCallback,
             opsChatId = mainSetup.telegram.opsChatId,
-            llmWiring = Some(mainSetup.llmWiring)
+            llmDependencies = Some(mainSetup.llmDependencies)
           )
           .attempt
           .flatMap(
@@ -75,7 +75,7 @@ object TelegramPollingPlatformRuntime extends PlatformRuntime {
             .run(
               sBotInfo = entry.sBotInfo,
               opsChatId = mainSetup.telegram.opsChatId,
-              llmWiring = Some(mainSetup.llmWiring)
+              llmDependencies = Some(mainSetup.llmDependencies)
             )
             .void
         )

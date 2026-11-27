@@ -151,13 +151,13 @@ flowchart TD
   A["Message arrived"] --> B["Reactive logic: guided flow, command, file request or reply bundle"]
   B --> C{"duplicate?"}
   C -->|Yes| Z["Nothing more"]
-  C -->|No| D["EngineLlm.run(msg)<br/>after, and outside, the request timeout"]
+  C -->|No| D["LlmEngine.run(msg)<br/>after, and outside, the request timeout"]
   D --> E["noop today: nothing is sent, nothing is stored"]
 ```
 
-- *Entry point.* `EngineLlm.run` in chatCore is called by `BotEngine.onMessage` for every handled message that is not a
-  duplicate, after the reactive part and outside the request processing timeout. The implementation is `EngineLlm.noop`.
-- *Settings.* `LlmSettings` (chatCore port) is implemented by `LlmSettingsDB` in chatLlm and wired per bot through
+- *Entry point.* `LlmEngine.run` in chatCore is called by `BotEngine.onMessage` for every handled message that is not a
+  duplicate, after the reactive part and outside the request processing timeout. The implementation is `LlmEngine.noop`.
+- *Settings.* `LlmSettings` (chatCore port) is implemented by `DBLlmSettings` in chatLlm and wired per bot through
   `LlmWiring`. `/llm forget` deletes the chat's rows of `llm_context`, which nothing writes today.
 - *Data kept for the rebuild.* The `<id>_persona.md` files and `modules/chatLlm/src/main/resources/prompts/system.md`.
 

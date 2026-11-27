@@ -13,6 +13,7 @@ import com.benkio.chatcore.model.TextTrigger
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBRepository
 import com.benkio.chatcore.repository.JsonDataRepository
+import com.benkio.chatcore.LlmEngine
 import com.benkio.integration.DBFixtureResources
 import com.benkio.integration.Logger.given
 import org.testcontainers.containers.wait.strategy.WaitStrategy
@@ -89,7 +90,7 @@ object PlatformITSupport {
       repository =
         DBRepository.dbResources[IO](dbLayer.dbMedia, HttpClients(dropboxClient = dropbox, megaClient = mega)),
       sBotConfig = sBotConfig,
-      llmWiring = None
+      llmEngine = LlmEngine.noop[IO]
     )
 
   /** The text that triggers a reply made only of markdown files (or of some, if no reply is made only of them and

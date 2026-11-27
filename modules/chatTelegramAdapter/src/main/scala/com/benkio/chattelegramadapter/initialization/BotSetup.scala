@@ -8,7 +8,7 @@ import cats.MonadThrow
 import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.initialization.BotCoreSetup
 import com.benkio.chatcore.initialization.DBConfig
-import com.benkio.chatcore.llm.LlmWiring
+import com.benkio.chatcore.llm.LlmDependencies
 import com.benkio.chatcore.model.media.MediaResource.MediaResourceFile
 import com.benkio.chatcore.model.reply.Document
 import com.benkio.chatcore.repository.db.DBLayer
@@ -16,6 +16,7 @@ import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.repository.Repository
 import com.benkio.chatcore.repository.ResourcesRepository
 import com.benkio.chatcore.BackgroundJobManager
+import com.benkio.chatcore.LlmEngine
 import com.benkio.chatcore.Notifier
 import com.benkio.chattelegramadapter.http.TelegramNotifier
 import com.benkio.chattelegramadapter.model.TelegramToken
@@ -42,7 +43,7 @@ final case class BotSetup[F[_]](
     webhookPath: Uri,
     sBotConfig: SBotConfig,
     opsChatId: Long,
-    llmWiring: Option[LlmWiring[F]]
+    llmEngine: LlmEngine[F]
 )
 
 object BotSetup {
@@ -108,13 +109,13 @@ object BotSetup {
       sBotConfig: SBotConfig,
       webhookBaseUrl: String = org.http4s.server.defaults.IPv4Host,
       opsChatId: Long,
-      llmWiring: Option[LlmWiring[F]] = None
+      llmDependencies: Option[LlmDependencies[F]] = None
   )(using log: LogWriter[F]): Resource[F, BotSetup[F]] = {
 
     val resourceRepository = ResourcesRepository.fromResources[F]()
     for {
       tk   <- token[F](sBotConfig.token, resourceRepository)
-      core <- BotCoreSetup[F](httpClient, sBotConfig, llmWiring)
+      core <- BotCoreSetup[F](httpClient, sBotConfig, llmDependencies)
       jsonDataRepository  = core.jsonDataRepository
       dbLayer             = core.dbLayer
       repository          = core.repository
@@ -161,7 +162,7 @@ object BotSetup {
       webhookPath = path,
       sBotConfig = effectiveSBotConfig,
       opsChatId = opsChatId,
-      llmWiring = llmWiring
+      llmEngine = core.llmEngine
     )
   }
 }

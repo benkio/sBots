@@ -13,6 +13,7 @@ import com.benkio.chatcore.patterns.PostComputationPatterns
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBMessageReplies
 import com.benkio.chatcore.repository.JsonDataRepository
+import com.benkio.chatcore.LlmEngine
 import com.benkio.chatcore.Logger.given
 import com.benkio.chatcore.Notifier
 import com.benkio.chattelegramadapter.initialization.BotSetup
@@ -110,7 +111,7 @@ object SampleWebhookBot {
         webhookPath = uri"/",
         sBotConfig = sBotConfig,
         opsChatId = 0L,
-        llmWiring = None
+        llmEngine = LlmEngine.noop[IO]
       )
     )
   }

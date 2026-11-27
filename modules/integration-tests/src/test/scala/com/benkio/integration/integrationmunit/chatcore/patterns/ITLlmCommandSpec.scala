@@ -12,10 +12,9 @@ import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBLayer
+import com.benkio.chatcore.repository.db.DBLlmSettings
 import com.benkio.chatcore.ComputeReply
 import com.benkio.chatcore.TestIds
-import com.benkio.chatllm.repository.db.LlmSettingsDB
-import com.benkio.chatllm.ChatLlm
 import com.benkio.chattelegramadapter.SBot
 import com.benkio.integration.DBFixture
 import com.benkio.integration.Logger.given
@@ -55,8 +54,7 @@ class ITLlmCommandSpec extends CatsEffectSuite with DBFixture {
       dbLayer <- Resource.eval(
         DBLayer.make[IO](
           transactor = fixture.transactor,
-          botId = botId,
-          llmWiring = Some(ChatLlm.wiring[IO])
+          botId = botId
         )
       )
       _ <- Resource.eval(insertContext(xa = fixture.transactor, chatId = chatId, botId = botId, content = "to forget"))
@@ -65,22 +63,22 @@ class ITLlmCommandSpec extends CatsEffectSuite with DBFixture {
       )
 
       on              <- Resource.eval(run(dbLayer, "/llm on"))
-      storedOn        <- Resource.eval(LlmSettingsDB.statusQuery(chatId, botId).option.transact(fixture.transactor))
+      storedOn        <- Resource.eval(DBLlmSettings.statusQuery(chatId, botId).option.transact(fixture.transactor))
       status          <- Resource.eval(run(dbLayer, "/llm status"))
       otherChatStatus <- Resource.eval(
-        LlmSettingsDB.statusQuery(otherChat, botId).option.transact(fixture.transactor)
+        DBLlmSettings.statusQuery(otherChat, botId).option.transact(fixture.transactor)
       )
       otherBotStatus <- Resource.eval(
-        LlmSettingsDB.statusQuery(chatId, otherBot).option.transact(fixture.transactor)
+        DBLlmSettings.statusQuery(chatId, otherBot).option.transact(fixture.transactor)
       )
 
       off               <- Resource.eval(run(dbLayer, "/llm off"))
-      storedOff         <- Resource.eval(LlmSettingsDB.statusQuery(chatId, botId).option.transact(fixture.transactor))
+      storedOff         <- Resource.eval(DBLlmSettings.statusQuery(chatId, botId).option.transact(fixture.transactor))
       forget            <- Resource.eval(run(dbLayer, "/llm forget"))
       context           <- Resource.eval(contexts(xa = fixture.transactor, chatId = chatId, botId = botId))
       otherContext      <- Resource.eval(contexts(xa = fixture.transactor, chatId = otherChat, botId = otherBot))
       storedAfterForget <- Resource.eval(
-        LlmSettingsDB.statusQuery(chatId, botId).option.transact(fixture.transactor)
+        DBLlmSettings.statusQuery(chatId, botId).option.transact(fixture.transactor)
       )
     } yield {
       assertEquals(on, "LLM replies enabled for this chat")

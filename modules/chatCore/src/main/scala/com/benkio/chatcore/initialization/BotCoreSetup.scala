@@ -6,11 +6,12 @@ import com.benkio.chatcore.config.SBotConfig
 import com.benkio.chatcore.http.DropboxClient
 import com.benkio.chatcore.http.HttpClients
 import com.benkio.chatcore.http.MegaClient
-import com.benkio.chatcore.llm.LlmWiring
+import com.benkio.chatcore.llm.LlmDependencies
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBRepository
 import com.benkio.chatcore.repository.JsonDataRepository
 import com.benkio.chatcore.repository.Repository
+import com.benkio.chatcore.LlmEngine
 import doobie.util.transactor.Transactor
 import log.effect.LogWriter
 import org.http4s.client.Client
@@ -23,7 +24,7 @@ final case class BotCoreSetup[F[_]](
     dbLayer: DBLayer[F],
     repository: Repository[F],
     sBotConfig: SBotConfig,
-    llmWiring: Option[LlmWiring[F]]
+    llmEngine: LlmEngine[F]
 )
 
 object BotCoreSetup {
@@ -36,8 +37,7 @@ object BotCoreSetup {
       subscriptionDraftMaxDrafts: Int = com.benkio.chatcore.SubscriptionDraftStore.defaultMaxDrafts,
       pagedListTextModeExpiry: scala.concurrent.duration.FiniteDuration =
         com.benkio.chatcore.PagedListTextStore.defaultExpiry,
-      pagedListTextModeMaxChats: Int = com.benkio.chatcore.PagedListTextStore.defaultMaxChats,
-      llmWiring: Option[LlmWiring[F]] = None
+      pagedListTextModeMaxChats: Int = com.benkio.chatcore.PagedListTextStore.defaultMaxChats
   )(using log: LogWriter[F]): Resource[F, DBLayer[F]] =
     Resource.eval(
       DBLayer.make[F](
@@ -52,15 +52,14 @@ object BotCoreSetup {
         subscriptionDraftExpiry = subscriptionDraftExpiry,
         subscriptionDraftMaxDrafts = subscriptionDraftMaxDrafts,
         pagedListTextModeExpiry = pagedListTextModeExpiry,
-        pagedListTextModeMaxChats = pagedListTextModeMaxChats,
-        llmWiring = llmWiring
+        pagedListTextModeMaxChats = pagedListTextModeMaxChats
       )
     )
 
   def apply[F[_]: Async](
       httpClient: Client[F],
       sBotConfig: SBotConfig,
-      llmWiring: Option[LlmWiring[F]] = None
+      llmDependencies: Option[LlmDependencies[F]] = None
   )(using log: LogWriter[F]): Resource[F, BotCoreSetup[F]] =
     for {
       config <- Resource.eval(Config.loadConfig[F](sBotConfig.sBotInfo.botId.value))
@@ -83,14 +82,14 @@ object BotCoreSetup {
         subscriptionDraftExpiry = effectiveSBotConfig.subscriptionDraftExpiry,
         subscriptionDraftMaxDrafts = effectiveSBotConfig.subscriptionDraftMaxDrafts,
         pagedListTextModeExpiry = effectiveSBotConfig.pagedListTextModeExpiry,
-        pagedListTextModeMaxChats = effectiveSBotConfig.pagedListTextModeMaxChats,
-        llmWiring = llmWiring
+        pagedListTextModeMaxChats = effectiveSBotConfig.pagedListTextModeMaxChats
       ).evalMap(DBLayer.loadReplies[F](_, jsonDataRepository, effectiveSBotConfig))
+      llmEngine <- llmDependencies.getOrElse(LlmDependencies.noop[F]).build(dbLayer)
     } yield BotCoreSetup(
       jsonDataRepository = jsonDataRepository,
       dbLayer = dbLayer,
       repository = DBRepository.dbResources[F](dbLayer.dbMedia, clients),
       sBotConfig = effectiveSBotConfig,
-      llmWiring = llmWiring
+      llmEngine = llmEngine
     )
 }

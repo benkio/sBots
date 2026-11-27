@@ -1,4 +1,4 @@
-package com.benkio.chatllm.repository.db
+package com.benkio.chatcore.repository.db
 
 import cats.effect.Async
 import cats.syntax.all.*
@@ -19,7 +19,7 @@ import java.time.Instant
   * A chat with no row is disabled: /llm turns it on explicitly (#1488). `forget` drops the chat's context but leaves
   * the switch untouched.
   */
-object LlmSettingsDB {
+object DBLlmSettings {
 
   def apply[F[_]: Async](transactor: Transactor[F], botId: SBotId)(using log: LogWriter[F]): LlmSettings[F] =
     apply(transactor = transactor, botId = botId, now = Async[F].delay(Instant.now().getEpochSecond))
@@ -30,9 +30,9 @@ object LlmSettingsDB {
   def apply[F[_]: Async](transactor: Transactor[F], botId: SBotId, now: F[Long])(using
       log: LogWriter[F]
   ): LlmSettings[F] =
-    new LlmSettingsDBImpl[F](transactor, botId, now)
+    new DBLlmSettingsImpl[F](transactor, botId, now)
 
-  private class LlmSettingsDBImpl[F[_]: Async](transactor: Transactor[F], botId: SBotId, now: F[Long])(using
+  private class DBLlmSettingsImpl[F[_]: Async](transactor: Transactor[F], botId: SBotId, now: F[Long])(using
       log: LogWriter[F]
   ) extends LlmSettings[F] {
 

@@ -2,11 +2,11 @@ package com.benkio.main
 
 import cats.effect.Async
 import cats.effect.Resource
-import com.benkio.chatcore.llm.LlmWiring
+import com.benkio.chatcore.llm.LlmDependencies
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatdiscordadapter.gateway.DiscordGatewayConfig
 import com.benkio.chatircadapter.connection.IrcConfig
-import com.benkio.chatllm.ChatLlm
+import com.benkio.chatllm.LlmEngine
 import cron4s.CronExpr
 import doobie.Transactor
 import fs2.io.net.Network
@@ -35,7 +35,7 @@ final case class MainSetup[F[_]](
     healthcheckEndpoint: Uri,
     healthcheckCron: CronExpr,
     mainDBName: String,
-    llmWiring: LlmWiring[F]
+    llmDependencies: LlmDependencies[F]
 )
 
 object MainSetup {
@@ -45,7 +45,7 @@ object MainSetup {
     _          <- Resource.eval(log.info(s"[Main] Configuration: $config"))
     httpClient <- EmberClientBuilder.default[F].withMaxResponseHeaderSize(8192).build
     _          <- Resource.eval(log.info("[Main] httpClient"))
-    llmWiring  <- ChatLlm.startupWiring[F]
+    llmDependencies  <- LlmEngine.dependencies[F]
     transactor = Transactor.fromDriverManager[F](
       config.mainDB.driver,
       config.mainDB.url,
@@ -78,6 +78,6 @@ object MainSetup {
     healthcheckEndpoint = config.healthcheckPing.endpoint,
     healthcheckCron = config.healthcheckPing.cron,
     mainDBName = config.mainDB.dbName,
-    llmWiring = llmWiring
+    llmDependencies = llmDependencies
   )
 }
