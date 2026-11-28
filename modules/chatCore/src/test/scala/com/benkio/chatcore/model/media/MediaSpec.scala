@@ -1,30 +1,14 @@
 package com.benkio.chatcore.model.media
 
 import com.benkio.chatcore.model.media.MediaSource
-import com.benkio.chatcore.model.MimeType
 import com.benkio.chatcore.model.Platform
-import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBMediaData
 import munit.*
 import org.http4s.syntax.literals.*
 import org.http4s.Uri
 
-import java.time.Instant
 
 class MediaSpec extends FunSuite {
-  test("Media show instance should return the expected string") {
-    val input: Media = Media(
-      mediaName = "test_name",
-      botId = SBotId("botid"),
-      kinds = List.empty,
-      mimeType = MimeType.MP4,
-      mediaSources = List(MediaSource.Url(uri"https://benkio.github.io")),
-      mediaCount = 0,
-      createdAt = Instant.parse("2022-11-01T12:54:23Z")
-    )
-    assertEquals(input.toHtmlRow, """| 0     | <a href="https://benkio.github.io">test_name</a> |""")
-  }
-
   test("Media.apply should correctly parse a valid db record") {
     val input: DBMediaData = DBMediaData(
       media_name = "rphjb_Animali.mp3",

@@ -12,7 +12,6 @@ import com.benkio.chatcore.model.reply.ReplyBundleCommand
 import com.benkio.chatcore.model.reply.ReplyValue
 import com.benkio.chatcore.model.CommandInstructionData
 import com.benkio.chatcore.model.CommandKey
-import com.benkio.chatcore.model.CommandTrigger
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.repository.db.*
 import log.effect.LogWriter
@@ -36,18 +35,6 @@ object MediaCommands {
         mediaFile <- RandomSelection.select(replies = mediaFiles)
       } yield mediaFile
 
-    def mediaCommandByKind(
-        commandName: String,
-        instruction: CommandInstructionData,
-        sBotInfo: SBotInfo
-    ): ReplyBundleCommand =
-      ReplyBundleCommand(
-        trigger = CommandTrigger(commandName),
-        reply = EffectfulReply(
-          key = EffectfulKey.MediaByKind(commandName, sBotInfo)
-        ),
-        instruction = instruction
-      )
   }
 
   object RandomDataCommand {
@@ -72,19 +59,6 @@ object MediaCommands {
           .flatMap(dbMediaData => Async[F].fromEither(Media(dbMediaData)))
       } yield MediaFile.fromMimeType(media)
 
-    def randomDataReplyBundleCommand(
-        sBotInfo: SBotInfo
-    ): ReplyBundleCommand =
-      ReplyBundleCommand(
-        trigger = CommandKey.Random.trigger,
-        reply = EffectfulReply(
-          key = EffectfulKey.Random(sBotInfo)
-        ),
-        instruction = CommandInstructionData.Instructions(
-          ita = randomDataCommandIta,
-          eng = randomDataCommandEng
-        )
-      )
   }
 
   object StatisticsCommands {

@@ -1,7 +1,6 @@
 package com.benkio.chatcore.patterns
 
 import com.benkio.chatcore.model.reply.ReplyBundleMessage
-import com.benkio.chatcore.model.CommandInstructionData
 import com.benkio.chatcore.model.CommandKey
 import com.benkio.chatcore.model.SBotInfo
 import munit.FunSuite
@@ -26,18 +25,6 @@ class CommandPatternsGroupSpec extends FunSuite {
         CommandKey.ShowCalendar.asString
       )
     )
-  }
-
-  test("MediaCommands builds the media-by-kind and random commands") {
-    val byKind = MediaCommands.MediaByKindCommand.mediaCommandByKind(
-      commandName = "audio",
-      instruction = CommandInstructionData.NoInstructions,
-      sBotInfo = botInfo
-    )
-    val random = MediaCommands.RandomDataCommand.randomDataReplyBundleCommand(botInfo)
-
-    assertEquals(byKind.trigger.command, "audio")
-    assertEquals(random.trigger.command, CommandKey.Random.asString)
   }
 
   test("TriggerGroup builds the trigger and settings commands") {

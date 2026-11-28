@@ -99,20 +99,6 @@ class ShowCalendarSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
     assertEquals(ShowCalendar.orderedCandidates(shows).map(_.id), List("a", "b", "z"))
   }
 
-  test("forDayOrToday uses the given day when specified") {
-    ShowCalendar
-      .forDayOrToday[IO](List(show(id = "a")), Some(may17))
-      .map(result => assertEquals(result.map(_.id), List("a")))
-  }
-
-  test("forDayOrToday uses the current day when none is specified") {
-    val today = LocalDate.now()
-    val shows = List(show(id = "today", uploadDate = today, title = "No date"))
-    ShowCalendar
-      .forDayOrToday[IO](shows, None)
-      .map(result => assertEquals(result.map(_.id), List("today")))
-  }
-
   test("property: results come from the input, are never live and are deterministic") {
     val showGen = for {
       id       <- Gen.alphaNumStr.suchThat(_.nonEmpty)

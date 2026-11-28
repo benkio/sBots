@@ -25,8 +25,6 @@ object LlmSettings {
     */
   type Factory[F[_]] = (Transactor[F], SBotId) => LlmSettings[F]
 
-  def noopFactory[F[_]: Applicative]: Factory[F] = (_, _) => LlmSettings.noop[F]
-
   /** Does nothing and reports the LLM as disabled. */
   def noop[F[_]: Applicative]: LlmSettings[F] = new LlmSettings[F] {
     override def enable(chatId: ChatId): F[Unit]   = ().pure[F]

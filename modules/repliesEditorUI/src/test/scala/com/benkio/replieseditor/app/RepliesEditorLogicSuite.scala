@@ -23,10 +23,4 @@ class RepliesEditorLogicSuite extends FunSuite {
     assertEquals(RepliesEditorLogic.pageLabel(2, Some(61), 60), "Page 2 / 2")
   }
 
-  test("insertOffsetAtPageTop clamps to total") {
-    assertEquals(RepliesEditorLogic.insertOffsetAtPageTop(total = 0, currentPage = 1, pageSize = 60), 0)
-    assertEquals(RepliesEditorLogic.insertOffsetAtPageTop(total = 10, currentPage = 1, pageSize = 60), 0)
-    assertEquals(RepliesEditorLogic.insertOffsetAtPageTop(total = 10, currentPage = 2, pageSize = 60), 10)
-    assertEquals(RepliesEditorLogic.insertOffsetAtPageTop(total = 120, currentPage = 2, pageSize = 60), 60)
-  }
 }

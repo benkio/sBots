@@ -8,6 +8,7 @@ import org.llm4s.llmconnect.model.Completion
 import org.llm4s.llmconnect.model.CompletionOptions
 import org.llm4s.llmconnect.model.Conversation
 import org.llm4s.llmconnect.model.StreamedChunk
+import org.llm4s.llmconnect.model.UserMessage
 import org.llm4s.llmconnect.LLMClient
 import org.llm4s.reliability.ReliabilityConfig
 import org.llm4s.reliability.RetryPolicy
@@ -44,13 +45,15 @@ class LlmFallbackClientsSpec extends FunSuite {
   // one attempt per provider: the retries of llm4s are not what is tested here
   private val config = ReliabilityConfig(retryPolicy = RetryPolicy.noRetry, deadline = None)
 
+  private val question = Conversation(Seq(UserMessage("hi")))
+
   private def clients(primary: StubClient, fallbacks: StubClient*) =
     LlmFallbackClients(primary, fallbacks.toList, config)
 
   test("the default provider answers when it works, and the fallbacks are not asked") {
     val primary  = StubClient(Some("from primary"))
     val fallback = StubClient(Some("from fallback"))
-    assertEquals(clients(primary, fallback).ask("hi"), Right(Served("primary", "from primary")))
+    assertEquals(clients(primary, fallback).ask(question).map(_.content), Right("from primary"))
     assertEquals(fallback.calls.get, 0)
   }
 
@@ -59,12 +62,12 @@ class LlmFallbackClientsSpec extends FunSuite {
     val first   = StubClient(None)
     val second  = StubClient(Some("from second"))
     val third   = StubClient(Some("from third"))
-    assertEquals(clients(primary, first, second, third).ask("hi"), Right(Served("fallback-1", "from second")))
+    assertEquals(clients(primary, first, second, third).ask(question).map(_.content), Right("from second"))
     assertEquals(third.calls.get, 0)
   }
 
   test("the question fails when every provider fails") {
-    val result = clients(StubClient(None), StubClient(None)).ask("hi")
+    val result = clients(StubClient(None), StubClient(None)).ask(question)
     assertEquals(result.left.map(_.question), Left("hi"))
   }
 }

@@ -44,20 +44,6 @@ object FuzzyTriggerSearch {
   def search(query: String, candidates: Seq[String]): Result =
     FuzzyCandidates.search(query, candidates)
 
-  def searchCandidates(query: String, candidates: Seq[Candidate]): Result = {
-    val ranked      = FuzzyCandidates.rankCandidates(query, candidates)
-    val best        = ranked.headOption
-    val second      = ranked.lift(1).map(_._2)
-    val suggestions = ranked.take(MaxSuggestions).map(_._1.value)
-    Result(
-      best = best.map(_._1.value),
-      bestScore = best.map(_._2).getOrElse(0.0),
-      second = second,
-      suggestions = suggestions,
-      scored = ranked.map { case (c, s) => c.value -> s }
-    )
-  }
-
   def decide(
       query: String,
       replyBundleMessages: List[com.benkio.chatcore.model.reply.ReplyBundleMessage]

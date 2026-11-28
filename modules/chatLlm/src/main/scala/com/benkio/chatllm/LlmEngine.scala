@@ -29,8 +29,9 @@ object LlmEngine {
       http     <- Resource.make(
         Async[F].delay(Llm4sHttpClient.create(HttpClientOptions.default))
       )(http => Async[F].delay(http.close()))
-      llmClients <- LlmLoader.loadClients[F](settings, http)
-      responder = LlmResponder[F](llmClients)
+      llmClients   <- LlmLoader.loadClients[F](settings, http)
+      systemPrompt <- Resource.eval(SystemPrompt.load[F])
+      responder = LlmResponder[F](llmClients, systemPrompt)
       _ <- Resource.eval(log.info("[LlmEngine] llm4s startup wiring ready"))
     } yield LlmDependencies[F](
       // TODO(#1499): the `DBLayer` is ignored; build the per-bot context from it here before the LLM replies go live.

@@ -8,7 +8,9 @@ import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.FakePlatformAdapter
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandSyntax
+import com.benkio.chatcore.model.Mention
 import com.benkio.chatcore.model.Message
+import com.benkio.chatcore.model.RepliedMessage
 import com.benkio.chatcore.model.SBotInfo
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBTimeoutData
@@ -22,7 +24,7 @@ import scala.concurrent.duration.*
 
 class LlmMessageFilteringSpec extends CatsEffectSuite {
 
-  private val botInfo = SBotInfo(botId = SBotInfo.SBotId("eng"), botName = SBotInfo.SBotName("EngineBot"))
+  private val botInfo = SBotInfo(botId = SBotInfo.SBotId("llmtest"), botName = SBotInfo.SBotName("EngineBot"))
 
   private def message(
       text: Option[String],
@@ -44,17 +46,24 @@ class LlmMessageFilteringSpec extends CatsEffectSuite {
   private def filter(msg: Message, outcome: Outcome = Outcome.UnReplied): IO[Boolean] =
     guard(msg = msg, outcome = outcome).map(_._1)
 
-  test("an unanswered plain message that mentions the bot passes") {
-    filter(message(text = Some("hey EngineBot, how are you?"))).assertEquals(true)
+  test("an unanswered plain message that calls the bot by name passes") {
+    filter(message(text = Some("EngineBot, how are you?"))).assertEquals(true)
   }
 
-  test("the caption of a message is searched when it has no text") {
-    filter(message(text = None, caption = Some("look EngineBot"))).assertEquals(true)
+  test("a mention of the bot or a reply to one of its messages passes, a mention of somebody else does not") {
+    val plain = message(text = Some("hi everybody"))
+    filter(plain.copy(mentions = List(Mention(name = Some("EngineBot"))))).assertEquals(true) *>
+      filter(plain.copy(replyTo = Some(RepliedMessage(authorName = Some("enginebot"))))).assertEquals(true) *>
+      filter(plain.copy(mentions = List(Mention(name = Some("alice"))))).assertEquals(false)
+  }
+
+  test("a caption only mentioning the bot name does not make the message directed at it") {
+    filter(message(text = None, caption = Some("look EngineBot"))).assertEquals(false)
   }
 
   test("only the unanswered outcome passes") {
     Outcome.values.toList.traverse_(outcome =>
-      filter(message(text = Some("hey EngineBot")), outcome).map(passes =>
+      filter(message(text = Some("EngineBot: hey")), outcome).map(passes =>
         assertEquals(passes, outcome == Outcome.UnReplied, s"outcome ${outcome.label}")
       )
     )
@@ -65,17 +74,17 @@ class LlmMessageFilteringSpec extends CatsEffectSuite {
   }
 
   test("the mention is case insensitive") {
-    filter(message(text = Some("hey enginebot"))).assertEquals(true) *>
-      filter(message(text = Some("HEY ENGINEBOT"))).assertEquals(true)
+    filter(message(text = Some("enginebot: hey"))).assertEquals(true) *>
+      filter(message(text = Some("ENGINEBOT: HEY"))).assertEquals(true)
   }
 
   test("a message without any content is rejected") {
     filter(message(text = None)).assertEquals(false)
   }
 
-  test("the bot name is matched as a whole word") {
-    filter(message(text = Some("EngineBotany is nice"))).assertEquals(false) *>
-      filter(message(text = Some("hey, EngineBot!"))).assertEquals(true)
+  test("the bot name is matched as a whole word at the start of the text") {
+    filter(message(text = Some("EngineBotany: hi"))).assertEquals(false) *>
+      filter(message(text = Some("EngineBot, hi!"))).assertEquals(true)
   }
 
   test("a private chat needs no mention, but still some text") {
@@ -84,7 +93,7 @@ class LlmMessageFilteringSpec extends CatsEffectSuite {
   }
 
   test("a forwarded message is rejected even when it mentions the bot") {
-    filter(message(text = Some("hey EngineBot"), isForward = true)).assertEquals(false)
+    filter(message(text = Some("EngineBot: hey"), isForward = true)).assertEquals(false)
   }
 
   test("a command that mentions the bot is rejected") {
@@ -133,7 +142,7 @@ class LlmMessageFilteringSpec extends CatsEffectSuite {
     count  <- reads.get
   } yield (passes, count)
 
-  private val addressed = message(text = Some("hey EngineBot"))
+  private val addressed = message(text = Some("EngineBot: hey"))
 
   test("the guard passes an addressed message of a chat with the LLM on and no timeout") {
     guard(msg = addressed).assertEquals((true, 1))

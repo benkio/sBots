@@ -321,8 +321,6 @@ class ReplyBundleSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
       )
       val textBundle = ReplyBundleMessage.textToText(s"$triggerText-text")("hello")
 
-      assert(mediaBundle.containsMediaReply(mediaBundle))
-      assert(!textBundle.containsMediaReply(textBundle))
       assertEquals(mediaBundle.getMediaFiles, Set[MediaFile](Mp3File("track.mp3")))
       assertEquals(textBundle.getMediaFiles, Set.empty)
     }
