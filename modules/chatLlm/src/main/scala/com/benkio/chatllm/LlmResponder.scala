@@ -38,6 +38,10 @@ object LlmResponder {
   /** The most characters the system prompt lets a reply have. */
   private val maxChars = 500
 
+  /** Building the conversation failed before any provider was called, so there is no Conversation to attach. */
+  private[chatllm] final case class LlmConversationFailed(question: String, message: String)
+      extends Throwable(s"[LlmResponder] ❌ Cannot build the conversation: $message")
+
   private[chatllm] final case class LlmResponderImpl[F[_]: Async](
       clients: LlmFallbackClients,
       systemPrompt: SystemPrompt
@@ -58,7 +62,7 @@ object LlmResponder {
               ),
               userPrompt = content
             )
-            .leftMap(error => LlmCallFailed(content, error.message))
+            .leftMap(error => LlmConversationFailed(content, error.message))
             .map(
               _.addMessage(
                 SystemMessage(

@@ -68,6 +68,6 @@ class LlmFallbackClientsSpec extends FunSuite {
 
   test("the question fails when every provider fails") {
     val result = clients(StubClient(None), StubClient(None)).ask(question)
-    assertEquals(result.left.map(_.question), Left("hi"))
+    assertEquals(result.left.map(_.conversation), Left(question))
   }
 }
