@@ -165,6 +165,10 @@ flowchart TD
   only the per-chat on/off switch is stored. The `llm_context` table is legacy and unused.
 - *Data read.* The `<id>_persona.md` files and `modules/chatLlm/src/main/resources/prompts/system.md` form the system
   message sent to the provider.
+- *Reliability.* The `llm4s.reliability` block of `application.conf` supplies every retry, deadline, circuit-breaker and
+  local rate-limit value for the provider clients (see README.org, "Reliability configuration"). It is validated at
+  startup: an invalid or missing block aborts startup with the offending field named in the error. This only tunes the
+  clients; provider order, the one-shot reply flow and the silent failure of a failed provider are unchanged.
 
 ### Media subtype dispatch
 

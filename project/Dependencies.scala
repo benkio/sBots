@@ -268,6 +268,7 @@ object Dependencies {
         libs.catsFree,
         libs.doobieCore,
         libs.doobieFree,
+        libs.pureConfigCore,
         libs.sqlite % groups.testScope,
         libs.typesafeConfig
       )

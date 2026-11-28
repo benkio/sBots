@@ -26,12 +26,13 @@ object LlmEngine {
       config: => Config = ConfigFactory.load()
   )(using log: LogWriter[F]): Resource[F, LlmDependencies[F]] =
     for {
-      _        <- Resource.eval(log.info("[LlmEngine] llm4s startup wiring Started"))
-      settings <- Resource.eval(LlmLoader.loadSettings[F](config))
-      http     <- Resource.make(
+      _           <- Resource.eval(log.info("[LlmEngine] llm4s startup wiring Started"))
+      settings    <- Resource.eval(LlmLoader.loadSettings[F](config))
+      reliability <- Resource.eval(LlmReliabilitySettings.load[F](config))
+      http        <- Resource.make(
         Async[F].delay(Llm4sHttpClient.create(HttpClientOptions.default))
       )(http => Async[F].delay(http.close()))
-      llmClients   <- LlmLoader.loadClients[F](settings, http)
+      llmClients   <- LlmLoader.loadClients[F](settings, http, reliability)
       systemPrompt <- Resource.eval(SystemPrompt.load[F])
       responder = LlmResponder[F](llmClients, systemPrompt)
       _ <- Resource.eval(log.info("[LlmEngine] llm4s startup wiring ready"))
