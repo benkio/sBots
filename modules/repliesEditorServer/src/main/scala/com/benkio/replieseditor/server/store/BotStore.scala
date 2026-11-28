@@ -49,6 +49,12 @@ final class BotStore private (ref: Ref[IO, BotStore.State]) extends BotStoreApi 
       case _ => rbm
     }
 
+  private def decodeReply(json: Json): Option[ReplyBundleMessage] =
+    json.as[ReplyBundleMessage].toOption
+
+  private def decodeReplies(entries: Vector[Json]): Vector[Option[ReplyBundleMessage]] =
+    entries.map(decodeReply)
+
   def listBots: IO[Vector[ApiBot]] =
     ref.get.map(
       _.bots
@@ -63,7 +69,11 @@ final class BotStore private (ref: Ref[IO, BotStore.State]) extends BotStoreApi 
       _.byId
         .get(botId)
         .toRight(unknownBot(botId))
-        .flatMap(_.repliesJson.leftMap(err => ApiError(s"Failed to load replies for $botId: $err")))
+        .flatMap(
+          _.repliesEntries
+            .leftMap(err => ApiError(s"Failed to load replies for $botId: $err"))
+            .map(Json.fromValues)
+        )
     )
 
   def getRepliesChunk(botId: String, offset: Int, limit: Int): IO[Either[ApiError, RepliesChunk]] =
@@ -90,40 +100,45 @@ final class BotStore private (ref: Ref[IO, BotStore.State]) extends BotStoreApi 
       offset: Int,
       limit: Int
   ): IO[Either[ApiError, RepliesChunk]] =
-    ref.get.map(
-      _.byId
+    // Decoding every bundle on each filter request is expensive for large bots (Richard has 1,411 bundles with 790
+    // regexes). The decoded form is cached with the entries and invalidated whenever the entries change.
+    ref.modify { st =>
+      st.byId
         .get(botId)
-        .toRight(unknownBot(botId))
-        .flatMap(_.repliesEntries.leftMap(err => ApiError(s"Failed to load replies for $botId: $err")))
-        .map { entries =>
-          val msgLower                     = message.toLowerCase
-          val matchingIndexes: Vector[Int] =
-            entries.zipWithIndex.flatMap { case (j, idx) =>
-              j.as[ReplyBundleMessage]
-                .toOption
-                .filter(matchesMessage(_, msgLower))
-                .fold(Vector.empty[Int])(_ => Vector(idx))
-            }
+        .fold[(BotStore.State, Either[ApiError, RepliesChunk])]((st, Left(unknownBot(botId)))) { bot =>
+          bot.repliesEntries.fold[(BotStore.State, Either[ApiError, RepliesChunk])](
+            err => (st, Left(ApiError(s"Failed to load replies for $botId: $err"))),
+            entries => {
+              val decoded         = bot.decodedReplies.getOrElse(decodeReplies(entries))
+              val msgLower        = message.toLowerCase
+              val matchingIndexes =
+                decoded.zipWithIndex.collect { case (Some(rbm), idx) if matchesMessage(rbm, msgLower) => idx }
 
-          val safeOffset = offset.max(0).min(matchingIndexes.length)
-          val safeLimit  = limit.max(1).min(500)
-          val pageIdxs   = matchingIndexes.slice(safeOffset, (safeOffset + safeLimit).min(matchingIndexes.length))
-          val items      = pageIdxs.map(i => IndexedReply(index = i, value = entries(i)))
-          RepliesChunk(total = matchingIndexes.length, offset = safeOffset, items = items)
+              val safeOffset = offset.max(0).min(matchingIndexes.length)
+              val safeLimit  = limit.max(1).min(500)
+              val pageIdxs   = matchingIndexes.slice(safeOffset, (safeOffset + safeLimit).min(matchingIndexes.length))
+              val items      = pageIdxs.map(i => IndexedReply(index = i, value = entries(i)))
+              val chunk      = RepliesChunk(total = matchingIndexes.length, offset = safeOffset, items = items)
+              val nextState  =
+                if bot.decodedReplies.isDefined then st
+                else st.updateBot(botId)(_.copy(decodedReplies = Some(decoded)))
+
+              (nextState, Right(chunk))
+            }
+          )
         }
-    )
+    }
 
   private def matchesMessage(rbm: ReplyBundleMessage, messageLower: String): Boolean =
     (rbm.matcher, rbm.trigger) match {
       case (_, MessageLengthTrigger(messageLength)) =>
         messageLower.length >= messageLength
-      case (_, _: NewMemberTrigger.type)                         => false
-      case (_, _: BotAddedTrigger.type)                          => false
-      case (_, _: LeftMemberTrigger.type)                        => false
+      case (_, _: NewMemberTrigger.type)  => false
+      case (_, _: BotAddedTrigger.type)   => false
+      case (_, _: LeftMemberTrigger.type) => false
+      // Ordering only matters when choosing the best match; filtering needs a boolean, so sorting is redundant.
       case (MessageMatches.ContainsOnce, TextTrigger(triggers*)) =>
-        triggers
-          .sorted(using TextTriggerValue.orderingInstance.reverse)
-          .exists(TextTriggerValue.matchValue(_, messageLower))
+        triggers.exists(TextTriggerValue.matchValue(_, messageLower))
       case (MessageMatches.ContainsAll, TextTrigger(triggers*)) =>
         triggers.forall(TextTriggerValue.matchValue(_, messageLower))
       case _ => false
@@ -154,7 +169,7 @@ final class BotStore private (ref: Ref[IO, BotStore.State]) extends BotStoreApi 
                 val updatedBot     =
                   b.copy(
                     repliesEntries = Right(updatedEntries),
-                    repliesJson = Right(Json.fromValues(updatedEntries))
+                    decodedReplies = b.decodedReplies.map(_.updated(index, decodeReply(value)))
                   )
                 val newState =
                   st.copy(
@@ -180,7 +195,8 @@ final class BotStore private (ref: Ref[IO, BotStore.State]) extends BotStoreApi 
               val updatedBot     =
                 b.copy(
                   repliesEntries = Right(updatedEntries),
-                  repliesJson = Right(Json.fromValues(updatedEntries))
+                  decodedReplies =
+                    b.decodedReplies.map(_.patch(from = safeIndex, other = Vector(decodeReply(value)), replaced = 0))
                 )
               val newState =
                 st.copy(
@@ -210,7 +226,7 @@ final class BotStore private (ref: Ref[IO, BotStore.State]) extends BotStoreApi 
                 val updatedBot     =
                   b.copy(
                     repliesEntries = Right(updatedEntries),
-                    repliesJson = Right(Json.fromValues(updatedEntries))
+                    decodedReplies = b.decodedReplies.map(_.patch(from = index, other = Nil, replaced = 1))
                   )
                 val newState =
                   st.copy(
@@ -323,27 +339,33 @@ object BotStore {
   final case class CachedBot(
       files: BotFiles,
       repliesEntries: Either[String, Vector[Json]],
-      repliesJson: Either[String, Json],
-      allowedFiles: Either[String, Vector[String]]
+      allowedFiles: Either[String, Vector[String]],
+      // None until a filter request needs the decoded form, then kept in sync with repliesEntries by every mutation.
+      decodedReplies: Option[Vector[Option[ReplyBundleMessage]]] = None
   )
 
   final case class State(bots: Vector[CachedBot], byId: Map[String, CachedBot]) {
-    def updateReplies(botId: String, replies: Either[String, Json]): State =
+    def updateBot(botId: String)(f: CachedBot => CachedBot): State =
       byId
         .get(botId)
         .fold(this) { b =>
-          val entriesE: Either[String, Vector[Json]] =
-            replies.flatMap(_.asArray.map(_.toVector).toRight("Replies JSON is not an array"))
-          val updated =
-            b.copy(
-              repliesEntries = entriesE,
-              repliesJson = replies
-            )
+          val updated = f(b)
           copy(
             bots = bots.map(x => if x.files.botId == botId then updated else x),
             byId = byId.updated(botId, updated)
           )
         }
+
+    def updateReplies(botId: String, replies: Either[String, Json]): State = {
+      val entriesE: Either[String, Vector[Json]] =
+        replies.flatMap(_.asArray.map(_.toVector).toRight("Replies JSON is not an array"))
+      updateBot(botId)(
+        _.copy(
+          repliesEntries = entriesE,
+          decodedReplies = None
+        )
+      )
+    }
   }
 
   object State {
@@ -405,7 +427,7 @@ object BotStore {
     (repliesIO, allowedIO).mapN { (repliesJsonE, allowed) =>
       val repliesEntriesE: Either[String, Vector[Json]] =
         repliesJsonE.flatMap(_.asArray.map(_.toVector).toRight("Replies JSON is not an array"))
-      CachedBot(files = files, repliesEntries = repliesEntriesE, repliesJson = repliesJsonE, allowedFiles = allowed)
+      CachedBot(files = files, repliesEntries = repliesEntriesE, allowedFiles = allowed)
     }
   }
 }

@@ -1,21 +1,21 @@
 package com.benkio.chatllm
 
 import cats.effect.IO
-import com.benkio.chatcore.Logger.given
 import com.benkio.chatcore.llm.Persona
+import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.Platform
-import com.benkio.chatcore.model.reply.Text
+import com.benkio.chatcore.Logger.given
 import munit.CatsEffectSuite
 import org.llm4s.error.LLMError
-import org.llm4s.llmconnect.LLMClient
 import org.llm4s.llmconnect.model.AssistantMessage
 import org.llm4s.llmconnect.model.Completion
 import org.llm4s.llmconnect.model.CompletionOptions
 import org.llm4s.llmconnect.model.Conversation
 import org.llm4s.llmconnect.model.StreamedChunk
 import org.llm4s.llmconnect.model.SystemMessage
+import org.llm4s.llmconnect.LLMClient
 import org.llm4s.reliability.ReliabilityConfig
 import org.llm4s.reliability.RetryPolicy
 import org.llm4s.types.ProviderModelTypes.ModelName
@@ -72,7 +72,8 @@ class LlmResponderSpec extends CatsEffectSuite {
       assertEquals(reply, None)
       assertEquals(client.asked.map(_.messages.size), Some(2))
       assertEquals(
-        client.asked.flatMap(_.messages.collectFirst { case SystemMessage(text) => text })
+        client.asked
+          .flatMap(_.messages.collectFirst { case SystemMessage(text) => text })
           .exists(text => text.contains("Sei il bot di prova.") && text.contains("still in development")),
         true
       )
