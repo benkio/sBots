@@ -101,18 +101,11 @@ class BotEngine[F[_]: Async: LogWriter](
 
   def commandLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] = commands.commandLogicReplied(msg).void
 
-  def fileRequestLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Unit] =
-    commands.fileRequestLogicReplied(msg).void
-
   /** The entry point the adapters use for a press on a guided-flow prompt. */
   def onSubscriptionFlowAction(msg: Message, action: SubscriptionFlowAction, requester: String)(using
       platform: PlatformAdapter[F]
   ): F[Unit] =
     subscriptionFlow.submit(msg, action, requester)
-
-  /** Whether a reply was sent by the reactive logic (the LLM is not part of it). */
-  def botLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Boolean] =
-    reactiveLogic(msg).map(_.replied)
 
   private def reactiveLogic(msg: Message)(using platform: PlatformAdapter[F]): F[Reactive] =
     msg.messageType(sBotConfig.sBotInfo.botId, platform.capabilities.commandSyntax) match {

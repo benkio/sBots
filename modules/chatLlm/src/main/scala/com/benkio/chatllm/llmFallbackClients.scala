@@ -1,8 +1,8 @@
 package com.benkio.chatllm
 
 import cats.syntax.either.*
+import org.llm4s.llmconnect.model.*
 import org.llm4s.llmconnect.model.Conversation
-import org.llm4s.llmconnect.model.UserMessage
 import org.llm4s.llmconnect.LLMClient
 import org.llm4s.reliability.ReliabilityConfig
 import org.llm4s.reliability.ReliableClient
@@ -10,11 +10,8 @@ import org.llm4s.reliability.RetryPolicy
 
 import scala.concurrent.duration.*
 
-final case class LlmQuestionFailed(question: String, message: String)
-    extends Throwable(s"[FallbackClients] ❌ Question failed: question: '$question' - error: $message")
-
-/** The answer to a question and the provider that gave it. */
-final case class Served(provider: String, content: String)
+final case class LlmCallFailed(conversation: Conversation, message: String)
+    extends Throwable(s"[FallbackClients] ❌ Call Llm failed: $message")
 
 /** The default provider and the other configured ones, each retried on its own: a fallback is asked only when the
   * previous one still fails.
@@ -27,13 +24,12 @@ final class LlmFallbackClients(primary: LLMClient, fallbacks: List[LLMClient], c
     name -> ReliableClient(client, name, config)
   }
 
-  def ask(question: String): Either[LlmQuestionFailed, Served] = {
-    val conversation                                = Conversation(Seq(UserMessage(question)))
+  def ask(conversation: Conversation): Either[LlmCallFailed, Completion] = {
     def attempt(provider: (String, ReliableClient)) =
-      provider._2.complete(conversation).map(completion => Served(provider._1, completion.content))
+      provider._2.complete(conversation)
     others
       .foldLeft(attempt(first))((served, fallback) => served.orElse(attempt(fallback)))
-      .leftMap(error => LlmQuestionFailed(question, error.message))
+      .leftMap(error => LlmCallFailed(conversation, error.message))
   }
 }
 

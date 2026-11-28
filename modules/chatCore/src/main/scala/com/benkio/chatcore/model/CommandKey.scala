@@ -34,5 +34,4 @@ object CommandKey {
     CommandKey.values.find(_.asString == normalized)
   }
 
-  def toStringValue(key: CommandKey): String = key.asString
 }

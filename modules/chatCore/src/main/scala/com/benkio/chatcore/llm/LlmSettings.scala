@@ -11,9 +11,6 @@ trait LlmSettings[F[_]] {
   def enable(chatId: ChatId): F[Unit]
   def disable(chatId: ChatId): F[Unit]
   def status(chatId: ChatId): F[LlmSettings.Status]
-
-  /** Drops what the LLM remembers of the chat. */
-  def forget(chatId: ChatId): F[Unit]
 }
 
 object LlmSettings {
@@ -25,13 +22,10 @@ object LlmSettings {
     */
   type Factory[F[_]] = (Transactor[F], SBotId) => LlmSettings[F]
 
-  def noopFactory[F[_]: Applicative]: Factory[F] = (_, _) => LlmSettings.noop[F]
-
   /** Does nothing and reports the LLM as disabled. */
   def noop[F[_]: Applicative]: LlmSettings[F] = new LlmSettings[F] {
     override def enable(chatId: ChatId): F[Unit]   = ().pure[F]
     override def disable(chatId: ChatId): F[Unit]  = ().pure[F]
     override def status(chatId: ChatId): F[Status] = Status(enabled = false).pure[F]
-    override def forget(chatId: ChatId): F[Unit]   = ().pure[F]
   }
 }

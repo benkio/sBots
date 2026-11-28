@@ -21,10 +21,8 @@ object FuzzyCandidates {
       suggestions: List[String],
       scored: List[(String, Double)] = Nil
   ) {
-    def bestCandidate: Option[String]                   = best
-    def bestCandidateAndScore: Option[(String, Double)] = best.map(b => b -> bestScore)
-    def secondScore: Option[Double]                     = second
-    def isConfident: Boolean                            = FuzzyScoring.isConfident(bestScore, second)
+    def secondScore: Option[Double] = second
+    def isConfident: Boolean        = FuzzyScoring.isConfident(bestScore, second)
   }
 
   def candidates(replyBundleMessages: List[ReplyBundleMessage]): List[Candidate] = {

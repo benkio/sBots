@@ -29,7 +29,6 @@ class LlmCommandsSpec extends CatsEffectSuite {
         calls.update(_ :+ s"$operation:${chat.id}")
       override def enable(chat: ChatId): IO[Unit]               = record("enable", chat)
       override def disable(chat: ChatId): IO[Unit]              = record("disable", chat)
-      override def forget(chat: ChatId): IO[Unit]               = record("forget", chat)
       override def status(chat: ChatId): IO[LlmSettings.Status] =
         record("status", chat).as(LlmSettings.Status(enabled = enabled))
     }
@@ -87,17 +86,6 @@ class LlmCommandsSpec extends CatsEffectSuite {
     }
   }
 
-  test("/llm forget purges the context without changing the switch") {
-    for {
-      calls    <- Ref[IO].of(List.empty[String])
-      result   <- run(text = "/llm forget", port = settings(calls))
-      recorded <- calls.get
-    } yield {
-      assertEquals(result, Text("LLM context forgotten for this chat"))
-      assertEquals(recorded, List(s"forget:${chatId.id}"))
-    }
-  }
-
   test("missing or unknown arguments show the usage and change nothing") {
     for {
       calls    <- Ref[IO].of(List.empty[String])
@@ -106,9 +94,9 @@ class LlmCommandsSpec extends CatsEffectSuite {
       ircNoArg <- run(text = "!llm", port = settings(calls), syntax = CommandSyntax(prefix = "!"))
       recorded <- calls.get
     } yield {
-      assertEquals(noArg, Text("Usage: /llm on|off|status|forget"))
+      assertEquals(noArg, Text("Usage: /llm on|off|status"))
       assertEquals(wrongArg, noArg)
-      assertEquals(ircNoArg, Text("Usage: !llm on|off|status|forget"))
+      assertEquals(ircNoArg, Text("Usage: !llm on|off|status"))
       assertEquals(recorded, Nil)
     }
   }

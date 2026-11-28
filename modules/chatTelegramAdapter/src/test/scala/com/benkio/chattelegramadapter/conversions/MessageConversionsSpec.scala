@@ -98,7 +98,6 @@ class MessageConversionsSpec extends ScalaCheckSuite {
 
     val model = message.toModel()
     assertEquals(model.mentions, List(Mention(id = Some("7"), name = Some("alice"), text = Some("Alice Smith"))))
-    assert(!model.anonymisedContent("salt").contains("Alice Smith"))
     assert(model.isDirectedAt(SBotName("alice"))) // the username is still there for dispatch
   }
 

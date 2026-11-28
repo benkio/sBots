@@ -16,8 +16,8 @@ import java.time.Instant
   * the platform; the bot id is fixed when the implementation is built, the same way the bot-scoped repositories of
   * chatCore are built with their bot id.
   *
-  * A chat with no row is disabled: /llm turns it on explicitly (#1488). `forget` drops the chat's context but leaves
-  * the switch untouched.
+  * A chat with no row is disabled: /llm turns it on explicitly (#1488). Replies are one-shot, so only the switch is
+  * stored; no chat history is read or written here.
   */
 object DBLlmSettings {
 
@@ -45,12 +45,6 @@ object DBLlmSettings {
         .transact(transactor)
         .map(enabled => LlmSettings.Status(enabled = enabled.getOrElse(false)))
 
-    override def forget(chatId: ChatId): F[Unit] =
-      deleteContextQuery(chatId, botId).run
-        .transact(transactor)
-        .flatMap(deleted => log.info(s"LLM forgot $deleted context messages of $chatId for $botId"))
-        .void
-
     private def set(chatId: ChatId, enabled: Boolean): F[Unit] =
       now
         .flatMap(timestamp =>
@@ -65,10 +59,6 @@ object DBLlmSettings {
           VALUES (${chatId.platform.id}, ${chatId.id}, ${botId.value}, $enabled, $updatedAt)
           ON CONFLICT (platform, chat_id, bot_id) DO UPDATE SET
             enabled = EXCLUDED.enabled, updated_at = EXCLUDED.updated_at""".update
-
-  def deleteContextQuery(chatId: ChatId, botId: SBotId): Update0 =
-    sql"""DELETE FROM llm_context
-          WHERE platform = ${chatId.platform.id} AND chat_id = ${chatId.id} AND bot_id = ${botId.value}""".update
 
   def statusQuery(chatId: ChatId, botId: SBotId): Query0[Boolean] =
     sql"""SELECT enabled FROM llm_chat_settings

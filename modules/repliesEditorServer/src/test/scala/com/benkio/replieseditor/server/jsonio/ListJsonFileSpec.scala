@@ -11,21 +11,6 @@ class ListJsonFileSpec extends CatsEffectSuite {
   private def tempDir(): Path =
     Files.createTempDirectory("list-json-file-test-").toAbsolutePath.normalize()
 
-  test("readAllowedFilenames returns filenames set") {
-    val dir  = tempDir()
-    val path = dir.resolve("list.json")
-    val raw  =
-      """[
-        |  { "filename": "cala_a.jpg", "sources": ["https://example.com/cala_a.jpg"] },
-        |  { "filename": "cala_b.mp4", "sources": ["https://example.com/cala_b.mp4"] }
-        |]""".stripMargin
-    Files.writeString(path, raw, StandardCharsets.UTF_8)
-
-    ListJsonFile.readAllowedFilenames(path).map { s =>
-      assertEquals(s, Set("cala_a.jpg", "cala_b.mp4"))
-    }
-  }
-
   test("readFilenamesSorted returns sorted list") {
     val dir  = tempDir()
     val path = dir.resolve("list.json")

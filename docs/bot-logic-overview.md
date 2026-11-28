@@ -142,24 +142,29 @@ Per bot configuration (`main.<botId>.startup-check` in `modules/main/src/main/re
 
 ### LLM replies
 
-The LLM replies are being rebuilt on top of LLM4s, so today the bot never answers with the LLM. What is in place is the
-per-chat switch (`/llm on|off|status|forget`, stored in `llm_chat_settings`) and the single place where the engine calls
-the LLM. Spec: `specs/llm.allium`.
+The LLM replies run on LLM4s. The active responder asks the configured provider once and delivers its plain text; the
+per-chat switch (`/llm on|off|status`, stored in `llm_chat_settings`) guards the call. No chat history is sent or stored.
+Spec: `specs/llm.allium`.
 
 ```mermaid
 flowchart TD
   A["Message arrived"] --> B["Reactive logic: guided flow, command, file request or reply bundle"]
   B --> C{"duplicate?"}
   C -->|Yes| Z["Nothing more"]
-  C -->|No| D["LlmEngine.run(msg)<br/>after, and outside, the request timeout"]
-  D --> E["noop today: nothing is sent, nothing is stored"]
+  C -->|No| D["LlmEngine.reply(msg)<br/>after, and outside, the request timeout"]
+  D --> E{"provider answer"}
+  E -->|blank| F["No reply, nothing stored"]
+  E -->|plain text| G["Text delivered, nothing stored"]
 ```
 
-- *Entry point.* `LlmEngine.run` in chatCore is called by `BotEngine.onMessage` for every handled message that is not a
-  duplicate, after the reactive part and outside the request processing timeout. The implementation is `LlmEngine.noop`.
-- *Settings.* `LlmSettings` (chatCore port) is implemented by `DBLlmSettings` in chatLlm and wired per bot through
-  `LlmWiring`. `/llm forget` deletes the chat's rows of `llm_context`, which nothing writes today.
-- *Data kept for the rebuild.* The `<id>_persona.md` files and `modules/chatLlm/src/main/resources/prompts/system.md`.
+- *Entry point.* `LlmEngine.reply` in chatCore is called by `BotEngine.onMessage` outside the request processing timeout,
+  for handled messages that pass the message, chat timeout and `/llm` switch filters. chatLlm builds it with
+  `LlmResponder.apply`, which composes the persona and system prompt, sends the single message as the user prompt and
+  asks the configured providers.
+- *Settings.* `LlmSettings` is a chatCore port implemented by `DBLlmSettings` and wired per bot through `BotCoreSetup`;
+  only the per-chat on/off switch is stored. The `llm_context` table is legacy and unused.
+- *Data read.* The `<id>_persona.md` files and `modules/chatLlm/src/main/resources/prompts/system.md` form the system
+  message sent to the provider.
 
 ### Media subtype dispatch
 

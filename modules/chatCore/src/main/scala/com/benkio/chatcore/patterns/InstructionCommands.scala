@@ -25,11 +25,6 @@ object InstructionCommands {
 
   object InstructionsCommand {
 
-    def instructionsUriDefault(sBotInfo: SBotInfo): Uri =
-      Uri.unsafeFromString(
-        s"https://github.com/benkio/sBots/blob/main/modules/bots/${sBotInfo.botName}/${sBotInfo.botId}_instructions.md"
-      )
-
     def instructionsLinkReply(instructionsUri: Uri): Text =
       Text(s"Puoi trovare le istruzioni del bot al seguente URL: $instructionsUri")
 

@@ -18,16 +18,6 @@ extension (r: Regex) {
   def tr(manualLength: Int): RegexTextTriggerValue =
     RegexTextTriggerValue(r, manualLength)
 }
-extension (textTriggerValue: TextTriggerValue) {
-  def isStringTriggerValue: Boolean = textTriggerValue match {
-    case RegexTextTriggerValue(_, _) => false
-    case StringTextTriggerValue(_)   => true
-  }
-  def isRegexTriggerValue: Boolean = textTriggerValue match {
-    case RegexTextTriggerValue(_, _) => true
-    case StringTextTriggerValue(_)   => false
-  }
-}
 
 given Decoder[Regex] = Decoder.decodeString.map(_.r)
 given Encoder[Regex] = Encoder.encodeString.contramap[Regex](_.toString())

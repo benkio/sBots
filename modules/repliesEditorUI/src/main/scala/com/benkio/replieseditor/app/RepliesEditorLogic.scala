@@ -13,9 +13,4 @@ object RepliesEditorLogic {
     if tp == 0 then "" else s"Page ${currentPage.max(1)} / $tp"
   }
 
-  def pageOffset(currentPage: Int, pageSize: Int): Int =
-    (currentPage.max(1) - 1) * pageSize.max(1)
-
-  def insertOffsetAtPageTop(total: Int, currentPage: Int, pageSize: Int): Int =
-    pageOffset(currentPage, pageSize).min(total.max(0)).max(0)
 }

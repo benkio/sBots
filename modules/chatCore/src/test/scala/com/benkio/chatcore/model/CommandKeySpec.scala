@@ -15,7 +15,6 @@ class CommandKeySpec extends ScalaCheckSuite {
   property("fromString round-trips canonical asString") {
     forAll { (key: CommandKey) =>
       assertEquals(CommandKey.fromString(key.asString), Some(key))
-      assertEquals(CommandKey.toStringValue(key), key.asString)
     }
   }
 

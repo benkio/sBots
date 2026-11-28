@@ -63,9 +63,6 @@ final case class PlatformCapabilities(
 ) {
   require(maxTextLength > 0, s"maxTextLength must be positive: $maxTextLength")
 
-  /** What a command message starts with, e.g. `/` or `!`. */
-  def commandPrefix: String = commandSyntax.prefix
-
   def supports(mediaFile: MediaFile): Boolean = supportedMedia.contains(MediaKind.of(mediaFile))
 
   /** Whether the platform sends no file but the markdown files, as text (e.g. IRC): of the files of a reply, the

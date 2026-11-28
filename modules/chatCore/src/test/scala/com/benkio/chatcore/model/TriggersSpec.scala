@@ -33,16 +33,6 @@ class TriggersSpec extends CatsEffectSuite with ScalaCheckSuite {
     }
   }
 
-  property("isStringTriggerValue / isRegexTriggerValue are complementary") {
-    forAll { (trigger: TextTriggerValue) =>
-      assertEquals(trigger.isStringTriggerValue, !trigger.isRegexTriggerValue)
-      trigger match {
-        case _: StringTextTriggerValue => assert(trigger.isStringTriggerValue)
-        case _: RegexTextTriggerValue  => assert(trigger.isRegexTriggerValue)
-      }
-    }
-  }
-
   test("ShowInstance of TextTriggerValue should return the expected string") {
     val expectedStringValue             = "test trigger"
     val expectedRegexValue              = "test [rR]egex(p)?".r

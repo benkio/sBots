@@ -2,7 +2,7 @@
 
 ## Goal
 
-Create and review the LLM persona files for the 9 bots (issue #1490; the reply catalogue was removed by #1594). They are repo data for the LLM replies being rebuilt on LLM4s: nothing reads them at runtime today.
+Create and review the LLM persona files for the 9 bots (issue #1490; the reply catalogue was removed by #1594). They are repo data read at runtime by the one-shot LLM replies, so changes to a persona change the bot's behavior as well as its voice.
 
 ## Files
 
@@ -31,9 +31,9 @@ Calandro (`cala`) and M0sconi (`mos`) have **no SRT captions** and empty show ca
 - a **description/identity** section — who the character is and how they talk;
 - a **speech style** section — concrete voice and rhythm rules;
 - a **few-shot examples** section — examples preferably taken from real triggers/replies;
-- a **rules** section — accuracy, behaviour, reply language, no commands, no mentions/usernames, stay silent when there is nothing sensible to say.
+- a **rules** section — accuracy, behaviour, reply language, no commands, no mentions/usernames, say so in text when there is nothing sensible to say.
 
-The compact four-heading form (`## Descrizione`, `## Stile`, `## Esempi`, `## Regole`) is still accepted. Long personas are allowed; the size limit comes back with the new implementation. The persona must not contain role labels such as `assistant:` or `system:`, and not the `/llm` command.
+The compact four-heading form (`## Descrizione`, `## Stile`, `## Esempi`, `## Regole`) is still accepted. Long personas are allowed; the reply length is capped by the system prompt at render time. The persona must not contain role labels such as `assistant:` or `system:`, and not the `/llm` command.
 
 ## Execution
 

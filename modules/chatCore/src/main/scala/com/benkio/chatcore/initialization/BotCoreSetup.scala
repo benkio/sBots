@@ -88,7 +88,7 @@ object BotCoreSetup {
       llmEngine <- llmDependencies.fold(Resource.pure[F, LlmEngine[F]](LlmEngine.noop[F]))(dependencies =>
         Resource
           .eval(Persona.load[F](effectiveSBotConfig.personaFilename))
-          .flatMap(dependencies.build(dbLayer, _))
+          .flatMap(dependencies.build)
       )
     } yield BotCoreSetup(
       jsonDataRepository = jsonDataRepository,

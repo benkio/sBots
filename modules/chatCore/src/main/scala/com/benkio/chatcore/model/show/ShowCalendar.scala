@@ -1,8 +1,5 @@
 package com.benkio.chatcore.model.show
 
-import cats.effect.Sync
-import cats.syntax.all.*
-
 import java.time.LocalDate
 import java.time.MonthDay
 import scala.util.matching.Regex
@@ -117,7 +114,4 @@ object ShowCalendar {
   def forDay(shows: List[Show], day: MonthDay): List[Show] =
     dropShortWhenCrowded(eligible(shows).filter(_.eventMonthDay == day))
 
-  /** Candidates for the given day, or for the current day when none is specified. */
-  def forDayOrToday[F[_]: Sync](shows: List[Show], day: Option[MonthDay]): F[List[Show]] =
-    day.fold(Sync[F].delay(MonthDay.now()))(_.pure[F]).map(forDay(shows, _))
 }

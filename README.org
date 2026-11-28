@@ -215,9 +215,10 @@ SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' A
 
 ** LLM Replies
 
-The bots do *not* answer with an LLM at the moment: the replies are being rebuilt on top of LLM4s. What exists today is
-the per-chat switch and the place where the engine will call the LLM. The behaviour is specified in
-~specs/llm.allium~ and the dispatch is in [[file:docs/bot-logic-overview.md][bot-logic-overview]] (see "LLM replies").
+The LLM replies run on LLM4s. The active responder asks the configured provider once for each eligible message and
+replies with plain text. The per-chat switch guards the call. Replies are one-shot: the bot stores no chat history and
+sends none to the provider. The behaviour is specified in ~specs/llm.allium~ and the dispatch is in
+[[file:docs/bot-logic-overview.md][bot-logic-overview]] (see "LLM replies").
 
 - *The switch.* Someone runs ~/llm on~ (Telegram, Discord) or ~!llm on~ (IRC). The switch is stored per chat *and* per bot
   in the ~llm_chat_settings~ table, and a chat with no row is off. The command also has to be offered by BotFather: each
@@ -227,16 +228,18 @@ the per-chat switch and the place where the engine will call the LLM. The behavi
 |---|---|
 | ~/llm on~ / ~/llm off~ | enable / disable the LLM replies of this bot in this chat |
 | ~/llm status~ | tell whether it is on |
-| ~/llm forget~ | delete the stored conversation of this chat (the ~llm_context~ table), keeping the switch |
 
-- *The entry point.* ~EngineLlm.run~ in chatCore is called after the request timeout, outside it, for every handled message
-  that is not a duplicate. It is a noop today, so nothing is sent to any provider and nothing is written to ~llm_context~.
-- *Data kept.* The per-bot ~<id>_persona.md~ files (see ~agent-context/agentDocs/GeneratePersona.md~) and
-  ~modules/chatLlm/src/main/resources/prompts/system.md~ stay as data for the new implementation; nothing reads them now.
-- *Who can switch it.* The switch is open: ~/llm on|off|forget~ has no permission check, any member of a chat can use it.
+- *The entry point.* ~LlmEngine.reply~ in chatCore is called after the request timeout, outside it, for handled messages
+  that pass the message, chat timeout and ~/llm~ switch filters. The active responder composes the persona and system
+  prompt with the single message, asks the configured provider and delivers non-blank plain text. A blank completion
+  leaves the outcome unchanged. The ~llm_context~ table is legacy and unused.
+- *Data read.* The per-bot ~<id>_persona.md~ files (see ~agent-context/agentDocs/GeneratePersona.md~) and
+  ~modules/chatLlm/src/main/resources/prompts/system.md~ are composed into the system prompt; the message itself is the
+  single user prompt.
+- *Who can switch it.* The switch is open: ~/llm on|off|status~ has no permission check, any member of a chat can use it.
   The adapters do not expose the chat-admin status of a sender.
-- *Configuration.* There is none: the provider, quota, timeout and context settings were removed together with the old
-  implementation, and no API key is needed.
+- *Configuration.* The providers, default provider and fallbacks come from the ~llm4s~ block of the application
+  configuration, loaded at startup; the API keys are read by llm4s from that configuration.
 
 ** Operations
 

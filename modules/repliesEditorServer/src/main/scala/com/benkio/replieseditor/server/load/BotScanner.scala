@@ -48,6 +48,4 @@ final class BotScanner(repoRoot: Path) {
     }
   }
 
-  def findBot(botId: String): IO[Option[BotFiles]] =
-    scanBots().map(_.find(_.botId == botId))
 }
