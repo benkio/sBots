@@ -2,8 +2,6 @@ package com.benkio.main
 
 import cats.effect.IO
 import com.benkio.chatcore.llm.Persona
-import com.benkio.chatcore.mocks.DBLayerMock
-import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.Logger.logWriter
 import com.benkio.chatllm.LLMLoadingError
 import com.benkio.chatllm.LlmEngine
@@ -95,7 +93,7 @@ class ConfigSpec extends CatsEffectSuite {
     // test depend on the network and on a valid API key.
     LlmEngine
       .dependencies[IO](llmConfig("gemini-free", apiKey = Some("stub-key")))
-      .flatMap(_.build(DBLayerMock.mock(SBotId("test")), Persona("a persona")))
+      .flatMap(_.build(Persona("a persona")))
       .use_
       .void
   }

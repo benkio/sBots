@@ -11,9 +11,6 @@ trait LlmSettings[F[_]] {
   def enable(chatId: ChatId): F[Unit]
   def disable(chatId: ChatId): F[Unit]
   def status(chatId: ChatId): F[LlmSettings.Status]
-
-  /** Drops what the LLM remembers of the chat. */
-  def forget(chatId: ChatId): F[Unit]
 }
 
 object LlmSettings {
@@ -30,6 +27,5 @@ object LlmSettings {
     override def enable(chatId: ChatId): F[Unit]   = ().pure[F]
     override def disable(chatId: ChatId): F[Unit]  = ().pure[F]
     override def status(chatId: ChatId): F[Status] = Status(enabled = false).pure[F]
-    override def forget(chatId: ChatId): F[Unit]   = ().pure[F]
   }
 }

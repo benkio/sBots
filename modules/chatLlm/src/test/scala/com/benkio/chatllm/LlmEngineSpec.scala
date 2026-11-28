@@ -20,10 +20,10 @@ class LlmEngineSpec extends CatsEffectSuite {
   )
 
   /** A responder that records the persona and the message it is asked about and answers with the given text. */
-  private def recordingResponder(answer: Option[Text]): IO[(LlmResponder[IO], Ref[IO, List[(Persona, Message)]])] =
+  private def recordingResponder(answer: Text): IO[(LlmResponder[IO], Ref[IO, List[(Persona, Message)]])] =
     Ref.of[IO, List[(Persona, Message)]](List.empty).map { asked =>
       val responder = new LlmResponder[IO] {
-        override def respond(persona: Persona, msg: Message): IO[Option[Text]] =
+        override def respond(persona: Persona, msg: Message): IO[Text] =
           asked.update(_ :+ (persona -> msg)).as(answer)
       }
       (responder, asked)
@@ -31,7 +31,7 @@ class LlmEngineSpec extends CatsEffectSuite {
 
   test("the engine asks the responder to reply as the persona of the bot, and returns its answer") {
     for {
-      (responder, asked) <- recordingResponder(Some(Text("hi")))
+      (responder, asked) <- recordingResponder(Text("hi"))
       persona = Persona("Sei il bot di prova.")
       reply    <- LlmEngine.LlmEngineImpl[IO](responder, persona).reply(msg)
       askedFor <- asked.get
@@ -41,9 +41,9 @@ class LlmEngineSpec extends CatsEffectSuite {
     }
   }
 
-  test("the engine has nothing to say when the responder has none") {
+  test("the engine has nothing to say when the provider text is blank") {
     for {
-      (responder, _) <- recordingResponder(None)
+      (responder, _) <- recordingResponder(Text("   "))
       reply          <- LlmEngine.LlmEngineImpl[IO](responder, Persona("Sei il bot di prova.")).reply(msg)
     } yield assertEquals(reply, None)
   }

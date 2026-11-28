@@ -93,19 +93,6 @@ class DBLlmSettingsSpec extends CatsEffectSuite {
       } yield ()
     })
 
-  private def insertContext(xa: Transactor[IO], chatId: ChatId, botId: SBotId, content: String): IO[Unit] =
-    sql"""INSERT INTO llm_context (platform, chat_id, bot_id, role, content, created_at)
-          VALUES (${chatId.platform.id}, ${chatId.id}, ${botId.value}, 'user', $content, 1)""".update.run
-      .transact(xa)
-      .void
-
-  private def contexts(xa: Transactor[IO], chatId: ChatId, botId: SBotId): IO[List[String]] =
-    sql"""SELECT content FROM llm_context
-          WHERE platform = ${chatId.platform.id} AND chat_id = ${chatId.id} AND bot_id = ${botId.value}"""
-      .query[String]
-      .to[List]
-      .transact(xa)
-
   test("settings are off by default and toggled per chat and bot, stamping the update time") {
     tempDb.use { xa =>
       for {
@@ -129,29 +116,6 @@ class DBLlmSettingsSpec extends CatsEffectSuite {
         assertEquals(otherBotS, LlmSettings.Status(enabled = false))
         assertEquals(disabled, LlmSettings.Status(enabled = false))
         assertEquals(updatedAt, 200L)
-      }
-    }
-  }
-
-  test("forget drops only the context of that chat and bot and keeps the switch") {
-    tempDb.use { xa =>
-      for {
-        _ <- setupSchema(xa)
-        settings = DBLlmSettings[IO](xa, botA)
-        _            <- settings.enable(chat)
-        _            <- insertContext(xa = xa, chatId = chat, botId = botA, content = "to forget")
-        _            <- insertContext(xa = xa, chatId = chat, botId = botB, content = "other bot")
-        _            <- insertContext(xa = xa, chatId = otherChat, botId = botA, content = "other chat")
-        _            <- settings.forget(chat)
-        forgotten    <- contexts(xa = xa, chatId = chat, botId = botA)
-        otherBot     <- contexts(xa = xa, chatId = chat, botId = botB)
-        otherChatCtx <- contexts(xa = xa, chatId = otherChat, botId = botA)
-        status       <- settings.status(chat)
-      } yield {
-        assertEquals(forgotten, Nil)
-        assertEquals(otherBot, List("other bot"))
-        assertEquals(otherChatCtx, List("other chat"))
-        assertEquals(status, LlmSettings.Status(enabled = true))
       }
     }
   }

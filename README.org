@@ -215,9 +215,10 @@ SELECT show_title FROM show WHERE show_origin_automatic_caption LIKE '%idiot%' A
 
 ** LLM Replies
 
-The LLM replies are being rebuilt on top of LLM4s. The active responder asks the configured provider and answers only
-when the decoded envelope asks for text. The per-chat switch guards the call. The behaviour is specified in
-~specs/llm.allium~ and the dispatch is in [[file:docs/bot-logic-overview.md][bot-logic-overview]] (see "LLM replies").
+The LLM replies run on LLM4s. The active responder asks the configured provider once for each eligible message and
+replies with plain text. The per-chat switch guards the call. Replies are one-shot: the bot stores no chat history and
+sends none to the provider. The behaviour is specified in ~specs/llm.allium~ and the dispatch is in
+[[file:docs/bot-logic-overview.md][bot-logic-overview]] (see "LLM replies").
 
 - *The switch.* Someone runs ~/llm on~ (Telegram, Discord) or ~!llm on~ (IRC). The switch is stored per chat *and* per bot
   in the ~llm_chat_settings~ table, and a chat with no row is off. The command also has to be offered by BotFather: each
@@ -227,14 +228,15 @@ when the decoded envelope asks for text. The per-chat switch guards the call. Th
 |---|---|
 | ~/llm on~ / ~/llm off~ | enable / disable the LLM replies of this bot in this chat |
 | ~/llm status~ | tell whether it is on |
-| ~/llm forget~ | delete the stored conversation of this chat (the ~llm_context~ table), keeping the switch |
 
-- *The entry point.* ~EngineLlm.run~ in chatCore is called after the request timeout, outside it, for handled messages
-  that pass the message, chat timeout and ~/llm~ switch filters. The active responder asks the configured provider and
-  decodes its envelope: ~silent~ sends nothing, ~text~ replies with the decoded text. Nothing is written to ~llm_context~.
+- *The entry point.* ~LlmEngine.reply~ in chatCore is called after the request timeout, outside it, for handled messages
+  that pass the message, chat timeout and ~/llm~ switch filters. The active responder composes the persona and system
+  prompt with the single message, asks the configured provider and delivers non-blank plain text. A blank completion
+  leaves the outcome unchanged. The ~llm_context~ table is legacy and unused.
 - *Data read.* The per-bot ~<id>_persona.md~ files (see ~agent-context/agentDocs/GeneratePersona.md~) and
-  ~modules/chatLlm/src/main/resources/prompts/system.md~ are composed into the system prompt.
-- *Who can switch it.* The switch is open: ~/llm on|off|forget~ has no permission check, any member of a chat can use it.
+  ~modules/chatLlm/src/main/resources/prompts/system.md~ are composed into the system prompt; the message itself is the
+  single user prompt.
+- *Who can switch it.* The switch is open: ~/llm on|off|status~ has no permission check, any member of a chat can use it.
   The adapters do not expose the chat-admin status of a sender.
 - *Configuration.* The providers, default provider and fallbacks come from the ~llm4s~ block of the application
   configuration, loaded at startup; the API keys are read by llm4s from that configuration.

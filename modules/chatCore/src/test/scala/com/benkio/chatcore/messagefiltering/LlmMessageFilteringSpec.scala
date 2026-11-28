@@ -106,7 +106,6 @@ class LlmMessageFilteringSpec extends CatsEffectSuite {
     new LlmSettings[IO] {
       override def enable(chat: ChatId): IO[Unit]               = IO.unit
       override def disable(chat: ChatId): IO[Unit]              = IO.unit
-      override def forget(chat: ChatId): IO[Unit]               = IO.unit
       override def status(chat: ChatId): IO[LlmSettings.Status] =
         reads.update(_ + 1).as(LlmSettings.Status(enabled = enabled))
     }

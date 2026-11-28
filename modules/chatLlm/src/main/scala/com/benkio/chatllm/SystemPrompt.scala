@@ -9,19 +9,18 @@ import java.nio.charset.StandardCharsets
 import scala.util.matching.Regex
 
 /** The system prompt template of the LLM replies (`prompts/system.md`): the rules of the bot, with the placeholders
-  * `{{persona}}`, `{{max_chars}}`, `{{context}}` and `{{message}}` that [[render]] fills. chatLlm owns it; the persona
-  * is the only part that comes from the bot.
+  * `{{persona}}`, `{{max_chars}}` and `{{message}}` that [[render]] fills. chatLlm owns it; the persona is the only
+  * part that comes from the bot. Replies are one-shot, so the prompt carries no chat history.
   */
 final case class SystemPrompt(template: String) {
 
   /** Fills the placeholders in a single pass: the values are inserted as they are, never searched for placeholders, so
     * a persona or a message cannot inject one. An unknown placeholder is left as it is.
     */
-  def render(persona: String, maxChars: Int, context: String, message: String): String = {
+  def render(persona: String, maxChars: Int, message: String): String = {
     val values = Map(
       "persona"   -> persona,
       "max_chars" -> maxChars.toString,
-      "context"   -> context,
       "message"   -> message
     )
     SystemPrompt.placeholder.replaceAllIn(

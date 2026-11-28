@@ -24,8 +24,8 @@ dashboard depends on them.
 
 - `[stats] type=message bot=<bot> platform=<platform> outcome=<outcome> latency_ms=<n>`: one per message that reaches a bot
   (`BotEngine.onMessage`). `outcome` is `reactive-replied` (the reactive logic replied), `unreplied` (processed, nothing replied), `duplicate` (skipped, #1432), `timeout`
-  (dropped after the request timeout), `failed` (an error ended the processing) or `llm-replied` (the provider envelope
-  asked for a text answer).
+  (dropped after the request timeout), `failed` (an error ended the processing) or `llm-replied` (the provider returned
+  non-blank plain text).
 - `[stats] type=system heap_used_mb=<n> heap_max_mb=<n> uptime_s=<n> db_mb=<n> mem_total_mb=<n> mem_available_mb=<n>
   load1=<n.nn> load5=<n.nn> load15=<n.nn> cpu_usage_pct=<n> mem_free_mb=<n> proc_rss_mb=<n> disk_total_mb=<n> disk_free_mb=<n>`: once a minute. `db_mb=-1`
   when the DB file is missing; `mem_total_mb=-1`, `mem_available_mb=-1`, `mem_free_mb=-1`, `proc_rss_mb=-1`, `load*=-1.00`,

@@ -38,8 +38,8 @@ class LlmResponderSpec extends CatsEffectSuite {
 
   private val config = ReliabilityConfig(retryPolicy = RetryPolicy.noRetry, deadline = None)
 
-  /** A client that records the conversation and answers with the given envelope. */
-  private final class RecordingClient(envelope: String) extends LLMClient {
+  /** A client that records the conversation and answers with the given plain text. */
+  private final class RecordingClient(completion: String) extends LLMClient {
     private val askedRef = new AtomicReference[Option[Conversation]](None)
 
     def asked: Option[Conversation] = askedRef.get()
@@ -49,7 +49,7 @@ class LlmResponderSpec extends CatsEffectSuite {
         options: CompletionOptions
     ): Either[LLMError, Completion] = {
       val _ = askedRef.set(Some(conversation))
-      Right(Completion("id", Instant.now(), ModelName("stub"), AssistantMessage(Some(envelope))))
+      Right(Completion("id", Instant.now(), ModelName("stub"), AssistantMessage(Some(completion))))
     }
 
     override def streamComplete(
@@ -64,35 +64,33 @@ class LlmResponderSpec extends CatsEffectSuite {
   private def responder(client: RecordingClient): LlmResponder[IO] =
     LlmResponder[IO](LlmFallbackClients(client, Nil, config), systemPrompt)
 
-  test("the provider gets one system message with the prompt and the development instruction") {
-    val client = new RecordingClient("""{"action":"silent","text":""}""")
+  test("the provider gets one system message with the rendered prompt and no development instruction") {
+    val client = new RecordingClient("ciao")
     for {
       reply <- responder(client).respond(persona, message)
+      asked = client.asked
     } yield {
-      assertEquals(reply, None)
-      assertEquals(client.asked.map(_.messages.size), Some(2))
+      assertEquals(reply, Text("ciao"))
+      assertEquals(asked.map(_.messages.size), Some(2))
       assertEquals(
-        client.asked
+        asked
           .flatMap(_.messages.collectFirst { case SystemMessage(text) => text })
-          .exists(text => text.contains("Sei il bot di prova.") && text.contains("still in development")),
+          .exists(text =>
+            text.contains("Sei il bot di prova.") &&
+              text.contains("MESSAGGIO: hello") &&
+              !text.contains("still in development") &&
+              !text.contains("\"action\"")
+          ),
         true
       )
-      assertEquals(client.asked.flatMap(_.messages.lastOption.map(_.content)), Some("hello"))
+      assertEquals(asked.flatMap(_.messages.lastOption.map(_.content)), Some("hello"))
     }
   }
 
-  test("the text envelope becomes a text reply") {
-    val client = new RecordingClient("""{"action":"text","text":"ciao"}""")
-    responder(client).respond(persona, message).map(reply => assertEquals(reply, Some(Text("ciao"))))
-  }
-
-  test("an invalid envelope fails the responder") {
-    val client = new RecordingClient("not json")
-    interceptIO[LlmResponder.LlmReplyInvalid](responder(client).respond(persona, message)).void
-  }
-
-  test("an unsupported action fails the responder") {
-    val client = new RecordingClient("""{"action":"unknown","text":""}""")
-    interceptIO[LlmResponder.LlmReplyInvalid](responder(client).respond(persona, message)).void
+  test("the provider text is returned verbatim, even when it looks like the old envelope") {
+    val envelope = """{"action":"silent","text":""}"""
+    responder(new RecordingClient(envelope)).respond(persona, message).map { reply =>
+      assertEquals(reply, Text(envelope))
+    }
   }
 }

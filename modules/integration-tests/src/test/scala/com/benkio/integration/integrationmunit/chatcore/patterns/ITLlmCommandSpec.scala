@@ -6,11 +6,9 @@ import cats.syntax.all.*
 import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.model.reply.EffectfulKey
 import com.benkio.chatcore.model.reply.EffectfulReply
-import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.CommandSyntax
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.SBotInfo
-import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.repository.db.DBLayer
 import com.benkio.chatcore.repository.db.DBLlmSettings
 import com.benkio.chatcore.ComputeReply
@@ -20,7 +18,6 @@ import com.benkio.integration.DBFixture
 import com.benkio.integration.Logger.given
 import com.benkio.RichardPHJBensonBot.RichardPHJBensonBot
 import doobie.implicits.*
-import doobie.Transactor
 import munit.CatsEffectSuite
 
 class ITLlmCommandSpec extends CatsEffectSuite with DBFixture {
@@ -57,10 +54,6 @@ class ITLlmCommandSpec extends CatsEffectSuite with DBFixture {
           botId = botId
         )
       )
-      _ <- Resource.eval(insertContext(xa = fixture.transactor, chatId = chatId, botId = botId, content = "to forget"))
-      _ <- Resource.eval(
-        insertContext(xa = fixture.transactor, chatId = otherChat, botId = otherBot, content = "to keep")
-      )
 
       on              <- Resource.eval(run(dbLayer, "/llm on"))
       storedOn        <- Resource.eval(DBLlmSettings.statusQuery(chatId, botId).option.transact(fixture.transactor))
@@ -72,14 +65,8 @@ class ITLlmCommandSpec extends CatsEffectSuite with DBFixture {
         DBLlmSettings.statusQuery(chatId, otherBot).option.transact(fixture.transactor)
       )
 
-      off               <- Resource.eval(run(dbLayer, "/llm off"))
-      storedOff         <- Resource.eval(DBLlmSettings.statusQuery(chatId, botId).option.transact(fixture.transactor))
-      forget            <- Resource.eval(run(dbLayer, "/llm forget"))
-      context           <- Resource.eval(contexts(xa = fixture.transactor, chatId = chatId, botId = botId))
-      otherContext      <- Resource.eval(contexts(xa = fixture.transactor, chatId = otherChat, botId = otherBot))
-      storedAfterForget <- Resource.eval(
-        DBLlmSettings.statusQuery(chatId, botId).option.transact(fixture.transactor)
-      )
+      off       <- Resource.eval(run(dbLayer, "/llm off"))
+      storedOff <- Resource.eval(DBLlmSettings.statusQuery(chatId, botId).option.transact(fixture.transactor))
     } yield {
       assertEquals(on, "LLM replies enabled for this chat")
       assertEquals(storedOn, Some(true))
@@ -88,24 +75,7 @@ class ITLlmCommandSpec extends CatsEffectSuite with DBFixture {
       assertEquals(otherBotStatus, None)
       assertEquals(off, "LLM replies disabled for this chat")
       assertEquals(storedOff, Some(false))
-      assertEquals(forget, "LLM context forgotten for this chat")
-      assertEquals(context, Nil)
-      assertEquals(otherContext, List("to keep"))
-      assertEquals(storedAfterForget, Some(false))
     }
     result.use_
   }
-
-  private def insertContext(xa: Transactor[IO], chatId: ChatId, botId: SBotId, content: String): IO[Unit] =
-    sql"""INSERT INTO llm_context (platform, chat_id, bot_id, role, content, created_at)
-          VALUES (${chatId.platform.id}, ${chatId.id}, ${botId.value}, 'user', $content, 1)""".update.run
-      .transact(xa)
-      .void
-
-  private def contexts(xa: Transactor[IO], chatId: ChatId, botId: SBotId): IO[List[String]] =
-    sql"""SELECT content FROM llm_context
-          WHERE platform = ${chatId.platform.id} AND chat_id = ${chatId.id} AND bot_id = ${botId.value}"""
-      .query[String]
-      .to[List]
-      .transact(xa)
 }

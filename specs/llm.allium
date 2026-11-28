@@ -1,13 +1,12 @@
 -- allium: 3
--- llm.allium: the LLM replies of the bots (epic #1499). The LLM replies are being rebuilt on LLM4s: only what the code
--- does today is specified, which is the /llm switch, the entry point that asks the configured provider and the decoded
--- silent/text answer.
--- Code: modules/chatCore (llm: the LlmSettings, LlmResponder and LlmWiring ports; patterns/LlmCommands; the LlmEngine
--- port and BotEngine), modules/chatLlm (LlmEngine, the responder built from the startup clients, LlmLoader, ChatLlm and
--- the doobie DBLlmSettings) and modules/main (startup wiring). Tables: V13 in botDB.
+-- llm.allium: the LLM replies of the bots (epic #1499): the /llm switch and the one-shot plain-text answer the active
+-- responder asks the configured provider for. Replies are event-driven; no chat history is retained or sent.
+-- Code: modules/chatCore (llm: LlmSettings; patterns/LlmCommands; the LlmEngine port and BotEngine), modules/chatLlm
+-- (LlmEngine, LlmResponder, SystemPrompt, LlmLoader and the llm4s fallback clients) and modules/main (startup wiring).
+-- Tables: V13 in botDB; llm_context is legacy and unused.
 --
--- The persona files (<botid>_persona.md) and the prompt template (prompts/system.md) are read when the active responder
--- builds the conversation.
+-- The persona files (<botid>_persona.md) and the prompt template (prompts/system.md) are read when the responder builds
+-- the single system message.
 
 use "./sbots.allium" as core
 
@@ -24,16 +23,6 @@ entity LlmChatSetting {
     bot: core/Bot
     enabled: Boolean = false
     updated_at: Timestamp
-}
-
--- #1487: the context rows of a chat. The table exists but nothing writes to it now; `forget` still deletes the rows of
--- the chat and bot.
-entity LlmContextMessage {
-    chat: core/Chat
-    bot: core/Bot
-    role: user | assistant
-    content: String
-    created_at: Timestamp
 }
 
 ------------------------------------------------------------
@@ -79,37 +68,44 @@ rule LlmCommandStatusDisabled {
     ensures: LlmCommandResponded(chat: chat, text: "LLM replies are disabled for this chat")
 }
 
--- `forget` deletes the context rows of that chat and bot only: the switch, other chats and other bots are intact.
-rule LlmCommandForget {
-    when: UserRunsLlmCommand(chat, bot, argument)
-    requires: argument = forget
-    ensures:
-        not exists LlmContextMessage{chat: chat, bot: bot}
-        LlmCommandResponded(chat: chat, text: "LLM context forgotten for this chat")
-}
-
 rule LlmCommandUsage {
     when: UserRunsLlmCommand(chat, bot, argument)
     requires: argument = unknown
     requires: chat.platform != irc
-    ensures: LlmCommandResponded(chat: chat, text: "Usage: /llm on|off|status|forget")
+    ensures: LlmCommandResponded(chat: chat, text: "Usage: /llm on|off|status")
 }
 
 rule LlmCommandIrcUsage {
     when: UserRunsLlmCommand(chat, bot, argument)
     requires: argument = unknown
     requires: chat.platform = irc
-    ensures: LlmCommandResponded(chat: chat, text: "Usage: !llm on|off|status|forget")
+    ensures: LlmCommandResponded(chat: chat, text: "Usage: !llm on|off|status")
 }
 
 -- The engine has a single LLM entry point. It runs after, and outside, the request processing timeout, only for a
 -- handled request the reactive part left unanswered and that passes the message, chat timeout and /llm switch filters.
--- The active responder builds the conversation from the persona and system prompt and asks the configured provider;
--- a silent answer leaves the outcome unchanged, a text answer is delivered as an LLM reply.
+-- The active responder builds one system message from the persona and system prompt, sends the single message as the
+-- user prompt, and asks the configured provider once. No conversation history is read or written.
 rule LlmEntryPointAsksProvider {
     when: LlmEntryPointReached(request)
     requires: request.outcome = handled
     ensures: LlmProviderAsked(request)
+}
+
+-- The provider answers with plain text, not a JSON envelope. Non-blank text is delivered as the LLM reply.
+rule LlmEntryPointDeliversPlainText {
+    when: LlmProviderAnswered(request, text)
+    requires: request.outcome = handled
+    requires: text.trim != ""
+    ensures: LlmReplyDelivered(request: request, text: text)
+}
+
+-- A blank completion is treated as "nothing to say": the outcome of the reactive part stands.
+rule LlmEntryPointIgnoresBlankText {
+    when: LlmProviderAnswered(request, text)
+    requires: request.outcome = handled
+    requires: text.trim = ""
+    ensures: LlmOutcomeUnchanged(request)
 }
 
 -- A failing LLM never fails the handling of the request: the error is logged and the request counts as unanswered by
@@ -154,6 +150,8 @@ surface LlmEntryPointSurface {
     provides:
         LlmEntryPointReached(request)
         LlmProviderAsked(request)
+        LlmProviderAnswered(request, text)
+        LlmReplyDelivered(request, text)
         LlmEntryPointFailed(request)
 }
 
@@ -161,5 +159,4 @@ surface LlmEntryPointSurface {
 -- Open Questions
 ------------------------------------------------------------
 
-open question "The LLM replies are being rebuilt on LLM4s: the context window, provider quotas and observability are unspecified until that work lands."
-open question "Privacy note (#1483, #1498): the Gemini free tier may not be offered to minors or EEA/UK/CH users. Revisit for the provider chosen in the LLM4s rebuild."
+open question "Privacy note (#1483, #1498): the configured provider's free tier may not be offered to minors or EEA/UK/CH users. Decide whether to restrict the switch or change provider."

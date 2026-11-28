@@ -19,7 +19,6 @@ class BotEngineLlmSpec extends CatsEffectSuite with BotEngineFixtures {
   private val llmOn: LlmSettings[IO] = new LlmSettings[IO] {
     override def enable(chat: ChatId): IO[Unit]               = IO.unit
     override def disable(chat: ChatId): IO[Unit]              = IO.unit
-    override def forget(chat: ChatId): IO[Unit]               = IO.unit
     override def status(chat: ChatId): IO[LlmSettings.Status] = IO.pure(LlmSettings.Status(enabled = true))
   }
 

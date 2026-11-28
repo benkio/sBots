@@ -34,7 +34,7 @@ object LlmCommands {
         ttl: Option[FiniteDuration],
         commandSyntax: CommandSyntax = CommandSyntax.Slash
     ): F[ReplyValue] = {
-      val usage = s"Usage: ${commandSyntax.invocation(CommandKey.Llm.asString)} on|off|status|forget"
+      val usage = s"Usage: ${commandSyntax.invocation(CommandKey.Llm.asString)} on|off|status"
 
       def reply(value: String): F[ReplyValue] = Text(value = value, timeToLive = ttl).pure[F]
 
@@ -52,8 +52,6 @@ object LlmCommands {
                 else "LLM replies are disabled for this chat"
               )
               .flatMap(reply)
-          case "forget" =>
-            llmSettings.forget(msg.chatId) *> reply("LLM context forgotten for this chat")
           case _ => reply(usage)
         }
 
