@@ -6,9 +6,6 @@ import org.llm4s.llmconnect.model.Conversation
 import org.llm4s.llmconnect.LLMClient
 import org.llm4s.reliability.ReliabilityConfig
 import org.llm4s.reliability.ReliableClient
-import org.llm4s.reliability.RetryPolicy
-
-import scala.concurrent.duration.*
 
 final case class LlmCallFailed(conversation: Conversation, message: String)
     extends Throwable(s"[FallbackClients] ❌ Call Llm failed: $message")
@@ -31,12 +28,4 @@ final class LlmFallbackClients(primary: LLMClient, fallbacks: List[LLMClient], c
       .foldLeft(attempt(first))((served, fallback) => served.orElse(attempt(fallback)))
       .leftMap(error => LlmCallFailed(conversation, error.message))
   }
-}
-
-object LlmFallbackClients {
-  // TODO: eventually load this from the configs
-  val reliabilityConfig: ReliabilityConfig = ReliabilityConfig(
-    retryPolicy = RetryPolicy.fixedDelay(maxAttempts = 2, delay = 200.millis),
-    deadline = Some(10.seconds)
-  )
 }

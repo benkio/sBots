@@ -239,7 +239,36 @@ sends none to the provider. The behaviour is specified in ~specs/llm.allium~ and
 - *Who can switch it.* The switch is open: ~/llm on|off|status~ has no permission check, any member of a chat can use it.
   The adapters do not expose the chat-admin status of a sender.
 - *Configuration.* The providers, default provider and fallbacks come from the ~llm4s~ block of the application
-  configuration, loaded at startup; the API keys are read by llm4s from that configuration.
+  configuration, loaded at startup; the API keys are read by llm4s from that configuration. The reliability knobs are
+  described below.
+
+*** Reliability configuration (#1616)
+
+The ~llm4s.reliability~ block of ~application.conf~ holds every retry, deadline, circuit-breaker and local rate-limit
+value; none of those values is hardcoded in Scala. It is loaded and validated once at startup: a missing block, an
+unknown retry strategy or an invalid value aborts startup with an ~LLMLoadingError~ that names the offending field.
+These knobs only tune the llm4s clients of the configured providers: the primary provider is still asked first, the
+fallbacks keep their order, the replies stay one-shot, and a failed provider is still silent to the user.
+
+| ~llm4s.reliability~ key             | Default | Environment override                 |
+|-------------------------------------+---------+--------------------------------------|
+| ~enabled~                           | ~true~  | ~LLM_RELIABILITY_ENABLED~            |
+| ~deadline~                          | ~10s~   | ~LLM_DEADLINE~                       |
+| ~retry.strategy~                    | ~fixed~ | ~LLM_RETRY_STRATEGY~                 |
+| ~retry.max-attempts~                | ~2~     | ~LLM_RETRY_MAX_ATTEMPTS~             |
+| ~retry.delay~                       | ~200ms~ | ~LLM_RETRY_DELAY~                    |
+| ~retry.max-delay~                   | ~5s~    | ~LLM_RETRY_MAX_DELAY~                |
+| ~circuit-breaker.failure-threshold~ | ~5~     | ~LLM_CIRCUIT_FAILURE_THRESHOLD~      |
+| ~circuit-breaker.recovery-timeout~  | ~30s~   | ~LLM_CIRCUIT_RECOVERY_TIMEOUT~       |
+| ~circuit-breaker.success-threshold~ | ~2~     | ~LLM_CIRCUIT_SUCCESS_THRESHOLD~      |
+| ~rate-limit.enabled~                | ~false~ | ~LLM_RATE_LIMIT_ENABLED~             |
+| ~rate-limit.requests-per-minute~    | ~60~    | ~LLM_RATE_LIMIT_REQUESTS_PER_MINUTE~ |
+| ~rate-limit.burst-capacity~         | ~60~    | ~LLM_RATE_LIMIT_BURST_CAPACITY~      |
+
+~retry.strategy~ is ~none~, ~fixed~, ~linear~ or ~exponential~; ~retry.max-attempts~ counts the first attempt,
+~retry.delay~ is the retry delay (the base delay for the backoff strategies) and ~retry.max-delay~ caps exponential
+backoff. The rate limit is a local cap per provider client, not a shared quota across bots or processes; when it is
+enabled, ~requests-per-minute~ must be at least 1, and ~burst-capacity~ must be at least 1 in any case.
 
 ** Operations
 

@@ -6,9 +6,12 @@ import com.benkio.chatcore.Logger.logWriter
 import com.benkio.chatllm.LLMLoadingError
 import com.benkio.chatllm.LlmEngine
 import com.benkio.chatllm.LlmLoader
+import com.benkio.chatllm.LlmReliabilitySettings
 import com.typesafe.config.Config as TypesafeConfig
 import com.typesafe.config.ConfigFactory
 import munit.CatsEffectSuite
+import org.llm4s.reliability.CircuitBreakerConfig
+import org.llm4s.reliability.RateLimitConfig
 
 import scala.concurrent.duration.*
 
@@ -65,11 +68,45 @@ class ConfigSpec extends CatsEffectSuite {
     }
   }
 
+  test("LlmReliabilitySettings.load reads the reliability block of application.conf") {
+    LlmReliabilitySettings.load[IO]().map { reliability =>
+      assertEquals(reliability.enabled, true)
+      assertEquals(reliability.deadline, Some(10.seconds))
+      assertEquals(reliability.retryPolicy.maxAttempts, 2)
+      assertEquals(reliability.circuitBreaker, CircuitBreakerConfig(5, 30.seconds, 2))
+      assertEquals(reliability.rateLimit, RateLimitConfig(false, 60, 60))
+    }
+  }
+
   /** An llm4s config with a single provider, to keep the loading tests independent of the environment. */
-  private def llmConfig(defaultProvider: String, apiKey: Option[String]): TypesafeConfig =
+  private def llmConfig(
+      defaultProvider: String,
+      apiKey: Option[String],
+      retryStrategy: String = "fixed"
+  ): TypesafeConfig =
     ConfigFactory.parseString(
       s"""llm4s {
          |  defaultProvider = "$defaultProvider"
+         |  reliability {
+         |    enabled = true
+         |    deadline = 10s
+         |    retry {
+         |      strategy = "$retryStrategy"
+         |      max-attempts = 2
+         |      delay = 200ms
+         |      max-delay = 5s
+         |    }
+         |    circuit-breaker {
+         |      failure-threshold = 5
+         |      recovery-timeout = 30s
+         |      success-threshold = 2
+         |    }
+         |    rate-limit {
+         |      enabled = false
+         |      requests-per-minute = 60
+         |      burst-capacity = 60
+         |    }
+         |  }
          |  providers {
          |    gemini-free {
          |      provider = "gemini"
@@ -81,18 +118,31 @@ class ConfigSpec extends CatsEffectSuite {
     )
 
   test("LlmEngine.dependencies fails with an LLMLoadingError when the default provider is not configured") {
-    LlmEngine.dependencies[IO](llmConfig("undefined", apiKey = Some("stub-key"))).use_.intercept[LLMLoadingError]
+    LlmEngine
+      .dependencies[IO](llmConfig(defaultProvider = "undefined", apiKey = Some("stub-key")))
+      .use_
+      .intercept[LLMLoadingError]
   }
 
   test("LlmEngine.dependencies fails with an LLMLoadingError when a provider has no apiKey") {
-    LlmEngine.dependencies[IO](llmConfig("gemini-free", apiKey = None)).use_.intercept[LLMLoadingError]
+    LlmEngine
+      .dependencies[IO](llmConfig(defaultProvider = "gemini-free", apiKey = None))
+      .use_
+      .intercept[LLMLoadingError]
+  }
+
+  test("LlmEngine.dependencies fails with an LLMLoadingError on an invalid reliability config") {
+    LlmEngine
+      .dependencies[IO](llmConfig(defaultProvider = "gemini-free", apiKey = Some("stub-key"), retryStrategy = "bogus"))
+      .use_
+      .intercept[LLMLoadingError]
   }
 
   test("LlmEngine.dependencies loads the llm4s wiring and builds an engine") {
     // The reply path is covered by LlmEngineSpec with a stub responder: asking a real provider here would make the
     // test depend on the network and on a valid API key.
     LlmEngine
-      .dependencies[IO](llmConfig("gemini-free", apiKey = Some("stub-key")))
+      .dependencies[IO](llmConfig(defaultProvider = "gemini-free", apiKey = Some("stub-key")))
       .flatMap(_.build(Persona("a persona")))
       .use_
       .void

@@ -16,6 +16,7 @@ import org.llm4s.http.Llm4sHttpClient
 import org.llm4s.llmconnect.LLMClient
 import org.llm4s.llmconnect.LLMConnect
 import org.llm4s.llmconnect.LlmClientOptions
+import org.llm4s.reliability.ReliabilityConfig
 import org.llm4s.types.ProviderModelTypes.ProviderName
 
 final case class LLMLoadingError(message: String) extends Throwable(s"Error during component loading: $message")
@@ -35,7 +36,11 @@ object LlmLoader {
       .blocking(Llm4sConfig.from(config))
       .flatMap(settings => Async[F].fromEither(settings.leftMap(LLMLoadingError.fromLLMError(_))))
 
-  private[chatllm] def loadClients[F[_]: Async](settings: Llm4sSettings, http: Llm4sHttpClient)(using
+  private[chatllm] def loadClients[F[_]: Async](
+      settings: Llm4sSettings,
+      http: Llm4sHttpClient,
+      reliability: ReliabilityConfig
+  )(using
       log: LogWriter[F]
   ): Resource[F, LlmFallbackClients] =
     for {
@@ -62,7 +67,7 @@ object LlmLoader {
     } yield LlmFallbackClients(
       primary = defaultProviderClient,
       fallbacks = clients.flatten,
-      config = LlmFallbackClients.reliabilityConfig
+      config = reliability
     )
 
   /** Acquires one configured provider client. The caller owns the client for the lifetime of the returned Resource. */
