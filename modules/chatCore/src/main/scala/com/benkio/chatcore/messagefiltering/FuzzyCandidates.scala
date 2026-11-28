@@ -21,8 +21,8 @@ object FuzzyCandidates {
       suggestions: List[String],
       scored: List[(String, Double)] = Nil
   ) {
-    def secondScore: Option[Double]                     = second
-    def isConfident: Boolean                            = FuzzyScoring.isConfident(bestScore, second)
+    def secondScore: Option[Double] = second
+    def isConfident: Boolean        = FuzzyScoring.isConfident(bestScore, second)
   }
 
   def candidates(replyBundleMessages: List[ReplyBundleMessage]): List[Candidate] = {

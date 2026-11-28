@@ -1,6 +1,5 @@
 package com.benkio.chatcore.model.show
 
-
 import java.time.LocalDate
 import java.time.MonthDay
 import scala.util.matching.Regex

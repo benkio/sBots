@@ -9,8 +9,8 @@ import java.nio.charset.StandardCharsets
 import scala.util.matching.Regex
 
 /** The system prompt template of the LLM replies (`prompts/system.md`): the rules of the bot, with the placeholders
-  * `{{persona}}`, `{{max_chars}}`, `{{context}}` and `{{message}}` that [[render]] fills. chatLlm owns it; the persona is
-  * the only part that comes from the bot.
+  * `{{persona}}`, `{{max_chars}}`, `{{context}}` and `{{message}}` that [[render]] fills. chatLlm owns it; the persona
+  * is the only part that comes from the bot.
   */
 final case class SystemPrompt(template: String) {
 

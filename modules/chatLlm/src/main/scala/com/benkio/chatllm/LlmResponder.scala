@@ -58,16 +58,17 @@ object LlmResponder {
               ),
               userPrompt = content
             )
-        )
-        .map(
-          _.addMessage(
-            SystemMessage(
-              "You have to reply by telling the user that this feature is still in development. Use the persona provided and you may use the user message content"
+            .leftMap(error => LlmCallFailed(content, error.message))
+            .map(
+              _.addMessage(
+                SystemMessage(
+                  "You have to reply by telling the user that this feature is still in development. Use the persona provided and you may use the user message content"
+                )
+              )
             )
-          )
         )
       for {
-        conversation <- conversation.leftMap(error => LlmCallFailed(content, error.message))
+        conversation <- conversation
         completion   <- Async[F].blocking(clients.ask(conversation)).flatMap(Async[F].fromEither(_))
         _            <- log.debug(s"[LlmResponder] answered by the LLM: ${completion.content.length} characters")
       } yield Some(Text(completion.content))

@@ -10,7 +10,7 @@ import org.llm4s.reliability.RetryPolicy
 
 import scala.concurrent.duration.*
 
-final case class LlmCallFailed(conversation: Conversation, message: String)
+final case class LlmCallFailed(question: String, message: String)
     extends Throwable(s"[FallbackClients] ❌ Call Llm failed: $message")
 
 /** The default provider and the other configured ones, each retried on its own: a fallback is asked only when the

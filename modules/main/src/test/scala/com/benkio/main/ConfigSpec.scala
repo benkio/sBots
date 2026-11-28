@@ -3,9 +3,6 @@ package com.benkio.main
 import cats.effect.IO
 import com.benkio.chatcore.llm.Persona
 import com.benkio.chatcore.mocks.DBLayerMock
-import com.benkio.chatcore.model.ChatId
-import com.benkio.chatcore.model.Message
-import com.benkio.chatcore.model.Platform
 import com.benkio.chatcore.model.SBotInfo.SBotId
 import com.benkio.chatcore.Logger.logWriter
 import com.benkio.chatllm.LLMLoadingError
@@ -93,18 +90,14 @@ class ConfigSpec extends CatsEffectSuite {
     LlmEngine.dependencies[IO](llmConfig("gemini-free", apiKey = None)).use_.intercept[LLMLoadingError]
   }
 
-  test("LlmEngine.dependencies loads the llm4s wiring and builds an engine that does not answer") {
-    val msg = Message(
-      messageId = None,
-      date = 0L,
-      chatId = ChatId(Platform.Telegram, "1"),
-      chatType = "private",
-      text = Some("hello")
-    )
+  test("LlmEngine.dependencies loads the llm4s wiring and builds an engine") {
+    // The reply path is covered by LlmEngineSpec with a stub responder: asking a real provider here would make the
+    // test depend on the network and on a valid API key.
     LlmEngine
       .dependencies[IO](llmConfig("gemini-free", apiKey = Some("stub-key")))
       .flatMap(_.build(DBLayerMock.mock(SBotId("test")), Persona("a persona")))
-      .use(_.reply(msg).map(assertEquals(_, None)))
+      .use_
+      .void
   }
 
   test("the text mode store of a bot is configurable in the application.conf of the bot's namespace") {

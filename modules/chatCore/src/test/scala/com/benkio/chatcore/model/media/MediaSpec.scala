@@ -7,7 +7,6 @@ import munit.*
 import org.http4s.syntax.literals.*
 import org.http4s.Uri
 
-
 class MediaSpec extends FunSuite {
   test("Media.apply should correctly parse a valid db record") {
     val input: DBMediaData = DBMediaData(
