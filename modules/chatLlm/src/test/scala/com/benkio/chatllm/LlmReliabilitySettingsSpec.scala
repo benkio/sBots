@@ -97,7 +97,8 @@ class LlmReliabilitySettingsSpec extends CatsEffectSuite {
       "deadline"                      -> reliabilityBody(deadline = "0ms"),
       "circuitBreaker"                -> reliabilityBody(failureThreshold = 0),
       "rateLimit.requests-per-minute" -> reliabilityBody(rateEnabled = true, requestsPerMinute = 0),
-      "rateLimit.burstCapacity"       -> reliabilityBody(rateEnabled = true, burstCapacity = 0)
+      "rateLimit.burstCapacity"       -> reliabilityBody(rateEnabled = true, burstCapacity = 0),
+      "rateLimit.burstCapacity"       -> reliabilityBody(burstCapacity = 0)
     )
     invalid.foreach { (field, body) =>
       val failure = LlmReliabilitySettings.parse(config(body)).left.toOption.get

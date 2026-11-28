@@ -84,6 +84,15 @@ object LlmReliabilitySettings {
             )
           ),
           (
+            _.rateLimit.burstCapacity < 1,
+            Left(
+              invalid(
+                "rateLimit.burstCapacity",
+                s"must be at least 1, was ${settings.rateLimit.burstCapacity}"
+              )
+            )
+          ),
+          (
             _.retry.maxAttempts < 1,
             Left(invalid("retry.max-attempts", s"must be at least 1, was ${settings.retry.maxAttempts}"))
           ),
