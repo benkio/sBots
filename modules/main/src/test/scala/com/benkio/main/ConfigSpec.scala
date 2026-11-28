@@ -1,6 +1,7 @@
 package com.benkio.main
 
 import cats.effect.IO
+import com.benkio.chatcore.llm.Persona
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
@@ -102,7 +103,7 @@ class ConfigSpec extends CatsEffectSuite {
     )
     LlmEngine
       .dependencies[IO](llmConfig("gemini-free", apiKey = Some("stub-key")))
-      .flatMap(_.build(DBLayerMock.mock(SBotId("test"))))
+      .flatMap(_.build(DBLayerMock.mock(SBotId("test")), Persona("a persona")))
       .use(_.reply(msg).map(assertEquals(_, None)))
   }
 

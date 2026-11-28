@@ -37,7 +37,7 @@ object LlmLoader {
 
   private[chatllm] def loadClients[F[_]: Async](settings: Llm4sSettings, http: Llm4sHttpClient)(using
       log: LogWriter[F]
-  ): Resource[F, (LLMClient, List[LLMClient])] =
+  ): Resource[F, LlmFallbackClients] =
     for {
       _         <- Resource.eval(log.info("[LlmLoader] 🚀 Loading clients: Configs"))
       providers <- Resource.eval(
@@ -59,7 +59,11 @@ object LlmLoader {
           LlmLoader.loadClient[F](settings = settings, http = http, providerName = Some(providerName)).map(Some(_))
       }
       _ <- Resource.eval(log.info("[LlmLoader] 🏁 Loading clients"))
-    } yield (defaultProviderClient, clients.flatten)
+    } yield LlmFallbackClients(
+      primary = defaultProviderClient,
+      fallbacks = clients.flatten,
+      config = LlmFallbackClients.reliabilityConfig
+    )
 
   /** Acquires one configured provider client. The caller owns the client for the lifetime of the returned Resource. */
   def loadClient[F[_]: Async](

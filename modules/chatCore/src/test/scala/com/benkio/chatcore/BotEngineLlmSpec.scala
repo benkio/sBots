@@ -2,8 +2,10 @@ package com.benkio.chatcore
 
 import cats.effect.kernel.Ref
 import cats.effect.IO
+import com.benkio.chatcore.llm.LlmSettings
 import com.benkio.chatcore.mocks.FakePlatformAdapter
 import com.benkio.chatcore.model.reply.Text
+import com.benkio.chatcore.model.ChatId
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.model.MessageId
 import munit.CatsEffectSuite
@@ -12,6 +14,14 @@ import munit.CatsEffectSuite
   * unanswered, and delivers the text the engine returns.
   */
 class BotEngineLlmSpec extends CatsEffectSuite with BotEngineFixtures {
+
+  /** The `/llm` switch of the chat is on: the guard lets the messages through. */
+  private val llmOn: LlmSettings[IO] = new LlmSettings[IO] {
+    override def enable(chat: ChatId): IO[Unit]               = IO.unit
+    override def disable(chat: ChatId): IO[Unit]              = IO.unit
+    override def forget(chat: ChatId): IO[Unit]               = IO.unit
+    override def status(chat: ChatId): IO[LlmSettings.Status] = IO.pure(LlmSettings.Status(enabled = true))
+  }
 
   /** An LLM engine that records the messages it is asked about and answers with the given text. */
   private def recordingLlm(answer: Option[Text]): IO[(LlmEngine[IO], Ref[IO, List[String]])] =
@@ -27,7 +37,7 @@ class BotEngineLlmSpec extends CatsEffectSuite with BotEngineFixtures {
     for {
       (llm, asked) <- recordingLlm(Some(Text("llm answer")))
       adapter      <- FakePlatformAdapter(capabilities = slashCommands)
-      engine = engineWith(llmEngine = Some(llm))
+      engine = engineWith(llmEngine = Some(llm), llmSettings = llmOn)
       _       <- engine.onMessage(message("something else"))(using adapter)
       sent    <- adapter.sent.get
       askedOn <- asked.get
@@ -43,7 +53,7 @@ class BotEngineLlmSpec extends CatsEffectSuite with BotEngineFixtures {
       (llm, _)     <- recordingLlm(answer)
       adapter      <- FakePlatformAdapter(capabilities = slashCommands)
       postComputed <- Ref.of[IO, Int](0)
-      engine = engineWith(postComputation = _ => postComputed.update(_ + 1), llmEngine = Some(llm))
+      engine = engineWith(postComputation = _ => postComputed.update(_ + 1), llmEngine = Some(llm), llmSettings = llmOn)
       _     <- engine.onMessage(message("something else"))(using adapter)
       count <- postComputed.get
     } yield count
@@ -60,7 +70,7 @@ class BotEngineLlmSpec extends CatsEffectSuite with BotEngineFixtures {
     for {
       (llm, asked) <- recordingLlm(None)
       adapter      <- FakePlatformAdapter(capabilities = slashCommands)
-      engine = engineWith(llmEngine = Some(llm))
+      engine = engineWith(llmEngine = Some(llm), llmSettings = llmOn)
       _       <- engine.onMessage(message("something else"))(using adapter)
       sent    <- adapter.sent.get
       askedOn <- asked.get
@@ -70,11 +80,25 @@ class BotEngineLlmSpec extends CatsEffectSuite with BotEngineFixtures {
     }
   }
 
-  test("a message answered by the reactive part is not handed to the LLM") {
+  test("a chat with the LLM off is never handed to the LLM") {
     for {
       (llm, asked) <- recordingLlm(Some(Text("llm answer")))
       adapter      <- FakePlatformAdapter(capabilities = slashCommands)
       engine = engineWith(llmEngine = Some(llm))
+      _       <- engine.onMessage(message("something else"))(using adapter)
+      sent    <- adapter.sent.get
+      askedOn <- asked.get
+    } yield {
+      assertEquals(sent, List.empty)
+      assertEquals(askedOn, List.empty)
+    }
+  }
+
+  test("a message answered by the reactive part is not handed to the LLM") {
+    for {
+      (llm, asked) <- recordingLlm(Some(Text("llm answer")))
+      adapter      <- FakePlatformAdapter(capabilities = slashCommands)
+      engine = engineWith(llmEngine = Some(llm), llmSettings = llmOn)
       _       <- engine.onMessage(message("ciao"))(using adapter)
       sent    <- adapter.sent.get
       askedOn <- asked.get
@@ -88,7 +112,7 @@ class BotEngineLlmSpec extends CatsEffectSuite with BotEngineFixtures {
     for {
       (llm, asked) <- recordingLlm(Some(Text("llm answer")))
       adapter      <- FakePlatformAdapter(capabilities = slashCommands)
-      engine = engineWith(llmEngine = Some(llm))
+      engine = engineWith(llmEngine = Some(llm), llmSettings = llmOn)
       _       <- engine.onMessage(message("something else", Some(MessageId("1"))))(using adapter)
       _       <- engine.onMessage(message("something else", Some(MessageId("1"))))(using adapter)
       sent    <- adapter.sent.get
@@ -105,7 +129,7 @@ class BotEngineLlmSpec extends CatsEffectSuite with BotEngineFixtures {
     }
     for {
       adapter <- FakePlatformAdapter(capabilities = slashCommands)
-      engine = engineWith(llmEngine = Some(failing))
+      engine = engineWith(llmEngine = Some(failing), llmSettings = llmOn)
       result <- engine.onMessage(message("something else"))(using adapter).attempt
       sent   <- adapter.sent.get
     } yield {

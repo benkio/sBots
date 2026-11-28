@@ -3,6 +3,7 @@ package com.benkio.chatllm
 import cats.effect.Async
 import cats.effect.Resource
 import com.benkio.chatcore.llm.LlmDependencies
+import com.benkio.chatcore.llm.Persona
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
 import com.benkio.chatcore.LlmEngine as CoreLlmEngine
@@ -32,12 +33,12 @@ object LlmEngine {
       responder = LlmResponder[F](llmClients)
       _ <- Resource.eval(log.info("[LlmEngine] llm4s startup wiring ready"))
     } yield LlmDependencies[F](
-      // TODO(#1499): the responder is shared by all the bots and the `DBLayer` is ignored; build the per-bot state
-      // (persona, context) from the `DBLayer` here before the LLM replies go live.
-      _ => Resource.pure(LlmEngineImpl[F](responder))
+      // TODO(#1499): the `DBLayer` is ignored; build the per-bot context from it here before the LLM replies go live.
+      (_, persona) => Resource.pure(LlmEngineImpl[F](responder, persona))
     )
 
-  private final case class LlmEngineImpl[F[_]](responder: LlmResponder[F]) extends CoreLlmEngine[F] {
-    override def reply(msg: Message): F[Option[Text]] = responder.respond(msg)
+  private[chatllm] final case class LlmEngineImpl[F[_]](responder: LlmResponder[F], persona: Persona)
+      extends CoreLlmEngine[F] {
+    override def reply(msg: Message): F[Option[Text]] = responder.respond(persona, msg)
   }
 }

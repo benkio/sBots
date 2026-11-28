@@ -3,6 +3,7 @@ package com.benkio.chatcore
 import cats.effect.kernel.Ref
 import cats.effect.IO
 import com.benkio.chatcore.config.SBotConfig
+import com.benkio.chatcore.llm.LlmSettings
 import com.benkio.chatcore.mocks.BackgroundJobManagerMock
 import com.benkio.chatcore.mocks.DBLayerMock
 import com.benkio.chatcore.mocks.FakePlatformAdapter
@@ -75,14 +76,16 @@ trait BotEngineFixtures { self: munit.Assertions =>
       config: SBotConfig = sBotConfig,
       processedMessages: DBProcessedMessage[IO] = DBLayerMock.DBProcessedMessageMock(Ref.unsafe(Set.empty)),
       notifier: Notifier[IO] = Notifier.noop[IO],
-      llmEngine: Option[LlmEngine[IO]] = None
+      llmEngine: Option[LlmEngine[IO]] = None,
+      llmSettings: LlmSettings[IO] = LlmSettings.noop[IO]
   ): BotEngine[IO] = new BotEngine[IO](
     sBotConfig = config,
     dbLayer = DBLayerMock.mock(
       sBotInfo.botId,
       messageReplies = messageReplies,
       commandReplies = commandReplies,
-      processedMessages = processedMessages
+      processedMessages = processedMessages,
+      llmSettings = llmSettings
     ),
     filteringMatchesMessages = (_, _) => IO.pure(filter),
     postComputation = postComputation,
