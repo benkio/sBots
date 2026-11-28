@@ -71875,6 +71875,49 @@
       "TextTrigger" : {
         "triggers" : [
           {
+            "StringTextTriggerValue" : "come fai a giudicare"
+          }
+        ]
+      }
+    },
+    "reply" : {
+      "MediaReply" : {
+        "mediaFiles" : [
+          {
+            "VideoFile" : {
+              "filepath" : "rphjb_ComeFaiAGiudicare.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "Mp3File" : {
+              "filepath" : "rphjb_ComeFaiAGiudicare.mp3",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "GifFile" : {
+              "filepath" : "rphjb_ComeFaiAGiudicareGif.mp4",
+              "replyToMessage" : false
+            }
+          },
+          {
+            "MarkdownFile" : {
+              "filepath" : "rphjb_ComeFaiAGiudicare.md",
+              "replyToMessage" : false
+            }
+          }
+        ],
+        "replyToMessage" : false
+      }
+    },
+    "matcher" : "ContainsOnce"
+  },
+  {
+    "trigger" : {
+      "TextTrigger" : {
+        "triggers" : [
+          {
             "RegexTextTriggerValue" : {
               "trigger" : "fregare come un co(gl|j)ione",
               "regexLength" : 23
@@ -75223,7 +75266,10 @@
       "TextTrigger" : {
         "triggers" : [
           {
-            "StringTextTriggerValue" : "mi da un consiglio"
+            "RegexTextTriggerValue" : {
+              "trigger" : "d[ao] un consiglio",
+              "regexLength" : 15
+            }
           },
           {
             "StringTextTriggerValue" : "figuriamoci"
@@ -75300,31 +75346,7 @@
         "mediaFiles" : [
           {
             "VideoFile" : {
-              "filepath" : "rphjb_QuanteDuraLaVitella.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "VideoFile" : {
               "filepath" : "rphjb_NoConsigli.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "Mp3File" : {
-              "filepath" : "rphjb_QuanteDuraLaVitella.mp3",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "GifFile" : {
-              "filepath" : "rphjb_QuanteDuraLaVitellaGif.mp4",
-              "replyToMessage" : false
-            }
-          },
-          {
-            "MarkdownFile" : {
-              "filepath" : "rphjb_QuanteDuraLaVitella.md",
               "replyToMessage" : false
             }
           }
