@@ -62,44 +62,83 @@ object LlmReliabilitySettings {
 
   def toReliabilityConfig(settings: LlmReliabilitySettings): Either[LLMLoadingError, ReliabilityConfig] = {
 
+    val validStrategies: List[String] = List("none", "fixed", "linear", "exponential")
+
     def invalid(field: String, reason: String) =
       LLMLoadingError(s"invalid llm4s.reliability.$field: $reason")
 
-    def retryPolicy: Either[LLMLoadingError, RetryPolicy] =
-      if settings.retry.maxAttempts < 1 then
-        Left(invalid("retry.max-attempts", s"must be at least 1, was ${settings.retry.maxAttempts}"))
-      else if settings.retry.delay < Duration.Zero then
-        Left(invalid("retry.delay", s"must not be negative, was ${settings.retry.delay}"))
-      else
-        settings.retry.strategy match {
-          case "none"        => Right(RetryPolicy.noRetry)
-          case "fixed"       => Right(RetryPolicy.fixedDelay(settings.retry.maxAttempts, settings.retry.delay))
-          case "linear"      => Right(RetryPolicy.linearBackoff(settings.retry.maxAttempts, settings.retry.delay))
-          case "exponential" =>
-            Either.cond(
-              settings.retry.maxDelay >= settings.retry.delay,
-              RetryPolicy.exponentialBackoff(settings.retry.maxAttempts, settings.retry.delay, settings.retry.maxDelay),
-              invalid("retry.max-delay", s"must be at least retry.delay (${settings.retry.delay}), was ${settings.retry.maxDelay}")
+    def retryPolicy: Either[LLMLoadingError, RetryPolicy] = {
+      val buildSteps: List[(LlmReliabilitySettings => Boolean, Either[LLMLoadingError, RetryPolicy])] =
+        List(
+          (
+            _.deadline.exists(_ <= Duration.Zero),
+            Left(invalid("deadline", s"must be positive, was ${settings.deadline.getOrElse(Duration.Zero)}"))
+          ),
+          (
+            settings => settings.rateLimit.enabled && settings.rateLimit.requestsPerMinute < 1,
+            Left(
+              invalid(
+                "rateLimit.requests-per-minute",
+                s"must be at least 1 when rate limiting is enabled, was ${settings.rateLimit.requestsPerMinute}"
+              )
             )
-          case other =>
-            Left(invalid("retry.strategy", s"unknown strategy '$other' (expected none, fixed, linear, exponential)"))
-        }
+          ),
+          (
+            _.retry.maxAttempts < 1,
+            Left(invalid("retry.max-attempts", s"must be at least 1, was ${settings.retry.maxAttempts}"))
+          ),
+          (
+            _.retry.delay < Duration.Zero,
+            Left(invalid("retry.delay", s"must not be negative, was ${settings.retry.delay}"))
+          ),
+          (
+            settings => !validStrategies.contains(settings.retry.strategy),
+            Left(
+              invalid(
+                "retry.strategy",
+                s"""unknown strategy '${settings.retry.strategy}' (expected ${validStrategies.mkString(", ")})"""
+              )
+            )
+          ),
+          (
+            settings => settings.retry.strategy == "exponential" && settings.retry.maxDelay < settings.retry.delay,
+            Left(
+              invalid(
+                "retry.max-delay",
+                s"must be at least retry.delay (${settings.retry.delay}), was ${settings.retry.maxDelay}"
+              )
+            )
+          ),
+          (_.retry.strategy == "none", Right(RetryPolicy.noRetry)),
+          (
+            _.retry.strategy == "fixed",
+            Right(RetryPolicy.fixedDelay(settings.retry.maxAttempts, settings.retry.delay))
+          ),
+          (
+            _.retry.strategy == "linear",
+            Right(RetryPolicy.linearBackoff(settings.retry.maxAttempts, settings.retry.delay))
+          ),
+          (
+            _.retry.strategy == "exponential",
+            Right(
+              RetryPolicy.exponentialBackoff(settings.retry.maxAttempts, settings.retry.delay, settings.retry.maxDelay)
+            )
+          )
+        )
+      buildSteps
+        .collectFirst { case (condition, result) if condition(settings) == true => result }
+        .getOrElse(
+          Left(
+            invalid(
+              "retry.strategy",
+              s"""unknown strategy '${settings.retry.strategy}' (expected ${validStrategies.mkString(", ")})"""
+            )
+          )
+        )
+    }
 
     for {
       policy <- retryPolicy
-      _      <- Either.cond(
-        settings.deadline.forall(_ > Duration.Zero),
-        (),
-        invalid("deadline", s"must be positive, was ${settings.deadline.getOrElse(Duration.Zero)}")
-      )
-      _ <- Either.cond(
-        !settings.rateLimit.enabled || settings.rateLimit.requestsPerMinute >= 1,
-        (),
-        invalid(
-          "rateLimit.requests-per-minute",
-          s"must be at least 1 when rate limiting is enabled, was ${settings.rateLimit.requestsPerMinute}"
-        )
-      )
       reliability = ReliabilityConfig(
         retryPolicy = policy,
         circuitBreaker = CircuitBreakerConfig(
