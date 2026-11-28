@@ -14,8 +14,8 @@ import org.llm4s.http.HttpClientOptions
 import org.llm4s.http.Llm4sHttpClient
 
 /** The chatLlm implementation of the LLM entry point of the bot engine. The llm4s settings and clients are loaded once
-  * at startup; every bot gets its engine from the `build` of the resulting [[LlmDependencies]]. Until the LLM replies
-  * land the responder never answers.
+  * at startup; every bot gets its engine from the `build` of the resulting [[LlmDependencies]], backed by the active
+  * [[LlmResponder]].
   */
 object LlmEngine {
 

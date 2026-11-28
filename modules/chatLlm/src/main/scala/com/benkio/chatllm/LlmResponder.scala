@@ -7,9 +7,9 @@ import com.benkio.chatcore.llm.Persona
 import com.benkio.chatcore.messagefiltering.*
 import com.benkio.chatcore.model.reply.Text
 import com.benkio.chatcore.model.Message
+import io.circe.parser.decode
 import log.effect.LogWriter
 import org.llm4s.llmconnect.model.Conversation
-import org.llm4s.llmconnect.model.SystemMessage
 
 /** The chatCore-owned port the [[com.benkio.chatcore.LlmEngine]] uses to ask for an LLM answer. chatLlm supplies the
   * implementation; chatCore never sees the LLM library.
@@ -22,8 +22,8 @@ trait LlmResponder[F[_]] {
 
 object LlmResponder {
 
-  /** The reply of the LLM is the same fixed one for now: the persona and the system prompt are composed, the answer
-    * says the feature is in development.
+  /** The active responder: asks the configured providers with the persona, system prompt and message, and decodes the
+    * reply envelope into either a text answer or silence.
     */
   def apply[F[_]: Async](clients: LlmFallbackClients, systemPrompt: SystemPrompt)(using
       log: LogWriter[F]
@@ -38,9 +38,34 @@ object LlmResponder {
   /** The most characters the system prompt lets a reply have. */
   private val maxChars = 500
 
+  /** Kept in the single system message so it cannot arrive after the untrusted user message. */
+  private val developmentInstruction =
+    "You have to reply by telling the user that this feature is still in development. Use the persona provided and you may use the user message content"
+
   /** Building the conversation failed before any provider was called, so there is no Conversation to attach. */
   private[chatllm] final case class LlmConversationFailed(question: String, message: String)
       extends Throwable(s"[LlmResponder] ❌ Cannot build the conversation: $message")
+
+  private[chatllm] final case class LlmReplyInvalid(content: String, message: String)
+      extends Throwable(s"[LlmResponder] ❌ Invalid reply envelope: $message")
+
+  private def decodeReply(content: String): Either[LlmReplyInvalid, Option[Text]] =
+    decode[Map[String, String]](content)
+      .leftMap(error => LlmReplyInvalid(content, error.getMessage))
+      .flatMap { envelope =>
+        envelope.get("action") match {
+          case Some("silent") => Right(None)
+          case Some("text")   =>
+            envelope
+              .get("text")
+              .filter(_.nonEmpty)
+              .toRight(
+                LlmReplyInvalid(content, "the text action has no text")
+              )
+              .map(text => Some(Text(text)))
+          case _ => Left(LlmReplyInvalid(content, "unsupported action"))
+        }
+      }
 
   private[chatllm] final case class LlmResponderImpl[F[_]: Async](
       clients: LlmFallbackClients,
@@ -59,23 +84,17 @@ object LlmResponder {
                 maxChars = maxChars,
                 context = "",
                 message = content
-              ),
+              ) + "\n\n" + developmentInstruction,
               userPrompt = content
             )
             .leftMap(error => LlmConversationFailed(content, error.message))
-            .map(
-              _.addMessage(
-                SystemMessage(
-                  "You have to reply by telling the user that this feature is still in development. Use the persona provided and you may use the user message content"
-                )
-              )
-            )
         )
       for {
         conversation <- conversation
         completion   <- Async[F].blocking(clients.ask(conversation)).flatMap(Async[F].fromEither(_))
         _            <- log.debug(s"[LlmResponder] answered by the LLM: ${completion.content.length} characters")
-      } yield Some(Text(completion.content))
+        reply        <- Async[F].fromEither(decodeReply(completion.content))
+      } yield reply
     }
   }
 }

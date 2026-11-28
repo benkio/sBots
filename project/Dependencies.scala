@@ -260,6 +260,7 @@ object Dependencies {
 
   val ChatLlmDependencies: Seq[ModuleID] =
     stacks.catsCore ++
+      stacks.circeCoreParser ++
       stacks.llm4s ++
       stacks.logging ++
       stacks.testing ++
